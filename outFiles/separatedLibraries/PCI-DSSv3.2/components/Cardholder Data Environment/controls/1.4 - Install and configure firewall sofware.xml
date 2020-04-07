@@ -1,0 +1,68 @@
+<control ref="PCI-R1-1.4" name="1.4 - Install and configure firewall sofware" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt; &lt;/p&gt;
+                        &lt;p&gt;Firewall software should be installed on portable computers (including company and/or
+                        employee-owned) that connect to the Internet when outside the network (for example, laptops used
+                        by
+                        employees), and which are also used to access the CDE. Firewall (or equivalent) configurations
+                        include:&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Specific configuration settings are defined.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Personal firewall (or equivalent functionality) is actively running.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Personal firewall (or equivalent functionality) is not alterable by users of the
+                        portable
+                        computing devices&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;Portable computing devices that are allowed to connect to the Internet from outside the
+                        corporate
+                        firewall are more vulnerable to Internet-based threats. Use of firewall functionality (e.g.,
+                        personal
+                        firewall software or hardware) helps to protect devices from Internet-based attacks, which could
+                        use the
+                        device to gain access the organization's systems and data once the device is re-connected
+                        to the
+                        network.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;The specific firewall configuration settings are determined by the organization.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="1.4" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt; &lt;/p&gt;
+                            &lt;p&gt;1.4.a&amp;nbsp;Examine policies and configuration standards to verify:&lt;/p&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt;&lt;p&gt;Personal firewall software or equivalent functionality is required for
+                            all portable
+                            computing devices (including company and/or employee-owned) that connect to the Internet
+                            when outside the
+                            network (for example, laptops used by employees), and which are also used to access the CDE.&lt;/p&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;p&gt;Specific configuration settings are defined for personal firewall (or
+                            equivalent
+                            functionality).&lt;/p&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;p&gt;Personal firewall (or equivalent functionality) is configured to actively
+                            run.&lt;/p&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;p&gt;Personal firewall (or equivalent functionality) is configured to not be
+                            alterable by
+                            users of the portable computing devices.&lt;/p&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;p&gt;1.4.b Inspect a sample of company and/or employee-owned devices to verify that:
+                            &lt;/p&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt; &lt;p&gt;Personal firewall (or equivalent functionality) is installed and
+                            configured per the
+                            organization's specific configuration settings. &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Personal firewall (or equivalent functionality) is actively running.
+                            &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Personal firewall (or equivalent functionality) is not alterable by
+                            users of the
+                            portable computing devices.&lt;/p&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-04T15:39:56.629000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

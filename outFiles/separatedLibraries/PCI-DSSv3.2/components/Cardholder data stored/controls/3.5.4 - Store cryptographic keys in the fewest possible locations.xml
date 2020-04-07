@@ -1,0 +1,25 @@
+<control ref="PCI-R3-3.5.4" name="3.5.4 - Store cryptographic keys in the fewest possible locations" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Storing cryptographic keys in the fewest locations helps an organization to keep
+                        track and
+                        monitor all key locations, and minimizes the potential for keys to be exposed to unauthorized
+                        parties.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="3.5.4" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;3.5.4 Examine key storage locations and observe processes to verify that keys
+                            are stored in
+                            the fewest possible locations.&amp;nbsp;&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T08:56:30.498000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

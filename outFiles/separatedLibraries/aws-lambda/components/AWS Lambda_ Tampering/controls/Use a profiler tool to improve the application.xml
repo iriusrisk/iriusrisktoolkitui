@@ -1,0 +1,22 @@
+<control ref="AWS-LAMBDA-C23" name="Use a profiler tool to improve the application" platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>	&lt;p&gt;When using a profiler tool, the execution of your functions are monitored. It will reveal which functions are called, number of invocations, execution times, memory usage and CPU use.&lt;/p&gt;
+
+	&lt;p&gt;You can use it to find and identify bottlenecks and address them. Therefore, you shall use a profiler tool to improve the time of use, memory usage and CPU usage of the function.&lt;/p&gt;</desc>
+                    <implementations/>
+                    <references>
+                        <reference name="AWS Lambda Limits" url="https://docs.aws.amazon.com/lambda/latest/dg/limits.html"/>
+                        <reference name="Best practices for AWS Lambda timeouts" url="http://blog.epsagon.com/best-practices-for-aws-lambda-timeouts"/>
+                        <reference name="Function configuration" url="https://docs.aws.amazon.com/lambda/latest/dg/resource-model.html"/>
+                    </references>
+                    <standards/>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>	&lt;p&gt;Check that a profiler tool is used to improve the Lambda function.&lt;/p&gt;</steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-03-25T16:40:59">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

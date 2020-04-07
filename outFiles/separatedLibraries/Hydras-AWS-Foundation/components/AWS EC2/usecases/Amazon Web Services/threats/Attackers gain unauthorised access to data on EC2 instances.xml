@@ -1,0 +1,23 @@
+<threat ref='NON-UPDATED-SYSTEMS-AWS' name='Attackers gain unauthorised access to data on EC2 instances' state='Expose' source='MANUAL' owner='' library=''>
+              <desc>&lt;p&gt;Attackers cloud gain access to data on EC2 instances through the weaknesses
+                                in non-updated systems.&lt;/p&gt;
+                            </desc>
+              <riskRating confidentiality='100' integrity='100' availability='100' easeOfExploitation='25' />
+              <references />
+              <weaknesses>
+                <weakness ref='AWS-EC2-6.2'>
+                  <controls>
+                    <control ref='Hydras-AWS-EC2-6.2' mitigation='50' />
+                  </controls>
+                </weakness>
+                <weakness ref='AWS-NET-04'>
+                  <controls>
+                    <control ref='Hydras-AWS-Network-5.7' mitigation='50' />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref='Hydras-AWS-EC2-6.2' mitigation='50' />
+                <control ref='Hydras-AWS-Network-5.7' mitigation='50' />
+              </controls>
+            </threat>

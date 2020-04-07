@@ -1,0 +1,52 @@
+<control ref='Hydras-AWS-EC2-6.1' name='Launch EC2 instances into a VPC' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>AWS virtual private cloud is the de-facto standard for networking AWS as it provides
+                        additional security controls such as Security Groups, Network Access Control Lists (NACL's) and
+                        routing. However the use of VPC is not compulsory and resources such as EC2 can be created
+                        outside of VPC (usingEC2 Classic). It is the recommendation to make all resources a member of
+                        a VPC if possible to benefit from the increased security controls they offer and reduce undue
+                        network exposure.&amp;nbsp;
+                        &lt;div&gt;
+                        &amp;nbsp;
+                        &lt;br /&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;
+                        &lt;br /&gt;
+                        &lt;ol&gt;
+                        &lt;li&gt;Login to the AWS Management Console.&lt;/li&gt;
+                        &lt;li&gt;Select EC2 from the services menu.&lt;/li&gt;
+                        &lt;li&gt;Select &amp;quot;Launch Instance&amp;quot;.&lt;/li&gt;
+                        &lt;li&gt;Complete the wizard until step 3 at which point ensure a VPC ID is selected for the
+                        &amp;quot;Network&amp;quot; option, choose an appropriate &amp;quot;Subnet&amp;quot; and &amp;quot;Auto-assign
+                        Public IP&amp;quot; option.&amp;nbsp;&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;Complete the wizard to launch the instance.&lt;/li&gt;
+                        &lt;/ol&gt;NB: If you want to migrate an already running instance you will need to convert the
+                        image into an AMI and then launch a new instance using the AMI and placing in a VPC as per the
+                        steps above
+                        &lt;br /&gt;
+                        &lt;p&gt;Content provided by &lt;a href="https://hydrasit.com" target="_blank"&gt; Hydras IT LTD&lt;/a&gt;&lt;/p&gt;
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references />
+          <standards />
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;ol&gt;
+                            &lt;li&gt;Login to the AWS Management Console.&lt;/li&gt;
+                            &lt;li&gt;Select EC2 from the services menu.&lt;/li&gt;
+                            &lt;li&gt;Select &amp;quot;Instances&amp;quot; from the left hand menu.&lt;/li&gt;
+                            &lt;li&gt;For each instance in the list:&lt;/li&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt;select the instance&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;in the preview pane confirm the instance has a &amp;quot;VPC ID&amp;quot;. If a
+                            hyphen &amp;quot;-&amp;quot; is shown then your instance is running in EC2-Classic mode.&lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;/ol&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

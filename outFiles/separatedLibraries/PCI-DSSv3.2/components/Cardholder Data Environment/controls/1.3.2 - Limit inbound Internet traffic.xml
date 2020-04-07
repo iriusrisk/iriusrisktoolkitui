@@ -1,0 +1,32 @@
+<control ref="PCI-R1-1.3.2" name="1.3.2 - Limit inbound Internet traffic" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Internet inbound traffic should be limited to IP addresses within the DMZ.&lt;/p&gt;
+                        &lt;p&gt; &lt;/p&gt;
+                        &lt;p&gt;The DMZ is that part of the network that manages connections between the Internet (or
+                        other
+                        untrusted networks), and services that an organization needs to have available to the public
+                        (like a web
+                        server).&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;This functionality is intended to prevent malicious individuals from accessing the
+                        organization's
+                        internal network from the Internet, or from using services, protocols, or ports in an
+                        unauthorized manner.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="1.3.2" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;1.3.2 Examine firewall and router configurations to verify that inbound Internet
+                            traffic is
+                            limited to IP addresses within the DMZ.&amp;nbsp;&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-04T15:23:05.036000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

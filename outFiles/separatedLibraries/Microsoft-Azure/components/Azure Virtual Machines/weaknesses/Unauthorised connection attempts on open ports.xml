@@ -1,0 +1,28 @@
+<weakness ref='AZURE-NET-01' name='Unauthorised connection attempts on open ports' state='0' impact='100'>
+          <desc>&lt;div&gt;
+                        Receiving unauthorized connections to open ports is most likely to be receiving an attack. To
+                        avoid this, access to the network must be as restricted as possible, so that only the necessary
+                        ports are open and the minimum inbound traffic is accepted.
+                        &lt;/div&gt;
+                    </desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;div&gt;
+                            &lt;ol&gt;
+                            &lt;li&gt;Check that each Azure resources have got their Network Security Groups.&lt;/li&gt;
+                            &lt;li&gt;Check that a set of these groups achieve with the principle of the least
+                            privilege.&lt;/li&gt;
+                            &lt;li&gt;Check that the inbound/outbound security rules are enabled and correctly
+                            configured.&lt;/li&gt;
+                            &lt;li&gt;In &amp;quot;Inbound security rules&amp;quot;, check that all the traffic from
+                            0.0.0.0/0&amp;nbsp;is blocked.&lt;/li&gt;
+                            &lt;/ol&gt;
+                            &lt;/div&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2017-06-12T09:54:46.719'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>

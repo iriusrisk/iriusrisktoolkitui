@@ -1,0 +1,57 @@
+<control ref="CWE-120-MANAGED" name="Develop using a language with integrated memory protection" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+                        Use of a language that manages memory and disallows direct access greatly reduces the likelihood
+                        of presence and exploitation of overflow vulnerabilities.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Use a memory managed platform such as the JVM or .NET.&lt;/li&gt;
+                        &lt;li&gt;Alternatively, use of an interpreted language such Python, Perl or Ruby can also
+                        mitigate the risk.&lt;/li&gt;
+                        &lt;li&gt;Ensure that the runtime environment is patched to the latest recommended levels so
+                        flaws within it do not undermine these protections.&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;/div&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="12.2.1" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="SI-10" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="5.1" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="5.1" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="5.1" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;div&gt;
+                            &lt;div&gt;
+                            The references below detail languages providing integration memory protection.&amp;nbsp;
+                            &lt;/div&gt;
+                            &lt;ol&gt;
+                            &lt;/ol&gt;
+                            &lt;/div&gt;
+                            &lt;div&gt;
+                            &lt;ol&gt;
+                            &lt;li&gt;Determine the languages in use within the application, components, and libraries.&lt;/li&gt;
+                            &lt;li&gt;Identify which utilize managed memory access, and validate optional controls.&lt;/li&gt;
+                            &lt;li&gt;Note components that are implemented in languages without memory protection.&lt;/li&gt;
+                            &lt;/ol&gt;
+                            &lt;/div&gt;
+                            &lt;div&gt;
+                            &lt;br /&gt;
+                            &lt;/div&gt;
+                            &lt;div&gt;
+                        </steps>
+                        <notes></notes>
+                        <references>
+                            <reference name="Memory Management on Coding Languages" url="http://www.memorymanagement.org/mmref/lang.html"/>
+                        </references>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2015-08-15T17:17:12.906000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

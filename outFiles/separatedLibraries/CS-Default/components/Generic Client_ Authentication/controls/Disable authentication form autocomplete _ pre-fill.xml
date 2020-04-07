@@ -1,0 +1,47 @@
+<control ref="CWE-312" name="Disable authentication form autocomplete / pre-fill" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+                        Auto-completion or pre-filling of authentication details by the browser implies that credentials
+                        are stored in plaintext or a reversible format. This may be in violation of security
+                        best-practice, or application security expectations. The application should attempt to mitigate
+                        this risk by requesting the browser does not cache or store credentials.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;All forms handling sensitive data should be protected using the autocomplete=off HTML
+                        directive at the form or field level.&lt;/li&gt;
+                        &lt;li&gt;Issue browser specific directives to request auto-fill or completion is disabled; The
+                        AUTOCOMPLETE attribute should be set to &amp;quot;OFF&amp;quot;.&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;div&gt;
+                        It should be noted that compliance with these requests at the client-side is optional, and many
+                        browsers and clients override these directives to use operating system, browser, or third party
+                        password managers or key-safes to store secrets.
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;&lt;/div&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="9.3.1" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="9.4.3" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="IA-1" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="2.2" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="2.2" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="2.2" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+                            &lt;li&gt;Check the client is not automatically pre-filing any authentication form.&lt;/li&gt;
+                            &lt;li&gt;And if it does, it is using a master-password protected client store.&lt;/li&gt;
+                            &lt;/ol&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2015-08-15T17:17:21.695000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

@@ -1,0 +1,12 @@
+<weakness ref="PCI-R3-3.x" name="Cardholder data is unprotected on the system" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-04T10:04:24.559000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>This covers 3.5 and 3.6 from PCI</desc>
+                </weakness>

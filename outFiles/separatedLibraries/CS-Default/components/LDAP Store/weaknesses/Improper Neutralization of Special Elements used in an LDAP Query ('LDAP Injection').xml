@@ -1,0 +1,17 @@
+<weakness ref="CWE-90" name="Improper Neutralization of Special Elements used in an LDAP Query ('LDAP Injection')" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references>
+                            <reference name="CWE-90: Improper Neutralization of Special Elements used in an LDAP Query ('LDAP Injection')" url="https://cwe.mitre.org/data/definitions/90.html"/>
+                        </references>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2015-08-15T17:17:16.526000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The software constructs all or part of an LDAP query using externally-influenced input from an
+                        upstream component, but it does not neutralize or incorrectly neutralizes special elements that
+                        could modify the intended LDAP query when it is sent to a downstream component.
+                    </desc>
+                </weakness>

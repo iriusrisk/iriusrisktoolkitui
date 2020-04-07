@@ -1,0 +1,18 @@
+<threat ref="HOST-COMPROMISE" name="Sensitive data is compromised if the host itself is compromised" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>If sensitive data is stored or processed on the host, then should the host itself be
+                                compromised by an attacker, the confidentiality and/or the integrity of the data would
+                                also be at risk.
+                            </desc>
+                            <riskRating confidentiality="75" integrity="75" availability="1" easeOfExploitation="50"/>
+                            <references/>
+                            <controls>
+                                <control ref="CWE-311-AT-REST" mitigation="100"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-311">
+                                    <controls>
+                                        <control ref="CWE-311-AT-REST" mitigation="100"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

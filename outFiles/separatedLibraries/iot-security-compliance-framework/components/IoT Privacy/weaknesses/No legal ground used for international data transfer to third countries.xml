@@ -1,0 +1,15 @@
+<weakness ref="EU-GDPR-NO-LEGAL-GROUND-INTERNATIONAL-TRANSFER" name="No legal ground used for international data transfer to third countries" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-03-13T16:00:47">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>&lt;ul&gt; 
+ &lt;li&gt;No binding corporate rules or standard model clauses with non-EU third party&lt;/li&gt; 
+ &lt;li&gt;Inadequate due diligence of third parties&lt;/li&gt; 
+&lt;/ul&gt;</desc>
+                </weakness>

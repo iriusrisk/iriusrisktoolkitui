@@ -1,0 +1,47 @@
+<control ref='Hydras-AWS-Network-5.2' name='Seperate VPC into zones  by function' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>AWS virtual private cloud is the de-facto standard for networking AWS as it provides
+                        additional security controls such as Security Groups, Network Access Control Lists (NACL's) and
+                        routing. It is recommended that resources be placed into VPC's according to use case (ie
+                        dev/test/prod) and that appropriate security levels be set on these VPC's. Placing such
+                        resources accordingly ensures that a resource of a higher security level is not exposed by the
+                        security settings of a lower labeled VPC.&amp;nbsp;
+                        &lt;div&gt;
+                        &amp;nbsp;
+                        &lt;br /&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;
+                        &lt;br /&gt;
+                        &lt;ol&gt;
+                        &lt;li&gt;Identify the resources that exist within an incorrect VPC.&lt;/li&gt;
+                        &lt;li&gt;Migrate or move them to the correct VPC.&lt;/li&gt;
+                        &lt;/ol&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Content provided by
+                        &lt;a href="https://hydrasit.com" target="_blank"&gt; Hydras IT LTD&lt;/a&gt;
+                        &lt;br /&gt;
+                        &lt;br /&gt;
+                        &lt;br /&gt;
+                        &lt;br /&gt;
+                        &lt;br /&gt;
+                        &lt;br /&gt;
+                        &lt;br /&gt;
+                        &lt;br /&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references />
+          <standards />
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>Ensure that each AWS resource added to a VPC is isolated according to its designation (ie
+                            test/dev/prod).
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

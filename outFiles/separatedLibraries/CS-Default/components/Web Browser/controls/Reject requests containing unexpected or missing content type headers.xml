@@ -1,0 +1,27 @@
+<control ref="ASVS-18.8" name="Reject requests containing unexpected or missing content type headers" platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+                        Reject requests containing unexpected or missing content type headers with HTTP response status
+                        &amp;quot;406 Unacceptable&amp;quot; or &amp;quot;415 Unsupported Media Type&amp;quot;.
+                        &lt;/div&gt;
+                    </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="OWASP Validate request content-type" url="https://www.owasp.org/index.php/REST_Security_Cheat_Sheet#Validate_request_content_types"/>
+                        <reference name="Spring docs: CSRF" url="https://docs.spring.io/spring-security/site/docs/current/reference/html/csrf.html"/>
+                    </references>
+                    <standards>
+                        <standard ref="SI-10" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="18.8" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="18.8" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>Check that HTTP requests with non-valid Content-type are rejected.</steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-08-24T09:00:10.234000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

@@ -1,0 +1,17 @@
+<threat ref="SRV-JSON-SIG" name="Attackers gain access to user data by tampering data in transit" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>If the integrity of the data in transit is not protected, an attacker could modify the
+                                data in transit to make the recipient behave unexpectedly and gain access to user data.&amp;nbsp;
+                            </desc>
+                            <riskRating confidentiality="1" integrity="100" availability="25" easeOfExploitation="25"/>
+                            <references/>
+                            <controls>
+                                <control ref="SRV-JSON-WEB-SIGN" mitigation="100"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="SRV-JSON-SIG">
+                                    <controls>
+                                        <control ref="SRV-JSON-WEB-SIGN" mitigation="100"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

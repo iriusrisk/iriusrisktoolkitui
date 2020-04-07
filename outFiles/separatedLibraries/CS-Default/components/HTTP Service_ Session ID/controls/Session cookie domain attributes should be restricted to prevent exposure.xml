@@ -1,0 +1,51 @@
+<control ref="ASVS-2014-3.12-DOMAIN" name="Session cookie domain attributes should be restricted to prevent exposure" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>The session token value issued after users have successfully identified and authenticated
+                        themselves is of equivalent value to the secrets the user presents to login, and must be
+                        protected accordingly. If the cookie domain attribute is too liberal, the cookie may be
+                        accessible to other hosts within the parent domain. This is a particular issue in multi-tenanted
+                        hosting, or where applications are delivered as subdomains of a third party parent domain.
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;The domain attribute for the session cookie should be restricted to the fully
+                        qualified hostname on which the application is running.&lt;/li&gt;
+                        &lt;li&gt;For example, the cookie domain should be set to myapp.example.com rather than
+                        .example.com&lt;/li&gt;
+                        &lt;li&gt;e.g. Set-Cookie: session=token; Path=/app; &lt;b&gt;Domain=myapp.example.com&lt;/b&gt;;
+                        secure; HTTPOnly&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;div&gt;
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="AC-16" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="3.12" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="3.12" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="A2:2017-Broken Authentication" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+                            &lt;li&gt;Using a browser, open the Web Developer tools. &amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Load the Network inspection tab.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Load the endpoints of the application which set cookies (send the Set-Cookie HTTP
+                            header).&lt;/li&gt;
+                            &lt;li&gt;Check that within the HTTP response, the Set-Cookie has the path and domain
+                            attributes set to the most restrictive path and domain respectively. &amp;nbsp;&lt;/li&gt;
+                            &lt;/ol&gt;For example:&amp;nbsp;
+                            &lt;blockquote&gt;
+                            &lt;div&gt;
+                            Set-Cookie:JSESSIONID=C46044CF64918B0B895498AC750E28CF; Path=/x;Domain=x.company.com;
+                            &lt;/div&gt;
+                            &lt;/blockquote&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2015-08-15T17:17:20.233000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

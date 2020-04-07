@@ -1,0 +1,34 @@
+<control ref="PCI-R1-1.1.3" name="1.1.3 Document cardholder data flows across systems and networks" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Cardholder data-flow diagrams identify the location of all cardholder data that is
+                        stored,
+                        processed, or transmitted within the network.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;Network and cardholder data-flow diagrams help an organization to understand and keep
+                        track of the
+                        scope of their environment, by showing how cardholder data flows across networks and between
+                        individual
+                        systems and devices.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="1.1.3" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;1.1.3 Examine data-flow diagram and interview personnel to verify the diagram:
+                            &lt;/p&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt; &lt;p&gt;Shows all cardholder data flows across systems and networks. &lt;/p&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Is kept current and updated as needed upon changes to the environment.&amp;nbsp;&lt;/p&gt;
+                            &lt;/li&gt;
+                            &lt;/ul&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-04T14:39:04.424000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

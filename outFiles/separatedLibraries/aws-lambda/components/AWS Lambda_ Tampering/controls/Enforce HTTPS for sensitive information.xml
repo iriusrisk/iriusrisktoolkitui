@@ -1,0 +1,59 @@
+<control ref="Hydras-AWS-S3-7.3" name="Enforce HTTPS for sensitive information" platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>	&lt;p&gt;Amazon Simple Storage Service is storage for the Internet. It is designed to make web-scale computing easier for developers. &lt;/p&gt;
+
+	&lt;p&gt;Amazon S3 has a simple web services interface that you can use to store and retrieve any amount of data, at any time, from anywhere on the web. It gives any developer access to the same highly scalable, reliable, fast, inexpensive data storage infrastructure that Amazon uses to run its own global network of web sites. &lt;/p&gt;
+
+	&lt;p&gt;To ensure that data is only accessible via HTTPS (as opposed to both HTTP and HTTPS) it is possible to add a condition to the S3 bucket policy. It is recommended to enable this for any bucket containing sensitive data to ensure that data is encrypted in transit.&lt;/p&gt;
+
+	&lt;p&gt;Remediation:&lt;br /&gt;
+The following is an example of how to create an S3 bucket policy that enforces HTTPS/SSL only:&lt;br /&gt;
+1. Sign in to the AWS Management Console (with S3 update privileges) &lt;br /&gt;
+2. Go to the S3 Service on the AWS Console &lt;br /&gt;
+3. Select a bucket under &amp;#8220;All buckets&amp;#8221; &lt;br /&gt;
+4. Click the properties tab &lt;br /&gt;
+5. Under the permissions select &amp;#8220;Add a bucket policy&amp;#8221; &lt;br /&gt;
+6. Add the following policy to ensure all objects are accessed via https only &lt;br /&gt;
+{&lt;br /&gt;
+&lt;a href="%5B"&gt;Statement&lt;/a&gt; {&lt;br /&gt;
+&amp;#8220;Action&amp;#8221;: &amp;#8220;s3:*&amp;#8221;,&lt;br /&gt;
+&lt;a href=""&gt;Effect&lt;/a&gt;&amp;#8220;Allow&amp;#8221;,&lt;br /&gt;
+&amp;#8220;Principal&amp;#8221;: &amp;#8220;*&amp;#8221;,&lt;br /&gt;
+&lt;a href=""&gt;Resource&lt;/a&gt;&amp;#8220;arn:aws:s3:::bucketname/*&amp;#8221;,&lt;br /&gt;
+&lt;a href="%7B"&gt;Condition&lt;/a&gt;&lt;br /&gt;
+&amp;#8220;Bool&amp;#8221;:&lt;br /&gt;
+{ &lt;br /&gt;
+&amp;#8220;aws:SecureTransport&amp;#8221;: true &lt;br /&gt;
+}&lt;br /&gt;
+}&lt;br /&gt;
+} ]&lt;br /&gt;
+}&lt;br /&gt;
+7. Click &amp;#8220;&amp;#8220;Save&amp;#8221; &lt;/p&gt;
+
+	&lt;p&gt;Content provided by Hydras IT LTD&lt;/p&gt;</desc>
+                    <implementations/>
+                    <references>
+                        <reference name="Configure an API to Use SSL Certificates" url="https://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-client-side-ssl-authentication.html#configure-api"/>
+                        <reference name="Use Client-Side SSL Certificates for Authentication by the Backend" url="https://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-client-side-ssl-authentication.html"/>
+                    </references>
+                    <standards/>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;The following verifies that HTTPS is forced on a bucket policy: &lt;br /&gt;&lt;/p&gt; 
+&lt;ol&gt; 
+ &lt;li&gt;Sign in to the AWS Management Console (with S3 update privileges).&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;Go to the S3 Service on the AWS Console.&lt;/li&gt; 
+ &lt;li&gt;Select the S3 bucket under “All buckets”.&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;Click the “properties” tab.&lt;/li&gt; 
+ &lt;li&gt;Click “edit bucket policy”.&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;In the policy document check for the presence of the line “Condition”: {“Bool”: {“aws:SecureTransport”: “true”}}&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;In the same statement as &lt;a&gt;Effect&lt;/a&gt;“Allow”,&lt;/li&gt; 
+&lt;/ol&gt; 
+&lt;p&gt;&lt;/p&gt;</steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-03-25T16:40:59">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

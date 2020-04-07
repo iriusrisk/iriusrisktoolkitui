@@ -1,0 +1,40 @@
+<control ref="PCI-R7-7.1" name="7.1 Limit access to system components by business need to know" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;The more people who have access to cardholder data, the more risk there is that a
+                        user's
+                        account will be used maliciously. Limiting access to those with a legitimate business reason for
+                        the access
+                        helps an organization prevent mishandling of cardholder data through inexperience or malice.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="7.1" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;7.1 Examine written policy for access control, and verify that the policy
+                            incorporates 7.1.1
+                            through 7.1.4 as follows: &lt;/p&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt; &lt;p&gt;Defining access needs and privilege assignments for each role &lt;/p&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Restriction of access to privileged user IDs to least privileges&amp;nbsp;necessary
+                            to
+                            perform job responsibilities&lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Assignment of access based on individual personnel's job
+                            classification
+                            and function
+                            &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Documented approval (electronically or in writing) by authorized parties
+                            for all
+                            access, including listing of specific privileges approved.&amp;nbsp;&lt;/p&gt; &lt;/li&gt;
+                            &lt;/ul&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T13:57:54.599000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

@@ -1,0 +1,25 @@
+<control ref="PCI-R10-10.2.3" name="10.2.3 - Log access to all audit trails" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Malicious users often attempt to alter audit logs to hide their actions, and a record
+                        of access
+                        allows an organization to trace any inconsistencies or potential tampering of the logs to an
+                        individual
+                        account. Having access to logs identifying changes, additions, and deletions can help retrace
+                        steps made by
+                        unauthorized personnel.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="10.2.3" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;10.2.3 Verify access to all audit trails is logged.&amp;nbsp;&lt;/p&gt;</steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T16:51:26.126000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

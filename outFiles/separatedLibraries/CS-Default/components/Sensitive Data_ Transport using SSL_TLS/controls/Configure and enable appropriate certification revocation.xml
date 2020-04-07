@@ -1,0 +1,36 @@
+<control ref="PROPER-REVOCATION-CERTIFICATE" name="Configure and enable appropriate certification revocation" platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="EDITED">
+                    <desc>&lt;div&gt;
+                        Configure and enable appropriate certification revocation for each certificate created, such as
+                        Online Certificate Status Protocol (OCSP) Stapling.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        OCSP is a protocol to check if an SSL certificate has been revoked. Instead of the client
+                        downloading a large list of revoked certificates, they can simply submit a request to a CA
+                        server, which returns a signed response with the certificate current status.
+                        &lt;/div&gt;
+                    </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="Certificate revocation" url="https://medium.com/@alexeysamoshkin/how-ssl-certificate-revocation-is-broken-in-practice-af3b63b9cb3"/>
+                    </references>
+                    <standards>
+                        <standard ref="13.2.1" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="SC-17" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="10.14" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="10.14" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="10.14" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>Check that appropriate certification revocation is enabled and configured.</steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-08-07T09:28:58.345000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

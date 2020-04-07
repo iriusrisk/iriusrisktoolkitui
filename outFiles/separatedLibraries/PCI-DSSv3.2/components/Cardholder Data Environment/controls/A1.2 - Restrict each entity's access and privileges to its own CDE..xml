@@ -1,0 +1,50 @@
+<control ref="PCI-R2-A1.2" name="A1.2 - Restrict each entity's access and privileges to its own CDE." platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;To ensure that access and privileges are restricted such that each merchant or
+                        service provider
+                        has access only to their own environment, consider the following:&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;1. Privileges of the merchant's or service provider's web server user ID;&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;2. Permissions granted to read, write, and execute files;&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;3. Permissions granted to write to system binaries;&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;4. Permissions granted to merchant's and service provider's log files; and&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;5. Controls to ensure one merchant or service provider cannot monopolize system
+                        resources.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="A1.2" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;A1.2.a Verify the user ID of any application process is not a privileged user
+                            (root/admin).
+                            &lt;/p&gt;
+                            &lt;p&gt;A1.2.b Verify each entity (merchant, service provider) has read, write, or execute
+                            permissions
+                            only for files and directories it owns or for necessary system files (restricted via file
+                            system
+                            permissions, access control lists, chroot, jailshell, etc.) &lt;/p&gt;
+                            &lt;p&gt;Important: An entity's files may not be shared by group. &lt;/p&gt;
+                            &lt;p&gt;A1.2.c Verify that an entity's users do not have write access to shared
+                            system
+                            binaries. &lt;/p&gt;
+                            &lt;p&gt;A1.2.d Verify that viewing of log entries is restricted to the owning entity. &lt;/p&gt;
+                            &lt;p&gt;A1.2.e To ensure each entity cannot monopolize server resources to exploit
+                            vulnerabilities (for
+                            example, error, race, and restart conditions resulting in, for example, buffer overflows),
+                            verify
+                            restrictions are in place for the use of these system resources: &lt;/p&gt;
+                            &lt;p&gt;Disk space&amp;nbsp;&lt;/p&gt;
+                            &lt;p&gt;Bandwidth&amp;nbsp;&lt;/p&gt;
+                            &lt;p&gt;Memory&lt;/p&gt;
+                            &lt;p&gt;CPU&amp;nbsp;&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-04T16:40:09.782000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

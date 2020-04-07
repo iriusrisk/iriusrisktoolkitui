@@ -1,0 +1,23 @@
+<control ref="AWS-LAMBDA-C29" name="Ensure that sensitive data is not saved into logs files." platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>	&lt;p&gt;Review periodically all logs to ensure that sensitive data is not presented in the logs files.&lt;/p&gt;
+
+	&lt;p&gt;AWS introduces a new security service Macie recognizing sensitive data such as personally identifiable information (PII) or intellectual property, and provides you with dashboards and alerts that give visibility into how this data is being accessed or moved.&lt;/p&gt;
+
+	&lt;p&gt;You can also use the Amazon Macie service to classify all data and find if there is sensitive data in the logs files.&lt;/p&gt;</desc>
+                    <implementations/>
+                    <references>
+                        <reference name="AWS CloudWatch user guide" url="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html"/>
+                        <reference name="AWS Macie" url="https://aws.amazon.com/macie/"/>
+                    </references>
+                    <standards/>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>	&lt;p&gt;Verify if the log files don&amp;#8217;t contain sensitive data.&lt;/p&gt;</steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-03-25T16:40:59">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

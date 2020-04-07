@@ -1,0 +1,17 @@
+<weakness ref='AWS-NET-01' name='Unauthorised connection attempts are allowed on open ports' state='0' impact='100'>
+          <desc>&lt;div&gt;
+                        Receiving unauthorized connections to open ports is most likely to be receiving an attack. To
+                        avoid this, access to the network must be as restricted as possible, so that only the necessary
+                        ports are open and the minimum inbound traffic is accepted.
+                        &lt;/div&gt;
+                    </desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>

@@ -1,0 +1,38 @@
+<control ref="PCI-R8-8.1.3" name="8.1.3 - Immediately revoke access for any terminated users" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;If an employee has left the company and still has access to the network via their
+                        user account,
+                        unnecessary or malicious access to cardholder data could occur-either by the former
+                        employee or
+                        by a
+                        malicious user who exploits the old and/or unused account. To prevent unauthorized access, user
+                        credentials
+                        and other authentication methods therefore need to be revoked promptly (as soon as possible)
+                        upon the
+                        employee's departure.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="8.1.3" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;8.1.3.a Select a sample of users terminated in the past six months, and review
+                            current user
+                            access lists-for both local and remote access-to verify that their IDs have been
+                            deactivated
+                            or removed
+                            from the access lists. &lt;/p&gt;
+                            &lt;p&gt;8.1.3.b Verify all physical authentication methods-such as, smart cards,
+                            tokens,
+                            etc.-have been
+                            returned or deactivated.&amp;nbsp;&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T14:24:24.670000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

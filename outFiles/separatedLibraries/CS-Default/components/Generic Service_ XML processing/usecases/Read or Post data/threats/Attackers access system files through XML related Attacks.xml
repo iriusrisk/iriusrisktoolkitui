@@ -1,0 +1,27 @@
+<threat ref="CAPEC-201" name="Attackers access system files through XML related Attacks" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>An attacker creates an XML document that with an external entity reference. External
+                                entity references can take the form of tags in a DTD. Because processors may not
+                                validate documents with external entities, there may be no checks on the nature of the
+                                reference in the external entity. This can allow an attacker to open arbitrary files or
+                                connections. For example, the following DTD would attempt to open the /dev/tty device:
+                                &lt;br /&gt;
+                            </desc>
+                            <riskRating confidentiality="50" integrity="50" availability="50" easeOfExploitation="50"/>
+                            <references/>
+                            <controls>
+                                <control ref="WEB-SRV-XML" mitigation="50"/>
+                                <control ref="cwe-611-validate" mitigation="50"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-611">
+                                    <controls>
+                                        <control ref="cwe-611-validate" mitigation="50"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="CWE-112">
+                                    <controls>
+                                        <control ref="WEB-SRV-XML" mitigation="50"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

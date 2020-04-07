@@ -1,0 +1,58 @@
+<control ref='D5.5' name='Ensure sensitive host system directories are not mounted on containers' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>Sensitive host system directories such as below should not be allowed to be mounted as
+                        container volumes especially in read-write mode. / /boot /dev /etc /lib /proc /sys /usr&amp;nbsp;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Rationale:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        If sensitive directories are mounted in read-write mode, it would be possible to make changes to
+                        files within those sensitive directories. The changes might have negative security implications
+                        or unwarranted changes that could put the Docker host in compromised state.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&amp;nbsp;&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Do not mount host sensitive directories on containers especially in read-write mode.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Impact:&amp;nbsp;&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        None.
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='Docker docs: Volumes' url='https://docs.docker.com/engine/tutorials/dockervolumes/' />
+          </references>
+          <standards>
+            <standard ref='5.5' supportedStandardRef='Level 1 - Docker' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;blockquote&gt;
+                            docker ps --quiet --all | xargs docker inspect --format '{{ .Id }}: Volumes={{ .Mounts }}'&amp;nbsp;
+                            &lt;/blockquote&gt;
+                            &lt;div&gt;
+                            The above commands would return the list of current mapped directories and whether they are
+                            mounted in read-write mode for each container instance.
+                            &lt;/div&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2016-08-02T10:21:32.718'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

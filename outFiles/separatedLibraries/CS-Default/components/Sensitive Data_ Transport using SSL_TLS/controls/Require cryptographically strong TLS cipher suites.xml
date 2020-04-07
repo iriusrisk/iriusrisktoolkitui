@@ -1,0 +1,67 @@
+<control ref="TLS-STRONG-CIPHERS" name="Require cryptographically strong TLS cipher suites" platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>Only cryptographically strong ciphers should be required. Best-practice dictates a subset of '
+                        &lt;i&gt;known good&lt;/i&gt;' ciphers and protocols be defined and enforced at the server.
+                        &amp;nbsp;This may, however, have compatibility issues with older browsers, requiring a balance
+                        be sought between accessibility and security.&amp;nbsp;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Define and enforce a list of acceptable ciphers and protocols&lt;/li&gt;
+                        &lt;li&gt;Explicitly disable known-bad ciphers and protocols, such as:&lt;/li&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Null and export ciphers&lt;/li&gt;
+                        &lt;li&gt;DH, MD5 and other weak cryptography&lt;/li&gt;
+                        &lt;li&gt;Ciphers with keys less than 128 bits&lt;/li&gt;
+                        &lt;li&gt;CBC ciphers with TLSv1.0 or earlier&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                    </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="SSL Labs - SSL/TLS Deployment Best Practices" url="https://www.ssllabs.com/projects/best-practices/"/>
+                    </references>
+                    <standards>
+                        <standard ref="13.2.1" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="SC-1" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SC-17" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="10.13" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="10.16" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="10.13" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="10.16" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="10.13" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="10.16" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="5.2" supportedStandardRef="OWASP-MASVS-L1"/>
+                        <standard ref="5.2" supportedStandardRef="OWASP-MASVS-L1+R"/>
+                        <standard ref="5.2" supportedStandardRef="OWASP-MASVS-L2"/>
+                        <standard ref="5.2" supportedStandardRef="OWASP-MASVS-L2+R"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+                            &lt;li&gt;Use automated tools to identify all of the SSL/TLS protocols supported by the
+                            service.&lt;/li&gt;
+                            &lt;li&gt;Verify that cryptographically weak (also known as &amp;quot;export&amp;quot;
+                            class) ciphers are not supported.&lt;/li&gt;
+                            &lt;ol&gt;
+                            &lt;br /&gt;
+                            &lt;/ol&gt;
+                            &lt;/ol&gt;Tools that can perform these tests are:
+                            &lt;br /&gt;
+                            &lt;ol&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt;&lt;a href="https://www.continuumsecurity.net/bdd-security/" rel="nofollow"&gt;BDD-Security&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="https://www.ssllabs.com/" rel="nofollow"&gt;SSLabs&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="https://github.com/mozilla/cipherscan" rel="nofollow"&gt;cipherscan&lt;/a&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;/ol&gt;
+                        </steps>
+                        <notes></notes>
+                        <references>
+                            <reference name="Server Side TLS Configuration" url="https://wiki.mozilla.org/Security/Server_Side_TLS"/>
+                        </references>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2015-08-15T17:17:18.335000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

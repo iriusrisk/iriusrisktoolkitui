@@ -1,0 +1,96 @@
+<threat ref="7k-CWE-ErrorH" name="Attackers gain unauthorised access to the application through an error handling flaw" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>Errors and error handling represent a class of API. Errors related to error handling
+                                are so common that they deserve a special kingdom of their own. As with API Abuse, there are two ways to introduce an error-related security vulnerability: the most common
+                                one is handling errors poorly (or not at all). The second is producing errors that either give out too much information (to possible attackers) or are difficult to handle.
+                            </desc>
+                            <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="50"/>
+                            <references/>
+                            <controls>
+                                <control ref="ERR-HAND" mitigation="100"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-388">
+                                    <controls>
+                                        <control ref="ERR-HAND" mitigation="100"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="CWE-746">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-880">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-851">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-225">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-239">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-234">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-429">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-703">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-755">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-231">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-238">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-240">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-230">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-237">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-228">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-236">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-232">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-229">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-199">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-889">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-960">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-961">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-962">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-136">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-60">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-63">
+                                    <controls/>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

@@ -1,0 +1,57 @@
+<control ref="CWE-662" name="Use a synchronised time source" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+                        In order to correlate logs and data from different internal and external systems, and to
+                        preserve forensic quality of the logs, it is important a unified and trusted synchronized time
+                        source is used throughout the environment.&amp;nbsp;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Servers should be synchronize to an internal or external NTP server&lt;/li&gt;
+                        &lt;li&gt;The centralized source should in turn use (or be) a trusted central time source.&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        This control is critical in identifying application events (including attacks) through logging,
+                        and in conduction post-event analysis, in particular to track the whole user (or attacker)
+                        journey through the system should it be compromised.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        It is good practice to use the concept of Indicators of Compromise (IoC) should be used to
+                        detect possible situations in which the system has been compromised and to give an appropriate
+                        response.&amp;nbsp; IoCs are often tracked through logs, and accurate time is often essential.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="12.4.4" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="AU-11" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="AU-8" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="AU-9" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="8.13" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="8.13" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="8.13" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="A10:2017-Insufficient Logging&amp;Monitoring" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+                            &lt;li&gt;Check that mechanisms are installed to keep the host's clock synchronized (i.e.
+                            ntpd in Linux based systems).&lt;/li&gt;
+                            &lt;li&gt;Inspect the logs created by the app and check they have the correct timestamp.&lt;/li&gt;
+                            &lt;/ol&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-11-24T13:05:33.389000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

@@ -1,0 +1,16 @@
+<weakness ref="CWE-494" name="Download of Code Without Integrity Check" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references>
+                            <reference name="CWE-494: Download of Code Without Integrity Check" url="https://cwe.mitre.org/data/definitions/494.html"/>
+                        </references>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-05-29T09:15:58.381000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The product downloads source code or an executable from a remote location and executes the
+                        code without sufficiently verifying the origin and integrity of the code.
+                    </desc>
+                </weakness>

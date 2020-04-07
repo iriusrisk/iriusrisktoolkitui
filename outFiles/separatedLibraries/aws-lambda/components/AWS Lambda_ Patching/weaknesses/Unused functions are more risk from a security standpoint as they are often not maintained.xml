@@ -1,0 +1,12 @@
+<weakness ref="AWS-LAMBDA-W6" name="Unused functions are more risk from a security standpoint as they are often not maintained" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-03-25T16:40:59">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>Unused functions are mostly unmaintained. Therefore code may not be regularly reviewed. And because the code isn't under your attention, this can impose a security risk, especially if the functionality of your application changes over time.</desc>
+                </weakness>

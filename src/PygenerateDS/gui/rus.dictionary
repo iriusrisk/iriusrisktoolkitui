@@ -1,0 +1,108 @@
+Always overwrite output files.\nDo not ask for confirmation.<-|->Всегда перезаписывать выходные файлы.\nбез запроса подтверждение.
+Append this text to the generated subclass names.\nDefault="Sub".<-|->Дополнительный текст к сгенерированными подназваниям классов. Значение по умолчанию\n= "Sub".
+Assume an empty namespace\nprefix in the XML schema, not\nthe default ("xs:").<-|->Пустое пространство имен\nпрефикс в XML-схеме, не\nзначение по умолчанию ("xs":).
+Assume that this value is the name\nof the root element of instance docs.\nDefault is first element defined in schema.<-|->Предположите, что это значение - имя\nэлемента корня документа\n, Значение по умолчанию - первый элемент, определенный в схеме.
+Auto<-|->Автоматически
+Behavior file name:<-|->Имя файла поведения:
+Capture the command line that would be used\nto generate the bindings modules.<-|->Получить командную строку, которая использовалась бы\n, чтобы произвести модули (bindings modules).
+Choose<-|->Выбрать
+Choose the input schema file.<-|->Выберите входной файл схемы.
+Choose the input file name for\nbehaviors added to subclasses.<-|->Выберите входное имя файла для\nповедений, добавленных к подклассам.
+Choose the optional module containing user methods.  See\nsection "User Methods" in the documentation.<-|->Выберите дополнительный модуль, содержащий пользовательские методы. См.\nсекцию "User Methods" в документации.
+Choose the output directory for one-file-per-xsd.<-|->Выберите выходной каталог для one-file-per-xsd.
+Choose the output subclass bindings file.<-|->Выберите выходной файл привязки подкласса.
+Choose the output superclass bindings file.<-|->Выберите выходной файл привязки суперкласса.
+Choose the path to a directory containing files that provide\nbodies (implementations) of validator methods.<-|->Выберите путь к каталогу, содержащему файлы, которые обеспечивают\nорганы (реализации) методов проверки.
+Cleanup name list:<-|->Список имени очистки:
+Clear the XML namespace prefix entry.<-|->Очистить поле префикса пространства имен XML.
+Clear the behavior file name entry.<-|->Очистить поле имени файла поведения.
+Clear the cleanup name list entry.<-|->Очистить поле списка имени очистки.
+Clear the exports entry.<-|->Очистить поле экспорт.
+Clear the external encoding entry.<-|->Очистить поле внешней кодировки.
+Clear the input schema file entry.<-|->Очистить поле входного файла схемы.
+Clear the module suffix entry.<-|->Очистить поле суффикса модуля.
+Clear the namespace definitions entry.<-|->Очистить поле определений пространства имен.
+Clear the output directory entry.<-|->Очистить поле выходного каталога .
+Clear the output subclass file entry.<-|->Очистить поле  выходного файла подкласса.
+Clear the output superclass file entry.<-|->Очистить поле выходного файла суперкласса.
+Clear the prefix entry.<-|->Очистить поле префикса.
+Clear the root element entry.<-|->Очистить поле элемента корня.
+Clear the subclass suffix.<-|->Очистить суффикс подкласса.
+Clear the superclass module entry.<-|->Очистить поле модуля суперкласса.
+Clear the user methods module entry.<-|->Очистить поле пользовательского модуля методов.
+Clear the validator bodies path entry.<-|->Очистить поле пути контрольных методов.
+Create a python module for each XSD processed.<-|->Создавать модуль питона для каждого обработанного XSD.
+Do not include the current date in the generated\nfiles. This is useful if you want to minimize\nthe amount of (no-operation) changes to the\ngenerated python code.<-|->Не включать текущую дату в произведенные\nфайлы. Это полезно, если Вы хотите минимизировать\n, количество изменений (no-operation)\nв сгенрированном  коде питона.
+Do not include the current version in the generated\nfiles. This is useful if you want to minimize\nthe amount of (no-operation) changes to the\ngenerated python code.<-|->Не включайть текущую версию в произведенные\nфайлы. Это полезно, если Вы хотите минимизировать\n, количество изменений (no-operationт)\nв сгенрированном  коде питона.
+Do not process included XML Schema files.  By\ndefault, generateDS.py will insert content\nfrom files referenced by <include ... />\nelements into the XML Schema to be processed.<-|->Не обрабатывать включенные файлы XML-схемы.\nЗначением по умолчанию generateDS.py вставит контент\nот файлов, на которые ссылаются &lt;включают.../&gt;\nэлементы в XML-схемы, которая будет обработана.
+Do not process includes in schema<-|->Не обрабатывать включения в схему
+Empty<-|->Свободный
+Encode output written by the generated export\nmethods using this encoding.  Default, if omitted,\nis the value returned by sys.getdefaultencoding().\nExample: utf-8.<-|->Закодируйте вывод, полученый сгенерированными экспортом\nметоды, используя это кодирование. Значение по умолчанию, если опущено,\nявляется значением, возвращенным sys.getdefaultencoding (). Пример\n: utf-8.
+Exit from the application.<-|->Выход из приложения.
+Exports:<-|->Экспорт:
+External encoding:<-|->Внешнее кодировка:
+Force<-|->Ускоорить
+Generate<-|->Генерировать
+Generate Python properties for member variables\nso that the value can be retrieved and modified\nwithout calling getter and setter functions.\n<-|->Генерировать свойства Python для переменных-членов\nтак, чтобы значение могло быть восстановлено и изменено\n, не называя функции getter и setter.\n
+Generate Python properties:<-|->Генерировать свойства  Python:
+Generate code that does not echo the parsed XML<-|->Генерировать код, который не повторяет разобранный XML
+Generate the bindings modules.<-|->Генерировать модули привязки.
+Get encoded:<-|->Получить в кодировке:
+Getters return encoded value by default if true.\nCan be changed at run-time by either\n(1) changing global variable GetEncodedValue or\n(2) using optional parameter to getter.<-|->getter(ы)возвращают закодированное значение по умолчанию если истина.\nМожет быть изменен во времени выполнения или\n(1) глобальная переменная замены GetEncodedValue или\n(2) использовать дополнительный параметр getter
+Getters return encoded values by default<-|->getter(ы) возвращают закодированные значения по умолчанию
+Input file name for behaviors\nadded to subclasses.<-|->Введите имя файла для поведений\nдобавлемых к подклассам.
+Input schema file:<-|->Введите файл схемы:
+Load a previous saved session.<-|->Загрузите предыдущую сохраненную сессию.
+Member specs:<-|->Спецификации членов:
+Messages and Content<-|->Сообщения и контент
+Module suffix:<-|->Суффикс модуля
+Name getters and setters getVar() and setVar(),\ninstead of get_var() and set_var().<-|->Называть getter и setter getVar () и setVar (),\nвместо get_var () и set_var ().
+Namespace definition to be passed in as the\nvalue for the namespacedef_ parameter of\nthe export() method by the generated\nparse() and parseString() functions.\nDefault=''.  Example:\nxmlns:abc="http://www.abc.com"<-|->Определение пространства имен, которое будет передано в как\n, оценивает за namespacedef_ параметр\nэкспорт () метод сгенерированными разбором\n() и parseString () функции. Значение по умолчанию\n= ''. Пример:\nxmlns:abc = "http://www.abc.com"
+Namespace definitions:<-|->Определения пространства имен:
+Namespace prefix:<-|->Префикс пространства имен:
+No dates in generated output<-|->Никакие даты в произведенном выводе
+No dates:<-|->Никакие даты:
+No process includes:<-|->Никакой процесс не включает:
+No version info in generated output<-|->Никакая информация о версии в произведенном выводе
+No versions:<-|->Никакие версии:
+Normally, the code generated with generateDS\nechoes the information being parsed. Use\nthis option to turn off that behavior.\n<-|->Обычно, код, произведенный с generateDS\n, повторяет разбираемую информацию. Используйте\nэта опция, чтобы выключить это поведение.\n
+OK<-|->OK
+Old getters and setters<-|->Старые getter и setter
+One file per XSD:<-|->Один файл XSD:
+Optional module containing user methods.  See\nsection "User Methods" in the documentation.<-|->Дополнительный модуль, содержащий пользовательские методы. См.\nсекцию "Пользовательские Методы" в документации.
+Output directory:<-|->Каталог Output:
+Output subclass file:<-|->Выходной файл подкласса:
+Output superclass file:<-|->Выходной файл суперкласса:
+Override default namespace\nprefix in schema file.\nExample: -a "xsd:"\nDefault: "xs:".<-|->Переопределите пространство имен по умолчанию\nпрефикс в файле схемы. Пример\n:-a "xsd": Значение по умолчанию\n: "xs":.
+Overwrite without asking:<-|->Перезапись без вопросов:
+Path to a directory containing files that provide\nbodies (implementations) of validator methods.<-|->Путь к каталогу, содержащему файлы, которые обеспечивают\nкорпуса (внедрения) методов контрольного устройства.
+Prefix (for class names):<-|->Префикс (для названий классов):
+Prefix for class names.<-|->Префикс для названий классов.
+Preserve CDATA tags.  Default: False.<-|->Сохранить теги CDATA. Значение по умолчанию: False.
+Preserve CData tags<-|->Сохранить теги CData
+Preserve CData tags:<-|->Сохранить теги CData:
+Properties<-|->Свойства
+Quit<-|->Выход
+Root element:<-|->Элемент корня:
+Save the current session in\nfile chosen by the user.<-|->Сохранить текущую сессию в\nфайле, выбранном пользователем.
+Save the current session.<-|->Сохранить текущую сессию.
+Silence:<-|->Тишина:
+Specifies export functions to be generated.  Value is a whitespace separated list of any of the following: "write" (write XML to file), "literal" (write out python code), "etree" (build element tree (can serialize to XML)).            Example: "write etree".  Default: "write".<-|->Определяет экспортные функции, которые будут произведены. Значение - отделенный список разделителя любого следующего: "write" (записать XML файл), "literal" (записать код питона), "etree" (создают дерево элемента (может преобразовать в последовательную форму к XML)). Пример: "write etree". Значение по умолчанию: "write".
+Specifies list of 2-tuples used for cleaning names.  First element is a regular expression search pattern and second is a replacement. Example: "[('[-:.]', '_'), ('^__', 'Special')]".  Default: "[('[-:.]', '_')]".<-|->Определяет список 2 кортежей, используемых для очистки имен. Первый элемент - образец поиска регулярного выражения, и второй замена. Пример: "[(' [-:]'. '_ '), ('^ __ ', 'Особенный')]". Значение по умолчанию: "[(' [-:]'.', _ ')]".
+Subclass suffix:<-|->Суффикс подкласса:
+Superclass module name in subclass module.\nDefault="???".<-|->Имя модуля суперкласса в модуле подкласса. Значение по умолчанию\n= "???".
+Superclass module:<-|->Модуль суперкласса:
+The path and name of the\ninput XML schema defining the\nbindings to be generated.<-|->Путь и название\nвводят XML-схему, определяющую\nпривязки, которые будут произведены.
+The path and name of the output file\nto be generated and to contain the \nsubclasses.<-|->Путь и название выходного файла\n, чтобы быть сгенерированными и содержать\nподклассы.
+The path and name of the output file\nto be generated and to contain the \nsuperclasses.<-|->Путь и название выходного файла\n, чтобы быть сгенерированными и содержать\nсуперклассы.
+To be used in conjunction with --one-file-per-xsd.  Append XXX to the end of each file created.<-|->Использоваться вместе с  --one-file-per-xsd. Добавить XXX в конец каждого созданного файла.
+Use old getters and setters:<-|->Использовать старые  getter и setter:
+Use the superclass file name\nstem as the super-class module\nname.<-|->Используйте имя файла суперкласса\nкак основа  имени модуля\nсуперкласса.
+Used in conjunction with --one-file-per-xsd.  The directory where the modules will be created.<-|->Используемый вместе с --one-file-per-xsd. Каталог, где будут созданы модули.
+User methods module:<-|->Пользовательский модуль методов:
+Validator bodies path:<-|->Путь корпусов контрольного устройства:
+_Capture CL<-|->_Capture CL
+_File<-|->_Файл
+_Generate<-|->_Произвести
+_Help<-|->_Помощь
+_Tools<-|->_Инструменты

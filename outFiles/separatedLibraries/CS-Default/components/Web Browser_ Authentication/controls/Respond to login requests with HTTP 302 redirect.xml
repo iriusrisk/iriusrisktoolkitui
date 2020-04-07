@@ -1,0 +1,60 @@
+<control ref="CWE-525-REPOST" name="Respond to login requests with HTTP 302 redirect" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+                        Browsers may cache form data submitted through the HTTP POST method for persistence and replay
+                        when the user browsers back and forward. This means that even after a user has logged out, a
+                        subsequent party may use the navigation options to browse back to the page returned after login.
+                        When browsing to this page, or reloading it, the browser may offer to resubmit the previous
+                        data, including the username and password. This both exposes the user's account to immediate
+                        attack, and gives the malicious party to intercept the POST request and retrieve the username,
+                        password, and other submitted data.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Ensure the browser returns an HTTP 30x series response to any sensitive data submitted
+                        in an HTTP POST request, in particular authentication requests and others containing the
+                        password or other secret data.&lt;/li&gt;
+                        &lt;li&gt;This should be extended to failed requests; even compromise of a misspelt username or
+                        password may enable an attacker to determine the correct credentials.&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="SC-1" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="9.1" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="9.1" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="9.1" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="A3:2017-Sensitive Data Exposure" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;div&gt;
+                            &lt;ol&gt;
+                            &lt;li&gt;Review HTTP responses to POST requests with secret data, such as passwords, or
+                            other sensitive content.&lt;/li&gt;
+                            &lt;li&gt;Using an intercepting proxy (e.g. OWASP Zap, BurpSuite)&lt;/li&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt;Browse the site through the proxy&lt;/li&gt;
+                            &lt;li&gt;Submit requests through the login page, and others submitting sensitive data using
+                            HTTP POST&lt;/li&gt;
+                            &lt;li&gt;Inspect the HTTP response and ensure an HTTP 3xx redirect header is returned&lt;/li&gt;
+                            &lt;li&gt;Attempt fail conditions as well as success - e.g. an invalid login as a result of
+                            a typo could still expose usernames and passwords.&lt;/li&gt;
+                            &lt;li&gt;Review Content-Type headers and other response context. Where AJAX requests are
+                            typed as application/json, the browser should not cache or replay the form fields even if a
+                            200 OK response header is used.&lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;/ol&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2015-08-15T17:17:21.476000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

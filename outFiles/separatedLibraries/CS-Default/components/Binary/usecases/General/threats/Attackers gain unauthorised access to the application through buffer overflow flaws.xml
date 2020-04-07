@@ -1,0 +1,24 @@
+<threat ref="CAPEC-100" name="Attackers gain unauthorised access to the application through buffer overflow flaws" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>Buffer Overflow attacks target improper or missing bounds checking on buffer
+                                operations, typically triggered by input injected by an attacker. As a consequence, an
+                                attacker is able to write past the boundaries of allocated buffer regions in memory,
+                                causing a program crash or potentially redirection of execution as per the attackers'
+                                choice.
+                            </desc>
+                            <riskRating confidentiality="100" integrity="100" availability="1" easeOfExploitation="50"/>
+                            <references/>
+                            <controls>
+                                <control ref="CWE-120-MANAGED" mitigation="60"/>
+                                <control ref="CWE-120-RANDOM" mitigation="20"/>
+                                <control ref="CWE-120-STACK" mitigation="20"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-120">
+                                    <controls>
+                                        <control ref="CWE-120-MANAGED" mitigation="60"/>
+                                        <control ref="CWE-120-RANDOM" mitigation="20"/>
+                                        <control ref="CWE-120-STACK" mitigation="20"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

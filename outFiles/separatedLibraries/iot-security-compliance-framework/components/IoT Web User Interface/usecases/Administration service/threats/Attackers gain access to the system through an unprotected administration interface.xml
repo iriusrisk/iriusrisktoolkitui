@@ -1,0 +1,15 @@
+<threat ref="CSD-ADM-IFACE" name="Attackers gain access to the system through an unprotected administration interface" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>	&lt;p&gt;Administrative interfaces grant access to sensitive operations that can typically affect key security mechanisms, like modifying credentials and adding/removing user accounts.&lt;/p&gt;</desc>
+                            <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="25"/>
+                            <references/>
+                            <controls>
+                                <control ref="CSD-ADM-TRUST" mitigation="100"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CSD-ADM-OPEN">
+                                    <controls>
+                                        <control ref="CSD-ADM-TRUST" mitigation="100"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

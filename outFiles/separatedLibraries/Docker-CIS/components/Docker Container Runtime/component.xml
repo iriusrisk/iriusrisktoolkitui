@@ -1,0 +1,2 @@
+<component ref='DOCKER-CONTAINER-RUNTIME' name='Docker Container Runtime' desc='The ways in which a container is started governs a lot of the security implications. It is possible to provide potentially dangerous runtime parameters that might compromise the host and other containers on the host. Verifying container runtime is thus very important. This Risk Pattern contains various recommendations to assess the container runtime.' groupName='' tags='' position='2' library='' diagramPositionX='0' diagramPositionY='0' componentDefinitionRef=''>
+      

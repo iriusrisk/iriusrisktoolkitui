@@ -1,0 +1,14 @@
+<weakness ref='log-actions-sending-out-notifications' name='Log the actions to send out notifications' state='0' impact='100'>
+          <desc>The sensitive data is not encrypted in transit with HTTPS or SSL, and the data is accessible
+                        in the canal.
+                    </desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>

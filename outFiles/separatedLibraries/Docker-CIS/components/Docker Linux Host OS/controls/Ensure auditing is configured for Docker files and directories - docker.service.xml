@@ -1,0 +1,86 @@
+<control ref='D1.8' name='Ensure auditing is configured for Docker files and directories - docker.service' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>Audit docker.service, if applicable.&amp;nbsp;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Rationale:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Apart from auditing your regular Linux file system and system calls, audit all Docker related
+                        files and directories. Docker daemon runs with root privileges. Its behavior depends on some key
+                        files and directories. docker.service is one such file. The docker.service file might be present
+                        if the daemon parameters have been changed by an administrator. It holds various parameters for
+                        Docker daemon. It must be audited, if applicable.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        If the file exists, add a rule for it. For example, Add the line as below in
+                        /etc/audit/audit.rules file:&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        -w /usr/lib/systemd/system/docker.service -k docker&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;div&gt;
+                        Then, restart the audit daemon. For example,&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        service auditd restart&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Impact:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Auditing generates quite big log files. Ensure to rotate and archive them periodically. Also,
+                        create a separate partition of audit logs to avoid filling root file system.
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='Docker redhat: chap system auditin' url='https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Security_Guide/chap-system_auditing.html' />
+          </references>
+          <standards>
+            <standard ref='1.8' supportedStandardRef='Level 1 - Linux Host OS' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;b&gt;Step 1:&lt;/b&gt; Find out the file location:&amp;nbsp;
+                            &lt;blockquote&gt;
+                            &lt;div&gt;
+                            systemctl show -p FragmentPath docker.service&amp;nbsp;
+                            &lt;/div&gt;
+                            &lt;/blockquote&gt;
+                            &lt;div&gt;
+                            &lt;b&gt; Step 2: &lt;/b&gt;If the file does not exist, this recommendation is not
+                            applicable. If the file exists, verify that there is an audit rule corresponding to the
+                            file: For example, execute the below command:
+                            &lt;/div&gt;
+                            &lt;blockquote&gt;
+                            &lt;div&gt;
+                            auditctl -l | grep docker.service&amp;nbsp;
+                            &lt;/div&gt;
+                            &lt;/blockquote&gt;
+                            &lt;div&gt;
+                            This should list a rule for docker.service as per its location.
+                            &lt;/div&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2016-08-02T10:21:32.718'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

@@ -1,0 +1,25 @@
+<weakness ref='AZURE-LOGS01' name='Undetected changes in the SQL database information and configuration' state='0' impact='100'>
+          <desc>&lt;div&gt;
+                        The changes in the SQL database information and configuration are not detected and audited, due
+                        of the Azure mechanisms to notify the changes are disabled.
+                        &lt;/div&gt;
+                    </desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;div&gt;
+                            &lt;ol&gt;
+                            &lt;li&gt;Select SQL databases from the left-hand menu, and click your database on the SQL
+                            databases page.&lt;/li&gt;
+                            &lt;li&gt;In the Settings blade, select Auditing &amp;amp; Threat Detection.&lt;/li&gt;
+                            &lt;li&gt;Check that the Database Threat Detection and the Database Auditing are enabled and
+                            correctly configured.&lt;/li&gt;
+                            &lt;/ol&gt;
+                            &lt;/div&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2017-06-09T12:45:00.149'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>

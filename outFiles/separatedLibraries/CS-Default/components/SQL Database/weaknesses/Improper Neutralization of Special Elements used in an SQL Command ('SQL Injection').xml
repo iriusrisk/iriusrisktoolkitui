@@ -1,0 +1,29 @@
+<weakness ref="CWE-89" name="Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references>
+                            <reference name="CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')" url="https://cwe.mitre.org/data/definitions/89.html"/>
+                            <reference name="OWASP Testing Guide" url="https://www.owasp.org/index.php/Testing_for_SQL_Injection_(OTG-INPVAL-005)#Standard_SQL_Injection_Testing"/>
+                        </references>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2015-08-15T17:17:13.083000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The software constructs all or part of an SQL command using externally-influenced input from
+                        an upstream component, but it does not neutralize or incorrectly neutralizes special elements
+                        that could modify the intended SQL command when it is sent to a downstream component.&amp;nbsp;
+                        &lt;div&gt;
+                        &amp;nbsp;
+                        &lt;br /&gt;Without sufficient removal or quoting of SQL syntax in user-controllable inputs, the
+                        generated SQL query can cause those inputs to be interpreted as SQL instead of ordinary user
+                        data. This can be used to alter query logic to bypass security checks, or to insert additional
+                        statements that modify the back-end database, possibly including execution of system commands.
+                        SQL injection has become a common issue with database-driven web sites. The flaw is easily
+                        detected, and easily exploited, and as such, any site or software package with even a minimal
+                        user base is likely to be subject to an attempted attack of this kind. This flaw depends on the
+                        fact that SQL makes no real distinction between the control and data planes.
+                        &lt;/div&gt;
+                    </desc>
+                </weakness>

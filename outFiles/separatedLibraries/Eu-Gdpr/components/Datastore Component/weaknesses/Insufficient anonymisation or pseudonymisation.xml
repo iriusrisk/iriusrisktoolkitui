@@ -1,0 +1,14 @@
+<weakness ref="EU-GDPR-NO-ANONYMISATION" name="Insufficient anonymisation or pseudonymisation" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-02-22T12:32:19.749000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>Personal data which is not - or incorrectly - anonymized or pseudonymized is more vulnerable to malicious personal data processing because the data subjects are more easily identifiable.
+          &lt;br /&gt;&lt;br /&gt;Data subject = person of whom data is processed.
+          </desc>
+                </weakness>

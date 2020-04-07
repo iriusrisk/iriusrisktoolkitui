@@ -1,0 +1,69 @@
+<threat ref="7k-CWE-TimeState" name="Attackers gain unauthorised access to the application because of time and state management issues" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>&lt;div&gt;
+                                This weakness is related to the&amp;nbsp;improper&amp;nbsp;management of time and state
+                                in an environment that supports simultaneous or near-simultaneous computation by
+                                multiple systems, processes, or threads.
+                                &lt;/div&gt;
+                                &lt;div&gt;
+                                &lt;p&gt;Distributed computation is about time and state. That is, in order for more
+                                than one component to communicate, state must be shared, and all that takes time. Most
+                                programmers anthropomorphize their work. They think about one thread of control carrying
+                                out the entire program in the same way they would if they had to do the job themselves.
+                                Modern computers, however, switch between tasks very quickly, and in multi-core,
+                                multi-CPU, or distributed systems, two events may take place at exactly the same time.
+                                Defects rush to fill the gap between the programmer's model of how a program executes
+                                and what happens in reality. These defects are related to&amp;nbsp;unexpected&amp;nbsp;interactions
+                                between threads, processes, time, and information. These interactions happen through
+                                shared state: semaphores, variables, the file system, and, basically, anything that can
+                                store information.&lt;/p&gt;
+                                &lt;/div&gt;
+                            </desc>
+                            <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="50"/>
+                            <references/>
+                            <controls>
+                                <control ref="TIME-STATE" mitigation="100"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-438">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-736">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-870">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-882">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-846">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-853">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-855">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-557">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-361">
+                                    <controls>
+                                        <control ref="TIME-STATE" mitigation="100"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="CWE-381">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-730">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-380">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-376">
+                                    <controls/>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

@@ -1,0 +1,77 @@
+<control ref="PCI-PAN-STORED-3.4" name="3.4 Use of one-way hashes, truncation, index tokens or strong cryptography is required to store the PAN " platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;PANs stored in primary storage (databases, or flat files such as text files
+                        spreadsheets) as
+                        well as non-primary storage (backup, audit logs, exception or troubleshooting logs) must all be
+                        protected.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;One-way hash functions based on strong cryptography can be used to render cardholder
+                        data
+                        unreadable. Hash functions are appropriate when there is no need to retrieve the original number
+                        (one-way
+                        hashes are irreversible). It is recommended, but not currently a requirement, that an
+                        additional, random
+                        input value be added to the cardholder data prior to hashing to reduce the feasibility of an
+                        attacker
+                        comparing the data against (and deriving the PAN from) tables of pre-computed hash values.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;The intent of truncation is to permanently remove a segment of PAN data so that only a
+                        portion
+                        (generally not to exceed the first six and last four digits) of the PAN is stored.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;An index token is a cryptographic token that replaces the PAN based on a given index
+                        for an
+                        unpredictable value. A one-time pad is a system in which a randomly generated private key is
+                        used only once
+                        to encrypt a message that is then decrypted using a matching one-time pad and key.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;The intent of strong cryptography (as defined in the &lt;i&gt;PCI DSS and PA-DSS
+                        Glossary of Terms,
+                        Abbreviations, and Acronyms&lt;/i&gt;) is that the encryption be based on an industry-tested and
+                        accepted
+                        algorithm (not a proprietary or &amp;quot;home-grown&amp;quot; algorithm) with strong
+                        cryptographic keys.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;By correlating hashed and truncated versions of a given PAN, a malicious individual may
+                        easily
+                        derive the original PAN value. Controls that prevent the correlation of this data will help
+                        ensure that the
+                        original PAN remains unreadable.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="3.4" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;Examine documentation about the system used to protect the PAN, including the
+                            vendor, type
+                            of system/process, and the encryption algorithms (if applicable) to verify that the PAN is
+                            rendered
+                            unreadable using any of the following methods:&amp;nbsp;&lt;/p&gt;
+                            &lt;p&gt;- One-way hashes based on strong cryptography,&amp;nbsp;&lt;/p&gt;
+                            &lt;p&gt;- Truncation&amp;nbsp;&lt;/p&gt;
+                            &lt;p&gt;- Index tokens and pads, with the pads being securely stored&amp;nbsp;&lt;/p&gt;
+                            &lt;p&gt;- Strong cryptography, with associated&amp;nbsp;key-management processes and
+                            procedures&amp;nbsp;&lt;/p&gt;
+                            &lt;p&gt;Examine several tables or files from a sample of data repositories to verify the
+                            PAN is rendered
+                            unreadable (that is, not stored in plain-text).&amp;nbsp;&lt;/p&gt;
+                            &lt;p&gt; &lt;/p&gt;
+                            &lt;p&gt;Examine a sample of removable media (for example, back-up tapes) to confirm that
+                            the PAN is
+                            rendered unreadable.&lt;/p&gt;
+                            &lt;p&gt;Examine a sample of audit logs, including payment application logs, to confirm that
+                            PAN is
+                            rendered unreadable or is not present in the logs.&amp;nbsp;&lt;/p&gt;
+                            &lt;p&gt; &lt;/p&gt;
+                            &lt;p&gt;if hashed and truncated versions of the same PAN are present in the environment,
+                            examine
+                            implemented controls to verify that the hashed and truncated versions cannot be correlated
+                            to reconstruct
+                            the original PAN.&lt;/p&gt;
+                            &lt;p&gt; &lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-02T21:49:25.327000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

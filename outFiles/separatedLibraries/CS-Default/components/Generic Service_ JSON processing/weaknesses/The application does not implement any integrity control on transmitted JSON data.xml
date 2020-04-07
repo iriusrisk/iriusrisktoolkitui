@@ -1,0 +1,15 @@
+<weakness ref="SRV-JSON-SIG" name="The application does not implement any integrity control on transmitted JSON data" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-11-30T22:53:35.709000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>If JSON data is not validated for authenticity and integrity then the application
+                        functionality could be subverted which could lead to sensitive data leaks or bypassing of
+                        critical business logic.
+                    </desc>
+                </weakness>

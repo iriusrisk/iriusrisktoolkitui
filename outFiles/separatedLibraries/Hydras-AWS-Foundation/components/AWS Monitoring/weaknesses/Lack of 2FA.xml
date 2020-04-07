@@ -1,0 +1,15 @@
+<weakness ref='AWS-Monitoring-4.3' name='Lack of 2FA' state='0' impact='100'>
+          <desc>Login to the console without using the Multi-factor Authentication (MFA) and they are not
+                        detected. The connection without the MFA must be audited and monitored, the correct security
+                        group must be informed and they must validate this connection.
+                    </desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>

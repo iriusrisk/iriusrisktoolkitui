@@ -1,0 +1,12 @@
+<weakness ref='HIPAA-CWE-694' name='Workforce members are sharing usernames' state='0' impact='100'>
+          <desc>Lack of assigning unique user names destroys the credibility of the audit trail resulting in an inability to identify and track who has made changes to or viewed EPHI and help determine whether the access was by an attacker.</desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-16T11:45:21.695'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>

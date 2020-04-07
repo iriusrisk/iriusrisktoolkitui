@@ -1,0 +1,15 @@
+<weakness ref="EU-GDPR-NO-DELETION-FUNCTIONALITY" name="Not data deletion functionality" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T14:12:01.417000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>Personal data is not automatically deleted when retention periods have expired, which means data must be manually deleted by an administrator who can easily forget this task.
+          &lt;br /&gt;&lt;br /&gt;
+          Personal data that was deleted becomes operational again after a restore because the data was not deleted from the back-ups nor was there a process in place to reidentify and delete personal data that was previously deleted.
+          </desc>
+                </weakness>

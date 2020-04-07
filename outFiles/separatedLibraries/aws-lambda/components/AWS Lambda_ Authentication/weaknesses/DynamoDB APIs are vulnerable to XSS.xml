@@ -1,0 +1,12 @@
+<weakness ref="AWS-LAMBDA-W20" name="DynamoDB APIs are vulnerable to XSS" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-03-25T16:40:59">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>DynamoDB is a NoSQL database and as such is schemaless. NoSQL databases provide looser consistency restrictions than traditional SQL databases. By requiring fewer relational constraints and consistency checks, NoSQL databases often offer performance and scaling benefits. Yet these databases are still potentially vulnerable to injection attacks, even if they aren't using the traditional SQL syntax.</desc>
+                </weakness>

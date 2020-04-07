@@ -1,0 +1,24 @@
+<threat ref="WEB-QUERY-PARAM" name="Sensitive data is compromised through query parameters in the URL" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>Sensitive data directly put as a parameters on the URL could be easily leaked on logs,
+                                browser history, etc.&amp;nbsp;
+                                &lt;div&gt;
+                                &lt;br /&gt;
+                                &lt;/div&gt;
+                                &lt;div&gt;
+                                And this information could be used by an attacker to gain access to the system or user
+                                data.
+                                &lt;/div&gt;
+                            </desc>
+                            <riskRating confidentiality="100" integrity="100" availability="50" easeOfExploitation="100"/>
+                            <references/>
+                            <controls>
+                                <control ref="CWE-598" mitigation="100"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-598">
+                                    <controls>
+                                        <control ref="CWE-598" mitigation="100"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

@@ -1,0 +1,36 @@
+<control ref="PCI-R10-10.3" name="10.3 - Log the relevant information from each event " platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>At least the following information must be logged:&amp;nbsp;- User identification- Type of
+                        event&amp;nbsp;-
+                        Date and time- Success or failure indication&amp;nbsp;- Origination of event&amp;nbsp;- Identity
+                        or name of
+                        affected data, system component, or resource.
+                        &lt;br /&gt;
+                        &lt;br /&gt;
+                        &lt;p&gt;By recording these details for the auditable events at 10.2, a potential compromise can
+                        be quickly
+                        identified, and with sufficient detail to know who, what, where, when, and how.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="10.3" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;10.3.1 Verify user identification is included in log entries. &lt;/p&gt;
+                            &lt;p&gt;10.3.2 Verify type of event is included in log entries. &lt;/p&gt;
+                            &lt;p&gt;10.3.3 Verify date and time stamp is included in log entries. &lt;/p&gt;
+                            &lt;p&gt;10.3.4 Verify success or failure indication is included in log entries. &lt;/p&gt;
+                            &lt;p&gt;10.3.5 Verify origination of event is included in log entries. &lt;/p&gt;
+                            &lt;p&gt;10.3.6 Verify identity or name of affected data, system component, or resources is
+                            included in
+                            log entries.&amp;nbsp;&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T16:57:47.940000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

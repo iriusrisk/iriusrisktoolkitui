@@ -1,0 +1,24 @@
+<control ref="ONLY-WITH-W3C" name="Use W3C browser standards only" platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="EDITED">
+                    <desc>Do not use Flash, Active-X, Silverlight, NACL, client-side Java or other client side
+                        technologies not supported natively by W3C browser standards.
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="SI-7" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="16.9" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="16.9" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="16.9" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>Check that technologies not supported natively via W3C browser standards are not used.
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-08-07T10:18:33.606000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

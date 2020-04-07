@@ -1,0 +1,12 @@
+<weakness ref="UNNECESSARY-SERVICES" name="Unnecessary services are exposed" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-03-13T16:00:43">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The application exposes unnecessary services which increase the attack surface.</desc>
+                </weakness>

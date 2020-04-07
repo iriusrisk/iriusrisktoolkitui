@@ -1,0 +1,36 @@
+<control ref="PCI-R12-12.1" name="12.1 - Establish, publish, maintain, and disseminate a security policy." platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;A company's information security policy creates the roadmap for implementing security
+                        measures
+                        to protect its most valuable assets. All personnel should be aware of the sensitivity of data
+                        and their
+                        responsibilities for protecting it.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Review the security policy at least annually and update the policy when the
+                        environment changes:&amp;nbsp;&lt;/p&gt;
+                        &lt;br /&gt;
+                        &lt;p&gt;Security threats and protection methods evolve rapidly. Without updating the security
+                        policy to
+                        reflect relevant changes, new protection measures to fight against these threats are not
+                        addressed.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="12.1" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;12.1 Examine the information security policy and verify that the policy is
+                            published and
+                            disseminated to all relevant personnel (including vendors and business partners). &lt;/p&gt;
+                            &lt;p&gt;12.1.1 Verify that the information security policy is reviewed at least annually
+                            and updated as
+                            needed to reflect changes to business objectives or the risk environment.&amp;nbsp;&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-07T22:20:42.213000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

@@ -1,0 +1,59 @@
+<control ref="CWE-312-ENCRYPT" name="Store sensitive data in a cryptographically secure store" platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+                        Local/client-side storage of sensitive data is considered an insecure option due to the risk of
+                        exposure of the data on the client-side.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;If possible, avoid storing sensitive data on the client at all. Instead, store the
+                        data on the server side and only access it once the user has authenticated.&lt;/li&gt;
+                        &lt;li&gt;If sensitive data must be stored, then it should be stored in a cryptographically
+                        secure encrypted store.&lt;/li&gt;
+                        &lt;li&gt;Where possible, system provided stores should be used; for example, iOS and Android
+                        provide password stores, as does MacOS/OS X's Keychain.&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="A3:2017-Sensitive Data Exposure" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;div&gt;
+                            &lt;ol&gt;
+                            &lt;li&gt;Identify the functions of the component which are storing sensitive data, in
+                            particular authentication credentials.&lt;/li&gt;
+                            &lt;li&gt;Confirm that system provided stores (such as the Mac OS X Keychain) are used.&lt;/li&gt;
+                            &lt;/ol&gt;
+                            &lt;div&gt;
+                            If not, and a separate encryption process is in use, it should be noted it is considered bad
+                            practice to store passwords in recoverable form. Verify the following:&amp;nbsp;&amp;nbsp;
+                            &lt;br /&gt;
+                            &lt;ol&gt;
+                            &lt;li&gt;Data is encrypted before being stored (e.g. in memory before writing to any
+                            persistent storage)&lt;/li&gt;
+                            &lt;li&gt;Data is erased in memory before release&lt;/li&gt;
+                            &lt;li&gt;Libraries or code used to encrypt the data are reputable and provably secure (i.e.
+                            have undergone proper review) and are implemented in line with recommendations (e.g. correct
+                            use of a strong PRNG).&lt;/li&gt;
+                            &lt;li&gt;Ideally a public-key cryptography should be used.&lt;/li&gt;
+                            &lt;li&gt;Keys to decrypt the data must not be stored on the device with the data.&lt;/li&gt;
+                            &lt;li&gt;Confirm how the data will be accessed or unlocked; and that security is equivalent
+                            to the stored credentials. e.g. is the password saved using a master password, PIN
+                            protection or similar?&lt;/li&gt;
+                            &lt;/ol&gt;
+                            &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;ol&gt;
+                            &lt;/ol&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2015-08-15T17:17:18.803000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

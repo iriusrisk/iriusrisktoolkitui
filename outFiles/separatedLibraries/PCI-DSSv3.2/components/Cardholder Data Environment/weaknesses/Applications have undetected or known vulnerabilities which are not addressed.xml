@@ -1,0 +1,12 @@
+<weakness ref="PCI-R6-6.x1" name="Applications have undetected or known vulnerabilities which are not addressed" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T10:25:28.855000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc></desc>
+                </weakness>

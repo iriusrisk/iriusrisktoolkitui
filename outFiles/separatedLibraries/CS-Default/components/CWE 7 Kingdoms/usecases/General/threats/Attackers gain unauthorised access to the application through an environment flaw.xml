@@ -1,0 +1,82 @@
+<threat ref="7k-CWE-Environment" name="Attackers gain unauthorised access to the application through an environment flaw" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>This section includes everything that is outside of the source code but is still
+                                critical to the security of the product that is being created. Because the issues
+                                covered by this kingdom are not directly related to source code, we separated it from
+                                the rest of the kingdoms.&amp;nbsp;
+                            </desc>
+                            <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="50"/>
+                            <references/>
+                            <controls>
+                                <control ref="ENV-USE" mitigation="100"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-519">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-865">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-840">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-742">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-744">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-876">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-878">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-16">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-1">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-504">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-815">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-933">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-891">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-907">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-892">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-982">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-969">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-983">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-984">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-3">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-2">
+                                    <controls>
+                                        <control ref="ENV-USE" mitigation="100"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="CWE-633">
+                                    <controls/>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

@@ -1,0 +1,46 @@
+<control ref="API-USE" name="Verify that the application is using the API following the specifications" platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+                        Insecure API implementations may allow subversion of application controls or safeguards.
+                        Furthermore, use of the API in an undocumented manner can result in issues if bugs or
+                        functionality are remediated in the future.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;The application must follow the specifications of the API, even where workarounds or
+                        shortcuts have been identified.&lt;/li&gt;
+                        &lt;li&gt;The API should be properly implemented and safely handle unexpected input and use, but
+                        this should not be relied upon by the client.&lt;/li&gt;
+                        &lt;li&gt;The application should following standard call sequences and logical flow to support
+                        security and functionality of the API implementation&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards/>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+                            &lt;li&gt;Identify the areas of the application that uses the API.&lt;/li&gt;
+                            &lt;li&gt;Verify the call sequence is compliant with the standard specification.&lt;/li&gt;
+                            &lt;/ol&gt;
+                            &lt;div&gt;
+                            &lt;br /&gt;
+                            &lt;/div&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2017-06-19T10:23:11.571000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

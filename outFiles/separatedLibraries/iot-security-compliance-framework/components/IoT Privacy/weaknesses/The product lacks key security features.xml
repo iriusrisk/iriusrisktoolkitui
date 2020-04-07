@@ -1,0 +1,12 @@
+<weakness ref="CWE-254-PROD" name="The product lacks key security features" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-03-13T16:00:47">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The product lack of key security features such as protection against tampering, unprotected storages or it has other misconfigurations and omissions during production.</desc>
+                </weakness>

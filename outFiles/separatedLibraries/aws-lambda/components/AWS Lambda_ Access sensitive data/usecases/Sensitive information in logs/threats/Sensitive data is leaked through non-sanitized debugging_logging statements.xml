@@ -1,0 +1,20 @@
+<threat ref="AWS-LAMBDA-T14" name="Sensitive data is leaked through non-sanitized debugging/logging statements" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>	&lt;p&gt;Whilst logging all information may be helpful during development stages, it is important that logging levels be set appropriately before a product ships, ensuring sensitive user data and system information are not exposed to potential attackers.&lt;/p&gt;</desc>
+                            <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="25"/>
+                            <references/>
+                            <controls>
+                                <control ref="AWS-LAMBDA-C29" mitigation="100"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="AWS-LAMBDA-W22">
+                                    <controls>
+                                        <control ref="AWS-LAMBDA-C29" mitigation="100"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="AWS-LAMBDA-W21">
+                                    <controls>
+                                        <control ref="AWS-LAMBDA-C29" mitigation="100"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

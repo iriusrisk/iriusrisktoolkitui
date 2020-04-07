@@ -1,0 +1,30 @@
+<control ref="INF-UNNECESSARY-SERVICES" name="Restrict access to required services only" platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;The attack surface, and therefore susceptibility to attack, should be minimized. In particular, services that are not explicitly required for the proper operation of the server or service should be disable, or access to them be restricted.&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;Any service, feature, or functionality that is not required should be disabled or removed. This applies equally to the operating system, middleware, web-server, or other software in use.&lt;/li&gt; 
+ &lt;li&gt;Access to the server and remaining services (in particular those that cannot be disabled or removed) should be controlled use host-based and/or network security controls; for example host firewalls, network firewalls, routers, or switches.&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;p&gt;&lt;/p&gt;</desc>
+                    <implementations/>
+                    <references/>
+                    <standards/>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;Conduct a host review to confirm the software and services running and exposed on the system.&lt;/li&gt; 
+ &lt;li&gt;Support the host review with network based scans across at least all &lt;span class="caps"&gt;TCP&lt;/span&gt; and &lt;span class="caps"&gt;UDP&lt;/span&gt; ports (0-65535), together with &lt;span class="caps"&gt;RPC&lt;/span&gt; and other remote call services.&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;Verify the running and accessible services against expected configuration for the system, and against the security principal of ‘least privilege’.&lt;/li&gt; 
+ &lt;li&gt;Where a network or host based firewall is in use, it should be configured to drop connections rather than reject them. i.e. port-scans should identify only ‘open’ or ‘filtered’ services; no service should be identifiably ‘closed’.&lt;/li&gt; 
+ &lt;li&gt;Note however that different network based security solutions exhibit different behavior in this regard.&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;p&gt;&lt;/p&gt;</steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-03-13T16:00:43">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

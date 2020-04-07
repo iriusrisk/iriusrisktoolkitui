@@ -1,0 +1,12 @@
+<rule name="Risk Pattern: Languages/Framework - Web UI - WYSIWYG" module="component" generatedByGui="true">
+            <condition name="Question is answered" type="Question" field="id" value="feature.wysiwyg">
+                <pattern name="Condition with answer" pattern='${type}(${field} == "${value}", answer == true);'/>
+            </condition>
+            <condition name="Risk pattern exists" type="drools-without-variable-type" field="id" value="CS-Default_::_BROWSER">
+                <pattern name="Risk pattern exists" pattern='$riskPattern : ImportWholeRiskPatternAwareDto(libraryRef == "${value-1}",riskPatternRef == "${value-2}");'/>
+            </condition>
+            <action project="CS-Default" value="CS-Default_::_BROWSER:WYSIWYG" name="Import Risk Pattern" type="drools-without-variable-type">
+                <pattern name="Action of import a risk pattern" pattern='insertLogical(ImportRiskPatternFactory.importRiskPattern("${value-1}", "${value-2}", 50));'/>
+            </action>
+            <content></content>
+        </rule>

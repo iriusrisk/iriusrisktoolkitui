@@ -1,0 +1,37 @@
+<control ref="PCI-R8-8.1.5" name="8.1.5 - Manage IDs used by third parties" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Manage IDs used by third parties to access, support, or maintain system components
+                        via remote
+                        access as follows:&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Enabled only during the time period needed and disabled when not in use.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Monitored when in use.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt; &lt;/p&gt;
+                        &lt;p&gt;Allowing vendors to have 24/7 access into your network in case they need to support
+                        your systems
+                        increases the chances of unauthorized access, either from a user in the vendor's
+                        environment or
+                        from a
+                        malicious individual who finds and uses this always-available external entry point into your
+                        network.
+                        Enabling access only for the time periods needed, and disabling it as soon as it is no longer
+                        needed, helps
+                        prevent misuse of these connections.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;Monitoring of vendor access provides assurance that vendors are accessing only the
+                        systems
+                        necessary and only during approved time frames.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="8.1.5" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T14:27:29.500000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

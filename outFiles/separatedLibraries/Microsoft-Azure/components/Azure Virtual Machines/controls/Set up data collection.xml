@@ -1,0 +1,44 @@
+<control ref='AZ-V01' name='Set up data collection' platform='' cost='0' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;div&gt;
+                        Set up the Security Center Data Collection to create an Azure storage account to hold the
+                        collected data.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ol&gt;
+                        &lt;li&gt;On the Security Center dashboard, click Security policy, and then select your
+                        subscription.&lt;/li&gt;
+                        &lt;li&gt;For Data collection, select On.&lt;/li&gt;
+                        &lt;li&gt;To create a storage account, select Choose a storage account. Then, select OK.&lt;/li&gt;
+                        &lt;li&gt;On the Security Policy blade, select Save.&lt;/li&gt;
+                        &lt;/ol&gt;
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='MS Azure - Data collection in Azure Security Center' url='https://docs.microsoft.com/en-us/azure/security-center/security-center-enable-data-collection' />
+          </references>
+          <standards />
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;div&gt;
+                            &lt;ol&gt;
+                            &lt;li&gt;On the Security Center dashboard, click Security policy, and then select your
+                            subscription.&lt;/li&gt;
+                            &lt;li&gt;Check that the Data collection is enabled and correctly configured.&lt;/li&gt;
+                            &lt;/ol&gt;
+                            &lt;/div&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2017-06-12T09:57:14.196'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

@@ -1,0 +1,45 @@
+<control ref="FILE-SCAN" name="Perform content scanning on untrusted files when uploaded" platform="" cost="2" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+                        The application should perform validation and sanitization on all tainted content from the
+                        client-side, including uploaded files.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Content/malware scanning performed against the file (e.g. next generation anti-virus)
+                        to detect suspicious, dangerous, or unexpected content.&lt;/li&gt;
+                        &lt;li&gt;Content analysis should also be used to reject unexpected or dangerous file formats
+                        that may harbor malicious code, for example encrypted word, pdf or other office documents or
+                        archives, or other files with hidden or executable payloads.&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="12.2.1" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="12.5.1" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="SI-10" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-16" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-3" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-6" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="16.3" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="16.3" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="16.3" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+                            &lt;li&gt;Verify the component has the capability of scanning externally retrieved files
+                            which are untrusted.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Check the component and verify this scanning is actually happening for all the
+                            untrusted files which are received.&amp;nbsp;&lt;/li&gt;
+                            &lt;/ol&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-11-30T12:54:43.303000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

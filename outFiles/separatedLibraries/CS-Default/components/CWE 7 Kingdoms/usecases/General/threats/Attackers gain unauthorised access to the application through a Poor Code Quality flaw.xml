@@ -1,0 +1,150 @@
+<threat ref="7k-CWE-PoorCQ" name="Attackers gain unauthorised access to the application through a Poor Code Quality flaw" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>Poor code quality leads to unpredictable behavior. From a user perspective that
+                                often manifests itself as poor usability. For an adversary it provides an opportunity to
+                                stress the system in unexpected ways.
+                            </desc>
+                            <riskRating confidentiality="25" integrity="25" availability="25" easeOfExploitation="25"/>
+                            <references/>
+                            <controls>
+                                <control ref="SEC-CODING" mitigation="100"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-752">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-802">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-808">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-867">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-503">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-735">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-739">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-741">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-747">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-748">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-869">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-875">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-881">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-883">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-849">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-850">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-852">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-856">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-858">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-860">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-861">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-17">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-710">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-217">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-506">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-912">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-518">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-513">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-505">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-671">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-511">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-490">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-508">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-517">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-758">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-904">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-975">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-976">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-978">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-18">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-512">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-398">
+                                    <controls>
+                                        <control ref="SEC-CODING" mitigation="100"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="CWE-507">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-637">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-634">
+                                    <controls/>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

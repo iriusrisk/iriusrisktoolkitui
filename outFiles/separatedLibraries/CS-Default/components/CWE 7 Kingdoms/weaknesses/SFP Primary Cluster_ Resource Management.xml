@@ -1,0 +1,14 @@
+<weakness ref="CWE-892" name="SFP Primary Cluster: Resource Management" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-04-04T17:36:24.493000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>This category identifies Software Fault Patterns (SFPs) within
+                        the Resource Management cluster.
+                    </desc>
+                </weakness>

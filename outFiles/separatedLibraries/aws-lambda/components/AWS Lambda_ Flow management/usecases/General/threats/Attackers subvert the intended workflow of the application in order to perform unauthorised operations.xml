@@ -1,0 +1,17 @@
+<threat ref="CAPEC-172" name="Attackers subvert the intended workflow of the application in order to perform unauthorised operations" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>	&lt;p&gt;If an application enforces an order in workflows, then attackers could attempt to bypass this order so that they can perform operations for which they are not authorized. The technique can also be used to gain access to unauthorised data.&lt;/p&gt;</desc>
+                            <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="25"/>
+                            <references/>
+                            <controls>
+                                <control ref="OTG-BUSLOGIC" mitigation="50"/>
+                                <control ref="OTG-BUSLOGIC-006" mitigation="50"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-841">
+                                    <controls>
+                                        <control ref="OTG-BUSLOGIC" mitigation="50"/>
+                                        <control ref="OTG-BUSLOGIC-006" mitigation="50"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

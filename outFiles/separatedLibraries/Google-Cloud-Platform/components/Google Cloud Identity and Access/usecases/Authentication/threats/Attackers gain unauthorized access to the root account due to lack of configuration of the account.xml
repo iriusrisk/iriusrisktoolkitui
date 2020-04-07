@@ -1,0 +1,30 @@
+<threat ref='GOOGLE-LOST-ACCESS-ROOT' name='Attackers gain unauthorized access to the root account due to lack of configuration of the account' state='Expose' source='MANUAL' owner='' library=''>
+              <desc>Attackers could gain unauthorized access to the administrator account due to lack of
+                                configuration of the account and its security mechanisms, such as modifying credentials
+                                and adding/removing user accounts.
+                            </desc>
+              <riskRating confidentiality='100' integrity='100' availability='100' easeOfExploitation='25' />
+              <references />
+              <weaknesses>
+                <weakness ref='GOOGLE-MON02'>
+                  <controls>
+                    <control ref='GOOGLE-IAM05' mitigation='30' />
+                  </controls>
+                </weakness>
+                <weakness ref='LOST-SECURITY-ALERTS'>
+                  <controls>
+                    <control ref='GOOGLE-GOV01' mitigation='30' />
+                  </controls>
+                </weakness>
+                <weakness ref='GOOGLE-IAM-01'>
+                  <controls>
+                    <control ref='GOOGLE-IAM06' mitigation='40' />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref='GOOGLE-GOV01' mitigation='30' />
+                <control ref='GOOGLE-IAM05' mitigation='30' />
+                <control ref='GOOGLE-IAM06' mitigation='40' />
+              </controls>
+            </threat>

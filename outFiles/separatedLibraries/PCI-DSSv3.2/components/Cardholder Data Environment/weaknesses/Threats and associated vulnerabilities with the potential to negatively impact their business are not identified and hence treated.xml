@@ -1,0 +1,12 @@
+<weakness ref="PCI-R12-12.2" name="Threats and associated vulnerabilities with the potential to negatively impact their business are not identified and hence treated" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-07T22:10:29.286000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc></desc>
+                </weakness>

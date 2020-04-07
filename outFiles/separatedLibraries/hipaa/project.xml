@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Copyright (c) 2012-2019 Continuum Security.  All rights reserved.The content of this library is the property of Continuum Security SL and may only be used in whole or in part with a valid license for IriusRisk.-->
+<project ref='hipaa' name='hipaa' revision='5' type='LIBRARY' status='OPEN' enabled='true' priority='0' tags=''>
+  <desc>This library provides a set of requirements that help comply with Health Insurance Portability and Accountability Act of 1996 (HIPAA).</desc>
+  <categoryComponents>
+    <categoryComponent ref='regulatory' name='Regulatory' />
+  </categoryComponents>
+  <componentDefinitions>
+    <componentDefinition ref='hipaa-environment' name='HIPAA Environment' desc='Choose this component if the application handles Protected Health Information (PHI) in the United States in the service of (or on behalf of) a covered entity' categoryRef='regulatory'>
+      <riskPatterns>
+        <riskPattern ref='hipaa-environment' />
+      </riskPatterns>
+    </componentDefinition>
+  </componentDefinitions>
+  <supportedStandards>
+    <supportedStandard ref='hipaa-addressable' name='HIPAA Addressable' />
+    <supportedStandard ref='hipaa-required' name='HIPAA Required' />
+  </supportedStandards>
+  <udts />
+  

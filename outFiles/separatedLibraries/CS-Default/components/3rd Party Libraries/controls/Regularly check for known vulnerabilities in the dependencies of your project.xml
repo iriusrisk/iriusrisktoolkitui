@@ -1,0 +1,70 @@
+<control ref="CWE-937" name="Regularly check for known vulnerabilities in the dependencies of your project" platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+                        Vulnerabilities in common popular and shared libraries are published and recorded in a number of
+                        online databases and services, including the MITRE CVE and CWE databases.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Perform regular checks for published vulnerabilities in third party components and the
+                        IDE.&lt;/li&gt;
+                        &lt;li&gt;Test and apply appropriate recommended patches and mitigations.&lt;/li&gt;
+                        &lt;li&gt;Use subscription threat intelligence and alerting services to ensure timely
+                        notification of possible threats&lt;/li&gt;
+                        &lt;li&gt;Use automated vulnerability scanning tools to identify and test for security threats
+                        to the project.&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                        &lt;ul&gt;
+                        &lt;/ul&gt;
+                    </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="Common Vulnerabilities and Exposures (CVE) Database" url="https://cve.mitre.org/"/>
+                    </references>
+                    <standards>
+                        <standard ref="12.6.1" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="SA-15" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SA-8" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="1.11" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="1.11" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="A9:2017-Using Components with Known Vulnerabilities" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;div&gt;
+                            &lt;ol&gt;
+                            &lt;li&gt;Ensure a process is in place to regularly check for vulnerabilities in software
+                            components and libraries. Sources should include:&lt;/li&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt;Vendor notifications&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Threat intelligence feeds&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Vulnerability scanning.&lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;li&gt;Verify that processes exist to respond to vulnerabilities to research, test, and
+                            deploy appropriate patches.&lt;/li&gt;
+                            &lt;/ol&gt;
+                            &lt;div&gt;
+                            The following tools can help in automating dependencies checks:
+                            &lt;ul&gt;
+                            &lt;li&gt;&lt;a href="https://www.owasp.org/index.php/OWASP_Dependency_Check"&gt;OWASP
+                            Dependency Check&lt;/a&gt;&amp;nbsp;for Java and .NET.&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="http://retirejs.github.io/retire.js/"&gt;Retire.js&lt;/a&gt;&amp;nbsp;with
+                            support to scan several different of the most popular JS libraries andframeworks.&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="https://nodesecurity.io/opensource"&gt;nodesecurity.io&lt;/a&gt;&amp;nbsp;which
+                            focuses on node packages and libraries' security.&lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div&gt;
+                            &lt;br /&gt;
+                            &lt;/div&gt;
+                            &lt;div&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-10-11T10:33:59.664000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

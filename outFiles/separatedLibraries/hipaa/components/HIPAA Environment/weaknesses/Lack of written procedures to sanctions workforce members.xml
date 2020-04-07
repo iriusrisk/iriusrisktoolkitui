@@ -1,0 +1,13 @@
+<weakness ref='lack-written-procedures-sanctions' name='Lack of written procedures to sanctions workforce members' state='0' impact='100'>
+          <desc>Lack of written procedures to sanctions workforce members increases the likelihood that a workforce/ex-workforce members breaches or inappropriately modifies ePHI 
+&lt;br /&gt;</desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-16T14:16:17.872'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>

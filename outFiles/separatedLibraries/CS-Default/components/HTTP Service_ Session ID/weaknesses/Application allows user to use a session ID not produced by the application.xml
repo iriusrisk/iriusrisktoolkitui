@@ -1,0 +1,29 @@
+<weakness ref="CWE-384" name="Application allows user to use a session ID not produced by the application" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references>
+                            <reference name="CWE-384: Session Fixation" url="http://cwe.mitre.org/data/definitions/384.html"/>
+                        </references>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2017-03-27T10:24:40.494000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>Authenticating a user, or otherwise establishing a new user session, without invalidating any
+                        existing session identifier gives an attacker the opportunity to steal authenticated sessions.
+                        Such a scenario is commonly observed when:
+                        &lt;ol&gt;
+                        &lt;li&gt;A web application authenticates a user without first invalidating the existing
+                        session, thereby continuing to use the session already associated with the user.&lt;/li&gt;
+                        &lt;li&gt;An attacker is able to force a known session identifier on a user so that, once the
+                        user authenticates, the attacker has access to the authenticated session.&lt;/li&gt;
+                        &lt;li&gt;The application or container uses predictable session identifiers. In the generic
+                        exploit of session fixation vulnerabilities, an attacker creates a new session on a web
+                        application and records the associated session identifier. The attacker then causes the victim
+                        to associate, and possibly authenticate, against the server using that session identifier,
+                        giving the attacker access to the user's account through the active session.&lt;/li&gt;
+                        &lt;/ol&gt;
+                        &lt;br /&gt;
+                    </desc>
+                </weakness>

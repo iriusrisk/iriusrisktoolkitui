@@ -1,0 +1,12 @@
+<rule name='Q: Deployed - Public Cloud &amp; MS Azure &amp; Service - *' module='component' generatedByGui='true'>
+    <condition name='Question Group exists' type='drools-without-variable-type' field='id' value='cloud.azure.services'>
+      <pattern name='Question group exists' pattern='$group : QuestionGroup(id == "${value}") @Watch(!*);' />
+    </condition>
+    <condition name='Risk pattern exists' type='drools-without-variable-type' field='id' value='CS-Default_::_GENERIC-SERVICE'>
+      <pattern name='Risk pattern exists' pattern='$riskPattern : ImportWholeRiskPatternAwareDto(libraryRef == "${value-1}",riskPatternRef == "${value-2}");' />
+    </condition>
+    <action project='' value='azure.virtualMachines_::_Azure Virtual Machines_::_' name='Insert Question' type='drools-without-variable-type'>
+      <pattern name='Action of insert question' pattern='insertLogical(new Question($group, "${value-1}", "${value-2}", "${value-3}"));' />
+    </action>
+    <content />
+  </rule>

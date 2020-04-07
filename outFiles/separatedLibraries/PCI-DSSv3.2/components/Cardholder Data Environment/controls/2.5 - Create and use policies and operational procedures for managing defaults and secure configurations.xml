@@ -1,0 +1,31 @@
+<control ref="PCI-R2-2.5" name="2.5 - Create and use policies and operational procedures for managing defaults and secure configurations" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Personnel need to be aware of and following security policies and daily operational
+                        procedures
+                        to ensure vendor defaults and other security parameters are continuously managed to prevent
+                        insecure
+                        configurations.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="2.5" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;2.5 Examine documentation and interview personnel to verify that security
+                            policies and
+                            operational procedures for managing vendor defaults and other security parameters are: &lt;/p&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt; &lt;p&gt;Documented, &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;In use, and &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Known to all affected parties.&amp;nbsp;&lt;/p&gt; &lt;/li&gt;
+                            &lt;/ul&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-04T16:36:49.845000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

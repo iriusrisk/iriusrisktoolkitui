@@ -1,0 +1,45 @@
+<threat ref='UNAUTHORISED-CONNECTION' name='Attackers gain access to the system through direct access to Virtual Machines' state='Expose' source='MANUAL' owner='' library=''>
+              <desc>&lt;div&gt;
+                                Attackers can gain unauthorized connection to the Virtual Machines through misconfigured
+                                ports or security network configurations.
+                                &lt;/div&gt;
+                            </desc>
+              <riskRating confidentiality='25' integrity='25' availability='50' easeOfExploitation='50' />
+              <references />
+              <weaknesses>
+                <weakness ref='AZURE-NET-05'>
+                  <controls>
+                    <control ref='AZ-N05' mitigation='20' />
+                  </controls>
+                </weakness>
+                <weakness ref='AZURE-NET-04'>
+                  <controls>
+                    <control ref='AZ-N07' mitigation='20' />
+                  </controls>
+                </weakness>
+                <weakness ref='AZURE-NET-01'>
+                  <controls>
+                    <control ref='AZ-N01' mitigation='20' />
+                    <control ref='AZ-N02' mitigation='10' />
+                  </controls>
+                </weakness>
+                <weakness ref='AZURE-NET-02'>
+                  <controls>
+                    <control ref='AZ-N04' mitigation='10' />
+                  </controls>
+                </weakness>
+                <weakness ref='AZURE-NET-03'>
+                  <controls>
+                    <control ref='AZ-N03' mitigation='20' />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref='AZ-N01' mitigation='20' />
+                <control ref='AZ-N02' mitigation='10' />
+                <control ref='AZ-N03' mitigation='20' />
+                <control ref='AZ-N04' mitigation='10' />
+                <control ref='AZ-N05' mitigation='20' />
+                <control ref='AZ-N07' mitigation='20' />
+              </controls>
+            </threat>

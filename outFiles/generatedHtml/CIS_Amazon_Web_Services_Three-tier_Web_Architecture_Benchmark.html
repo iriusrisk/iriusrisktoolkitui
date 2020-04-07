@@ -1,0 +1,2906 @@
+<html>
+<head>
+<title>Standard CIS Amazon Web Services Three-tier Web Architecture Benchmark from the library CS-Default, CS-Policies, iot-security-compliance-framework, PCI-DSSv3.2, OWASP-MASVS-v1.0, hipaa, Eu-Gdpr, Docker-CIS, aws-lambda, Hydras-AWS-Foundation, Microsoft-Azure, Google-Cloud-Platform</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</head>
+<body>
+<h1 style="justify-content: center;text-align: center;font-weight: bold;">Standard 'CIS Amazon Web Services Three-tier Web Architecture Benchmark' from the library 'CS-Default, CS-Policies, iot-security-compliance-framework, PCI-DSSv3.2, OWASP-MASVS-v1.0, hipaa, Eu-Gdpr, Docker-CIS, aws-lambda, Hydras-AWS-Foundation, Microsoft-Azure, Google-Cloud-Platform'</h1>
+<div id="accordion">
+<div class="card border">
+<div id="heading1" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1" class="btn btn-light btn-group-toggle">Requirement: Ensure a customer created Customer Master Key (CMK) is created for the Web-tier [1.1]</button></h5></div>
+<div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#accordion"><div class="card-body"><div class="accordion" id="parent1"><div class="card border-success">
+<div id="heading2" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2" class="btn btn-light btn-group-toggle">Countermeasure: Use HTTPS listener for Web Tier ELB [aws-tier-1.1]</button></h5></div>
+<div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#parent1"><div class="card-body"><html><body>
+<div>
+  A load balancer takes requests from clients and distributes them across the EC2 instances that are registered with the load balancer (also known as back-end instances). 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  A listener is a process that checks for connection requests. It is configured with a protocol and a port for front-end (client to load balancer) connections 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  Note: an HTTPS listener configured on the ELB is not mandatory if you are terminating SSL connections directly on the Web Tier EC2 instances, and using a TCP listener on the ELB (TCP pass-through) 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  Using an HTTPS Elastic Load Balancer listener will make sure the application traffic between the client and the Web Tier ELB is encrypted over the SSL\TLS channel. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div> 
+ <b>Remediation:</b> 
+</div> 
+<div> 
+ <div style=""> 
+  <div>
+    Using the Amazon unified command line interface: 
+  </div> 
+  <div> 
+   <ul> 
+    <li>If the ListenerDescription field is missing, add a new HTTPS listener configured with a SSL\TLS certificate (the listener forwards traffic to the backend instances on port 80, but this can be modified by editing InstancePort=80):</li> 
+   </ul> 
+  </div> 
+ </div> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style=""> 
+    <div>
+      aws elb create-load-balancer-listeners --load-balancer-name &lt;web_tier_elb&gt; --listeners Protocol=HTTPS,LoadBalancerPort=443,InstanceProtocol=HTTP,InstancePort=80, SSLCertificateId=ssl_certificate_arn 
+    </div> 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote>
+</body></html></div></div>
+</div></div></div></div>
+</div>
+<div class="card border">
+<div id="heading3" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3" class="btn btn-light btn-group-toggle">Requirement: Ensure Web Tier ELB have the latest SSL Security Policies configured [1.10]</button></h5></div>
+<div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordion"><div class="card-body"><div class="accordion" id="parent3"><div class="card border-success">
+<div id="heading4" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4" class="btn btn-light btn-group-toggle">Countermeasure: Configure the latest SSL Security Policies for Web Tier ELB [aws-tier-1.10]</button></h5></div>
+<div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#parent3"><div class="card-body"><html><body>
+<div>
+  Elastic Load Balancing uses an Secure Socket Layer (SSL) negotiation configuration, known as a security policy, to negotiate SSL/TLS connections between a client and the load balancer. A security policy is a combination of SSL/TLS protocols, ciphers, and the Server Order Preference option. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  Elastic Load Balancing supports configuring your load balancer to use either predefined or custom security policies. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  Secure Sockets Layer (SSL) and Transport Layer Security (TLS) are cryptographic protocols that are used to encrypt confidential data over insecure networks such as the Internet. The TLS protocol is a newer version of the SSL protocol. In the Elastic Load Balancing documentation, we refer to both SSL and TLS protocols as the SSL protocol. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  Note: an SSL certificate configured on the ELB and an SSL Security Policy is not mandatory if you are terminating SSL connections directly on the Web Tier EC2 instances, and using a TCP listener on the ELB (TCP pass-through) 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  Making sure the latest ELB SSL Security Policy is used will ensure the SSL/TLS connection will be negotiated using only the appropriate cryptographic protocols deemed safe with no proven vulnerabilities. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div> 
+ <b>Remediation:</b> 
+</div> 
+<div> 
+ <div style="">
+   Using the Amazon unified command line interface: 
+ </div> 
+ <div style="">
+   (Note that you should replace &lt;web\_tier\_elb&gt; with your Web-tier ELB name, and _&lt;latest\_ssl\_policy&gt;_ with the proper policy name) 
+ </div> 
+ <div style=""> 
+  <br> 
+ </div> 
+</div> 
+<blockquote> 
+ <div> 
+  <div style="">
+    aws elb set-load-balancer-policies-of-listener --load-balancer-name &lt;web_tier_elb&gt; --load-balancer-port 443 --policy-names  &lt;latest_ssl_policy&gt; 
+  </div> 
+ </div> 
+</blockquote>
+</body></html></div></div>
+</div></div></div></div>
+</div>
+<div class="card border">
+<div id="heading5" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapse5" class="btn btn-light btn-group-toggle">Requirement: Ensure App Tier ELB have SSL\TLS Certificate attached [1.12]</button></h5></div>
+<div id="collapse5" class="collapse" aria-labelledby="heading5" data-parent="#accordion"><div class="card-body"><div class="accordion" id="parent5"><div class="card border-success">
+<div id="heading6" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse6" aria-expanded="false" aria-controls="collapse6" class="btn btn-light btn-group-toggle">Countermeasure: Add SSL/TLS Certificate to App Tier ELB [aws-tier-1.12]</button></h5></div>
+<div id="collapse6" class="collapse" aria-labelledby="heading6" data-parent="#parent5"><div class="card-body"><html><body>
+<p>When you use HTTPS for your front-end listener, you must deploy an SSL/TLS certificate on your load balancer. The load balancer uses the certificate to terminate the connection and then decrypt requests from clients before sending them to the back-end instances. 
+<br> 
+<br> The SSL\TLS protocol uses an X.509 certificate (SSL\TLS server certificate) to authenticate both the client and the back-end application. An X.509 certificate is a digital form of identification issued by a trusted certificate authority (CA) and contains identification information, a validity period, a public key, a serial number, and the digital signature of the issuer. 
+<br> 
+<br> You can create a certificate using a Third Party Certificate Authority, AWS Certificate Manager or a self signed certificate like OpenSSL. 
+<br> 
+<br> Note: an SSL certificate configured on the ELB is not mandatory if you are terminating SSL connections directly on the App Tier EC2 instances, and using a TCP listener on the ELB (TCP pass-through) 
+<br> 
+<br> All the application traffic between the Web Tier instances and the App Tier ELB nodes should be encrypted using an SSL\TLS certificate. 
+<br> 
+<b>Remediation:</b> 
+<br>
+<br>
+Using the Amazon unified command line interface: 
+</p>
+<ul> 
+ <li>Adding a HTTPS listener configured with a SSL\TLS certificate (the listener forwards traffic to the backend instances on port 80, but this can be modified by editing InstancePort=80): <br> 
+  <blockquote>
+    aws elb create-load-balancer-listeners --load-balancer-name &lt;app_tier_elb&gt; --listeners Protocol=HTTPS,LoadBalancerPort=443,InstanceProtocol=HTTP,InstancePort=80, SSLCertificateId=ssl_certificate_arn 
+  </blockquote> </li> 
+</ul>
+</body></html></div></div>
+</div></div></div></div>
+</div>
+<div class="card border">
+<div id="heading7" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse7" aria-expanded="false" aria-controls="collapse7" class="btn btn-light btn-group-toggle">Requirement: Ensure App Tier ELB have the latest SSL Security Policies configured [1.13]</button></h5></div>
+<div id="collapse7" class="collapse" aria-labelledby="heading7" data-parent="#accordion"><div class="card-body"><div class="accordion" id="parent7"><div class="card border-success">
+<div id="heading8" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse8" aria-expanded="false" aria-controls="collapse8" class="btn btn-light btn-group-toggle">Countermeasure: Configure the latest SSL Security Policies for App Tier ELB [aws-tier-1.13]</button></h5></div>
+<div id="collapse8" class="collapse" aria-labelledby="heading8" data-parent="#parent7"><div class="card-body"><html><body>
+<div>
+  Elastic Load Balancing uses an Secure Socket Layer (SSL) negotiation configuration, known as a security policy, to negotiate SSL/TLS connections between a client and the load balancer. A security policy is a combination of SSL/TLS protocols, ciphers, and the Server Order Preference option. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  Elastic Load Balancing supports configuring your load balancer to use either predefined or custom security policies. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  Secure Sockets Layer (SSL) and Transport Layer Security (TLS) are cryptographic protocols that are used to encrypt confidential data over insecure networks such as the Internet. The TLS protocol is a newer version of the SSL protocol. In the Elastic Load Balancing documentation, we refer to both SSL and TLS protocols as the SSL protocol. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  Note: an SSL certificate configured on the ELB and an SSL Security Policy is not mandatory if you are terminating SSL connections directly on the App Tier EC2 instances, and using a TCP listener on the ELB (TCP pass-through) 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  Making sure the latest ELB SSL Security Policy is used will ensure the SSL/TLS connection will be negotiated using only the appropriate cryptographic protocols deemed safe with no proven vulnerabilities. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div> 
+ <b>Remediation:</b> 
+</div> 
+<div> 
+ <div style="">
+   Using the Amazon unified command line interface: 
+ </div> 
+</div> 
+<div style=""> 
+ <ul> 
+  <li>(Note that you should replace &lt;app\_tier\_elb&gt; with your App-tier ELB name, and &lt;latest\_ssl\_policy&gt; with the proper policy name)</li> 
+ </ul> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     aws elb set-load-balancer-policies-of-listener --load-balancer-name &lt;app_tier_elb&gt; --load-balancer-port 443 --policy-names  &lt;latest_ssl_policy&gt; 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote>
+</body></html></div></div>
+</div></div></div></div>
+</div>
+<div class="card border">
+<div id="heading9" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse9" aria-expanded="false" aria-controls="collapse9" class="btn btn-light btn-group-toggle">Requirement: Ensure App Tier ELB is using HTTPS listener [1.14]</button></h5></div>
+<div id="collapse9" class="collapse" aria-labelledby="heading9" data-parent="#accordion"><div class="card-body"><div class="accordion" id="parent9"><div class="card border-success">
+<div id="heading10" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse10" aria-expanded="false" aria-controls="collapse10" class="btn btn-light btn-group-toggle">Countermeasure: Use HTTPS listener for App Tier ELB [aws-tier-1.14]</button></h5></div>
+<div id="collapse10" class="collapse" aria-labelledby="heading10" data-parent="#parent9"><div class="card-body"><html><body>
+<div>
+  A load balancer takes requests from clients and distributes them across the EC2 instances that are registered with the load balancer (also known as back-end instances). 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  A listener is a process that checks for connection requests. It is configured with a protocol and a port for front-end (client to load balancer) connections. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  Note: an HTTPS listener configured on the ELB is not mandatory if you are terminating SSL connections directly on the App Tier EC2 instances, and using a TCP listener on the ELB (TCP pass-through) 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  Using an HTTPS Elastic Load Balancer listener will make sure the application traffic between the client and the App Tier ELB is encrypted over the SSL\TLS channel. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div> 
+ <b>Remediation:</b> 
+</div> 
+<div> 
+ <div style="">
+   Using the Amazon unified command line interface: 
+ </div> 
+ <div style=""> 
+  <ul> 
+   <li>If the ListenerDescription field is missing, add a new HTTPS listener configured with a SSL\TLS certificate (the listener forwards traffic to the backend instances on port 80, but this can be modified by editing InstancePort=80):</li> 
+  </ul> 
+ </div> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     aws elb create-load-balancer-listeners --load-balancer-name &lt;app_tier_elb&gt; --listeners Protocol=HTTPS,LoadBalancerPort=443,InstanceProtocol=HTTP,InstancePort=80, SSLCertificateId=ssl_certificate_arn 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote>
+</body></html></div></div>
+</div></div></div></div>
+</div>
+<div class="card border">
+<div id="heading11" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse11" aria-expanded="false" aria-controls="collapse11" class="btn btn-light btn-group-toggle">Requirement: Ensure CloudFront to Origin connection is configured using TLS1.1+ as the SSL\TLS protocol [1.17]</button></h5></div>
+<div id="collapse11" class="collapse" aria-labelledby="heading11" data-parent="#accordion"><div class="card-body"><div class="accordion" id="parent11"><div class="card border-success">
+<div id="heading12" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse12" aria-expanded="false" aria-controls="collapse12" class="btn btn-light btn-group-toggle">Countermeasure: Ensure CloudFront to Origin connection is configured using TLS1.1+ as the SSL\TLS protocol [aws-tier-1.17]</button></h5></div>
+<div id="collapse12" class="collapse" aria-labelledby="heading12" data-parent="#parent11"><div class="card-body"><html><body>
+<p>CloudFront can connect to your origin using only HTTP, only HTTPS, or to connect by matching the protocol used by the viewer. Our recommendation is to use HTTPS only. In this case you can choose which SSL\TLS protocols CloudFront is allowed to use when establishing an HTTPS connection to your origin. Ensure that you are using only TLS1.1+ as the SSL\TLS protocol.</p> 
+<p>It used to be believed that TLS v1 was marginally more secure than SSL v3.0, its predecessor. However, developments, such as the POODLE vulnerability have shown that SSL v3.0 is now insecure.</p> 
+<p>Subsequent versions of TLS v1.1 and v1.2 are significantly more secure and fix many vulnerabilities present in SSL v3.0 and TLS v1. For example, the BEAST attack that can completely break web sites running on older SSL v3.0 and TLS v1 protocols. The newer TLS versions, if properly configured, prevent the BEAST and other attack vectors and provide many stronger ciphers and encryption methods.</p> 
+<p><b>Remediation:<br></b> Using the Amazon unified command line interface:<br></p> 
+<ul> 
+ <li>For configuring Origin SSL protocols first save locally the current distribution config:</li> 
+</ul> 
+<p></p> 
+<blockquote> 
+ <blockquote> 
+  <p> aws cloudfront get-distribution-config --id --query "DistributionConfig" &gt; /tmp/cf-distribution.json</p> 
+ </blockquote> 
+</blockquote> 
+<p></p> 
+<ul> 
+ <li>Edit and replace "OriginSslProtocols" element in /tmp/cf-distribution.json with the below section:</li> 
+</ul> 
+<p></p> 
+<blockquote> 
+ <blockquote> 
+  <p> "OriginSslProtocols": { "Items": [ "TLSv1.1", "TLSv1.2" ], "Quantity": 2},</p> 
+ </blockquote> 
+</blockquote> 
+<p></p> 
+<ul> 
+ <li>Retrieve the current ETag of your CloudFront distribution:</li> 
+</ul> 
+<p></p> 
+<blockquote> 
+ <blockquote> 
+  <p> aws cloudfront get-distribution-config --id --query "ETag"</p> 
+ </blockquote> 
+</blockquote> 
+<p></p> 
+<ul> 
+ <li>Update the CloudFront distribution using the edited config and the above Etag:</li> 
+</ul> 
+<p></p> 
+<blockquote> 
+ <blockquote> 
+  <p> aws cloudfront update-distribution --id --distribution-config file:///tmp/cf-distribution.json --if-match </p> 
+ </blockquote> 
+</blockquote>
+</body></html></div></div>
+</div></div></div></div>
+</div>
+<div class="card border">
+<div id="heading13" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse13" aria-expanded="false" aria-controls="collapse13" class="btn btn-light btn-group-toggle">Requirement: Ensure Databases running on RDS have encryption at rest enabled [1.4]</button></h5></div>
+<div id="collapse13" class="collapse" aria-labelledby="heading13" data-parent="#accordion"><div class="card-body"><div class="accordion" id="parent13"><div class="card border-success">
+<div id="heading14" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse14" aria-expanded="false" aria-controls="collapse14" class="btn btn-light btn-group-toggle">Countermeasure: Enable encryption at rest for Databases running on RDS [aws-tier-1.4]</button></h5></div>
+<div id="collapse14" class="collapse" aria-labelledby="heading14" data-parent="#parent13"><div class="card-body"><html><body>
+<div>
+                        Amazon RDS instances and snapshots can be encrypted at rest by enabling the encryption option on
+                        the Amazon RDS DB instance. Data that is encrypted at rest includes the underlying storage for a
+                        DB instance, its automated backups, read replicas, and snapshots. Encryption at rest should
+                        be enabled.
+                        </div>
+                        <div>
+                        <br>
+                        </div>
+                        <div>
+                        <b>Remediation:</b>
+                        </div>
+                        <div>
+                        Using the Amazon unified CLI:
+                        </div>
+                        <div>
+                        <ul>
+                        <li>Perform a snapshot of the DB instance:</li>
+                        </ul>
+                        </div>
+                        <blockquote>
+                        <blockquote>
+                        <div>
+                        aws rds create-db-snapshot --db-snapshot-identifier db_snapshot
+                        --db-instance-identifier your_db_instance
+                        </div>
+                        </blockquote>
+                        </blockquote>
+                        <div>
+                        <ul>
+                        <li>Confirm created snapshot is available (once snapshot process has completed):</li>
+                        </ul>
+                        </div>
+                        <blockquote>
+                        <blockquote>
+                        <div>
+                        aws rds describe-db-snapshots --query
+                        'DBSnapshots[*].{DBSnapshotIdentifier:DBSnapshotIdentifier,
+                        DBInstanceIdentifier:DBInstanceIdentifier, Snapshotstatus:Status}'
+                        </div>
+                        </blockquote>
+                        </blockquote>
+                        <div>
+                        <ul>
+                        <li>List all KMS Customer Managed Keys:</li>
+                        </ul>
+                        </div>
+                        <blockquote>
+                        <blockquote>
+                        <div>
+                        aws kms list-aliases
+                        </div>
+                        </blockquote>
+                        </blockquote>
+                        <div>
+                        <ul>
+                        <li>Copy to source RDS snapshot (from previous step) to a destination snapshot which will
+                        be encrypted:</li>
+                        </ul>
+                        </div>
+                        <blockquote>
+                        <blockquote>
+                        aws rds copy-db-snapshot --source-db-snapshot-identifier db_snapshot 
+                        --target-db-snapshot-identifier encrypted_db_snapshot
+                        --kms-key-id data_tier_kms_key
+                        </blockquote>
+                        </blockquote>
+                        <ul>
+                        <li>Restore a snapshot to the target DB instance(from previous step) with the same values as
+                        original db instance with additional encrypted storage values:</li>
+                        </ul>
+                        <blockquote>
+                        <blockquote>
+                        <div>
+                        aws rds restore-db-instance-from-db-snapshot --db-instance-identifier your_db_instance
+                        --db-snapshot-identifier encrypted_db_snapshot
+                        </div>
+                        </blockquote>
+                        </blockquote>
+                    </body></html></div></div>
+</div></div></div></div>
+</div>
+<div class="card border">
+<div id="heading15" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse15" aria-expanded="false" aria-controls="collapse15" class="btn btn-light btn-group-toggle">Requirement: Ensure Web Tier ELB have SSL/TLS Certificate attached [1.9]</button></h5></div>
+<div id="collapse15" class="collapse" aria-labelledby="heading15" data-parent="#accordion"><div class="card-body"><div class="accordion" id="parent15"><div class="card border-success">
+<div id="heading16" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse16" aria-expanded="false" aria-controls="collapse16" class="btn btn-light btn-group-toggle">Countermeasure: Add SSL/TLS Certificate to Web Tier ELB [aws-tier-1.9]</button></h5></div>
+<div id="collapse16" class="collapse" aria-labelledby="heading16" data-parent="#parent15"><div class="card-body"><html><body>
+<div>
+  When you use HTTPS for your front-end listener, you must deploy an SSL/TLS certificate on your load balancer. The load balancer uses the certificate to terminate the connection and then decrypt requests from clients before sending them to the back-end instances. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  The TLS protocol uses an X.509 certificate (SSL/TLS server certificate) to authenticate both the client and the back-end application. An X.509 certificate is a digital form of identification issued by a trusted certificate authority (CA) and contains identification information, a validity period, a public key, a serial number, and the digital signature of the issuer. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  You can create a certificate using a Third Party Certificate Authority or AWS Certificate Manager. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  Note: an SSL certificate configured on the ELB is not mandatory if you are terminating SSL connections directly on the Web Tier EC2 instances, and using a TCP listener on the ELB (TCP pass-through) 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  All the application traffic between the clients and the Web Tier ELB nodes should be encrypted using a SSL/TLS certificate. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div> 
+ <b>Remediation:</b> 
+</div> 
+<div> 
+ <div style="">
+   Using the Amazon unified command line interface: 
+ </div> 
+ <div style=""> 
+  <ul> 
+   <li>Adding a HTTPS listener configured with a SSL/TLS certificate (the listener forwards traffic to the backend instances on port 80, but this can be modified by editing InstancePort=80):</li> 
+  </ul> 
+ </div> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     aws elb create-load-balancer-listeners --load-balancer-name &lt;web_tier_elb&gt; --listeners Protocol=HTTPS,LoadBalancerPort=443,InstanceProtocol=HTTP,InstancePort=80, SSLCertificateId=ssl_certificate_arn 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote>
+</body></html></div></div>
+</div></div></div></div>
+</div>
+<div class="card border">
+<div id="heading17" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse17" aria-expanded="false" aria-controls="collapse17" class="btn btn-light btn-group-toggle">Requirement: Ensure SNS Topics do not Allow ‘Everyone’ To Subscribe [2.10]</button></h5></div>
+<div id="collapse17" class="collapse" aria-labelledby="heading17" data-parent="#accordion"><div class="card-body"><div class="accordion" id="parent17"><div class="card border-success">
+<div id="heading18" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse18" aria-expanded="false" aria-controls="collapse18" class="btn btn-light btn-group-toggle">Countermeasure: Do not permit 'Everyone' to subscribe on SNS topics [aws-tier-2.10]</button></h5></div>
+<div id="collapse18" class="collapse" aria-labelledby="heading18" data-parent="#parent17"><div class="card-body"><html><body>
+<div>
+  Amazon Simple Notification Service (Amazon SNS) is a web service that coordinates and manages the delivery or sending of messages to subscribing endpoints or clients. In Amazon SNS, there are two types of clients - publishers and subscribers - also referred to as producers and consumers. Publishers communicate asynchronously with subscribers by producing and sending a message to a topic, which is a logical access point and communication channel. Subscribers (i.e., web servers, email addresses, Amazon SQS queues, AWS Lambda functions) consume or receive the message or notification over one of the supported protocols (i.e., Amazon SQS, HTTP/S, email, SMS, Lambda) when they are subscribed to the topic. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  The entities who can subscribe to a SNS topic can be controlled by modifying the topic policy, and they can be: 
+</div> 
+<div> 
+ <ul> 
+  <li>The topic owner</li> 
+  <li>Everyone</li> 
+  <li>Specific AWS users or resources</li> 
+  <li>Users whose endpoint URL,protocol, email address, or ARN from a Subscribe request match a specified value</li> 
+ </ul> 
+</div> 
+<div>
+  From the above topic subscribers, you should make sure that "Everyone" is not used with any SNS topic in the AWS account. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  If a SNS topic policy allows "Everyone" to subscribe to a specific topic, this could pose a security risk as any unauthenticated entity could subscribe and receive messages from the topic publishers, messages that should be destined only to specific, known subscribers. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div> 
+ <b>Remediation:</b> 
+</div> 
+<div> 
+ <div style="">
+   Edit your existing policy by deleting the above snippet or replacing "Principal":{"AWS" : "*"} with "Principal":{"AWS" : ""}, and save it locally as a .json file named policy.json. 
+ </div> 
+ <div style=""> 
+  <br> 
+ </div> 
+ <div style="">
+   Using the Amazon unified command line interface: 
+ </div> 
+ <div style=""> 
+  <ul> 
+   <li>Set the new policy to the SNS topic</li> 
+  </ul> 
+ </div> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     aws sns set-topic-attributes --topic-arn sns_topic_arn --attribute-name Policy --attribute-value file://policy.json 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote>
+</body></html></div></div>
+</div></div></div></div>
+</div>
+<div class="card border">
+<div id="heading19" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse19" aria-expanded="false" aria-controls="collapse19" class="btn btn-light btn-group-toggle">Requirement: Ensure SNS Topics do not Allow ‘Everyone’ To Publish [2.9]</button></h5></div>
+<div id="collapse19" class="collapse" aria-labelledby="heading19" data-parent="#accordion"><div class="card-body"><div class="accordion" id="parent19"><div class="card border-success">
+<div id="heading20" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse20" aria-expanded="false" aria-controls="collapse20" class="btn btn-light btn-group-toggle">Countermeasure: Do not permit 'Everyone' to publish SNS topics [aws-tier-2.9]</button></h5></div>
+<div id="collapse20" class="collapse" aria-labelledby="heading20" data-parent="#parent19"><div class="card-body"><html><body>
+<div>
+  Amazon Simple Notification Service (Amazon SNS) is a web service that coordinates and manages the delivery or sending of messages to subscribing endpoints or clients. In Amazon SNS, there are two types of clients - publishers and subscribers - also referred to as producers and consumers. Publishers communicate asynchronously with subscribers by producing and sending a message to a topic, which is a logical access point and communication channel. Subscribers (i.e., web servers, email addresses, Amazon SQS queues, AWS Lambda functions) consume or receive the message or notification over one of the supported protocols (i.e., Amazon SQS, HTTP/S, email, SMS, Lambda) when they are subscribed to the topic. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  The entities who can publish messages to a SNS topic can be controlled by modifying the topic policy, and they can be: 
+</div> 
+<div> 
+ <ul> 
+  <li>The topic owner</li> 
+  <li>Everyone</li> 
+  <li>Specific AWS users or resources</li> 
+ </ul>From the above message publisher options you should make sure that "Everyone" is not used with any SNS topic in the AWS account. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  If an SNS topic policy allows "Everyone" to publish messages to a specific topic, this could pose a security risk as any unauthenticated entity could send malicious messages to all the topic subscribers. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div> 
+ <b>Remediation:</b> 
+</div> 
+<div> 
+ <div style="">
+   Edit your existing policy by deleting the above snippet or replacing "Principal":{"AWS" : "*"} with "Principal":{"AWS" : ""}, and save it locally as a .json file named policy.json. 
+ </div> 
+ <div style=""> 
+  <br> 
+ </div> 
+ <div style="">
+   Using the Amazon unified command line interface: 
+ </div> 
+ <div style=""> 
+  <ul> 
+   <li>Set the new policy to the SNS topic</li> 
+  </ul> 
+ </div> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     aws sns set-topic-attributes --topic-arn sns_topic_arn --attribute-name Policy --attribute-value file://policy.json 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote> 
+<div> 
+ <b><br></b> 
+</div>
+</body></html></div></div>
+</div></div></div></div>
+</div>
+<div class="card border">
+<div id="heading21" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse21" aria-expanded="false" aria-controls="collapse21" class="btn btn-light btn-group-toggle">Requirement: Ensure each Auto-Scaling Group has an associated Elastic Load Balancer [3.1]</button></h5></div>
+<div id="collapse21" class="collapse" aria-labelledby="heading21" data-parent="#accordion"><div class="card-body"><div class="accordion" id="parent21"><div class="card border-success">
+<div id="heading22" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse22" aria-expanded="false" aria-controls="collapse22" class="btn btn-light btn-group-toggle">Countermeasure: Associate each Auto-Scaling Group to ELB [aws-tier-3.1]</button></h5></div>
+<div id="collapse22" class="collapse" aria-labelledby="heading22" data-parent="#parent21"><div class="card-body"><html><body>
+<div>
+  Elastic Load Balancing automatically distributes incoming application traffic across multiple Amazon EC2 instances within a VPC. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  It enables greater levels of fault tolerance in your applications, seamlessly providing the required amount of load balancing capacity needed to distribute application traffic across 1 or more Availability Zones within a VPC. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  Elastic Load Balancing must be integrated with Auto Scaling Groups to ensure that you have availability of compute resources in the event of a failure. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  Integrating Auto Scaling Groups with an Elastic Load Balancer will help provide high availability and back-end EC2 instance scaling. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  Through Auto-Scaling Group configuration you can define: 
+</div> 
+<div>
+  minimum / maximum number of EC2 instances to be launched by the Auto-Scaling Group 
+</div> 
+<div>
+  Availability Zones / subnets used 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div> 
+ <b>Remediation:</b> 
+</div> 
+<div> 
+ <div style="">
+   Using the Amazon unified command line interface: 
+ </div> 
+ <div style=""> 
+  <ul> 
+   <li>List existing load balancers:</li> 
+  </ul> 
+ </div> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     aws elb describe-load-balancers --query 'LoadBalancerDescriptions[*].{ELBName:LoadBalancerName}' 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote> 
+<div> 
+ <div style=""> 
+  <br> 
+ </div> 
+ <div style="">
+   or 
+ </div> 
+ <div style=""> 
+  <ul> 
+   <li>Create new load balancer:</li> 
+  </ul> 
+ </div> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     aws elb create-load-balancer --load-balancer-name &lt;elb_name&gt; --listeners &lt;listener_config&gt; --subnets &lt;application_subnet&gt; --security-groups &lt;application_security_groups&gt; 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote> 
+<div> 
+ <div style=""> 
+  <ul> 
+   <li>Attached load balancer from previous steps to autoscaling group:</li> 
+  </ul> 
+ </div> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     aws autoscaling attach-load-balancers --load-balancer-names &lt;elb_name&gt; --auto-scaling-group-name &lt;autoscaling_group_name&gt; 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote>
+</body></html></div></div>
+</div></div></div></div>
+</div>
+<div class="card border">
+<div id="heading23" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse23" aria-expanded="false" aria-controls="collapse23" class="btn btn-light btn-group-toggle">Requirement: Ensure all CloudFront Distributions require HTTPS between CloudFront and your Web-Tier ELB origin [3.12]</button></h5></div>
+<div id="collapse23" class="collapse" aria-labelledby="heading23" data-parent="#accordion"><div class="card-body"><div class="accordion" id="parent23"><div class="card border-success">
+<div id="heading24" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse24" aria-expanded="false" aria-controls="collapse24" class="btn btn-light btn-group-toggle">Countermeasure: Set a HTTPS connection from all CloudFront Distributions to the Web Tier ELB origin [aws-tier-3.12]</button></h5></div>
+<div id="collapse24" class="collapse" aria-labelledby="heading24" data-parent="#parent23"><div class="card-body"><html><body>
+<div>
+  Configure the Origin Protocol Policy for the Web tier ELB origin either to require that CloudFront fetches objects from your origin by using HTTPS or to require that CloudFront uses the protocol that the viewer used to request the objects. For example, if you choose Match Viewer for the Origin Protocol Policy and the viewer uses HTTPS to request an object from CloudFront, CloudFront also uses HTTPS to forward the request to your origin. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  In order to use HTTPS, an SSL\TLS certificate must be attached. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  To ensure that objects are encrypted from edge locations to the Web-Tier ELB origin according to the data classification policy, use Match Viewer. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div> 
+ <b>Remediation:</b> 
+</div> 
+<div> 
+ <div style="">
+   Using the Amazon unified command line interface: 
+ </div> 
+ <div style=""> 
+  <ul> 
+   <li>For configuring "OriginProtocolPolicy"first save locally the current distribution config:</li> 
+  </ul> 
+ </div> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     aws cloudfront get-distribution-config --id application_cfn_distribution_id  --query "DistributionConfig" &gt; /tmp/cf-distribution.json 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote> 
+<div> 
+ <div style=""> 
+  <br> 
+ </div> 
+ <div style="">
+   Edit and replace "OriginProtocolPolicy"element in /tmp/cf-distribution.json with the below section: 
+ </div> 
+ <div style="">
+   "OriginProtocolPolicy": "https-only", 
+ </div> 
+ <div style=""> 
+  <ul> 
+   <li>Retrieve the current ETag of your CloudFront distribution:</li> 
+  </ul> 
+ </div> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     aws cloudfront get-distribution-config --id &lt;application_cfn_distribution_id&gt;  --query "ETag" 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote> 
+<div> 
+ <div style=""> 
+  <ul> 
+   <li>Update the CloudFront distribution using the edited config and the above Etag:</li> 
+  </ul> 
+ </div> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     aws cloudfront update-distribution --id &lt;application_cfn_distribution_id&gt; --distribution-config file:///tmp/cf-distribution.json --if-match &lt;application_cfn_distribution_etag&gt; 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote>
+</body></html></div></div>
+</div></div></div></div>
+</div>
+<div class="card border">
+<div id="heading25" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse25" aria-expanded="false" aria-controls="collapse25" class="btn btn-light btn-group-toggle">Requirement: Ensure Web Tier Auto-Scaling Group has an associated Elastic Load Balancer [3.13]</button></h5></div>
+<div id="collapse25" class="collapse" aria-labelledby="heading25" data-parent="#accordion"><div class="card-body"><div class="accordion" id="parent25"><div class="card border-success">
+<div id="heading26" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse26" aria-expanded="false" aria-controls="collapse26" class="btn btn-light btn-group-toggle">Countermeasure: Associate Web Tier Auto-Scaling Group to ELB [aws-tier-3.13]</button></h5></div>
+<div id="collapse26" class="collapse" aria-labelledby="heading26" data-parent="#parent25"><div class="card-body"><html><body>
+<div>
+  Elastic Load Balancing automatically distributes incoming application traffic across multiple Amazon EC2 instances within a VPC. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  It enables greater levels of fault tolerance in your applications, seamlessly providing the required amount of load balancing capacity needed to distribute application traffic across 1 or more Availability Zones within a VPC. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  Elastic Load Balancing must be integrated with Auto Scaling Groups to ensure that you have availability of compute resources in the event of a failure. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  Integrating Auto Scaling Groups with an Elastic Load Balancer will help provide high availability and back-end EC2 instance scaling. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  Through Auto-Scaling Group configuration you can define: 
+</div> 
+<div>
+  minimum / maximum number of EC2 instances to be launched by the Auto-Scaling Group 
+</div> 
+<div>
+  Availability Zones / subnets used 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div> 
+ <b>Remediation:</b> 
+</div> 
+<div> 
+ <div style="">
+   Using the Amazon unified command line interface: 
+ </div> 
+ <div style=""> 
+  <ul> 
+   <li>List existing load balancers:</li> 
+  </ul> 
+ </div> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     aws elb describe-load-balancers --query 'LoadBalancerDescriptions[*].{ELBName:LoadBalancerName}' 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote> 
+<div> 
+ <div style="">
+   or 
+ </div> 
+ <div style=""> 
+  <ul> 
+   <li>Create new load balancer:</li> 
+  </ul> 
+ </div> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     aws elb create-load-balancer --load-balancer-name &lt;web_tier_elb&gt; --listeners &lt;listener_config&gt; --subnets &lt;web_tier_elb_subnet1&gt; &lt;web_tier_elb_subnet2&gt; --security-groups &lt;web_tier_elb_security_group&gt; 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote> 
+<div> 
+ <div style=""> 
+  <ul> 
+   <li>Attached load balancer from previous steps to autoscaling group:</li> 
+  </ul> 
+ </div> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     aws autoscaling attach-load-balancers --load-balancer-names &lt;web_tier_elb&gt; --auto-scaling-group-name &lt;web_tier_autoscaling_group_name&gt; 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote>
+</body></html></div></div>
+</div></div></div></div>
+</div>
+<div class="card border">
+<div id="heading27" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse27" aria-expanded="false" aria-controls="collapse27" class="btn btn-light btn-group-toggle">Requirement: Ensure App Tier Auto-Scaling Group has an associated Elastic Load Balancer [3.14]</button></h5></div>
+<div id="collapse27" class="collapse" aria-labelledby="heading27" data-parent="#accordion"><div class="card-body"><div class="accordion" id="parent27"><div class="card border-success">
+<div id="heading28" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse28" aria-expanded="false" aria-controls="collapse28" class="btn btn-light btn-group-toggle">Countermeasure: Associate App Tier Auto-Scaling Group to ELB [aws-tier-3.14]</button></h5></div>
+<div id="collapse28" class="collapse" aria-labelledby="heading28" data-parent="#parent27"><div class="card-body"><html><body>
+<div>
+  Elastic Load Balancing automatically distributes incoming application traffic across multiple Amazon EC2 instances within a VPC. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  It enables greater levels of fault tolerance in your applications, seamlessly providing the required amount of load balancing capacity needed to distribute application traffic across 1 or more Availability Zones within a VPC. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  Elastic Load Balancing must be integrated with Auto Scaling Groups to ensure that you have availability of compute resources in the event of a failure. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  Integrating Auto Scaling Groups with an Elastic Load Balancer will help provide high availability and back-end EC2 instance scaling. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  Through Auto-Scaling Group configuration you can define: 
+</div> 
+<div>
+  minimum / maximum number of EC2 instances to be launched by the Auto-Scaling Group 
+</div> 
+<div>
+  Availability Zones / subnets used 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div> 
+ <b>Remediation:</b> 
+</div> 
+<div> 
+ <div style="">
+   Using the Amazon unified command line interface: 
+ </div> 
+ <div style=""> 
+  <ul> 
+   <li>List existing load balancers:</li> 
+  </ul> 
+ </div> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     aws elb describe-load-balancers --query 'LoadBalancerDescriptions[*].{ELBName:LoadBalancerName}' 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote> 
+<div> 
+ <div style=""> 
+  <br> 
+ </div> 
+ <div style="">
+   or 
+ </div> 
+ <div style=""> 
+  <ul> 
+   <li>Create new load balancer:</li> 
+  </ul> 
+ </div> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     aws elb create-load-balancer --load-balancer-name &lt;app_tier_elb&gt; --scheme internal --listeners &lt;listener_config&gt; --subnets &lt;app_tier_subnet1&gt; &lt;app_tier_subnet2&gt; --security-groups &lt;app_tier_elb_security_group&gt; 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote> 
+<div> 
+ <div style=""> 
+  <ul> 
+   <li>Attached load balancer from previous steps to autoscaling group:</li> 
+  </ul> 
+ </div> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     aws autoscaling attach-load-balancers --load-balancer-names &lt;app_tier_elb&gt; --auto-scaling-group-name &lt;app_tier_autoscaling_group_name&gt; 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote>
+</body></html></div></div>
+</div></div></div></div>
+</div>
+<div class="card border">
+<div id="heading29" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse29" aria-expanded="false" aria-controls="collapse29" class="btn btn-light btn-group-toggle">Requirement: Ensure Relational Database Service is Multi-AZ Enabled [3.5]</button></h5></div>
+<div id="collapse29" class="collapse" aria-labelledby="heading29" data-parent="#accordion"><div class="card-body"><div class="accordion" id="parent29"><div class="card border-success">
+<div id="heading30" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse30" aria-expanded="false" aria-controls="collapse30" class="btn btn-light btn-group-toggle">Countermeasure: Enable Multi-AZ on RDS [aws-tier-3.5]</button></h5></div>
+<div id="collapse30" class="collapse" aria-labelledby="heading30" data-parent="#parent29"><div class="card-body"><html><body>
+<div>
+  Amazon Relational Database Service (RDS) is a managed relational database service which handles routine database tasks such as provisioning, patching, backup, recovery, failure detection, and repair. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  There are 6 database engines available for customer to run their database workloads on: 
+</div> 
+<div> 
+ <ul> 
+  <li>Amazon Aurora (MySQL Compatible)</li> 
+  <li>MySQL</li> 
+  <li>MariaDB</li> 
+  <li>Oracle</li> 
+  <li>Microsoft SQL Server</li> 
+  <li>PostgreSQL</li> 
+ </ul> 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div> 
+ <div>
+   Provides AWS managed high availability of the Database Tier across 2 availability zones within a region through asynchronous replication at the data layer. 
+ </div> 
+ <div> 
+  <br> 
+ </div> 
+</div> 
+<div> 
+ <b>Remediation:</b> 
+</div> 
+<div> 
+ <div style="">
+   Using the Amazon unified command line interface: 
+ </div> 
+ <div style=""> 
+  <ul> 
+   <li>Modify each no-multi-az DB instance, and make it Multi-AZ enabled:</li> 
+  </ul> 
+ </div> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     aws rds modify-db-instance --db-instance-identifier &lt;your_db_instance&gt; --multi-az 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote>
+</body></html></div></div>
+</div></div></div></div>
+</div>
+<div class="card border">
+<div id="heading31" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse31" aria-expanded="false" aria-controls="collapse31" class="btn btn-light btn-group-toggle">Requirement: Ensure Relational Database Service Instances have Auto Minor Version Upgrade Enabled [3.6]</button></h5></div>
+<div id="collapse31" class="collapse" aria-labelledby="heading31" data-parent="#accordion"><div class="card-body"><div class="accordion" id="parent31"><div class="card border-success">
+<div id="heading32" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse32" aria-expanded="false" aria-controls="collapse32" class="btn btn-light btn-group-toggle">Countermeasure: Enable Auto Minor Version Upgrade on RDS [aws-tier-3.6]</button></h5></div>
+<div id="collapse32" class="collapse" aria-labelledby="heading32" data-parent="#parent31"><div class="card-body"><html><body>
+<p>Amazon Relational Database Service (RDS) is a managed relational database service which handles routine database tasks such as provisioning, patching, backup, recovery, failure detection, and repair.</p> 
+<p>There are 6 database engines available for customers to run their database workloads on:</p> 
+<ul> 
+ <li>Amazon Aurora (MySQL Compatible)</li> 
+ <li>MySQL</li> 
+ <li>MariaDB</li> 
+ <li>Oracle</li> 
+ <li>Microsoft SQL Server</li> 
+ <li>PostgreSQL</li> 
+</ul> 
+<p>If the database engine used by your application supports it, ensure that the RDS Instances have Auto Minor Version Upgrade Enabled.</p> 
+<p><b>Remediation:</b></p> 
+<p>Using the Amazon unified command line interface:</p> 
+<p></p> 
+<ul> 
+ <li>Modify each DB instance with auto-minor-version-upgrade set to False, and enable auto-minor-version-upgrade:</li> 
+</ul> 
+<p></p> 
+<blockquote> 
+ <blockquote> 
+  <p>aws rds modify-db-instance --db-instance-identifier &lt;your_db_instance&gt; --auto-minor-version-upgrade</p> 
+ </blockquote> 
+</blockquote>
+</body></html></div></div>
+</div></div></div></div>
+</div>
+<div class="card border">
+<div id="heading33" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse33" aria-expanded="false" aria-controls="collapse33" class="btn btn-light btn-group-toggle">Requirement: Ensure Relational Database Service backup retention policy is set [3.7]</button></h5></div>
+<div id="collapse33" class="collapse" aria-labelledby="heading33" data-parent="#accordion"><div class="card-body"><div class="accordion" id="parent33"><div class="card border-success">
+<div id="heading34" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse34" aria-expanded="false" aria-controls="collapse34" class="btn btn-light btn-group-toggle">Countermeasure: Set Backup retention policy on RDS [aws-tier-3.7]</button></h5></div>
+<div id="collapse34" class="collapse" aria-labelledby="heading34" data-parent="#parent33"><div class="card-body"><html><body>
+<div>
+  Amazon Relational Database Service (RDS) is a managed relational database service which handles routine database tasks such as provisioning, patching, backup, recovery, failure detection, and repair. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  There are 6 database engines available for customer to run their database workloads on: 
+</div> 
+<div> 
+ <ul> 
+  <li>Amazon Aurora (MySQL Compatible)</li> 
+  <li>MySQL</li> 
+  <li>MariaDB</li> 
+  <li>Oracle</li> 
+  <li>Microsoft SQL Server</li> 
+  <li>PostgreSQL</li> 
+ </ul> 
+</div> 
+<div> 
+ <div>
+   Provides a managed backup function of the RDS Database, it is possible to define the backup window and retention period of the backup. Each customer should have a retention policy set for the type of data being stored. It is recommended to set this to at least 7. 
+ </div> 
+ <div> 
+  <br> 
+ </div> 
+ <div>
+   Possible values are from 0 to 35 days. 
+ </div> 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div> 
+ <b>Remediation:</b> 
+</div> 
+<div> 
+ <div style="">
+   Using the Amazon unified command line interface: 
+ </div> 
+ <div style=""> 
+  <ul> 
+   <li>Modify each DB instance with a Backup Retention Period of 0, and set a desired Backup Retention Period in days (recommended value = 7):</li> 
+  </ul> 
+ </div> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     aws rds modify-db-instance --db-instance-identifier &lt;your_db_instance&gt; --backup-retention-period &lt;backup_retention_period&gt; 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote> 
+<div> 
+ <br> 
+</div>
+</body></html></div></div>
+</div></div></div></div>
+</div>
+<div class="card border">
+<div id="heading35" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse35" aria-expanded="false" aria-controls="collapse35" class="btn btn-light btn-group-toggle">Requirement: Ensure Web Tier Elastic Load Balancer has application layer Health Check Configured [3.8]</button></h5></div>
+<div id="collapse35" class="collapse" aria-labelledby="heading35" data-parent="#accordion"><div class="card-body"><div class="accordion" id="parent35"><div class="card border-success">
+<div id="heading36" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse36" aria-expanded="false" aria-controls="collapse36" class="btn btn-light btn-group-toggle">Countermeasure: Configure Health Check for Web Tier ELB [aws-tier-3.8]</button></h5></div>
+<div id="collapse36" class="collapse" aria-labelledby="heading36" data-parent="#parent35"><div class="card-body"><html><body>
+<div>
+  By default, an Auto-Scaling Group periodically uses the results of the EC2 instance status checks to determine the health status of each instance. If an instance fails the EC2 instance status checks, Auto-Scaling marks the instance as unhealthy and replaces the instance. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  However, if you have attached one or more Elastic Load Balancing (ELB) load balancers to your Auto-Scaling Group and the instance fails the ELB health checks, Auto-Scaling does not replace the instance. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  Amazon ELB will periodically sends pings, attempt connections, or sends requests to test the EC2 instances, these tests are called health checks. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  The status of the instances that are healthy at the time of the health check is InService. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  The status of any instances that are unhealthy at the time of the health check is OutOfService. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  The load balancer performs health checks on all registered instances, whether the instance is in a healthy state or an unhealthy state. The load balancer routes requests only to the healthy instances. When the load balancer determines that an instance is unhealthy, it stops routing requests to that instance. The load balancer resumes routing requests to the instance when it has been restored to a healthy state 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  Ensure availability of back-end EC2 instances associated with an Amazon ELB through application layer health check (ex: http) instead of TCP health checks. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div> 
+ <b>Remediation:</b> 
+</div> 
+<div> 
+ <div style="">
+   Using the Amazon unified CLI: 
+ </div> 
+ <div style=""> 
+  <ul> 
+   <li>Create a JSON file containing the attributes you want to modify and save it locally as /tmp/ELBhealthcheck.json:</li> 
+  </ul> 
+ </div> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     { 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+       "Target": "&lt;string&gt;", 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+       "Interval": &lt;integer&gt;, 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+       "Timeout": &lt;integer&gt;, 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+       "UnhealthyThreshold": &lt;integer&gt;, 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+       "HealthyThreshold": &lt;integer&gt; 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     } 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote> 
+<div> 
+ <div style=""> 
+  <ul> 
+   <li>Modify Web tier ELB to include appropriate health check:</li> 
+  </ul> 
+ </div> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     aws elb configure-health-check --load-balancer-name &lt;web_tier_elb&gt; --health-check file:///tmp/ELBhealthcheck.json 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote>
+</body></html></div></div>
+</div></div></div></div>
+</div>
+<div class="card border">
+<div id="heading37" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse37" aria-expanded="false" aria-controls="collapse37" class="btn btn-light btn-group-toggle">Requirement: Ensure App Tier Elastic Load Balancer has application layer Health Check Configured [3.9]</button></h5></div>
+<div id="collapse37" class="collapse" aria-labelledby="heading37" data-parent="#accordion"><div class="card-body"><div class="accordion" id="parent37"><div class="card border-success">
+<div id="heading38" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse38" aria-expanded="false" aria-controls="collapse38" class="btn btn-light btn-group-toggle">Countermeasure: Configure Health Check for App Tier ELB [aws-tier-3.9]</button></h5></div>
+<div id="collapse38" class="collapse" aria-labelledby="heading38" data-parent="#parent37"><div class="card-body"><html><body>
+<div>
+  By default, an Auto-Scaling Group periodically uses the results of the EC2 instance status checks to determine the health status of each instance. If an instance fails the EC2 instance status checks, Auto-Scaling marks the instance as unhealthy and replaces the instance. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  However, if you have attached one or more Elastic Load Balancing (ELB) load balancers to your Auto-Scaling Group and the instance fails the ELB health checks, Auto-Scaling does not replace the instance. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  Amazon ELB will periodically sends pings, attempts connections, or sends requests to test the EC2 instances, these tests are called health checks. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  The status of the instances that are healthy at the time of the health check is InService. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  The status of any instances that are unhealthy at the time of the health check is OutOfService. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  The load balancer performs health checks on all registered instances, whether the instance is in a healthy state or an unhealthy state. The load balancer routes requests only to the healthy instances. When the load balancer determines that an instance is unhealthy, it stops routing requests to that instance. The load balancer resumes routing requests to the instance when it has been restored to a healthy state 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  Ensures availability of back-end EC2 instances associated with an Amazon ELB through application layer health check (ex: http) instead of TCP health checks. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div> 
+ <b>Remediation:</b> 
+</div> 
+<div> 
+ <div style="">
+   Using the Amazon unified CLI: 
+ </div> 
+ <div style=""> 
+  <ul> 
+   <li>Create a JSON file containing the attributes you want to modify and save it locally as /tmp/ELBhealthcheck.json:</li> 
+  </ul> 
+ </div> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     { 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+       "Target": "&lt;string&gt;", 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+       "Interval": &lt;integer&gt;, 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+       "Timeout": &lt;integer&gt;, 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+       "UnhealthyThreshold": &lt;integer&gt;, 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+       "HealthyThreshold": &lt;integer&gt; 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     } 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote> 
+<div> 
+ <div style=""> 
+  <ul> 
+   <li>Modify App tier ELB to include appropriate health check:</li> 
+  </ul> 
+ </div> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     aws elb configure-health-check --load-balancer-name &lt;app_tier_elb&gt; --health-check file:///tmp/ELBhealthcheck.json 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote>
+</body></html></div></div>
+</div></div></div></div>
+</div>
+<div class="card border">
+<div id="heading39" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse39" aria-expanded="false" aria-controls="collapse39" class="btn btn-light btn-group-toggle">Requirement: Ensure a SNS topic is created for sending out notifications from Cloudtwatch Alarms and Auto-Scaling Groups [4.1]</button></h5></div>
+<div id="collapse39" class="collapse" aria-labelledby="heading39" data-parent="#accordion"><div class="card-body"><div class="accordion" id="parent39"><div class="card border-success">
+<div id="heading40" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse40" aria-expanded="false" aria-controls="collapse40" class="btn btn-light btn-group-toggle">Countermeasure: Create a SNS topic for sending out notifications from Cloudtwatch Alarms [aws-tier-4.1]</button></h5></div>
+<div id="collapse40" class="collapse" aria-labelledby="heading40" data-parent="#parent39"><div class="card-body"><html><body>
+<div>
+  For the Cloudwatch alarms and Auto-Scaling Groups to be able to send out notifications, a SNS topic should be created. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  Amazon Simple Notification Service (Amazon SNS) is a web service that coordinates and manages the delivery or sending of messages to subscribing endpoints or clients. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  When using Amazon SNS, you (as the owner) create a topic and control access to it by defining policies that determine which publishers and subscribers can communicate with the topic. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  Cloudwatch alarms and certain actions inside Auto-Scaling Groups needs to be sent out to administrators, in order to be acted upon. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div> 
+ <b>Remediation:</b> 
+</div> 
+<div> 
+ <div style="">
+   Using the Amazon unified CLI: 
+ </div> 
+ <div style=""> 
+  <ul> 
+   <li>Create a new topic, and note the topic-arn value:</li> 
+  </ul> 
+ </div> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     aws sns create-topic --name &lt;sns_topic_name&gt; 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote> 
+<div> 
+ <div style=""> 
+  <ul> 
+   <li>Create a subscription to the new topic:</li> 
+  </ul> 
+ </div> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     aws sns subscribe --topic-arn &lt;sns_topic_arn&gt; --protocol &lt;protocol_for_sns&gt; --notification-endpoint &lt;sns_subscription_endpoints&gt; 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote>
+</body></html></div></div>
+</div></div></div></div>
+</div>
+<div class="card border">
+<div id="heading41" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse41" aria-expanded="false" aria-controls="collapse41" class="btn btn-light btn-group-toggle">Requirement: Ensure a SNS topic is created for sending out notifications from RDS events [4.2]</button></h5></div>
+<div id="collapse41" class="collapse" aria-labelledby="heading41" data-parent="#accordion"><div class="card-body"><div class="accordion" id="parent41"><div class="card border-success">
+<div id="heading42" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse42" aria-expanded="false" aria-controls="collapse42" class="btn btn-light btn-group-toggle">Countermeasure: Create a SNS topic for sending out notifications from RDS events [aws-tier-4.2]</button></h5></div>
+<div id="collapse42" class="collapse" aria-labelledby="heading42" data-parent="#parent41"><div class="card-body"><html><body>
+<div>
+  For the RDS event subscriptions to be able to send out notifications, a SNS topic should be created. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  Amazon Simple Notification Service (Amazon SNS) is a web service that coordinates and manages the delivery or sending of messages to subscribing endpoints or clients. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  When using Amazon SNS, you (as the owner) create a topic and control access to it by defining policies that determine which publishers and subscribers can communicate with the topic. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  RDS events generated through defined RDS event subscriptions needs to be sent out to administrators, in order to be acted upon. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div> 
+ <b>Remediation:</b> 
+</div> 
+<div> 
+ <div style="">
+   Using the Amazon unified CLI: 
+ </div> 
+ <div style=""> 
+  <ul> 
+   <li>Create a new topic, and note the topic-arn value:</li> 
+  </ul> 
+ </div> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     aws sns create-topic --name &lt;sns_topic_name&gt; 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote> 
+<div> 
+ <div style=""> 
+  <ul> 
+   <li>Create a subscription to the new topic:</li> 
+  </ul> 
+ </div> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     aws sns subscribe --topic-arn &lt;sns_topic_arn&gt; --protocol &lt;protocol_for_sns&gt; --notification-endpoint &lt;sns_subscription_endpoints&gt; 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote> 
+<div> 
+ <br> 
+</div>
+</body></html></div></div>
+</div></div></div></div>
+</div>
+<div class="card border">
+<div id="heading43" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse43" aria-expanded="false" aria-controls="collapse43" class="btn btn-light btn-group-toggle">Requirement: Ensure RDS event subscriptions are enabled for Instance level events [4.3]</button></h5></div>
+<div id="collapse43" class="collapse" aria-labelledby="heading43" data-parent="#accordion"><div class="card-body"><div class="accordion" id="parent43"><div class="card border-success">
+<div id="heading44" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse44" aria-expanded="false" aria-controls="collapse44" class="btn btn-light btn-group-toggle">Countermeasure: Enable Event subscriptions for Instance level events on RDS [aws-tier-4.3]</button></h5></div>
+<div id="collapse44" class="collapse" aria-labelledby="heading44" data-parent="#parent43"><div class="card-body"><html><body>
+<div>
+  AWS Relational Database Services offers customers a managed database engine solution for hosting customer created databases which can allow for a reduction in operational burden on customers. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  RDS event subscriptions provide notification of selected event changes at DataBase engine level such as: 
+</div> 
+<div> 
+ <ul> 
+  <li>Deletion</li> 
+  <li>Failure</li> 
+  <li>Failover</li> 
+  <li>Low Storage</li> 
+  <li>Maintenance</li> 
+ </ul> 
+</div> 
+<div>
+  Event subscriptions are designed to provide incident notification of events which may affect the availability of a RDS database instance. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div> 
+ <b>Remediation:</b> 
+</div> 
+<div> 
+ <div style="">
+   Using the Amazon unified CLI: 
+ </div> 
+ <div style=""> 
+  <ul> 
+   <li>Create a new event subscription for DB instance level events:</li> 
+  </ul> 
+ </div> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     aws rds create-event-subscription --subscription-name &lt;rds_event_subscription&gt; --sns-topic-arn sns_topic_arn --source-type &lt;db-instance&gt; --event-categories &lt;rds_events&gt; --source-ids &lt;events_source_ids&gt; --enabled 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote>
+</body></html></div></div>
+</div></div></div></div>
+</div>
+<div class="card border">
+<div id="heading45" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse45" aria-expanded="false" aria-controls="collapse45" class="btn btn-light btn-group-toggle">Requirement: Ensure RDS event subscriptions are enabled for DB security groups [4.4]</button></h5></div>
+<div id="collapse45" class="collapse" aria-labelledby="heading45" data-parent="#accordion"><div class="card-body"><div class="accordion" id="parent45"><div class="card border-success">
+<div id="heading46" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse46" aria-expanded="false" aria-controls="collapse46" class="btn btn-light btn-group-toggle">Countermeasure: Enable event subscriptions for DataBase security on RDS [aws-tier-4.4]</button></h5></div>
+<div id="collapse46" class="collapse" aria-labelledby="heading46" data-parent="#parent45"><div class="card-body"><html><body>
+<p>AWS Relational Database Services offers customers a managed database engine solution
+                        for hosting customer created databases which can allow for a reduction in operational burden on
+                        customers.</p>
+                        <p>RDS event subscriptions provide notification of selected event changes at a DB security
+                        group level.</p>
+                        <p>Event subscriptions are designed to provide incident notification of events which may
+                        affect the network availability of the RDS instance.</p>
+                        <p><b>Remediation:</b></p>
+                        <p>Using the Amazon unified CLI:</p>
+                        <p></p>
+                        <ul>
+                        <li>Create a new event subscription for DB Security Group events:</li>
+                        </ul>
+                        <p></p>
+                        <p></p>
+                        <blockquote>
+                        <blockquote>
+                        <p>aws rds create-event-subscription --subscription-name rds_event_subscription
+                        --sns-topic-arn
+                        sns_topic_arn
+                        --source-type db-security-group --event-categories rds_events
+                        --source-ids events_source_ids --enabled</p>
+                        </blockquote>
+                        </blockquote>
+                    </body></html></div></div>
+</div></div></div></div>
+</div>
+<div class="card border">
+<div id="heading47" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse47" aria-expanded="false" aria-controls="collapse47" class="btn btn-light btn-group-toggle">Requirement: Ensure AWS Elastic Load Balancer logging is enabled [5.2]</button></h5></div>
+<div id="collapse47" class="collapse" aria-labelledby="heading47" data-parent="#accordion"><div class="card-body"><div class="accordion" id="parent47"><div class="card border-success">
+<div id="heading48" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse48" aria-expanded="false" aria-controls="collapse48" class="btn btn-light btn-group-toggle">Countermeasure: Enable the ELB logging [aws-tier-5.2]</button></h5></div>
+<div id="collapse48" class="collapse" aria-labelledby="heading48" data-parent="#parent47"><div class="card-body"><html><body>
+<div>
+  Elastic Load Balancing automatically distributes incoming application traffic across multiple Amazon EC2 instances in the a VPC. It enables you to achieve greater levels of fault tolerance in your applications, seamlessly providing the required amount of load balancing capacity needed to distribute application traffic. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  AWS Elastic Load Balancers (ELBs) can record all incoming requests sent to the load balancer and store within logs on S3. This allows for diagnosing application failures and analyzing web traffic and security analysis of incoming traffic 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div> 
+ <b>Remediation:</b> 
+</div> 
+<div> 
+ <div style="">
+   Using the Amazon unified CLI: 
+ </div> 
+ <div style=""> 
+  <ul> 
+   <li>Create a JSON file containing the attributes you want to modify and save it locally as /tmp/ElbLogs.json:</li> 
+  </ul> 
+ </div> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     { 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     "AccessLog": { 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+         "Enabled": true, 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+         "S3BucketName": "string", 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+         "EmitInterval": integer, 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+         "S3BucketPrefix": "string" 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+       } 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     } 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote> 
+<div> 
+ <div style=""> 
+  <ul> 
+   <li>Update the Load Balancer attributes:</li> 
+  </ul> 
+ </div> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     aws elb modify-load-balancer-attributes --load-balancer-name &lt;elb_name&gt; --load-balancer-attributes file:///tmp/ElbLogs.json 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote>
+</body></html></div></div>
+</div></div></div></div>
+</div>
+<div class="card border">
+<div id="heading49" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse49" aria-expanded="false" aria-controls="collapse49" class="btn btn-light btn-group-toggle">Requirement: Ensure Root Domain Alias Record Points to ELB [6.1]</button></h5></div>
+<div id="collapse49" class="collapse" aria-labelledby="heading49" data-parent="#accordion"><div class="card-body"><div class="accordion" id="parent49"><div class="card border-success">
+<div id="heading50" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse50" aria-expanded="false" aria-controls="collapse50" class="btn btn-light btn-group-toggle">Countermeasure: Set Root Domain Alias Record to ELB [aws-tier-6.1]</button></h5></div>
+<div id="collapse50" class="collapse" aria-labelledby="heading50" data-parent="#parent49"><div class="card-body"><html><body>
+<div>
+  Amazon Route 53 translates friendly domains names like www.example.com into IP addresses like 192.0.2.1. Amazon Route 53 responds to DNS queries using a global network of authoritative DNS servers, which reduces latency. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  When someone enters your domain name in a browser, a DNS request is forwarded to the nearest Amazon Route 53 DNS server in a global network of authoritative DNS servers. Amazon Route 53 responds with the IP address that you specified. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  Each domain has an associated hosted zone which contains the resource records pointing to each layer of the application. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  A private hosted zone is a container that holds information about how you want to route traffic for a domain and its subdomains within the Amazon Virtual Private Cloud (Amazon VPC). To begin, you create a private hosted zone and specify the Amazon VPCs that you want to associate with the hosted zone. You then create resource record sets that determine how Amazon Route 53 responds to queries for your domain and subdomains within and among your Amazon VPCs. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  Route53 provides special record type called Alias that allows creation of an A record for the root domain and points it to the fully qualified domain of the Elastic Load Balancer (ELB) associated with the web-server layer or Amazon CloudFront. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  In the same way records for all other layers should be created in order to allow flexibility in the application design and not hard-code the FQDN of a resource. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div> 
+ <b>Remediation:</b> 
+</div> 
+<div> 
+ <div style="">
+   Using the Amazon unified command line interface: 
+ </div> 
+ <div style=""> 
+  <ul> 
+   <li>Create a hosted zone for YourDomain.com:</li> 
+  </ul> 
+ </div> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     aws route53 create-hosted-zone --name &lt;your_domain.com&gt; --caller-reference &lt;any_string&gt; 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote>
+</body></html></div></div>
+</div></div></div></div>
+</div>
+<div class="card border">
+<div id="heading51" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse51" aria-expanded="false" aria-controls="collapse51" class="btn btn-light btn-group-toggle">Requirement: Ensure Routing Table associated with Web tier ELB subnet have the default route (0.0.0.0/0) defined to allow connectivity to the VPC Internet Gateway (IGW) [6.13]</button></h5></div>
+<div id="collapse51" class="collapse" aria-labelledby="heading51" data-parent="#accordion"><div class="card-body"><div class="accordion" id="parent51"><div class="card border-success">
+<div id="heading52" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse52" aria-expanded="false" aria-controls="collapse52" class="btn btn-light btn-group-toggle">Countermeasure: Allow connectivity to the VPC Internet Gateway (IGW) and associate the Routing Table with Web tier ELB subnet (by default route (0.0.0.0/0)) [aws-tier-6.13]</button></h5></div>
+<div id="collapse52" class="collapse" aria-labelledby="heading52" data-parent="#parent51"><div class="card-body"><html><body>
+<div>
+  A route table contains a set of rules, called routes, that are used to determine where network traffic is directed. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  Each subnet in your VPC must be associated with a route table; the table controls the routing for the subnet. A subnet can only be associated with one route table at a time, but you can associate multiple subnets with the same route table. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  The default route (0.0.0.0/0) should be pointing to the Internet Gateway in order to provide internet connectivity for the Web tier ELB. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div> 
+ <b>Remediation:</b> 
+</div> 
+<div> 
+ <div style="">
+   Using the Amazon unified command line interface: 
+ </div> 
+ <div style=""> 
+  <ul> 
+   <li>For the above route tables, if the default route (0.0.0.0/0) exists but it doesn't have an IGW configured as gateway:</li> 
+  </ul> 
+ </div> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     aws ec2 replace-route --route-table-id &lt;route_table_id&gt; --destination-cidr-block 0.0.0.0/0 --gateway-id &lt;vpc_igw&gt; 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote> 
+<div> 
+ <div style=""> 
+  <ul> 
+   <li>For the above route tables, if the default route (0.0.0.0/0) doesn't exist:</li> 
+  </ul> 
+ </div> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     aws ec2 create-route --route-table-id &lt;route_table_id&gt; --destination-cidr-block 0.0.0.0/0 --gateway-id &lt;vpc_igw&gt; 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote>
+</body></html></div></div>
+</div></div></div></div>
+</div>
+<div class="card border">
+<div id="heading53" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse53" aria-expanded="false" aria-controls="collapse53" class="btn btn-light btn-group-toggle">Requirement: Use a Web-Tier ELB Security Group to accept only HTTP/HTTPS [6.17]</button></h5></div>
+<div id="collapse53" class="collapse" aria-labelledby="heading53" data-parent="#accordion"><div class="card-body"><div class="accordion" id="parent53"><div class="card border-success">
+<div id="heading54" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse54" aria-expanded="false" aria-controls="collapse54" class="btn btn-light btn-group-toggle">Countermeasure: Use a Web-Tier ELB Security Group to accept only HTTP/HTTPS  [aws-tier-6.17]</button></h5></div>
+<div id="collapse54" class="collapse" aria-labelledby="heading54" data-parent="#parent53"><div class="card-body"><html><body>
+<div>
+  A security group acts as a virtual firewall for your instance to control inbound and outbound traffic. When you launch an instance in the AWS Virtual Private Cloud (VPC), you can assign the instance up to five security groups. Security groups act at the instance level, not the subnet level. Therefore, each instance in a subnet in your VPC could be assigned to a different set of security groups. If you don't specify a particular group at launch time, the instance is automatically assigned to the default security group for the VPC. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  For each security group, you add rules that control the inbound traffic to instances, and a separate set of rules that control the outbound traffic. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  The SG associated with the Web tier ELB should allow connectivity from any source IP (0.0.0.0/0) only for the HTTP (TCP 80) and HTTPS (TCP 443) ports. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div> 
+ <b>Remediation:</b> 
+</div> 
+<div> 
+ <div style="">
+   Using the Amazon unified command line interface: 
+ </div> 
+ <div style=""> 
+  <ul> 
+   <li>First remove all the ingress rules for the security group associated with the Web tier ELB:</li> 
+  </ul> 
+ </div> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     aws ec2 describe-security-groups --group-id &lt;security_group_id&gt; --query "SecurityGroups[0].IpPermissions" &gt; /tmp/IpPermissions.json 
+   </div> 
+  </div> 
+  <div style=""> 
+   <br> 
+  </div> 
+ </blockquote> 
+</blockquote> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     aws ec2 revoke-security-group-ingress --group-id &lt;security_group_id&gt; --ip-permissions file:///tmp/IpPermissions.json 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote> 
+<div> 
+ <div style=""> 
+  <ul> 
+   <li>create locally the below json file containing ingress rules for any source IP (0.0.0.0/0) only for the HTTP (TCP 80) and HTTPS (TCP 443) ports and name it IpPermissions.json:</li> 
+  </ul> 
+ </div> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     [ 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+         { 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+             "PrefixListIds": [], 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+             "FromPort": 80, 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+             "IpRanges": [ 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+                 { 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+                     "CidrIp": "0.0.0.0/0" 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+                 } 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+             ], 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+             "ToPort": 80, 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+             "IpProtocol": "tcp", 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+             "UserIdGroupPairs": [] 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+         }, 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+         { 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+             "PrefixListIds": [], 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+             "FromPort": 443, 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+             "IpRanges": [ 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+                 { 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+                     "CidrIp": "0.0.0.0/0" 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+                 } 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+             ], 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+             "ToPort": 443, 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+             "IpProtocol": "tcp", 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+             "UserIdGroupPairs": [] 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+         } 
+   </div> 
+  </div> 
+ </blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     ] 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote> 
+<div> 
+ <div style=""> 
+  <ul> 
+   <li>Add to the security group associated with the Web tier ELB the above ingress rules:</li> 
+  </ul> 
+ </div> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     aws ec2 authorize-security-group-ingress --group-id &lt;security_group_id&gt;  --ip-permissions file:///PathTo/IpPermissions.json 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote>
+</body></html></div></div>
+</div></div></div></div>
+</div>
+<div class="card border">
+<div id="heading55" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse55" aria-expanded="false" aria-controls="collapse55" class="btn btn-light btn-group-toggle">Requirement: Ensure Web tier ELB Security Group is not used in the Auto Scaling launch configuration of any other tier (Web App) [6.18]</button></h5></div>
+<div id="collapse55" class="collapse" aria-labelledby="heading55" data-parent="#accordion"><div class="card-body"><div class="accordion" id="parent55"><div class="card border-success">
+<div id="heading56" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse56" aria-expanded="false" aria-controls="collapse56" class="btn btn-light btn-group-toggle">Countermeasure: Do not use Web tier ELB Security Group in the Auto Scaling launch configuration of any other tier (Web, App) [aws-tier-6.18]</button></h5></div>
+<div id="collapse56" class="collapse" aria-labelledby="heading56" data-parent="#parent55"><div class="card-body"><html><body>
+<div>
+  When you use the AWS Management Console to create a load balancer in a VPC, you can choose an existing security group for the VPC or create a new security group for the VPC. If you choose an existing security group, it must allow traffic in both directions to the listener and health check ports for the load balancer. If you choose to create a security group, the console automatically adds rules to allow all traffic on these ports. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  Be sure to review the security group rules to ensure that they allow traffic on the listener and health check ports for the new load balancer. When you delete your load balancer, this security group is not deleted automatically. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  If you add a listener to an existing load balancer, you must review your security groups to ensure they allow traffic on the new listener port in both directions. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  The web-tier ELB is the only one that is public facing and should have rules to allow inbound traffic to the application ports (ex: HTTP and HTTPS) from any IP source (0.0.0.0/0). 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  The outbound security group rules for the web-tier ELB should be restricted to only the backend web-server instances for the appropriate application ports. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  Associating the web-tier ELB security group to any other instances that shouldn't be publicly accessible exposes them to unauthorized access. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div> 
+ <b>Remediation:</b> 
+</div> 
+<div> 
+ <div style="">
+   Using the Amazon unified command line interface: 
+ </div> 
+ <div style=""> 
+  <ul> 
+   <li>Create new launch configuration using the correct security groups for Web and/or App tier:</li> 
+  </ul> 
+ </div> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     aws autoscaling create-launch-configuration --launch-configuration-name &lt;web_tier_launch_config&gt; --image-id &lt;web_tier_ami&gt; --key-name &lt;your_key_pair&gt; --security-groups &lt;web_tier_security_group&gt;/&lt;app_tier_security_group --instance-type &lt;desired_instance_type&gt; --iam-instance-profile &lt;web_tier_instance_profile&gt;/&lt;app_tier_instance_profile&gt; 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote>
+</body></html></div></div>
+</div></div></div></div>
+</div>
+<div class="card border">
+<div id="heading57" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse57" aria-expanded="false" aria-controls="collapse57" class="btn btn-light btn-group-toggle">Requirement: Create the App tier ELB Security Group and ensure only accepts HTTP/HTTPS [6.21]</button></h5></div>
+<div id="collapse57" class="collapse" aria-labelledby="heading57" data-parent="#accordion"><div class="card-body"><div class="accordion" id="parent57"><div class="card border-success">
+<div id="heading58" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse58" aria-expanded="false" aria-controls="collapse58" class="btn btn-light btn-group-toggle">Countermeasure: Create the App tier ELB Security Group to only accept HTTP/HTTPS [aws-tier-6.21]</button></h5></div>
+<div id="collapse58" class="collapse" aria-labelledby="heading58" data-parent="#parent57"><div class="card-body"><html><body>
+<div>
+                        A security group acts as a virtual firewall for your instance to control inbound and outbound
+                        traffic. When you launch an instance in the AWS Virtual Private Cloud (VPC), you can assign the
+                        instance to up to five security groups. Security groups act at the instance level, not the
+                        subnet level. Therefore, each instance in a subnet in your VPC could be assigned to a different
+                        set of security groups. If you don't specify a particular group at launch time, the instance is
+                        automatically assigned to the default security group for the VPC.
+                        </div>
+                        <div>
+                        <br>
+                        </div>
+                        <div>
+                        For each security group, you add rules that control the inbound traffic to instances, and a
+                        separate set of rules that control the outbound traffic.
+                        </div>
+                        <div>
+                        <br>
+                        </div>
+                        <div>
+                        The SG associated with the App tier ELB should allow connectivity from the security group
+                        associated with Web tier instances only for the HTTP (TCP 80) and HTTPS (TCP 443) ports.
+                        </div>
+                        <div>
+                        <br>
+                        </div>
+                        <div>
+                        The defaults for HTTP and HTTPS are used as an example, any other ports would apply depending on
+                        the application design.
+                        </div>
+                        <div>
+                        <br>
+                        </div>
+                        <div>
+                        <b>Remediation:</b>
+                        </div>
+                        <div>
+                        <div style="">
+                        Using the Amazon unified command line interface:
+                        </div>
+                        <div style="">
+                        <ul>
+                        <li>First remove all the ingress rules for the security group associated with the App tier
+                        ELB:</li>
+                        </ul>
+                        </div>
+                        </div>
+                        <blockquote>
+                        <blockquote>
+                        <div>
+                        <div style="">
+                        aws ec2 describe-security-groups --group-id app_tier_elb_security_group
+                        --query "SecurityGroups[0].IpPermissions" &gt; /tmp/IpPermissions.json
+                        </div>
+                        </div>
+                        <div style="">
+                        <br>
+                        </div>
+                        </blockquote>
+                        </blockquote>
+                        <blockquote>
+                        <blockquote>
+                        <div>
+                        <div style="">
+                        aws ec2 revoke-security-group-ingress --group-id app_tier_elb_security_group
+                        --ip-permissions file:///tmp/IpPermissions.json
+                        </div>
+                        </div>
+                        </blockquote>
+                        </blockquote>
+                        <div>
+                        <div style="">
+                        <ul>
+                        <li>create locally the below json file containing ingress rules for HTTP (TCP 80) and
+                        HTTPS (TCP 443) ports only from and name it IpPermissions.json:</li>
+                        </ul>
+                        </div>
+                        </div>
+                        <blockquote>
+                        <blockquote>
+                        <div>
+                        <div style="">
+                        [
+                        </div>
+                        </div>
+                        </blockquote>
+                        <blockquote>
+                        <div>
+                        <div style="">
+                            {
+                        </div>
+                        </div>
+                        </blockquote>
+                        <blockquote>
+                        <div>
+                        <div style="">
+                                "PrefixListIds": [],
+                        </div>
+                        </div>
+                        </blockquote>
+                        <blockquote>
+                        <div>
+                        <div style="">
+                                "FromPort": 80,
+                        </div>
+                        </div>
+                        </blockquote>
+                        <blockquote>
+                        <div>
+                        <div style="">
+                                "IpRanges": [],
+                        </div>
+                        </div>
+                        </blockquote>
+                        <blockquote>
+                        <div>
+                        <div style="">
+                                "ToPort": 80,
+                        </div>
+                        </div>
+                        </blockquote>
+                        <blockquote>
+                        <div>
+                        <div style="">
+                                "IpProtocol": "tcp",
+                        </div>
+                        </div>
+                        </blockquote>
+                        <blockquote>
+                        <div>
+                        <div style="">
+                                "UserIdGroupPairs": [
+                        </div>
+                        </div>
+                        </blockquote>
+                        <blockquote>
+                        <div>
+                        <div style="">
+                                    {
+                        </div>
+                        </div>
+                        </blockquote>
+                        <blockquote>
+                        <div>
+                        <div style="">
+                                        "UserId":
+                        "&lt;&lt;em&gt;aws_account_number&gt;&lt;/em&gt;",
+                        </div>
+                        </div>
+                        </blockquote>
+                        <blockquote>
+                        <div>
+                        <div style="">
+                                        "GroupId":
+                        "&lt;span style="font-style: italic;"&gt;&lt;&lt;/span&gt;&lt;span
+                        style="font-style: italic;"&gt;web_tier_security_group"
+                        </div>
+                        </div>
+                        </blockquote>
+                        <blockquote>
+                        <div>
+                        <div style="">
+                                    }
+                        </div>
+                        </div>
+                        </blockquote>
+                        <blockquote>
+                        <div>
+                        <div style="">
+                                ]
+                        </div>
+                        </div>
+                        </blockquote>
+                        <blockquote>
+                        <div>
+                        <div style="">
+                            },
+                        </div>
+                        </div>
+                        </blockquote>
+                        <blockquote>
+                        <div>
+                        <div style="">
+                            {
+                        </div>
+                        </div>
+                        </blockquote>
+                        <blockquote>
+                        <div>
+                        <div style="">
+                                "PrefixListIds": [],
+                        </div>
+                        </div>
+                        </blockquote>
+                        <blockquote>
+                        <div>
+                        <div style="">
+                                "FromPort": 443,
+                        </div>
+                        </div>
+                        </blockquote>
+                        <blockquote>
+                        <div>
+                        <div style="">
+                                "IpRanges": [],
+                        </div>
+                        </div>
+                        </blockquote>
+                        <blockquote>
+                        <div>
+                        <div style="">
+                                "ToPort": 443,
+                        </div>
+                        </div>
+                        </blockquote>
+                        <blockquote>
+                        <div>
+                        <div style="">
+                                "IpProtocol": "tcp",
+                        </div>
+                        </div>
+                        </blockquote>
+                        <blockquote>
+                        <div>
+                        <div style="">
+                                "UserIdGroupPairs": [
+                        </div>
+                        </div>
+                        </blockquote>
+                        <blockquote>
+                        <div>
+                        <div style="">
+                                    {
+                        </div>
+                        </div>
+                        </blockquote>
+                        <blockquote>
+                        <div>
+                        <div style="">
+                                        "UserId":
+                        "&lt;&lt;em&gt;aws_account_number&gt;&lt;/em&gt;",
+                        </div>
+                        </div>
+                        </blockquote>
+                        <blockquote>
+                        <div>
+                        <div style="">
+                                        "GroupId":
+                        "&lt;span style="font-style: italic;"&gt;&lt;&lt;/span&gt;&lt;span
+                        style="font-style: italic;"&gt;web_tier_security_group&lt;/span&gt;&gt;"
+                        </div>
+                        </div>
+                        </blockquote>
+                        <blockquote>
+                        <div>
+                        <div style="">
+                                    }
+                        </div>
+                        </div>
+                        </blockquote>
+                        <blockquote>
+                        <div>
+                        <div style="">
+                                ]
+                        </div>
+                        </div>
+                        </blockquote>
+                        <blockquote>
+                        <div>
+                        <div style="">
+                            }
+                        </div>
+                        </div>
+                        </blockquote>
+                        <blockquote>
+                        <div>
+                        <div style="">
+                        ]
+                        </div>
+                        </div>
+                        </blockquote>
+                        </blockquote>
+                        <div>
+                        <div style="">
+                        <ul>
+                        <li>Add to the security group associated with the App tier ELB the above ingress rules:</li>
+                        </ul>
+                        </div>
+                        </div>
+                        <blockquote>
+                        <blockquote>
+                        <div>
+                        <div style="">
+                        aws ec2 authorize-security-group-ingress --group-id app_tier_elb_security_group 
+                        --ip-permissions file:///PathTo/IpPermissions.json
+                        </div>
+                        </div>
+                        </blockquote>
+                        </blockquote>
+                    </body></html></div></div>
+</div></div></div></div>
+</div>
+<div class="card border">
+<div id="heading59" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse59" aria-expanded="false" aria-controls="collapse59" class="btn btn-light btn-group-toggle">Requirement: Create the App tier Security Group and ensure it allows inbound connections from App tier ELB Security Group for explicit ports [6.22]</button></h5></div>
+<div id="collapse59" class="collapse" aria-labelledby="heading59" data-parent="#accordion"><div class="card-body"><div class="accordion" id="parent59"><div class="card border-success">
+<div id="heading60" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse60" aria-expanded="false" aria-controls="collapse60" class="btn btn-light btn-group-toggle">Countermeasure: Create the App tier Security Group to allow inbound connections from App tier ELB Security Group for explicit ports [aws-tier-6.22]</button></h5></div>
+<div id="collapse60" class="collapse" aria-labelledby="heading60" data-parent="#parent59"><div class="card-body"><html><body>
+<div>
+                        A security group acts as a virtual firewall for your instance to control inbound and outbound
+                        traffic. When you launch an instance in the AWS Virtual Private Cloud (VPC), you can assign the
+                        instance to up to five security groups. Security groups act at the instance level, not the
+                        subnet level. Therefore, each instance in a subnet in your VPC could be assigned to a different
+                        set of security groups. If you don't specify a particular group at launch time, the instance is
+                        automatically assigned to the default security group for the VPC.
+                        </div>
+                        <div>
+                        <br>
+                        </div>
+                        <div>
+                        For each security group, you add rules that control the inbound traffic to instances, and a
+                        separate set of rules that control the outbound traffic.
+                        </div>
+                        <div>
+                        <br>
+                        </div>
+                        <div>
+                        This is required for both the configured port and protocol for the listener on the back-end
+                        instance and the port and protocol used for the health check.
+                        </div>
+                        <div>
+                        <br>
+                        </div>
+                        <div>
+                        This protects the App-server tier from unauthorized access, it is recommended to add inbound
+                        security group rules that allow traffic for the specific application protocol and ports by
+                        referencing as source the security group associated with the App tier ELB.
+                        </div>
+                        <div>
+                        <br>
+                        </div>
+                        <div>
+                        <b>Remediation:</b>
+                        </div>
+                        <div>
+                        <div style="">
+                        Using the Amazon unified command line interface:
+                        </div>
+                        <div style="">
+                        <ul>
+                        <li>First remove all the ingress rules for the App tier security group (use the "AppTierSecurityGroup"
+                        element from Audit procedure):</li>
+                        </ul>
+                        </div>
+                        </div>
+                        <blockquote>
+                        <blockquote>
+                        <div>
+                        <div style="">
+                        aws ec2 describe-security-groups --group-id app_tier_security_group
+                        --query "SecurityGroups[0].IpPermissions" &gt; /tmp/IpPermissions.json
+                        </div>
+                        </div>
+                        <div style="">
+                        <br>
+                        </div>
+                        </blockquote>
+                        </blockquote>
+                        <blockquote>
+                        <blockquote>
+                        <div>
+                        <div style="">
+                        aws ec2 revoke-security-group-ingress --group-id app_tier_security_group
+                        --ip-permissions file:///tmp/IpPermissions.json
+                        </div>
+                        </div>
+                        </blockquote>
+                        </blockquote>
+                        <div>
+                        <div style="">
+                        <ul>
+                        <li>Add an ingress rule for a specific port, using --source-group option to specify the
+                        App tier ELB security group as the source of the connections:</li>
+                        </ul>
+                        </div>
+                        </div>
+                        <blockquote>
+                        <blockquote>
+                        <div>
+                        <div style="">
+                        aws ec2 authorize-security-group-ingress --group-id app_tier_security_group
+                        --protocol tcp --port specific_port
+                        --source-group app_tier_elb_security_group
+                        </div>
+                        </div>
+                        </blockquote>
+                        </blockquote>
+                    </body></html></div></div>
+</div></div></div></div>
+</div>
+<div class="card border">
+<div id="heading61" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse61" aria-expanded="false" aria-controls="collapse61" class="btn btn-light btn-group-toggle">Requirement: Ensure the App tier ELB is created as Internal [6.26]</button></h5></div>
+<div id="collapse61" class="collapse" aria-labelledby="heading61" data-parent="#accordion"><div class="card-body"><div class="accordion" id="parent61"><div class="card border-success">
+<div id="heading62" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse62" aria-expanded="false" aria-controls="collapse62" class="btn btn-light btn-group-toggle">Countermeasure: Create the App tier ELB as Internal [aws-tier-6.26]</button></h5></div>
+<div id="collapse62" class="collapse" aria-labelledby="heading62" data-parent="#parent61"><div class="card-body"><html><body>
+<div>
+  An internal load balancer routes traffic to your EC2 instances in private subnets using private IP addresses. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  Create an internal load balancer and register the database servers with it. The web servers receive requests from the Internet-facing load balancer and send requests for the database servers to the internal load balancer. The database servers receive requests from the internal load balancer. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  When an internal load balancer is created, it receives a public DNS name with the following form: 
+</div> 
+<div> 
+ <br> 
+</div> 
+<blockquote> 
+ <div>
+   internal-name-123456789.region.elb.amazonaws.com 
+ </div> 
+ <div> 
+  <br> 
+ </div> 
+</blockquote> 
+<div>
+  The DNS servers resolve the DNS name of your load balancer to the private IP addresses of the load balancer nodes for your internal load balancer. Each load balancer node is connected to the private IP addresses of the back-end instances that are in its Availability Zone using elastic network interfaces. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  Creating the App tier ELB as internal will prevent access to the app tier from the Internet and will allow access from the Web tier instances. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div> 
+ <b>Remediation:</b> 
+</div> 
+<div> 
+ <div style="">
+   Using the Amazon unified command line interface: 
+ </div> 
+ <div style=""> 
+  <ul> 
+   <li>Create new internal ELB for your App tier:</li> 
+  </ul> 
+ </div> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     aws elb create-load-balancer --load-balancer-name app_tier_elb --scheme internal --listeners listener_config --subnets app_tier_subnet1 app_tier_subnet2 --security-groups app_tier_elb_security_group 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote> 
+<div> 
+ <div style=""> 
+  <ul> 
+   <li>Register App tier instances with the new App tier ELB:</li> 
+  </ul> 
+ </div> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     aws elb register-instances-with-load-balancer --load-balancer-name app_tier_elb --instances &lt;app_tier_instance1&gt; &lt;app_tier_instance2&gt; &lt;app_tier_instance3&gt; 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote>
+</body></html></div></div>
+</div></div></div></div>
+</div>
+<div class="card border">
+<div id="heading63" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse63" aria-expanded="false" aria-controls="collapse63" class="btn btn-light btn-group-toggle">Requirement: Ensure RDS Database is not publically accessible [6.30]</button></h5></div>
+<div id="collapse63" class="collapse" aria-labelledby="heading63" data-parent="#accordion"><div class="card-body"><div class="accordion" id="parent63"><div class="card border-success">
+<div id="heading64" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse64" aria-expanded="false" aria-controls="collapse64" class="btn btn-light btn-group-toggle">Countermeasure: Do not allow the  RDS database to be publically accessible [aws-tier-6.30]</button></h5></div>
+<div id="collapse64" class="collapse" aria-labelledby="heading64" data-parent="#parent63"><div class="card-body"><html><body>
+<div>
+  Amazon Relational Database Service (RDS) is a managed relational database service which handles routine database tasks such as provisioning, patching, backup, recovery, failure detection, and repair. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  There are 6 database engines available for customer to run their database workloads on: 
+</div> 
+<div> 
+ <ul> 
+  <li>Amazon Aurora (MySQL Compatible)</li> 
+  <li>MySQL</li> 
+  <li>MariaDB</li> 
+  <li>Oracle</li> 
+  <li>Microsoft SQL Server</li> 
+  <li>PostgreSQL</li> 
+ </ul>Customers can deploy RDS databases within a VPC through the configuration of: 
+</div> 
+<div> 
+ <ul> 
+  <li>Subnet Group for RDS, this group will be used for deployment of single or Multi-AZ RDS instances.</li> 
+  <li>Network access through configuration of Security Groups for RDS</li> 
+  <li>Access from outside the VPC hosting the DB instance by enabling/disabling a Public IP address</li> 
+ </ul> 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div> 
+ <b>Remediation:</b> 
+</div> 
+<div> 
+ <div style="">
+   Using the Amazon unified command line interface: 
+ </div> 
+ <div style=""> 
+  <ul> 
+   <li>Modify each publicly accessible DB instance, and make it private:</li> 
+  </ul> 
+ </div> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     aws rds modify-db-instance --db-instance-identifier &lt;your_db_instance&gt; --no-publicly-accessible 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote>
+</body></html></div></div>
+</div></div></div></div>
+</div>
+<div class="card border">
+<div id="heading65" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse65" aria-expanded="false" aria-controls="collapse65" class="btn btn-light btn-group-toggle">Requirement: Ensure RDS Database is configured to use the Data Tier Security Group [6.34]</button></h5></div>
+<div id="collapse65" class="collapse" aria-labelledby="heading65" data-parent="#accordion"><div class="card-body"><div class="accordion" id="parent65"><div class="card border-success">
+<div id="heading66" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse66" aria-expanded="false" aria-controls="collapse66" class="btn btn-light btn-group-toggle">Countermeasure: Configure RDS database to leverage the Data Tier Security Group [aws-tier-6.34]</button></h5></div>
+<div id="collapse66" class="collapse" aria-labelledby="heading66" data-parent="#parent65"><div class="card-body"><html><body>
+<div>
+  Amazon Relational Database Service (RDS) is a managed relational database service which handles routine database tasks such as provisioning, patching, backup, recovery, failure detection, and repair. 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div>
+  There are 6 database engines available for customer to run their database workloads on: 
+</div> 
+<div> 
+ <ul> 
+  <li>Amazon Aurora (MySQL Compatible)</li> 
+  <li>MySQL</li> 
+  <li>MariaDB</li> 
+  <li>Oracle</li> 
+  <li>Microsoft SQL Server</li> 
+  <li>PostgreSQL</li> 
+ </ul> 
+</div> 
+<div>
+  Customers can deploy RDS databases within a VPC through the configuration of: 
+</div> 
+<div> 
+ <ul> 
+  <li>Subnet Group for RDS, this group will be used for deployment of single or Multi-AZ RDS instances.</li> 
+  <li>Network access through configuration of Security Groups for RDS</li> 
+  <li>Access from outside the VPC hosting the DB instance by enabling/disabling a Public IP address</li> 
+  <li>Network access to the managed Data-Tier must be tightly controlled using Security Groups for RDS and non local accessibility of the DB instance.</li> 
+ </ul> 
+</div> 
+<div> 
+ <br> 
+</div> 
+<div> 
+ <b>Remediation: </b> 
+</div> 
+<div> 
+ <div style="">
+   Using the Amazon unified command line interface: 
+ </div> 
+ <div style=""> 
+  <ul> 
+   <li>Modify each non-compliant DB instance, and configure it to use the Data Tier Security Group:</li> 
+  </ul> 
+ </div> 
+</div> 
+<blockquote> 
+ <blockquote> 
+  <div> 
+   <div style="">
+     aws rds modify-db-instance --db-instance-identifier &lt;your_db_instance&gt; --vpc-security-group-ids &lt;data_tier_security_group&gt; 
+   </div> 
+  </div> 
+ </blockquote> 
+</blockquote>
+</body></html></div></div>
+</div></div></div></div>
+</div>
+<div class="card border">
+<div id="heading67" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse67" aria-expanded="false" aria-controls="collapse67" class="btn btn-light btn-group-toggle">Requirement: Ensure subnets for the Web tier ELB are created [6.5]</button></h5></div>
+<div id="collapse67" class="collapse" aria-labelledby="heading67" data-parent="#accordion"><div class="card-body"><div class="accordion" id="parent67"><div class="card border-success">
+<div id="heading68" class="card-header"><h5 class="mb-0"><button data-toggle="collapse" data-target="#collapse68" aria-expanded="false" aria-controls="collapse68" class="btn btn-light btn-group-toggle">Countermeasure: Create subnets for the Web Tier ELB [aws-tier-6.5]</button></h5></div>
+<div id="collapse68" class="collapse" aria-labelledby="heading68" data-parent="#parent67"><div class="card-body"><html><body>
+<div>
+                        You can create a VPC that spans multiple Availability Zones. After creating a VPC, you can add
+                        one or more subnets in each Availability Zone. Each subnet must reside entirely within one
+                        Availability Zone and cannot span zones. Availability Zones are distinct locations that are
+                        engineered to be isolated from failures in other Availability Zones. By launching instances in
+                        separate Availability Zones, you can protect your applications from the failure of a single
+                        location. AWS assigns a unique ID to each subnet.
+                        </div>
+                        <div>
+                        <br>
+                        </div>
+                        <div>
+                        When you create a subnet, you specify the CIDR block for the subnet. The CIDR block of a subnet
+                        shouldn't be the same as the CIDR block for the VPC (for a single subnet in the VPC). The
+                        allowed block size is between a /28 netmask and /16 netmask. If you create more than one subnet
+                        in a VPC, the CIDR blocks of the subnets must not overlap.
+                        </div>
+                        <div>
+                        <br>
+                        </div>
+                        <div>
+                        Some AWS regions have more than 2 availability zones and it is recommended to use more than 2
+                        where possible.
+                        </div>
+                        <div>
+                        <br>
+                        </div>
+                        <div>
+                        At least 2 subnets in 2 different availability zones (AZ) should be created in order to have
+                        fault tolerance and high availability from the perspective of resource deployment.
+                        </div>
+                        <div>
+                        <br>
+                        </div>
+                        <div>
+                        <b>Remediation:</b>
+                        </div>
+                        <div>
+                        <div style="">
+                        Using the Amazon unified command line interface:
+                        </div>
+                        <div style="">
+                        <ul>
+                        <li>Create subnets for Web tier ELB, and note the subnet id:</li>
+                        </ul>
+                        </div>
+                        </div>
+                        <blockquote>
+                        <blockquote>
+                        <div>
+                        <div style="">
+                        aws ec2 create-subnet --vpc-id application_vpc
+                        --cidr-block desired_cidr
+                        </div>
+                        </div>
+                        </blockquote>
+                        </blockquote>
+                        <div>
+                        <div style="">
+                        <ul>
+                        <li>Tag the above subnets with the Web tier ELB tags:</li>
+                        </ul>
+                        </div>
+                        </div>
+                        <blockquote>
+                        <blockquote>
+                        <div>
+                        <div style="">
+                        aws ec2 create-tags --resources web_tier_elb_subnet1
+                        web_tier_elb_subnet2 --tags Key=public_tier_tag,Value=public_tier_tag_value
+                        </div>
+                        </div>
+                        </blockquote>
+                        </blockquote>
+                    </body></html></div></div>
+</div></div></div></div>
+</div>
+</div>
+</body>
+</html>

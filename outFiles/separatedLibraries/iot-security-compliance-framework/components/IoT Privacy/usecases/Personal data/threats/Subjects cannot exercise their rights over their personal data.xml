@@ -1,0 +1,16 @@
+<threat ref="EU-GDPR-SUBJECT-RIGTHS" name="Subjects cannot exercise their rights over their personal data" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>&lt;p&gt;Data subject cannot exercise their rights which makes it possible for data subjects to file a complaint at local Data Protection Authority which might lead to administrative fines.&lt;/p&gt; 
+&lt;p&gt;Data subject = person of whom personal data is processed&lt;/p&gt;</desc>
+                            <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="25"/>
+                            <references/>
+                            <controls>
+                                <control ref="EU-GDPR-IMPLEMENT-FORGET" mitigation="100"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="EU-GDPR-NO-DELETION-FUNCTIONALITY">
+                                    <controls>
+                                        <control ref="EU-GDPR-IMPLEMENT-FORGET" mitigation="100"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

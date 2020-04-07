@@ -1,0 +1,24 @@
+<control ref="ASSETS-HOSTED-BY-APP" name="Ensure that all application assets are hosted by the application" platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="MANUAL">
+                    <desc>Review periodically all assets which are accessed by the application and ensure that these
+                        assets are hosted by the application. If this is not the case and there are assets in external
+                        providers or a CDN, you shall move these assets to be hosted by the application and remove them
+                        from external providers or CDNs.
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="SI-7" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="19.10" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>Check that all assets are hosted by the application, and not by external providers.
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-08-07T11:44:50.541000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

@@ -1,0 +1,12 @@
+<weakness ref="AWS-LAMBDA-W9" name="The function takes untrusted input" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-03-25T16:40:59">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>Developers should avoid writing code that passes user-controlled input to dangerous functions. This is one of the basics of secure programming. Whenever a function has the capability to execute a dangerous action, it should either not receive user input, or the user-controlled data should be sanitized in order to prevent a malicious user from breaking the intended functionality.</desc>
+                </weakness>

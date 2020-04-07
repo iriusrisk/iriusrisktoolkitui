@@ -1,0 +1,102 @@
+<control ref="RESTRICT-HTTP-METHODS" name="Ensure that the application accepts only a defined set of required HTTP request methods" platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+                        HTTP offers a number of methods that can be used to perform actions on the web server. Many of
+                        theses methods are designed to aid developers in deploying and testing HTTP applications. These
+                        HTTP methods can be used for nefarious purposes if the web server is misconfigured.
+                        Additionally, Cross Site Tracing (XST), a form of cross site scripting using the server's HTTP
+                        TRACE method, is examined.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        While GET and POST are by far the most common methods that are used to access information
+                        provided by a web server, the Hypertext Transfer Protocol (HTTP) allows several other (and
+                        somewhat less known) methods. RFC 2616 (which describes HTTP version 1.1 which is the standard
+                        today) defines the following eight methods:
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;HEAD&lt;/li&gt;
+                        &lt;li&gt;GET&lt;/li&gt;
+                        &lt;li&gt;POST&lt;/li&gt;
+                        &lt;li&gt;PUT&lt;/li&gt;
+                        &lt;li&gt;DELETE&lt;/li&gt;
+                        &lt;li&gt;TRACE&lt;/li&gt;
+                        &lt;li&gt;OPTIONS&lt;/li&gt;
+                        &lt;li&gt;CONNECT&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Some of these methods can potentially pose a security risk for a web application, as they allow
+                        an attacker to modify the files stored on the web server and, in some scenarios, steal the
+                        credentials of legitimate users. More specifically, the methods that should be disabled are the
+                        following:
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;&lt;b&gt;PUT: &lt;/b&gt;This method allows a client to upload new files on the web
+                        server. An attacker can exploit it by uploading malicious files (e.g.: an asp file that executes
+                        commands by invoking cmd.exe), or by simply using the victim's server as a file repository.&lt;/li&gt;
+                        &lt;li&gt;&lt;b&gt;DELETE:&lt;/b&gt; This method allows a client to delete a file on the web
+                        server. An attacker can exploit it as a very simple and direct way to deface a web site or to
+                        mount a DoS attack.&lt;/li&gt;
+                        &lt;li&gt;&lt;b&gt;CONNECT: &lt;/b&gt;This method could allow a client to use the web server as
+                        a proxy.&lt;/li&gt;
+                        &lt;li&gt;&lt;b&gt;TRACE: &lt;/b&gt;This method simply echoes back to the client whatever string
+                        has been sent to the server, and is used mainly for debugging purposes. This method, originally
+                        assumed harmless, can be used to mount an attack known as Cross Site Tracing, which has been
+                        discovered by Jeremiah Grossman (see links at the bottom of the page).&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        If an application needs one or more of these methods, such as REST Web Services (which may
+                        require PUT or DELETE), it is important to check that their usage is properly limited to trusted
+                        users and safe conditions.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Ensure that the application accepts only the HTTP requests GET and POST. The HTTP requests
+                        TRACE, PUT and DELETE are blocked.
+                        &lt;/div&gt;
+                    </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="OWASP test HTTP methods" url="https://www.owasp.org/index.php/Test_HTTP_Methods_(OTG-CONFIG-006)"/>
+                    </references>
+                    <standards>
+                        <standard ref="CM-2" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="CM-6" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="11.1" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="11.1" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="11.1" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="A7:2017-Cross-Site Scripting (XSS)" supportedStandardRef="owasp-top-10-2017"/>
+                        <standard ref="A5:2017-Broken Access Control" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;div&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt;Check that the application only accepts the request with the following HTTP
+                            methods: GET and POST.&lt;/li&gt;
+                            &lt;li&gt;Check that the application rejects and blocks the following requests with the HTTP
+                            methods: TRACE, PUT and DELETE.&lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;/div&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-08-07T09:56:11.228000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

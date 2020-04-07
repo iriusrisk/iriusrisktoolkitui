@@ -1,0 +1,68 @@
+<control ref='D2.9' name='Ensure the default cgroup usage has been confirmed' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>The --cgroup-parent option allows you to set the default cgroup parent to use for all the
+                        containers. If there is no specific use case, this setting should be left at its default.&amp;nbsp;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Rationale:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        System administrators typically define cgroups under which containers are supposed to run. Even
+                        if cgroups are not explicitly defined by the system administrators, containers run under docker
+                        cgroup by default. It is possible to attach to a different cgroup other than that which is the
+                        default. This usage should be monitored and confirmed. By attaching to a different cgroup other
+                        than the one that is a default, it is possible to share resources unevenly and thus might starve
+                        the host for resources.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        The default setting is good enough and can be left as-is. If you want to specifically set a
+                        non-default cgroup, pass --cgroup-parent parameter to the docker daemon when starting it. For
+                        Example,&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        dockerd --cgroup-parent=/foobar&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Impact:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        None.
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='Docker docs: Dockerd default cgroup parent' url='https://docs.docker.com/engine/reference/commandline/dockerd/#default-cgroup-parent' />
+          </references>
+          <standards>
+            <standard ref='2.9' supportedStandardRef='Level 2 - Docker' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;blockquote&gt;
+                            ps -ef | grep dockerd&amp;nbsp;
+                            &lt;/blockquote&gt;
+                            &lt;div&gt;
+                            Ensure that the --cgroup-parent parameter is either not set or is set as appropriate
+                            non-default cgroup.
+                            &lt;/div&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2016-08-02T10:21:32.718'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

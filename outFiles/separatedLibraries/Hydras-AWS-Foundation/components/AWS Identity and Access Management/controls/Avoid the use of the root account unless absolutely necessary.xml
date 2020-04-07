@@ -1,0 +1,43 @@
+<control ref='Hydras-AWS-IAM-2.1' name='Avoid the use of the root account unless absolutely necessary' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>The root account is the one which was used to open the AWS account with Amazon. Therefore it has full unrestricted access to all resources within the account including billing information. Reducing the use of this account and instead using personalized accounts with restricted permissions ensures the principles of least privilege and can help prevent accidental disclosure of credentials or unintended changes. 
+&lt;br /&gt; 
+&lt;b&gt;&lt;br /&gt;&lt;/b&gt; 
+&lt;div&gt; 
+ &lt;b&gt;Remediation:&lt;/b&gt; 
+ &lt;br /&gt;Follow the remediation in &amp;quot;Create Individual Accounts&amp;quot;. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt;Content provided by 
+ &lt;a href="https://hydrasit.com" target="_blank"&gt; Hydras IT LTD&lt;/a&gt;. 
+&lt;/div&gt;</desc>
+          <implementations />
+          <references />
+          <standards>
+            <standard ref='1.1' supportedStandardRef='CIS AWS Standard' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;blockquote&gt;
+                            aws iam create-credential-report
+                            &lt;/blockquote&gt;
+                            &lt;blockquote&gt;
+                            aws iam get-credential-report --query 'Content' --output text | base64 -D | cut -d,
+                            -f1,5,11,16 | grep -B1 '&amp;lt;root_account&amp;gt;'&amp;nbsp;
+                            &lt;/blockquote&gt;
+                            &lt;ol&gt;
+                            &lt;/ol&gt;From the above determine the &amp;quot;password_last_used&amp;quot; time In
+                            addition to the above set up a metric filter as described elsewhere in this library to
+                            determine ad-hoc use of root.
+                            &lt;div&gt;
+                            &lt;br /&gt;Content provided by
+                            &lt;a href="https://hydrasit.com" target="_blank"&gt; Hydras IT LTD&lt;/a&gt;
+                            &lt;/div&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

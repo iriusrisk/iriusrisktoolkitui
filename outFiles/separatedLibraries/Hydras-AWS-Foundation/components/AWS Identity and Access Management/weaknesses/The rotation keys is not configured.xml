@@ -1,0 +1,12 @@
+<weakness ref='AWS-IAM-2.12' name='The rotation keys is not configured' state='0' impact='100'>
+          <desc>The rotation keys are not configured to avoid to use old keys.</desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>

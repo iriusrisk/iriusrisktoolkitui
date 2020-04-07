@@ -1,0 +1,12 @@
+<weakness ref='inadequate-EPHI-management-emergency' name='Inadequate policies/procedures for EPHI management during an emergency' state='0' impact='100'>
+          <desc>Lack of written policies/procedures increases the chances EPHI will not be appropriately available and the potential theft, breach or altering of EPHI by an attacker during an emergency</desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-14T15:34:56.148'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>

@@ -1,0 +1,21 @@
+<weakness ref="CWE-20" name="Input to exported activities, intents or content providers is not validated" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references>
+                            <reference name="CWE-20: Input to exported activities, intents or content providers is not validated" url="https://cwe.mitre.org/data/definitions/20.html"/>
+                        </references>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-05-29T09:15:57.803000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The product does not validate or incorrectly validates input that can affect the control flow
+                        or data flow of a program.
+
+                        When software does not validate input properly, an attacker is able to craft the input in a form
+                        that is not expected by the rest of the application. This will lead to parts of the system
+                        receiving unintended input, which may result in altered control flow, arbitrary control of a
+                        resource, or arbitrary code execution.
+                    </desc>
+                </weakness>

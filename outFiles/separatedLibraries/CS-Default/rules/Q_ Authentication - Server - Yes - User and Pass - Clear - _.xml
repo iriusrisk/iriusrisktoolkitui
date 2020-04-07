@@ -1,0 +1,9 @@
+<rule name="Q: Authentication - Server - Yes - User and Pass - Clear - *" module="component" generatedByGui="true">
+            <condition name="Question Group exists" type="drools-without-variable-type" field="id" value="password storage">
+                <pattern name="Question group exists" pattern='$group : QuestionGroup(id == "${value}") @Watch(!*);'/>
+            </condition>
+            <action project="" value="password.clear_::_Passwords stored in clear text._::_" name="Insert Question" type="drools-without-variable-type">
+                <pattern name="Action of insert question" pattern='insertLogical(new Question($group, "${value-1}", "${value-2}", "${value-3}"));'/>
+            </action>
+            <content></content>
+        </rule>

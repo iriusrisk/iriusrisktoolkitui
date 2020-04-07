@@ -1,0 +1,29 @@
+<threat ref='UNAUTHORIZED-CONECTIONS-AWS' name='Attackers gain unauthorized connection to the resources' state='Expose' source='MANUAL' owner='' library=''>
+              <desc>&lt;p&gt;Attackers could gain an unauthorized connection to the resources through
+                                misconfigured ports or security network configurations.&lt;/p&gt;
+                            </desc>
+              <riskRating confidentiality='100' integrity='100' availability='100' easeOfExploitation='25' />
+              <references />
+              <weaknesses>
+                <weakness ref='database-publically-accesible'>
+                  <controls>
+                    <control ref='aws-tier-6.30' mitigation='33' />
+                  </controls>
+                </weakness>
+                <weakness ref='AWS-Network-5.2'>
+                  <controls>
+                    <control ref='aws-tier-3.5' mitigation='33' />
+                  </controls>
+                </weakness>
+                <weakness ref='no-access-control-onrds'>
+                  <controls>
+                    <control ref='aws-tier-6.34' mitigation='34' />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref='aws-tier-3.5' mitigation='33' />
+                <control ref='aws-tier-6.30' mitigation='33' />
+                <control ref='aws-tier-6.34' mitigation='34' />
+              </controls>
+            </threat>

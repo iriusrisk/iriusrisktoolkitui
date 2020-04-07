@@ -1,0 +1,48 @@
+<control ref="PCI-R11-11.2.3" name="11.2.3 - Perform internal and external scans after a significant change" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Perform internal and external scans, and rescans as needed, after any significant
+                        change. Scans
+                        must be performed by qualified personnel.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt; &lt;/p&gt;
+                        &lt;p&gt;The determination of what constitutes a significant change is highly dependent on the
+                        configuration
+                        of a given environment. If an upgrade or modification could allow access to cardholder data or
+                        affect the
+                        security of the cardholder data environment, then it could be considered significant.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;Scanning an environment after any significant changes are made ensures that changes
+                        were completed
+                        appropriately such that the security of the environment was not compromised as a result of the
+                        change. All
+                        system components affected by the change will need to be scanned.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="11.2.3" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;11.2.3.a Inspect and correlate change control documentation and scan reports to
+                            verify that
+                            system components subject to any significant change were scanned. &lt;/p&gt;
+                            &lt;p&gt;11.2.3.b Review scan reports and verify that the scan process includes rescans
+                            until:&lt;/p&gt;
+                            &lt;p&gt;- For external scans, no vulnerabilities exist that are scored 4.0 or higher by the
+                            CVSS.&lt;/p&gt;
+                            &lt;p&gt;- For internal scans, all "high risk" vulnerabilities as defined in PCI
+                            DSS
+                            Requirement 6.1 are
+                            resolved.&lt;/p&gt;
+                            &lt;p&gt;11.2.3.c Validate that the scan was performed by a qualified internal resource(s)
+                            or qualified
+                            external third party and, if applicable, organizational independence of the tester exists
+                            (not required to
+                            be a QSA or ASV).&amp;nbsp;&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-07T21:44:02.864000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

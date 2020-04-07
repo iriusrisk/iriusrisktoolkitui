@@ -1,0 +1,2 @@
+<component ref='DOCKER-LINUX-HOST-OS' name='Docker Linux Host OS' desc='The Docker Linux Host OS Risk Pattern is based on CIS Docker CE 17.06 Benchmark, which provides prescriptive guidance for establishing a secure configuration posture for Docker CE container version 17.06 and pertains to the Linux Host OS.' groupName='' tags='' position='6' library='' diagramPositionX='0' diagramPositionY='0' componentDefinitionRef=''>
+      

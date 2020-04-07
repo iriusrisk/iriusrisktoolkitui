@@ -1,0 +1,100 @@
+<control ref='D2.1.1' name='Ensure that only containers which are required to communicate with each other are linked together' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>By default, all network traffic is allowed between containers on the same host on the default
+                        network bridge. If your containers should communicate with each other, you can create a custom
+                        network and only join containers that need to communicate to that custom network. Alternatively,
+                        link only specific containers together that require communication.&amp;nbsp;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Rationale:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        By default, unrestricted network traffic is enabled between all containers on the same host on
+                        the default network bridge. Thus, each container has the potential of reading all packets across
+                        the container network on the same host. This might lead to an unintended and unwanted disclosure
+                        of information to other containers. Hence, create a custom network and only join containers that
+                        need to communicate to that custom network or link only specific containers together that
+                        require communication.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        You can follow the Docker documentation to create a custom network and only join containers that
+                        need to communicate to that custom network. The --icc parameter only applies to the default
+                        docker bridge, if custom networks are used then the approach of segmenting networks should be
+                        adopted instead.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Alternatively, follow the Docker documentation and link specific containers using the --link
+                        flag.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Note: Docker warns users not to use the --link flag unless absolutely necessary, because it is a
+                        legacy Docker feature and it may eventually be removed.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Impact:&amp;nbsp;&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        You have to manage the custom networks.
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='Docker docs: Bridge' url='https://docs.docker.com/network/bridge/' />
+            <reference name='Docker docs: Links' url='https://docs.docker.com/network/links/' />
+          </references>
+          <standards>
+            <standard ref='2.1' supportedStandardRef='Level 1 - Docker' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>The docker network inspect command returns information about a network and can be used as
+                            follows:&amp;nbsp;
+                            &lt;div&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt;&lt;b&gt;Step 1:&lt;/b&gt; Ensure the default bridge network has no containers:&amp;nbsp;&lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;/div&gt;
+                            &lt;blockquote&gt;
+                            &lt;blockquote&gt;
+                            &lt;div&gt;
+                            docker network inspect bridge&amp;nbsp;
+                            &lt;/div&gt;
+                            &lt;/blockquote&gt;
+                            &lt;/blockquote&gt;
+                            &lt;div&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt;&lt;b&gt;Step 2:&lt;/b&gt; Check your custom network for joined containers:&amp;nbsp;&lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;/div&gt;
+                            &lt;blockquote&gt;
+                            &lt;blockquote&gt;
+                            &lt;div&gt;
+                            docker network inspect
+                            &lt;/div&gt;
+                            &lt;/blockquote&gt;
+                            &lt;/blockquote&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2016-08-02T10:21:32.718'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

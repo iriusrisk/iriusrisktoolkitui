@@ -1,0 +1,14 @@
+<weakness ref="CWE-727" name="OWASP Top Ten 2004 Category A6 - Injection Flaws" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-04-04T17:42:15.478000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>Weaknesses in this category are related to the A6 category in
+                        the OWASP Top Ten 2004.
+                    </desc>
+                </weakness>

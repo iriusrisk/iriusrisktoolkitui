@@ -1,0 +1,17 @@
+<weakness ref="EU-GDPR-NO-PUBLIC-PRIVACY-NOTICE" name="No public privacy notice" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T14:16:36.906000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>&lt;ul&gt;
+              &lt;li&gt;No or incomplete privacy notice&lt;/li&gt;
+              &lt;li&gt;Privacy notice not findable for data subjects within the application&lt;/li&gt;
+              &lt;li&gt;Privacy notice not given within 72 hours after data was gathered directly or indirectly from data subject&lt;/li&gt;
+              &lt;/ul&gt;Data subject = person of whom personal data is processed
+          </desc>
+                </weakness>

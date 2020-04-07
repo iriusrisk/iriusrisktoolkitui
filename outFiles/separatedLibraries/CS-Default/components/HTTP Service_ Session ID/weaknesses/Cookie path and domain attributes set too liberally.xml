@@ -1,0 +1,20 @@
+<weakness ref="COOKIE-WEAKNESS" name="Cookie path and domain attributes set too liberally" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2017-03-27T10:24:40.445000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>if an application sets a cookie with too open domain and path attributes, an attacker can
+                        exploit this situation to gain access to the cookie and hence to the resources that this cookie
+                        protect.&amp;nbsp;
+                        &lt;div&gt;
+                        &amp;nbsp;
+                        &lt;br /&gt;An example of a wide open and wrongly scoped cookie would be one with the domain
+                        attribute set to the whole domain = .example.org
+                        &lt;/div&gt;
+                    </desc>
+                </weakness>

@@ -1,0 +1,14 @@
+<weakness ref="MASVS-REVERSE-ENGINEERING-TOOLS" name="Inappropriate use of reverse engineering tools" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-05-29T09:15:59.893000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The inappropriate use of the reverse engineering tools is not detected by the app, and
+                        attackers can leverage them to obtain information about the app.
+                    </desc>
+                </weakness>

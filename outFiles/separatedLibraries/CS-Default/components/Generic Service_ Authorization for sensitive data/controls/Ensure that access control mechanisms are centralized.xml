@@ -1,0 +1,30 @@
+<control ref="ACCESS-CONTROL-CENTRALIZED" name="Ensure that access control mechanisms are centralized" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>The access control, authentication and authorization procedures shall be centralized, as all
+                        roles, permissions, groups and users shall be controlled - or gain access - through this
+                        mechanism.&amp;nbsp;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        To ensure roles, groups and permissions are assigned properly to users, we need to have
+                        centralized access control, to grant or deny access easily and securely.
+                        &lt;/div&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="AC-3" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="4.11" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="A5:2017-Broken Access Control" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>Check that access control mechanisms are centralized.</steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-08-06T16:43:27.998000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

@@ -1,0 +1,14 @@
+<weakness ref="CWE-117" name="Improper Output Neutralization for Logs" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-08-07T08:43:58.308000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The software does not neutralize or incorrectly neutralizes
+                        output that is written to logs.
+                    </desc>
+                </weakness>

@@ -1,0 +1,31 @@
+<control ref="PCI-R9-9.1.3" name="9.1.3 - Restrict access to network components and hand helds" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Without security over access to wireless components and devices, malicious users
+                        could use an
+                        organization's unattended wireless devices to access network resources, or even connect
+                        their
+                        own devices to
+                        the wireless network to gain unauthorized access. Additionally, securing networking and
+                        communications
+                        hardware prevents malicious users from intercepting network traffic or physically connecting
+                        their own
+                        devices to wired network resources.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="9.1.3" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;9.1.3 Verify that physical access to wireless access points, gateways, handheld
+                            devices,
+                            networking/communications hardware, and telecommunication lines is appropriately restricted.&amp;nbsp;&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T15:53:05.944000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

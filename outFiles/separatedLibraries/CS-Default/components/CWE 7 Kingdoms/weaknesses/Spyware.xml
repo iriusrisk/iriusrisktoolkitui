@@ -1,0 +1,17 @@
+<weakness ref="CWE-512" name="Spyware" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-04-04T17:45:05.990000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The software collects personally identifiable information about
+                        a human user or the user's activities, but the software accesses this
+                        information using other resources besides itself, and it does not require that
+                        user's explicit approval or direct input into the
+                        software.
+                    </desc>
+                </weakness>

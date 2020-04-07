@@ -1,0 +1,37 @@
+<threat ref="CAPEC-112-USERNAME" name="User accounts compromised through username guessing" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>Attackers could perform a brute force attack against the login function by choosing a
+                                simple password that users are likely to use for the site, and that meets the site's
+                                password policy.
+                                &lt;div&gt;
+                                &amp;nbsp;
+                                &lt;br /&gt;Then they could use an automated script to iterate through a list of
+                                possible usernames. &amp;nbsp;These could be obtained from a dictionary, or generated
+                                through pure brute force means. &amp;nbsp;
+                                &lt;/div&gt;
+                                &lt;div&gt;
+                                &lt;br /&gt;
+                                &lt;/div&gt;
+                                &lt;div&gt;
+                                This type of attack cannot be defended against using an account lockout policy because
+                                each username is only attempted once.
+                                &lt;/div&gt;
+                            </desc>
+                            <riskRating confidentiality="50" integrity="50" availability="25" easeOfExploitation="50"/>
+                            <references/>
+                            <controls>
+                                <control ref="CWE-521" mitigation="50"/>
+                                <control ref="CWE-799-LOGIN" mitigation="50"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-521">
+                                    <controls>
+                                        <control ref="CWE-521" mitigation="50"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="CWE-307">
+                                    <controls>
+                                        <control ref="CWE-799-LOGIN" mitigation="50"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

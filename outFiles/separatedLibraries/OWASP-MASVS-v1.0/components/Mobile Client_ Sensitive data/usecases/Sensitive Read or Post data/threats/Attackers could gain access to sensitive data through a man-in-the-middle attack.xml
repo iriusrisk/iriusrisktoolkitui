@@ -1,0 +1,17 @@
+<threat ref="NTW-MITM" name="Attackers could gain access to sensitive data through a man-in-the-middle attack" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>Sensitive data transmission that it is not properly protected could allow an attacker
+                                to eavesdrop on this data.
+                            </desc>
+                            <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="50"/>
+                            <references/>
+                            <controls>
+                                <control ref="CWE-295-MOBILE" mitigation="100"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-295-AUTH">
+                                    <controls>
+                                        <control ref="CWE-295-MOBILE" mitigation="100"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

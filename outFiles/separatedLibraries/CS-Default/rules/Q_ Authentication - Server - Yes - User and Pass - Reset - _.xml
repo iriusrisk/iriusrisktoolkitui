@@ -1,0 +1,18 @@
+<rule name="Q: Authentication - Server - Yes - User and Pass - Reset - *" module="component" generatedByGui="true">
+            <condition name="Question Group exists" type="drools-without-variable-type" field="id" value="passwordRecovery">
+                <pattern name="Question group exists" pattern='$group : QuestionGroup(id == "${value}") @Watch(!*);'/>
+            </condition>
+            <action project="" value="answerSecretsDisplay_::_After users answer secret questions, the existing password will be displayed_::_" name="Insert Question" type="drools-without-variable-type">
+                <pattern name="Action of insert question" pattern='insertLogical(new Question($group, "${value-1}", "${value-2}", "${value-3}"));'/>
+            </action>
+            <action project="" value="emailExistingPwd_::_Existing password will be emailed or sent by SMS_::_" name="Insert Question" type="drools-without-variable-type">
+                <pattern name="Action of insert question" pattern='insertLogical(new Question($group, "${value-1}", "${value-2}", "${value-3}"));'/>
+            </action>
+            <action project="" value="emailOTP_::_Create a temporary password or token and email or SMS it to the user_::_" name="Insert Question" type="drools-without-variable-type">
+                <pattern name="Action of insert question" pattern='insertLogical(new Question($group, "${value-1}", "${value-2}", "${value-3}"));'/>
+            </action>
+            <action project="" value="softToken_::_By using a soft token (i.e. Time-Based One-Time Password) or an offline channel (i.e. Mobile Push)_::_" name="Insert Question" type="drools-without-variable-type">
+                <pattern name="Action of insert question" pattern='insertLogical(new Question($group, "${value-1}", "${value-2}", "${value-3}"));'/>
+            </action>
+            <content></content>
+        </rule>

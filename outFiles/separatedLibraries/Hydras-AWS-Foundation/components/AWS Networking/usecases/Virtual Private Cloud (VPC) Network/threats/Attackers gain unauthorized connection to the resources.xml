@@ -1,0 +1,31 @@
+<threat ref='UNAUTHORIZED-CONECTIONS-AWS' name='Attackers gain unauthorized connection to the resources' state='Expose' source='MANUAL' owner='' library=''>
+              <desc>&lt;p&gt;Attackers could gain an unauthorized connection to the resources through
+                                misconfigured ports or security network configurations.&lt;/p&gt;
+                            </desc>
+              <riskRating confidentiality='100' integrity='100' availability='100' easeOfExploitation='25' />
+              <references />
+              <weaknesses>
+                <weakness ref='AWS-Network-5.2'>
+                  <controls>
+                    <control ref='Hydras-AWS-EC2-6.1' mitigation='25' />
+                    <control ref='Hydras-AWS-Network-5.2' mitigation='25' />
+                  </controls>
+                </weakness>
+                <weakness ref='AWS-Network-5.1'>
+                  <controls>
+                    <control ref='Hydras-AWS-Network-5.1' mitigation='25' />
+                  </controls>
+                </weakness>
+                <weakness ref='AWS-Network-5.8'>
+                  <controls>
+                    <control ref='Hydras-AWS-Network-5.8' mitigation='25' />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref='Hydras-AWS-EC2-6.1' mitigation='25' />
+                <control ref='Hydras-AWS-Network-5.1' mitigation='25' />
+                <control ref='Hydras-AWS-Network-5.2' mitigation='25' />
+                <control ref='Hydras-AWS-Network-5.8' mitigation='25' />
+              </controls>
+            </threat>

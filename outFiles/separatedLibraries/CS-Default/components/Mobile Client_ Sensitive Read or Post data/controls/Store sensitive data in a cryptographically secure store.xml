@@ -1,0 +1,35 @@
+<control ref="CWE-312-ENCRYPT" name="Store sensitive data in a cryptographically secure store" platform="" cost="2" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>Mobile devices offer built in API's to store data in their encrypted stores,
+                        such as the keychain on iOS. These stores are ultimately encrypted using a key
+                        derived from the device passcode and require the user to set a passcode. &amp;nbsp;However,
+                        they do not enforce the quality of the passcode, nor is it possible to determine
+                        the quality of the passcode (and therefore, ultimately the key) from within the
+                        application.&amp;nbsp;Storing data in the built in encrypted store is therefore
+                        recommended for private data, but not for highly sensitive financial data for
+                        example. &amp;nbsp;If storing highly sensitive data is a requirement, then it
+                        should be encrypted using a key derived from an independent password where the
+                        strength of this password can be verified.
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="2.1" supportedStandardRef="OWASP-MASVS-L1"/>
+                        <standard ref="2.1" supportedStandardRef="OWASP-MASVS-L2"/>
+                        <standard ref="A3:2017-Sensitive Data Exposure" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+                            &lt;li&gt;Identify in which points the component is storing sensitive data.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Check the storage routines and verify they are using OS APIs which are built on
+                            top of secure storage components.&lt;/li&gt;
+                            &lt;/ol&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2015-08-15T17:17:17.073000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

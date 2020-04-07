@@ -1,0 +1,61 @@
+<control ref='D7.7' name='Ensure swarm manager auto-lock key is rotated periodically' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>Rotate swarm manager auto-lock key periodically.&amp;nbsp;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Rationale:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Swarm manager auto-lock key is not automatically rotated. You should rotate them periodically as
+                        a best practice.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Run the below command to rotate the keys.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        docker swarm unlock-key --rotate&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;div&gt;
+                        Additionally, to facilitate audit for this recommendation, maintain key rotation records and
+                        ensure that you establish a pre-defined frequency for key rotation.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Impact:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        None
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='Docker docs: swarm unlock key' url='https://docs.docker.com/engine/reference/commandline/swarm_unlock-key/' />
+          </references>
+          <standards>
+            <standard ref='7.7' supportedStandardRef='Level 1 - Docker' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>Currently, there is no mechanism to find out when the key was last rotated on a swarm
+                            manager node. You should check with the system administrator if there is a key rotation
+                            record and the keys were rotated at a pre-defined frequency.
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2016-08-02T10:21:32.718'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

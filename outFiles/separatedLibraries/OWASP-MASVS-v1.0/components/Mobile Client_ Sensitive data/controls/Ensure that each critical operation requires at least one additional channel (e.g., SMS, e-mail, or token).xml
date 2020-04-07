@@ -1,0 +1,38 @@
+<control ref="MASVS-5.5" name="Ensure that each critical operation requires at least one additional channel (e.g., SMS, e-mail, or token)" platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>Identify all of the tested application's critical operations (e.g., user enrollment, account
+                        recovery, and money transfer) and make sure that critical operations enforce the use of at least
+                        one additional channel to confirm user actions. These channels must not be bypassed when
+                        executing critical operations. The following are examples of additional verification channels:&amp;nbsp;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Token (e.g., RSA token, yubikey);&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;Push notification (e.g., Google Prompt);&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;SMS;&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;E-mail;&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;Data from another website you visited or scanned;&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;Data from a physical letter or physical entry point (e.g., data you receive only after
+                        signing a document at a bank).&amp;nbsp;&lt;/li&gt;
+                        &lt;/ul&gt;If you're going to implement an additional factor to verify the user's identity,
+                        consider Infobip 2FA library or one-time passcodes (OTP) via Google Authenticator.
+                        &lt;/div&gt;
+                    </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="OWASP MASVS - Android - Verifying that Critical Operations Use Secure Communication Channels" url="https://sushi2k.gitbooks.io/the-owasp-mobile-security-testing-guide/content/0x05g-Testing-Network-Communication.html#verifying-that-critical-operations-use-secure-communication-channels"/>
+                        <reference name="OWASP MASVS - iOS - Verifying that Critical Operations Use Secure Communication Channels" url="https://sushi2k.gitbooks.io/the-owasp-mobile-security-testing-guide/content/0x06g-Testing-Network-Communication.html#verifying-that-critical-operations-use-secure-communication-channels"/>
+                    </references>
+                    <standards>
+                        <standard ref="5.5" supportedStandardRef="OWASP-MASVS-L2"/>
+                        <standard ref="5.5" supportedStandardRef="OWASP-MASVS-L2+R"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-02T10:21:32.718000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

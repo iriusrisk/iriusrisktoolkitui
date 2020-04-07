@@ -1,0 +1,47 @@
+<control ref="PCI-R9-9.10" name="9.10 - Develop and use policies and procedures for restricting physical access to cardholder data" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Criminals will often pose as authorized maintenance personnel in order to gain access
+                        to POS
+                        devices. All third parties requesting access to devices should always be verified before being
+                        provided
+                        access-for example, by checking with management or phoning the POS maintenance company
+                        (such as
+                        the vendor
+                        or acquirer) for verification. Many criminals will try to fool personnel by dressing for the
+                        part (for
+                        example, carrying toolboxes and dressed in work wear), and could also be knowledgeable about
+                        locations of
+                        devices, so it's important personnel are trained to follow procedures at all times.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;Another trick criminals like to use is to send a "new" POS system with
+                        instructions for
+                        swapping it
+                        with a legitimate system and "returning" the legitimate system to a specified
+                        address. The
+                        criminals may
+                        even provide return postage as they are very keen to get their hands on these devices. Personnel
+                        always
+                        verify with their manager or supplier that the device is legitimate and came from a trusted
+                        source before
+                        installing it or using it for business.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="9.10" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;9.10 Examine documentation and interview personnel to verify that security
+                            policies and
+                            operational procedures for restricting physical access to cardholder data are: &lt;/p&gt;
+                            &lt;p&gt;-&amp;nbsp;Documented,&lt;/p&gt;
+                            &lt;p&gt;- In use, and&lt;/p&gt;
+                            &lt;p&gt;- Known to all affected parties.&amp;nbsp;&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T16:20:43.957000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

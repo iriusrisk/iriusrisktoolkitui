@@ -1,0 +1,44 @@
+<control ref='GOOGLE-VM02' name='Use Network Security Groups to restrict ingress to port 3389' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>Use Network Security Groups (NSG) to filter the ingress/egress network traffic to Google Cloud
+                        resources. Set the limit inbound access to port 3389 (Remote Desk Protocol) to IP addresses that
+                        require this access in order to avoid undue exposure to risk.
+
+                        Remediation:
+                        1. Go to the Firewall rules page in the Google Cloud Platform Console.
+                        (https://console.cloud.google.com//networking/firewalls/list)
+                        2. Click Create firewall rule.
+                        3. Enter a Name for the firewall rule. This name must be unique for the project.
+                        4. Specify the Network where the firewall rule is implemented.
+                        5. Specify the Priority of the rule. If this rule will not conflict with any other rules, you
+                        can leave the priority on the default of 1000. If you want to give it a higher or lower priority
+                        than other rules, give it a lower number to have it evaluated earlier or a higher number to have
+                        it evaluated later.
+                        6. Indicate the Direction of traffic to which you want the rule to apply. In your case ingress.
+                        7. Indicate the Action as Allow.
+                        8. Specify the Targets of the rule.
+                        9. Select the IP ranges you want the "allow" rule to apply to from certain source IP ranges
+                        only, then specify those ranges in the Source IP ranges field.
+                        10. Specify which Protocols and ports the rule should apply to. In your case, port 3389
+                        11. Click Create.
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='Google Cloud docs: create firewall rules' url='https://cloud.google.com/vpc/docs/using-firewalls#creating_firewall_rules' />
+          </references>
+          <standards />
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;ol&gt;
+                            &lt;li&gt;Go to the Firewall rules page in the Google Cloud Platform Console.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Check that the corresponding Firewall rule is configured and implemented.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Check that inbound traffic though to port 3389 is restricted.&lt;/li&gt;
+                            &lt;/ol&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2016-08-02T10:21:32.718'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

@@ -1,0 +1,16 @@
+<weakness ref="CWE-330" name="Use of Insufficiently Random Values" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references>
+                            <reference name="CWE-330: Use of Insufficiently Random Values" url="https://cwe.mitre.org/data/definitions/330.html"/>
+                        </references>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-05-29T09:16:01.092000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The software may use insufficiently random numbers or values in a security context that
+                        depends on unpredictable numbers.
+                    </desc>
+                </weakness>

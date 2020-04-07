@@ -1,0 +1,33 @@
+<threat ref="FILE-MAL-UPLOAD" name="Attackers gain unauthorised access through malicious file upload" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>Files that contain malicious content could cause the application to execute the
+                                content and therefore grant unauthorized access to the service or the data it contains.
+                            </desc>
+                            <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="25"/>
+                            <references/>
+                            <controls>
+                                <control ref="ASVS-16.6" mitigation="20"/>
+                                <control ref="FILE-DATA-CHECK" mitigation="20"/>
+                                <control ref="FILE-SCAN" mitigation="20"/>
+                                <control ref="WEB-EXEC-DATA" mitigation="20"/>
+                                <control ref="WEB-FILE-DATA" mitigation="20"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-94">
+                                    <controls>
+                                        <control ref="WEB-EXEC-DATA" mitigation="20"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="UNTRUSTED-FILE-HANDLING">
+                                    <controls>
+                                        <control ref="FILE-DATA-CHECK" mitigation="20"/>
+                                        <control ref="FILE-SCAN" mitigation="20"/>
+                                        <control ref="WEB-FILE-DATA" mitigation="20"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="WEB-PATH-ROOT">
+                                    <controls>
+                                        <control ref="ASVS-16.6" mitigation="20"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

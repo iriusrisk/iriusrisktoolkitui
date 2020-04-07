@@ -1,0 +1,15 @@
+<weakness ref="EU-GDPR-INSUFFICIENT-LOGGING" name="Insufficient Logging" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-02-22T13:17:23.218000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>When a security-critical event occurs, the software either does not record the event or omits important details about the event when logging it. 
+          &lt;br /&gt; &lt;br /&gt;
+          When security-critical events are not logged properly, such as a failed login attempt, this can make malicious behavior more difficult to detect&amp;nbsp;
+          </desc>
+                </weakness>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="../tests/test.xsd"/>
+    <xs:complexType name="weaknessType">
+        <xs:all>
+            <xs:element type="testType" name="test"/>
+            <xs:element type="xs:string" name="desc"/>
+        </xs:all>
+        <xs:attribute type="xs:string" name="ref" use="required"/>
+        <xs:attribute type="xs:string" name="name" use="required"/>
+        <xs:attribute type="xs:integer" name="state" use="required"/>
+        <xs:attribute type="xs:integer" name="impact" use="required"/>
+        <xs:attribute type="xs:string" name="issueId" use="required"/>
+    </xs:complexType>
+</xs:schema>

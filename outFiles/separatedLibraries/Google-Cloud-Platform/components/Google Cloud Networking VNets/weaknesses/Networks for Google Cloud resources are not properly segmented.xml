@@ -1,0 +1,14 @@
+<weakness ref='GOOGLE-VNET01' name='Networks for Google Cloud resources are not properly segmented' state='0' impact='100'>
+          <desc>Resources in the same VNet are compromised because when one of them is attacked and the
+                        attackers gain access, they also gain access to all resources.
+                    </desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2018-05-31T09:31:01.126'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>

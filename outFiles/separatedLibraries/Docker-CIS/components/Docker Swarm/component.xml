@@ -1,0 +1,2 @@
+<component ref='DOCKER-SWARM' name='Docker Swarm' desc='This Risk Pattern lists the recommendations that alter and secure the behavior of Docker Swarm.' groupName='' tags='' position='7' library='' diagramPositionX='0' diagramPositionY='0' componentDefinitionRef=''>
+      

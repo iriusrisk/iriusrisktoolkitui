@@ -1,0 +1,13 @@
+<weakness ref="AWS-LAMBDA-W16" name="Functions don’t have a rate limit or aren’t throttled" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-03-25T16:40:59">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>An attacker can try to freeze the system with huge amounts of requests. 
+ If your concurrency limits are set and high, an attacker can still execute a lot of requests and it will cost you a lot of money. It's important to set some limits on services or functions.</desc>
+                </weakness>

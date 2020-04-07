@@ -1,0 +1,12 @@
+<weakness ref="AWS-LAMBDA-W12" name="Containers aren’t monitored" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-03-25T16:40:59">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>Monitoring is needed to understand the relationships between all of the objects across a virtual environment’s topology, recognize the difference between inconsequential anomalies and actual performance problems. This will show you the root cause and recommended actions for remediation. This way, you can understand what needs your attention, and how to narrow a problem to the relevant components.</desc>
+                </weakness>

@@ -1,0 +1,42 @@
+<control ref='GOOGLE-STO03' name='Use apropriate names for the buckets' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>Google Cloud Storage requests refer to buckets and objects by their names. As a result, even
+                        though ACLs will prevent unauthorized third parties from operating on buckets or objects, a
+                        third party can attempt requests with bucket or object names and determine their existence by
+                        observing the error responses.&amp;nbsp;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        It can then be possible for information in bucket or object names to be leaked. If you are
+                        concerned about the privacy of your bucket or object names, you should take appropriate
+                        precautions, such as:
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Choosing bucket and object names that are difficult to guess. For example, a bucket
+                        named mybucket-gtbytul3 is random enough that unauthorized third parties cannot feasibly guess
+                        it or enumerate other bucket names from it.&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;Avoiding use of sensitive information as part of bucket or object names. For example,
+                        instead of naming your bucket mysecretproject-prodbucket, name it somemeaninglesscodename-prod.
+                        In some applications, you may want to keep sensitive metadata in custom Google Cloud Storage
+                        headers such as x-goog-meta, rather than encoding the metadata in object names.&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='Google Cloud docs: Best practices Storage' url='https://cloud.google.com/storage/docs/best-practices#security' />
+          </references>
+          <standards />
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>Check that all buckets are named appropriately.
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2016-08-02T10:21:32.718'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

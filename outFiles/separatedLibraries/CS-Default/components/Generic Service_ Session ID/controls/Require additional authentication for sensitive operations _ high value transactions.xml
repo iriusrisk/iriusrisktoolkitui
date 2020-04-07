@@ -1,0 +1,57 @@
+<control ref="CSD-SESS-REAUTH" name="Require additional authentication for sensitive operations / high value transactions" platform="" cost="2" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+                        Having gained access to an account, for example through session hijack or cross-site scripting,
+                        an attack can compromise data and functionality accessible to the victim. This may include
+                        elevated privilege or sensitive data and functionality, such as changing passwords, creating
+                        accounts, or transferring funds.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        These functions and data should be further protected from attack using a risk-based
+                        authentication model requiring re-authentication, multi-factor authentication, or use of a token
+                        to sign transactions or operations.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Implement re-authentication on key functions (such as requiring the old password
+                        before setting a new one).&lt;/li&gt;
+                        &lt;li&gt;Use secondary authentication such as a transaction PIN to allow financial transfers.&lt;/li&gt;
+                        &lt;li&gt;Critical administrative functionality should require multi-factor authentication (such
+                        as a hard or soft token).&lt;/li&gt;
+                        &lt;li&gt;Consider use of signing technologies or tokens that enable the server-side to verify
+                        the authenticity of a request and mitigate Man in the Middle (MiTM) or Man in the Browser (MiTB)
+                        attacks.&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="IA-1" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="2.26" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="2.26" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="2.26" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="A2:2017-Broken Authentication" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+                            &lt;li&gt;Identify critical functionalities of the application.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Check the risk appetite for those functionalities.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Validate that re-authentication is required for those functions if deemed
+                            necessary.&lt;/li&gt;
+                            &lt;/ol&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-11-24T12:47:31.761000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

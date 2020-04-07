@@ -1,0 +1,63 @@
+<control ref='D3.17' name='Ensure that daemon.json file ownership is set to root:root' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>Verify that the daemon.json file ownership and group-ownership is correctly set to root.&amp;nbsp;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Rationale:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        daemon.json file contains sensitive parameters that may alter the behavior of docker daemon.
+                        Hence, it should be owned and group-owned by root to maintain the integrity of the file.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        chown root:root /etc/docker/daemon.json&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;div&gt;
+                        This would set the ownership and group-ownership for the file to root.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Impact:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        None.
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='Docker docs: Daemon configuration file' url='https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-configuration-file' />
+          </references>
+          <standards>
+            <standard ref='3.17' supportedStandardRef='Level 1 - Docker' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>Execute the below command to verify the file is owned and group-owned by root:&amp;nbsp;
+                            &lt;blockquote&gt;
+                            &lt;div&gt;
+                            stat -c %U:%G /etc/docker/daemon.json | grep -v root:root&amp;nbsp;
+                            &lt;/div&gt;
+                            &lt;/blockquote&gt;
+                            &lt;div&gt;
+                            The above command should not return anything.
+                            &lt;/div&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2016-08-02T10:21:32.718'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

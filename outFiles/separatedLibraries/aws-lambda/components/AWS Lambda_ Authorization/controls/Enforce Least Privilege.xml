@@ -1,0 +1,31 @@
+<control ref="Hydras-AWS-IAM-2.7" name="Enforce Least Privilege" platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Granting least privilege ensures that users only have the permissions required to complete their jobs rather than additional privileges that are not required. Following this model ensures that, should an account be compromised, the blast radius of damage is limited. &lt;/p&gt; 
+&lt;p&gt;&lt;b&gt;Remediation:&lt;/b&gt;&lt;br /&gt; Allocate privileges via groups or roles via the recommendation in “Use RBAC with pre-defined policies added into groups or roles”.&lt;/p&gt; 
+&lt;p&gt;Content provided by Hydras IT LTD&lt;/p&gt;</desc>
+                    <implementations/>
+                    <references>
+                        <reference name="AWS Lambda Permissions Model" url="https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html"/>
+                        <reference name="Configure Lambda Authorizer Using the API Gateway Console" url="https://docs.aws.amazon.com/apigateway/latest/developerguide/configure-api-gateway-lambda-authorization-with-console.html"/>
+                        <reference name="Use API Gateway Lambda Authorizers" url="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html"/>
+                        <reference name="Using Identity-Based Policies (IAM Policies) for AWS Lambda" url="https://docs.aws.amazon.com/lambda/latest/dg/access-control-identity-based.html"/>
+                        <reference name="Using Resource-Based Policies for AWS Lambda (Lambda Function Policies)" url="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html"/>
+                    </references>
+                    <standards>
+                        <standard ref="1.22" supportedStandardRef="CIS AWS Standard"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;Follow the audit check in “Use RBAC with pre-defined policies added into groups or roles”.&lt;/li&gt; 
+ &lt;li&gt;Ensure the privileges granted to these groups or roles only give the user the ability to perform their and no more.&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;p&gt;&lt;/p&gt;</steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-03-25T16:40:59">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

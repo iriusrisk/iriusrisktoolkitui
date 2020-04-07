@@ -1,0 +1,14 @@
+<weakness ref="CWE-983" name="SFP Secondary Cluster: Faulty Resource Use" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-04-04T17:36:55.761000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>This category identifies Software Fault Patterns (SFPs) within
+                        the Faulty Resource Use cluster.
+                    </desc>
+                </weakness>

@@ -1,0 +1,61 @@
+<control ref="PCI-R9-9.6" name="9.6 - Strictly control internal and external media distribution" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;- Classify media so the sensitivity of the data can be determined:&lt;/p&gt;
+                        &lt;p&gt;It is important that media be identified such that its classification status can be
+                        easily
+                        discernible. Media not identified as confidential may not be adequately protected or may be lost
+                        or stolen.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Send the media by secured courier or other delivery method that can be accurately
+                        tracked:&lt;/p&gt;
+                        &lt;p&gt;Media may be lost or stolen if sent via a non-trackable method such as regular postal
+                        mail. Use of
+                        secure couriers to deliver any media that contains cardholder data allows organizations to use
+                        their
+                        tracking systems to maintain inventory and location of shipments.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Ensure management approves any and all media that is moved from a secured area
+                        (including when
+                        media is distributed to individuals):&lt;/p&gt;
+                        &lt;p&gt; &lt;/p&gt;
+                        &lt;p&gt;Without a firm process for ensuring that all media movements are approved before the
+                        media is
+                        removed from secure areas, the media would not be tracked or appropriately protected, and its
+                        location would
+                        be unknown, leading to lost or stolen media.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="9.6" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;9.6 Verify that a policy exists to control distribution of media, and that the
+                            policy covers
+                            all distributed media including that distributed to individuals. &lt;/p&gt;
+                            &lt;p&gt;9.6.1 Verify that all media is classified so the sensitivity of the data can be
+                            determined.&lt;/p&gt;
+                            &lt;p&gt;9.6.2.a Interview personnel and examine records to verify that all media sent
+                            outside the
+                            facility is logged and sent via secured courier or other delivery method that can be
+                            tracked.&lt;/p&gt;
+                            &lt;p&gt;9.6.2.b Select a recent sample of several days of offsite tracking logs for all
+                            media, and verify
+                            tracking details are documented.&amp;nbsp;&lt;/p&gt;
+                            &lt;p&gt; &lt;/p&gt;
+                            &lt;p&gt;9.6.3 Select a recent sample of several days of offsite tracking logs for all
+                            media. From
+                            examination of the logs and interviews with responsible personnel, verify proper management
+                            authorization
+                            is obtained whenever media is moved from a secured area (including when media is distributed
+                            to
+                            individuals).&amp;nbsp;&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T16:07:21.228000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

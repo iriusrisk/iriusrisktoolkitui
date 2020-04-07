@@ -1,0 +1,2 @@
+<component ref="GENERIC-SERVICE:AUTHN-SF" name="Generic Service: Single factor Authentication" desc="The server side login functions for single factor authentication for any type of service" tags="" position="15" groupName="" library="" diagramPositionX="0" diagramPositionY="0" componentDefinitionRef="">
+            

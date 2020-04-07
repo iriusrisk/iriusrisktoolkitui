@@ -1,0 +1,47 @@
+<control ref="AWS-LAMBDA-C11" name="Enable and set up Request Validation in API Gateway" platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;To perform the API Gateway basic validation, we have to enable and set up the Request Validation in the API Gateway.&lt;/p&gt; 
+&lt;p&gt;&lt;b&gt;Remediation:&lt;/b&gt;&lt;br /&gt; To enable basic validation, you specify validation rules in a request validator, add the validator to the API’s map of request validators, and assign the validator to individual API methods.&lt;/p&gt; 
+&lt;p&gt;To set up a basic validation, we have some possibilities to configure it:&lt;br /&gt;&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;by Importing OpenAPI Definition&lt;/li&gt; 
+ &lt;li&gt;using the API Gateway REST API&lt;/li&gt; 
+ &lt;li&gt;using the API Gateway Console&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;Using the API Gateway Console:&lt;br /&gt; The API Gateway console lets you set up the basic request validation on a method using one of the three validators:&lt;br /&gt;&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;Validate body: This is the body-only validator.&lt;/li&gt; 
+ &lt;li&gt;Validate query string parameters and headers: This is the parameters-only validator.&lt;/li&gt; 
+ &lt;li&gt;Validate body, query string parameters, and headers: This validator is for both body and parameters validation.&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;When you choose one of the above validators to enable it on an API method, the API Gateway console will add the validator to the API’s RequestValidators map, if the validator has not already been added to the validators map of the API.&lt;/p&gt; 
+&lt;p&gt;To enable a request validator on a method:&lt;br /&gt;&lt;/p&gt; 
+&lt;ol&gt; 
+ &lt;li&gt;Sign in to the API Gateway console, if not already logged in.&lt;/li&gt; 
+ &lt;li&gt;Create a new or choose an existing API.&lt;/li&gt; 
+ &lt;li&gt;Create a new or choose an existing resource of the API.&lt;/li&gt; 
+ &lt;li&gt;Create a new or choose an existing method the resource.&lt;/li&gt; 
+ &lt;li&gt;Choose Method Request.&lt;/li&gt; 
+ &lt;li&gt;Choose the pencil icon of Request Validator under Settings.&lt;/li&gt; 
+ &lt;li&gt;Choose Validate body, Validate query string parameters and headers or Validate body, query string parameters, and headers from the Request Validator drop-down list and then choose the check mark icon to save your choice.&lt;/li&gt; 
+&lt;/ol&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;For more information see the references.&lt;/p&gt;</desc>
+                    <implementations/>
+                    <references>
+                        <reference name="Enable Request Validation in API Gateway" url="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html"/>
+                        <reference name="Set up Basic Request Validation in API Gateway" url="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-validation-set-up.html"/>
+                    </references>
+                    <standards/>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;Verify in the code if input parameters for functions are validated.&lt;/p&gt;</steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-03-25T16:40:59">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

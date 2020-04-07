@@ -1,0 +1,21 @@
+<threat ref='UNAUTHORIZED-CONNECTION' name='Attackers gain unauthorized connection to the resources' state='Expose' source='MANUAL' owner='' library=''>
+              <desc>&lt;div&gt;
+                                Attackers could gain unauthorized connection to the resources through misconfigured
+                                ports or security network configurations.
+                                &lt;/div&gt;
+                            </desc>
+              <riskRating confidentiality='50' integrity='50' availability='50' easeOfExploitation='50' />
+              <references />
+              <weaknesses>
+                <weakness ref='AZURE-VNET01'>
+                  <controls>
+                    <control ref='AZ-N08' mitigation='50' />
+                    <control ref='AZ-N09' mitigation='50' />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref='AZ-N08' mitigation='50' />
+                <control ref='AZ-N09' mitigation='50' />
+              </controls>
+            </threat>

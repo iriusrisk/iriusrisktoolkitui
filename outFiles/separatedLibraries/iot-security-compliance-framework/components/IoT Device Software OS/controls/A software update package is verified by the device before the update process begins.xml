@@ -1,0 +1,26 @@
+<control ref="IOT2.4.5.3" name="A software update package is verified by the device before the update process begins" platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;A software update package has its digital signature, signing certificate and signing certificate chain verified by the device before the update process begins.&lt;/p&gt; 
+&lt;p&gt;&lt;b&gt;&lt;font size="4"&gt;Rationale:&lt;br /&gt;&lt;/font&gt;&lt;/b&gt; Code signing is the process of using a certificate-based digital signature to sign executables and scripts in order to confirm the software author and ensure that the code has not been altered or corrupted since it was signed. Certificate authority (CA) acts as a trusted third party, trusted both by the software author and the device, and verifies the entity's identity. A chain of trust is established by validating each certificate from the end entity to the root certificate.&lt;/p&gt; 
+&lt;p&gt;&lt;b&gt;&lt;font size="4"&gt;Remediation:&lt;br /&gt;&lt;/font&gt;&lt;/b&gt; Ensure that the device verifies the digital signature, signing certificate and signing certificate chain of a software update before the update process begins.&lt;/p&gt;</desc>
+                    <implementations/>
+                    <references>
+                        <reference name="How certificate chains work" url="https://knowledge.digicert.com/solution/SO16297.html"/>
+                        <reference name="Microsoft Trusted Root Certificate: Program Requirements" url="https://technet.microsoft.com/en-us/library/cc751157.aspx"/>
+                        <reference name="Understanding An SSL Certificate Chain" url="https://ssl.comodo.com/articles/understanding-an-ssl-certificate-chain.php"/>
+                    </references>
+                    <standards>
+                        <standard ref="2.4.5.3" supportedStandardRef="iotsf-class-0"/>
+                        <standard ref="2.4.5.3" supportedStandardRef="iotsf-class-1"/>
+                        <standard ref="2.4.5.3" supportedStandardRef="iotsf-class-2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-03-13T16:00:45">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

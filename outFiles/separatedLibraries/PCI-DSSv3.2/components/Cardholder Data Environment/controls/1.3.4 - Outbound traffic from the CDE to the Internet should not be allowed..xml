@@ -1,0 +1,28 @@
+<control ref="PCI-R1-1.3.4" name="1.3.4 - Outbound traffic from the CDE to the Internet should not be allowed." platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;All traffic outbound from the cardholder data environment should be evaluated to
+                        ensure that it
+                        follows established, authorized rules. Connections should be inspected to restrict traffic to
+                        only
+                        authorized communications (for example by restricting source/destination addresses/ports, and/or
+                        blocking of
+                        content).&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="1.3.4" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;1.3.4 Examine firewall and router configurations to verify that outbound traffic
+                            from the
+                            cardholder data environment to the Internet is explicitly authorized.&amp;nbsp;&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-04T15:25:24.347000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

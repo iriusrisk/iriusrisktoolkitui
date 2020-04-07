@@ -1,0 +1,9 @@
+<rule name="Risk Pattern: Authentication - Service - 2FA - if CWE-654 is applied" module="component" generatedByGui="true">
+            <condition name="Applied Countermeasure" type="drools-without-variable-type" field="id" value="CWE-654">
+                <pattern name="Countermeasure is required" pattern='Control(ref == "${value}", isRequired());'/>
+            </condition>
+            <action project="CS-Default" value="CS-Default_::_GENERIC-SERVICE:AUTHN-2FA" name="Import Risk Pattern" type="drools-without-variable-type">
+                <pattern name="Action of import a risk pattern" pattern='insertLogical(ImportRiskPatternFactory.importRiskPattern("${value-1}", "${value-2}", 50));'/>
+            </action>
+            <content></content>
+        </rule>

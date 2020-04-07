@@ -1,0 +1,17 @@
+<weakness ref='AWS-IAM-1.21' name='The access keys are generated when the setup of the users is started' state='0' impact='100'>
+          <desc>&lt;div&gt;
+                        The system doesn't require additional steps to create access keys, the access keys are
+                        generating when the process to create an user is starting. The problem is that these keys can be
+                        in use somewhere in the organization and maybe these keys are not necessary for the user.
+                        &lt;/div&gt;
+                    </desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>

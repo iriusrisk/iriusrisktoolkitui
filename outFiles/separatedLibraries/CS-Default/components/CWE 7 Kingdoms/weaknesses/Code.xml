@@ -1,0 +1,15 @@
+<weakness ref="CWE-17" name="Code" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-04-04T17:44:03.948000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>Weaknesses in this category are typically introduced during
+                        code development, including specification, design, and
+                        implementation.
+                    </desc>
+                </weakness>

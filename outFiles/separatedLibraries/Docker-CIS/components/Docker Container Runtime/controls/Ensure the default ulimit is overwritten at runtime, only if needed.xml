@@ -1,0 +1,78 @@
+<control ref='D5.18' name='Ensure the default ulimit is overwritten at runtime, only if needed' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>The default ulimit is set at the Docker daemon level. However, you may override the default
+                        ulimit setting, if needed, during container runtime.&amp;nbsp;
+                        &lt;div&gt;
+                        &lt;b&gt;&lt;br /&gt;&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Rationale:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        ulimit provides control over the resources available to the shell and to processes started by
+                        it. Setting system resource limits judiciously saves you from many disasters such as a fork
+                        bomb. Sometimes, even friendly users and legitimate processes can overuse system resources and
+                        in-turn can make the system unusable.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        The default ulimit set at the Docker daemon level should be honored. If the default ulimit
+                        settings are not appropriate for a particular container instance, you may override them as an
+                        exception. But, do not make this a practice. If most of the container instances are overriding
+                        default ulimit settings, consider changing the default ulimit settings to something that is
+                        appropriate for your needs.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Only override the default ulimit settings if needed. For example, to override default ulimit
+                        settings start a container as below:&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        docker run --ulimit nofile=1024:1024 --interactive --tty centos /bin/bash&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Impact:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        If the ulimits are not set properly, the desired resource control might not be achieved and
+                        might even make the system unusable.
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='Docker docs: set ulimits in container' url='https://docs.docker.com/engine/reference/commandline/run/#set-ulimits-in-container-ulimit' />
+            <reference name='Docker oreily: Docker security' url='http://www.oreilly.com/webops-perf/free/files/docker-security.pdf' />
+          </references>
+          <standards>
+            <standard ref='5.18' supportedStandardRef='Level 1 - Docker' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;blockquote&gt;
+                            docker ps --quiet --all | xargs docker inspect --format '{{ .Id }}: Ulimits={{
+                            .HostConfig.Ulimits }}'&amp;nbsp;
+                            &lt;/blockquote&gt;
+                            &lt;div&gt;
+                            The above command should return Ulimits= for each container instance until and unless there
+                            is an exception and a need to override the default ulimit settings.
+                            &lt;/div&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2016-08-02T10:21:32.718'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

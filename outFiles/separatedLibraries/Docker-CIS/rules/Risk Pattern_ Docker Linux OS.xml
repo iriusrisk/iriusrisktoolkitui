@@ -1,0 +1,9 @@
+<rule name='Risk Pattern: Docker Linux OS' module='component' generatedByGui='true'>
+    <condition name='Question is answered' type='Question' field='id' value='docker.so.linux'>
+      <pattern name='Condition with answer' pattern='${type}(${field} == "${value}", answer == true);' />
+    </condition>
+    <action project='Docker CIS' value='Docker CIS_::_DOCKER-LINUX-HOST-OS' name='Import Risk Pattern' type='drools-without-variable-type'>
+      <pattern name='Action of import a risk pattern' pattern='insertLogical(ImportRiskPatternFactory.importRiskPattern("${value-1}", "${value-2}", 50));' />
+    </action>
+    <content />
+  </rule>

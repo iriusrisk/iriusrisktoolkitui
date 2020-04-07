@@ -1,0 +1,9 @@
+<rule name='Risk Pattern: Google Cloud - SQL' module='component' generatedByGui='true'>
+    <condition name='Question is answered' type='Question' field='id' value='cloud.google.sql'>
+      <pattern name='Condition with answer' pattern='${type}(${field} == "${value}", answer == true);' />
+    </condition>
+    <action project='Google Cloud Platform' value='Google Cloud Platform_::_GOOGLE-CLOUD-SQL' name='Import Risk Pattern' type='drools-without-variable-type'>
+      <pattern name='Action of import a risk pattern' pattern='insertLogical(ImportRiskPatternFactory.importRiskPattern("${value-1}", "${value-2}", 50));' />
+    </action>
+    <content />
+  </rule>

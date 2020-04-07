@@ -1,0 +1,32 @@
+<threat ref='CAPEC-125-CONTAINER-RUNTIME' name='Attackers consume the resources of the Container Runtime by rapidly engaging to do the target inaccessible or to break the target' state='Expose' source='MANUAL' owner='' library=''>
+              <desc>An adversary consumes the resources of a target by rapidly engaging in a large number
+                                of interactions with the target. This type of attack generally exposes a weakness in
+                                rate limiting or flow. When successful this attack prevents legitimate users from
+                                accessing the service and can cause the target to crash. This attack differs from
+                                resource depletion through leaks or allocations in that the latter attacks do not rely
+                                on the volume of requests made to the target but instead focus on manipulation of the
+                                target's operations. The key factor in a flooding attack is the number of requests the
+                                adversary can make in a given period of time. The greater this number, the more likely
+                                an attack is to succeed against a given target.
+                            </desc>
+              <riskRating confidentiality='50' integrity='50' availability='100' easeOfExploitation='100' />
+              <references />
+              <weaknesses>
+                <weakness ref='CWE-400'>
+                  <controls>
+                    <control ref='D5.10' mitigation='20' />
+                    <control ref='D5.11' mitigation='20' />
+                    <control ref='D5.14' mitigation='20' />
+                    <control ref='D5.18' mitigation='20' />
+                    <control ref='D5.28' mitigation='20' />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref='D5.10' mitigation='20' />
+                <control ref='D5.11' mitigation='20' />
+                <control ref='D5.14' mitigation='20' />
+                <control ref='D5.18' mitigation='20' />
+                <control ref='D5.28' mitigation='20' />
+              </controls>
+            </threat>

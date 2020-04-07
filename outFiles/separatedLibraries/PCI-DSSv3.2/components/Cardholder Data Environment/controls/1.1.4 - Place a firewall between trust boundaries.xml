@@ -1,0 +1,40 @@
+<control ref="PCI-R1-1.1.4" name="1.1.4 - Place a firewall between trust boundaries" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;A firewall should be placed and configured for each Internet connection and between
+                        any
+                        demilitarized zone (DMZ) and the internal network zone.&lt;/p&gt;
+                        &lt;p&gt;Using a firewall on every Internet connection coming into (and out of) the network, and
+                        between any
+                        DMZ and the internal network, allows the organization to monitor and control access and
+                        minimizes the
+                        chances of a malicious individual obtaining access to the internal network via an unprotected
+                        connection.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="1.1.4" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;1.1.4.a Examine the firewall configuration standards and verify that they
+                            include
+                            requirements for a firewall at each Internet connection and between any DMZ and the internal
+                            network zone.
+                            &lt;/p&gt;
+                            &lt;p&gt;1.1.4.b Verify that the current network diagram is consistent with the firewall
+                            configuration
+                            standards. &lt;/p&gt;
+                            &lt;p&gt;1.1.4.c Observe network configurations to verify that a firewall is in place at
+                            each Internet
+                            connection and between any demilitarized zone (DMZ) and the internal network zone, per the
+                            documented
+                            configuration standards and network diagrams.&amp;nbsp;&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-04T14:40:28.227000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

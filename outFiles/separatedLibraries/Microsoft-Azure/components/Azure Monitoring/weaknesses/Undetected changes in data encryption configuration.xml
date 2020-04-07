@@ -1,0 +1,22 @@
+<weakness ref='AZURE-MON05' name='Undetected changes in data encryption configuration' state='0' impact='100'>
+          <desc>The changes on the database encryption must be audited and monitored. When there are changes
+                        on the database encryption, the security group must be alerted.
+                    </desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;div&gt;
+                            &lt;ol&gt;
+                            &lt;li&gt;Go to &amp;quot;Monitor&amp;quot; and then to &amp;quot;Alerts&amp;quot;.&lt;/li&gt;
+                            &lt;li&gt;Check that there is any rule to alert when the Transparent Data Encryption is
+                            disabled.&lt;/li&gt;
+                            &lt;li&gt;Check if these rules are enabled.&lt;/li&gt;
+                            &lt;/ol&gt;
+                            &lt;/div&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2017-05-23T14:39:26.331'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>

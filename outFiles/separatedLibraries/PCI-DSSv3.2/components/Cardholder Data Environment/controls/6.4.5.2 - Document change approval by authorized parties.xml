@@ -1,0 +1,21 @@
+<control ref="PCI-R6-6.4.5.2" name="6.4.5.2 - Document change approval by authorized parties" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Approval by authorized parties indicates that the change is a legitimate and approved
+                        change
+                        sanctioned by the organization.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="6.4.5.2" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T12:39:48.314000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

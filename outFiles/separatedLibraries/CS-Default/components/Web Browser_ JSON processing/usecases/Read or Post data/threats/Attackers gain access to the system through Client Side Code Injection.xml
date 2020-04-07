@@ -1,0 +1,17 @@
+<threat ref="WEB-CLIENT-INJ" name="Attackers gain access to the system through Client Side Code Injection" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>If an attacker is able to mix controlled input with Client Side code he could direct
+                                attacks to steal sensitive data from users.&amp;nbsp;
+                            </desc>
+                            <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="100"/>
+                            <references/>
+                            <controls>
+                                <control ref="CWE-94" mitigation="100"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-94">
+                                    <controls>
+                                        <control ref="CWE-94" mitigation="100"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

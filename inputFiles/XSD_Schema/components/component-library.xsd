@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:include schemaLocation="weaknesses/weaknesses-library.xsd"/>
+    <xs:include schemaLocation="controls/controls-library.xsd"/>
+    <xs:include schemaLocation="useCases/usecases-library.xsd"/>
+    <xs:complexType name="componentLibraryType">
+        <xs:all>
+            <xs:element type="weaknessesLibraryType" name="weaknesses"/>
+            <xs:element type="controlsLibraryType" name="controls"/>
+            <xs:element type="usecasesLibraryType" name="usecases"/>
+        </xs:all>
+        <xs:attribute type="xs:string" name="ref" use="required"/>
+        <xs:attribute type="xs:string" name="name" use="required"/>
+        <xs:attribute type="xs:string" name="desc" use="required"/>
+        <xs:attribute type="xs:string" name="tags" use="required"/>
+        <xs:attribute type="xs:string" name="position" use="optional"/>
+        <xs:attribute type="xs:string" name="groupName" use="optional"/>
+        <xs:attribute type="xs:string" name="library" use="optional"/>
+        <xs:attribute type="xs:string" name="diagramPositionX" use="optional"/>
+        <xs:attribute type="xs:string" name="diagramPositionY" use="optional"/>
+        <xs:attribute type="xs:string" name="componentDefinitionRef" use="optional"/>
+    </xs:complexType>
+</xs:schema>

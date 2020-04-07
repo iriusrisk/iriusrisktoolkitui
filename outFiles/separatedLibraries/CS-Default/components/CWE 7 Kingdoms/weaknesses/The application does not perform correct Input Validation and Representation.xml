@@ -1,0 +1,19 @@
+<weakness ref="CWE-1005" name="The application does not perform correct Input Validation and Representation" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+                            &lt;li&gt;Provide unexpected inputs to the application (through a fuzzer, for example).&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Check the results are compliant with the expected behavior.&lt;/li&gt;
+                            &lt;/ol&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2017-06-13T15:21:51.680000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>This weakness exist when an application does not properly validate or represent input. &amp;nbsp;Input
+                        validation and representation problems are caused by meta-characters, alternate encodings and
+                        numeric representations. Security problems result from trusting input. The issues include: Buffer Overflows, Cross-Site Scripting attacks, SQL Injection, and many others.&amp;nbsp;
+                    </desc>
+                </weakness>

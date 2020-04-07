@@ -1,0 +1,14 @@
+<weakness ref="CSD-SESS-REAUTH" name="The application does not re-authenticate on critical functions" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-11-24T12:46:48.272000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The application does not require the user to re-authenticate for specific critical functions,
+                        like password change or changes to sensitive security settings.
+                    </desc>
+                </weakness>

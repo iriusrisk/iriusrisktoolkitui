@@ -1,0 +1,23 @@
+<threat ref="CAPEC-115" name="Attackers obtain unauthorised access by connecting directly to the service" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>If the component does not require authentication then an attacker can simply connect
+                                directly to the service to obtain the data.&amp;nbsp;
+                                &lt;div&gt;
+                                &amp;nbsp;
+                                &lt;br /&gt;This risk may also apply to data that is not necessarily sensitive, but is
+                                non-public. &amp;nbsp;For example, obtaining timely market information which is not
+                                freely available through any other service.
+                                &lt;/div&gt;
+                            </desc>
+                            <riskRating confidentiality="75" integrity="75" availability="25" easeOfExploitation="25"/>
+                            <references/>
+                            <controls>
+                                <control ref="CWE-306-SERVICE" mitigation="100"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-306">
+                                    <controls>
+                                        <control ref="CWE-306-SERVICE" mitigation="100"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

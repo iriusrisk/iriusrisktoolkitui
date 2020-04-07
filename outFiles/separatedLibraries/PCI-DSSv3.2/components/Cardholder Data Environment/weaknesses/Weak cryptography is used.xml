@@ -1,0 +1,12 @@
+<weakness ref="PCI-R4-4.1" name="Weak cryptography is used" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-04T10:07:36.631000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc></desc>
+                </weakness>

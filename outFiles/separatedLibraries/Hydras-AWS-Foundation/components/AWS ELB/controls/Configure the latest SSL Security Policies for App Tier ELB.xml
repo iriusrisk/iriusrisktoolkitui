@@ -1,0 +1,104 @@
+<control ref='aws-tier-1.13' name='Configure the latest SSL Security Policies for App Tier ELB' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;div&gt;
+  Elastic Load Balancing uses an Secure Socket Layer (SSL) negotiation configuration, known as a security policy, to negotiate SSL/TLS connections between a client and the load balancer. A security policy is a combination of SSL/TLS protocols, ciphers, and the Server Order Preference option. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt;
+  Elastic Load Balancing supports configuring your load balancer to use either predefined or custom security policies. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt;
+  Secure Sockets Layer (SSL) and Transport Layer Security (TLS) are cryptographic protocols that are used to encrypt confidential data over insecure networks such as the Internet. The TLS protocol is a newer version of the SSL protocol. In the Elastic Load Balancing documentation, we refer to both SSL and TLS protocols as the SSL protocol. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt;
+  Note: an SSL certificate configured on the ELB and an SSL Security Policy is not mandatory if you are terminating SSL connections directly on the App Tier EC2 instances, and using a TCP listener on the ELB (TCP pass-through) 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt;
+  Making sure the latest ELB SSL Security Policy is used will ensure the SSL/TLS connection will be negotiated using only the appropriate cryptographic protocols deemed safe with no proven vulnerabilities. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;b&gt;Remediation:&lt;/b&gt; 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;div style=""&gt;
+   Using the Amazon unified command line interface: 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div style=""&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt;(Note that you should replace &amp;lt;app\_tier\_elb&amp;gt; with your App-tier ELB name, and &amp;lt;latest\_ssl\_policy&amp;gt; with the proper policy name)&lt;/li&gt; 
+ &lt;/ul&gt; 
+&lt;/div&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt; 
+   &lt;div style=""&gt;
+     aws elb set-load-balancer-policies-of-listener --load-balancer-name &amp;lt;app_tier_elb&amp;gt; --load-balancer-port 443 --policy-names&amp;nbsp; &amp;lt;latest_ssl_policy&amp;gt; 
+   &lt;/div&gt; 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='Amazon docs: describe load balancer policies' url='http://docs.aws.amazon.com/cli/latest/reference/elb/describe-load-balancer-policies.html' />
+            <reference name='Amazon docs: describe load balancers' url='http://docs.aws.amazon.com/cli/latest/reference/elb/describe-load-balancers.html' />
+            <reference name='Amazon docs: ELB listener policy' url='https://aws.amazon.com/premiumsupport/knowledge-center/elb-listener-policy-cli/' />
+            <reference name='Amazon docs: ELB security policy options' url='http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-options.html' />
+            <reference name='Amazon docs: set load balancer policies of listener' url='http://docs.aws.amazon.com/cli/latest/reference/elb/set-load-balancer-policies-of-listener.html' />
+          </references>
+          <standards>
+            <standard ref='1.13' supportedStandardRef='cis-amazon-web-services-three-tier-web-architecture-benchmark' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;div&gt;
+  Using the Amazon unified command line interface: 
+&lt;/div&gt; 
+&lt;div&gt;
+  (Note that you should replace &amp;lt;app_tier_elb&amp;gt; with your App-tier ELB name) 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt;Find all the SSL security policies associated with your load balancer listener:&lt;/li&gt; 
+ &lt;/ul&gt; 
+&lt;/div&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt;
+    aws elb describe-load-balancer-policies --load-balancer-name &amp;lt;app_tier_elb&amp;gt; --query 'PolicyDescriptions[?PolicyTypeName==`SSLNegotiationPolicyType`].{PolicyName:PolicyName,ReferenceSecurityPolicy:PolicyAttributeDescriptions[0].AttributeValue}' --output table 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt; 
+&lt;div&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt;Find which of the above policies is currently active, and check on AWS documentation if it is the latest (note that for the TCP listeners the PolicyNames element will be empty, but the TCP listener is still compliant when using SSL certificates on the back-end EC2 instances):&lt;/li&gt; 
+ &lt;/ul&gt; 
+&lt;/div&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt;
+    aws elb describe-load-balancers --load-balancer-name &amp;lt;app_tier_elb&amp;gt; --query &amp;quot;LoadBalancerDescriptions[*].{CompliantListeners:ListenerDescriptions[?Listener.SSLCertificateId != null || Listener.Protocol == 'TCP']}&amp;quot; --output table 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt;</steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

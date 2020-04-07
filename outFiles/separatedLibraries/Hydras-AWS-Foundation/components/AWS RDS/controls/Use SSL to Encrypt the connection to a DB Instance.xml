@@ -1,0 +1,20 @@
+<control ref='Hydras-AWS-RDS-01' name='Use SSL to Encrypt the connection to a DB Instance' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>Use SSL from your application to encrypt a connection to a DB instance running MySQL, MariaDB,
+                        Amazon Aurora, SQL Server, Oracle, or PostgreSQL. Each DB engine has its own process for
+                        implementing SSL. To learn how to implement SSL for your particular DB instance, please see link
+                        provided in &amp;quot;References&amp;quot; section.
+                    </desc>
+          <implementations />
+          <references />
+          <standards />
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>Check that the SSL protocol is used to encrypt the data in transit.</steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

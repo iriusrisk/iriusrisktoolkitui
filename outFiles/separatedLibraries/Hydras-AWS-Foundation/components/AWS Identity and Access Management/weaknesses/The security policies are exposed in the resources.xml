@@ -1,0 +1,14 @@
+<weakness ref='AWS-IAM-2.9' name='The security policies are exposed in the resources' state='0' impact='100'>
+          <desc>The security policies are not configured and the security configurations are exposed for the
+                        attackers.
+                    </desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>

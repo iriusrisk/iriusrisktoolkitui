@@ -1,0 +1,65 @@
+<control ref="AWS-LAMBDA-C12" name="Configure IAM Role statements on a per-function basis." platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;You should spend time crafting suitable, minimal roles for each of your functions. This leverages the principle of least privilege. If you are using the API Gateway, you can also set Lambda authorizers. A Lambda function should do one specific task, so ensure the following model is followed: One function, one use case, one permission.&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;&lt;b&gt; Remediation: &lt;br /&gt;&lt;/b&gt; UsingAWSConsole: &lt;br /&gt;&lt;/p&gt; 
+&lt;ol&gt; 
+ &lt;li&gt;Login to theAWSManagement Console.&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;Navigate to the Lambda dashboard at https://console.aws.amazon.com/lambda/.&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;In the navigation panel, underAWSLambda section, choose Functions.&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;Choose the Lambda function that you want to examine then click on the function name to access its configuration page.&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;Select the Configuration tab then click the Execution role to expand the panel with theIAMrole that defines the permissions for the selected function.&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;Copy the name of theIAMexecution role currently available in the Existing role drop-down list.&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;Now navigate to theIAMdashboard at https://console.aws.amazon.com/iam/.&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;In the left navigation panel, choose Roles.&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;Paste the name of the execution role copied at step no. 6 in the Search box and press Enter.&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;Click on the AmazonIAMexecution role returned as the result.&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;On theIAMrole configuration page, select the Permissions tab from the bottom panel.&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;Click on the attachedIAMpolicy name available within Policy name column to access the policy document (JSONformat).&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;Include inside the {}JSONpanel, the policy document defined for the selectedIAMexecution role.&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;Add the Action and Resource elements&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;and their current values, if the element values are set to “*”&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;and the Effect is set to “Allow”,the selected Amazon Lambda function has admin privileges (we have to restrict the admin privileges in the Amazon Lambda function)&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;Repeat step no. 12 and 13 to add otherIAMpolicies attached to the selected execution role.&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;Repeat steps no. 4 – 16 to add theIAMexecution role permissions for other Amazon Lambda functions created within the current region.&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;Change theAWSregion from the navigation bar and repeat the process for the other regions.&lt;/li&gt; 
+&lt;/ol&gt; 
+&lt;p&gt;&lt;/p&gt;</desc>
+                    <implementations/>
+                    <references>
+                        <reference name="AWS Lambda Permissions Model" url="https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html"/>
+                        <reference name="Configure Lambda Authorizer Using the API Gateway Console" url="https://docs.aws.amazon.com/apigateway/latest/developerguide/configure-api-gateway-lambda-authorization-with-console.html"/>
+                        <reference name="Use API Gateway Lambda Authorizers" url="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html"/>
+                        <reference name="Using Identity-Based Policies (IAM Policies) for AWS Lambda" url="https://docs.aws.amazon.com/lambda/latest/dg/access-control-identity-based.html"/>
+                        <reference name="Using Resource-Based Policies for AWS Lambda (Lambda Function Policies)" url="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html"/>
+                    </references>
+                    <standards/>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;UsingAWSConsole:&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;ol&gt; 
+ &lt;li&gt;Login to theAWSManagement Console.&lt;/li&gt; 
+ &lt;li&gt;Navigate to the Lambda dashboard at https://console.aws.amazon.com/lambda/.&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;In the navigation panel, underAWSLambda section, choose Functions.&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;Choose the Lambda function that you want to examine then click on the function name to access its configuration page.&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;Select the Configuration tab then click the Execution role to expand the panel with theIAMrole that defines the permissions for the selected function.&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;Copy the name of theIAMexecution role currently available in the Existing role drop-down list.&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;Now navigate to theIAMdashboard at https://console.aws.amazon.com/iam/.&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;In the left navigation panel, choose Roles.&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;Paste the name of the execution role copied at step no. 6 in the Search box and press Enter.&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;Click on the AmazonIAMexecution role returned as the result.&lt;/li&gt; 
+ &lt;li&gt;On theIAMrole configuration page, select the Permissions tab from the bottom panel.&lt;/li&gt; 
+ &lt;li&gt;Click on the attachedIAMpolicy name available within Policy name column to access the policy document (JSONformat).&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;Inside the {}JSONpanel, verify the policy document defined for the selectedIAMexecution role. Identify Action and Resource elements and their current values. If the element values are set to “*” and the Effect is set to “Allow”,the selected Amazon Lambda function has admin privileges&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;&amp;nbsp;Repeat step no. 12 and 13 to verify otherIAMpolicies attached to the selected execution role.&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;Repeat steps no. 4 - 15 to verify theIAMexecution role permissions for other Amazon Lambda functions created within the current region.&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;Change theAWSregion from the navigation bar and repeat the process for the other regions.&lt;/li&gt; 
+&lt;/ol&gt; 
+&lt;p&gt;&lt;/p&gt;</steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-03-25T16:40:59">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

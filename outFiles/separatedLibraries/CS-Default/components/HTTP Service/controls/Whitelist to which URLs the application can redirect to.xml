@@ -1,0 +1,36 @@
+<control ref="CWE-601" name="Whitelist to which URLs the application can redirect to" platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="EDITED">
+                    <desc>The application should maintain a list of the URLs to which it can redirect. This whitelisting
+                        can also be done by applying a regular expression. The application should only allow redirects
+                        to trusted URLS.
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="AC-4" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="16.1" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="16.1" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="16.1" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="A4:2017-XML External Entities (XXE)" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;div&gt;
+                            &lt;ol&gt;
+                            &lt;li&gt;Identify the points of the application in which a redirection takes place.
+                            Redirections are usually indicated by the use of the &amp;quot;&amp;quot;&amp;quot;&amp;quot;Location&amp;quot;&amp;quot;&amp;quot;&amp;quot;
+                            HTTP header along with the 3xx code.&lt;/li&gt;
+                            &lt;li&gt;If the content which is ending up inside the Location header is coming from user
+                            input (URL string, Cookies, HTTP headers, forms, etc.), then.&lt;/li&gt;
+                            &lt;li&gt;Using a browser, modify the input value which will be part of the Location header
+                            to set up domains which should not be permitted.&lt;/li&gt;
+                            &lt;/ol&gt;
+                            &lt;/div&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-08-07T10:15:05.730000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

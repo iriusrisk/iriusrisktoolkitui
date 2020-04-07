@@ -1,0 +1,15 @@
+<threat ref="CAPEC-37" name="An attacker examines a target system to find sensitive data that has been embedded within it" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>&lt;p&gt;An attacker examines a target system to find sensitive data that has been embedded within it. This information can reveal confidential contents, such as account numbers or individual keys/credentials that can be used as an intermediate step in a larger attack.&lt;/p&gt;</desc>
+                            <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="25"/>
+                            <references/>
+                            <controls>
+                                <control ref="IOT2.4.12.14" mitigation="100"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-921">
+                                    <controls>
+                                        <control ref="IOT2.4.12.14" mitigation="100"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

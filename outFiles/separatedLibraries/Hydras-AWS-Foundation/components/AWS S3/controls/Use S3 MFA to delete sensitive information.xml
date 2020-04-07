@@ -1,0 +1,40 @@
+<control ref='Hydras-AWS-S3-7.2' name='Use S3 MFA to delete sensitive information' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>Amazon Simple Storage Service is storage for the Internet. It is designed to make web-scale
+                        computing easier for developers.
+                        &lt;br /&gt;
+                        &lt;br /&gt;Amazon S3 has a simple web services interface that you can use to store and retrieve
+                        any amount of data, at any time, from anywhere on the web. It gives any developer access to the
+                        same highly scalable, reliable, fast, inexpensive data storage infrastructure that Amazon uses
+                        to run its own global network of web sites.
+                        &lt;br /&gt;
+                        &lt;br /&gt;To add an extra layer of security to data stored within S3 the account owner (root)
+                        can enable MFA Delete which means that buckets and the objects within them can only be deleted
+                        with the use of Multi-factor authentication device. It is recommended to enable MFA Delete on
+                        any buckets containing sensitive data to protect against accidental deletion
+                        &lt;br /&gt;Remediation
+                        &lt;br /&gt;1. aws s3api put-bucket-versioning --bucket my-bucket --versioning-configuration
+                        Status=Enabled,MFADelete=Enabled
+                        &lt;br /&gt;
+                        &lt;p&gt;Content provided by &lt;a href="https://hydrasit.com" target="_blank"&gt; Hydras IT LTD&lt;/a&gt;&lt;/p&gt;
+                    </desc>
+          <implementations />
+          <references />
+          <standards />
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;blockquote&gt;
+                            aws s3api get-bucket-versioning --bucket my-bucket&amp;nbsp;
+                            &lt;/blockquote&gt;
+                            &lt;div&gt;
+                            If you don't see &amp;quot;MFADelete&amp;quot;: &amp;quot;Enabled&amp;quot; then your bucket
+                            has no MFA delete enabled.
+                            &lt;/div&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

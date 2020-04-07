@@ -1,0 +1,15 @@
+<threat ref="IOT-INSUF-SEC-SOC-ENG" name="Attackers gain access to the system using Social Engineering attacks" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>&lt;p&gt;Attackers will often attempt to exploit insufficient tampering protection, unprotected storage or other misconfigured features.&lt;/p&gt;</desc>
+                            <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="25"/>
+                            <references/>
+                            <controls>
+                                <control ref="IOT2.4.10.7" mitigation="100"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-254-PROD">
+                                    <controls>
+                                        <control ref="IOT2.4.10.7" mitigation="100"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

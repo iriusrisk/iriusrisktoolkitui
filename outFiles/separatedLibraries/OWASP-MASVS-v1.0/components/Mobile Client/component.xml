@@ -1,0 +1,2 @@
+<component ref="MOBILE-CLIENT" name="Mobile Client" desc="A client component on a mobile device. This risk pattern is imported when we have a mobile device, and we don't know which operating system runs. This is a common risk pattern for all types of operating systems." tags="" position="4" groupName="" library="" diagramPositionX="0" diagramPositionY="0" componentDefinitionRef="">
+            

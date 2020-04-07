@@ -1,0 +1,117 @@
+<control ref='aws-tier-1.4' name='Enable encryption at rest for Databases running on RDS' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;div&gt;
+                        Amazon RDS instances and snapshots can be encrypted at rest by enabling the encryption option on
+                        the Amazon RDS DB instance. Data that is encrypted at rest includes the underlying storage for a
+                        DB instance, its automated backups, read replicas, and snapshots. Encryption at rest should
+                        be enabled.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Using the Amazon unified CLI:
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Perform a snapshot of the DB instance:&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                        &lt;blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        aws rds create-db-snapshot --db-snapshot-identifier db_snapshot
+                        --db-instance-identifier your_db_instance
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;/blockquote&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Confirm created snapshot is available (once snapshot process has completed):&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                        &lt;blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        aws rds describe-db-snapshots --query
+                        'DBSnapshots[*].{DBSnapshotIdentifier:DBSnapshotIdentifier,
+                        DBInstanceIdentifier:DBInstanceIdentifier, Snapshotstatus:Status}'
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;/blockquote&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;List all KMS Customer Managed Keys:&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                        &lt;blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        aws kms list-aliases
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;/blockquote&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Copy to source RDS snapshot (from previous step) to a destination snapshot which will
+                        be encrypted:&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                        &lt;blockquote&gt;
+                        &lt;blockquote&gt;
+                        aws rds copy-db-snapshot --source-db-snapshot-identifier db_snapshot&amp;nbsp;
+                        --target-db-snapshot-identifier encrypted_db_snapshot
+                        --kms-key-id data_tier_kms_key
+                        &lt;/blockquote&gt;
+                        &lt;/blockquote&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Restore a snapshot to the target DB instance(from previous step) with the same values as
+                        original db instance with additional encrypted storage values:&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        aws rds restore-db-instance-from-db-snapshot --db-instance-identifier your_db_instance
+                        --db-snapshot-identifier encrypted_db_snapshot
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;/blockquote&gt;
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='Amazon docs: copy db snapshot' url='http://docs.aws.amazon.com/cli/latest/reference/rds/copy-db-snapshot.html' />
+            <reference name='Amazon docs: copy snapshot' url='http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html' />
+            <reference name='Amazon docs: create db instances' url='http://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html' />
+            <reference name='Amazon docs: create db snapshots' url='http://docs.aws.amazon.com/cli/latest/reference/rds/create-db-snapshot.html' />
+            <reference name='Amazon docs: describe db instances' url='http://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-instances.html' />
+            <reference name='Amazon docs: describe db snapshots' url='http://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-snapshots.html' />
+            <reference name='Amazon docs: encryption' url='http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Encryption.html' />
+            <reference name='Amazon docs: list aliases' url='http://docs.aws.amazon.com/cli/latest/reference/kms/list-aliases.html' />
+          </references>
+          <standards>
+            <standard ref='1.4' supportedStandardRef='cis-amazon-web-services-three-tier-web-architecture-benchmark' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;p&gt;Using the Amazon unified CLI:&lt;/p&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt;List all current RDS instances and review the encryption status of the DB
+                            instance:&lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;blockquote&gt;
+                            &lt;blockquote&gt;
+                            aws rds describe-db-instances --query 'DBInstances[*].{DBName:DBName,
+                            EncryptionEnabled:StorageEncrypted, CMK:KmsKeyId}'
+                            &lt;/blockquote&gt;
+                            &lt;/blockquote&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

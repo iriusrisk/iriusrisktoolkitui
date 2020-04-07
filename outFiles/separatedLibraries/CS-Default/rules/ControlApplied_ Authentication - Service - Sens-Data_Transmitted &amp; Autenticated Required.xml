@@ -1,0 +1,12 @@
+<rule name="ControlApplied: Authentication - Service - Sens-Data:Transmitted &amp; Autenticated Required" module="component" generatedByGui="true">
+            <condition name="Conclusion exists" type="drools-without-variable-type" field="id" value="authRequired">
+                <pattern name="Conclusion exists" pattern='Conclusion(id == "${value}");'/>
+            </condition>
+            <condition name="Risk pattern exists" type="drools-without-variable-type" field="id" value="CS-Default_::_GENERIC-SERVICE:SENS-DATA:TRANSMITTED">
+                <pattern name="Risk pattern exists" pattern='$riskPattern : ImportWholeRiskPatternAwareDto(libraryRef == "${value-1}",riskPatternRef == "${value-2}");'/>
+            </condition>
+            <action project="CS-Default" value="CWE-306-SERVICE" name="Apply Control" type="drools-without-variable-type">
+                <pattern name="Action of create requirement" pattern='insertLogical(ControlRef.createRequirement("${value}"));'/>
+            </action>
+            <content></content>
+        </rule>

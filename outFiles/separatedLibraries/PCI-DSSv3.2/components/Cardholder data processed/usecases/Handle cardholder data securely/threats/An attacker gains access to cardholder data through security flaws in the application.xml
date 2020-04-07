@@ -1,0 +1,43 @@
+<threat ref="PCI-R6-6.x2" name="An attacker gains access to cardholder data through security flaws in the application" state="Expose" source="MANUAL" owner="" library="">
+                            <desc></desc>
+                            <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="100"/>
+                            <references/>
+                            <controls>
+                                <control ref="PCI-R6-6.3.1" mitigation="7"/>
+                                <control ref="PCI-R6-6.3.2" mitigation="7"/>
+                                <control ref="PCI-R6-6.5.10" mitigation="8"/>
+                                <control ref="PCI-R6-6.5.1b" mitigation="8"/>
+                                <control ref="PCI-R6-6.5.2a" mitigation="7"/>
+                                <control ref="PCI-R6-6.5.3" mitigation="8"/>
+                                <control ref="PCI-R6-6.5.4" mitigation="8"/>
+                                <control ref="PCI-R6-6.5.5" mitigation="8"/>
+                                <control ref="PCI-R6-6.5.6" mitigation="8"/>
+                                <control ref="PCI-R6-6.5.8" mitigation="8"/>
+                                <control ref="PCI-R6-6.5.9" mitigation="8"/>
+                                <control ref="PCI-R6-6.5.x" mitigation="8"/>
+                                <control ref="PCI-R6-6.6" mitigation="7"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="PCI-R6-6.5.1">
+                                    <controls>
+                                        <control ref="PCI-R6-6.5.10" mitigation="8"/>
+                                        <control ref="PCI-R6-6.5.1b" mitigation="8"/>
+                                        <control ref="PCI-R6-6.5.2a" mitigation="7"/>
+                                        <control ref="PCI-R6-6.5.3" mitigation="8"/>
+                                        <control ref="PCI-R6-6.5.4" mitigation="8"/>
+                                        <control ref="PCI-R6-6.5.5" mitigation="8"/>
+                                        <control ref="PCI-R6-6.5.6" mitigation="8"/>
+                                        <control ref="PCI-R6-6.5.8" mitigation="8"/>
+                                        <control ref="PCI-R6-6.5.9" mitigation="8"/>
+                                        <control ref="PCI-R6-6.5.x" mitigation="8"/>
+                                        <control ref="PCI-R6-6.6" mitigation="7"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="PCI -R6-6.3">
+                                    <controls>
+                                        <control ref="PCI-R6-6.3.1" mitigation="7"/>
+                                        <control ref="PCI-R6-6.3.2" mitigation="7"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

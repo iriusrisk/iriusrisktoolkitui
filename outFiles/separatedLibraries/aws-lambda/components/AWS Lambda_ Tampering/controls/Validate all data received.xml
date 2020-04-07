@@ -1,0 +1,73 @@
+<control ref="DATA-VAL-GENERIC" name="Validate all data received" platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;All data received shall be considered tainted and a potential risk, regardless of the source or transport method. For example, while hidden form fields, cookies, or other headers may be obfuscated from a user, along with parameters passed in ViewStates or other encapsulated forms, these can be modified by the user on the client-side in memory, or in transit on the network. Similarly, data passed from binary or compiled components can be modified in situ or in transit. &lt;/p&gt; 
+&lt;p&gt;Furthermore, encryption only secures the data in transit between the two ends of the encrypted tunnel (one end of which is typically controlled by the client); data passing through the link may still be malicious.&lt;/p&gt; 
+&lt;p&gt;As such, all data received must be subjected to strict validation, sanitization, and encoding against expected syntactic and semantic criteria.&lt;/p&gt; 
+&lt;p&gt; Define a specification of the data that is expected at each input; both the syntax (e.g. alphanumeric only) and semantics (e.g. a word of between 1 and 25 characters, or a specific list). As an example of business rule logic, “boat” may be syntactically valid because it only contains alphanumeric characters, but it is not valid if the input is only expected to contain colors such as “red” or “blue.”&lt;br /&gt; Implement a ‘known good’ or white-list approach, where only inputs that meet the strict criteria for each input are accepted, and reject, transform, or encapsulate any non-compliant data.&lt;/p&gt; 
+&lt;p&gt; While useful for identifying malicious content, do not rely on looking for specific malformed or attack payloads (blacklists). It is almost impossible to maintain a comprehensive and accurate blacklist due to the complexity and evolving nature of attacks, opportunities to obfuscate payloads, and changes to the code’s execution environment. As noted, blacklists can be useful for detecting and logging potential attacks, or determining which inputs are so malformed that they should be rejected outright.&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt; Validate all data received from the client, including values such as HTTP headers and cookie values if these are used as input on the server side, X- headers, and other platform specific data objects passed between the client and server.&lt;/p&gt;</desc>
+                    <implementations/>
+                    <references>
+                        <reference name="Enable Request Validation in API Gateway" url="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html"/>
+                        <reference name="OWASP Input Validation Cheat Sheet" url="https://www.owasp.org/index.php/Input_Validation_Cheat_Sheet"/>
+                        <reference name="OWASP Testing for Input Validation" url="https://www.owasp.org/index.php/Testing_for_Input_Validation"/>
+                    </references>
+                    <standards>
+                        <standard ref="12.2.1" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="12.6.1" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="CA-8" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SC-13" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-1" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-10" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-11" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-15" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="5.14" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="7.2" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="5.14" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="5.19" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="5.20" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="5.21" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="7.2" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="5.14" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="5.19" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="5.20" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="5.21" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="5.6" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="7.2" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;Identify all data input points for the application, for example:&lt;br /&gt;&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;Forms with user input (including hidden fields)&lt;/li&gt; 
+ &lt;li&gt;API calls&lt;/li&gt; 
+ &lt;li&gt;HTTP Headers&lt;/li&gt; 
+ &lt;li&gt;Application states such as ASP Viewstates&lt;/li&gt; 
+ &lt;li&gt;Serialized Java objects&lt;/li&gt; 
+ &lt;li&gt;Any data structure received&lt;/li&gt; 
+ &lt;li&gt;For every input, define accepted input (both syntactic and semantic criteria)&lt;/li&gt; 
+ &lt;li&gt;Where possible, define a white-list of accepted input or characters&lt;/li&gt; 
+ &lt;li&gt;For each of the inputs, ensure that the data is validated against the whitelists (for example with a regular expression) before being processed.&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;To test data validation:&lt;br /&gt;&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;Review the acceptable input criteria, and build test cases that deviate from it (invalid characters, lengths, ranges etc.)&lt;/li&gt; 
+ &lt;li&gt;Pass invalid input to the application and review error trapping and handling.&lt;/li&gt; 
+ &lt;li&gt;Where unexpected exceptions occur, the application may be vulnerable to attack.&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;A number of tools can be used to aid in testing: &lt;br /&gt;&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;Directly with your browser and with the Developer Tools&lt;/li&gt; 
+ &lt;li&gt;Use a browser extension which allows you to modify the request and responses on the fly (i.e. Tamper Data)&lt;/li&gt; 
+ &lt;li&gt;Use a proxy which allows you to modify the request and response on the fly (i.e. OWASP ZAP, Burp, Fiddler, etc.)&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;p&gt;&lt;/p&gt;</steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-03-25T16:40:59">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

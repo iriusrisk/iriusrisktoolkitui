@@ -1,0 +1,12 @@
+<weakness ref="PCI-R1-1.4" name="1.4 - Portable computing devices are not protected by a firewall software or similar" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-04T15:38:30.258000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc></desc>
+                </weakness>

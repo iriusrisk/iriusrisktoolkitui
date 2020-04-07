@@ -1,0 +1,46 @@
+<control ref="HSTS-PRELOAD" name="Preload application URLs to vendor Strict Transport Security domain lists" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+                        Browser vendors supporting the&amp;nbsp;Strict-Transport-Security HTTP header maintain&amp;nbsp;Strict
+                        Transport Security domain lists. HSTS users a the 'Trust On First Use' model, meaning an
+                        attacker has a window of opportunity to subvert users of a protected site before they receive
+                        the initial HSTS response. This list is preloaded into browsers, mitigating the window of
+                        opportunity.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Add HTTP Strict Transport Security (HSTS) for all the requests and all the subdomains&lt;/li&gt;
+                        &lt;li&gt;Preload the URLs of the applications to the Strict Transport Security domain lists
+                        maintained by participating vendors&lt;/li&gt;
+                        &lt;li&gt;Encourage users to access the site with patched versions of the participating vendors.&lt;/li&gt;
+                        &lt;li&gt;Consider creating and pre-loading subdomains for critical applications prior to
+                        release to gain maximum advantage from HSTS pre-loading.&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;/div&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="13.2.1" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="SC-17" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="10.12" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="A3:2017-Sensitive Data Exposure" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+                            &lt;li&gt;For the endpoints that have the HPKP header configured, check they include the
+                            &lt;i&gt;preload&lt;/i&gt; flag. &lt;br /&gt;&lt;/li&gt;
+                            &lt;/ol&gt;
+                        </steps>
+                        <notes></notes>
+                        <references>
+                            <reference name="Mozilla - Security/Guidelines/Web Security" url="https://wiki.mozilla.org/Security/Guidelines/Web_Security#HTTP_Strict_Transport_Security"/>
+                        </references>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2017-03-22T10:23:19.199000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

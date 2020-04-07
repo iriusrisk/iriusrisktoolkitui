@@ -1,0 +1,14 @@
+<weakness ref='AWS-S3-7.3' name='Sensitive data is exposed in transit' state='0' impact='100'>
+          <desc>Sensitive data is not encrypted in transit with HTTPS or SSL, and this data is accessible
+                        whilst traversing the network.
+                    </desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>

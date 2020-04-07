@@ -1,0 +1,89 @@
+<control ref='aws-tier-1.9' name='Add SSL/TLS Certificate to Web Tier ELB' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;div&gt;
+  When you use HTTPS for your front-end listener, you must deploy an SSL/TLS certificate on your load balancer. The load balancer uses the certificate to terminate the connection and then decrypt requests from clients before sending them to the back-end instances. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt;
+  The TLS protocol uses an X.509 certificate (SSL/TLS server certificate) to authenticate both the client and the back-end application. An X.509 certificate is a digital form of identification issued by a trusted certificate authority (CA) and contains identification information, a validity period, a public key, a serial number, and the digital signature of the issuer. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt;
+  You can create a certificate using a Third Party Certificate Authority or AWS Certificate Manager. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt;
+  Note: an SSL certificate configured on the ELB is not mandatory if you are terminating SSL connections directly on the Web Tier EC2 instances, and using a TCP listener on the ELB (TCP pass-through) 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt;
+  All the application traffic between the clients and the Web Tier ELB nodes should be encrypted using a SSL/TLS certificate. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;b&gt;Remediation:&lt;/b&gt; 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;div style=""&gt;
+   Using the Amazon unified command line interface: 
+ &lt;/div&gt; 
+ &lt;div style=""&gt; 
+  &lt;ul&gt; 
+   &lt;li&gt;Adding a HTTPS listener configured with a SSL/TLS certificate (the listener forwards traffic to the backend instances on port 80, but this can be modified by editing InstancePort=80):&lt;/li&gt; 
+  &lt;/ul&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt; 
+   &lt;div style=""&gt;
+     aws elb create-load-balancer-listeners --load-balancer-name &amp;lt;web_tier_elb&amp;gt; --listeners Protocol=HTTPS,LoadBalancerPort=443,InstanceProtocol=HTTP,InstancePort=80, SSLCertificateId=ssl_certificate_arn 
+   &lt;/div&gt; 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='Amazon docs: describe load balancers' url='http://docs.aws.amazon.com/cli/latest/reference/elb/describe-load-balancers.html' />
+            <reference name='Amazon docs: ELB add/delete listeners' url='http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-add-or-delete-listeners.html#add-listener-cli' />
+          </references>
+          <standards>
+            <standard ref='1.9' supportedStandardRef='cis-amazon-web-services-three-tier-web-architecture-benchmark' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;div&gt;
+  Using the Amazon unified command line interface: 
+&lt;/div&gt; 
+&lt;div&gt;
+  (Note that you should replace &amp;lt;web_tier_elb&amp;gt; with your Web-tier ELB name) 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt;Note that if the ListenerDescriptions element is empty, the ELB does not have a listener configured with a SSL/TLS certificate, or a TCP listener (TCP pass-through):&lt;/li&gt; 
+ &lt;/ul&gt; 
+&lt;/div&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt;
+    aws elb describe-load-balancers --load-balancer-names &amp;lt;web_tier_elb&amp;gt; --query &amp;quot;LoadBalancerDescriptions[*].{LoadBalancerName:LoadBalancerName, DNSName:DNSName, Scheme:Scheme, ListenerDescriptions:ListenerDescriptions[?Listener.SSLCertificateId != null ||&amp;nbsp; Listener.Protocol == 'TCP']}&amp;quot; --output table 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt;</steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

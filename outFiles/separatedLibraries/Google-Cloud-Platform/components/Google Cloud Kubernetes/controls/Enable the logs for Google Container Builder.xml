@@ -1,0 +1,133 @@
+<control ref='GOOGLE-CONT05' name='Enable the logs for Google Container Builder' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>The Admin activity logs are enabled and logged by default but the Data access logs for
+                        Container Builder operations are not recorded by default. You shall enable the Data Access audit
+                        logs in the project to follow the access to the Google Cloud Container.&amp;nbsp;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        To enable the audit logs for the containers, you shall go to the file auditConfigs and add the
+                        following code:&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;In JSON:&amp;nbsp;&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                        &lt;blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        &amp;quot;auditConfigs&amp;quot;: [ {&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        &amp;quot;service&amp;quot;: &amp;quot;[SERVICE]&amp;quot;,&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &amp;quot;auditLogConfigs&amp;quot;: [&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;/blockquote&gt;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        { &amp;quot;logType&amp;quot;: &amp;quot;ADMIN_READ&amp;quot; },&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;/blockquote&gt;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        { &amp;quot;logType&amp;quot;: &amp;quot;DATA_READ&amp;quot; },&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;/blockquote&gt;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        { &amp;quot;logType&amp;quot;: &amp;quot;DATA_WRITE&amp;quot; },&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;/blockquote&gt;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        ]
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;}, ]&amp;nbsp;
+                        &lt;/blockquote&gt;
+                        &lt;/blockquote&gt;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;/blockquote&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;In YAML:&amp;nbsp;&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;blockquote&gt;
+                        &lt;blockquote&gt;
+                        auditConfigs:&amp;nbsp;
+                        &lt;/blockquote&gt;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;blockquote&gt;
+                        - auditLogConfigs:&amp;nbsp;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        - logType: ADMIN_READ&amp;nbsp;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        - logType: DATA_WRITE&amp;nbsp;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        - logType: DATA_READ service: [SERVICE]&amp;nbsp;
+                        &lt;/blockquote&gt;
+                        &lt;/blockquote&gt;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;br /&gt;
+                        &lt;/blockquote&gt;
+                        &lt;/blockquote&gt;Note: the param [SERVICE] shall be replaced with each service of the
+                        containers, the services are the following: projects.builds.get, projects.builds.list,
+                        projects.triggers.list, projects.triggers.get
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='Google Cloud docs: enable logs for Container Builder' url='https://cloud.google.com/container-builder/docs/securing-builds/audit-logs#enable' />
+          </references>
+          <standards />
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>Check that the logs are enabled for the Google Containers and they show the correct
+                            information about the access of users.
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2016-08-02T10:21:32.718'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

@@ -1,0 +1,26 @@
+<threat ref='AWS-LOST-CONTROL-NOTIFICATION' name='Sensitive data is compromised through notifications' state='Expose' source='MANUAL' owner='' library=''>
+              <desc>Attackers can gain access to the resources sensitive data if the system notifications
+                                and alerts are not configured properly and the notifications are not received by the
+                                appropriate personnel.
+                            </desc>
+              <riskRating confidentiality='100' integrity='100' availability='100' easeOfExploitation='25' />
+              <references />
+              <weaknesses>
+                <weakness ref='log-actions-sending-out-notifications'>
+                  <controls>
+                    <control ref='aws-tier-4.1' mitigation='33' />
+                    <control ref='aws-tier-4.2' mitigation='34' />
+                  </controls>
+                </weakness>
+                <weakness ref='AWS-SNS-01'>
+                  <controls>
+                    <control ref='Hydras-AWS-SNS-01' mitigation='33' />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref='Hydras-AWS-SNS-01' mitigation='33' />
+                <control ref='aws-tier-4.1' mitigation='33' />
+                <control ref='aws-tier-4.2' mitigation='34' />
+              </controls>
+            </threat>

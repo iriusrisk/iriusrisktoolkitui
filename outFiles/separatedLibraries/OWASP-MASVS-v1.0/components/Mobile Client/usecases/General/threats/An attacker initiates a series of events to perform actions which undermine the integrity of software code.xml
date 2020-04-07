@@ -1,0 +1,21 @@
+<threat ref="CAPEC-184" name="An attacker initiates a series of events to perform actions which undermine the integrity of software code" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>An attacker initiates a series of events designed to cause a user, program, server, or
+                                device to perform actions which undermine the integrity of software code, device data
+                                structures, or device firmware, achieving the modification of the target's integrity to
+                                achieve an insecure state.
+                            </desc>
+                            <riskRating confidentiality="25" integrity="25" availability="100" easeOfExploitation="100"/>
+                            <references/>
+                            <controls>
+                                <control ref="MASVS-7.1" mitigation="50"/>
+                                <control ref="MASVS-8.3" mitigation="50"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-494">
+                                    <controls>
+                                        <control ref="MASVS-7.1" mitigation="50"/>
+                                        <control ref="MASVS-8.3" mitigation="50"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

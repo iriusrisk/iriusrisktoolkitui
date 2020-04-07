@@ -1,0 +1,67 @@
+<control ref='D3.9' name='Ensure that TLS CA certificate file ownership is set to root:root' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>Verify the TLS CA certificate file (the file that is passed along with --tlscacert parameter)
+                        is owned and group-owned by root.&amp;nbsp;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Rationale:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        The TLS CA certificate file should be protected from any tampering. It is used to authenticate
+                        Docker server based on given CA certificate. Hence, it must be owned and group-owned by root to
+                        maintain the integrity of the CA certificate.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        chown root:root&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;div&gt;
+                        This would set the ownership and group-ownership for the TLS CA certificate file to root.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Impact:&amp;nbsp;&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        None.
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='Docker docs: Insecure registry' url='https://docs.docker.com/registry/insecure/' />
+            <reference name='Docker docs: Security https' url='https://docs.docker.com/engine/security/https/' />
+          </references>
+          <standards>
+            <standard ref='3.9' supportedStandardRef='Level 1 - Docker' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>Execute the below command to verify that the TLS CA certificate file is owned and
+                            group-owned by root:&amp;nbsp;
+                            &lt;blockquote&gt;
+                            &lt;div&gt;
+                            stat -c %U:%G | grep -v root:root&amp;nbsp;
+                            &lt;/div&gt;
+                            &lt;/blockquote&gt;
+                            &lt;div&gt;
+                            The above command should not return anything.
+                            &lt;/div&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2016-08-02T10:21:32.718'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

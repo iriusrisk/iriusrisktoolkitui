@@ -1,0 +1,23 @@
+<weakness ref='AZURE-MON04' name='Undetected changes in security groups' state='0' impact='100'>
+          <desc>The changes in security groups must be traced and monitored and the correspondent personnel
+                        must approve these changes. If the situation is not the correct, attackers can access to
+                        security systems.
+                    </desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;div&gt;
+                            &lt;ol&gt;
+                            &lt;li&gt;Go to &amp;quot;Monitor&amp;quot; and then to &amp;quot;Alerts&amp;quot;.&lt;/li&gt;
+                            &lt;li&gt;Check that there is any rule to notify when the security groups or security group
+                            configurations change.&lt;/li&gt;
+                            &lt;li&gt;Check if these rules are enabled.&lt;/li&gt;
+                            &lt;/ol&gt;
+                            &lt;/div&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2017-05-23T14:37:22.342'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>

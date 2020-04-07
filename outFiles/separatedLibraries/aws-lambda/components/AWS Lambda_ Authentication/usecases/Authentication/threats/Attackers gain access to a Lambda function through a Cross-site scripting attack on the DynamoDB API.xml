@@ -1,0 +1,15 @@
+<threat ref="AWS-LAMBDA-T13" name="Attackers gain access to a Lambda function through a Cross-site scripting attack on the DynamoDB API" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>	&lt;p&gt;Through a Cross-site scripting attack an attacker retrieves credentials. The parameters weren’t validated, resulting in an injection of code to retrieve sensitive data such as as credentials.&lt;/p&gt;</desc>
+                            <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="25"/>
+                            <references/>
+                            <controls>
+                                <control ref="DATA-VAL-GENERIC" mitigation="100"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="AWS-LAMBDA-W20">
+                                    <controls>
+                                        <control ref="DATA-VAL-GENERIC" mitigation="100"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

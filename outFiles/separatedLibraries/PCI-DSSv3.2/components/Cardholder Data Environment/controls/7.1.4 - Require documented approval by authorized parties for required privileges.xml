@@ -1,0 +1,31 @@
+<control ref="PCI-R7-7.1.4" name="7.1.4 - Require documented approval by authorized parties for required privileges" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Documented approval (for example, in writing or electronically) assures that those
+                        with access
+                        and privileges are known and authorized by management, and that their access is necessary for
+                        their job
+                        function.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="7.1.4" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;7.1.4 Select a sample of user IDs and compare with documented approvals to
+                            verify that: &lt;/p&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt; &lt;p&gt;Documented approval exists for the assigned privileges &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;The approval was by authorized parties &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;That specified privileges match the roles assigned to the individual.&amp;nbsp;&lt;/p&gt;
+                            &lt;/li&gt;
+                            &lt;/ul&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T14:03:02.583000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

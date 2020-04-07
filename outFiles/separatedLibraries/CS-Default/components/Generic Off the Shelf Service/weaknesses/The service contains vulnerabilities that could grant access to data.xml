@@ -1,0 +1,14 @@
+<weakness ref="CWE-284" name="The service contains vulnerabilities that could grant access to data" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references>
+                            <reference name="OWASP Top 10 - A9" url="https://www.owasp.org/index.php/Top_10_2013-A9-Using_Components_with_Known_Vulnerabilities"/>
+                        </references>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-11-23T20:58:34.717000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The services may contain security vulnerabilities that can be exploited by attackers to gain unauthorized access to data or additional services.</desc>
+                </weakness>

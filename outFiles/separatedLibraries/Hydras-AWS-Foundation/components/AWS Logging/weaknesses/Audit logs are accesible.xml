@@ -1,0 +1,16 @@
+<weakness ref='AWS-Logging-3.3' name='Audit logs are accesible' state='0' impact='100'>
+          <desc>&lt;div&gt;
+                        The audit logs are not encrypted and they can be accessed by attackers and obtain sensitive data
+                        in clear text.
+                        &lt;/div&gt;
+                    </desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>

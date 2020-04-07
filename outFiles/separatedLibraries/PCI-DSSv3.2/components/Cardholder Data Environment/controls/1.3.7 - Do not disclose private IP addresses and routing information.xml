@@ -1,0 +1,36 @@
+<control ref="PCI-R1-1.3.7" name="1.3.7 - Do not disclose private IP addresses and routing information" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Restricting the disclosure of internal or private IP addresses is essential to
+                        prevent a hacker
+                        "learning" the IP addresses of the internal network, and using that information to
+                        access the
+                        network.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;Methods used to meet the intent of this requirement may vary depending on the specific
+                        networking
+                        technology being used. For example, the controls used to meet this requirement may be different
+                        for IPv4
+                        networks than for IPv6&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="1.3.7" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;1.3.7.a Examine firewall and router configurations to verify that methods are in
+                            place to
+                            prevent the disclosure of private IP addresses and routing information from internal
+                            networks to the
+                            Internet.&lt;/p&gt;
+                            &lt;p&gt;1.3.7.b Interview personnel and examine documentation to verify that any disclosure
+                            of private IP
+                            addresses and routing information to external entities is authorized.&amp;nbsp;&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-04T15:29:27.397000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

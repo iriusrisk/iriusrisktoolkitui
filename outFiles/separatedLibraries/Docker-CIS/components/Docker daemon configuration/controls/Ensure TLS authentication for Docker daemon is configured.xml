@@ -1,0 +1,76 @@
+<control ref='D2.6' name='Ensure TLS authentication for Docker daemon is configured' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>It is possible to make the Docker daemon listen on a specific IP and port and any other Unix
+                        socket other than default Unix socket. Configure TLS authentication to restrict access to Docker
+                        daemon via IP and port.&amp;nbsp;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Rationale:&amp;nbsp;&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        By default, Docker daemon binds to a non-networked Unix socket and runs with root privileges. If
+                        you change the default docker daemon binding to a TCP port or any other Unix socket, anyone with
+                        access to that port or socket can have full access to Docker daemon and in turn to the host
+                        system. Hence, you should not bind the Docker daemon to another IP/port or a Unix socket. If you
+                        must expose the Docker daemon via a network socket, configure TLS authentication for the daemon
+                        and Docker Swarm APIs (if using). This would restrict the connections to your Docker daemon over
+                        the network to a limited number of clients who could successfully authenticate over TLS.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Follow the steps mentioned in the Docker documentation or other references.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Impact:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        You would need to manage and guard certificates and keys for Docker daemon and Docker clients.
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='Docker docs: Security https' url='https://docs.docker.com/engine/security/https/' />
+          </references>
+          <standards>
+            <standard ref='2.6' supportedStandardRef='Level 1 - Docker' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;blockquote&gt;
+                            ps -ef | grep dockerd&amp;nbsp;
+                            &lt;/blockquote&gt;
+                            &lt;div&gt;
+                            Ensure that the below parameters are present:&amp;nbsp;
+                            &lt;/div&gt;
+                            &lt;blockquote&gt;
+                            &lt;div&gt;
+                            --tlsverify&amp;nbsp;
+                            &lt;/div&gt;
+                            &lt;div&gt;
+                            --tlscacert&amp;nbsp;
+                            &lt;/div&gt;
+                            &lt;div&gt;
+                            --tlscert&amp;nbsp;
+                            &lt;/div&gt;
+                            &lt;div&gt;
+                            --tlskey
+                            &lt;/div&gt;
+                            &lt;/blockquote&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2016-08-02T10:21:32.718'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

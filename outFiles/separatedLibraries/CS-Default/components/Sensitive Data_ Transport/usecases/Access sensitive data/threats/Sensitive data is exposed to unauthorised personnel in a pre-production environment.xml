@@ -1,0 +1,17 @@
+<threat ref="PRE-PROD" name="Sensitive data is exposed to unauthorised personnel in a pre-production environment" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>Pre-production environments are usually available to a wide group of developers and
+                                testers who may not be authorized to view sensitive production data.
+                            </desc>
+                            <riskRating confidentiality="75" integrity="75" availability="1" easeOfExploitation="50"/>
+                            <references/>
+                            <controls>
+                                <control ref="CWE-485-PREPROD" mitigation="100"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-485-PREPROD">
+                                    <controls>
+                                        <control ref="CWE-485-PREPROD" mitigation="100"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

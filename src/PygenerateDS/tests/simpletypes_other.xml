@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<simpleTypeTests
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+>
+
+    <simpleTypeTest>
+        <datetime1>2021</datetime1>
+        <datetime2>2022-06</datetime2>
+        <datetime3>08</datetime3>
+        <datetime4>09-14</datetime4>
+        <datetime5>24</datetime5>
+    </simpleTypeTest>
+
+</simpleTypeTests>
+

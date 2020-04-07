@@ -1,0 +1,33 @@
+<threat ref="IOT-DATA_LEAKAGE-UNAUTHZ-PARTIES" name="Data leakage or disclosure from IoT systems to unauthorized parties" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>	&lt;p&gt;Unauthorized party might access/breach the personal data of the data subject from IoT systems.&lt;/p&gt;</desc>
+                            <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="25"/>
+                            <references/>
+                            <controls>
+                                <control ref="CWE-285" mitigation="25"/>
+                                <control ref="EU-GDPR-ANONYMISATION" mitigation="25"/>
+                                <control ref="EU-GDPR-ANONYMISED-DATA-TEST" mitigation="25"/>
+                                <control ref="EU-GDPR-ENCRYPT-PERSONAL-DATA" mitigation="25"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="EU-GDPR-NO-ANONYMISATION">
+                                    <controls>
+                                        <control ref="EU-GDPR-ANONYMISATION" mitigation="25"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="EU-GDPR-MISSING-ENCRYPTION-SENSITIVE-DATA">
+                                    <controls>
+                                        <control ref="EU-GDPR-ENCRYPT-PERSONAL-DATA" mitigation="25"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="EU-GDPR-PRODUCTION-DATA-TEST-DATA">
+                                    <controls>
+                                        <control ref="EU-GDPR-ANONYMISED-DATA-TEST" mitigation="25"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="EU-GDPR-UNNECESSARY-PRIVILEGES">
+                                    <controls>
+                                        <control ref="CWE-285" mitigation="25"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

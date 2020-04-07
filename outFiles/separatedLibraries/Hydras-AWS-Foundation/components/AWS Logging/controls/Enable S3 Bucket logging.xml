@@ -1,0 +1,47 @@
+<control ref='Hydras-AWS-Logging-3.6' name='Enable S3 Bucket logging' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>S3 Bucket Access Logging generates log files that contain access records for each request made
+                        to an S3 bucket. By enabling this it is possible to capture events relating to the objects
+                        within that bucket thus helping to capture potential security issues or identifying threats. It
+                        is recommended to enable S3 bucket logging on any S3 bucket that contains sensitive data and
+                        stored the logs in a separate bucket for security analysis.
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;b&gt;Remediation:&lt;br /&gt;&lt;/b&gt;
+                        &lt;ol&gt;
+                        &lt;li&gt;Sign in to the AWS Management Console (with S3 update access).&lt;/li&gt;
+                        &lt;li&gt;Select S3 from the services menu.&lt;/li&gt;
+                        &lt;li&gt;Under All Buckets click on the S3 bucket you wish to enable logging.&lt;/li&gt;
+                        &lt;li&gt;Click on Properties in the top right of the console.&lt;/li&gt;
+                        &lt;li&gt;Under Bucket:&amp;lt;bucket_name&amp;gt; click on Logging.&lt;/li&gt;
+                        &lt;li&gt;Click on the &amp;quot;Enabled&amp;quot; checkbox.&lt;/li&gt;
+                        &lt;li&gt;Select a &amp;quot;Target Bucket&amp;quot; to store the logs.&lt;/li&gt;
+                        &lt;li&gt;Select a &amp;quot;Target Prefix&amp;quot; for the logs.&lt;/li&gt;
+                        &lt;li&gt;Click &amp;quot;Save&amp;quot;.&lt;/li&gt;
+                        &lt;/ol&gt;Content provided by
+                        &lt;a href="https://hydrasit.com" target="_blank"&gt; Hydras IT LTD&lt;/a&gt;
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references />
+          <standards>
+            <standard ref='2.6' supportedStandardRef='CIS AWS Standard' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;ol&gt;
+                            &lt;li&gt;Sign in to the AWS Management Console (with S3 update access).&lt;/li&gt;
+                            &lt;li&gt;Select S3 from the services menu.&lt;/li&gt;
+                            &lt;li&gt;Under All Buckets click on the S3 bucket you wish to enable logging.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Click on Properties in the top right of the console.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Under Bucket:&amp;lt;bucket_name&amp;gt; click on Logging.&lt;/li&gt;
+                            &lt;li&gt;Ensure &amp;quot;Enabled&amp;quot; is checked.&lt;/li&gt;
+                            &lt;/ol&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

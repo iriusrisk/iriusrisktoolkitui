@@ -1,0 +1,30 @@
+<rule name="Risk Pattern: EU GDPR - Client with UI + Expoxed" module="component" generatedByGui="true">
+            <condition name="Question is answered" type="Question" field="id" value="eu_gdpr.UI.yes">
+                <pattern name="Condition with answer" pattern='${type}(${field} == "${value}", answer == true);'/>
+            </condition>
+            <condition name="Question is not answered" type="Question" field="id" value="eu_gdpr.internationalTransfer.yes">
+                <pattern name="Condition without answer" pattern='not ${type}(${field} == "${value}", answer == true);'/>
+            </condition>
+            <action project="EU GDPR" value="EU GDPR_::_EU-GDPR-COMPONENT-UI" name="Import Risk Pattern" type="drools-without-variable-type">
+                <pattern name="Action of import a risk pattern" pattern='insertLogical(ImportRiskPatternFactory.importRiskPattern("${value-1}", "${value-2}", 50));'/>
+            </action>
+            <action project="EU GDPR" value="EU GDPR_::_EU-GDPR-COMPONENT-UI_::_EU GDPR_::_EU-GDPR-COMPONENT-UI_::_PERSONAL-DATA_::_EU-GDPR-ILLEGAL-PROCESSING-PERSONAL-DATA_::_EU-GDPR-CONSENT-MECHANISM_::_50" name="Modify Mitigation Value" type="drools-without-variable-type">
+                <pattern name="Action of modify mitigation value" pattern='insertLogical(RiskMitigationModifier.setMitigationValue("${value-1}", "${value-2}", "${value-6}", "${value-7}", "${value-8}"));'/>
+            </action>
+            <action project="EU GDPR" value="EU GDPR_::_EU-GDPR-COMPONENT-UI_::_EU GDPR_::_EU-GDPR-COMPONENT-UI_::_PERSONAL-DATA_::_EU-GDPR-SUBJECT-RIGTHS_::_EU-GDPR-COMMUNICATION-CHANNEL_::_25" name="Modify Mitigation Value" type="drools-without-variable-type">
+                <pattern name="Action of modify mitigation value" pattern='insertLogical(RiskMitigationModifier.setMitigationValue("${value-1}", "${value-2}", "${value-6}", "${value-7}", "${value-8}"));'/>
+            </action>
+            <action project="EU GDPR" value="EU GDPR_::_EU-GDPR-COMPONENT-UI_::_EU GDPR_::_EU-GDPR-COMPONENT-UI_::_PERSONAL-DATA_::_EU-GDPR-SUBJECT-RIGTHS_::_EU-GDPR-EDITABLE-PERSONAL-DATA_::_25" name="Modify Mitigation Value" type="drools-without-variable-type">
+                <pattern name="Action of modify mitigation value" pattern='insertLogical(RiskMitigationModifier.setMitigationValue("${value-1}", "${value-2}", "${value-6}", "${value-7}", "${value-8}"));'/>
+            </action>
+            <action project="EU GDPR" value="EU GDPR_::_EU-GDPR-COMPONENT-UI_::_EU GDPR_::_EU-GDPR-COMPONENT-UI_::_PERSONAL-DATA_::_EU-GDPR-SUBJECT-RIGTHS_::_EU-GDPR-EXPORT-FUNCTIONALITY_::_25" name="Modify Mitigation Value" type="drools-without-variable-type">
+                <pattern name="Action of modify mitigation value" pattern='insertLogical(RiskMitigationModifier.setMitigationValue("${value-1}", "${value-2}", "${value-6}", "${value-7}", "${value-8}"));'/>
+            </action>
+            <action project="EU GDPR" value="EU GDPR_::_EU-GDPR-GENERIC-COMPONENT_::_EU GDPR_::_EU-GDPR-GENERIC-COMPONENT_::_PERSONAL-DATA_::_EU-GDPR-ILLEGAL-PROCESSING-PERSONAL-DATA_::_EU-GDPR-AUTOMATED-DECISIONS_::_50" name="Modify Mitigation Value" type="drools-without-variable-type">
+                <pattern name="Action of modify mitigation value" pattern='insertLogical(RiskMitigationModifier.setMitigationValue("${value-1}", "${value-2}", "${value-6}", "${value-7}", "${value-8}"));'/>
+            </action>
+            <action project="EU GDPR" value="EU GDPR_::_EU-GDPR-GENERIC-COMPONENT_::_EU GDPR_::_EU-GDPR-GENERIC-COMPONENT_::_PERSONAL-DATA_::_EU-GDPR-SUBJECT-RIGTHS_::_EU-GDPR-IMPLEMENT-FORGET_::_25" name="Modify Mitigation Value" type="drools-without-variable-type">
+                <pattern name="Action of modify mitigation value" pattern='insertLogical(RiskMitigationModifier.setMitigationValue("${value-1}", "${value-2}", "${value-6}", "${value-7}", "${value-8}"));'/>
+            </action>
+            <content></content>
+        </rule>

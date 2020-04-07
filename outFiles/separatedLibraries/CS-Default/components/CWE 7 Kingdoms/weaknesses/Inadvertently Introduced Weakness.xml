@@ -1,0 +1,14 @@
+<weakness ref="CWE-518" name="Inadvertently Introduced Weakness" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-04-04T17:45:23.964000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The software contains a weakness that was inadvertently
+                        introduced by the developer.
+                    </desc>
+                </weakness>

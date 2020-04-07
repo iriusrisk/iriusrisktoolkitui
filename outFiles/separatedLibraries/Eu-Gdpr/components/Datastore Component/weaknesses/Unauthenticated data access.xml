@@ -1,0 +1,12 @@
+<weakness ref="EU-GDPR-UNAUTHENTICATED-DATA-ACCESS" name="Unauthenticated data access" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-02-24T19:17:04.660000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>Authentication can be bypassed.</desc>
+                </weakness>

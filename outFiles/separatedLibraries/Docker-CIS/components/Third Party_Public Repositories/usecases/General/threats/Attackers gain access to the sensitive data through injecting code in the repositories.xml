@@ -1,0 +1,18 @@
+<threat ref='OWASP A1:2017' name='Attackers gain access to the sensitive data through injecting code in the repositories' state='Expose' source='MANUAL' owner='' library=''>
+              <desc>Almost any source of data can be an injection vector: environment variables,
+                                parameters, external and internal web services, and all types of users. Injection flaws
+                                occur when an attacker can send hostile data to an interpreter.
+                            </desc>
+              <riskRating confidentiality='100' integrity='100' availability='100' easeOfExploitation='100' />
+              <references />
+              <weaknesses>
+                <weakness ref='CWE-937'>
+                  <controls>
+                    <control ref='D4.2' mitigation='100' />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref='D4.2' mitigation='100' />
+              </controls>
+            </threat>

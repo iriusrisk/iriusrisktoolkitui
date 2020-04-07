@@ -1,0 +1,30 @@
+<control ref="PCI-PAN-DEV-6.4.3" name="6.4.3 Do not use production PANs in testing, development or pre-production environments" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Security controls are usually not as stringent in test or development environments.
+                        Use of
+                        production data provides malicious individuals with the opportunity to gain unauthorized access
+                        to
+                        production data (cardholder data).&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="6.4.3" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt; &lt;/p&gt;
+                            &lt;p&gt;4.3 Examine documentation and interview personnel to verify that security policies
+                            and
+                            operational procedures for encrypting transmissions of cardholder data are: &lt;/p&gt;
+                            &lt;p&gt;-&amp;nbsp;Documented,&lt;/p&gt;
+                            &lt;p&gt;- In use, and&lt;/p&gt;
+                            &lt;p&gt;- Known to all affected parties.&amp;nbsp;&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-02T22:01:20.863000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

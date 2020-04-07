@@ -1,0 +1,23 @@
+<threat ref="7k-CWE-InsufE" name="Attackers gain unauthorised access to the application through a lack of boundaries" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>Encapsulation is about drawing strong boundaries. In a web browser that might mean
+                                ensuring that your mobile code cannot be abused by other mobile code. On the server it
+                                might mean differentiation between validated data and unvalidated data, between one
+                                user's data and another's, or between data users are allowed to see and data that they
+                                are not.&amp;nbsp;
+                            </desc>
+                            <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="50"/>
+                            <references/>
+                            <controls>
+                                <control ref="INS-ENC" mitigation="100"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-218">
+                                    <controls/>
+                                </weakness>
+                                <weakness ref="CWE-485">
+                                    <controls>
+                                        <control ref="INS-ENC" mitigation="100"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

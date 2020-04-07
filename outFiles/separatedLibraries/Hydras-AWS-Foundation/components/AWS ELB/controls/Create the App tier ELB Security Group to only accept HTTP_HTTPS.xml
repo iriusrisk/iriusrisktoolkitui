@@ -1,0 +1,356 @@
+<control ref='aws-tier-6.21' name='Create the App tier ELB Security Group to only accept HTTP/HTTPS' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;div&gt;
+                        A security group acts as a virtual firewall for your instance to control inbound and outbound
+                        traffic. When you launch an instance in the AWS Virtual Private Cloud (VPC), you can assign the
+                        instance to up to five security groups. Security groups act at the instance level, not the
+                        subnet level. Therefore, each instance in a subnet in your VPC could be assigned to a different
+                        set of security groups. If you don't specify a particular group at launch time, the instance is
+                        automatically assigned to the default security group for the VPC.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        For each security group, you add rules that control the inbound traffic to instances, and a
+                        separate set of rules that control the outbound traffic.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        The SG associated with the App tier ELB should allow connectivity from the security group
+                        associated with Web tier instances only for the HTTP (TCP 80) and HTTPS (TCP 443) ports.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        The defaults for HTTP and HTTPS are used as an example, any other ports would apply depending on
+                        the application design.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;div style=""&gt;
+                        Using the Amazon unified command line interface:
+                        &lt;/div&gt;
+                        &lt;div style=""&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;First remove all the ingress rules for the security group associated with the App tier
+                        ELB:&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        &lt;div style=""&gt;
+                        aws ec2 describe-security-groups --group-id app_tier_elb_security_group
+                        --query &amp;quot;SecurityGroups[0].IpPermissions&amp;quot; &amp;gt; /tmp/IpPermissions.json
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div style=""&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        &lt;div style=""&gt;
+                        aws ec2 revoke-security-group-ingress --group-id app_tier_elb_security_group
+                        --ip-permissions file:///tmp/IpPermissions.json
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;/blockquote&gt;
+                        &lt;div&gt;
+                        &lt;div style=""&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;create locally the below json file containing ingress rules for HTTP (TCP 80) and
+                        HTTPS (TCP 443) ports only from and name it IpPermissions.json:&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        &lt;div style=""&gt;
+                        [
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        &lt;div style=""&gt;
+                        &amp;nbsp; &amp;nbsp; {
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        &lt;div style=""&gt;
+                        &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;quot;PrefixListIds&amp;quot;: [],
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        &lt;div style=""&gt;
+                        &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;quot;FromPort&amp;quot;: 80,
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        &lt;div style=""&gt;
+                        &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;quot;IpRanges&amp;quot;: [],
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        &lt;div style=""&gt;
+                        &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;quot;ToPort&amp;quot;: 80,
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        &lt;div style=""&gt;
+                        &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;quot;IpProtocol&amp;quot;: &amp;quot;tcp&amp;quot;,
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        &lt;div style=""&gt;
+                        &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;quot;UserIdGroupPairs&amp;quot;: [
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        &lt;div style=""&gt;
+                        &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; {
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        &lt;div style=""&gt;
+                        &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;quot;UserId&amp;quot;:
+                        &amp;quot;&amp;lt;&amp;lt;em&amp;gt;aws_account_number&amp;gt;&amp;lt;/em&amp;gt;&amp;quot;,
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        &lt;div style=""&gt;
+                        &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;quot;GroupId&amp;quot;:
+                        &amp;quot;&amp;lt;span style=&amp;quot;font-style: italic;&amp;quot;&amp;gt;&amp;lt;&amp;lt;/span&amp;gt;&amp;lt;span
+                        style=&amp;quot;font-style: italic;&amp;quot;&amp;gt;web_tier_security_group&amp;quot;
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        &lt;div style=""&gt;
+                        &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; }
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        &lt;div style=""&gt;
+                        &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; ]
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        &lt;div style=""&gt;
+                        &amp;nbsp; &amp;nbsp; },
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        &lt;div style=""&gt;
+                        &amp;nbsp; &amp;nbsp; {
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        &lt;div style=""&gt;
+                        &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;quot;PrefixListIds&amp;quot;: [],
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        &lt;div style=""&gt;
+                        &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;quot;FromPort&amp;quot;: 443,
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        &lt;div style=""&gt;
+                        &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;quot;IpRanges&amp;quot;: [],
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        &lt;div style=""&gt;
+                        &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;quot;ToPort&amp;quot;: 443,
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        &lt;div style=""&gt;
+                        &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;quot;IpProtocol&amp;quot;: &amp;quot;tcp&amp;quot;,
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        &lt;div style=""&gt;
+                        &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;quot;UserIdGroupPairs&amp;quot;: [
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        &lt;div style=""&gt;
+                        &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; {
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        &lt;div style=""&gt;
+                        &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;quot;UserId&amp;quot;:
+                        &amp;quot;&amp;lt;&amp;lt;em&amp;gt;aws_account_number&amp;gt;&amp;lt;/em&amp;gt;&amp;quot;,
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        &lt;div style=""&gt;
+                        &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;quot;GroupId&amp;quot;:
+                        &amp;quot;&amp;lt;span style=&amp;quot;font-style: italic;&amp;quot;&amp;gt;&amp;lt;&amp;lt;/span&amp;gt;&amp;lt;span
+                        style=&amp;quot;font-style: italic;&amp;quot;&amp;gt;web_tier_security_group&amp;lt;/span&amp;gt;&amp;gt;&amp;quot;
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        &lt;div style=""&gt;
+                        &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; }
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        &lt;div style=""&gt;
+                        &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; ]
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        &lt;div style=""&gt;
+                        &amp;nbsp; &amp;nbsp; }
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        &lt;div style=""&gt;
+                        ]
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;/blockquote&gt;
+                        &lt;div&gt;
+                        &lt;div style=""&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Add to the security group associated with the App tier ELB the above ingress rules:&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        &lt;div style=""&gt;
+                        aws ec2 authorize-security-group-ingress --group-id app_tier_elb_security_group&amp;nbsp;
+                        --ip-permissions file:///PathTo/IpPermissions.json
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;/blockquote&gt;
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='Amazon docs: authorize security group ingress' url='http://docs.aws.amazon.com/cli/latest/reference/ec2/authorize-security-group-ingress.html' />
+            <reference name='Amazon docs: describe load balancers' url='http://docs.aws.amazon.com/cli/latest/reference/elb/describe-load-balancers.html' />
+            <reference name='Amazon docs: describe security groups' url='http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-security-groups.html' />
+            <reference name='Amazon docs: revoke seucrity group ingress' url='http://docs.aws.amazon.com/cli/latest/reference/ec2/revoke-security-group-ingress.html' />
+          </references>
+          <standards>
+            <standard ref='6.21' supportedStandardRef='cis-amazon-web-services-three-tier-web-architecture-benchmark' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;div&gt;
+  Using the Amazon unified command line interface: 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt;List the security group associated with the App tier ELB:&lt;/li&gt; 
+ &lt;/ul&gt; 
+&lt;/div&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt;
+    aws elb describe-load-balancers --load-balancer-name &amp;lt;app_tier_elb&amp;gt; --query &amp;quot;LoadBalancerDescriptions[*].{DNSName:DNSName, AppTierELBSecurityGroups:SecurityGroups, SourceSecurityGroup:SourceSecurityGroup}&amp;quot; --output table&amp;nbsp; 
+  &lt;/div&gt; 
+  &lt;div&gt; 
+   &lt;br /&gt; 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt; 
+&lt;div&gt;
+  note the &amp;quot;AppTierELBSecurityGroups&amp;quot; from the output 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt;List the ingress rules for the above security group, and make sure that only HTTP (TCP 80) and HTTPS (TCP 443) traffic is allowed from Web tier Security Group:&lt;/li&gt; 
+ &lt;/ul&gt; 
+&lt;/div&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt;
+    aws ec2 describe-security-groups --group-ids&amp;nbsp; &amp;lt;app_tier_elb_security_group&amp;gt; --query &amp;quot;SecurityGroups[*].{GroupName:GroupName, IpPermissions:IpPermissions}&amp;quot; --output table 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt;</steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

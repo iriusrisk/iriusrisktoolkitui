@@ -1,0 +1,23 @@
+<threat ref="PCI-R12-12.x1" name="Poor security practices by personnel lead to a security breach" state="Expose" source="MANUAL" owner="" library="">
+                            <desc></desc>
+                            <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="100"/>
+                            <references/>
+                            <controls>
+                                <control ref="PCI-R12-12.1" mitigation="20"/>
+                                <control ref="PCI-R12-12.3" mitigation="20"/>
+                                <control ref="PCI-R12-12.4" mitigation="20"/>
+                                <control ref="PCI-R12-12.4.1" mitigation="20"/>
+                                <control ref="PCI-R12-12.5" mitigation="20"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="PCI-R12-12.1">
+                                    <controls>
+                                        <control ref="PCI-R12-12.1" mitigation="20"/>
+                                        <control ref="PCI-R12-12.3" mitigation="20"/>
+                                        <control ref="PCI-R12-12.4" mitigation="20"/>
+                                        <control ref="PCI-R12-12.4.1" mitigation="20"/>
+                                        <control ref="PCI-R12-12.5" mitigation="20"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

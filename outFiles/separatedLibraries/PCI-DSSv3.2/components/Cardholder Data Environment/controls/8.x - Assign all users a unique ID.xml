@@ -1,0 +1,44 @@
+<control ref="PCI-R8-8.1.1" name="8.x - Assign all users a unique ID" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Do not use group, shared, or generic IDs, passwords, or other authentication methods
+                        as
+                        follows:&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Generic user IDs are disabled or removed.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Shared user IDs do not exist for system administration and other critical functions.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Shared and generic user IDs are not used to administer any system components.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;Ensuring each user is uniquely identified-instead of using one ID for several
+                        employees-an
+                        organization can maintain individual responsibility for actions and an effective audit trail per
+                        employee.
+                        This will help speed issue resolution and containment when misuse or malicious intent occurs.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt; &lt;/p&gt;
+                        &lt;p&gt;If multiple users share the same authentication credentials (for example, user account
+                        and
+                        password), it becomes impossible to trace system access and activities to an individual. This in
+                        turn
+                        prevents an entity from assigning accountability for, or having effective logging of, an
+                        individual's
+                        actions, since a given action could have been performed by anyone in the group that has
+                        knowledge of the
+                        authentication credentials.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+                        &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="8.x" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;8.1.a Review procedures and confirm they define processes for each of the items
+                            below at
+                            8.1.1 through 8.1.8&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T14:22:08.834000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

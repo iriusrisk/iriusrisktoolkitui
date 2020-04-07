@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="questions/questions-component.xsd"/>
+    <xs:include schemaLocation="trustZones/trust-zones.xsd"/>
+    <xs:include schemaLocation="../assets/assets-ref.xsd"/>
+    <xs:include schemaLocation="../settings/settings.xsd"/>
+    <xs:include schemaLocation="weaknesses/weaknesses.xsd"/>
+    <xs:include schemaLocation="controls/controls.xsd"/>
+    <xs:include schemaLocation="useCases/usecases.xsd"/>
+    <xs:complexType name="componentType">
+        <xs:all>
+            <xs:element type="questionsComponentType" name="questions"/>
+            <xs:element type="trustZonesType" name="trustZones"/>
+            <xs:element type="assetsRefType" name="assets"/>
+            <xs:element type="settingsType" name="settings"/>
+            <xs:element type="weaknessesType" name="weaknesses"/>
+            <xs:element type="controlsType" name="controls"/>
+            <xs:element type="usecasesType" name="usecases"/>
+        </xs:all>
+        <xs:attribute type="xs:string" name="ref" use="required"/>
+        <xs:attribute type="xs:string" name="name" use="required"/>
+        <xs:attribute type="xs:string" name="desc" use="required"/>
+        <xs:attribute type="xs:string" name="groupName" use="required"/>
+        <xs:attribute type="xs:string" name="tags" use="required"/>
+        <xs:attribute type="xs:integer" name="position" use="required"/>
+        <xs:attribute type="xs:string" name="library" use="required"/>
+        <xs:attribute type="xs:string" name="diagramPositionX" use="required"/>
+        <xs:attribute type="xs:string" name="diagramPositionY" use="required"/>
+        <xs:attribute type="xs:string" name="componentDefinitionRef" use="required"/>
+
+    </xs:complexType>
+</xs:schema>

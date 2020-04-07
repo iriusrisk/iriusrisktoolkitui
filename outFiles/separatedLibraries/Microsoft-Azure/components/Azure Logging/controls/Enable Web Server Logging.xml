@@ -1,0 +1,55 @@
+<control ref='AZ-L02' name='Enable Web Server Logging' platform='' cost='0' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;div&gt;
+                        Enable the Web Server logging to receive information about HTTP transactions using the W3C
+                        extended log file format. This is useful when determining overall site metrics such as the
+                        number of requests handled or how many requests are from a specific IP address. There are two
+                        ways to save the data:
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;&lt;b&gt;File system: &lt;/b&gt;stores the application diagnostics information to the
+                        web app file system. These files can be accessed by FTP, or downloaded as a Zip archive by using
+                        the Azure PowerShell or Azure Command-Line Interface (Azure CLI).&lt;/li&gt;
+                        &lt;li&gt;&lt;b&gt;Storage:&lt;/b&gt; stores the application diagnostics information in the
+                        specified Azure Storage Account and the logs are only accessible with a client account.&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ol&gt;
+                        &lt;li&gt;Go to the Azure portal.&lt;/li&gt;
+                        &lt;li&gt;Go to the blade for your web app and in &amp;quot;Monitoring&amp;quot; &amp;gt;&amp;gt;
+                        &amp;quot;Diagnostics logs&amp;quot;.&lt;/li&gt;
+                        &lt;li&gt;Enable the type &amp;quot;Storage&amp;quot; or &amp;quot;File System&amp;quot; to
+                        activate this function.&lt;/li&gt;
+                        &lt;li&gt;Push &amp;quot;Save&amp;quot; to save the changes.&lt;/li&gt;
+                        &lt;/ol&gt;
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='MS Azure - Enable diagnostics logging for web apps in Azure App Service' url='https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-enable-diagnostic-log' />
+          </references>
+          <standards />
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;div&gt;
+                            &lt;ol&gt;
+                            &lt;li&gt;Go to the Azure portal.&lt;/li&gt;
+                            &lt;li&gt;Go to the blade for your web app and in &amp;quot;Monitoring&amp;quot; &amp;gt;&amp;gt;
+                            &amp;quot;Diagnostics logs&amp;quot;.&lt;/li&gt;
+                            &lt;li&gt;Check that the type &amp;quot;Storage&amp;quot; or &amp;quot;File System&amp;quot;
+                            are enabled.&lt;/li&gt;
+                            &lt;/ol&gt;
+                            &lt;/div&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2017-05-23T14:14:32.776'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

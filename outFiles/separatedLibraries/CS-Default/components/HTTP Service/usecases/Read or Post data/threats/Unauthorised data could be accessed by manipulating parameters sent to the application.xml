@@ -1,0 +1,31 @@
+<threat ref="CAPEC-101" name="Unauthorised data could be accessed by manipulating parameters sent to the application" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>The application could be tricked into exposing data to unauthorized users by
+                                manipulating the parameters it accepts. All data received from the client side could be
+                                subject to manipulation, including fields like cookies and HTTP headers, if these are
+                                used as inputs to the application.
+                            </desc>
+                            <riskRating confidentiality="75" integrity="75" availability="50" easeOfExploitation="25"/>
+                            <references/>
+                            <controls>
+                                <control ref="CWE-147" mitigation="33"/>
+                                <control ref="CWE-639" mitigation="33"/>
+                                <control ref="RESTRICT-HTTP-METHODS" mitigation="34"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-20">
+                                    <controls>
+                                        <control ref="CWE-147" mitigation="33"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="CWE-22">
+                                    <controls>
+                                        <control ref="CWE-639" mitigation="33"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="CWE-650">
+                                    <controls>
+                                        <control ref="RESTRICT-HTTP-METHODS" mitigation="34"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

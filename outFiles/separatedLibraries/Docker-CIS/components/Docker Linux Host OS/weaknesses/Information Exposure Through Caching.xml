@@ -1,0 +1,18 @@
+<weakness ref='CWE-524' name='Information Exposure Through Caching' state='0' impact='100'>
+          <desc>The application uses a cache to maintain a pool of objects, threads, connections, pages, or
+                        passwords to minimize the time it takes to access them or the resources to which they connect.
+                        If implemented improperly, these caches can allow access to unauthorized information or cause a
+                        denial of service vulnerability.
+                    </desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2018-05-30T14:52:13.007'>
+              <output></output>
+            </source>
+            <references>
+              <reference name='CWE-524: Information Exposure Through Caching' url='https://cwe.mitre.org/data/definitions/524.html' />
+            </references>
+            <udts />
+          </test>
+        </weakness>

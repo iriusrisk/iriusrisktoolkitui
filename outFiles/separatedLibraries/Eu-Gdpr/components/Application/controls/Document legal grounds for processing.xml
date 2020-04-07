@@ -1,0 +1,27 @@
+<control ref="EU-GDPR-DOCUMENT-LEGAL-GROUNDS" name="Document legal grounds for processing" platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="MANUAL">
+                    <desc>You must involve the DPO and/or legal department to decide on the legal legitimation that can be used.&lt;br /&gt;&lt;br /&gt;You must document the legal base that can be used. 
+          </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="EU GDPR - EU Data Protection" url="http://ec.europa.eu/justice/data-protection/reform/files/regulation_oj_en.pdf"/>
+                    </references>
+                    <standards>
+                        <standard ref="Art.6" supportedStandardRef="EU-GDPR"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;div&gt;
+                &lt;ol&gt;
+                &lt;li&gt;Verify documentation exists detailing the legal justification for processing all user personal data.&lt;/li&gt;
+                &lt;li&gt;Ensure this document complies with the requirements of the Data Protection Practitioner.&lt;/li&gt;
+                &lt;/ol&gt;
+                &lt;/div&gt;
+            </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T12:43:23.092000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

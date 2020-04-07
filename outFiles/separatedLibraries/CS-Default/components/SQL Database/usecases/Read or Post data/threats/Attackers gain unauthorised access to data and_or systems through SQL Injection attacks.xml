@@ -1,0 +1,25 @@
+<threat ref="CAPEC-66" name="Attackers gain unauthorised access to data and/or systems through SQL Injection attacks" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>Successful SQL Injection attacks could lead to full compromise of the database or to a
+                                partial compromise of only the data visible to the application.
+                                &lt;div&gt;
+                                &lt;br /&gt;&amp;nbsp;
+                                &lt;div&gt;
+                                Typically, these types of attacks result in unauthorized disclosure of sensitive data,
+                                but can also be used to inject spurious data into the database or to drop tables and
+                                deny service to legitimate users.
+                                &lt;/div&gt;
+                                &lt;/div&gt;
+                            </desc>
+                            <riskRating confidentiality="100" integrity="100" availability="25" easeOfExploitation="25"/>
+                            <references/>
+                            <controls>
+                                <control ref="CWE-89-PREPARED" mitigation="100"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-89">
+                                    <controls>
+                                        <control ref="CWE-89-PREPARED" mitigation="100"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

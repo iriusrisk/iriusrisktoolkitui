@@ -1,0 +1,15 @@
+<weakness ref="CWE-867" name="2011 Top 25 - Weaknesses On the Cusp" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-04-04T17:47:23.523000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>Weaknesses in this category are not part of the general Top 25,
+                        but they were part of the original nominee list from which the Top 25 was
+                        drawn.
+                    </desc>
+                </weakness>

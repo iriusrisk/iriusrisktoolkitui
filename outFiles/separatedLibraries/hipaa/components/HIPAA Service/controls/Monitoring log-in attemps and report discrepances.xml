@@ -1,0 +1,38 @@
+<control ref='hipaa-log-02' name='Monitoring log-in attemps and report discrepances' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;p&gt;Implement procedures to record all log-in attempts and monitor these log-in attempts to detect unusual or inappropriate access attempts to the systems. If a certain number of failed log-in attempts occur, it should be reported to the appropriate security personnel. The response should be that after a certain number of failed attempts, the system blocks the account.&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Administrative Safeguards' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/adminsafeguards.pdf' />
+            <reference name='OWASP Logging Cheat Sheet' url='https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html' />
+            <reference name='OWASP Proactive Controls C9: Implement Security Logging and Monitoring' url='https://owasp-top-10-proactive-controls-2018.readthedocs.io/en/latest/c9-implement-security-logging-monitoring.html' />
+            <reference name='Top 10-2017 A10-Insufficient Logging&amp;Monitoring' url='https://www.owasp.org/index.php/Top_10-2017_A10-Insufficient_Logging%26Monitoring' />
+          </references>
+          <standards>
+            <standard ref='164.308(A)(5)(C)' supportedStandardRef='hipaa-addressable' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>	&lt;p&gt;Review if logs can be used for more than extraction of usage statistics of files in the web servers (which is typically what most log-based application will focus on), but also to determine if attacks take place on the web server. &lt;/p&gt;
+
+
+
+
+
+ In order to analyze web server attacks the error log files of the server need to be analyzed. Review should concentrate on: 
+
+
+
+ * 40x (not found) error messages. A large amount of these from the same source might be indicative of a CGI scanner tool being used against the web server. 
+ * 50x (server error) messages. These can be an indication of an attacker abusing parts of the application which fail unexpectedly. For example, the first phases of a SQL injection attack will produce these error message when the SQL query is not properly constructed and its execution fails on the back end database. 
+
+
+
+ Log statistics or analysis should not be generated, nor stored, in the same server that produces the logs. Otherwise, an attacker might, through a web server vulnerability or improper configuration, gain access to them and retrieve similar information as would be disclosed by log files themselves.</steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:49.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

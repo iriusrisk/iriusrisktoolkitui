@@ -1,0 +1,53 @@
+<control ref='Hydras-AWS-Network-5.5' name='Use security groups to block ingress to all ports from 0.0.0.0/0' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>Security groups are analogous to firewalls and therefore provide stateful filtering of
+                        ingress/egress network traffic to AWS resources. It is recommended to limit inbound access to
+                        ALL TCP or ALL ports to avoid undue server exposure.
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;
+                        &lt;br /&gt;
+                        &lt;ol&gt;
+                        &lt;li&gt;Login to the AWS Management Console (with VPC update).&lt;/li&gt;
+                        &lt;li&gt;Select VPC from the services menu.&lt;/li&gt;
+                        &lt;li&gt;Select Security Groups.&lt;/li&gt;
+                        &lt;li&gt;For each security group, perform the following:&amp;nbsp;&lt;/li&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Select the security group.&lt;/li&gt;
+                        &lt;li&gt;Click the Inbound tab.&lt;/li&gt;
+                        &lt;li&gt;Identify the rules to be removed.&lt;/li&gt;
+                        &lt;li&gt;Click the x in the Remove column.&lt;/li&gt;
+                        &lt;li&gt;Click Save.&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/ol&gt;Content provided by
+                        &lt;a href="https://hydrasit.com" target="_blank"&gt; Hydras IT LTD&lt;/a&gt;
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references />
+          <standards>
+            <standard ref='4.3' supportedStandardRef='CIS AWS Standard' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;ol&gt;
+                            &lt;li&gt;Login to the AWS Management Console.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Select VPC from the services menu.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Select Security Groups.&lt;/li&gt;
+                            &lt;li&gt;For each security group, perform the following:&amp;nbsp;&lt;/li&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt;Select the security group.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Click the Inbound tab.&lt;/li&gt;
+                            &lt;li&gt;Ensure no rule exists that has a port range of 0-1024 of 0-65535 and has a source
+                            of 0.0.0.0/0.&lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;/ol&gt;
+                            &lt;br /&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

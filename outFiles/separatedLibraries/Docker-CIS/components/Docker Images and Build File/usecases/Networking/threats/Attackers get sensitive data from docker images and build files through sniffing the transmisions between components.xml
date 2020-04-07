@@ -1,0 +1,21 @@
+<threat ref='CAPEC-157-IMAGES-BUILD-FILES' name='Attackers get sensitive data from docker images and build files through sniffing the transmisions between components' state='Expose' source='MANUAL' owner='' library=''>
+              <desc>An attacker monitors information transmitted between logical or physical nodes of a
+                                network. The attacker need not be able to prevent reception or change content but must
+                                simply be able to observe and read the traffic. The attacker might precipitate or
+                                indirectly influence the content of the observed transaction, but the attacker is never
+                                the intended recipient of the information. Any transmission medium can theoretically be
+                                sniffed if the attacker can listen to the contents between the sender and recipient.
+                            </desc>
+              <riskRating confidentiality='50' integrity='50' availability='100' easeOfExploitation='100' />
+              <references />
+              <weaknesses>
+                <weakness ref='CWE-327'>
+                  <controls>
+                    <control ref='D4.5' mitigation='100' />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref='D4.5' mitigation='100' />
+              </controls>
+            </threat>

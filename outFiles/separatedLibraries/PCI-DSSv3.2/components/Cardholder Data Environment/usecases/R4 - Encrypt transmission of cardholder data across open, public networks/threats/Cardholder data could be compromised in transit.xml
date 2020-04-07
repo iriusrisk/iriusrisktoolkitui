@@ -1,0 +1,31 @@
+<threat ref="PCI-R4-4" name="Cardholder data could be compromised in transit" state="Expose" source="MANUAL" owner="" library="">
+                            <desc></desc>
+                            <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="100"/>
+                            <references/>
+                            <controls>
+                                <control ref="CWE-319-TRANSPORT" mitigation="25"/>
+                                <control ref="CWE-319-TRANSPORT-PAN" mitigation="25"/>
+                                <control ref="PCI-R4-4.1.1" mitigation="25"/>
+                                <control ref="PCI-R4-4.3" mitigation="25"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-319">
+                                    <controls>
+                                        <control ref="CWE-319-TRANSPORT" mitigation="25"/>
+                                        <control ref="CWE-319-TRANSPORT-PAN" mitigation="25"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="PCI-R4-4.3">
+                                    <controls>
+                                        <control ref="PCI-R4-4.3" mitigation="25"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="PCI-R4-4.1">
+                                    <controls>
+                                        <control ref="CWE-319-TRANSPORT" mitigation="25"/>
+                                        <control ref="CWE-319-TRANSPORT-PAN" mitigation="25"/>
+                                        <control ref="PCI-R4-4.1.1" mitigation="25"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

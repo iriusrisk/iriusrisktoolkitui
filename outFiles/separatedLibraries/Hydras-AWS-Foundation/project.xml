@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Copyright (c) 2012-2019 Continuum Security.  All rights reserved.The content of this library is the property of Continuum Security SL and may only be used in whole or in part with a valid license for IriusRisk.-->
+<project ref='Hydras-AWS-Foundation' name='Hydras-AWS-Foundation' revision='30' type='LIBRARY' status='OPEN' enabled='true' priority='0' tags=''>
+  <desc>This library provides a baseline set of risks for anyone implementing an environment on Amazon Web Services
+        (AWS). It covers foundation services such as Governance, Identity and Access Management (IAM), Logging,
+        Monitoring, Network, EC2 and S3.
+
+        This library has been supplied by Hydras IT LTD (https://hydrasit.com). and by CIS Benchmarks
+        (https://www.cisecurity.org/cis-benchmarks/). Please contact Hydras for further
+        information.
+    </desc>
+  <categoryComponents>
+    <categoryComponent ref='amazon-web-services' name='Amazon Web Services' />
+  </categoryComponents>
+  <componentDefinitions>
+    <componentDefinition ref='amazon-web-services-environment' name='AWS Account Environment' desc='Amazon Web Services Environment. Only select this if the security of the AWS environment will be managed in this product.' categoryRef='amazon-web-services'>
+      <riskPatterns>
+        <riskPattern ref='HYDRAS-AWS-IAM' />
+        <riskPattern ref='HYDRAS-AWS-MON' />
+        <riskPattern ref='HYDRAS-AWS-NET' />
+        <riskPattern ref='HYDRAS-AWS-LOG' />
+      </riskPatterns>
+    </componentDefinition>
+    <componentDefinition ref='ec2' name='EC2 - Elastic Compute Cloud' desc='' categoryRef='amazon-web-services'>
+      <riskPatterns>
+        <riskPattern ref='HYDRAS-AWS-EC2' />
+      </riskPatterns>
+    </componentDefinition>
+    <componentDefinition ref='s3' name='S3 - Simple Storage Service' desc='' categoryRef='amazon-web-services'>
+      <riskPatterns>
+        <riskPattern ref='HYDRAS-AWS-S3' />
+      </riskPatterns>
+    </componentDefinition>
+    <componentDefinition ref='rds' name='RDS - Relational Database Service' desc='' categoryRef='amazon-web-services'>
+      <riskPatterns>
+        <riskPattern ref='HYDRAS-AWS-RDS' />
+      </riskPatterns>
+    </componentDefinition>
+    <componentDefinition ref='load-balancer' name='ELB - Elastic Load Balancer' desc='' categoryRef='amazon-web-services'>
+      <riskPatterns>
+        <riskPattern ref='HYDRAS-AWS-ELB' />
+      </riskPatterns>
+    </componentDefinition>
+    <componentDefinition ref='sns' name='SNS - Simple Notification Service' desc='' categoryRef='amazon-web-services'>
+      <riskPatterns>
+        <riskPattern ref='HYDRAS-AWS-SNS' />
+      </riskPatterns>
+    </componentDefinition>
+  </componentDefinitions>
+  <supportedStandards>
+    <supportedStandard ref='cis-amazon-web-services-three-tier-web-architecture-benchmark' name='CIS Amazon Web Services Three-tier Web Architecture Benchmark' />
+    <supportedStandard ref='CIS AWS Standard' name='CIS Amazon Web Services Foundations Benchmark' />
+  </supportedStandards>
+  <udts />
+  

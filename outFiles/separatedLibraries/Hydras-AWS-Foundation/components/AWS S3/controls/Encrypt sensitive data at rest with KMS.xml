@@ -1,0 +1,58 @@
+<control ref='Hydras-AWS-S3-7.4' name='Encrypt sensitive data at rest with KMS' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>Amazon Simple Storage Service is storage for the Internet. It is designed to make web-scale
+                        computing easier for developers.
+                        &lt;br /&gt;
+                        &lt;br /&gt;Amazon S3 has a simple web services interface that you can use to store and retrieve
+                        any amount of data, at any time, from anywhere on the web. It gives any developer access to the
+                        same highly scalable, reliable, fast, inexpensive data storage infrastructure that Amazon uses
+                        to run its own global network of web sites.
+                        &lt;br /&gt;
+                        &lt;br /&gt;To ensure that sensitive data is encrypted at rest you can use AWS KMS–managed
+                        keys (SSE-KMS). This provides several advantages:&amp;nbsp;
+                        &lt;ul&gt;
+                        &lt;li&gt;You can create and manage the CMK encryption keys yourself.&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;You can use a single CMK to encrypt and decrypt log files for multiple accounts across
+                        all regions.&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;You have control over who can use your key for encrypting and decrypting CloudTrail
+                        log files. You can assign permissions for the key to the users in your organization according to
+                        your requirements.&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;You have enhanced security. With this feature, in order to read log files, you now
+                        need to meet two conditions: 1) you must have S3 read permission on the bucket, and 2) you must
+                        be granted decrypt permission by the CMK policy.&amp;nbsp;&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;br /&gt;It is recommended to encrypt all sensitive data with SSE-KMS to avoid undue
+                        disclosure of information and provide an extra layer of security.
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;
+                        &lt;br /&gt;The following example shows how to upload data using AWS KMS Encryption:
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        aws s3api put-object --bucket &amp;lt;my_bucket&amp;gt; --server-side-encryption aws:kms
+                        --ssekms-key-id &amp;lt;kms_key_id&amp;gt; --key &amp;lt;object_to_upload&amp;gt;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;div&gt;
+                        &lt;p&gt;Content provided by &lt;a href="https://hydrasit.com" target="_blank"&gt; Hydras IT LTD&lt;/a&gt;&lt;/p&gt;
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references />
+          <standards />
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;blockquote&gt;
+                            aws s3api head-object --bucket &amp;lt;my_bucket&amp;gt; --key &amp;lt;my_key&amp;gt;
+                            &lt;/blockquote&gt;Look for the line &amp;quot;ServerSideEncryption&amp;quot; and verify
+                            that it is set to &amp;quot;aws:kms&amp;quot; which indicates KMS Encryption.
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

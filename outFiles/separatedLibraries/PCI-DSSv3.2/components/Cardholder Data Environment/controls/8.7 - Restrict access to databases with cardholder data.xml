@@ -1,0 +1,55 @@
+<control ref="PCI-R8-8.7" name="8.7 - Restrict access to databases with cardholder data" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Access should be restricted as follows:&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- All user access to, user queries of, and user actions on databases are through
+                        programmatic
+                        methods.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Only database administrators have the ability to directly access or query databases.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Application IDs for database applications can only be used by the applications (and
+                        not by
+                        individual users or other non-application processes).&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt; &lt;/p&gt;
+                        &lt;p&gt;Without user authentication for access to databases and applications, the potential for
+                        unauthorized or malicious access increases, and such access cannot be logged since the user has
+                        not been
+                        authenticated and is therefore not known to the system. Also, database access should be granted
+                        through
+                        programmatic methods only (for example, through stored procedures), rather than via direct
+                        access to the
+                        database by end users (except for DBAs, who may need direct access to the database for their
+                        administrative
+                        duties).&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="8.7" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;8.7.a Review database and application configuration settings and verify that all
+                            users are
+                            authenticated prior to access. &lt;/p&gt;
+                            &lt;p&gt;8.7.b Examine database and application configuration settings to verify that all
+                            user access to,
+                            user queries of, and user actions on (for example, move, copy, delete), the database are
+                            through
+                            programmatic methods only (for example, through stored procedures). &lt;/p&gt;
+                            &lt;p&gt;8.7.c Examine database access control settings and database application
+                            configuration settings to
+                            verify that user direct access to or queries of databases are restricted to database
+                            administrators. &lt;/p&gt;
+                            &lt;p&gt;8.7.d Examine database access control settings, database application configuration
+                            settings, and
+                            the related application IDs to verify that application IDs can only be used by the
+                            applications (and not
+                            by individual users or other processes).&amp;nbsp;&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T15:35:05.538000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

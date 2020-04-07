@@ -1,0 +1,100 @@
+<control ref="CWE-285" name="Apply authorization checks to segregate and control access to user data" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+                        &lt;div&gt;
+                        Applications protecting sensitive or otherwise restricted resources must ensure only appropriate
+                        and authorized users may access the application data. It is important that an application
+                        prevents unauthorized users gaining inappropriate access to each other's data; although user A
+                        and user B may both be trusted to access data within the application, they may be authorized to
+                        only access different subsets of the protected resources.&amp;nbsp; E.g. user A should not be
+                        able to access user B's personal data by manipulating a request (typical examples are
+                        manipulation of an ID value or other object reference sent in the URL or body of an HTTP
+                        request).
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        It is not sufficient to rely on obscurity, for example obfuscated or secret URLs or filenames.
+                        The application must validate each request for protected data against the proven identity of the
+                        user. Before providing access to restricted resources the application must:
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Ensure the user has undergone appropriate authentication (identification and
+                        verification, or ID&amp;amp;V). E.g. they must have provided their identity and confirmed this
+                        with a password, token, or other verification. Typically this will be through checking the
+                        validity of the session token issued after login.&lt;/li&gt;
+                        &lt;li&gt;Confirm the user is entitled to access the data or resource they are requesting. E.g.
+                        their confirmed identify checked against a server-side access control matrix to determine
+                        whether they may access the requested resource.&lt;/li&gt;
+                        &lt;li&gt;Access controls should be granular, and allow for access to individual resources to be
+                        issued to individual users or roles.&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;div&gt;
+                        URL and asset based access control is provided by most web-frameworks, and it is preferable to
+                        use an established and proven framework.
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="Art.32" supportedStandardRef="EU-GDPR"/>
+                        <standard ref="9.1.1" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="9.2.2" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="9.2.3" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="9.4.1" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="AC-1" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="AC-24" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="AC-5" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="AC-6" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="CM-7" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-12" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-4" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="4.1" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="4.4" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="4.8" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="4.1" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="4.4" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="4.8" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="9.5" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="4.1" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="4.4" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="4.8" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="9.5" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="2.4.10.2" supportedStandardRef="iotsf-class-0"/>
+                        <standard ref="2.4.12.3" supportedStandardRef="iotsf-class-0"/>
+                        <standard ref="2.4.10.2" supportedStandardRef="iotsf-class-1"/>
+                        <standard ref="2.4.12.3" supportedStandardRef="iotsf-class-1"/>
+                        <standard ref="2.4.8.9" supportedStandardRef="iotsf-class-1"/>
+                        <standard ref="2.4.10.2" supportedStandardRef="iotsf-class-2"/>
+                        <standard ref="2.4.12.3" supportedStandardRef="iotsf-class-2"/>
+                        <standard ref="2.4.8.9" supportedStandardRef="iotsf-class-2"/>
+                        <standard ref="A5:2017-Broken Access Control" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+                            &lt;li&gt;Using two different browsers configured with an intercepting proxy.&lt;/li&gt;
+                            &lt;li&gt;Login as user A in browser A.&lt;/li&gt;
+                            &lt;li&gt;Login as user B in browser B.&lt;/li&gt;
+                            &lt;li&gt;For every operation that displays sensitive data belonging to user A:&lt;/li&gt;
+                            &lt;ol&gt;
+                            &lt;li&gt;Perform the operation as user A and view their sensitive data&lt;/li&gt;
+                            &lt;li&gt;Obtain the session ID of user B&lt;/li&gt;
+                            &lt;li&gt;Configure the proxy to intercept&lt;/li&gt;
+                            &lt;li&gt;Perform the operation as user A again, but this time intercept all the requests
+                            and replace user A's session ID with that of user B&lt;/li&gt;
+                            &lt;li&gt;Ensure that user A's sensitive data is &lt;b&gt;not &lt;/b&gt;visible&lt;/li&gt;
+                            &lt;/ol&gt;
+                            &lt;/ol&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2015-08-15T17:17:14.266000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

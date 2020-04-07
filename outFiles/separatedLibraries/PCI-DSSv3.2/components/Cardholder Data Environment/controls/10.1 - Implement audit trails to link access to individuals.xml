@@ -1,0 +1,33 @@
+<control ref="PCI-R10-10.1" name="10.1 - Implement audit trails to link access to individuals" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;It is critical to have a process or system that links user access to system
+                        components
+                        accessed. This system generates audit logs and provides the ability to trace back suspicious
+                        activity to a
+                        specific user.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="10.1" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;10.1 Verify, through observation and interviewing the system administrator,
+                            that: &lt;/p&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt; &lt;p&gt; &amp;nbsp;Audit trails are enabled and active for system
+                            components.
+                            &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt; &amp;nbsp;Access to system components is linked to individual
+                            users.&amp;nbsp;&lt;/p&gt;
+                            &lt;/li&gt;
+                            &lt;/ul&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T16:48:29.488000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

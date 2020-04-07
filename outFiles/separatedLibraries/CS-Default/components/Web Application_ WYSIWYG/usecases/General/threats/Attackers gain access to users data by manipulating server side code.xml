@@ -1,0 +1,18 @@
+<threat ref="CAPEC-341" name="Attackers gain access to users data by manipulating server side code" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>Server Side Code Injection happens when an attacker is able to direct input under his
+                                control and mix it with executed code on server side by modifying the logic executed on
+                                it.&amp;nbsp;
+                            </desc>
+                            <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="100"/>
+                            <references/>
+                            <controls>
+                                <control ref="CWE-79-HTML" mitigation="100"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-79-HTML">
+                                    <controls>
+                                        <control ref="CWE-79-HTML" mitigation="100"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

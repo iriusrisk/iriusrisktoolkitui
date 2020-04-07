@@ -1,0 +1,40 @@
+<control ref="PCI-R8-8.1.6" name="8.1.x - Lock out the user IDs after not more than six authentication attempts" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Without account-lockout mechanisms in place, an attacker can continually attempt to
+                        guess a
+                        password through manual or automated tools (for example, password cracking), until they achieve
+                        success and
+                        gain access to a user's account.&lt;/p&gt;
+                        &lt;p&gt;The lockout duration to a minimum of 30 minutes or until an administrator enables the
+                        user ID.&amp;nbsp;&lt;/p&gt;
+                        &lt;br /&gt;
+                        &lt;p&gt;If an account is locked out due to someone continually trying to guess a password,
+                        controls to
+                        delay reactivation of these locked accounts stops the malicious individual from continually
+                        guessing the
+                        password (they will have to stop for a minimum of 30 minutes until the account is reactivated).
+                        Additionally, if reactivation must be requested, the admin or help desk can validate that it is
+                        the actual
+                        account owner requesting reactivation.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="8.1.x" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;8.1.b Verify that procedures are implemented for user identification management,
+                            by
+                            performing the following: &lt;/p&gt;
+                            &lt;p&gt;8.1.1 Interview administrative personnel to confirm that all users are assigned a
+                            unique ID for
+                            access to system components or cardholder data.&amp;nbsp;&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T14:28:41.607000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

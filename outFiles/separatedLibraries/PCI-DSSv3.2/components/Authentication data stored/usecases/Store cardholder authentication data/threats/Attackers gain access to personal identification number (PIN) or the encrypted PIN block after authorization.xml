@@ -1,0 +1,15 @@
+<threat ref="PCI-CDH-STORED-3.2.3" name="Attackers gain access to personal identification number (PIN) or the encrypted PIN block after authorization" state="Expose" source="MANUAL" owner="" library="">
+                            <desc></desc>
+                            <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="100"/>
+                            <references/>
+                            <controls>
+                                <control ref="PCI-CDH-STORED-3.2.3" mitigation="100"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="PCI-CDH-STORED-3.2.3">
+                                    <controls>
+                                        <control ref="PCI-CDH-STORED-3.2.3" mitigation="100"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

@@ -1,0 +1,21 @@
+<threat ref='UNAUTHORIZED-ACCESS-SECURITY-SYSTEMS-AWS' name='Attackers gain undetected access to the security system configurations' state='Expose' source='MANUAL' owner='' library=''>
+              <desc>&lt;div&gt;
+                                Attackers could gain undetected access to the security configurations and the changes of
+                                the attackers could not be detected and audited.
+                                &lt;/div&gt;
+                            </desc>
+              <riskRating confidentiality='100' integrity='100' availability='100' easeOfExploitation='25' />
+              <references />
+              <weaknesses>
+                <weakness ref='no-notification-incident'>
+                  <controls>
+                    <control ref='aws-tier-4.3' mitigation='50' />
+                    <control ref='aws-tier-4.4' mitigation='50' />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref='aws-tier-4.3' mitigation='50' />
+                <control ref='aws-tier-4.4' mitigation='50' />
+              </controls>
+            </threat>

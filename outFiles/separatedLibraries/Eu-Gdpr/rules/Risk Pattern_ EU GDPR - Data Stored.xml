@@ -1,0 +1,12 @@
+<rule name="Risk Pattern: EU GDPR - Data Stored" module="component" generatedByGui="true">
+            <condition name="Question is answered" type="Question" field="id" value="Personally Identifiable InformationStored">
+                <pattern name="Condition with answer" pattern='${type}(${field} == "${value}", answer == true);'/>
+            </condition>
+            <condition name="Question is answered" type="Question" field="id" value="eu_gdpr.handle.group.yes">
+                <pattern name="Condition with answer" pattern='${type}(${field} == "${value}", answer == true);'/>
+            </condition>
+            <action project="EU GDPR" value="EU GDPR_::_EU-GDPR-DATASTORE" name="Import Risk Pattern" type="drools-without-variable-type">
+                <pattern name="Action of import a risk pattern" pattern='insertLogical(ImportRiskPatternFactory.importRiskPattern("${value-1}", "${value-2}", 50));'/>
+            </action>
+            <content></content>
+        </rule>

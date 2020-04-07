@@ -1,0 +1,27 @@
+<control ref="IOT2.4.12.8" name="The product/service can be made compliant with the local and/or regional Personal Information protection legislation where the product is to be sold" platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;The product/service can be made compliant with the local and/or regional Personal Information protection legislation where the product is to be sold. Rationale: All data protection laws set out to protect personal data, however there is a fine line between what is and isn't personal data among local data regulations. Therefore in case a product or a service is about to be sold e.g. in the European Union, it has to be compliant with the General Data Protection Regulation (&lt;span class="caps"&gt;GDPR&lt;/span&gt;).&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;&lt;b&gt;&lt;font size="4"&gt;Remediation:&lt;/font&gt;&lt;/b&gt;&lt;/p&gt; 
+&lt;p&gt;Ensure that the product/service is compliant with the local and/or regional Personal Information protection legislation where the product is to be sold.&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;&lt;b&gt;Impact:&lt;/b&gt; None&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;&lt;b&gt;Compliance Class:&lt;/b&gt; 1 and above&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;&lt;b&gt;Applicability:&lt;/b&gt; M&lt;/p&gt;</desc>
+                    <implementations/>
+                    <references>
+                        <reference name="Overview of the General Data Protection Regulations (GDPR)" url="https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/"/>
+                    </references>
+                    <standards>
+                        <standard ref="2.4.12.8" supportedStandardRef="iotsf-class-0"/>
+                        <standard ref="2.4.12.8" supportedStandardRef="iotsf-class-1"/>
+                        <standard ref="2.4.12.8" supportedStandardRef="iotsf-class-2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-03-13T16:00:47">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

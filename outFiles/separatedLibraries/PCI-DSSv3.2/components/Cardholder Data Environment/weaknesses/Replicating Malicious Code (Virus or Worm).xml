@@ -1,0 +1,15 @@
+<weakness ref="CWE-509" name="Replicating Malicious Code (Virus or Worm)" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T09:45:00.159000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>Replicating malicious code, including viruses and worms, will attempt to attack other systems
+                        once it
+                        has successfully compromised the target system or software.
+                    </desc>
+                </weakness>

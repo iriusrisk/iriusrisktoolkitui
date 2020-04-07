@@ -1,0 +1,13 @@
+<weakness ref="EU-GDPR-NO-DATA-MAPPING" name="Lack of functionality to view personal data provided" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-02-22T13:34:34.148000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>No user functionality or information within application which can be used by data subjects to access his personal data or request his personal data.
+          </desc>
+                </weakness>

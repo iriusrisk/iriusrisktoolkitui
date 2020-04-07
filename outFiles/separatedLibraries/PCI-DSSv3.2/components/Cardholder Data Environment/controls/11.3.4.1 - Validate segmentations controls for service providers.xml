@@ -1,0 +1,38 @@
+<control ref="PCI-R11-11.3.4.1" name="11.3.4.1 - Validate segmentations controls for service providers" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;If segmentation is used, confirm PCI DSS scope by performing penetration testing on
+                        segmentation controls at least every six months and after any changes to segmentation
+                        controls/methods.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="11.3.4.1" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt; &lt;/p&gt;
+                            &lt;p&gt;11.3.4.1.a&amp;nbsp;Examine the results from the most recent penetration test to
+                            verify that:&lt;/p&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt;&lt;p&gt;Penetration testing is performed to verify segmentation controls at least
+                            every six
+                            months and after any changes to segmentation controls/methods.&lt;/p&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;p&gt;The penetration testing covers all segmentation controls/methods in use.&lt;/p&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;p&gt;The penetration testing verifies that segmentation controls/methods are
+                            operational and
+                            effective, and isolate all out-of-scope systems from systems in the CDE.&lt;/p&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;p&gt;11.3.4.1.b Verify that the test was performed by a qualified internal resource or
+                            qualified
+                            external third party and, if applicable, organizational independence of the tester exists
+                            (not required to
+                            be a QSA or ASV).&amp;nbsp;&amp;nbsp;&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-07T21:52:08.159000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

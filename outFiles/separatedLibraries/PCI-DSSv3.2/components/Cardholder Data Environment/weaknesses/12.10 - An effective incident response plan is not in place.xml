@@ -1,0 +1,12 @@
+<weakness ref="PCI-R12-12.10" name="12.10 - An effective incident response plan is not in place" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-07T22:16:54.423000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc></desc>
+                </weakness>

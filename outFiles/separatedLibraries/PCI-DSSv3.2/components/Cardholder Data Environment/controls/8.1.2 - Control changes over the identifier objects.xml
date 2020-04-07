@@ -1,0 +1,32 @@
+<control ref="PCI-R8-8.1.2" name="8.1.2 - Control changes over the identifier objects" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Control addition, deletion, and modification of user IDs, credentials, and other
+                        identifier
+                        objects.&amp;nbsp;&lt;/p&gt;
+                        &lt;br /&gt;
+                        &lt;p&gt;To ensure that user accounts granted access to systems are all valid and recognized
+                        users, strong
+                        processes must manage all changes to user IDs and other authentication credentials, including
+                        adding new
+                        ones and modifying or deleting existing ones.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="8.1.2" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;8.1.2 For a sample of privileged user IDs and general user IDs, examine
+                            associated
+                            authorizations and observe system settings to verify each user ID and privileged user ID has
+                            been
+                            implemented with only the privileges specified on the documented approval.&amp;nbsp;&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T14:23:45.716000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

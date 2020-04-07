@@ -1,0 +1,65 @@
+<control ref='Hydras-AWS-Monitoring-4.6' name='Create IAM Policy change alerts' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>When cloudtrail is configured and sending alerts to cloudwatch logs these logs can be queried
+                        to identify suspicious API activity. One such activity that should be monitored is management
+                        IAM policy changes. IAM manages authorization and authentication controls with AWS and
+                        therefore it is vital that unauthorised changes are detected. Enabling monitoring of these
+                        changes ensures that these policies remain intact and as desired.
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ol&gt;
+                        &lt;li&gt;Create a metric filter that checks for IAM policy changes: aws logs put-metric-filter
+                        --log-group-name &amp;lt;group&amp;gt; --filter-name &amp;lt;name&amp;gt; --metric-
+                        transformations &amp;lt;value&amp;gt; --filter-pattern
+                        '{($.eventName=DeleteGroupPolicy)||($.eventName=DeleteRolePolicy)||($.eventName=Delete
+                        UserPolicy)||($.eventName=PutGroupPolicy)||($.eventName=PutRolePolicy)||($.eventName=P
+                        utUserPolicy)||($.eventName=CreatePolicy)||($.eventName=DeletePolicy)||($.eventName=Cr
+                        eatePolicyVersion)||($.eventName=DeletePolicyVersion)||($.eventName=AttachRolePolicy)|
+                        |($.eventName=DetachRolePolicy)||($.eventName=AttachUserPolicy)||($.eventName=DetachUs
+                        erPolicy)||($.eventName=AttachGroupPolicy)||($.eventName=DetachGroupPolicy)}'&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;Create an SNS topic for notifications: aws sns create-topic --name &amp;lt;topic_name&amp;gt;&lt;/li&gt;
+                        &lt;li&gt;Create an SNS subscription to the topic created above:aws sns subscribe --topic-arn
+                        &amp;lt;topic_arn&amp;gt; --protocol email --notification-endpoint &amp;lt;email@example.com&amp;gt;&lt;/li&gt;
+                        &lt;li&gt;Create an alarm based on the above steps: aws cloudwatch put-metric-alarm --alarm-name
+                        &amp;lt;value&amp;gt; --metric-name &amp;lt;metric_filter_name&amp;gt; --statistic Sum --period
+                        300 --threshold 1 --comparison-operator GreaterThanOrEqualToThreshold --evaluation-periods 1
+                        --namespace &amp;lt;CloudTrailMetrics&amp;gt; --alarm-actions &amp;lt;topic_arn&amp;gt;&lt;/li&gt;
+                        &lt;/ol&gt;Content provided by
+                        &lt;a href="https://hydrasit.com" target="_blank"&gt; Hydras IT LTD&lt;/a&gt;
+                        &lt;br /&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references />
+          <standards>
+            <standard ref='3.4' supportedStandardRef='CIS AWS Standard' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;ol&gt;
+                            &lt;li&gt;Identify the log group name: aws cloudtrail describe-trails&lt;/li&gt;
+                            &lt;li&gt;Note the &amp;lt;group&amp;gt; value associated with CloudWatchLogsLogGroupArn.&lt;/li&gt;
+                            &lt;li&gt;Get a list of all associated metric filters for this &amp;lt;group&amp;gt;: aws
+                            logs describe-metric-filters --log-group-name &amp;quot;&amp;lt;group&amp;gt;&amp;quot;&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Ensure the output contains the following: &amp;quot;filterPattern&amp;quot;: &amp;quot;{($.eventSource
+                            = kms.amazonaws.com) &amp;amp;&amp;amp;
+                            (($.eventName=DisableKey)||($.eventName=ScheduleKeyDeletion))} }&amp;quot;&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Note the metricName value associated with the filterPattern found in step 4.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Get a list of CloudWatch alarms and filter on the metricName captured in step 4:
+                            aws cloudwatch describe-alarms --query 'MetricAlarms[?MetricName==`&amp;lt;metricName&amp;gt;`]'&lt;/li&gt;
+                            &lt;li&gt;Note the AlarmActions value - this will provide the SNS topic ARN value.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Ensure there is at least one subscriber to the SNS topic: aws sns
+                            list-subscriptions-by-topic --topic-arn &amp;lt;topic_arm&amp;gt;&lt;/li&gt;
+                            &lt;/ol&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

@@ -1,0 +1,16 @@
+<weakness ref="CWE-327" name="Use of a Broken or Risky Cryptographic Algorithm" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references>
+                            <reference name="CWE-327: Use of a Broken or Risky Cryptographic Algorithm" url="https://cwe.mitre.org/data/definitions/327.html"/>
+                        </references>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-05-29T09:16:01.113000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The use of a broken or risky cryptographic algorithm is an unnecessary risk that may result in
+                        the exposure of sensitive information.
+                    </desc>
+                </weakness>

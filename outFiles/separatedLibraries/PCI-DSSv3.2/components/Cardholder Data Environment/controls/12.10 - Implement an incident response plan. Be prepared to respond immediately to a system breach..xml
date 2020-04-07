@@ -1,0 +1,34 @@
+<control ref="PCI-R12-12.10" name="12.10 - Implement an incident response plan. Be prepared to respond immediately to a system breach." platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>This plan should include:&amp;nbsp;
+                        &lt;br /&gt;Roles, responsibilities, and communication and contact strategies in the event of a
+                        compromise
+                        including notification of the payment brands, at a minimum&amp;nbsp;- Specific incident response
+                        procedures&amp;nbsp;-
+                        Business recovery and continuity procedures&amp;nbsp;- Data backup processes&amp;nbsp;- Analysis
+                        of legal
+                        requirements for reporting compromises&amp;nbsp;- Coverage and responses of all critical system
+                        components&amp;nbsp;-
+                        Reference or inclusion of incident response procedures from the payment brands.
+                        &lt;br /&gt;
+                        &lt;br /&gt;
+                        &lt;br /&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="12.10" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;12.10 Examine the incident response plan and related procedures to verify entity
+                            is prepared
+                            to respond immediately to a system breach.&amp;nbsp;&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-07T22:47:59.319000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

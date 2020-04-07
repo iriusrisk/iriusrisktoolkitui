@@ -1,0 +1,48 @@
+<control ref='AZ-N05' name='Allow Virtual IP of the Microsoft host node' platform='' cost='0' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;div&gt;
+                        Allow inbound accesses in Network Security Groups from the IP address 168.63.129.16 to
+                        communicate with the Azure Service. This IP belongs to Microsoft and acts as DHCP server, DNS
+                        server and monitoring the host node hosting the Azure Virtual Machine.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&amp;nbsp;&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ol&gt;
+                        &lt;li&gt;Log into the Azure portal as an owner.&lt;/li&gt;
+                        &lt;li&gt;Select Network Security Groups.&lt;/li&gt;
+                        &lt;li&gt;Choose the NSG to edit (or create a new one).&lt;/li&gt;
+                        &lt;li&gt;In &amp;quot;Inbound security rules&amp;quot;: Allow IP 168.63.129.16 inbound traffic.&lt;/li&gt;
+                        &lt;/ol&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='MS Azure - How to open ports to a virtual machine with the Azure portal' url='https://docs.microsoft.com/en-us/azure/virtual-machines/windows/nsg-quickstart-portal' />
+          </references>
+          <standards />
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;div&gt;
+                            &lt;ol&gt;
+                            &lt;li&gt;Log into the Azure portal as an owner.&lt;/li&gt;
+                            &lt;li&gt;Select Network Security Groups.&lt;/li&gt;
+                            &lt;li&gt;Choose the NSG to edit (or create a new one).&lt;/li&gt;
+                            &lt;li&gt;In &amp;quot;Inbound security rules&amp;quot;, check that the IP 168.63.129.16
+                            inbound traffic is allowed.&lt;/li&gt;
+                            &lt;/ol&gt;
+                            &lt;/div&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2017-05-10T09:06:41.792'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

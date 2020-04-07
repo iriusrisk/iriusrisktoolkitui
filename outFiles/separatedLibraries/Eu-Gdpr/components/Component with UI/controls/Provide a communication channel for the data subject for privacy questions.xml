@@ -1,0 +1,30 @@
+<control ref="EU-GDPR-COMMUNICATION-CHANNEL" name="Provide a communication channel for the data subject for privacy questions" platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="MANUAL">
+                    <desc>Provide a communication channel for the data subject for privacy questions (within the application or through other means (example. privacy@organization.com) and make it possible to export data so that you could provide an overview of all data that was delivered/imported by the data subject within the application.
+          &lt;br /&gt;
+          &lt;br /&gt;(Implementation Tip: Facebook has a functionality which allows users to manually request the right to information. This request automatically generates a downloadable report which includes all information that was gathered from the data subject).
+          </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="EU GDPR - EU Data Protection" url="http://ec.europa.eu/justice/data-protection/reform/files/regulation_oj_en.pdf"/>
+                    </references>
+                    <standards>
+                        <standard ref="Art.12" supportedStandardRef="EU-GDPR"/>
+                        <standard ref="Art.13" supportedStandardRef="EU-GDPR"/>
+                        <standard ref="Art.14" supportedStandardRef="EU-GDPR"/>
+                        <standard ref="Art.30" supportedStandardRef="EU-GDPR"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+                &lt;li&gt;Verify users have the functionality available within the application interface for easy contact routes for privacy questions.&lt;/li&gt;
+                &lt;li&gt;Verify operational mechanisms are in place to gather all user personal data processed by the application and export that data to the user.&lt;/li&gt;
+                &lt;/ol&gt;
+            </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T14:19:23.093000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

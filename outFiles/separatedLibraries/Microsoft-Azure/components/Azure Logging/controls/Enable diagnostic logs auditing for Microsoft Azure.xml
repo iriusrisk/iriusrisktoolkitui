@@ -1,0 +1,46 @@
+<control ref='AZ-L01' name='Enable diagnostic logs auditing for Microsoft Azure' platform='' cost='0' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;div&gt;
+                        Enable diagnostic logs to give the information over the operations of the resources.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ol&gt;
+                        &lt;li&gt;Go to the Azure portal.&lt;/li&gt;
+                        &lt;li&gt;Go to the blade for your web app and in &amp;quot;Monitoring&amp;quot; &amp;gt;&amp;gt;
+                        &amp;quot;Diagnostics logs&amp;quot;.&lt;/li&gt;
+                        &lt;li&gt;Enable the &amp;quot;Application Logging (Filesystem)&amp;quot; and &amp;quot;Application
+                        Logging (Blob)&amp;quot;.&lt;/li&gt;
+                        &lt;li&gt;Push &amp;quot;Save&amp;quot; to save the changes.&lt;/li&gt;
+                        &lt;/ol&gt;
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='MS Azure - Enable diagnostics logging for web apps in Azure App Service' url='https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-enable-diagnostic-log' />
+          </references>
+          <standards />
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;div&gt;
+                            &lt;ol&gt;
+                            &lt;li&gt;Go to the Azure portal.&lt;/li&gt;
+                            &lt;li&gt;Go to the blade for your web app and in &amp;quot;Monitoring&amp;quot; &amp;gt;&amp;gt;
+                            &amp;quot;Diagnostics logs&amp;quot;.&lt;/li&gt;
+                            &lt;li&gt;Check that &amp;quot;Application Logging (Filesystem)&amp;quot; and &amp;quot;Application
+                            Logging (Blob)&amp;quot; are enabled.&lt;/li&gt;
+                            &lt;/ol&gt;
+                            &lt;/div&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2017-05-23T14:12:46.725'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

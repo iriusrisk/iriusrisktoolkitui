@@ -1,0 +1,73 @@
+<control ref="PCI-R9-9.8" name="9.8 - Securely destroy the media when it is no longer needed" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;- Shred, incinerate, or pulp hard-copy materials so that cardholder data cannot be
+                        reconstructed. Secure storage containers used for materials that are to be destroyed. &amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Render cardholder data on electronic media unrecoverable so that cardholder data
+                        cannot be
+                        reconstructed.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt; &lt;/p&gt;
+                        &lt;p&gt;If steps are not taken to destroy information contained on hard disks, portable drives,
+                        CD/DVDs, or
+                        paper prior to disposal, malicious individuals may be able to retrieve information from the
+                        disposed media,
+                        leading to a data compromise. For example, malicious individuals may use a technique known as
+                        "dumpster
+                        diving," where they search through trashcans and recycle bins looking for information they
+                        can
+                        use to launch
+                        an attack.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;Securing storage containers used for materials that are going to be destroyed prevents
+                        sensitive
+                        information from being captured while the materials are being collected. For example,
+                        "to-be-shredded"
+                        containers could have a lock preventing access to its contents or physic ally prevent access to
+                        the inside
+                        of the container.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;Examples of methods for securely destroying electronic media include secure wiping,
+                        degaussing, or
+                        physical destruction (such as grinding or shredding hard disks).&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="9.8" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;9.8 Examine the periodic media destruction policy and verify that it covers all
+                            media and
+                            defines requirements for the following: &lt;/p&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt; &lt;p&gt;Hard-copy materials must be crosscut shredded, incinerated, or pulped
+                            such that there
+                            is reasonable assurance the hard- copy materials cannot be reconstructed. &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Storage containers used for materials that are to be destroyed must be
+                            secured. &lt;/p&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Cardholder data on electronic media must be rendered unrecoverable
+                            (e.g., via a secure
+                            wipe program in accordance with industry-accepted standards for secure deletion, or by
+                            physically
+                            destroying the media). &lt;/p&gt; &lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;p&gt;9.8.1.a Interview personnel and examine procedures to verify that hard-copy
+                            materials are
+                            crosscut shredded, incinerated, or pulped such that there is reasonable assurance the
+                            hard-copy materials
+                            cannot be reconstructed. &lt;/p&gt;
+                            &lt;p&gt;9.8.1.b Examine storage containers used for materials that contain information to
+                            be destroyed to
+                            verify that the containers are secured. &lt;/p&gt;
+                            &lt;p&gt;9.8.2 Verify that cardholder data on electronic media is rendered unrecoverable
+                            (e.g., via a
+                            secure wipe program in accordance with industry-accepted standards for secure deletion, or
+                            by physically
+                            destroying the media).&amp;nbsp;&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T16:10:02.439000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

@@ -1,0 +1,31 @@
+<threat ref="PCI-R6-6.x2" name="An attacker gains access to cardholder data through security flaws in the application" state="Expose" source="MANUAL" owner="" library="">
+                            <desc></desc>
+                            <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="100"/>
+                            <references/>
+                            <controls>
+                                <control ref="PCI-R6-6.3" mitigation="20"/>
+                                <control ref="PCI-R6-6.5" mitigation="20"/>
+                                <control ref="PCI-R6-6.5.6" mitigation="20"/>
+                                <control ref="PCI-R6-6.6" mitigation="20"/>
+                                <control ref="PCI-R6-6.7" mitigation="20"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="PCI-R6-6.5.1">
+                                    <controls>
+                                        <control ref="PCI-R6-6.5.6" mitigation="20"/>
+                                        <control ref="PCI-R6-6.6" mitigation="20"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="PCI-R6-6.7">
+                                    <controls>
+                                        <control ref="PCI-R6-6.7" mitigation="20"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="PCI -R6-6.3">
+                                    <controls>
+                                        <control ref="PCI-R6-6.3" mitigation="20"/>
+                                        <control ref="PCI-R6-6.5" mitigation="20"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

@@ -1,0 +1,12 @@
+<rule name="Q: IoT Operating System - Ownership Transfered - *" module="component" generatedByGui="true">
+            <condition name="Question Group exists" type="drools-without-variable-type" field="id" value="iot-ownership-transfered">
+                <pattern name="Question group exists" pattern='$group : QuestionGroup(id == "${value}") @Watch(!*);'/>
+            </condition>
+            <action project="" value="iot-ownership-transfered-no_::_No_::_" name="Insert Question" type="drools-without-variable-type">
+                <pattern name="Action of insert question" pattern='insertLogical(new Question($group, "${value-1}", "${value-2}", "${value-3}"));'/>
+            </action>
+            <action project="" value="iot-ownership-transfered-yes_::_Yes_::_" name="Insert Question" type="drools-without-variable-type">
+                <pattern name="Action of insert question" pattern='insertLogical(new Question($group, "${value-1}", "${value-2}", "${value-3}"));'/>
+            </action>
+            <content></content>
+        </rule>

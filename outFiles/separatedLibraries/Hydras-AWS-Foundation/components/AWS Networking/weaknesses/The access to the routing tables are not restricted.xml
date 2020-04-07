@@ -1,0 +1,16 @@
+<weakness ref='AWS-Network-5.8' name='The access to the routing tables are not restricted' state='0' impact='100'>
+          <desc>&lt;div&gt;
+                        Being highly selective in peering routing tables is a very effective way of minimizing the
+                        impact of breach as resources outside of these routes are inaccessible to the peered VPC.
+                        &lt;/div&gt;
+                    </desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>

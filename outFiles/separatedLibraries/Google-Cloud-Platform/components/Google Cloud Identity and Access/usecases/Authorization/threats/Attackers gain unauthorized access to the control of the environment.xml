@@ -1,0 +1,30 @@
+<threat ref='LOSS-CONTROL_ENV' name='Attackers gain unauthorized access to the control of the environment' state='Expose' source='MANUAL' owner='' library=''>
+              <desc>Attackers could gain unauthorized access to the control of the environment, due to
+                                improper definition and configuration of user accounts or role groups. Therefore,
+                                attackers can make changes without root approval.
+                            </desc>
+              <riskRating confidentiality='75' integrity='75' availability='75' easeOfExploitation='50' />
+              <references />
+              <weaknesses>
+                <weakness ref='GOOGLE_IAM-02'>
+                  <controls>
+                    <control ref='GOOGLE-IAM02' mitigation='20' />
+                    <control ref='GOOGLE-IAM03' mitigation='20' />
+                    <control ref='GOOGLE-IAM04' mitigation='20' />
+                    <control ref='GOOGLE-IAM07' mitigation='20' />
+                  </controls>
+                </weakness>
+                <weakness ref='GOOGLE-EXPIRATION-DATE'>
+                  <controls>
+                    <control ref='GOOGLE-IAM08' mitigation='20' />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref='GOOGLE-IAM02' mitigation='20' />
+                <control ref='GOOGLE-IAM03' mitigation='20' />
+                <control ref='GOOGLE-IAM04' mitigation='20' />
+                <control ref='GOOGLE-IAM07' mitigation='20' />
+                <control ref='GOOGLE-IAM08' mitigation='20' />
+              </controls>
+            </threat>

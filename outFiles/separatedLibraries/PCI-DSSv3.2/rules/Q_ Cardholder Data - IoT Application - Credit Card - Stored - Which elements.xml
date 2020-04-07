@@ -1,0 +1,12 @@
+<rule name="Q: Cardholder Data - IoT Application - Credit Card - Stored - Which elements" module="component" generatedByGui="true">
+            <condition name="Is specific component definition" type="drools-without-variable-type" field="id" value="iot-application">
+                <pattern name="Is specific component definition" pattern='ComponentDefinitionProperties(ref == "${value}");'/>
+            </condition>
+            <condition name="Question is answered" type="Question" field="id" value="Credit Card DataStored">
+                <pattern name="Condition with answer" pattern='${type}(${field} == "${value}", answer == true);'/>
+            </condition>
+            <action project="" value="pci.stored.group_::_Cardholder Data_::_Which elements of the cardholder data are stored?_::_2110_::_false_::_false_::_" name="Insert Question Group" type="drools-without-variable-type">
+                <pattern name="Action of insert question group" pattern='QuestionGroup group = new QuestionGroup("${value-1}","${value-2}","${value-3}", ${value-4}, "${value-7}"); group.setFlags(${value-5}, ${value-6}); insertLogical(group);'/>
+            </action>
+            <content></content>
+        </rule>

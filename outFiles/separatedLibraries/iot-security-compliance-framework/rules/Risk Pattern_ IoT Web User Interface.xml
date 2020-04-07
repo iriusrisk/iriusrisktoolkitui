@@ -1,0 +1,9 @@
+<rule name="Risk Pattern: IoT Web User Interface" module="component" generatedByGui="true">
+            <condition name="Question is answered" type="Question" field="id" value="iot-web-ui-yes">
+                <pattern name="Condition with answer" pattern='${type}(${field} == "${value}", answer == true);'/>
+            </condition>
+            <action project="iot-security-compliance-framework" value="iot-security-compliance-framework_::_iot-web-user-interface" name="Import Risk Pattern" type="drools-without-variable-type">
+                <pattern name="Action of import a risk pattern" pattern='insertLogical(ImportRiskPatternFactory.importRiskPattern("${value-1}", "${value-2}", 50));'/>
+            </action>
+            <content></content>
+        </rule>

@@ -1,0 +1,16 @@
+<weakness ref='GOOGLE-EASY-FIND-RESOURCES' name='Resources are exposed' state='0' impact='100'>
+          <desc>When you are into a VNet, you can search its resources, but that shall be used only when you
+                        know the resource name. The problem occurs when you don't know these names and you can easily
+                        find the resources. Therefore anyone with access to the system could easily find all the
+                        resources and gain access, regardless of having any information about them.
+                    </desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2018-05-31T09:31:02.426'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>

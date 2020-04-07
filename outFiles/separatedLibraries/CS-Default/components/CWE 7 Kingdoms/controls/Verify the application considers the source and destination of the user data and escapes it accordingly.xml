@@ -1,0 +1,45 @@
+<control ref="INPUT-VAL" name="Verify the application considers the source and destination of the user data and escapes it accordingly" platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+                        All data received from the client-side should be considered tainted and a potential risk,
+                        regardless of the source or transport method.&amp;nbsp;As such, all data from the client side
+                        must be subjected to strict validation, sanitization, and encoding against expected syntactic
+                        and semantic criteria.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;The user input data or data coming from other untrusted sources (tainted data) must be
+                        identified and classified.&lt;/li&gt;
+                        &lt;li&gt;The source and destination of this data must be clearly defined.&lt;/li&gt;
+                        &lt;li&gt;Appropriate sanitization mechanisms should be put in place between the data flow. For
+                        example,&amp;nbsp;data sent to an SQL database must be escaped for SQL special characters,
+                        whereas data sent as part of a shell command must be escaped for shell special characters.&amp;nbsp;&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="CA-8" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-10" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-6" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="5.18" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="5.18" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="A1:2017-Injection" supportedStandardRef="owasp-top-10-2017"/>
+                        <standard ref="A7:2017-Cross-Site Scripting (XSS)" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+                            &lt;li&gt;Identify all data paths within the application. &lt;br /&gt;&lt;/li&gt;
+                            &lt;li&gt;Make sure that external untrusted input is not sent to other systems (DB, HTML
+                            browser, Command Strings, etc.)&amp;nbsp; without being validated and escaped.&lt;br /&gt;&lt;/li&gt;
+                            &lt;/ol&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2017-06-19T10:28:02.042000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

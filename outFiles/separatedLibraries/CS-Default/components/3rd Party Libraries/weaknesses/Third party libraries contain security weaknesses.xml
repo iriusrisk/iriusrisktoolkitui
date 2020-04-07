@@ -1,0 +1,36 @@
+<weakness ref="CWE-937" name="Third party libraries contain security weaknesses" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references>
+                            <reference name="OWASP Top 10 - A9" url="https://www.owasp.org/index.php/Top_10_2013-A9-Using_Components_with_Known_Vulnerabilities"/>
+                        </references>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2015-08-15T17:17:11.657000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>In theory, it ought to be easy to figure out if you are currently using any vulnerable
+                        components or libraries. Unfortunately, vulnerability reports for commercial or open source
+                        software do not always specify exactly which versions of a component are vulnerable in a
+                        standard, searchable way. Further, not all libraries use an understandable version numbering
+                        system. Worst of all, not all vulnerabilities are reported to a central clearinghouse that is
+                        easy to search, although sites like CVE and NVD are becoming easier to search.&amp;nbsp;
+                        &lt;div&gt;
+                        &amp;nbsp;
+                        &lt;br /&gt;Determining if you are vulnerable requires searching these databases, as well as
+                        keeping abreast of project mailing lists and announcements for anything that might be a
+                        vulnerability. If one of your components does have a vulnerability, you should carefully
+                        evaluate whether you are actually vulnerable by checking to see if your code uses the part of
+                        the component with the vulnerability and whether the flaw could result in an impact you care
+                        about.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &amp;nbsp;
+                        &lt;br /&gt;Component vulnerabilities can cause almost any type of risk imaginable, ranging from
+                        the trivial to sophisticated malware designed to target a specific organization. Components
+                        almost always run with the full privilege of the application, so flaws in any component can be
+                        serious.
+                        &lt;/div&gt;
+                    </desc>
+                </weakness>

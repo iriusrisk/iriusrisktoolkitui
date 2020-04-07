@@ -1,0 +1,34 @@
+<control ref="OTG-BUSLOGIC" name="Detect and notify the usage of automated tools or unusual behavior" platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>	&lt;p&gt;Don&amp;#8217;t allow users to manipulate a system or guess its behavior based on input or output timing and detect the usage of automated tools or unusual behavior, such as actions not performed in reasonable &amp;quot;human time&amp;quot; or other abnormal time patterns. &lt;/p&gt;
+
+ When the usage of automated tools is detected, the application shall respond with denying the access and notifying the security group.</desc>
+                    <implementations/>
+                    <references>
+                        <reference name="OWASP testing business logic" url="https://www.owasp.org/index.php/Testing_for_business_logic"/>
+                    </references>
+                    <standards>
+                        <standard ref="SI-13" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-17" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-5" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="15.2" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="15.2" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="9.8" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="A10:2017-Insufficient Logging&amp;Monitoring" supportedStandardRef="owasp-top-10-2017"/>
+                        <standard ref="A5:2017-Broken Access Control" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;Use several automated tools to perform normal user actions.&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;Check that the applications detects these actions, denies the users access and notifies the security group.&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;p&gt;&lt;/p&gt;</steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-03-25T16:40:59">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

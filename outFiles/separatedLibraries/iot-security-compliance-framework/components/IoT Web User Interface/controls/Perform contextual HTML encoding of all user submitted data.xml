@@ -1,0 +1,50 @@
+<control ref="CWE-79-ENCODE" name="Perform contextual HTML encoding of all user submitted data" platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>	&lt;p&gt;All data received from the client-side should be considered tainted and a potential risk. If handled properly at the point of input, this untrusted tainted data should have been sanitized and encoded safely. The context when returning the data to the user is important, however, as this will affect what metacharacters have significance, and how they will be interpreted at the client-side. &lt;/p&gt;
+
+ For example, if data is inserted into the &lt;span class="caps"&gt;HTML&lt;/span&gt; body then &lt;span class="caps"&gt;HTML&lt;/span&gt; Entity encoding should be performed, but if the data is inserted into a JavaScript block, then JavaScript escaping should be performed. Similarly, while JavaScript code should not be executed in the browser when returned in an application/json response, it may then be rendered in an unsafe manner. 
+ &amp;#8211; Apply contextual encoding to all tainted data when returned to the users (including secondary users if the application has multiple interfaces &amp;#8211; e.g. an internal user viewing data entered by an external customer).
+ &amp;#8211; This should be in addition to, and in conjunction with, sanitization and encoding applied at the time of data acquisition.</desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="12.2.1" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="2.4.10.11" supportedStandardRef="iotsf-class-0"/>
+                        <standard ref="2.4.10.11" supportedStandardRef="iotsf-class-1"/>
+                        <standard ref="2.4.10.11" supportedStandardRef="iotsf-class-2"/>
+                        <standard ref="CA-8" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="CM-2" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="CM-6" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-1" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-10" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-14" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-15" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-2" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="11.2" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="5.15" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="11.2" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="5.15" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="5.23" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="5.24" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="11.2" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="5.15" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="5.23" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="5.24" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="A7:2017-Cross-Site Scripting (XSS)" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;Identify the areas of the application in which tainted data acquired from outside the application presented back (e.g. user input, uploaded files, third party content)&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;Review the encoding and sanitization applied to the data before presentation.&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;If possible, pass metacharacters and other unexpected content through the application to review the efficacy of the encoding.&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;p&gt;&lt;/p&gt;</steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-03-13T16:00:47">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

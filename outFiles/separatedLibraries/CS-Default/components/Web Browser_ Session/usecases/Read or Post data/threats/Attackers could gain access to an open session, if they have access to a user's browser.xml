@@ -1,0 +1,30 @@
+<threat ref="ASVS-2014-3.3" name="Attackers could gain access to an open session, if they have access to a user's browser" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>If a user steps away from their browser for a few minutes and there is an
+                                opportunity for
+                                an attacker to access the browser, then they could gain access to the user's logged
+                                in
+                                session and perform operations on their behalf.
+                            </desc>
+                            <riskRating confidentiality="50" integrity="50" availability="1" easeOfExploitation="10"/>
+                            <references/>
+                            <controls>
+                                <control ref="ASVS-2014-3.3" mitigation="25"/>
+                                <control ref="ASVS-2014-3.4" mitigation="25"/>
+                                <control ref="ASVS-2014-3.5" mitigation="25"/>
+                                <control ref="ASVS-3.2" mitigation="25"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-613">
+                                    <controls>
+                                        <control ref="ASVS-2014-3.3" mitigation="25"/>
+                                        <control ref="ASVS-2014-3.4" mitigation="25"/>
+                                        <control ref="ASVS-2014-3.5" mitigation="25"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="cwe-613-logout">
+                                    <controls>
+                                        <control ref="ASVS-3.2" mitigation="25"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

@@ -1,0 +1,69 @@
+<control ref='D5.7' name='Ensure privileged ports are not mapped within containers' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>The TCP/IP port numbers below 1024 are considered privileged ports. Normal users and processes
+                        are not allowed to use them for various security reasons. Docker allows a container port to be
+                        mapped to a privileged port.&amp;nbsp;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Rationale:&amp;nbsp;&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        By default, if the user does not specifically declare the container port to host port mapping,
+                        Docker automatically and correctly maps the container port to one available in 49153-65535 block
+                        on the host. But, Docker allows a container port to be mapped to a privileged port on the host
+                        if the user explicitly declared it. This is so because containers are executed with
+                        NET_BIND_SERVICE Linux kernel capability that does not restrict the privileged port mapping. The
+                        privileged ports receive and transmit various sensitive and privileged data. Allowing containers
+                        to use them can bring about serious implications.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&amp;nbsp;&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Do not map the container ports to privileged host ports when starting a container. Also, ensure
+                        that there is no such container to host privileged port mapping declarations in the Dockerfile.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Impact:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        None.
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='Docker docs: Networking' url='https://docs.docker.com/engine/userguide/networking/' />
+          </references>
+          <standards>
+            <standard ref='5.7' supportedStandardRef='Level 1 - Docker' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>List all running containers instances and their port mapping by executing the below
+                            command:&amp;nbsp;
+                            &lt;blockquote&gt;
+                            &lt;div&gt;
+                            docker ps --quiet | xargs docker inspect --format '{{ .Id }}: Ports={{
+                            .NetworkSettings.Ports }}'&amp;nbsp;
+                            &lt;/div&gt;
+                            &lt;/blockquote&gt;
+                            &lt;div&gt;
+                            Review the list and ensure that container ports are not mapped to host port numbers below
+                            1024.
+                            &lt;/div&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2016-08-02T10:21:32.718'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

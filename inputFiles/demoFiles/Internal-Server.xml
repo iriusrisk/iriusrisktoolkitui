@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project ref='internal-server-library' name='Internal Server library' revision='1' type='LIBRARY' status='OPEN' enabled='true' priority='0' tags='' workflowState=''>
+    <desc />
+    <categoryComponents>
+        <categoryComponent ref='on-premises-architecture' name='On Premises Architecture' />
+    </categoryComponents>
+    <componentDefinitions>
+        <componentDefinition ref='internal-server' name='Internal Server' desc='' categoryRef='on-premises-architecture'>
+            <riskPatterns>
+                <riskPattern ref='INF-SERVER' />
+            </riskPatterns>
+        </componentDefinition>
+    </componentDefinitions>
+    <udts />
+    <dataflows />
+    <supportedStandards>
+        <supportedStandard ref='OWASP-ASVS-Level-1' name='OWASP-ASVS-Level-1' />
+        <supportedStandard ref='OWASP-ASVS-Level-2' name='OWASP-ASVS-Level-2' />
+        <supportedStandard ref='OWASP-ASVS-Level-3' name='OWASP-ASVS-Level-3' />
+        <supportedStandard ref='NIST 800-53' name='NIST 800-53' />
+    </supportedStandards>
+    <components>
+        <component ref='INF-SERVER' name='Server' desc='Network connected server' groupName='' tags='' position='1' library='' diagramPositionX='' diagramPositionY='' componentDefinitionRef=''>
+            <weaknesses>
+                <weakness ref='UNPATCHED-SERVER' name='Recommended security patches are not applied' state='0' impact='100' issueId=''>
+                    <desc>When patches are not applied in a timely manner then the server or system could be vulnerable
+                        to known security issues. These issues could be used by an attacker to gain access to the
+                        system.&amp;nbsp;
+                    </desc>
+                    <test expiryDate='' expiryPeriod='0'>
+                        <steps />
+                        <notes />
+                        <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2015-08-15T17:17:18.522'>
+                            <output></output>
+                        </source>
+                        <references />
+                        <udts />
+                    </test>
+                </weakness>
+                <weakness ref='UNNECESSARY-SERVICES' name='Unnecessary services are exposed' state='0' impact='100' issueId=''>
+                    <desc>The application exposes unnecessary services which increase the attack surface.</desc>
+                    <test expiryDate='' expiryPeriod='0'>
+                        <steps />
+                        <notes />
+                        <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2015-08-15T17:17:18.510'>
+                            <output></output>
+                        </source>
+                        <references />
+                        <udts />
+                    </test>
+                </weakness>
+            </weaknesses>
+            <controls>
+                <control ref='PATCH-SERVER' name='Apply required security patches' issueId='' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+                    <desc>&lt;div&gt;
+                        Vendors and other maintainers of software release patches in response to security flaws and
+                        other bugs in their products.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Apply patches and other software updates in a timely manner to prevent unexpected
+                        failures or exploitation.&lt;/li&gt;
+                        &lt;li&gt;Clearly define an approach for testing and applying patches, in particular security
+                        patches, with expected timescales. &amp;nbsp;There is often a small window between release of a
+                        patch, and potentially malicious actors reverse-engineering the patch to identify and exploit
+                        the flaw.&lt;/li&gt;
+                        &lt;li&gt;Use a threat intelligence, vulnerability scanning, or other alerting service to ensure
+                        the project team is aware of issues within the project or its components promptly.&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                    </desc>
+                    <implementations />
+                    <references />
+                    <standards>
+                        <standard ref='CM-1' supportedStandardRef='NIST 800-53' />
+                        <standard ref='19.1' supportedStandardRef='OWASP-ASVS-Level-1' />
+                        <standard ref='19.1' supportedStandardRef='OWASP-ASVS-Level-2' />
+                        <standard ref='19.1' supportedStandardRef='OWASP-ASVS-Level-3' />
+                    </standards>
+                    <udts />
+                    <test expiryDate='' expiryPeriod='0'>
+                        <steps>&lt;ol&gt;
+                            &lt;li&gt;Verify there is a processes for identifying, categorising, and prioritising
+                            security and other patches.&lt;/li&gt;
+                            &lt;li&gt;Review the testing and release process.&lt;/li&gt;
+                            &lt;li&gt;Verify patches are applied in a timely manner, in line with the policies and
+                            taking into account the associated risk.&lt;/li&gt;
+                            &lt;/ol&gt;
+                        </steps>
+                        <notes />
+                        <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2015-08-15T17:17:18.535'>
+                            <output></output>
+                        </source>
+                        <references />
+                        <udts />
+                    </test>
+                </control>
+                <control ref='INF-UNNECESSARY-SERVICES' name='Restrict access to required services only' issueId='' platform='' cost='0' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+                    <desc>&lt;div&gt;
+                        The attack surface, and therefore susceptibility to attack, should be minimised. &amp;nbsp;In
+                        particular, services that are not explicitly required for the proper operation of the server or
+                        service should be disable, or access to them be restricted.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Any service, feature, or functionality that is not required should be disabled or
+                        removed. &amp;nbsp;This applies equally to the operating system, middleware, web-server, or
+                        other software in use.&lt;/li&gt;
+                        &lt;li&gt;Access to the server and remaining services (in particular those that cannot be
+                        disabled or removed) should be controlled use host-based and/or network security controls; for
+                        example host firewalls, network firewalls, routers, or switches.&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                    </desc>
+                    <implementations />
+                    <references />
+                    <standards />
+                    <udts />
+                    <test expiryDate='' expiryPeriod='0'>
+                        <steps>&lt;div&gt;
+                            &lt;ol&gt;
+                            &lt;li&gt;Conduct a host review to confirm the software and services running and exposed on
+                            the system.&lt;/li&gt;
+                            &lt;li&gt;Support the host review with network based scans across at least all TCP and UDP
+                            ports (0-65535), together with RPC and other remote call services.&lt;/li&gt;
+                            &lt;li&gt;Verify the running and accessible services against expected configuration for the
+                            system, and against the security principal of 'least privilege'&lt;/li&gt;
+                            &lt;li&gt;Where a network or host based firewall is in use, it should be configured to drop
+                            connections rather than reject them. i.e. port-scans should identify only 'open' or
+                            'filtered' services; no service should be identifiably 'closed'.&amp;nbsp;&lt;/li&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt;Note however that different network based security solutions exhibit different
+                            behaviour in this regard.&lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;/ol&gt;
+                            &lt;/div&gt;
+                            &lt;ol&gt;
+                            &lt;/ol&gt;
+                        </steps>
+                        <notes />
+                        <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2015-08-15T17:17:18.528'>
+                            <output></output>
+                        </source>
+                        <references />
+                        <udts />
+                    </test>
+                </control>
+            </controls>
+            <usecases>
+                <usecase ref='ACCESS-SERVICES' name='Access services' desc='' library=''>
+                    <threats>
+                        <threat ref='SERVER-ATTACK' name='Data compromised if the server itself is compromised' state='Expose' source='MANUAL' owner='' library=''>
+                            <desc>If attackers compromise the server that hosts the service or data, then the data and
+                                the service itself could be at risk of compromise. The server could be compromised
+                                through any of the services that it exposes.
+                            </desc>
+                            <riskRating confidentiality='100' integrity='100' availability='25' easeOfExploitation='25' />
+                            <references />
+                            <weaknesses>
+                                <weakness ref='UNPATCHED-SERVER'>
+                                    <controls>
+                                        <control ref='PATCH-SERVER' mitigation='80' />
+                                    </controls>
+                                </weakness>
+                                <weakness ref='UNNECESSARY-SERVICES'>
+                                    <controls>
+                                        <control ref='INF-UNNECESSARY-SERVICES' mitigation='20' />
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                            <controls>
+                                <control ref='INF-UNNECESSARY-SERVICES' mitigation='20' />
+                                <control ref='PATCH-SERVER' mitigation='80' />
+                            </controls>
+                        </threat>
+                    </threats>
+                </usecase>
+            </usecases>
+        </component>
+        <component ref='DB-SERVER' name='Server: Database' desc='' groupName='' tags='' position='2' library='' diagramPositionX='' diagramPositionY='' componentDefinitionRef=''>
+            <weaknesses />
+            <controls />
+            <usecases />
+        </component>
+    </components><rules>
+    <rule name='Q: Deployment - All - *' module='component' generatedByGui='true'>
+        <condition name='Question Group exists' type='drools-without-variable-type' field='id' value='deployment'>
+            <pattern name='Question group exists' pattern='$group : QuestionGroup(id == "${value}") @Watch(!*);' />
+        </condition>
+        <action project='' value='internalInf_::_Internal infrastructure_::_' name='Insert Question' type='drools-without-variable-type'>
+            <pattern name='Action of insert question' pattern='insertLogical(new Question($group, "${value-1}", "${value-2}", "${value-3}"));' />
+        </action>
+        <content>CnBhY2thZ2UgY29tLmlyaXVzcmlzay5kcm9vbHM7CgppbXBvcnQgY29tLmlyaXVzcmlzay5kcm9vbHMubW9kZWwuKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2subW9kZWwuKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2suKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2suZmFjdG9yaWVzLkRyb29sc1ZhbHVlQ29udmVydGVyOwppbXBvcnQgY29tLmlyaXVzcmlzay51dGlscy5FbnRpdHlXaXRoVURUVXRpbDsKCmdsb2JhbCBjb20uaXJpdXNyaXNrLnNlcnZpY2VzLmRyb29scy5Ecm9vbHNTZXJ2aWNlIGRyb29sc1NlcnZpY2UKCnJ1bGUgIlE6IERlcGxveW1lbnQgLSBBbGwgLSAqIgpuby1sb29wCndoZW4KICAgICRwcm9qZWN0IDogUHJvamVjdCgpCiAgICAkZ3JvdXAgOiBRdWVzdGlvbkdyb3VwKGlkID09ICJkZXBsb3ltZW50IikgQFdhdGNoKCEqKTsKICAgIAp0aGVuCiAgICBpbnNlcnRMb2dpY2FsKG5ldyBRdWVzdGlvbigkZ3JvdXAsICJpbnRlcm5hbEluZiIsICJJbnRlcm5hbCBpbmZyYXN0cnVjdHVyZSIsICIiKSk7CmVuZAogICAg</content>
+    </rule>
+    <rule name='Q: Deployment - All - Only Public Cloud option is show when it&apos;s selected in trust zone' module='component' generatedByGui='true'>
+        <condition name='Question Group exists' type='drools-without-variable-type' field='id' value='deployment'>
+            <pattern name='Question group exists' pattern='$group : QuestionGroup(id == "${value}") @Watch(!*);' />
+        </condition>
+        <condition name='Question is answered' type='Question' field='id' value='Public Cloud'>
+            <pattern name='Condition with answer' pattern='${type}(${field} == "${value}", answer == true);' />
+        </condition>
+        <action project='' value='publicCloud_::_Public Cloud_::_' name='Insert Question' type='drools-without-variable-type'>
+            <pattern name='Action of insert question' pattern='insertLogical(new Question($group, "${value-1}", "${value-2}", "${value-3}"));' />
+        </action>
+        <content>CnBhY2thZ2UgY29tLmlyaXVzcmlzay5kcm9vbHM7CgppbXBvcnQgY29tLmlyaXVzcmlzay5kcm9vbHMubW9kZWwuKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2subW9kZWwuKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2suKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2suZmFjdG9yaWVzLkRyb29sc1ZhbHVlQ29udmVydGVyOwppbXBvcnQgY29tLmlyaXVzcmlzay51dGlscy5FbnRpdHlXaXRoVURUVXRpbDsKCmdsb2JhbCBjb20uaXJpdXNyaXNrLnNlcnZpY2VzLmRyb29scy5Ecm9vbHNTZXJ2aWNlIGRyb29sc1NlcnZpY2UKCnJ1bGUgIlE6IERlcGxveW1lbnQgLSBBbGwgLSBPbmx5IFB1YmxpYyBDbG91ZCBvcHRpb24gaXMgc2hvdyB3aGVuIGl0J3Mgc2VsZWN0ZWQgaW4gdHJ1c3Qgem9uZSIKbm8tbG9vcAp3aGVuCiAgICAkcHJvamVjdCA6IFByb2plY3QoKQogICAgJGdyb3VwIDogUXVlc3Rpb25Hcm91cChpZCA9PSAiZGVwbG95bWVudCIpIEBXYXRjaCghKik7CiAgICBRdWVzdGlvbihpZCA9PSAiUHVibGljIENsb3VkIiwgYW5zd2VyID09IHRydWUpOwogICAgCnRoZW4KICAgIGluc2VydExvZ2ljYWwobmV3IFF1ZXN0aW9uKCRncm91cCwgInB1YmxpY0Nsb3VkIiwgIlB1YmxpYyBDbG91ZCIsICIiKSk7CmVuZAogICAg</content>
+    </rule>
+    <rule name='Q: Deployment - All - Public Cloud' module='component' generatedByGui='true'>
+        <condition name='Question is answered' type='Question' field='id' value='publicCloud'>
+            <pattern name='Condition with answer' pattern='${type}(${field} == "${value}", answer == true);' />
+        </condition>
+        <action project='' value='publicCloud_::_Deployment_::_Which public cloud services?_::_6505_::_false_::_false_::_' name='Insert Question Group' type='drools-without-variable-type'>
+            <pattern name='Action of insert question group' pattern='QuestionGroup group = new QuestionGroup("${value-1}","${value-2}","${value-3}", ${value-4}, "${value-7}"); group.setFlags(${value-5}, ${value-6}); insertLogical(group);' />
+        </action>
+        <content>CnBhY2thZ2UgY29tLmlyaXVzcmlzay5kcm9vbHM7CgppbXBvcnQgY29tLmlyaXVzcmlzay5kcm9vbHMubW9kZWwuKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2subW9kZWwuKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2suKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2suZmFjdG9yaWVzLkRyb29sc1ZhbHVlQ29udmVydGVyOwppbXBvcnQgY29tLmlyaXVzcmlzay51dGlscy5FbnRpdHlXaXRoVURUVXRpbDsKCmdsb2JhbCBjb20uaXJpdXNyaXNrLnNlcnZpY2VzLmRyb29scy5Ecm9vbHNTZXJ2aWNlIGRyb29sc1NlcnZpY2UKCnJ1bGUgIlE6IERlcGxveW1lbnQgLSBBbGwgLSBQdWJsaWMgQ2xvdWQiCm5vLWxvb3AKd2hlbgogICAgJHByb2plY3QgOiBQcm9qZWN0KCkKICAgIFF1ZXN0aW9uKGlkID09ICJwdWJsaWNDbG91ZCIsIGFuc3dlciA9PSB0cnVlKTsKICAgIAp0aGVuCiAgICBRdWVzdGlvbkdyb3VwIGdyb3VwID0gbmV3IFF1ZXN0aW9uR3JvdXAoInB1YmxpY0Nsb3VkIiwiRGVwbG95bWVudCIsIldoaWNoIHB1YmxpYyBjbG91ZCBzZXJ2aWNlcz8iLCA2NTA1LCAiIik7IGdyb3VwLnNldEZsYWdzKGZhbHNlLCBmYWxzZSk7IGluc2VydExvZ2ljYWwoZ3JvdXApOwplbmQKICAgIA==</content>
+    </rule>
+    <rule name='Q: Deployment - All - Public Cloud - Other public Cloud' module='component' generatedByGui='true'>
+        <condition name='Question Group exists' type='drools-without-variable-type' field='id' value='publicCloud'>
+            <pattern name='Question group exists' pattern='$group : QuestionGroup(id == "${value}") @Watch(!*);' />
+        </condition>
+        <action project='' value='cloud.otherPublicCloud_::_Other Public Cloud_::_' name='Insert Question' type='drools-without-variable-type'>
+            <pattern name='Action of insert question' pattern='insertLogical(new Question($group, "${value-1}", "${value-2}", "${value-3}"));' />
+        </action>
+        <content>CnBhY2thZ2UgY29tLmlyaXVzcmlzay5kcm9vbHM7CgppbXBvcnQgY29tLmlyaXVzcmlzay5kcm9vbHMubW9kZWwuKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2subW9kZWwuKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2suKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2suZmFjdG9yaWVzLkRyb29sc1ZhbHVlQ29udmVydGVyOwppbXBvcnQgY29tLmlyaXVzcmlzay51dGlscy5FbnRpdHlXaXRoVURUVXRpbDsKCmdsb2JhbCBjb20uaXJpdXNyaXNrLnNlcnZpY2VzLmRyb29scy5Ecm9vbHNTZXJ2aWNlIGRyb29sc1NlcnZpY2UKCnJ1bGUgIlE6IERlcGxveW1lbnQgLSBBbGwgLSBQdWJsaWMgQ2xvdWQgLSBPdGhlciBwdWJsaWMgQ2xvdWQiCm5vLWxvb3AKd2hlbgogICAgJHByb2plY3QgOiBQcm9qZWN0KCkKICAgICRncm91cCA6IFF1ZXN0aW9uR3JvdXAoaWQgPT0gInB1YmxpY0Nsb3VkIikgQFdhdGNoKCEqKTsKICAgIAp0aGVuCiAgICBpbnNlcnRMb2dpY2FsKG5ldyBRdWVzdGlvbigkZ3JvdXAsICJjbG91ZC5vdGhlclB1YmxpY0Nsb3VkIiwgIk90aGVyIFB1YmxpYyBDbG91ZCIsICIiKSk7CmVuZAogICAg</content>
+    </rule>
+    <rule name='Q: Deployment - Client' module='component' generatedByGui='true'>
+        <condition name='Risk pattern exists' type='drools-without-variable-type' field='id' value='CS-Default_::_GENERIC-CLIENT'>
+            <pattern name='Risk pattern exists' pattern='$riskPattern : RiskPattern(libraryRef == "${value-1}",ref == "${value-2}");' />
+        </condition>
+        <action project='' value='deployment_::_Deployment_::_How will the component be deployed?_::_6500_::_true_::_false_::_' name='Insert Question Group' type='drools-without-variable-type'>
+            <pattern name='Action of insert question group' pattern='QuestionGroup group = new QuestionGroup("${value-1}","${value-2}","${value-3}", ${value-4}, "${value-7}"); group.setFlags(${value-5}, ${value-6}); insertLogical(group);' />
+        </action>
+        <content>CnBhY2thZ2UgY29tLmlyaXVzcmlzay5kcm9vbHM7CgppbXBvcnQgY29tLmlyaXVzcmlzay5kcm9vbHMubW9kZWwuKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2subW9kZWwuKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2suKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2suZmFjdG9yaWVzLkRyb29sc1ZhbHVlQ29udmVydGVyOwppbXBvcnQgY29tLmlyaXVzcmlzay51dGlscy5FbnRpdHlXaXRoVURUVXRpbDsKCmdsb2JhbCBjb20uaXJpdXNyaXNrLnNlcnZpY2VzLmRyb29scy5Ecm9vbHNTZXJ2aWNlIGRyb29sc1NlcnZpY2UKCnJ1bGUgIlE6IERlcGxveW1lbnQgLSBDbGllbnQiCm5vLWxvb3AKd2hlbgogICAgJHByb2plY3QgOiBQcm9qZWN0KCkKICAgICRyaXNrUGF0dGVybiA6IFJpc2tQYXR0ZXJuKGxpYnJhcnlSZWYgPT0gIkNTLURlZmF1bHQiLHJlZiA9PSAiR0VORVJJQy1DTElFTlQiKTsKICAgIAp0aGVuCiAgICBRdWVzdGlvbkdyb3VwIGdyb3VwID0gbmV3IFF1ZXN0aW9uR3JvdXAoImRlcGxveW1lbnQiLCJEZXBsb3ltZW50IiwiSG93IHdpbGwgdGhlIGNvbXBvbmVudCBiZSBkZXBsb3llZD8iLCA2NTAwLCAiIik7IGdyb3VwLnNldEZsYWdzKHRydWUsIGZhbHNlKTsgaW5zZXJ0TG9naWNhbChncm91cCk7CmVuZAogICAg</content>
+    </rule>
+    <rule name='Q: Deployment - Data Store' module='component' generatedByGui='true'>
+        <condition name='Risk pattern exists' type='drools-without-variable-type' field='id' value='CS-Default_::_DATASTORE'>
+            <pattern name='Risk pattern exists' pattern='$riskPattern : RiskPattern(libraryRef == "${value-1}",ref == "${value-2}");' />
+        </condition>
+        <action project='' value='deployment_::_Deployment_::_How will the component be deployed?_::_6500_::_true_::_false_::_' name='Insert Question Group' type='drools-without-variable-type'>
+            <pattern name='Action of insert question group' pattern='QuestionGroup group = new QuestionGroup("${value-1}","${value-2}","${value-3}", ${value-4}, "${value-7}"); group.setFlags(${value-5}, ${value-6}); insertLogical(group);' />
+        </action>
+        <content>CnBhY2thZ2UgY29tLmlyaXVzcmlzay5kcm9vbHM7CgppbXBvcnQgY29tLmlyaXVzcmlzay5kcm9vbHMubW9kZWwuKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2subW9kZWwuKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2suKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2suZmFjdG9yaWVzLkRyb29sc1ZhbHVlQ29udmVydGVyOwppbXBvcnQgY29tLmlyaXVzcmlzay51dGlscy5FbnRpdHlXaXRoVURUVXRpbDsKCmdsb2JhbCBjb20uaXJpdXNyaXNrLnNlcnZpY2VzLmRyb29scy5Ecm9vbHNTZXJ2aWNlIGRyb29sc1NlcnZpY2UKCnJ1bGUgIlE6IERlcGxveW1lbnQgLSBEYXRhIFN0b3JlIgpuby1sb29wCndoZW4KICAgICRwcm9qZWN0IDogUHJvamVjdCgpCiAgICAkcmlza1BhdHRlcm4gOiBSaXNrUGF0dGVybihsaWJyYXJ5UmVmID09ICJDUy1EZWZhdWx0IixyZWYgPT0gIkRBVEFTVE9SRSIpOwogICAgCnRoZW4KICAgIFF1ZXN0aW9uR3JvdXAgZ3JvdXAgPSBuZXcgUXVlc3Rpb25Hcm91cCgiZGVwbG95bWVudCIsIkRlcGxveW1lbnQiLCJIb3cgd2lsbCB0aGUgY29tcG9uZW50IGJlIGRlcGxveWVkPyIsIDY1MDAsICIiKTsgZ3JvdXAuc2V0RmxhZ3ModHJ1ZSwgZmFsc2UpOyBpbnNlcnRMb2dpY2FsKGdyb3VwKTsKZW5kCiAgICA=</content>
+    </rule>
+    <rule name='Q: Deployment - Load Balancer' module='component' generatedByGui='true'>
+        <condition name='Risk pattern exists' type='drools-without-variable-type' field='id' value='CS-Default_::_LOAD-BALANCER'>
+            <pattern name='Risk pattern exists' pattern='$riskPattern : RiskPattern(libraryRef == "${value-1}",ref == "${value-2}");' />
+        </condition>
+        <action project='' value='deployment_::_Deployment_::_How will the component be deployed?_::_6500_::_true_::_false_::_' name='Insert Question Group' type='drools-without-variable-type'>
+            <pattern name='Action of insert question group' pattern='QuestionGroup group = new QuestionGroup("${value-1}","${value-2}","${value-3}", ${value-4}, "${value-7}"); group.setFlags(${value-5}, ${value-6}); insertLogical(group);' />
+        </action>
+        <content>CnBhY2thZ2UgY29tLmlyaXVzcmlzay5kcm9vbHM7CgppbXBvcnQgY29tLmlyaXVzcmlzay5kcm9vbHMubW9kZWwuKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2subW9kZWwuKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2suKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2suZmFjdG9yaWVzLkRyb29sc1ZhbHVlQ29udmVydGVyOwppbXBvcnQgY29tLmlyaXVzcmlzay51dGlscy5FbnRpdHlXaXRoVURUVXRpbDsKCmdsb2JhbCBjb20uaXJpdXNyaXNrLnNlcnZpY2VzLmRyb29scy5Ecm9vbHNTZXJ2aWNlIGRyb29sc1NlcnZpY2UKCnJ1bGUgIlE6IERlcGxveW1lbnQgLSBMb2FkIEJhbGFuY2VyIgpuby1sb29wCndoZW4KICAgICRwcm9qZWN0IDogUHJvamVjdCgpCiAgICAkcmlza1BhdHRlcm4gOiBSaXNrUGF0dGVybihsaWJyYXJ5UmVmID09ICJDUy1EZWZhdWx0IixyZWYgPT0gIkxPQUQtQkFMQU5DRVIiKTsKICAgIAp0aGVuCiAgICBRdWVzdGlvbkdyb3VwIGdyb3VwID0gbmV3IFF1ZXN0aW9uR3JvdXAoImRlcGxveW1lbnQiLCJEZXBsb3ltZW50IiwiSG93IHdpbGwgdGhlIGNvbXBvbmVudCBiZSBkZXBsb3llZD8iLCA2NTAwLCAiIik7IGdyb3VwLnNldEZsYWdzKHRydWUsIGZhbHNlKTsgaW5zZXJ0TG9naWNhbChncm91cCk7CmVuZAogICAg</content>
+    </rule>
+    <rule name='Q: Deployment - Service' module='component' generatedByGui='true'>
+        <condition name='Risk pattern exists' type='drools-without-variable-type' field='id' value='CS-Default_::_GENERIC-SERVICE'>
+            <pattern name='Risk pattern exists' pattern='$riskPattern : RiskPattern(libraryRef == "${value-1}",ref == "${value-2}");' />
+        </condition>
+        <action project='' value='deployment_::_Deployment_::_How will the component be deployed?_::_6500_::_true_::_false_::_' name='Insert Question Group' type='drools-without-variable-type'>
+            <pattern name='Action of insert question group' pattern='QuestionGroup group = new QuestionGroup("${value-1}","${value-2}","${value-3}", ${value-4}, "${value-7}"); group.setFlags(${value-5}, ${value-6}); insertLogical(group);' />
+        </action>
+        <content>CnBhY2thZ2UgY29tLmlyaXVzcmlzay5kcm9vbHM7CgppbXBvcnQgY29tLmlyaXVzcmlzay5kcm9vbHMubW9kZWwuKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2subW9kZWwuKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2suKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2suZmFjdG9yaWVzLkRyb29sc1ZhbHVlQ29udmVydGVyOwppbXBvcnQgY29tLmlyaXVzcmlzay51dGlscy5FbnRpdHlXaXRoVURUVXRpbDsKCmdsb2JhbCBjb20uaXJpdXNyaXNrLnNlcnZpY2VzLmRyb29scy5Ecm9vbHNTZXJ2aWNlIGRyb29sc1NlcnZpY2UKCnJ1bGUgIlE6IERlcGxveW1lbnQgLSBTZXJ2aWNlIgpuby1sb29wCndoZW4KICAgICRwcm9qZWN0IDogUHJvamVjdCgpCiAgICAkcmlza1BhdHRlcm4gOiBSaXNrUGF0dGVybihsaWJyYXJ5UmVmID09ICJDUy1EZWZhdWx0IixyZWYgPT0gIkdFTkVSSUMtU0VSVklDRSIpOwogICAgCnRoZW4KICAgIFF1ZXN0aW9uR3JvdXAgZ3JvdXAgPSBuZXcgUXVlc3Rpb25Hcm91cCgiZGVwbG95bWVudCIsIkRlcGxveW1lbnQiLCJIb3cgd2lsbCB0aGUgY29tcG9uZW50IGJlIGRlcGxveWVkPyIsIDY1MDAsICIiKTsgZ3JvdXAuc2V0RmxhZ3ModHJ1ZSwgZmFsc2UpOyBpbnNlcnRMb2dpY2FsKGdyb3VwKTsKZW5kCiAgICA=</content>
+    </rule>
+    <rule name='Q: Deployment - Web UI' module='component' generatedByGui='true'>
+        <condition name='Risk pattern exists' type='drools-without-variable-type' field='id' value='CS-Default_::_BROWSER'>
+            <pattern name='Risk pattern exists' pattern='$riskPattern : RiskPattern(libraryRef == "${value-1}",ref == "${value-2}");' />
+        </condition>
+        <action project='' value='deployment_::_Deployment_::_How will the component be deployed?_::_6500_::_true_::_false_::_' name='Insert Question Group' type='drools-without-variable-type'>
+            <pattern name='Action of insert question group' pattern='QuestionGroup group = new QuestionGroup("${value-1}","${value-2}","${value-3}", ${value-4}, "${value-7}"); group.setFlags(${value-5}, ${value-6}); insertLogical(group);' />
+        </action>
+        <content>CnBhY2thZ2UgY29tLmlyaXVzcmlzay5kcm9vbHM7CgppbXBvcnQgY29tLmlyaXVzcmlzay5kcm9vbHMubW9kZWwuKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2subW9kZWwuKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2suKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2suZmFjdG9yaWVzLkRyb29sc1ZhbHVlQ29udmVydGVyOwppbXBvcnQgY29tLmlyaXVzcmlzay51dGlscy5FbnRpdHlXaXRoVURUVXRpbDsKCmdsb2JhbCBjb20uaXJpdXNyaXNrLnNlcnZpY2VzLmRyb29scy5Ecm9vbHNTZXJ2aWNlIGRyb29sc1NlcnZpY2UKCnJ1bGUgIlE6IERlcGxveW1lbnQgLSBXZWIgVUkiCm5vLWxvb3AKd2hlbgogICAgJHByb2plY3QgOiBQcm9qZWN0KCkKICAgICRyaXNrUGF0dGVybiA6IFJpc2tQYXR0ZXJuKGxpYnJhcnlSZWYgPT0gIkNTLURlZmF1bHQiLHJlZiA9PSAiQlJPV1NFUiIpOwogICAgCnRoZW4KICAgIFF1ZXN0aW9uR3JvdXAgZ3JvdXAgPSBuZXcgUXVlc3Rpb25Hcm91cCgiZGVwbG95bWVudCIsIkRlcGxveW1lbnQiLCJIb3cgd2lsbCB0aGUgY29tcG9uZW50IGJlIGRlcGxveWVkPyIsIDY1MDAsICIiKTsgZ3JvdXAuc2V0RmxhZ3ModHJ1ZSwgZmFsc2UpOyBpbnNlcnRMb2dpY2FsKGdyb3VwKTsKZW5kCiAgICA=</content>
+    </rule>
+    <rule name='Risk Pattern: Deployment - Data Store - Internal Infrastructure - Data Store not SQL' module='component' generatedByGui='true'>
+        <condition name='Question is answered' type='Question' field='id' value='internalInf'>
+            <pattern name='Condition with answer' pattern='${type}(${field} == "${value}", answer == true);' />
+        </condition>
+        <condition name='Risk pattern exists' type='drools-without-variable-type' field='id' value='CS-Default_::_DATABASE-NOSQL'>
+            <pattern name='Risk pattern exists' pattern='$riskPattern : RiskPattern(libraryRef == "${value-1}",ref == "${value-2}");' />
+        </condition>
+        <action project='internal-server-library' value='internal-server-library_::_INF-SERVER' name='Import Risk Pattern' type='drools-without-variable-type'>
+            <pattern name='Action of import a risk pattern' pattern='insertLogical(RiskPattern.importRiskPattern("${value-1}", "${value-2}", 50));' />
+        </action>
+        <content>CnBhY2thZ2UgY29tLmlyaXVzcmlzay5kcm9vbHM7CgppbXBvcnQgY29tLmlyaXVzcmlzay5kcm9vbHMubW9kZWwuKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2subW9kZWwuKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2suKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2suZmFjdG9yaWVzLkRyb29sc1ZhbHVlQ29udmVydGVyOwppbXBvcnQgY29tLmlyaXVzcmlzay51dGlscy5FbnRpdHlXaXRoVURUVXRpbDsKCmdsb2JhbCBjb20uaXJpdXNyaXNrLnNlcnZpY2VzLmRyb29scy5Ecm9vbHNTZXJ2aWNlIGRyb29sc1NlcnZpY2UKCnJ1bGUgIlJpc2sgUGF0dGVybjogRGVwbG95bWVudCAtIERhdGEgU3RvcmUgLSBJbnRlcm5hbCBJbmZyYXN0cnVjdHVyZSAtIERhdGEgU3RvcmUgbm90IFNRTCIKbm8tbG9vcAp3aGVuCiAgICAkcHJvamVjdCA6IFByb2plY3QoKQogICAgUXVlc3Rpb24oaWQgPT0gImludGVybmFsSW5mIiwgYW5zd2VyID09IHRydWUpOwogICAgJHJpc2tQYXR0ZXJuIDogUmlza1BhdHRlcm4obGlicmFyeVJlZiA9PSAiQ1MtRGVmYXVsdCIscmVmID09ICJEQVRBQkFTRS1OT1NRTCIpOwogICAgCnRoZW4KICAgIGluc2VydExvZ2ljYWwoUmlza1BhdHRlcm4uaW1wb3J0Umlza1BhdHRlcm4oImludGVybmFsLXNlcnZlci1saWJyYXJ5IiwgIklORi1TRVJWRVIiLCA1MCkpOwplbmQKICAgIA==</content>
+    </rule>
+    <rule name='Risk Pattern: Deployment - Data Store - Internal Infrastructure - Data Store Others' module='component' generatedByGui='true'>
+        <condition name='Question is answered' type='Question' field='id' value='internalInf'>
+            <pattern name='Condition with answer' pattern='${type}(${field} == "${value}", answer == true);' />
+        </condition>
+        <condition name='Risk pattern exists' type='drools-without-variable-type' field='id' value='CS-Default_::_DATASTORE-OTHER'>
+            <pattern name='Risk pattern exists' pattern='$riskPattern : RiskPattern(libraryRef == "${value-1}",ref == "${value-2}");' />
+        </condition>
+        <action project='internal-server-library' value='internal-server-library_::_INF-SERVER' name='Import Risk Pattern' type='drools-without-variable-type'>
+            <pattern name='Action of import a risk pattern' pattern='insertLogical(RiskPattern.importRiskPattern("${value-1}", "${value-2}", 50));' />
+        </action>
+        <content>CnBhY2thZ2UgY29tLmlyaXVzcmlzay5kcm9vbHM7CgppbXBvcnQgY29tLmlyaXVzcmlzay5kcm9vbHMubW9kZWwuKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2subW9kZWwuKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2suKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2suZmFjdG9yaWVzLkRyb29sc1ZhbHVlQ29udmVydGVyOwppbXBvcnQgY29tLmlyaXVzcmlzay51dGlscy5FbnRpdHlXaXRoVURUVXRpbDsKCmdsb2JhbCBjb20uaXJpdXNyaXNrLnNlcnZpY2VzLmRyb29scy5Ecm9vbHNTZXJ2aWNlIGRyb29sc1NlcnZpY2UKCnJ1bGUgIlJpc2sgUGF0dGVybjogRGVwbG95bWVudCAtIERhdGEgU3RvcmUgLSBJbnRlcm5hbCBJbmZyYXN0cnVjdHVyZSAtIERhdGEgU3RvcmUgT3RoZXJzIgpuby1sb29wCndoZW4KICAgICRwcm9qZWN0IDogUHJvamVjdCgpCiAgICBRdWVzdGlvbihpZCA9PSAiaW50ZXJuYWxJbmYiLCBhbnN3ZXIgPT0gdHJ1ZSk7CiAgICAkcmlza1BhdHRlcm4gOiBSaXNrUGF0dGVybihsaWJyYXJ5UmVmID09ICJDUy1EZWZhdWx0IixyZWYgPT0gIkRBVEFTVE9SRS1PVEhFUiIpOwogICAgCnRoZW4KICAgIGluc2VydExvZ2ljYWwoUmlza1BhdHRlcm4uaW1wb3J0Umlza1BhdHRlcm4oImludGVybmFsLXNlcnZlci1saWJyYXJ5IiwgIklORi1TRVJWRVIiLCA1MCkpOwplbmQKICAgIA==</content>
+    </rule>
+    <rule name='Risk Pattern: Deployment - Data Store - Internal Infrastructure - Data Store SQL' module='component' generatedByGui='true'>
+        <condition name='Question is answered' type='Question' field='id' value='internalInf'>
+            <pattern name='Condition with answer' pattern='${type}(${field} == "${value}", answer == true);' />
+        </condition>
+        <condition name='Risk pattern exists' type='drools-without-variable-type' field='id' value='CS-Default_::_DATABASE-SQL'>
+            <pattern name='Risk pattern exists' pattern='$riskPattern : RiskPattern(libraryRef == "${value-1}",ref == "${value-2}");' />
+        </condition>
+        <action project='internal-server-library' value='internal-server-library_::_DB-SERVER' name='Import Risk Pattern' type='drools-without-variable-type'>
+            <pattern name='Action of import a risk pattern' pattern='insertLogical(RiskPattern.importRiskPattern("${value-1}", "${value-2}", 50));' />
+        </action>
+        <action project='internal-server-library' value='internal-server-library_::_INF-SERVER' name='Import Risk Pattern' type='drools-without-variable-type'>
+            <pattern name='Action of import a risk pattern' pattern='insertLogical(RiskPattern.importRiskPattern("${value-1}", "${value-2}", 50));' />
+        </action>
+        <content>CnBhY2thZ2UgY29tLmlyaXVzcmlzay5kcm9vbHM7CgppbXBvcnQgY29tLmlyaXVzcmlzay5kcm9vbHMubW9kZWwuKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2subW9kZWwuKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2suKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2suZmFjdG9yaWVzLkRyb29sc1ZhbHVlQ29udmVydGVyOwppbXBvcnQgY29tLmlyaXVzcmlzay51dGlscy5FbnRpdHlXaXRoVURUVXRpbDsKCmdsb2JhbCBjb20uaXJpdXNyaXNrLnNlcnZpY2VzLmRyb29scy5Ecm9vbHNTZXJ2aWNlIGRyb29sc1NlcnZpY2UKCnJ1bGUgIlJpc2sgUGF0dGVybjogRGVwbG95bWVudCAtIERhdGEgU3RvcmUgLSBJbnRlcm5hbCBJbmZyYXN0cnVjdHVyZSAtIERhdGEgU3RvcmUgU1FMIgpuby1sb29wCndoZW4KICAgICRwcm9qZWN0IDogUHJvamVjdCgpCiAgICBRdWVzdGlvbihpZCA9PSAiaW50ZXJuYWxJbmYiLCBhbnN3ZXIgPT0gdHJ1ZSk7CiAgICAkcmlza1BhdHRlcm4gOiBSaXNrUGF0dGVybihsaWJyYXJ5UmVmID09ICJDUy1EZWZhdWx0IixyZWYgPT0gIkRBVEFCQVNFLVNRTCIpOwogICAgCnRoZW4KICAgIGluc2VydExvZ2ljYWwoUmlza1BhdHRlcm4uaW1wb3J0Umlza1BhdHRlcm4oImludGVybmFsLXNlcnZlci1saWJyYXJ5IiwgIklORi1TRVJWRVIiLCA1MCkpOwogICAgaW5zZXJ0TG9naWNhbChSaXNrUGF0dGVybi5pbXBvcnRSaXNrUGF0dGVybigiaW50ZXJuYWwtc2VydmVyLWxpYnJhcnkiLCAiREItU0VSVkVSIiwgNTApKTsKZW5kCiAgICA=</content>
+    </rule>
+    <rule name='Risk Pattern: Deployment - Service - Internal Infrastructure - Server' module='component' generatedByGui='true'>
+        <condition name='Question is answered' type='Question' field='id' value='internalInf'>
+            <pattern name='Condition with answer' pattern='${type}(${field} == "${value}", answer == true);' />
+        </condition>
+        <condition name='Risk pattern exists' type='drools-without-variable-type' field='id' value='CS-Default_::_GENERIC-SERVICE'>
+            <pattern name='Risk pattern exists' pattern='$riskPattern : RiskPattern(libraryRef == "${value-1}",ref == "${value-2}");' />
+        </condition>
+        <action project='internal-server-library' value='internal-server-library_::_INF-SERVER' name='Import Risk Pattern' type='drools-without-variable-type'>
+            <pattern name='Action of import a risk pattern' pattern='insertLogical(RiskPattern.importRiskPattern("${value-1}", "${value-2}", 50));' />
+        </action>
+        <content>CnBhY2thZ2UgY29tLmlyaXVzcmlzay5kcm9vbHM7CgppbXBvcnQgY29tLmlyaXVzcmlzay5kcm9vbHMubW9kZWwuKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2subW9kZWwuKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2suKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2suZmFjdG9yaWVzLkRyb29sc1ZhbHVlQ29udmVydGVyOwppbXBvcnQgY29tLmlyaXVzcmlzay51dGlscy5FbnRpdHlXaXRoVURUVXRpbDsKCmdsb2JhbCBjb20uaXJpdXNyaXNrLnNlcnZpY2VzLmRyb29scy5Ecm9vbHNTZXJ2aWNlIGRyb29sc1NlcnZpY2UKCnJ1bGUgIlJpc2sgUGF0dGVybjogRGVwbG95bWVudCAtIFNlcnZpY2UgLSBJbnRlcm5hbCBJbmZyYXN0cnVjdHVyZSAtIFNlcnZlciIKbm8tbG9vcAp3aGVuCiAgICAkcHJvamVjdCA6IFByb2plY3QoKQogICAgUXVlc3Rpb24oaWQgPT0gImludGVybmFsSW5mIiwgYW5zd2VyID09IHRydWUpOwogICAgJHJpc2tQYXR0ZXJuIDogUmlza1BhdHRlcm4obGlicmFyeVJlZiA9PSAiQ1MtRGVmYXVsdCIscmVmID09ICJHRU5FUklDLVNFUlZJQ0UiKTsKICAgIAp0aGVuCiAgICBpbnNlcnRMb2dpY2FsKFJpc2tQYXR0ZXJuLmltcG9ydFJpc2tQYXR0ZXJuKCJpbnRlcm5hbC1zZXJ2ZXItbGlicmFyeSIsICJJTkYtU0VSVkVSIiwgNTApKTsKZW5kCiAgICA=</content>
+    </rule>
+</rules>
+</project>

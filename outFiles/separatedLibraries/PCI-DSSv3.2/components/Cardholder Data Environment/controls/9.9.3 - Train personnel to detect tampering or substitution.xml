@@ -1,0 +1,65 @@
+<control ref="PCI-R9-9.9.3" name="9.9.3 - Train personnel to detect tampering or substitution" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Provide training for personnel to be aware of attempted tampering or replacement of
+                        devices.
+                        Training should include the following:&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Verify the identity of any third-party persons claiming to be repair or maintenance
+                        personnel,
+                        prior to granting them access to modify or troubleshoot devices.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Do not install, replace, or return devices without verification.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Be aware of suspicious behavior around devices (for example, attempts by unknown
+                        persons to
+                        unplug or open devices).&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Report suspicious behavior and indications of device tampering or substitution to
+                        appropriate
+                        personnel (for example, to a manager or security officer).&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="9.9.3" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;9.9.3.a Review training materials for personnel at point-of-sale locations to
+                            verify they
+                            include training in the following: &lt;/p&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt; &lt;p&gt;Verifying the identity of any third-party persons claiming to be repair
+                            or maintenance
+                            personnel, prior to granting them access to modify or troubleshoot devices &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Not to install, replace, or return devices without verification &lt;/p&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Being aware of suspicious behavior around devices (for example, attempts
+                            by unknown
+                            persons to unplug or open devices) &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Reporting suspicious behavior and indications of device tampering or
+                            substitution to
+                            appropriate personnel (for example, to a manager or security officer). &lt;/p&gt; &lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;p&gt;9.9.3.b Interview a sample of personnel at point-of-sale locations to verify they
+                            have received
+                            training and are aware of the procedures for the following: &lt;/p&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt; &lt;p&gt;Verifying the identity of any third-party persons claiming to be repair
+                            or maintenance
+                            personnel, prior to granting them access to modify or troubleshoot devices &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Not to install, replace, or return devices without verification &lt;/p&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Being aware of suspicious behavior around devices (for example, attempts
+                            by unknown
+                            persons to unplug or open devices) &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Reporting suspicious behavior and indications of device tampering or
+                            substitution to
+                            appropriate personnel (for example, to a manager or security officer).&amp;nbsp;&lt;/p&gt;
+                            &lt;/li&gt;
+                            &lt;/ul&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T16:19:13.486000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

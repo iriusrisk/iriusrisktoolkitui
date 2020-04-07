@@ -1,0 +1,65 @@
+<control ref="ASVS-3.2" name="Terminate user sessions on the server-side" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+                        User sessions may end for a number of reasons; they may choose to log out, the session may be
+                        subject to an active or inactive timeout, they may be logged out due to concurrency
+                        restrictions, or the session may be revoked due to automated or manual intervention in response
+                        to a security or other event (e.g. suspicious behavior or system maintenance).
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        In all cases, the user session must be terminated at the server-side, not solely at the
+                        client-side (for example by deleting or reissuing a session ID token/cookie).
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Revoke user sessions at the server-side.&lt;/li&gt;
+                        &lt;li&gt;Redirect users to the login page, or provide a login prompt to them in context.&lt;/li&gt;
+                        &lt;li&gt;Where possible, ensure the session is not reused by the application server.&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="9.4.2" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="AC-11" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="AC-12" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="3.2" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="3.2" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="3.2" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="A2:2017-Broken Authentication" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;div&gt;
+                            &lt;ol&gt;
+                            &lt;li&gt;Check the session is terminated at the server side and not using code in the
+                            browser:&lt;/li&gt;
+                            &lt;ol&gt;
+                            &lt;li&gt;Authenticate as a user.&lt;/li&gt;
+                            &lt;li&gt;Using an intercepting proxy, the Web Developer Console,&amp;nbsp;or other tool;
+                            intercept the browser request and server response, and determine which cookies or other
+                            tokens are used to maintain session state. Alternatively, capture an authenticated
+                            application request for replay.&lt;/li&gt;
+                            &lt;li&gt;Terminate the session using the application logout function&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Replay the captured request or add the session tokens back into the session to see
+                            if the application response with authenticated data.&lt;/li&gt;
+                            &lt;/ol&gt;
+                            &lt;/ol&gt;
+                            &lt;/div&gt;
+                            &lt;div&gt;
+                            To change or set the Session ID and otherwise modify browser requests, use an intercepting
+                            proxy (e.g. OWASP Zap, Burp or Fiddler), or browser extensions such as Cookie Manager or
+                            Tamper Data.
+                            &lt;/div&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2015-08-15T17:17:20.252000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

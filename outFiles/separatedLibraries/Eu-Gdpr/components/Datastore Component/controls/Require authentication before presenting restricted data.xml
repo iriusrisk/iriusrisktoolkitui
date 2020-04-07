@@ -1,0 +1,47 @@
+<control ref="CWE-306-SERVICE" name="Require authentication before presenting restricted data" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+              The application should ensure users have undergone an Identification and Verification (ID&amp;amp;V) process before allowing access to secret, sensitive or otherwise restricted data. For less sensitive but still restricted data, simple verification of the location of the user may suffice
+              (e.g. IP restrictions).
+              &lt;/div&gt;
+              &lt;div&gt;
+              &lt;ul&gt;
+              &lt;li&gt;For non-sensitive but non-public data, access could be restricted by IP address, for example limiting access to internal networks, workstations, or gateways&lt;/li&gt;
+              &lt;li&gt;For more sensitive data, TLS client-side certificates may be appropriate&lt;/li&gt;
+              &lt;li&gt;Where secret or other sensitive data is handled, a full authentication process to identify and validate users with single or multi-factor authentication may be required&lt;/li&gt;
+              &lt;/ul&gt;
+              &lt;/div&gt;
+          </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="EU GDPR - EU Data Protection" url="http://ec.europa.eu/justice/data-protection/reform/files/regulation_oj_en.pdf"/>
+                    </references>
+                    <standards>
+                        <standard ref="Art.32" supportedStandardRef="EU-GDPR"/>
+                        <standard ref="AC-14" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="AC-21" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="AC-22" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="IA-1" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-12" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-4" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="2.1" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="2.1" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="9.5" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="2.1" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="9.5" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="A2:2017-Broken Authentication" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+                &lt;li&gt;Identify which parts of the service present sensitive data.&amp;nbsp;&lt;/li&gt;
+                &lt;li&gt;Try to obtain access to this information without any type of authentication, for example, attempt to navigate directly to URLs that present sensitive data.&lt;/li&gt;
+                &lt;/ol&gt;
+            </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2015-08-15T17:17:14.585000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

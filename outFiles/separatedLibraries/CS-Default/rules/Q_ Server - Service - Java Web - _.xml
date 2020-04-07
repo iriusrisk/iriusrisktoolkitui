@@ -1,0 +1,18 @@
+<rule name="Q: Server - Service - Java Web - *" module="component" generatedByGui="true">
+            <condition name="Question Group exists" type="drools-without-variable-type" field="id" value="server.type">
+                <pattern name="Question group exists" pattern='$group : QuestionGroup(id == "${value}") @Watch(!*);'/>
+            </condition>
+            <condition name="Question is answered" type="Question" field="id" value="server.java">
+                <pattern name="Condition with answer" pattern='${type}(${field} == "${value}", answer == true);'/>
+            </condition>
+            <action project="" value="server.jetty_::_Jetty_::_" name="Insert Question" type="drools-without-variable-type">
+                <pattern name="Action of insert question" pattern='insertLogical(new Question($group, "${value-1}", "${value-2}", "${value-3}"));'/>
+            </action>
+            <action project="" value="server.tomcat_::_Tomcat_::_" name="Insert Question" type="drools-without-variable-type">
+                <pattern name="Action of insert question" pattern='insertLogical(new Question($group, "${value-1}", "${value-2}", "${value-3}"));'/>
+            </action>
+            <action project="" value="server.wildfly_::_JBoss Wildfly_::_" name="Insert Question" type="drools-without-variable-type">
+                <pattern name="Action of insert question" pattern='insertLogical(new Question($group, "${value-1}", "${value-2}", "${value-3}"));'/>
+            </action>
+            <content></content>
+        </rule>

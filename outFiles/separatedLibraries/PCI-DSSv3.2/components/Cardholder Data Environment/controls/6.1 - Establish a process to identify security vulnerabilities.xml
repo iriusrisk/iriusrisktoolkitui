@@ -1,0 +1,60 @@
+<control ref="PCI-R6-6.1" name="6.1 - Establish a process to identify security vulnerabilities" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;The intent of this requirement is that organizations keep up to date with new
+                        vulnerabilities
+                        that may impact their environment.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;Sources for vulnerability information should be trustworthy and often include vendor
+                        websites,
+                        industry news groups, mailing list, or RSS feeds.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;Once an organization identifies a vulnerability that could affect their environment,
+                        the risk that
+                        the vulnerability poses must be evaluated and ranked. The organization must therefore have a
+                        method in place
+                        to evaluate vulnerabilities on an ongoing basis and assign risk rankings to those
+                        vulnerabilities. This is
+                        not achieved by an ASV scan or internal vulnerability scan, rather this requires a process to
+                        actively
+                        monitor industry sources for vulnerability information.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;Classifying the risks (for example, as "high," "medium," or
+                        "low") allows organizations
+                        to
+                        identify, prioritize, and address the highest risk items more quickly and reduce the likelihood
+                        that
+                        vulnerabilities posing the greatest risk will be exploited.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="6.1" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;6.1.a Examine policies and procedures to verify that processes are defined for
+                            the
+                            following: &lt;/p&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt; &lt;p&gt;To identify new security vulnerabilities &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;To assign a risk ranking to vulnerabilities that includes&amp;nbsp;identification
+                            of
+                            all "high risk" and "critical"&amp;nbsp;vulnerabilities.&lt;/p&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;To use reputable outside sources for security vulnerability information.&lt;/p&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;p&gt;6.1.b Interview responsible personnel and observe processes to verify that: &lt;/p&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt; &lt;p&gt;New security vulnerabilities are identified. &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;A risk ranking is assigned to vulnerabilities that includes
+                            identification of all
+                            "high risk" and "critical" vulnerabilities. &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Processes to identify new security vulnerabilities include using
+                            reputable outside
+                            sources for security vulnerability information.&amp;nbsp;&lt;/p&gt; &lt;/li&gt;
+                            &lt;/ul&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T12:17:35.701000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

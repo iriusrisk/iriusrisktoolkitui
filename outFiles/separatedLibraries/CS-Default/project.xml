@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Copyright (c) 2012-2019 Continuum Security.  All rights reserved.The content of this library is the property of Continuum Security SL and may only be used in whole or in part with a valid license for IriusRisk.-->
+<project ref="CS-Default" name="Continuum Security Default Library" revision="69" type="LIBRARY" status="OPEN" enabled="true" priority="0" tags="">
+    <desc>This library provides a set of development requirements that help comply with&amp;nbsp;OWASP Application
+        Security Verification Standard (ASVS)&amp;nbsp;3.0.1 (Level1/Level2/Level3).
+    </desc>
+    <categoryComponents>
+        <categoryComponent ref="docker-category" name="Docker"/>
+        <categoryComponent ref="amazon-web-services" name="Amazon Web Services"/>
+        <categoryComponent ref="service-side" name="Server-side"/>
+        <categoryComponent ref="client-side" name="Client-side"/>
+        <categoryComponent ref="data-store" name="Data store"/>
+        <categoryComponent ref="on-premises-architecture" name="On Premises Architecture"/>
+        <categoryComponent ref="microsoft-azure" name="Microsoft Azure"/>
+        <categoryComponent ref="google-cloud-platform" name="Google Cloud Platform"/>
+        <categoryComponent ref="general" name="General"/>
+    </categoryComponents>
+    <componentDefinitions>
+        <componentDefinition ref="empty-component" name="Empty Component" desc="" categoryRef="general">
+            <riskPatterns>
+                <riskPattern ref="empty-pattern"/>
+            </riskPatterns>
+        </componentDefinition>
+        <componentDefinition ref="docker-environment" name="Docker Environment" desc="" categoryRef="docker-category">
+            <riskPatterns>
+                <riskPattern ref="DEPLOYMENT-ENVIRONMENT"/>
+            </riskPatterns>
+        </componentDefinition>
+        <componentDefinition ref="amazon-web-services-environment" name="AWS Account Environment" desc="Amazon Web Services Environment. Only select this if the security of the AWS environment will be managed in this product." categoryRef="amazon-web-services">
+            <riskPatterns>
+                <riskPattern ref="DEPLOYMENT-ENVIRONMENT"/>
+            </riskPatterns>
+        </componentDefinition>
+        <componentDefinition ref="generic-service" name="Generic Service" desc="Any service that listens for connections on a network" categoryRef="service-side">
+            <riskPatterns>
+                <riskPattern ref="untrusted-data-received"/>
+                <riskPattern ref="LOGS-POLICY"/>
+                <riskPattern ref="GENERIC-SERVICE"/>
+            </riskPatterns>
+        </componentDefinition>
+        <componentDefinition ref="web-application-server-side" name="Web Application - Server side" desc="The server side web application that services HTML/JS content" categoryRef="service-side">
+            <riskPatterns>
+                <riskPattern ref="untrusted-data-received"/>
+                <riskPattern ref="LOGS-POLICY"/>
+                <riskPattern ref="WEB-APP"/>
+                <riskPattern ref="HTTP-SERVICE"/>
+                <riskPattern ref="GENERIC-SERVICE"/>
+            </riskPatterns>
+        </componentDefinition>
+        <componentDefinition ref="web-service" name="Web Service" desc="The server side web services or API that uses HTTP/S as the transport" categoryRef="service-side">
+            <riskPatterns>
+                <riskPattern ref="WEB-SERVICE"/>
+                <riskPattern ref="untrusted-data-received"/>
+                <riskPattern ref="GENERIC-SERVICE"/>
+                <riskPattern ref="HTTP-SERVICE"/>
+                <riskPattern ref="LOGS-POLICY"/>
+            </riskPatterns>
+        </componentDefinition>
+        <componentDefinition ref="adobe-flash" name="Adobe Flash" desc="A client side component that uses Adobe Flash" categoryRef="client-side">
+            <riskPatterns>
+                <riskPattern ref="CLIENT:THICK"/>
+                <riskPattern ref="CLIENT:FLASH"/>
+                <riskPattern ref="non-standard-w3c-client-technology"/>
+                <riskPattern ref="GENERIC-CLIENT"/>
+            </riskPatterns>
+        </componentDefinition>
+        <componentDefinition ref="generic-client" name="Generic Client" desc="Any type of client that makes connections to a service" categoryRef="client-side">
+            <riskPatterns>
+                <riskPattern ref="GENERIC-CLIENT"/>
+            </riskPatterns>
+        </componentDefinition>
+        <componentDefinition ref="java-applet" name="Java Applet" desc="A Java Applet that runs within a browser" categoryRef="client-side">
+            <riskPatterns>
+                <riskPattern ref="non-standard-w3c-client-technology"/>
+                <riskPattern ref="CLIENT:THICK"/>
+                <riskPattern ref="GENERIC-CLIENT"/>
+                <riskPattern ref="CLIENT:APPLET"/>
+            </riskPatterns>
+        </componentDefinition>
+        <componentDefinition ref="java-web-start" name="Java Web Start" desc="A Java Web Start application that is launched from a URL but runs locally" categoryRef="client-side">
+            <riskPatterns>
+                <riskPattern ref="GENERIC-CLIENT"/>
+                <riskPattern ref="CLIENT:THICK"/>
+                <riskPattern ref="CLIENT:WEBSTART"/>
+            </riskPatterns>
+        </componentDefinition>
+        <componentDefinition ref="microsoft-silverlight" name="Microsoft Silverlight" desc="A client side component that uses Microsofts Silverlight" categoryRef="client-side">
+            <riskPatterns>
+                <riskPattern ref="non-standard-w3c-client-technology"/>
+                <riskPattern ref="CLIENT:SILVERLIGHT"/>
+                <riskPattern ref="GENERIC-CLIENT"/>
+                <riskPattern ref="CLIENT:THICK"/>
+            </riskPatterns>
+        </componentDefinition>
+        <componentDefinition ref="rich-client" name="Rich Client" desc="A client-side component with many of its resources installed on the client side itself" categoryRef="client-side">
+            <riskPatterns>
+                <riskPattern ref="GENERIC-CLIENT"/>
+                <riskPattern ref="CLIENT:THICK"/>
+            </riskPatterns>
+        </componentDefinition>
+        <componentDefinition ref="web-client" name="Web Client" desc="Generic HTTPS Web Client" categoryRef="client-side">
+            <riskPatterns>
+                <riskPattern ref="GENERIC-CLIENT"/>
+                <riskPattern ref="WEB-CLIENT"/>
+            </riskPatterns>
+        </componentDefinition>
+        <componentDefinition ref="web-ui" name="Web UI" desc="An HTML/JavaScript interface viewed by a browser" categoryRef="client-side">
+            <riskPatterns>
+                <riskPattern ref="GENERIC-CLIENT"/>
+                <riskPattern ref="3rd-partly-web-libraries"/>
+                <riskPattern ref="BROWSER"/>
+            </riskPatterns>
+        </componentDefinition>
+        <componentDefinition ref="informix" name="Informix" desc="" categoryRef="data-store">
+            <riskPatterns>
+                <riskPattern ref="GENERIC-OTS-SERVICE"/>
+                <riskPattern ref="DATASTORE"/>
+                <riskPattern ref="DATABASE-SQL"/>
+            </riskPatterns>
+        </componentDefinition>
+        <componentDefinition ref="microsoft-sql-server" name="Microsoft SQL Server" desc="" categoryRef="data-store">
+            <riskPatterns>
+                <riskPattern ref="GENERIC-OTS-SERVICE"/>
+                <riskPattern ref="DATASTORE"/>
+                <riskPattern ref="DATABASE-SQL"/>
+            </riskPatterns>
+        </componentDefinition>
+        <componentDefinition ref="mysql" name="MySQL" desc="" categoryRef="data-store">
+            <riskPatterns>
+                <riskPattern ref="DATASTORE"/>
+                <riskPattern ref="GENERIC-OTS-SERVICE"/>
+                <riskPattern ref="DATABASE-SQL"/>
+            </riskPatterns>
+        </componentDefinition>
+        <componentDefinition ref="oracle-db" name="Oracle DB" desc="" categoryRef="data-store">
+            <riskPatterns>
+                <riskPattern ref="DATABASE-SQL"/>
+                <riskPattern ref="GENERIC-OTS-SERVICE"/>
+                <riskPattern ref="DATASTORE"/>
+            </riskPatterns>
+        </componentDefinition>
+        <componentDefinition ref="postgresql" name="PostgreSQL" desc="" categoryRef="data-store">
+            <riskPatterns>
+                <riskPattern ref="DATASTORE"/>
+                <riskPattern ref="GENERIC-OTS-SERVICE"/>
+                <riskPattern ref="DATABASE-SQL"/>
+            </riskPatterns>
+        </componentDefinition>
+        <componentDefinition ref="sqlite" name="SQLite" desc="" categoryRef="data-store">
+            <riskPatterns>
+                <riskPattern ref="DATASTORE"/>
+                <riskPattern ref="DATABASE-SQL"/>
+                <riskPattern ref="GENERIC-OTS-SERVICE"/>
+            </riskPatterns>
+        </componentDefinition>
+        <componentDefinition ref="other-sql-database" name="Other SQL Database" desc="Any other SQL database not listed" categoryRef="data-store">
+            <riskPatterns>
+                <riskPattern ref="DATABASE-SQL"/>
+                <riskPattern ref="DATASTORE"/>
+                <riskPattern ref="GENERIC-OTS-SERVICE"/>
+            </riskPatterns>
+        </componentDefinition>
+        <componentDefinition ref="cassandra-nosql" name="Cassandra NoSQL" desc="" categoryRef="data-store">
+            <riskPatterns>
+                <riskPattern ref="DATASTORE"/>
+                <riskPattern ref="DATABASE-NOSQL"/>
+                <riskPattern ref="GENERIC-OTS-SERVICE"/>
+            </riskPatterns>
+        </componentDefinition>
+        <componentDefinition ref="mongodb-nosql" name="MongoDB NoSQL" desc="" categoryRef="data-store">
+            <riskPatterns>
+                <riskPattern ref="DATASTORE"/>
+                <riskPattern ref="GENERIC-OTS-SERVICE"/>
+                <riskPattern ref="DATABASE-NOSQL"/>
+            </riskPatterns>
+        </componentDefinition>
+        <componentDefinition ref="riak-nosql" name="Riak NoSQL" desc="" categoryRef="data-store">
+            <riskPatterns>
+                <riskPattern ref="GENERIC-OTS-SERVICE"/>
+                <riskPattern ref="DATABASE-NOSQL"/>
+                <riskPattern ref="DATASTORE"/>
+            </riskPatterns>
+        </componentDefinition>
+        <componentDefinition ref="other-nosql-key-value-store" name="Other NoSQL key-value store" desc="Any other NoSQL database not listed" categoryRef="data-store">
+            <riskPatterns>
+                <riskPattern ref="GENERIC-OTS-SERVICE"/>
+                <riskPattern ref="DATASTORE"/>
+                <riskPattern ref="DATABASE-NOSQL"/>
+            </riskPatterns>
+        </componentDefinition>
+        <componentDefinition ref="active-directory" name="Active Directory" desc="" categoryRef="data-store">
+            <riskPatterns>
+                <riskPattern ref="DATASTORE"/>
+                <riskPattern ref="LDAP-STORE"/>
+                <riskPattern ref="DATASTORE-OTHER"/>
+                <riskPattern ref="GENERIC-OTS-SERVICE"/>
+                <riskPattern ref="ACTIVE-DIRECTORY"/>
+            </riskPatterns>
+        </componentDefinition>
+        <componentDefinition ref="ldap-directory" name="LDAP Directory" desc="" categoryRef="data-store">
+            <riskPatterns>
+                <riskPattern ref="GENERIC-OTS-SERVICE"/>
+                <riskPattern ref="DATASTORE"/>
+                <riskPattern ref="LDAP-STORE"/>
+                <riskPattern ref="DATASTORE-OTHER"/>
+            </riskPatterns>
+        </componentDefinition>
+        <componentDefinition ref="cloud-storage" name="Cloud Storage" desc="File storage on the cloud, such as S3 or similar" categoryRef="data-store">
+            <riskPatterns>
+                <riskPattern ref="DATASTORE-OTHER"/>
+                <riskPattern ref="CLOUD-STORAGE"/>
+                <riskPattern ref="GENERIC-OTS-SERVICE"/>
+                <riskPattern ref="DATASTORE"/>
+            </riskPatterns>
+        </componentDefinition>
+        <componentDefinition ref="file-system" name="File system" desc="Storage a local or networked file system" categoryRef="data-store">
+            <riskPatterns>
+                <riskPattern ref="DATASTORE-OTHER"/>
+                <riskPattern ref="DATASTORE"/>
+                <riskPattern ref="GENERIC-OTS-SERVICE"/>
+            </riskPatterns>
+        </componentDefinition>
+        <componentDefinition ref="other-database" name="Other data store" desc="" categoryRef="data-store">
+            <riskPatterns>
+                <riskPattern ref="GENERIC-OTS-SERVICE"/>
+                <riskPattern ref="DATASTORE"/>
+                <riskPattern ref="DATASTORE-OTHER"/>
+            </riskPatterns>
+        </componentDefinition>
+        <componentDefinition ref="other" name="Other database" desc="" categoryRef="data-store">
+            <riskPatterns>
+                <riskPattern ref="DATASTORE"/>
+                <riskPattern ref="DATASTORE-OTHER"/>
+                <riskPattern ref="GENERIC-OTS-SERVICE"/>
+            </riskPatterns>
+        </componentDefinition>
+        <componentDefinition ref="internal-server" name="Internal Server" desc="" categoryRef="on-premises-architecture">
+            <riskPatterns>
+                <riskPattern ref="INF-SERVER"/>
+                <riskPattern ref="DEPLOYMENT-ENVIRONMENT"/>
+            </riskPatterns>
+        </componentDefinition>
+        <componentDefinition ref="microsoft-azure-environment" name="Microsoft Azure Environment" desc="Microsoft Azure. Only select this if the security of the Microsoft Azure environment will be managed in this product." categoryRef="microsoft-azure">
+            <riskPatterns>
+                <riskPattern ref="DEPLOYMENT-ENVIRONMENT"/>
+            </riskPatterns>
+        </componentDefinition>
+        <componentDefinition ref="google-cloud-platform-environment" name="Google Cloud Platform Environment" desc="Only select this if the security of the Google Cloud Platform environment will be managed in this product." categoryRef="google-cloud-platform">
+            <riskPatterns>
+                <riskPattern ref="DEPLOYMENT-ENVIRONMENT"/>
+            </riskPatterns>
+        </componentDefinition>
+    </componentDefinitions>
+    <udts/>
+    <supportedStandards>
+        <supportedStandard ref="OWASP-MASVS-L1+R" name="OWASP-MASVS-L1+R"/>
+        <supportedStandard ref="OWASP-MASVS-L2+R" name="OWASP-MASVS-L2+R"/>
+        <supportedStandard ref="hipaa-addressable" name="HIPAA Addressable"/>
+        <supportedStandard ref="OWASP-MASVS-L1" name="OWASP-MASVS-L1"/>
+        <supportedStandard ref="OWASP-MASVS-L2" name="OWASP-MASVS-L2"/>
+        <supportedStandard ref="EU-GDPR" name="EU-GDPR"/>
+        <supportedStandard ref="hipaa-required" name="HIPAA"/>
+        <supportedStandard ref="ISO/IEC 27002:2013" name="ISO/IEC 27002:2013"/>
+        <supportedStandard ref="OWASP-ASVS-Level-1" name="OWASP-ASVS-Level-1"/>
+        <supportedStandard ref="OWASP-ASVS-Level-2" name="OWASP-ASVS-Level-2"/>
+        <supportedStandard ref="OWASP-ASVS-Level-3" name="OWASP-ASVS-Level-3"/>
+        <supportedStandard ref="NIST 800-53" name="NIST 800-53"/>
+        <supportedStandard ref="owasp-top-10-2017" name="OWASP Top 10 2017"/>
+    </supportedStandards>
+    

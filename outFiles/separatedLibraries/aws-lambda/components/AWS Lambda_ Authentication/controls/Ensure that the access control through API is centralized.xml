@@ -1,0 +1,284 @@
+<control ref="ACCESS-CONTROL-CENTRALIZED-AWS-LAMBDA" name="Ensure that the access control through API is centralized" platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;The access control, authentication and authorization procedures through API shall be centralized. To implement it into Lambda functions, we have got the two options:&lt;br /&gt;&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;Lambda authorizers are Lambda functions that control access to REST API methods using bearer token authentication as well as information described by headers, paths, query strings, stage variables, or context variables request parameters.&amp;nbsp;&lt;/li&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt;TOKEN type Lambda authorizers grant a caller permissions to invoke a given request using an authorization token passed in a header. The token could be, for example, an OAuth token.&amp;nbsp;&lt;/li&gt; 
+  &lt;li&gt;REQUEST type Lambda authorizers grant a caller permissions to invoke a given request using request parameters, including headers, query strings, stage variables, or context parameters.&lt;/li&gt; 
+ &lt;/ul&gt; 
+ &lt;li&gt;Amazon Cognito user pools let you create customizable authentication and authorization solutions for your REST APIs.&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;b&gt;Remediation:&lt;/b&gt;&lt;br /&gt; Create an API Gateway Lambda Authorizer Lambda Function:&lt;br /&gt;&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;Before creating an API Gateway Lambda authorizer, you must first create the AWS Lambda function that implements the logic to authorize and, if necessary, to authenticate the caller. You can do so in the Lambda console, using the code template available from the API Gateway Lambda Authorizer blueprint.&lt;/li&gt; 
+ &lt;li&gt;To grant IAM principals in the account that owns the API permission to call authorizer:create or create-authorizer to control the Lambda function used in your Lambda authorizer, you can create the following IAM policy.&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;blockquote&gt;
+    { 
+  &lt;/blockquote&gt; 
+  &lt;blockquote&gt;
+    &amp;nbsp; &amp;nbsp; &amp;quot;Version&amp;quot;: &amp;quot;2012-10-17&amp;quot;, 
+  &lt;/blockquote&gt; 
+  &lt;blockquote&gt;
+    &amp;nbsp; &amp;nbsp; &amp;quot;Statement&amp;quot;: [ 
+  &lt;/blockquote&gt; 
+  &lt;blockquote&gt;
+    &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; { 
+  &lt;/blockquote&gt; 
+  &lt;blockquote&gt;
+    &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;quot;Effect&amp;quot;: &amp;quot;Allow&amp;quot;, 
+  &lt;/blockquote&gt; 
+  &lt;blockquote&gt;
+    &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;quot;Action&amp;quot;: [ 
+  &lt;/blockquote&gt; 
+  &lt;blockquote&gt;
+    &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;quot;apigateway:POST&amp;quot; 
+  &lt;/blockquote&gt; 
+  &lt;blockquote&gt;
+    &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; ], 
+  &lt;/blockquote&gt; 
+  &lt;blockquote&gt;
+    &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;quot;Resource&amp;quot;: [ 
+  &lt;/blockquote&gt; 
+  &lt;blockquote&gt;
+    &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;quot;arn:aws:apigateway:region::/restapis/restapi_id/authorizers&amp;quot; 
+  &lt;/blockquote&gt; 
+  &lt;blockquote&gt;
+    &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; ], 
+  &lt;/blockquote&gt; 
+  &lt;blockquote&gt;
+    &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; //Create Authorizer operation is allowed only with the following Lambda function 
+  &lt;/blockquote&gt; 
+  &lt;blockquote&gt;
+    &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;quot;Condition&amp;quot;: { 
+  &lt;/blockquote&gt; 
+  &lt;blockquote&gt;
+    &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;quot;StringEquals&amp;quot;: { 
+  &lt;/blockquote&gt; 
+  &lt;blockquote&gt;
+    &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;quot;apigateway:AuthorizerUri&amp;quot;: &amp;quot;arn:aws:lambda:region:account-id:function:lambda-function-name&amp;quot; 
+  &lt;/blockquote&gt; 
+  &lt;blockquote&gt;
+    &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; } 
+  &lt;/blockquote&gt; 
+  &lt;blockquote&gt;
+    &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; } 
+  &lt;/blockquote&gt; 
+  &lt;blockquote&gt;
+    &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; } 
+  &lt;/blockquote&gt; 
+  &lt;blockquote&gt;
+    &amp;nbsp; &amp;nbsp; ] 
+  &lt;/blockquote&gt; 
+  &lt;blockquote&gt;
+    } 
+  &lt;/blockquote&gt; 
+ &lt;/blockquote&gt; 
+ &lt;blockquote&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt; 
+&lt;div&gt; 
+ &lt;p&gt;&lt;/p&gt; 
+ &lt;p&gt;Create a Lambda Function for a Lambda Authorizer of the TOKEN type&lt;br /&gt;&lt;/p&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt;In the code editor of the Lambda console, enter the following Node.js code as an example of the API Gateway Lambda authorizer of the TOKEN type.&lt;/li&gt; 
+ &lt;/ul&gt; 
+ &lt;p&gt;&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt; 
+   &lt;p&gt;// A simple TOKEN authorizer example to demonstrate how to use an authorization token&amp;nbsp;&lt;/p&gt; 
+   &lt;p&gt;// to allow or deny a request. In this example, the caller named 'user' is allowed to invoke&amp;nbsp;&lt;/p&gt; 
+   &lt;p&gt;// a request if the client-supplied token value is 'allow'. The caller is not allowed to invoke&amp;nbsp;&lt;/p&gt; 
+   &lt;p&gt;// the request if the token value is 'deny'. If the token value is 'Unauthorized', the function&amp;nbsp;&lt;/p&gt; 
+   &lt;p&gt;// returns the 'Unauthorized' error with an HTTP status code of 401. For any other token value,&amp;nbsp;&lt;/p&gt; 
+   &lt;p&gt;// the authorizer returns an 'Invalid token' error.&amp;nbsp;&lt;/p&gt; 
+   &lt;p&gt;&lt;br /&gt;&lt;/p&gt; 
+   &lt;p&gt;exports.handler =&amp;nbsp; function(event, context, callback) {&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; var token = event.authorizationToken;&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; switch (token.toLowerCase()) {&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; case 'allow':&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; callback(null, generatePolicy('user', 'Allow', event.methodArn));&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; break;&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; case 'deny':&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; callback(null, generatePolicy('user', 'Deny', event.methodArn));&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; break;&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; case 'unauthorized':&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; callback(&amp;quot;Unauthorized&amp;quot;);&amp;nbsp; &amp;nbsp;// Return a 401 Unauthorized response&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; break;&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; default:&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; callback(&amp;quot;Error: Invalid token&amp;quot;);&amp;nbsp;&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; }&lt;/p&gt; 
+   &lt;p&gt;};&lt;/p&gt; 
+   &lt;p&gt;&lt;br /&gt;&lt;/p&gt; 
+   &lt;p&gt;// Help function to generate an IAM policy&lt;/p&gt; 
+   &lt;p&gt;var generatePolicy = function(principalId, effect, resource) {&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; var authResponse = {};&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp;&amp;nbsp;&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; authResponse.principalId = principalId;&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; if (effect &amp;amp;&amp;amp; resource) {&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; var policyDocument = {};&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; policyDocument.Version = '2012-10-17';&amp;nbsp;&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; policyDocument.Statement = [];&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; var statementOne = {};&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; statementOne.Action = 'execute-api:Invoke';&amp;nbsp;&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; statementOne.Effect = effect;&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; statementOne.Resource = resource;&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; policyDocument.Statement[0] = statementOne;&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; authResponse.policyDocument = policyDocument;&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; }&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp;&amp;nbsp;&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; // Optional output with custom properties of the String, Number or Boolean type.&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; authResponse.context = {&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;quot;stringKey&amp;quot;: &amp;quot;stringval&amp;quot;,&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;quot;numberKey&amp;quot;: 123,&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;quot;booleanKey&amp;quot;: true&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; };&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; return authResponse;&lt;/p&gt; 
+   &lt;p&gt;}&lt;/p&gt; 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt; 
+&lt;div&gt; 
+ &lt;p&gt;Create a Lambda Function of a Lambda Authorizer of the REQUEST type&lt;br /&gt;&lt;/p&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt;In the code editor of the Lambda console, enter the following Node.js code for a simplified Lambda function as an example of the API Gateway Lambda authorizers of the REQUEST type.&lt;/li&gt; 
+ &lt;/ul&gt; 
+ &lt;p&gt;&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt; 
+   &lt;p&gt;exports.handler = function(event, context, callback) {&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp;&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; console.log('Received event:', JSON.stringify(event, null, 2));&lt;/p&gt; 
+   &lt;p&gt;&lt;br /&gt;&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; // A simple REQUEST authorizer example to demonstrate how to use request&amp;nbsp;&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; // parameters to allow or deny a request. In this example, a request is&amp;nbsp;&amp;nbsp;&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; // authorized if the client-supplied HeaderAuth1 header, QueryString1 query parameter,&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; // stage variable of StageVar1 and the accountId in the request context all match&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; // specified values of 'headerValue1', 'queryValue1', 'stageValue1', and&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; // '123456789012', respectively.&lt;/p&gt; 
+   &lt;p&gt;&lt;br /&gt;&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; // Retrieve request parameters from the Lambda function input:&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; var headers = event.headers;&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; var queryStringParameters = event.queryStringParameters;&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; var pathParameters = event.pathParameters;&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; var stageVariables = event.stageVariables;&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; var requestContext = event.requestContext;&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp;&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; // Parse the input for the parameter values&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; var tmp = event.methodArn.split(':');&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; var apiGatewayArnTmp = tmp[5].split('/');&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; var awsAccountId = tmp[4];&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; var region = tmp[3];&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; var restApiId = apiGatewayArnTmp[0];&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; var stage = apiGatewayArnTmp[1];&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; var method = apiGatewayArnTmp[2];&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; var resource = '/'; // root resource&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; if (apiGatewayArnTmp[3]) {&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; resource += apiGatewayArnTmp[3];&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; }&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp;&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; // Perform authorization to return the Allow policy for correct parameters and&amp;nbsp;&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; // the 'Unauthorized' error, otherwise.&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; var authResponse = {};&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; var condition = {};&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; condition.IpAddress = {};&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; if (headers.HeaderAuth1 === &amp;quot;headerValue1&amp;quot;&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;amp;&amp;amp; queryStringParameters.QueryString1 === &amp;quot;queryValue1&amp;quot;&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;amp;&amp;amp; stageVariables.StageVar1 === &amp;quot;stageValue1&amp;quot;&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;amp;&amp;amp; requestContext.accountId === &amp;quot;123456789012&amp;quot;) {&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; callback(null, generateAllow('me', event.methodArn));&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; }&amp;nbsp; else {&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; callback(&amp;quot;Unauthorized&amp;quot;);&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; }&lt;/p&gt; 
+   &lt;p&gt;}&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/p&gt; 
+   &lt;p&gt;// Help function to generate an IAM policy&lt;/p&gt; 
+   &lt;p&gt;var generatePolicy = function(principalId, effect, resource) {&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; // Required output:&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; var authResponse = {};&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; authResponse.principalId = principalId;&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; if (effect &amp;amp;&amp;amp; resource) {&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; var policyDocument = {};&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; policyDocument.Version = '2012-10-17'; // default version&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; policyDocument.Statement = [];&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; var statementOne = {};&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; statementOne.Action = 'execute-api:Invoke'; // default action&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; statementOne.Effect = effect;&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; statementOne.Resource = resource;&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; policyDocument.Statement[0] = statementOne;&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; authResponse.policyDocument = policyDocument;&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; }&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; // Optional output with custom properties of the String, Number or Boolean type.&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; authResponse.context = {&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;quot;stringKey&amp;quot;: &amp;quot;stringval&amp;quot;,&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;quot;numberKey&amp;quot;: 123,&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;quot;booleanKey&amp;quot;: true&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; };&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; return authResponse;&lt;/p&gt; 
+   &lt;p&gt;}&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/p&gt; 
+   &lt;p&gt;var generateAllow = function(principalId, resource) {&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; return generatePolicy(principalId, 'Allow', resource);&lt;/p&gt; 
+   &lt;p&gt;}&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/p&gt; 
+   &lt;p&gt;var generateDeny = function(principalId, resource) {&lt;/p&gt; 
+   &lt;p&gt;&amp;nbsp; &amp;nbsp; return generatePolicy(principalId, 'Deny', resource);&lt;/p&gt; 
+   &lt;p&gt;}&lt;/p&gt; 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt; 
+&lt;div&gt; 
+ &lt;blockquote&gt; 
+  &lt;blockquote&gt; 
+   &lt;div&gt; 
+   &lt;/div&gt; 
+  &lt;/blockquote&gt; 
+ &lt;/blockquote&gt; 
+ &lt;div&gt; 
+  &lt;p&gt;Amazon Cognito&lt;/p&gt; 
+  &lt;p&gt;&lt;/p&gt; 
+  &lt;ul&gt; 
+   &lt;li&gt;To create and configure an Amazon Cognito user pool for your API, you perform the following tasks:&lt;/li&gt; 
+   &lt;ol&gt; 
+    &lt;li&gt;Use the Amazon Cognito console, CLI/SDK, or API to create a user pool—or use one that’s owned by another AWS account.&lt;/li&gt; 
+    &lt;li&gt;Use the API Gateway console, CLI/SDK, or API to create an API Gateway authorizer with the chosen user pool.&lt;/li&gt; 
+    &lt;li&gt;Use the API Gateway console, CLI/SDK, or API to enable the authorizer on selected API methods.&lt;/li&gt; 
+   &lt;/ol&gt; 
+   &lt;li&gt;To call any API methods with a user pool enabled, your API clients perform the following tasks:&lt;/li&gt; 
+   &lt;ol&gt; 
+    &lt;li&gt;Use the Amazon Cognito CLI/SDK or API to sign a user in to the chosen user pool, and obtain an identity token or access token.&lt;/li&gt; 
+    &lt;li&gt;Use a client-specific framework to call the deployed API Gateway API and supply the appropriate token in the Authorization header.&lt;/li&gt; 
+   &lt;/ol&gt; 
+  &lt;/ul&gt; 
+  &lt;p&gt;&lt;/p&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt;</desc>
+                    <implementations/>
+                    <references>
+                        <reference name="AWS API Gateway authorization facilities" url="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-control-access-to-api.html"/>
+                        <reference name="AWS Use API Gateway Lambda Authorizers" url="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html"/>
+                        <reference name="Control Access to a REST API Using Amazon Cognito User Pools as Authorizer" url="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html"/>
+                    </references>
+                    <standards/>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>	&lt;p&gt;Check that access control mechanisms for the API are centralized.&lt;/p&gt;</steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-03-25T16:40:59">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

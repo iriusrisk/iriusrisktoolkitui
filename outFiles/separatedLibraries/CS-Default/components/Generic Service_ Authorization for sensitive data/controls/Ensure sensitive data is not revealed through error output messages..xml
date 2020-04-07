@@ -1,0 +1,32 @@
+<control ref="ASVS-8.1" name="Ensure sensitive data is not revealed through error output messages." platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="EDITED">
+                    <desc>Ensure the application does not output error messages or stack traces containing sensitive
+                        data that could assist an attacker, including session id, software/framework versions and
+                        personal information.
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="SC-13" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-1" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-11" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-12" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="7.2" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="8.1" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="7.2" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="8.1" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="7.2" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="8.1" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>Check that the application does not output error massages or stack traces containing
+                            sensitive data.
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-08-24T08:48:30.802000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

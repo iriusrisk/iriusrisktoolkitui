@@ -1,0 +1,60 @@
+<control ref="PCI-R11-11.3.4" name="11.3.4 - Pen test controls/methods to isolate the CDE network" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;If segmentation is used to isolate the CDE from other networks, perform penetration
+                        tests at
+                        least annually and after any changes to segmentation controls/methods to verify that the
+                        segmentation
+                        methods are operational and effective, and isolate all out-of-scope systems from systems in the
+                        CDE.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt; &lt;/p&gt;
+                        &lt;p&gt;Penetration testing is an important tool to confirm that any segmentation in place to
+                        isolate the
+                        CDE from other networks is effective. The penetration testing should focus on the segmentation
+                        controls,
+                        both from outside the entity's network and from inside the network but outside of the CDE,
+                        to
+                        confirm that
+                        they are not able to get through the segmentation controls to access the CDE. For example,
+                        network testing
+                        and/or scanning for open ports, to verify no connectivity between in-scope and out-of-scope
+                        networks.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="11.3.4" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;11.3.4.a Examine segmentation controls and review penetration-testing
+                            methodology to verify
+                            that penetration- testing procedures are defined to test all segmentation methods to confirm
+                            they are
+                            operational and effective, and isolate all out-of-scope systems from systems in the CDE.
+                            &lt;/p&gt;
+                            &lt;p&gt;11.3.4.b Examine the results from the most recent penetration test to verify that:
+                            &lt;/p&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt; &lt;p&gt;Penetration testing to verify segmentation controls is performed at
+                            least annually and
+                            after any changes to segmentation controls/methods. &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;The penetration testing covers all segmentation controls/methods in use.
+                            &lt;/p&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;The penetration testing verifies that segmentation controls/methods are
+                            operational
+                            and effective, and isolate all out-of-scope systems from systems in the CDE. &lt;/p&gt; &lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;p&gt;11.3.4.c Verify that the test was performed by a qualified internal resource or
+                            qualified
+                            external third party and, if applicable, organizational independence of the tester exists
+                            (not required to
+                            be a QSA or ASV).&amp;nbsp;&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-07T21:48:53.641000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

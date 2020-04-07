@@ -1,0 +1,87 @@
+<control ref="CWE-525-CACHING" name="Set Cache-Control headers on sensitive and authenticated content" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+                        Browsers, servers, and upstream/intermediate devices may cache (temporarily store) data sent in
+                        HTTP sessions for performance reasons. The protocol allows for a number of HTTP headers and
+                        directives to control what data may be cached, where, and for how long. It is important that
+                        cache-controls are specified to prevent exposure of sensitive data through inappropriate caching
+                        of authenticated and otherwise restricted access data, either in the users browser or other
+                        devices.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Configure the server or application to set cache-control headers on sensitive content.&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;The following headers are recommended:&lt;/li&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Expires: Tue, 03 Jul 2001 06:00:00 GMT 9.4&lt;/li&gt;
+                        &lt;li&gt;Last-Modified: {now} GMT&lt;/li&gt;
+                        &lt;li&gt;Cache-Control: no-store, no-cache, must-revalidate, max-age=0&lt;/li&gt;
+                        &lt;li&gt;Cache-Control: post-check=0, pre-check=0&lt;/li&gt;
+                        &lt;li&gt;Pragma: no-cache&amp;nbsp;&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/ul&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="SC-8" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="9.4" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="9.4" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="9.4" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="A3:2017-Sensitive Data Exposure" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;div&gt;
+                            &lt;div&gt;
+                            &lt;ol&gt;
+                            &lt;li&gt;Review the HTTP Server responses to ensure appropriate cache directives are
+                            returned for all sensitive and authenticated content.&lt;/li&gt;
+                            &lt;li&gt;Using a browser:&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Open the Web Developer Console.&amp;nbsp;&lt;/li&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt;Make requests to the different component's end-points.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Verify the cache controls returned as part of these responses&lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;li&gt;Using an intercepting proxy (e.g. OWASP Zap, BurpSuite)&lt;/li&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt;Browse the site through the proxy&lt;/li&gt;
+                            &lt;li&gt;Review server responses and/or use automated scanning to analyze cache headers&lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;/ol&gt;
+                            &lt;div&gt;
+                            The following should be set to prevent disclosure of sensitive data:
+                            &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt;Expires: Tue, 03 Jul 2001 06:00:00 GMT 9.4&lt;/li&gt;
+                            &lt;li&gt;Last-Modified: {now} GMT&lt;/li&gt;
+                            &lt;li&gt;Cache-Control: no-store, no-cache, must-revalidate, max-age=0&lt;/li&gt;
+                            &lt;li&gt;Cache-Control: post-check=0, pre-check=0&lt;/li&gt;
+                            &lt;li&gt;Pragma: no-cache&amp;nbsp;&lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;/div&gt;
+                            &lt;div&gt;
+                            &lt;br /&gt;
+                            &lt;/div&gt;
+                            &lt;div&gt;
+                            &lt;br /&gt;
+                            &lt;/div&gt;
+                            &lt;div&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2015-08-15T17:17:21.685000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

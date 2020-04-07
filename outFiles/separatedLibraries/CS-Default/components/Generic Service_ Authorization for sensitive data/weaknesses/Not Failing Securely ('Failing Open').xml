@@ -1,0 +1,16 @@
+<weakness ref="CWE-636" name="Not Failing Securely ('Failing Open')" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-08-24T08:50:49.310000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>When the product encounters an error condition or failure, its
+                        design requires it to fall back to a state that is less secure than other
+                        options that are available, such as selecting the weakest encryption algorithm
+                        or using the most permissive access control restrictions.
+                    </desc>
+                </weakness>

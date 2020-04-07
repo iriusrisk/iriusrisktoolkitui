@@ -1,0 +1,15 @@
+<weakness ref='no-protect-against-malicious-software' name='Inadequate procedures to guard against and detect malicious software' state='0' impact='100'>
+          <desc>&lt;div&gt;
+  There is no documented process for guarding against, detecting, and reporting malicious software that poses a risk to its information systems and data. 
+ &lt;br /&gt; 
+&lt;/div&gt;</desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:47.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>

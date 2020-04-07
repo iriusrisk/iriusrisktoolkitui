@@ -1,0 +1,17 @@
+<weakness ref="CWE-749" name="Exposed Dangerous Method or Function" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references>
+                            <reference name="CWE-749: Exposed Dangerous Method or Function" url="https://cwe.mitre.org/data/definitions/749.html"/>
+                        </references>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-04-25T15:22:33.889000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The software provides an Applications Programming Interface (API) or similar interface for
+                        interaction with external actors, but the interface includes a dangerous method or function that
+                        is not properly restricted.
+                    </desc>
+                </weakness>

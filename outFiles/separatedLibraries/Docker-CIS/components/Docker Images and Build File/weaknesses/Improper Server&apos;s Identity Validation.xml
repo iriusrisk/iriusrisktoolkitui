@@ -1,0 +1,22 @@
+<weakness ref='CWE-287' name='Improper Server&apos;s Identity Validation' state='0' impact='100'>
+          <desc>The software does not validate, or incorrectly validates, the server's identity.
+                        If the server's identity is not validated, an attacker could spoof a trusted entity by using a
+                        man-in-the-middle (MITM) attack. The software might connect to a malicious host while believing
+                        it is a trusted host, or the software might be deceived into accepting spoofed data that appears
+                        to originate from a trusted host.
+
+                        One way to perform server's authentication is by using X509 certificates over TLS.
+
+                    </desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2018-05-30T14:52:04.637'>
+              <output></output>
+            </source>
+            <references>
+              <reference name='CWE-287: Improper Server&apos;s Identity Validation' url='https://cwe.mitre.org/data/definitions/287.html' />
+            </references>
+            <udts />
+          </test>
+        </weakness>

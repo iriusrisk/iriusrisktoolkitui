@@ -1,0 +1,58 @@
+<control ref="CWE-204-USERNAME-LOGIN" name="Ensure application errors do not reveal account status" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+                        Error messages can reveal information of use to an attacker, particularly in the case of
+                        relating to login, registration and recovery processes.&amp;nbsp; Explicit errors stating
+                        accounts are valid or not, or whether then are locked out are useful to an attacker in
+                        enumerating usernames for subsequent attack. Even small variations in errors returned to the
+                        user can be used to infer how the application operates, or enforces security controls.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        To prevent a malicious user using error conditions to determine how the application functions in
+                        order to subvert it:
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Trap and log all known error conditions at the server-side&lt;/li&gt;
+                        &lt;li&gt;Create a generic trap for unexpected errors&lt;/li&gt;
+                        &lt;li&gt;E.g. Error messages during the login process should not disclose which authentication
+                        token was incorrect, instead a generic message simply stating that authentication failed should
+                        be displayed.&lt;/li&gt;
+                        &lt;li&gt;Ensure the error message returned to the user is generic, or contains only an
+                        obfuscated reference that can be correlated with the logged errors at the server-side. &amp;nbsp;In
+                        the case of applications delivered over HTTP, the HTTP header should also be generic to prevent
+                        enumeration (e.g. all error pages should produce a consistent HTTP 500 error)&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;/div&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="9.4.2" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="AC-16" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="2.18" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="2.18" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="2.18" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+                            &lt;li&gt;Identify error condition within the application (i.e. Unexpected data types,
+                            unexpected data length, requests from an unexpected state, etc.).&lt;/li&gt;
+                            &lt;li&gt;And verify that the responses do not reveal any information on the internals of
+                            the applications (i.e. they do not expose a full stack trace with all the methods called or
+                            the sql string sent to a database, etc.).&lt;/li&gt;
+                            &lt;/ol&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2015-08-15T17:17:15.138000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

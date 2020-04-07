@@ -1,0 +1,36 @@
+<control ref='AZ-A11' name='Configure roles for the Cloud Service' platform='' cost='0' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;div&gt;
+                        Define and create the roles for the Azure Cloud Service. For each role, define the permissions
+                        and also configure how that role runs. When you launch an Azure instance, you shall specify a
+                        role for the instance as a launch parameter. Applications that run on the Cloud instance use the
+                        role's credentials when they access Azure resources. This role's permissions determine what the
+                        application is allowed to do.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&amp;nbsp;&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Configure an Azure cloud service from Solution Explorer in Visual Studio.&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='MS Azure - Use Role-Based Access Control to manage access to your Azure subscription resources' url='https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure' />
+          </references>
+          <standards />
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>Check that the roles for the Cloud Service are well assigned.</steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2017-05-10T08:26:33.585'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

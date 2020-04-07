@@ -1,0 +1,27 @@
+<control ref="PCI-R8-8.1.4" name="8.1.4 - Remove/disable inactive user accounts within 90 days" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt; &lt;/p&gt;
+                        &lt;p&gt;Accounts that are not used regularly are often targets of attack since it is less
+                        likely that any
+                        changes (such as a changed password) will be noticed. As such, these accounts may be more easily
+                        exploited
+                        and used to access cardholder data.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="8.1.4" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;8.1.4 Observe user accounts to verify that any inactive accounts over 90 days
+                            old are either
+                            removed or disabled.&amp;nbsp;&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T14:25:48.129000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

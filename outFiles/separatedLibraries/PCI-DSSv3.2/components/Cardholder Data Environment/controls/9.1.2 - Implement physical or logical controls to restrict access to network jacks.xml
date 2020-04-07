@@ -1,0 +1,31 @@
+<control ref="PCI-R9-9.1.2" name="9.1.2 - Implement physical or logical controls to restrict access to network jacks" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Restricting access to network jacks (or network ports) will prevent malicious
+                        individuals from
+                        plugging into readily available network jacks and gain access into internal network resources.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;Whether logical or physical controls, or a combination of both, are used, they should
+                        be sufficient
+                        to prevent an individual or device that is not explicitly authorized from being able to connect
+                        to the
+                        network.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="9.1.2" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;9.1.2 Interview responsible personnel and observe locations of publicly
+                            accessible network
+                            jacks to verify that physical and/or logical controls are in place to restrict access to
+                            publicly
+                            accessible network jacks.&amp;nbsp;&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T15:52:11.662000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

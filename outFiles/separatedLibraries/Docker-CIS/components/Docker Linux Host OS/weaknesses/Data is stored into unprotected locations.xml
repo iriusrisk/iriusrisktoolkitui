@@ -1,0 +1,14 @@
+<weakness ref='MOB-DATA' name='Data is stored into unprotected locations' state='0' impact='100'>
+          <desc>When sensitive data is stored into unprotected locations, an attacker with access to the
+                        device through physical access or a remote exploit, could gain access to it.
+                    </desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2018-05-30T14:52:13.027'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>

@@ -1,0 +1,65 @@
+<control ref="CSD-VAL-LOG" name="Log and reject all data validation failures" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+  Data validation failures, together with access control violations, are symptomatic of malicious activity where an attacker is attempting to subvert the protections in place. It is therefore likely that unexpected input detected by the application relates to an attack. Rejecting and logging such activity, and ideally terminating the session, increases the likelihood of detecting and inhibiting structured attacks against the application. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt;Log all validation failures when rejecting requests.&lt;/li&gt; 
+  &lt;li&gt;Ensure logged data is appropriately sanitized and encoded to prevent attacks against the logs and subsequent access to them.&lt;/li&gt; 
+  &lt;li&gt;Terminate the offending user session to inhibit further attack.&lt;/li&gt; 
+  &lt;li&gt;Ensure errors returned to the client-side are generic to prevent an attacker enumerating the defenses in place or gaining knowledge about the back-end.&lt;/li&gt; 
+ &lt;/ul&gt; 
+&lt;/div&gt;</desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="164.312(b)" supportedStandardRef="hipaa-required"/>
+                        <standard ref="12.1.2" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="12.2.1" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="12.4.1" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="12.4.2" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="12.5.1" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="9.2.3" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="9.4.4" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="AC-24" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="AU-12" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="AU-2" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="AU-3" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-10" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-11" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-12" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-15" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-5" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="5.3" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="4.12" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="5.3" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="8.3" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="8.4" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="4.12" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="5.3" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="8.3" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="8.4" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="8.5" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="A5:2017-Broken Access Control" supportedStandardRef="owasp-top-10-2017"/>
+                        <standard ref="A10:2017-Insufficient Logging&amp;Monitoring" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+                            &lt;li&gt;Confirm all security events (and suspicious activity that may indicate a security
+                            event) is appropriate identified in the application.&lt;/li&gt;
+                            &lt;li&gt;Confirm security errors are logged with appropriate priority.&lt;/li&gt;
+                            &lt;li&gt;Any data logged relating to the event must be carefully sanitized and encoded; by
+                            definition the data could be an attack payload and could execute when the logs are viewed
+                            out of the system.&lt;/li&gt;
+                            &lt;li&gt;Verify actual logged data.&lt;/li&gt;
+                            &lt;/ol&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-11-29T18:33:15.202000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

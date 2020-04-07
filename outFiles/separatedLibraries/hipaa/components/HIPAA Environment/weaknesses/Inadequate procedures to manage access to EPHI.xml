@@ -1,0 +1,12 @@
+<weakness ref='lack-procedures-manage-EPHI' name='Inadequate procedures to manage access to EPHI' state='0' impact='100'>
+          <desc>Failure to prevent inappropriate access by a workforce/ex-workforce members or potential attackers may lead to theft of hardware, software, or equipment, a breach of EPHI, make EPHI unavailable when needed, sabotage/tamper with systems, etc.</desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-16T11:51:42.808'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>

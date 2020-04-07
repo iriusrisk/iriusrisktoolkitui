@@ -1,0 +1,24 @@
+<weakness ref="CWE-352" name="Cross Site Request Forgery" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references>
+                            <reference name="CWE-352: Cross-Site Request Forgery (CSRF)" url="https://cwe.mitre.org/data/definitions/352.html"/>
+                        </references>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2015-08-15T17:17:20.736000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The web application does not, or can not, sufficiently verify whether a well-formed, valid,
+                        consistent request was intentionally provided by the user who submitted the request.&amp;nbsp;
+                        &lt;div&gt;
+                        &amp;nbsp;
+                        &lt;br /&gt;When a web server is designed to receive a request from a client without any
+                        mechanism for verifying that it was intentionally sent, then it might be possible for an
+                        attacker to trick a client into making an unintentional request to the web server which will be
+                        treated as an authentic request. This can be done via a URL, image load, XMLHttpRequest, etc.
+                        and can result in exposure of data or unintended code execution.
+                        &lt;/div&gt;
+                    </desc>
+                </weakness>

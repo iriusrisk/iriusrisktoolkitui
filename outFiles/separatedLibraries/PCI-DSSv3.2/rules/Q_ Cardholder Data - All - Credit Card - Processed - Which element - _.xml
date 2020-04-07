@@ -1,0 +1,21 @@
+<rule name="Q: Cardholder Data - All - Credit Card - Processed - Which element - *" module="component" generatedByGui="true">
+            <condition name="Question Group exists" type="drools-without-variable-type" field="id" value="pci.data.processed">
+                <pattern name="Question group exists" pattern='$group : QuestionGroup(id == "${value}") @Watch(!*);'/>
+            </condition>
+            <condition name="Question is answered" type="Question" field="id" value="Credit Card DataProcessed">
+                <pattern name="Condition with answer" pattern='${type}(${field} == "${value}", answer == true);'/>
+            </condition>
+            <action project="" value="pci.processed.cvv2_::_CAV2 / CVC2 / CVV2 / CID_::_The 3 or 4 digit value on the front or back of the card" name="Insert Question" type="drools-without-variable-type">
+                <pattern name="Action of insert question" pattern='insertLogical(new Question($group, "${value-1}", "${value-2}", "${value-3}"));'/>
+            </action>
+            <action project="" value="pci.processed.pan_::_Primary Account Number (PAN)_::_" name="Insert Question" type="drools-without-variable-type">
+                <pattern name="Action of insert question" pattern='insertLogical(new Question($group, "${value-1}", "${value-2}", "${value-3}"));'/>
+            </action>
+            <action project="" value="pci.processed.pin_::_PIN/Pin Block - Entered by cardholder during a card-present transaction or encrypted PIN block_::_Personal identification number entered by cardholder during a card-present transaction, and/or encrypted PIN block present within the transaction message" name="Insert Question" type="drools-without-variable-type">
+                <pattern name="Action of insert question" pattern='insertLogical(new Question($group, "${value-1}", "${value-2}", "${value-3}"));'/>
+            </action>
+            <action project="" value="pci.processed.trackdata_::_Full Track Data from the magnetic string, or equivalent data on chip_::_" name="Insert Question" type="drools-without-variable-type">
+                <pattern name="Action of insert question" pattern='insertLogical(new Question($group, "${value-1}", "${value-2}", "${value-3}"));'/>
+            </action>
+            <content></content>
+        </rule>

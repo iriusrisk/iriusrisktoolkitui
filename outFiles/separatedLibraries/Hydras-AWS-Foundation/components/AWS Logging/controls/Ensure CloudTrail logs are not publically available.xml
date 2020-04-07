@@ -1,0 +1,55 @@
+<control ref='Hydras-AWS-Logging-3.3' name='Ensure CloudTrail logs are not publically available' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>Since cloudtrail logs capture all API calls for the AWS account they should be stored in an S3
+                        bucket that is not accessible to the public. Applying the correct bucket policy helps ensure the
+                        confidentiality of the data.
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ol&gt;
+                        &lt;li&gt;Sign in to the AWS Management Console (with s3 update privileges).&lt;/li&gt;
+                        &lt;li&gt;Select s3 from the services list.&lt;/li&gt;
+                        &lt;li&gt;Right-click on the bucket you have used for &amp;quot;cloudtrail&amp;quot; and click
+                        &amp;quot;Properties&amp;quot;.&lt;/li&gt;
+                        &lt;li&gt;In the Properties pane, click the Permissions tab.&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;Select the row that grants permission to &amp;quot;Everyone&amp;quot; or &amp;quot;Any
+                        Authenticated User&amp;quot;.&lt;/li&gt;
+                        &lt;li&gt;Uncheck all the permissions granted to Everyone or Any Authenticated User.&lt;/li&gt;
+                        &lt;li&gt;Click Save to save the ACL.&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;If the Edit bucket policy button is present, click it.&lt;/li&gt;
+                        &lt;li&gt;Remove any Statement having an Effect set to Allow and a Principal set to *.&amp;nbsp;&lt;/li&gt;
+                        &lt;/ol&gt;Content provided by
+                        &lt;a href="https://hydrasit.com" target="_blank"&gt; Hydras IT LTD&lt;/a&gt;
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references />
+          <standards>
+            <standard ref='2.3' supportedStandardRef='CIS AWS Standard' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;ol&gt;
+                            &lt;li&gt;Obtain the bucket name of the cloudtrail:&amp;nbsp;aws cloudtrail describe-trails
+                            --query 'trailList[*].S3BucketName'&lt;/li&gt;
+                            &lt;li&gt;Ensure &amp;quot;AllUsers&amp;quot; is not granted access to the bucket:&amp;nbsp;aws
+                            s3api get-bucket-acl --bucket &amp;lt;bucket_name&amp;gt; --query
+                            'Grants[?Grantee.URI==`http://acs.amazonaws.com/groups/global/AllUsers`]'&lt;/li&gt;
+                            &lt;li&gt;Ensure &amp;quot;Authenticated Users&amp;quot; is not granted access to the
+                            bucket: aws s3api get-bucket-acl --bucket &amp;lt;bucket_name&amp;gt; --query
+                            'Grants[?Grantee.URI==`http://acs.amazonaws.com/groups/global/Authenticated Users`]'&lt;/li&gt;
+                            &lt;li&gt;Validate the bucket policy does not grant access to all:&amp;nbsp;aws s3api
+                            get-bucket-policy --bucket &amp;lt;bucket_name&amp;gt;&lt;/li&gt;
+                            &lt;li&gt;Check that the above command does not provide a principal of *, with EFFECT set to
+                            ALLOW.&amp;nbsp;&lt;/li&gt;
+                            &lt;/ol&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

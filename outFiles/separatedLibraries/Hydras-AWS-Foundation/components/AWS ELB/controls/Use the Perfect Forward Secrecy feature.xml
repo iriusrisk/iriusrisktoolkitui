@@ -1,0 +1,26 @@
+<control ref='Hydras-AWS-ELB-01' name='Use the Perfect Forward Secrecy feature' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>For greater communication privacy Elastic Load Balancing allows the use of Perfect Forward
+                        Secrecy. This feature provides additional safeguards against eavesdropping on encrypted data,
+                        through the use of a unique random session key, and therefore prevents the decoding of captured
+                        data, even if the secret long-term key is compromised.
+                        &lt;br /&gt;
+                        &lt;br /&gt;
+                        &lt;b&gt;To begin using Perfect Forward Secrecy: &lt;br /&gt;&lt;/b&gt;Configure your load
+                        balancer with the newly added Elliptic Curve Cryptography (ECDHE) cipher suites.
+                    </desc>
+          <implementations />
+          <references />
+          <standards />
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>Check that your load balancer is configured with the newly added Elliptic Curve
+                            Cryptography (ECDHE) cipher suites.
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

@@ -1,0 +1,17 @@
+<threat ref='UNAUTHORIZED-ACCESS-VIRTUAL-MACHINES' name='Attackers gain undetected access to the system by changing Virtual Machine configurations ' state='Expose' source='MANUAL' owner='' library=''>
+              <desc>Attackers can gain undetected access to the virtual machine configurations and the
+                                changes of the attackers couldn't be audited or detected.
+                            </desc>
+              <riskRating confidentiality='50' integrity='50' availability='25' easeOfExploitation='25' />
+              <references />
+              <weaknesses>
+                <weakness ref='AZURE-VM02'>
+                  <controls>
+                    <control ref='AZ-V03' mitigation='100' />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref='AZ-V03' mitigation='100' />
+              </controls>
+            </threat>

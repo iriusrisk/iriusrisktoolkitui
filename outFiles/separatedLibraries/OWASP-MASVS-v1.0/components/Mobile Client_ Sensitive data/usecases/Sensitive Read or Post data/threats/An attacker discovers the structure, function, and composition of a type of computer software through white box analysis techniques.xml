@@ -1,0 +1,32 @@
+<threat ref="CAPEC-167" name="An attacker discovers the structure, function, and composition of a type of computer software through white box analysis techniques" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>An attacker discovers the structure, function, and composition of a type of computer
+                                software through white box analysis techniques. White box techniques involve methods
+                                which can be applied to a piece of software when an executable or some other compiled
+                                object can be directly subjected to analysis, revealing at least a portion of its
+                                machine instructions that can be observed upon execution.
+                            </desc>
+                            <riskRating confidentiality="75" integrity="75" availability="50" easeOfExploitation="25"/>
+                            <references/>
+                            <controls>
+                                <control ref="MASVS-2.8" mitigation="33"/>
+                                <control ref="MASVS-3.1" mitigation="34"/>
+                                <control ref="MASVS-3.5" mitigation="33"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-530">
+                                    <controls>
+                                        <control ref="MASVS-2.8" mitigation="33"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="CWE-323">
+                                    <controls>
+                                        <control ref="MASVS-3.5" mitigation="33"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="CWE-321">
+                                    <controls>
+                                        <control ref="MASVS-3.1" mitigation="34"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

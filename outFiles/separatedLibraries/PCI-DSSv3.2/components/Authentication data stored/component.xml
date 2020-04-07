@@ -1,0 +1,2 @@
+<component ref="PCI-AUTHDATA-STORED-3.2" name="Authentication data stored" desc="PCI does not allow to store sensitive authentication data after authorization (even if encrypted). If sensitive authentication data is received, render all data unrecoverable upon completion of the authorization process." tags="" position="4" groupName="" library="" diagramPositionX="0" diagramPositionY="0" componentDefinitionRef="">
+            

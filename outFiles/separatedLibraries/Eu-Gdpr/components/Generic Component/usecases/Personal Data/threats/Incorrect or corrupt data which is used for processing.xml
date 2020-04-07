@@ -1,0 +1,22 @@
+<threat ref="EU-GDPR-INCORRECT-PROCESING-DATA" name="Incorrect or corrupt data which is used for processing" state="Expose" source="MANUAL" owner="admin" library="">
+                            <desc>Incorrect personal data is processed which imposes negative consequences for the data subject.
+              </desc>
+                            <riskRating confidentiality="75" integrity="100" availability="50" easeOfExploitation="25"/>
+                            <references/>
+                            <controls>
+                                <control ref="EU-GDPR-INPUT-VADILATION" mitigation="50"/>
+                                <control ref="EU-GDPR-INTEGRITY" mitigation="50"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="EU-GDPR-INSUFFICIENT-INPUT-VALIDATION">
+                                    <controls>
+                                        <control ref="EU-GDPR-INPUT-VADILATION" mitigation="50"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="EU-GDPR-NO-DATA-INTEGRITY-CHECKS">
+                                    <controls>
+                                        <control ref="EU-GDPR-INTEGRITY" mitigation="50"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

@@ -1,0 +1,42 @@
+<control ref="CWE-613-LOGOUT" name="Terminate user sessions on the server-side after a logout operation" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+  When a user chooses to log out (or otherwise has their session terminated), the user session must be terminated at the server-side, not solely at the client-side (for example by deleting or reissuing a session ID token/cookie). 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt;Revoke user sessions at the server-side.&lt;/li&gt; 
+  &lt;li&gt;Redirect users to the login page, or provide a login prompt to them in context.&lt;/li&gt; 
+  &lt;li&gt;Where possible, ensure the session is not reused by the application server.&lt;/li&gt; 
+ &lt;/ul&gt; 
+&lt;/div&gt;</desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="164.312(a)(1)(C)" supportedStandardRef="hipaa-addressable"/>
+                        <standard ref="3.2" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="3.2" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="3.2" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="A2:2017-Broken Authentication" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+                            &lt;li&gt;Open a browser.&lt;/li&gt;
+                            &lt;li&gt;Authenticate as a user A.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Get the Session ID and note it.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Logout of the service.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Set up the noted Session ID.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Try to access an authenticated section of the service and you should not be able
+                            to do it as user A.&amp;nbsp;&lt;/li&gt;
+                            &lt;/ol&gt; To edit the cookies you can either use a proxy (i.e. OWASP ZAP, Burp, Fiddler,
+                            etc.) or a browser extension which should allow you to tamper the cookies (i.e. Tamper Data,
+                            Cookie Manager, etc.).
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-11-11T12:39:47.038000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

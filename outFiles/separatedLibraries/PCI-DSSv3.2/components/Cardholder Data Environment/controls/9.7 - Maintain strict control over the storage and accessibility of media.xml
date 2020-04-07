@@ -1,0 +1,33 @@
+<control ref="PCI-R9-9.7" name="9.7 - Maintain strict control over the storage and accessibility of media" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;- Properly maintain inventory logs of all media and conduct media inventories at
+                        least
+                        annually:&lt;/p&gt;
+                        &lt;p&gt;Without careful inventory methods and storage controls, stolen or missing media could
+                        go unnoticed
+                        for an indefinite amount of time.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;If media is not inventoried, stolen or lost media may not be noticed for a long time or
+                        at all.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="9.7" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;9.7 Obtain and examine the policy for controlling storage and maintenance of all
+                            media and
+                            verify that the policy requires periodic media inventories. &lt;/p&gt;
+                            &lt;p&gt;9.7.1 Review media inventory logs to verify that logs are maintained and media
+                            inventories are
+                            performed at least annually.&amp;nbsp;&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T16:08:32.991000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

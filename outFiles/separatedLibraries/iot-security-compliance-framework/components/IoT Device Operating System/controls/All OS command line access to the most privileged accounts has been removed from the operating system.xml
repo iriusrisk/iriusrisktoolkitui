@@ -1,0 +1,18 @@
+<control ref="IOT2.4.6.7" name="All OS command line access to the most privileged accounts has been removed from the operating system" platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;All OS command line access to the most privileged accounts has been removed from the Operating System.&lt;/p&gt; 
+&lt;p&gt;&lt;b&gt;&lt;font size="4"&gt;Rationale:&lt;br /&gt;&lt;/font&gt;&lt;/b&gt; The Devices' OS's most privileged account or "superuser" is a special user account used for system administration, capable of making unrestricted, potentially adverse, system-wide changes. For that reason it is often recommended that no-one use "superuser" as their normal user account and any access from the command line should be removed.&lt;/p&gt; 
+&lt;p&gt;&lt;b&gt;&lt;font size="4"&gt;Remediation:&lt;br /&gt;&lt;/font&gt;&lt;/b&gt; Remove all OS command line access to the most privileged accounts from the Operating System.&lt;/p&gt;</desc>
+                    <implementations/>
+                    <references/>
+                    <standards/>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-03-13T16:00:44">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

@@ -1,0 +1,64 @@
+<control ref='D1.4' name='Ensure only trusted users are allowed to control Docker daemon' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>The Docker daemon currently requires root privileges. A user added to the docker group gives
+                        him full root access rights.&amp;nbsp;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Rationale:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Docker allows you to share a directory between the Docker host and a guest container without
+                        limiting the access rights of the container. This means that you can start a container and map
+                        the / directory on your host to the container. The container will then be able to alter your
+                        host file system without any restrictions. In simple terms, this means that you can attain
+                        elevated privileges with just being a member of the docker group and then starting a container
+                        with mapped / directory on the host.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Remove any users from the docker group that are not trusted. Additionally, do not create a
+                        mapping of sensitive directories on host to container volumes.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Impact:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Rights to build and execute containers as normal user would be restricted.
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='Docker docs: Daemon attack surface' url='https://docs.docker.com/engine/security/security/#docker-daemon-attack-surface' />
+            <reference name='Docker fedora: non root' url='http://www.projectatomic.io/blog/2015/08/why-we-dont-let-non-root-users-run-docker-in-centos-fedora-or-rhel/' />
+            <reference name='Docker group cpnsidered harmful' url='https://www.andreas-jung.com/contents/on-docker-security-docker-group-considered-harmful' />
+          </references>
+          <standards>
+            <standard ref='1.4' supportedStandardRef='Level 1 - Linux Host OS' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>Execute the below command on the docker host and ensure that only trusted users are
+                            members of the docker group.&amp;nbsp;
+                            &lt;blockquote&gt;
+                            &lt;div&gt;
+                            getent group docker
+                            &lt;/div&gt;
+                            &lt;/blockquote&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2016-08-02T10:21:32.718'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

@@ -1,0 +1,39 @@
+<control ref="PCI-R9-9.5" name="9.5 - Phisically secure all media including backups" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Controls for physically securing media are intended to prevent unauthorized persons
+                        from
+                        gaining access to cardholder data on any type of media. Cardholder data is susceptible to
+                        unauthorized
+                        viewing, copying, or scanning if it is unprotected while it is on removable or portable media,
+                        printed out,
+                        or left on someone's desk.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;If stored in a non-secured facility, backups that contain cardholder data may easily be
+                        lost,
+                        stolen, or copied for malicious intent.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;Periodically reviewing the storage facility enables the organization to address
+                        identified security
+                        issues in a timely manner, minimizing the potential risk.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="9.5" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;9.5 Verify that procedures for protecting cardholder data include controls for
+                            physically
+                            securing all media (including but not limited to computers, removable electronic media,
+                            paper receipts,
+                            paper reports, and faxes).&lt;/p&gt;
+                            &lt;p&gt;9.5.1 Verify that the storage location security is reviewed at least annually to
+                            confirm that
+                            backup media storage is secure.&amp;nbsp;&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T16:02:43.334000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

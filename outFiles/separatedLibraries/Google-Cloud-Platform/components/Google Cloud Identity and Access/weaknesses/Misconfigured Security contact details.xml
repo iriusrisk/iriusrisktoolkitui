@@ -1,0 +1,13 @@
+<weakness ref='LOST-SECURITY-ALERTS' name='Misconfigured Security contact details' state='0' impact='100'>
+          <desc>The security contact details for the Google subscription are not properly configured.
+                    </desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-24T16:42:33.464'>
+              <output />
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>

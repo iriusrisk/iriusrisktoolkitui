@@ -1,0 +1,24 @@
+<control ref="IOT2.4.5.21" name="Software uses certificate pinning or public/private key equivalent for TCP/IP or UDP/IP connections" platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Where the device software communicates with a product related webserver or application over &lt;span class="caps"&gt;TCP&lt;/span&gt;/IP or &lt;span class="caps"&gt;UDP&lt;/span&gt;/IP, the device software uses certificate pinning or public/private key equivalent, where appropriate.&lt;/p&gt; 
+&lt;p&gt;&lt;b&gt;&lt;font size="4"&gt;Rationale:&lt;br /&gt;&lt;/font&gt;&lt;/b&gt; Secure connections are a cornerstone for client/server communication. Users, developers, and applications expect end-to-end security for their secure channels, but some secure channels are not meeting this expectation. Specifically, channels built using well known protocols can be vulnerable to a number of attacks. For example, traditional certificate validation protects against many types of man-in-the-middle (&lt;span class="caps"&gt;MITM&lt;/span&gt;) attacks, but it doesn't prevent all of them.&lt;/p&gt; 
+&lt;p&gt;Certificate pinning can still prevent the interception of a program's network traffic. Pinning is the process of associating a host with their expected X509 certificate or public key, which can be added to an application at development time, or it can be added upon first encountering the certificate or public key.&lt;/p&gt; 
+&lt;p&gt;&lt;b&gt;&lt;font size="4"&gt;Remediation:&lt;br /&gt;&lt;/font&gt;&lt;/b&gt; Ensure that device software uses certificate pinning or public/private key equivalent for &lt;span class="caps"&gt;TCP&lt;/span&gt;/IP or &lt;span class="caps"&gt;UDP&lt;/span&gt;/IP connections.&lt;/p&gt;</desc>
+                    <implementations/>
+                    <references>
+                        <reference name="Certificate and Public Key Pinning" url="https://www.owasp.org/index.php/Certificate_and_Public_Key_Pinning#What_Is_Pinning"/>
+                        <reference name="Pinning Cheat Sheet" url="https://www.owasp.org/index.php/Pinning_Cheat_Sheet"/>
+                    </references>
+                    <standards>
+                        <standard ref="2.4.5.21" supportedStandardRef="iotsf-class-2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-03-13T16:00:44">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

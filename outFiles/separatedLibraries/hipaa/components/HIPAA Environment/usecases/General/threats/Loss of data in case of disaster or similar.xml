@@ -1,0 +1,41 @@
+<threat ref='no-business-continuity-plan' name='Loss of data in case of disaster or similar' state='Expose' source='MANUAL' owner='' library=''>
+              <desc>	&lt;p&gt;Attackers try to collapse the systems to remove, delete and gain access to the data after the restoring of the systems&lt;/p&gt;</desc>
+              <riskRating confidentiality='100' integrity='100' availability='100' easeOfExploitation='25' />
+              <references />
+              <weaknesses>
+                <weakness ref='inadequate-policies-media-reuse'>
+                  <controls>
+                    <control ref='hippa-sec-04' mitigation='10' />
+                  </controls>
+                </weakness>
+                <weakness ref='inadequate-EPHI-management-emergency'>
+                  <controls>
+                    <control ref='Hippa-contingency-plan-02' mitigation='10' />
+                    <control ref='Hippa-contingency-plan-03' mitigation='10' />
+                    <control ref='Hippa-contingency-plan-04' mitigation='10' />
+                    <control ref='Hippa-contingency-plan-06' mitigation='10' />
+                    <control ref='Hippa-contingency-plan-07' mitigation='10' />
+                    <control ref='Hippa-contingency-plan-08' mitigation='10' />
+                    <control ref='hipaa-contigency-plan-09' mitigation='10' />
+                  </controls>
+                </weakness>
+                <weakness ref='risk-management-not-implemented'>
+                  <controls>
+                    <control ref='Hippa-contingency-plan-05' mitigation='10' />
+                    <control ref='hippa-contingency-plan-01' mitigation='10' />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref='Hippa-contingency-plan-02' mitigation='10' />
+                <control ref='Hippa-contingency-plan-03' mitigation='10' />
+                <control ref='Hippa-contingency-plan-04' mitigation='10' />
+                <control ref='Hippa-contingency-plan-05' mitigation='10' />
+                <control ref='Hippa-contingency-plan-06' mitigation='10' />
+                <control ref='Hippa-contingency-plan-07' mitigation='10' />
+                <control ref='Hippa-contingency-plan-08' mitigation='10' />
+                <control ref='hipaa-contigency-plan-09' mitigation='10' />
+                <control ref='hippa-contingency-plan-01' mitigation='10' />
+                <control ref='hippa-sec-04' mitigation='10' />
+              </controls>
+            </threat>

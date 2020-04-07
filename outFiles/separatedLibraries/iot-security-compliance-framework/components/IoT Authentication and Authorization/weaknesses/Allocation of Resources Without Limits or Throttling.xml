@@ -1,0 +1,12 @@
+<weakness ref="CWE-770" name="Allocation of Resources Without Limits or Throttling" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-03-13T16:00:42">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The software allocates a reusable resource or group of resources on behalf of an actor without imposing any restrictions on how many resources can be allocated, in violation of the intended security policy for that actor.</desc>
+                </weakness>

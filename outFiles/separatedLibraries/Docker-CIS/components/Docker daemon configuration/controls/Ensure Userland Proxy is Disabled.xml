@@ -1,0 +1,65 @@
+<control ref='D2.15' name='Ensure Userland Proxy is Disabled' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>The docker daemon starts a userland proxy service for port forwarding whenever a port is
+                        exposed. Where hairpin NAT is available, this service is generally superfluous to requirements
+                        and can be disabled.&amp;nbsp;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Rationale:&amp;nbsp;&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Docker engine provides two mechanisms for forwarding ports from the host to containers, hairpin
+                        NAT, and a userland proxy. In most circumstances, the hairpin NAT mode is preferred as it
+                        improves performance and makes use of native Linux iptables functionality instead of an
+                        additional component. Where hairpin NAT is available, the userland proxy should be disabled on
+                        startup to reduce the attack surface of the installation.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&amp;nbsp;&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Run the Docker daemon as below: dockerd --userland-proxy=false&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Impact:&amp;nbsp;&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Some systems with older Linux kernels may not be able to support hairpin NAT and therefore
+                        require the userland proxy service. Also, some networking setups can be impacted by the removal
+                        of the userland proxy.
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='Docker docs: Binding' url='https://docs.docker.com/engine/userguide/networking/default_network/binding/' />
+            <reference name='Docker github: 14856' url='https://github.com/docker/docker/issues/14856' />
+            <reference name='Docker github: 22741' url='https://github.com/docker/docker/issues/22741' />
+            <reference name='Docker windsock: The docker proxy' url='http://windsock.io/the-docker-proxy/' />
+          </references>
+          <standards>
+            <standard ref='2.15' supportedStandardRef='Level 1 - Docker' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;blockquote&gt;
+                            ps -ef | grep dockerd&amp;nbsp;
+                            &lt;/blockquote&gt;
+                            &lt;div&gt;
+                            Ensure that the --userland-proxy parameter is set to false.
+                            &lt;/div&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2016-08-02T10:21:32.718'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

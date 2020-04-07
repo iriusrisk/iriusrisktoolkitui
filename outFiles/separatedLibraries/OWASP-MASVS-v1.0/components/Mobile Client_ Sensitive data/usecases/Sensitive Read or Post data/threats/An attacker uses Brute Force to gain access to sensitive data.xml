@@ -1,0 +1,37 @@
+<threat ref="CAPEC-112" name="An attacker uses Brute Force to gain access to sensitive data" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>In this attack, some asset (information, functionality, identity, etc.) is protected
+                                by a finite secret value. The attacker attempts to gain access to this asset by using
+                                trial-and-error to exhaustively explore all the possible secret values in the hope of
+                                finding the secret (or a value that is functionally equivalent) that will unlock the
+                                asset. Examples of secrets can include, but are not limited to, passwords, encryption
+                                keys, database lookup keys, and initial values to one-way functions.
+                                The key factor in this attack is the attackers' ability to explore the possible secret
+                                space rapidly. This, in turn, is a function of the size of the secret space and the
+                                computational power the attacker is able to bring to bear on the problem. If the
+                                attacker has modest resources and the secret space is large, the challenge facing the
+                                attacker is intractable. While the defender cannot control the resources available to an
+                                attacker, they can control the size of the secret space. Creating a large secret space
+                                involves selecting one's secret from as large a field of equally likely alternative
+                                secrets as possible and ensuring that an attacker is unable to reduce the size of this
+                                field using available clues or cryptanalysis. Doing this is more difficult than it
+                                sounds since elimination of patterns (which, in turn, would provide an attacker clues
+                                that would help them reduce the space of potential secrets) is difficult to do using
+                                deterministic machines, such as computers. Assuming a finite secret space, a brute force
+                                attack will eventually succeed. The defender must rely on making sure that the time and
+                                resources necessary to do so will exceed the value of the information. For example, a
+                                secret space that will likely take hundreds of years to explore is likely safe from
+                                raw-brute force attacks.
+                            </desc>
+                            <riskRating confidentiality="75" integrity="75" availability="100" easeOfExploitation="100"/>
+                            <references/>
+                            <controls>
+                                <control ref="MASVS-3.3-KEY-LENGTH" mitigation="100"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-326">
+                                    <controls>
+                                        <control ref="MASVS-3.3-KEY-LENGTH" mitigation="100"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

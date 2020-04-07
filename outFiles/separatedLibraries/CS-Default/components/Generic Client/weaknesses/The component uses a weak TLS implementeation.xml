@@ -1,0 +1,15 @@
+<weakness ref="CWE-327" name="The component uses a weak TLS implementeation" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2017-03-22T10:04:19.860000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The use of an unverified TLS library could lead to the use of weak or faulty implementations
+                        of the TLS protocol and cipher suites.
+                        &lt;br /&gt;
+                    </desc>
+                </weakness>

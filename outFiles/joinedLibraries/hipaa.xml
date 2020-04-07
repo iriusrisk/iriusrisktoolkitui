@@ -1,0 +1,1579 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Copyright (c) 2012-2019 Continuum Security.  All rights reserved.The content of this library is the property of Continuum Security SL and may only be used in whole or in part with a valid license for IriusRisk.-->
+<project ref='hipaa' name='hipaa' revision='5' type='LIBRARY' status='OPEN' enabled='true' priority='0' tags=''>
+  <desc>This library provides a set of requirements that help comply with Health Insurance Portability and Accountability Act of 1996 (HIPAA).</desc>
+  <categoryComponents>
+    <categoryComponent ref='regulatory' name='Regulatory' />
+  </categoryComponents>
+  <componentDefinitions>
+    <componentDefinition ref='hipaa-environment' name='HIPAA Environment' desc='Choose this component if the application handles Protected Health Information (PHI) in the United States in the service of (or on behalf of) a covered entity' categoryRef='regulatory'>
+      <riskPatterns>
+        <riskPattern ref='hipaa-environment' />
+      </riskPatterns>
+    </componentDefinition>
+  </componentDefinitions>
+  <supportedStandards>
+    <supportedStandard ref='hipaa-addressable' name='HIPAA Addressable' />
+    <supportedStandard ref='hipaa-required' name='HIPAA Required' />
+  </supportedStandards>
+  <udts />
+  <components>
+<component ref='hipaa-service' name='HIPAA Service' desc='' groupName='' tags='' position='2' library='' diagramPositionX='0' diagramPositionY='0' componentDefinitionRef=''>
+      <weaknesses>
+<weakness ref='no-monitoring-reporting-failures-login-attempts' name='Lack of a process for monitoring and reporting log-in attempts' state='0' impact='100'>
+          <desc>Lack of a process to review system audit logs to detect data breaches and unauthorized access to EPHI. 
+&lt;br /&gt;</desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:49.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness><weakness ref='HIPAA-CWE-694' name='Users share usernames' state='0' impact='100'>
+          <desc>Lack of assigning unique user names destroys the credibility of the audit trail resulting in an inability to identify and track who has made changes to or viewed EPHI and help determine whether the access was by an attacker.</desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:49.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness><weakness ref='no-procedures-secure-password' name='Weak procedures for creating, changing and storing passwords' state='0' impact='100'>
+          <desc>Weak passwords and procedures to change them increases the likelihood of a user account being compromised resulting in database tampering or disclosure of EPHI by an attacker. 
+&lt;br /&gt;</desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:49.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>
+</weaknesses>
+<controls>
+<control ref='hipaa-log-02' name='Monitoring log-in attemps and report discrepances' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;p&gt;Implement procedures to record all log-in attempts and monitor these log-in attempts to detect unusual or inappropriate access attempts to the systems. If a certain number of failed log-in attempts occur, it should be reported to the appropriate security personnel. The response should be that after a certain number of failed attempts, the system blocks the account.&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Administrative Safeguards' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/adminsafeguards.pdf' />
+            <reference name='OWASP Logging Cheat Sheet' url='https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html' />
+            <reference name='OWASP Proactive Controls C9: Implement Security Logging and Monitoring' url='https://owasp-top-10-proactive-controls-2018.readthedocs.io/en/latest/c9-implement-security-logging-monitoring.html' />
+            <reference name='Top 10-2017 A10-Insufficient Logging&amp;Monitoring' url='https://www.owasp.org/index.php/Top_10-2017_A10-Insufficient_Logging%26Monitoring' />
+          </references>
+          <standards>
+            <standard ref='164.308(A)(5)(C)' supportedStandardRef='hipaa-addressable' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>	&lt;p&gt;Review if logs can be used for more than extraction of usage statistics of files in the web servers (which is typically what most log-based application will focus on), but also to determine if attacks take place on the web server. &lt;/p&gt;
+
+
+
+
+
+ In order to analyze web server attacks the error log files of the server need to be analyzed. Review should concentrate on: 
+
+
+
+ * 40x (not found) error messages. A large amount of these from the same source might be indicative of a CGI scanner tool being used against the web server. 
+ * 50x (server error) messages. These can be an indication of an attacker abusing parts of the application which fail unexpectedly. For example, the first phases of a SQL injection attack will produce these error message when the SQL query is not properly constructed and its execution fails on the back end database. 
+
+
+
+ Log statistics or analysis should not be generated, nor stored, in the same server that produces the logs. Otherwise, an attacker might, through a web server vulnerability or improper configuration, gain access to them and retrieve similar information as would be disclosed by log files themselves.</steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:49.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control><control ref='hippa-ac-07' name='Implement procedures for creating, changing, and safeguarding passwords' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;p&gt;Implement procedures for creating, changing and safeguarding passwords.&lt;/p&gt; 
+&lt;p&gt;The creation and modification of a password, should be secure and the new password should comply with minimum security requirements. For example, when the password is changed, the system should request the old password. Another example is the new password is at least a minimum number of characters and at least one number, plus one uppercase character and one lowercase character.&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Administrative Safeguards' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/adminsafeguards.pdf' />
+            <reference name='OWASP Proactive Controls C6: Implement Digital Identity' url='https://owasp-top-10-proactive-controls-2018.readthedocs.io/en/latest/c6-implement-digital-identity.html' />
+          </references>
+          <standards>
+            <standard ref='164.308(A)(5)(D)' supportedStandardRef='hipaa-addressable' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>	&lt;p&gt;How to Test: &lt;/p&gt;
+
+
+ What characters are permitted and forbidden for use within a password? Is the user required to use characters from different character sets such as lower and uppercase letters, digits and special symbols? 
+
+
+ How often can a user change their password? How quickly can a user change their password after a previous change? Users may bypass password history requirements by changing their password 5 times in a row so that after the last password change they have configured their initial password again. 
+
+
+ When must a user change their password? After 90 days? After account lockout due to excessive log on attempts? 
+
+
+ How often can a user reuse a password? Does the application maintain a history of the user&amp;#8217;s previous used 8 passwords? 
+
+
+ How different must the next password be from the last password? 
+
+
+ Is the user prevented from using his username or other account information (such as first or last name) in the password?</steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:49.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control><control ref='hippa-log-01' name='Asssign an unique name, username and/or number for identifying and tracking user identity' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;p&gt;Assign an unique name and/or number for identifying and tracking user identity.&lt;/p&gt; 
+&lt;p&gt; User identification is a way to identify a specific user of an information system, typically by name and/or number. A unique user identifier allows an entity to track specific user activity when that user is logged into an information system. It enables an entity to hold users accountable for functions performed on information systems with EPHI when logged into those systems.&lt;/p&gt; 
+&lt;p&gt; A single format for user identification is not described or provided. Covered entities must determine the best user identification strategy based on their workforce and operations. Some organizations may use the employee name or a variation of the name (e.g. jsmith). However, other organizations may choose an alternative such as assignment of a set of random numbers and characters. A randomly assigned user identifier is more difficult for an unauthorized user (e.g., a hacker) to guess, but may also be more difficult for authorized users to remember its decision. Regardless of the format, no one other than the user needs to remember the user identifier.&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='Security Standards: Technical Safeguards' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/techsafeguards.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.312(a)(1)(A)' supportedStandardRef='hipaa-required' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:50.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>
+</controls>
+<usecases>
+<usecase ref='PERSONAL HEALTH DATA' name='Personal health data' desc='' library=''>
+          <threats>
+<threat ref='no-security-procedures-access-control' name='Attackers gain access to the system through access control flaws' state='Expose' source='MANUAL' owner='' library=''>
+              <desc>	&lt;p&gt;Attackers gain access to the system because the various security controls for protecting access to health information is not defined and not implemented.&lt;/p&gt;</desc>
+              <riskRating confidentiality='100' integrity='100' availability='100' easeOfExploitation='25' />
+              <references />
+              <weaknesses>
+                <weakness ref='HIPAA-CWE-694'>
+                  <controls>
+                    <control ref='hippa-log-01' mitigation='50' />
+                  </controls>
+                </weakness>
+                <weakness ref='no-procedures-secure-password'>
+                  <controls>
+                    <control ref='hippa-ac-07' mitigation='50' />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref='hippa-ac-07' mitigation='50' />
+                <control ref='hippa-log-01' mitigation='50' />
+              </controls>
+            </threat><threat ref='no-security-procedures' name='Attackers gain access to the system through undefined and unimplemented security procedures' state='Expose' source='MANUAL' owner='' library=''>
+              <desc>	&lt;p&gt;Attackers gain access to the systems due to security controls protecting health information not being defined nor implemented.&lt;/p&gt;</desc>
+              <riskRating confidentiality='100' integrity='100' availability='100' easeOfExploitation='25' />
+              <references />
+              <weaknesses>
+                <weakness ref='no-monitoring-reporting-failures-login-attempts'>
+                  <controls>
+                    <control ref='hipaa-log-02' mitigation='100' />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref='hipaa-log-02' mitigation='100' />
+              </controls>
+            </threat>
+</threats>
+</usecase>
+</usecases>
+</component>
+<component ref='hipaa-environment' name='HIPAA Environment' desc='' groupName='' tags='' position='1' library='' diagramPositionX='0' diagramPositionY='0' componentDefinitionRef=''>
+      <weaknesses>
+<weakness ref='risk-management-not-implemented' name='Risk Management program is not implemented' state='0' impact='100'>
+          <desc>The HIPAA Security Rule requires that a Risk Management program be implemented. The Risk Management program evaluates and implements the recommended safeguards of a Risk Assessment to reduce risks and vulnerabilities to a reasonable and appropriate level. 
+&lt;br /&gt;</desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-14T15:47:01.967'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness><weakness ref='HIPAA-CWE-694' name='Workforce members are sharing usernames' state='0' impact='100'>
+          <desc>Lack of assigning unique user names destroys the credibility of the audit trail resulting in an inability to identify and track who has made changes to or viewed EPHI and help determine whether the access was by an attacker.</desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-16T11:45:21.695'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness><weakness ref='no-protect-against-malicious-software' name='Inadequate procedures to guard against and detect malicious software' state='0' impact='100'>
+          <desc>&lt;div&gt;
+  There is no documented process for guarding against, detecting, and reporting malicious software that poses a risk to its information systems and data. 
+ &lt;br /&gt; 
+&lt;/div&gt;</desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:47.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness><weakness ref='hipaa-wrong-retention-period' name='Wrong retention period for HIPAA-related documents' state='0' impact='100'>
+          <desc>HIPAA-related documents should be retained for a minimum of six years from when the document was created, or from when it was last in effect.</desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-14T11:50:19.050'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness><weakness ref='inadequate-policies-media-reuse' name='Inadequate policies for reusing electronic media' state='0' impact='100'>
+          <desc>Keeping EPHI on electronic media before reuse increases the potential for a attacker to breach or alter EPHI.</desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-14T15:43:51.587'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness><weakness ref='incomplete-hipaa-doc' name='Incomplete, not updated or not accessible HIPAA-related documentation' state='0' impact='100'>
+          <desc>The purpose of HIPAA documentation is to communicate the systems of compliance your business has set in place to those outside your organization. In order to keep your HIPAA document collection up to date, you must constantly revise it.</desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-14T11:46:22.558'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness><weakness ref='policies-comply-hipaa' name='Policies and procedures don&apos;t comply with specifications of the HIPAA Privacy and Security Rules' state='0' impact='100'>
+          <desc>Policies and procedures adopted and employed by covered entities and business associates should meet selected standards and implementation specifications of the HIPAA Privacy and Security Rules.</desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-14T11:52:07.623'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness><weakness ref='lack-procedures-manage-EPHI' name='Inadequate procedures to manage access to EPHI' state='0' impact='100'>
+          <desc>Failure to prevent inappropriate access by a workforce/ex-workforce members or potential attackers may lead to theft of hardware, software, or equipment, a breach of EPHI, make EPHI unavailable when needed, sabotage/tamper with systems, etc.</desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-16T11:51:42.808'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness><weakness ref='no-monitoring-respond-against-security-incidents' name='Lack of written and trained procedures to report and investigate security incidents' state='0' impact='100'>
+          <desc>Lack of written and trained procedures to report and investigate security incidents may lead to incidents not being reported by employees, lack of investigations and implementation of safeguards to prevent similar breaches, notifications to not be sent, and ultimately negatively impact the reputation of the organization. 
+&lt;br /&gt;</desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:47.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness><weakness ref='unassigned-security-responsibility' name='Unassigned Security Responsibility' state='0' impact='100'>
+          <desc>Lack of having assigned responsibility increases the potential that EPHI is not quickly available to appropriate users during and during and after an emergency. 
+&lt;br /&gt;</desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:47.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness><weakness ref='no-maintained-audit-logs-old-hardware' name='Absence of records for tracking the movement and ownership of portable media and hardware' state='0' impact='100'>
+          <desc>There are no procedures to maintain a record of the movements of hardware and electronic media (in and out of an organization). 
+&lt;br /&gt;</desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-16T11:57:08.093'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness><weakness ref='inadequate-procedures-repairs' name='Inadequate procedures for repairs and modifications to the physical components of a facility that are related to security' state='0' impact='100'>
+          <desc>Facilities must document repairs and modifications to the physical components of a facility that are related to security (for example, hardware, walls, doors, and locks) to ensure and validate proper physical security.</desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-16T11:59:22.955'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness><weakness ref='controls-validate-access-facility' name='Failure to implement internal controls to properly identify and validate all individuals accessing the facility' state='0' impact='100'>
+          <desc>Failure to implement internal controls to properly identify and validate all individuals accessing the facility (even those who are appropriately authorized)&amp;nbsp; leaves the facility potentially vulnerable to unauthorized physical access.</desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-16T11:57:08.093'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness><weakness ref='lack-physical-access-workstations' name='Lack of physical access safeguards for workstations' state='0' impact='100'>
+          <desc>Lack of physical access safeguards for workstations increases the likelihood of database tampering, hacking, negligence, breaches, etc. by an attacker.</desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-16T12:01:14.830'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness><weakness ref='inadequate-EPHI-management-emergency' name='Inadequate policies/procedures for EPHI management during an emergency' state='0' impact='100'>
+          <desc>Lack of written policies/procedures increases the chances EPHI will not be appropriately available and the potential theft, breach or altering of EPHI by an attacker during an emergency</desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-14T15:34:56.148'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness><weakness ref='lack-written-procedures-sanctions' name='Lack of written procedures to sanctions workforce members' state='0' impact='100'>
+          <desc>Lack of written procedures to sanctions workforce members increases the likelihood that a workforce/ex-workforce members breaches or inappropriately modifies ePHI 
+&lt;br /&gt;</desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-16T14:16:17.872'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>
+</weaknesses>
+<controls>
+<control ref='hippa-ac-05' name='Implement procedures to secure access to physical premises' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;p&gt;Establish (and implement as needed) procedures that allow the physical premises access (external and internal of a building(s)) in support of restoration of lost data under the disaster recovery plan and emergency mode operations plan in the event of an emergency.&lt;/p&gt; 
+&lt;p&gt; Some common controls to prevent unauthorized physical access, tampering, and theft that covered entities shall be included as:&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;Locked doors, signs warning of restricted areas, surveillance cameras, alarms.&lt;/li&gt; 
+ &lt;li&gt;Property controls such as property control tags, engraving on equipment.&lt;/li&gt; 
+ &lt;li&gt;Personnel controls such as identification badges, visitor badges and/or escorts for large offices.&lt;/li&gt; 
+ &lt;li&gt;Private security service or patrol for the facility.&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt; Facility security plan shall be reviewed periodically, especially when there are any significant changes in the environment or information systems.&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Physical Safeguards' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/physsafeguards.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.310(a)(1)(B)' supportedStandardRef='hipaa-addressable' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:48.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control><control ref='hippa-ac-01' name='Implement procedures to assign and manage access to EPHI' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;p&gt;Implement procedures to determine and manage those users or workforce that have access to the electronic protected health information (EPHI). And verify that this access is appropriate for the job function of the user.&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Administrative Safeguards' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/adminsafeguards.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.308(a)(3)(ii)(B)' supportedStandardRef='hipaa-addressable' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:47.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control><control ref='hipaa-doc-02' name='Ensure that Business Associate Contracts are complied with the HIPAA Security Rule' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;p&gt;The Business Associate Contracts implementation specifications state that a business associate contract must provide that the business associate will:&lt;br /&gt;&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;Implement administrative, physical, and technical safeguards that reasonably and appropriately protect the confidentiality, integrity, and availability of the electronic protected health. information that it creates, receives, maintains, or transmits on behalf of the covered entity ...&lt;/li&gt; 
+ &lt;li&gt;Ensure that any agent, including a subcontractor, to whom it provides such information agrees to implement reasonable and appropriate safeguards to protect it.&lt;/li&gt; 
+ &lt;li&gt;Report to the covered entity any security incident of which it becomes aware.&lt;/li&gt; 
+ &lt;li&gt;Authorize termination of the contract by the covered entity, if the covered entity determines that the business associate has violated a material term of the contract.&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt; Covered entities may already have business associate contracts in place in order to comply with the Privacy Rule. If the business associate creates, receives, maintains, or transmits EPHI, these existing contracts should be reviewed and modified in order to meet the Security Rule Business Associate Contracts requirements. Alternatively, covered entities could have two separate contracts to address the requirements of the Privacy and Security Rules respectively.&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Organizational, Policies and Procedures and Documentation Requirements' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/pprequirements.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.314(a)(2)(i)' supportedStandardRef='hipaa-required' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:48.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control><control ref='hipaa-doc-03' name='Implement other arrangements specifications' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;p&gt;The Other Arrangements implementation specifications provide that when a covered entity and its business associate are both government entities, the covered entity may comply with the standard in either of two alternative ways:&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt; If it enters into a memorandum of understanding (MOU) with the business associate and the MOU contains terms which accomplish the objectives of the Business Associate Contracts section of the Security Rule.&lt;/li&gt; 
+ &lt;li&gt;If other law (including regulations adopted by the covered entity or its business associate) contain requirements applicable to the business associate that accomplish the objectives of the business associate contract. If statutory obligations of the covered entity or its business associate do not permit the covered entity to include in its other arrangements authorization of the termination of the contract by the covered entity, the termination authorization may be omitted.&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;p&gt; This implementation specification also applies to certain situations in which other laws require a business associate to perform certain functions or activities on behalf of the covered entity or provide certain services to the covered entity.&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Organizational, Policies and Procedures and Documentation Requirements' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/pprequirements.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.314(a)(2)(ii)' supportedStandardRef='hipaa-required' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:48.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control><control ref='hipaa-doc-08' name='Review and update documentation' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>	&lt;p&gt;Review documentation periodically and update as needed in response to environmental or operational changes affecting the security of the electronic protected health information.&lt;/p&gt;
+
+	&lt;p&gt;	The need for this review and update will vary based on a covered entity&amp;#8217;s documentation review frequency and/or the volume of environmental or operational changes that affect the security of EPHI. This implementation specification requires covered entities to manage their documentation so that it reflects the current status of their security plans and procedures implemented to comply with the Security Rule&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Organizational, Policies and Procedures and Documentation Requirements' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/pprequirements.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.316(b)(2)(iii)' supportedStandardRef='hipaa-required' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:48.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control><control ref='hippa-sec-13' name='Implement or update policies and procedures that specify the proper functions to be performed' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;p&gt;Implement or update policies and procedures that specify the proper functions to be performed, the manner in which those functions are to be performed, and the physical attributes of the surroundings of a specific workstation or class of workstation that can access electronic protected health information.&lt;/p&gt; 
+&lt;p&gt; The Workstation Use standard also applies to covered entities with workforce members that work off site using workstations that can access EPHI. This includes employees who work from home, in satellite offices, or in another facility. Workstation policies and procedures must specify the proper functions to be performed, regardless of where the workstation is located.&lt;/p&gt; 
+&lt;p&gt; Some common practices that may already be in place include logging off before leaving a workstation for an extended period time, and using and continually updating antivirus software.&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Physical Safeguards' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/physsafeguards.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.310(b)' supportedStandardRef='hipaa-required' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:48.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control><control ref='Hippa-contingency-plan-06' name='Implement procedures to restore lost data' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;p&gt;Establish (and implement as needed) procedures that allow facility access in support of restoration of lost data under the disaster recovery plan and emergency mode operations plan in the event of an emergency.&lt;/p&gt; 
+&lt;p&gt;Contingency operations shall be set in motion during or immediately following a disaster or emergency situation. During contingency operations, it is important to maintain physical security and appropriate access to EPHI while allowing for data restoration activities.&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Physical Safeguards' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/physsafeguards.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.310(a)(1)(A)' supportedStandardRef='hipaa-addressable' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:48.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control><control ref='hippa-sec-15' name='Implement policies and procedures to address the final disposition of EPHI' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;p&gt;Implement policies and procedures to address the final disposition (disposal) of electronic protected health information, and/or the hardware or electronic media on which it is stored.&lt;/p&gt; 
+&lt;p&gt; When covered entities dispose of any electronic media that contain EPHI they should make sure it is unusable and/or inaccessible. One way to dispose of electronic media is by degaussing. Degaussing is a method whereby a strong magnetic field is applied to magnetic media to fully erase the data. If a covered entity does not have access to degaussing equipment, another way to dispose of the electronic media is to physically damage it beyond repair, making the data inaccessible.&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Physical Safeguards' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/physsafeguards.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.310(d)(1)(A)' supportedStandardRef='hipaa-required' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:47.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control><control ref='hipaa-contigency-plan-09' name='Implement a data backup plan' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>	&lt;p&gt;Establish and implement procedures to create and maintain retrievable exact copies of electronic protected health information (EPHI)&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Administrative Safeguards' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/adminsafeguards.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.308(a)(7)(A)' supportedStandardRef='hipaa-required' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:48.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control><control ref='hippa-sec-12' name='Implement Risk Analysis procedures' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;p&gt;Implement procedures to identify and analyze the security risks of the organization and determine the probability of occurrence and magnitude of impact of identified risks.&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Administrative Safeguards' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/adminsafeguards.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.308(a)(1)(ii)(A)' supportedStandardRef='hipaa-required' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:47.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control><control ref='Hippa-contingency-plan-03' name='Ensure security processes are maintained during the emergency mode' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;p&gt;Establish (and implement as needed) procedures to enable continuation of critical business processes for protection of the security of electronic protected health information while operating in emergency mode.&lt;/p&gt; 
+&lt;p&gt;When a covered entity is operating in emergency mode due to a technical failure or power outage, security processes to protect EPHI must be maintained.&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Administrative Safeguards' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/adminsafeguards.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.308(a)(7)(C)' supportedStandardRef='hipaa-required' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:48.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control><control ref='hippa-ac-02' name='Implement procedures for terminating access to EPHI' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;p&gt;Implement procedures for terminating access to electronic protected health information (EPHI) when the employment of a workforce member ends or an employee's job description changes to require more or less access to EPHI.&lt;/p&gt; 
+&lt;p&gt; Termination procedures must be implemented to remove access privileges when an employee, contractor, or other individual previously entitled to access information no longer has these privileges. Whether the employee leaves the organization voluntarily or involuntarily, procedures to terminate access must be in place.&lt;/p&gt; 
+&lt;p&gt; The same process that is implemented for termination should also be used to change access levels if an employee's job description changes to require more or less access to EPHI. The procedures should also address the complexity of the organization and the sophistication of associated information systems.&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Administrative Safeguards' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/adminsafeguards.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.308(a)(3)(ii)(C)' supportedStandardRef='hipaa-addressable' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:48.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control><control ref='Hippa-contingency-plan-08' name='Establish and implement procedures for obtaining necessary EPHI during an emergency. ' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;p&gt;Establish (and implement as needed) procedures for obtaining necessary electronic protected health information during an emergency.&lt;/p&gt; 
+&lt;p&gt;These procedures are documented instructions and operational practices for obtaining access to necessary EPHI during an emergency situation. Access controls are necessary under emergency conditions, although they may be vary different from those used in normal operational circumstances. Covered entities should determine the types of situations that would require emergency access to an information system or application that contains EPHI.&lt;/p&gt; 
+&lt;p&gt;Procedures must be established beforehand to instruct workforce members on possible ways to gain access to needed EPHI in, for example, a situation in which normal environmental systems, such as electrical power, have been severely damaged or rendered inoperative due to a natural or man made disaster.&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='Security Standards: Technical Safeguards' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/techsafeguards.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.312(a)(1)(B)' supportedStandardRef='hipaa-required' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:48.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control><control ref='hipaa-doc-06' name='Retain the required documentation for at least 6 years' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;p&gt;Retain the documentation required for 6 years from the date of its creation or the date when it last was in effect, whichever is later. This six-year period must be considered the minimum retention period for required documentation. Some organizations may choose to keep their documentation longer based on state law, requirements of accreditation organizations, or other business reasons.&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Organizational, Policies and Procedures and Documentation Requirements' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/pprequirements.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.316(b)(2)(i)' supportedStandardRef='hipaa-required' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:48.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control><control ref='hippa-ac-03' name='Implement policies and procedures to grant access to EPHI' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;p&gt;Implement policies and procedures for granting access to electronic protected health information (EPHI). &lt;/p&gt; 
+&lt;p&gt; Once the covered entity has determined that the person or system is authorized, there are numerous ways to grant access to EPHI. In general, a covered entity's policies and procedures must identify who has authority to grant access privileges. It must also state the process for granting access.&lt;/p&gt; 
+&lt;p&gt; In general, a covered entity's policies and procedures must identify who has authority to grant access privileges. It must also state the process for granting access.&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Administrative Safeguards' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/adminsafeguards.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.308(a)(4)(B)' supportedStandardRef='hipaa-addressable' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:48.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control><control ref='hippa-sec-05' name='Implement Risk Management procedures' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;p&gt;Implement procedures to identify, manage the risks and manage the implementation of the countermeasures to mitigate or reduce the inherent risk.&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Administrative Safeguards' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/adminsafeguards.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.308(a)(1)(ii)(B)' supportedStandardRef='hipaa-required' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:48.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control><control ref='hippa-sec-14' name='Implement physical safeguards for all workstations' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;p&gt;Implement physical safeguards for all workstations with access to electronic protected health information and restrict access to unauthorized users.&lt;/p&gt; 
+&lt;p&gt; While the Workstation Use standard addresses the policies and procedures for how workstations shall be used and protected, the Workstation Security standard addresses how workstations are to be physically protected from unauthorized users.&lt;/p&gt; 
+&lt;p&gt; Covered entities may implement a variety of strategies to restrict access to workstations dealing with EPHI. One way may be to completely restrict physical access to the workstations by keeping them in a secure room where only authorized personnel work.&lt;/p&gt; 
+&lt;p&gt; As with all standards and implementation specifications, what is reasonable and appropriate for one covered entity may not apply to another. The risk analysis should be used to help with the decision-making process.&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Physical Safeguards' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/physsafeguards.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.310(c)' supportedStandardRef='hipaa-required' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:47.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control><control ref='hippa-ac-04' name='Implement policies and procedures to Access Establishment and Modification' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;p&gt;Implement policies and procedures to manage the creation and modification of access privileges to workstations, transactions, programs or processes. Responsibility for this function may be assigned to a specific individual or individuals, who also may be responsible for terminating access privileges for workforce members.&lt;/p&gt; 
+&lt;p&gt; This procedures must be reviewed and updated, and document procedures as necessary.&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Administrative Safeguards' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/adminsafeguards.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.308(a)(4)(C)' supportedStandardRef='hipaa-addressable' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:47.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control><control ref='hippa-sec-06' name='Implement Sanction policies and procedures' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>	&lt;p&gt;Implement the policy and procedures to sanction against personnel or members who fails to comply with the security policies and procedures. Appropriate sanctions should be created and out in place so that personnel understand the consequences of failing to comply with the security policies and procedures, to deter noncompliance.&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Administrative Safeguards' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/adminsafeguards.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.308(a)(1)(ii)(C)' supportedStandardRef='hipaa-required' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:48.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control><control ref='hippa-contingency-plan-01' name='Assess the relative criticality of specific applications and data in support of other contingency plan components' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>	&lt;p&gt;This implementation specification requires covered entities to identify their software applications (data applications that store, maintain or transmit EPHI) and determine how important each is to patient care or business needs, in order to prioritize for data backup, disaster recovery and/or emergency operations plans. A prioritized list of specific applications and data will help determine which applications or information systems get restored first and/or which must be available at all times.&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Administrative Safeguards' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/adminsafeguards.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.308(a)(7)(E)' supportedStandardRef='hipaa-addressable' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:48.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control><control ref='Hippa-contingency-plan-05' name='Perform a periodic technical and non-technical evaluation' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;p&gt;Perform a periodic technical and non-technical evaluation, based initially upon the standards implemented under this rule and subsequently, in response to environmental or operations changes affecting the security of&amp;nbsp;electronic protected health information, that establishes the extent to which an entity's security policies and procedures meet the requirements of this subpart [the Security Rule].&lt;/p&gt; 
+&lt;p&gt;The purpose of the evaluation is to establish a process for covered entities to review and maintain reasonable and appropriate security measures to comply with the Security Rule. Initially the evaluation must be based on the security standards implemented to comply with the Security Rule. Subsequent periodic evaluations must be performed in response to environmental or operational changes that affect the security of EPHI. The on-going evaluation should also be performed on a scheduled basis, such as annually or every two years. The evaluation must include reviews of the technical and non-technical aspects of the security program.&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Administrative Safeguards' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/adminsafeguards.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.308(a)(8)' supportedStandardRef='hipaa-required' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:48.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control><control ref='Hippa-contingency-plan-02' name='Implement a disaster recovery plan' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;p&gt;Establish (and implement as needed) procedures to restore any loss of data.&lt;/p&gt; 
+&lt;p&gt;Some covered entities may already have a general disaster plan that meets this requirement; however, each entity must review the current plan to ensure that it allows them to recover EPHI.&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Administrative Safeguards' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/adminsafeguards.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.308(a)(7)(B)' supportedStandardRef='hipaa-required' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:48.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control><control ref='hippa-sec-10' name='Implement procedures to review and update Security policies and procedures' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;p&gt;Implement procedures to do periodic reviews and update security policies and procedures, and ensure these are retained.&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Administrative Safeguards' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/adminsafeguards.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.308(A)(5)(A)' supportedStandardRef='hipaa-addressable' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:48.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control><control ref='hipaa-doc-01' name='Document the satisfactory assurances required' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;p&gt;Document the satisfactory assurances required by the Business Associate Contracts and Other Arrangements of this section through a written contract or other arrangement with the business associate, that meets the applicable requirements of the Organizational Requirements.&lt;/p&gt; 
+&lt;p&gt;&lt;strong&gt;Business Associate Contrats and Other Arrangements:&lt;/strong&gt; A covered entity, in accordance with &amp;sect;164.306 [the Security Standards: General Rules], may permit a business associate to create, receive, maintain, or transmit electronic protected health information on the covered entity's behalf only if the covered entity obtains satisfactory assurances, in accordance with &amp;sect;164.314(a) [the Organizational Requirements] that the business associate will appropriately safeguard the information (Emphasis added).&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Administrative Safeguards' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/adminsafeguards.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.308(b)(1)' supportedStandardRef='hipaa-required' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:48.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control><control ref='hipaa-doc-07' name='Ensure documentation is accessible to the relevant personnel' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>	&lt;p&gt;Make documentation available for those people responsible for implementing the procedures to which the documents pertain. Organizations often make documentation available in printed manuals and/or on Intranet websites.&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Organizational, Policies and Procedures and Documentation Requirements' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/pprequirements.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.316(b)(2)(ii)' supportedStandardRef='hipaa-required' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:48.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control><control ref='hipaa-doc-04' name='Document implementation specifications' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;p&gt;The documents of the group health plan shall be documented and incorporate provisions to require the&lt;br /&gt; plan sponsor to:&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;Implement administrative, physical, and technical safeguards that reasonably and appropriately protect the confidentiality, integrity, and availability of the electronic protected health information that it creates, receives, maintains, or transmits on behalf of the group health plan.&lt;/li&gt; 
+ &lt;li&gt;Ensure that the adequate separation required is supported by reasonable and appropriate security measures.&lt;/li&gt; 
+ &lt;li&gt;Ensure that any agent, including a subcontractor, to whom it provides this information agrees to implement reasonable and appropriate security measures to protect the information; and (iv) Report to the group health plan any security incident of which it becomes aware.&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt; In other words, the Security Rule generally requires that if the plan sponsor of a group health plan has access to EPHI beyond summary information and enrollment information or to EPHI other than that which has been authorized under &amp;sect;164.508, the plan documents must contain language similar to that already required by the Privacy Rule.&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Organizational, Policies and Procedures and Documentation Requirements' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/pprequirements.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.314(b)(2)' supportedStandardRef='hipaa-required' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:48.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control><control ref='hipaa-sec-01' name='Assign Security Responsibility' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>	&lt;p&gt;Assign a Privacy Official to ensure compliance to the security policy. This person has responsibility of overseeing countermeasure implementation.&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Administrative Safeguards' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/adminsafeguards.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.308(a)(2)' supportedStandardRef='hipaa-required' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:48.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control><control ref='hippa-ac-06' name='Implement procedures to control and validate a person&apos;s access to EPHI' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;p&gt;Implement procedures to control and validate a person's access based on their role or function, including visitor control, and control of access to software programs for testing and revision.&lt;/p&gt; 
+&lt;p&gt; The purpose of this implementation specification is to align a person's access to information with his or her role or function in the organization. These functional or role-based access control and validation procedures should be closely aligned with the facility security plan. These procedures are the means by which a covered entity will actually determine the workforce members or persons that should have access to certain locations within the facility based on their role or function.&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Physical Safeguards' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/physsafeguards.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.310(a)(1)(C)' supportedStandardRef='hipaa-addressable' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:48.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control><control ref='hippa-sec-02' name='Implement procedures to identify and respond to suspected or known security incidents' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;p&gt;Implement procedures to identify and respond to suspected or known security incidents; mitigate, to the extent practicable, harmful effects of security incidents that are known to the covered entity; and document security incidents and their outcomes.&lt;/p&gt; 
+&lt;p&gt;Security incident procedures must describe how workforce members are to respond to an incident. This may include: preserving evidence; mitigating, to the extent possible, the situation that caused the incident; documenting the incident and the outcome; and evaluating security incidents as part of ongoing risk management.&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Administrative Safeguards' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/adminsafeguards.pdf?language=es' />
+          </references>
+          <standards>
+            <standard ref='164.308(a)(6)' supportedStandardRef='hipaa-required' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:47.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control><control ref='hipaa-doc-09' name='Implement policies and procedures to document repairs and modifications to the physical components' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;p&gt;Implement policies and procedures to document repairs and modifications to the physical components that are related to security (for example, hardware, walls, doors and locks).&lt;/p&gt; 
+&lt;p&gt; In a small office, documentation may be a single logbook that notes the date, reason for repair, or modification and who authorized it. In a large organization, various repairs and modifications of physical security components may need to be documented in more detail and maintained in a database.&lt;/p&gt; 
+&lt;p&gt; In some covered entities the most frequent physical security changes may be re-keying doors or locks, or changing the combination on a door, when someone from the workforce has been terminated. Some facilities may use door locks that rely on a card or badge reader. Documentation on the repair, addition, or removal of these devices may also be needed to meet this specification.&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Physical Safeguards' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/physsafeguards.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.310(a)(1)(D)' supportedStandardRef='hipaa-addressable' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:47.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control><control ref='hippa-sec-07' name='Implement Information System Activity Review procedures' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>	&lt;p&gt;Implement processes to regularly review the records of information system activity, such as audit logs, access reports and security incident tracking reports.&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Administrative Safeguards' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/adminsafeguards.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.308(a)(1)(ii)(D)' supportedStandardRef='hipaa-required' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:48.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control><control ref='Hippa-contingency-plan-07' name='Create a retrievable, exact copy of EPHI before movement of equipment' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;p&gt;Create a retrievable, exact copy of electronic protected health information, when needed, before movement of equipment.&lt;/p&gt; 
+&lt;p&gt;This specification protects the availability of EPHI and is similar to the Data Backup Plan implementation specification for the contingency plan standard of the Administrative Safeguards, which requires covered entities to implement procedures to create and maintain retrievable exact copies of EPHI. Therefore, both implementation specifications may be included in the same policies and procedures. A covered entity may choose to backup a hard drive before moving to prevent loss of EPHI when the existing data backup plan does not provide for local hard drive backups.&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;Another option may be to limit where computer users store their files. For example, larger organizations may implement policies that require users to save all information on the network, thus eliminating the need for a hard drive back up prior to the move. Either of these options, and others, may be considered reasonable and appropriate solutions, depending on the covered entity’s environment.&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Physical Safeguards' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/physsafeguards.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.310(d)(1)(D)' supportedStandardRef='hipaa-addressable' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:48.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control><control ref='hippa-sec-08' name='Implement Authorization and Supervision procedures' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;p&gt;Implement and review the procedures to assign and maintain the rights of users to access electronic protected health information (EPHI).&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Administrative Safeguards' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/adminsafeguards.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.308(a)(3)(ii)(A)' supportedStandardRef='hipaa-addressable' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:48.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control><control ref='hipaa-doc-05' name='Document and implement procedures and policies' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>	&lt;p&gt;Implement reasonable and appropriate policies and procedures to comply with the standards, implementation specifications, or other requirements of this subpart. This standard is not to be construed to permit or excuse and action that violates any other standard, implementation specification, or other requirements of this subpart. A covered entity may change its policies and procedures at any time, provided that the changes are documented and are implemented in accordance with this subpart.&lt;/p&gt;
+
+	&lt;p&gt;	While this standard requires covered entities to implement policies and procedures, the Security Rule does not define either policy or procedure. Generally, policies define an organization&amp;#8217;s approach. For example, most business policies establish measurable objectives and expectations for the workforce, assign responsibility for decision-making, and define enforcement and consequences for violations. Procedures describe how the organization carries out that approach, setting forth explicit, step-by-step instructions that implement the organization&amp;#8217;s policies.&lt;/p&gt;
+
+	&lt;p&gt;	Policies and procedures should reflect the mission and culture of the organization; thus, the security rule enables each covered entity to use current standard business practices for policy development and implementation. Policies and procedures required by the security Rule may be modified as necessary to meet the changing needs of the organization, as long as the changes are documented and implemented in accordance with the Security Rule.&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Organizational, Policies and Procedures and Documentation Requirements' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/pprequirements.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.316(a)' supportedStandardRef='hipaa-required' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:48.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control><control ref='hippa-sec-03' name='Maintain a record of the movements of hardware and electronic media' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;p&gt;Maintain a record of the movements of hardware and electronic media and any person responsible for the same.&lt;/p&gt; 
+&lt;p&gt;Since this is an addressable specification, each covered entity must determine if and how it should be implemented for their organization. If a covered entity's hardware and media containing EPHI are moved from one location to another, a record should be maintained as documentation of the move.&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt; Portable workstations and media present a special accountability challenge. Portable technology is getting smaller, less expensive, and has an increased capacity to store large quantities of data. As a result, it is becoming more prevalent in the health care industry, making accountability even more important and challenging.&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Physical Safeguards' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/physsafeguards.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.310(d)(1)(C)' supportedStandardRef='hipaa-addressable' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:47.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control><control ref='hippa-sec-09' name='Isolate Health Care Clearinghouse Functions' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>	&lt;p&gt;Implement policies and procedures that protect the electronic protected health information of the clearinghouse from unauthorized access by the larger organization. Therefore, we have to separate and isolate the Health Care Clearinghouse functions.&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Administrative Safeguards' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/adminsafeguards.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.308(a)(4)(A)' supportedStandardRef='hipaa-required' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:48.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control><control ref='hippa-sec-04' name='Implement procedures for removal of EPHI from electronic media before the media are made available for re-use' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;p&gt;Implement procedures for removal of electronic protected health information from electronic media before the media are made available for internal or external re-use.&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;For internal re-use may include re-deployment of PC’s or sharing floppy disks.&lt;/li&gt; 
+ &lt;li&gt;For external re-use may include donation of electronic media to charity organizations or local schools. In either of these instances, it is important to remove all EPHI previously stored on the media to prevent unauthorized access to the information.&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;p&gt;&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Physical Safeguards' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/physsafeguards.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.310(d)(1)(B)' supportedStandardRef='hipaa-required' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:48.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control><control ref='hippa-log-01' name='Assign a unique name, username and/or number for identifying and tracking user identity' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;p&gt;Assign a unique name and/or number for identifying and tracking user identity.&lt;/p&gt; 
+&lt;p&gt; User identification is a way to identify a specific user of an information system, typically by name and/or number. A unique user identifier allows an entity to track specific user activity when that user is logged into an information system. It enables an entity to hold users accountable for functions performed on information systems with EPHI when logged into those systems.&lt;/p&gt; 
+&lt;p&gt; A single format for user identification is not described or provided. Covered entities must determine the best user identification strategy based on their workforce and operations. Some organizations may use the employee name or a variation of the name (e.g. jsmith). However, other organizations may choose an alternative such as assignment of a set of random numbers and characters. A randomly assigned user identifier is more difficult for an unauthorized user (e.g., a hacker) to guess, but may also be more difficult for authorized users to remember its decision. Regardless of the format, no one other than the user needs to remember the user identifier.&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='Security Standards: Technical Safeguards' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/techsafeguards.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.312(a)(1)(A)' supportedStandardRef='hipaa-required' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:48.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control><control ref='hippa-sec-11' name='Protection against malicious software' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;p&gt;Malicious software can be thought of as any program that harms information systems, such as: viruses, Trojan horses or worms. As a result of an unauthorized infiltration, EPHI and other data can be damaged or destroyed, or at minimum, require expensive and time-consuming repairs.&lt;/p&gt; 
+&lt;p&gt;To solve this risk, implement procedures for guarding against, detecting and reporting, found malicious software in our systems. All workforce members must be regularly trained and reminded about this process.&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Administrative Safeguards' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/adminsafeguards.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.308(A)(5)(B)' supportedStandardRef='hipaa-addressable' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:48.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control><control ref='Hippa-contingency-plan-04' name='Implement procedures for periodic testing and revision of contingency plans' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;p&gt;Implement procedures for periodic testing and revision of contingency plans.&lt;/p&gt; 
+&lt;p&gt;It is important to point out that this implementation specification applies to all implementation specifications under the Contingency Plan standard, including the Data Backup Plan, Disaster Recovery Plan, and Emergency Mode Operations Plan.&lt;/p&gt; 
+&lt;p&gt;Disaster recovery and emergency mode operations plans might be tested by using a scenario-based walkthrough (to avoid daily operations impacts) or by performing complete live tests. The comprehensiveness and sophistication of the testing and revision procedures depends on the complexity of the covered entity's organization and other factors such as size and costs. It is expected that the frequency and comprehensiveness of the procedures will vary among covered entities.&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Administrative Safeguards' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/adminsafeguards.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.308(a)(7)(D)' supportedStandardRef='hipaa-addressable' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:48.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>
+</controls>
+<usecases>
+<usecase ref='GENERAL' name='General' desc='' library=''>
+          <threats>
+<threat ref='no-security-procedures' name='Attackers gain access to the system through inadequate security policy and procedures' state='Expose' source='MANUAL' owner='' library=''>
+              <desc>&lt;p&gt;Attackers gain access to the systems due to security controls protecting health information not being defined nor implemented.&lt;/p&gt;</desc>
+              <riskRating confidentiality='100' integrity='100' availability='100' easeOfExploitation='25' />
+              <references />
+              <weaknesses>
+                <weakness ref='no-protect-against-malicious-software'>
+                  <controls>
+                    <control ref='hippa-sec-11' mitigation='12' />
+                  </controls>
+                </weakness>
+                <weakness ref='lack-procedures-manage-EPHI'>
+                  <controls>
+                    <control ref='hippa-sec-08' mitigation='13' />
+                    <control ref='hippa-sec-09' mitigation='12' />
+                  </controls>
+                </weakness>
+                <weakness ref='incomplete-hipaa-doc'>
+                  <controls>
+                    <control ref='hippa-sec-07' mitigation='13' />
+                    <control ref='hippa-sec-10' mitigation='12' />
+                  </controls>
+                </weakness>
+                <weakness ref='lack-written-procedures-sanctions'>
+                  <controls>
+                    <control ref='hippa-sec-06' mitigation='13' />
+                  </controls>
+                </weakness>
+                <weakness ref='risk-management-not-implemented'>
+                  <controls>
+                    <control ref='hippa-sec-05' mitigation='13' />
+                  </controls>
+                </weakness>
+                <weakness ref='unassigned-security-responsibility'>
+                  <controls>
+                    <control ref='hipaa-sec-01' mitigation='12' />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref='hipaa-sec-01' mitigation='12' />
+                <control ref='hippa-sec-05' mitigation='13' />
+                <control ref='hippa-sec-06' mitigation='13' />
+                <control ref='hippa-sec-07' mitigation='13' />
+                <control ref='hippa-sec-08' mitigation='13' />
+                <control ref='hippa-sec-09' mitigation='12' />
+                <control ref='hippa-sec-10' mitigation='12' />
+                <control ref='hippa-sec-11' mitigation='12' />
+              </controls>
+            </threat><threat ref='no-business-continuity-plan' name='Loss of data in case of disaster or similar' state='Expose' source='MANUAL' owner='' library=''>
+              <desc>	&lt;p&gt;Attackers try to collapse the systems to remove, delete and gain access to the data after the restoring of the systems&lt;/p&gt;</desc>
+              <riskRating confidentiality='100' integrity='100' availability='100' easeOfExploitation='25' />
+              <references />
+              <weaknesses>
+                <weakness ref='inadequate-policies-media-reuse'>
+                  <controls>
+                    <control ref='hippa-sec-04' mitigation='10' />
+                  </controls>
+                </weakness>
+                <weakness ref='inadequate-EPHI-management-emergency'>
+                  <controls>
+                    <control ref='Hippa-contingency-plan-02' mitigation='10' />
+                    <control ref='Hippa-contingency-plan-03' mitigation='10' />
+                    <control ref='Hippa-contingency-plan-04' mitigation='10' />
+                    <control ref='Hippa-contingency-plan-06' mitigation='10' />
+                    <control ref='Hippa-contingency-plan-07' mitigation='10' />
+                    <control ref='Hippa-contingency-plan-08' mitigation='10' />
+                    <control ref='hipaa-contigency-plan-09' mitigation='10' />
+                  </controls>
+                </weakness>
+                <weakness ref='risk-management-not-implemented'>
+                  <controls>
+                    <control ref='Hippa-contingency-plan-05' mitigation='10' />
+                    <control ref='hippa-contingency-plan-01' mitigation='10' />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref='Hippa-contingency-plan-02' mitigation='10' />
+                <control ref='Hippa-contingency-plan-03' mitigation='10' />
+                <control ref='Hippa-contingency-plan-04' mitigation='10' />
+                <control ref='Hippa-contingency-plan-05' mitigation='10' />
+                <control ref='Hippa-contingency-plan-06' mitigation='10' />
+                <control ref='Hippa-contingency-plan-07' mitigation='10' />
+                <control ref='Hippa-contingency-plan-08' mitigation='10' />
+                <control ref='hipaa-contigency-plan-09' mitigation='10' />
+                <control ref='hippa-contingency-plan-01' mitigation='10' />
+                <control ref='hippa-sec-04' mitigation='10' />
+              </controls>
+            </threat><threat ref='no-security-procedures-monitoring' name='Attackers gain access to the system and are not detected' state='Expose' source='MANUAL' owner='' library=''>
+              <desc>&lt;p&gt;Attackers gain access to the systems and are not detected. Therefore, they can make any changes to those systems and they will remain undetected. Data integrity is destroyed.&lt;/p&gt;</desc>
+              <riskRating confidentiality='100' integrity='100' availability='100' easeOfExploitation='25' />
+              <references />
+              <weaknesses>
+                <weakness ref='no-maintained-audit-logs-old-hardware'>
+                  <controls>
+                    <control ref='hippa-sec-03' mitigation='50' />
+                  </controls>
+                </weakness>
+                <weakness ref='no-monitoring-respond-against-security-incidents'>
+                  <controls>
+                    <control ref='hippa-sec-02' mitigation='50' />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref='hippa-sec-02' mitigation='50' />
+                <control ref='hippa-sec-03' mitigation='50' />
+              </controls>
+            </threat><threat ref='hipaa-ilegal-processing-health-data' name='Illegal processing of health data' state='Expose' source='MANUAL' owner='' library=''>
+              <desc>	&lt;p&gt;Without documentation detailing the different mechanisms or procedures to manage, process and store securely the health information, we can not ensure the protection of this data.&lt;/p&gt;</desc>
+              <riskRating confidentiality='100' integrity='100' availability='100' easeOfExploitation='25' />
+              <references />
+              <weaknesses>
+                <weakness ref='incomplete-hipaa-doc'>
+                  <controls>
+                    <control ref='hipaa-doc-05' mitigation='13' />
+                    <control ref='hipaa-doc-07' mitigation='13' />
+                    <control ref='hipaa-doc-08' mitigation='12' />
+                  </controls>
+                </weakness>
+                <weakness ref='policies-comply-hipaa'>
+                  <controls>
+                    <control ref='hipaa-doc-01' mitigation='13' />
+                    <control ref='hipaa-doc-02' mitigation='13' />
+                    <control ref='hipaa-doc-03' mitigation='12' />
+                    <control ref='hipaa-doc-04' mitigation='12' />
+                  </controls>
+                </weakness>
+                <weakness ref='hipaa-wrong-retention-period'>
+                  <controls>
+                    <control ref='hipaa-doc-06' mitigation='12' />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref='hipaa-doc-01' mitigation='13' />
+                <control ref='hipaa-doc-02' mitigation='13' />
+                <control ref='hipaa-doc-03' mitigation='12' />
+                <control ref='hipaa-doc-04' mitigation='12' />
+                <control ref='hipaa-doc-05' mitigation='13' />
+                <control ref='hipaa-doc-06' mitigation='12' />
+                <control ref='hipaa-doc-07' mitigation='13' />
+                <control ref='hipaa-doc-08' mitigation='12' />
+              </controls>
+            </threat><threat ref='no-security-procedures-access-control' name='Attackers gain access to data or services through access control flaws' state='Expose' source='MANUAL' owner='' library=''>
+              <desc>&lt;p&gt;Attackers gain access to the system because the various security controls for protecting access to health information is not defined and not implemented.&lt;/p&gt;</desc>
+              <riskRating confidentiality='100' integrity='100' availability='100' easeOfExploitation='25' />
+              <references />
+              <weaknesses>
+                <weakness ref='controls-validate-access-facility'>
+                  <controls>
+                    <control ref='hippa-ac-04' mitigation='8' />
+                    <control ref='hippa-ac-05' mitigation='8' />
+                  </controls>
+                </weakness>
+                <weakness ref='inadequate-procedures-repairs'>
+                  <controls>
+                    <control ref='hipaa-doc-09' mitigation='9' />
+                  </controls>
+                </weakness>
+                <weakness ref='lack-procedures-manage-EPHI'>
+                  <controls>
+                    <control ref='hippa-ac-01' mitigation='9' />
+                    <control ref='hippa-ac-02' mitigation='8' />
+                    <control ref='hippa-ac-03' mitigation='8' />
+                    <control ref='hippa-ac-06' mitigation='8' />
+                    <control ref='hippa-sec-15' mitigation='8' />
+                  </controls>
+                </weakness>
+                <weakness ref='incomplete-hipaa-doc'>
+                  <controls>
+                    <control ref='hippa-sec-13' mitigation='8' />
+                  </controls>
+                </weakness>
+                <weakness ref='lack-physical-access-workstations'>
+                  <controls>
+                    <control ref='hippa-sec-14' mitigation='9' />
+                  </controls>
+                </weakness>
+                <weakness ref='risk-management-not-implemented'>
+                  <controls>
+                    <control ref='hippa-sec-12' mitigation='9' />
+                  </controls>
+                </weakness>
+                <weakness ref='HIPAA-CWE-694'>
+                  <controls>
+                    <control ref='hippa-log-01' mitigation='8' />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref='hipaa-doc-09' mitigation='9' />
+                <control ref='hippa-ac-01' mitigation='9' />
+                <control ref='hippa-ac-02' mitigation='8' />
+                <control ref='hippa-ac-03' mitigation='8' />
+                <control ref='hippa-ac-04' mitigation='8' />
+                <control ref='hippa-ac-05' mitigation='8' />
+                <control ref='hippa-ac-06' mitigation='8' />
+                <control ref='hippa-log-01' mitigation='8' />
+                <control ref='hippa-sec-12' mitigation='9' />
+                <control ref='hippa-sec-13' mitigation='8' />
+                <control ref='hippa-sec-14' mitigation='9' />
+                <control ref='hippa-sec-15' mitigation='8' />
+              </controls>
+            </threat>
+</threats>
+</usecase>
+</usecases>
+</component>
+</components>
+<rules>
+<rule name='QG: HIPAA - IoT Application - PHI - HIPAA Standard Applicability' module='component' generatedByGui='true'>
+    <condition name='Conclusion exists' type='drools-without-variable-type' field='id' value='phi.handled'>
+      <pattern name='Conclusion exists' pattern='Conclusion(id == "${value}");' />
+    </condition>
+    <condition name='Is specific component definition' type='drools-without-variable-type' field='id' value='iot-application'>
+      <pattern name='Is specific component definition' pattern='ComponentDefinitionProperties(ref == "${value}");' />
+    </condition>
+    <action project='' value='phi.handled.group_::_Data Privacy_::_Does this component belong to a HIPAA Covered Entity or share personal health information with any HIPAA Covered Entity or Business Associate?_::_2345_::_true_::_false_::_' name='Insert Question Group' type='drools-without-variable-type'>
+      <pattern name='Action of insert question group' pattern='QuestionGroup group = new QuestionGroup("${value-1}","${value-2}","${value-3}", ${value-4}, "${value-7}"); group.setFlags(${value-5}, ${value-6}); insertLogical(group);' />
+    </action>
+    <content />
+  </rule>
+<rule name='QG: HIPAA - Client - PHI - HIPAA Standard Applicability' module='component' generatedByGui='true'>
+    <condition name='Conclusion exists' type='drools-without-variable-type' field='id' value='phi.handled'>
+      <pattern name='Conclusion exists' pattern='Conclusion(id == "${value}");' />
+    </condition>
+    <condition name='Risk pattern exists' type='drools-without-variable-type' field='id' value='CS-Default_::_GENERIC-CLIENT'>
+      <pattern name='Risk pattern exists' pattern='$riskPattern : ImportWholeRiskPatternAwareDto(libraryRef == "${value-1}",riskPatternRef == "${value-2}");' />
+    </condition>
+    <action project='' value='phi.handled.group_::_Data Privacy_::_Does this component belong to a HIPAA Covered Entity or share personal health information with any HIPAA Covered Entity or Business Associate?_::_2345_::_true_::_false_::_' name='Insert Question Group' type='drools-without-variable-type'>
+      <pattern name='Action of insert question group' pattern='QuestionGroup group = new QuestionGroup("${value-1}","${value-2}","${value-3}", ${value-4}, "${value-7}"); group.setFlags(${value-5}, ${value-6}); insertLogical(group);' />
+    </action>
+    <content />
+  </rule>
+<rule name='Conclusion: HIPAA - All - PHI - Processed' module='component' generatedByGui='true'>
+    <condition name='Question is answered' type='Question' field='id' value='Protected Health InformationProcessed'>
+      <pattern name='Condition with answer' pattern='${type}(${field} == "${value}", answer == true);' />
+    </condition>
+    <action project='' value='ConclusionType.HIDDEN_::_phi.handled_::_Personal Health Information is handled' name='Insert Conclusion' type='drools-without-variable-type'>
+      <pattern name='Action of insert conclusion' pattern='insertLogical(new Conclusion(${value-1}, "${value-2}", "${value-3}"));' />
+    </action>
+    <content />
+  </rule>
+<rule name='QG: HIPAA - DataStore - PHI - HIPAA Standard Applicability' module='component' generatedByGui='true'>
+    <condition name='Conclusion exists' type='drools-without-variable-type' field='id' value='phi.handled'>
+      <pattern name='Conclusion exists' pattern='Conclusion(id == "${value}");' />
+    </condition>
+    <condition name='Risk pattern exists' type='drools-without-variable-type' field='id' value='CS-Default_::_DATASTORE'>
+      <pattern name='Risk pattern exists' pattern='$riskPattern : ImportWholeRiskPatternAwareDto(libraryRef == "${value-1}",riskPatternRef == "${value-2}");' />
+    </condition>
+    <action project='' value='phi.handled.group_::_Data Privacy_::_Does this component belong to a HIPAA Covered Entity or share personal health information with any HIPAA Covered Entity or Business Associate?_::_2345_::_true_::_false_::_' name='Insert Question Group' type='drools-without-variable-type'>
+      <pattern name='Action of insert question group' pattern='QuestionGroup group = new QuestionGroup("${value-1}","${value-2}","${value-3}", ${value-4}, "${value-7}"); group.setFlags(${value-5}, ${value-6}); insertLogical(group);' />
+    </action>
+    <content />
+  </rule>
+<rule name='Q: HIPAA - All - PHI - HIPAA Applicability Options' module='component' generatedByGui='true'>
+    <condition name='Question Group exists' type='drools-without-variable-type' field='id' value='phi.handled.group'>
+      <pattern name='Question group exists' pattern='$group : QuestionGroup(id == "${value}") @Watch(!*);' />
+    </condition>
+    <action project='' value='hipaa.handle.group.no_::_No_::_' name='Insert Question' type='drools-without-variable-type'>
+      <pattern name='Action of insert question' pattern='insertLogical(new Question($group, "${value-1}", "${value-2}", "${value-3}"));' />
+    </action>
+    <action project='' value='hipaa.handle.group.yes_::_Yes_::_' name='Insert Question' type='drools-without-variable-type'>
+      <pattern name='Action of insert question' pattern='insertLogical(new Question($group, "${value-1}", "${value-2}", "${value-3}"));' />
+    </action>
+    <content />
+  </rule>
+<rule name='Conclusion: HIPAA - All - PHI - Received' module='component' generatedByGui='true'>
+    <condition name='Question is answered' type='Question' field='id' value='Protected Health InformationReceived by component'>
+      <pattern name='Condition with answer' pattern='${type}(${field} == "${value}", answer == true);' />
+    </condition>
+    <action project='' value='ConclusionType.HIDDEN_::_phi.handled_::_Personal Health Information is handled' name='Insert Conclusion' type='drools-without-variable-type'>
+      <pattern name='Action of insert conclusion' pattern='insertLogical(new Conclusion(${value-1}, "${value-2}", "${value-3}"));' />
+    </action>
+    <content />
+  </rule>
+<rule name='Set Answer: HIPAA regulatory Component-Def --&gt; PHI Processed' module='component' generatedByGui='true'>
+    <condition name='Is specific component definition' type='drools-without-variable-type' field='id' value='hipaa-environment'>
+      <pattern name='Is specific component definition' pattern='ComponentDefinitionProperties(ref == "${value}");' />
+    </condition>
+    <action project='' value='Protected Health InformationProcessed_::_true_::_false' name='Answer Question' type='drools-without-variable-type'>
+      <pattern name='Action of answer question' pattern='$questionToAnswer : Question(id == "${value-1}", answer != ${value-2}); eval(!${value-3} || !$questionToAnswer.isManuallyModified());_:::_modify($questionToAnswer) { setAnswer(${value-2}), setCanBeManuallyModified(${value-3}) };' />
+    </action>
+    <content />
+  </rule>
+<rule name='Risk Pattern: Health data handled - Service-side' module='component' generatedByGui='true'>
+    <condition name='Conclusion exists' type='drools-without-variable-type' field='id' value='phi.handled'>
+      <pattern name='Conclusion exists' pattern='Conclusion(id == "${value}");' />
+    </condition>
+    <condition name='Question is answered' type='Question' field='id' value='hipaa.handle.group.yes'>
+      <pattern name='Condition with answer' pattern='${type}(${field} == "${value}", answer == true);' />
+    </condition>
+    <condition name='Risk pattern exists' type='drools-without-variable-type' field='id' value='CS-Default_::_GENERIC-SERVICE'>
+      <pattern name='Risk pattern exists' pattern='$riskPattern : ImportWholeRiskPatternAwareDto(libraryRef == "${value-1}",riskPatternRef == "${value-2}");' />
+    </condition>
+    <action project='CS-Default' value='CS-Default_::_GENERIC-SERVICE:AUTHN-2FA' name='Import Risk Pattern' type='drools-without-variable-type'>
+      <pattern name='Action of import a risk pattern' pattern='insertLogical(ImportRiskPatternFactory.importRiskPattern("${value-1}", "${value-2}", 50));' />
+    </action>
+    <action project='hipaa' value='hipaa_::_hipaa-service' name='Import Risk Pattern' type='drools-without-variable-type'>
+      <pattern name='Action of import a risk pattern' pattern='insertLogical(ImportRiskPatternFactory.importRiskPattern("${value-1}", "${value-2}", 50));' />
+    </action>
+    <content />
+  </rule>
+<rule name='Conclusion: HIPAA - All - PHI - Sent' module='component' generatedByGui='true'>
+    <condition name='Question is answered' type='Question' field='id' value='Protected Health InformationSent from component'>
+      <pattern name='Condition with answer' pattern='${type}(${field} == "${value}", answer == true);' />
+    </condition>
+    <action project='' value='ConclusionType.HIDDEN_::_phi.handled_::_Personal Health Information is handled' name='Insert Conclusion' type='drools-without-variable-type'>
+      <pattern name='Action of insert conclusion' pattern='insertLogical(new Conclusion(${value-1}, "${value-2}", "${value-3}"));' />
+    </action>
+    <content />
+  </rule>
+<rule name='QG: HIPAA - IoT Mobile - PHI - HIPAA Standard Applicability' module='component' generatedByGui='true'>
+    <condition name='Conclusion exists' type='drools-without-variable-type' field='id' value='phi.handled'>
+      <pattern name='Conclusion exists' pattern='Conclusion(id == "${value}");' />
+    </condition>
+    <condition name='Is specific component definition' type='drools-without-variable-type' field='id' value='iot-mobile-application'>
+      <pattern name='Is specific component definition' pattern='ComponentDefinitionProperties(ref == "${value}");' />
+    </condition>
+    <action project='' value='phi.handled.group_::_Data Privacy_::_Does this component belong to a HIPAA Covered Entity or share personal health information with any HIPAA Covered Entity or Business Associate?_::_2345_::_true_::_false_::_' name='Insert Question Group' type='drools-without-variable-type'>
+      <pattern name='Action of insert question group' pattern='QuestionGroup group = new QuestionGroup("${value-1}","${value-2}","${value-3}", ${value-4}, "${value-7}"); group.setFlags(${value-5}, ${value-6}); insertLogical(group);' />
+    </action>
+    <content />
+  </rule>
+<rule name='QG: HIPAA - Service - PHI - HIPAA Standard Applicability' module='component' generatedByGui='true'>
+    <condition name='Conclusion exists' type='drools-without-variable-type' field='id' value='phi.handled'>
+      <pattern name='Conclusion exists' pattern='Conclusion(id == "${value}");' />
+    </condition>
+    <condition name='Risk pattern exists' type='drools-without-variable-type' field='id' value='CS-Default_::_GENERIC-SERVICE'>
+      <pattern name='Risk pattern exists' pattern='$riskPattern : ImportWholeRiskPatternAwareDto(libraryRef == "${value-1}",riskPatternRef == "${value-2}");' />
+    </condition>
+    <action project='' value='phi.handled.group_::_Data Privacy_::_Does this component belong to a HIPAA Covered Entity or share personal health information with any HIPAA Covered Entity or Business Associate?_::_2345_::_true_::_false_::_' name='Insert Question Group' type='drools-without-variable-type'>
+      <pattern name='Action of insert question group' pattern='QuestionGroup group = new QuestionGroup("${value-1}","${value-2}","${value-3}", ${value-4}, "${value-7}"); group.setFlags(${value-5}, ${value-6}); insertLogical(group);' />
+    </action>
+    <content />
+  </rule>
+<rule name='Conclusion: HIPAA - All - PHI - Stored' module='component' generatedByGui='true'>
+    <condition name='Question is answered' type='Question' field='id' value='Protected Health InformationStored'>
+      <pattern name='Condition with answer' pattern='${type}(${field} == "${value}", answer == true);' />
+    </condition>
+    <action project='' value='ConclusionType.HIDDEN_::_phi.handled_::_Personal Health Information is handled' name='Insert Conclusion' type='drools-without-variable-type'>
+      <pattern name='Action of insert conclusion' pattern='insertLogical(new Conclusion(${value-1}, "${value-2}", "${value-3}"));' />
+    </action>
+    <content />
+  </rule>
+
+</rules>
+
+</project>

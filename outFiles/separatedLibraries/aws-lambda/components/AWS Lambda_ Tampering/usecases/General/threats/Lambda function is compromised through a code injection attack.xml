@@ -1,0 +1,17 @@
+<threat ref="AWS-LAMBDA-T15" name="Lambda function is compromised through a code injection attack" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>	&lt;p&gt;When input validation is non-existent or not strong, malicious code can be injected through the input parameters. This may compromise the complete application and data stores.&lt;/p&gt;</desc>
+                            <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="25"/>
+                            <references/>
+                            <controls>
+                                <control ref="AWS-LAMBDA-C11" mitigation="50"/>
+                                <control ref="DATA-VAL-GENERIC" mitigation="50"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="AWS-LAMBDA-W9">
+                                    <controls>
+                                        <control ref="AWS-LAMBDA-C11" mitigation="50"/>
+                                        <control ref="DATA-VAL-GENERIC" mitigation="50"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

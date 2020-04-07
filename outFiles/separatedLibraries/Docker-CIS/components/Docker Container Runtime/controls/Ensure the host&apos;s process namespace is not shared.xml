@@ -1,0 +1,83 @@
+<control ref='D5.15' name='Ensure the host&apos;s process namespace is not shared' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>Process ID (PID) namespaces isolate the process ID number space, meaning that processes in
+                        different PID namespaces can have the same PID. This is process level isolation between
+                        containers and the host.&amp;nbsp;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Rationale:&amp;nbsp;&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        PID namespace provides separation of processes. The PID Namespace removes the view of the system
+                        processes, and allows process ids to be reused including PID 1. If the host's PID namespace is
+                        shared with the container, it would basically allow processes within the container to see all of
+                        the processes on the host system. This breaks the benefit of process level isolation between the
+                        host and the containers.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Someone having access to the container can eventually know all the processes running on the host
+                        system and can even kill the host system processes from within the container. This can be
+                        catastrophic. Hence, do not share the host's process namespace with the containers.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Do not start a container with --pid=host argument. For example, do not start a container as
+                        below:
+                        &lt;/div&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        docker run --interactive --tty --pid=host centos /bin/bash&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Impact:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Container processes cannot see the processes on the host system. In certain cases, you want your
+                        container to share the host's process namespace. For example, you could build a container with
+                        debugging tools like strace or gdb, but want to use these tools when debugging processes within
+                        the container. If this is desired, then share only one (or needed) host process by using the -p
+                        switch. For example,&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        docker run --pid=host rhel7 strace -p 1234
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='Docker docs: pid settings' url='https://docs.docker.com/engine/reference/run/#pid-settings-pid' />
+            <reference name='Linux: pid namespaces' url='http://man7.org/linux/man-pages/man7/pid_namespaces.7.html' />
+          </references>
+          <standards>
+            <standard ref='5.15' supportedStandardRef='Level 1 - Docker' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;blockquote&gt;
+                            docker ps --quiet --all | xargs docker inspect --format '{{ .Id }}: PidMode={{
+                            .HostConfig.PidMode }}'&amp;nbsp;
+                            &lt;/blockquote&gt;
+                            &lt;div&gt;
+                            If the above command returns host, it means the host PID namespace is shared with the
+                            container, if not, this recommendation is compliant.
+                            &lt;/div&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2016-08-02T10:21:32.718'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

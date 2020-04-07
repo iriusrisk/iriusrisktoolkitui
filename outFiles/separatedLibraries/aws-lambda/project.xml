@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Copyright (c) 2012-2019 Continuum Security.  All rights reserved.The content of this library is the property of Continuum Security SL and may only be used in whole or in part with a valid license for IriusRisk.-->
+<project ref="aws-lambda" name="AWS Lambda" revision="7" type="LIBRARY" status="OPEN" enabled="true" priority="0" tags="">
+    <desc>This library provides us a set of risk patterns (threats, use-cases, weaknesses,...) for AWS Lambda.</desc>
+    <categoryComponents>
+        <categoryComponent ref="amazon-web-services" name="Amazon Web Services"/>
+    </categoryComponents>
+    <componentDefinitions>
+        <componentDefinition ref="aws-lambda-function" name="Lambda Function" desc="Only select this if the security of the AWS Lambda Function will be managed in this product." categoryRef="amazon-web-services">
+            <riskPatterns>
+                <riskPattern ref="aws-lambda-monitoring-and-logging"/>
+                <riskPattern ref="aws-lambda-authoritation"/>
+                <riskPattern ref="aws-lambda-access-sensitive-data"/>
+                <riskPattern ref="aws-lambda-tampering"/>
+                <riskPattern ref="aws-lambda-flow-management"/>
+                <riskPattern ref="aws-lambda-authentication"/>
+                <riskPattern ref="aws-lambda-denial-of-service"/>
+                <riskPattern ref="aws-lambda-patching"/>
+            </riskPatterns>
+        </componentDefinition>
+    </componentDefinitions>
+    <udts/>
+    <supportedStandards>
+        <supportedStandard ref="cis-amazon-web-services-three-tier-web-architecture-benchmark" name="CIS Amazon Web Services Three-tier Web Architecture Benchmark"/>
+        <supportedStandard ref="CIS AWS Standard" name="CIS Amazon Web Services Foundations Benchmark"/>
+        <supportedStandard ref="ISO/IEC 27002:2013" name="ISO/IEC 27002:2013"/>
+        <supportedStandard ref="OWASP-ASVS-Level-1" name="OWASP-ASVS-Level-1"/>
+        <supportedStandard ref="OWASP-ASVS-Level-2" name="OWASP-ASVS-Level-2"/>
+        <supportedStandard ref="OWASP-ASVS-Level-3" name="OWASP-ASVS-Level-3"/>
+        <supportedStandard ref="NIST 800-53" name="NIST 800-53"/>
+        <supportedStandard ref="owasp-top-10-2017" name="OWASP Top 10 2017"/>
+    </supportedStandards>
+    

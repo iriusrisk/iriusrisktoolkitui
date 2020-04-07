@@ -1,0 +1,15 @@
+<weakness ref="CWE-779" name="Logging of Excessive Data" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-08-07T08:29:02.372000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The software logs too much information, making log files hard
+                        to process and possibly hindering recovery efforts or forensic analysis after an
+                        attack.
+                    </desc>
+                </weakness>

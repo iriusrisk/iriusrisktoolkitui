@@ -1,0 +1,44 @@
+<threat ref="CAPEC-103" name="Attackers cause users to peform arbitrary clicks on the site through ClickJacking attacks" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>In a clickjacking attack the victim is tricked into unknowingly initiating some action
+                                in one system while interacting with the UI from seemingly completely different system.&amp;nbsp;
+                                &lt;div&gt;
+                                &lt;br /&gt;
+                                &lt;/div&gt;
+                                &lt;div&gt;
+                                While being logged in to some target system, the victim visits the attackers' malicious
+                                site which displays a UI that the victim wishes to interact with. In reality, the
+                                clickjacked page has a transparent layer above the visible UI with action controls that
+                                the attacker wishes the victim to execute. The victim clicks on buttons or other UI
+                                elements they see on the page which actually triggers the action controls in the
+                                transparent overlaying layer.
+                                &lt;/div&gt;
+                                &lt;div&gt;
+                                &lt;br /&gt;
+                                &lt;/div&gt;
+                                &lt;div&gt;
+                                Depending on what that action control is, the attacker may have just tricked the victim
+                                into executing some potentially privileged (and most certainly undesired) functionality
+                                in the target system to which the victim is authenticated.&amp;nbsp;
+                                &lt;/div&gt;
+                                &lt;div&gt;
+                                &lt;br /&gt;
+                                &lt;/div&gt;
+                                &lt;div&gt;
+                                The basic problem here is that there is a dichotomy between what the victim thinks he's
+                                clicking on versus what he or she is actually clicking on.
+                                &lt;br /&gt;
+                                &lt;/div&gt;
+                            </desc>
+                            <riskRating confidentiality="75" integrity="75" availability="100" easeOfExploitation="50"/>
+                            <references/>
+                            <controls>
+                                <control ref="@cwe-693-clickjack" mitigation="100"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-693-CLICKJACK">
+                                    <controls>
+                                        <control ref="@cwe-693-clickjack" mitigation="100"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

@@ -1,0 +1,72 @@
+<control ref='D2.14' name='Ensure live restore is Enabled' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>The --live-restore enables full support of daemon-less containers in docker. It ensures that
+                        docker does not stop containers on shutdown or restore and properly reconnects to the container
+                        when restarted.&amp;nbsp;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Rationale:&amp;nbsp;&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        One of the important security triads is availability. Setting --live-restore flag in the docker
+                        daemon ensures that container execution is not interrupted when the docker daemon is not
+                        available. This also means that it is now easier to update and patch the docker daemon without
+                        execution downtime.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&amp;nbsp;&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Run the docker in daemon mode and pass --live-restore as an argument. For Example,&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        dockerd --live-restore&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Impact:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        None.
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='Docker docs: Live restore' url='https://docs.docker.com/engine/admin/live-restore/' />
+          </references>
+          <standards>
+            <standard ref='2.14' supportedStandardRef='Level 1 - Docker' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>Run docker info and ensure that the Live Restore Enabled property is set to true.&amp;nbsp;
+                            &lt;blockquote&gt;
+                            &lt;div&gt;
+                            docker info --format '{{ .LiveRestoreEnabled }}'&amp;nbsp;
+                            &lt;/div&gt;
+                            &lt;/blockquote&gt;
+                            &lt;div&gt;
+                            Alternatively run the below command and ensure that --live-restore is used.&amp;nbsp;
+                            &lt;/div&gt;
+                            &lt;blockquote&gt;
+                            &lt;div&gt;
+                            ps -ef | grep dockerd
+                            &lt;/div&gt;
+                            &lt;/blockquote&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2016-08-02T10:21:32.718'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

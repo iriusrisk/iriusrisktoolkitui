@@ -1,0 +1,16 @@
+<weakness ref="CWE-656" name="Reliance on Security Through Obscurity" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references>
+                            <reference name="CWE-656: Reliance on Security Through Obscurity" url="https://cwe.mitre.org/data/definitions/656.html"/>
+                        </references>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-05-29T09:15:58.372000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The software uses a protection mechanism whose strength depends heavily on its obscurity, such
+                        that knowledge of its algorithms or key data is sufficient to defeat the mechanism.
+                    </desc>
+                </weakness>

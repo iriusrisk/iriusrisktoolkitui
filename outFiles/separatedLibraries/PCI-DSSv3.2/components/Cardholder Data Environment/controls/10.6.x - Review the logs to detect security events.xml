@@ -1,0 +1,98 @@
+<control ref="PCI-R10-10.6.1" name="10.6.x - Review the logs to detect security events" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Review the following at least daily:&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- All security events&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Logs of all system components that store, process, or transmit CHD and/or SAD&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Logs of all critical system components&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Logs of all servers and system components that perform security functions (for
+                        example,
+                        firewalls, intrusion-detection systems/intrusion-prevention systems (IDS/IPS), authentication
+                        servers,
+                        e-commerce redirection servers, etc)&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt; &lt;/p&gt;
+                        &lt;p&gt;Checking logs daily minimizes the amount of time and exposure of a potential breach.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;Daily review of security events-for example, notifications or alerts that
+                        identify
+                        suspicious or
+                        anomalous activities-as well as logs from critical system components, and logs from
+                        systems that
+                        perform
+                        security functions, such as firewalls, IDS/IPS, file-integrity monitoring (FIM) systems, etc. is
+                        necessary
+                        to identify potential issues. Note that the determination of "security event" will
+                        vary for each
+                        organization and may include consideration for the type of technology, location, and function of
+                        the device.
+                        Organizations may also wish to maintain a baseline of "normal" traffic to help
+                        identify
+                        anomalous behavior.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt; &lt;/p&gt;
+                        &lt;p&gt;All system components should periodically be reviewed based on the organization's
+                        policies and risk
+                        management strategy, as determined by the organization's annual risk assessment.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt; &lt;/p&gt;
+                        &lt;p&gt;Follow up exceptions and anomalies identified during the review process.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="10.6.x" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;10.6 Perform the following:&lt;/p&gt;
+                            &lt;p&gt;10.6.1.a Examine security policies and procedures to verify that procedures are
+                            defined for
+                            reviewing the following at least daily, either manually or via log tools: &lt;/p&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt; &lt;p&gt;All security events &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Logs of all system components that store, process, or transmit CHD
+                            and/or SAD&lt;/p&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Logs of all critical system components &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Logs of all servers and system components that perform security
+                            functions (for
+                            example, firewalls, intrusion-detection systems/intrusion-prevention systems (IDS/IPS),
+                            authentication
+                            servers, e-commerce redirection servers, etc.) &lt;/p&gt; &lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;p&gt;10.6.1.b Observe processes and interview personnel to verify that the following are
+                            reviewed at
+                            least daily: &lt;/p&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt; &lt;p&gt;All security events &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Logs of all system components that store, process, or transmit CHD
+                            and/or SAD&lt;/p&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Logs of all critical system components &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Logs of all servers and system components that perform security
+                            functions (for
+                            example, firewalls, intrusion-detection systems/intrusion-prevention systems (IDS/IPS),
+                            authentication
+                            servers, e-commerce redirection servers, etc.). &lt;/p&gt; &lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;p&gt;10.6.2.a Examine security policies and procedures to verify that procedures are
+                            defined for
+                            reviewing logs of all other system components periodically-either manually or via log
+                            tools-based on the
+                            organization's policies and risk management strategy. &lt;/p&gt;
+                            &lt;p&gt;10.6.2.b Examine the organization's risk-assessment documentation and
+                            interview
+                            personnel to
+                            verify that reviews are performed in accordance with organization's policies and risk
+                            management strategy.
+                            &lt;/p&gt;
+                            &lt;p&gt;10.6.3.a Examine security policies and procedures to verify that procedures are
+                            defined for
+                            following up on exceptions and anomalies identified during the review process. &lt;/p&gt;
+                            &lt;p&gt;10.6.3.b Observe processes and interview personnel to verify that follow-up to
+                            exceptions and
+                            anomalies is performed.&amp;nbsp;&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T17:14:40.225000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

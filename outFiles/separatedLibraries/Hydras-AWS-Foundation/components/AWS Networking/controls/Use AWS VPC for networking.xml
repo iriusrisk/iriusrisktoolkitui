@@ -1,0 +1,37 @@
+<control ref='Hydras-AWS-Network-5.1' name='Use AWS VPC for networking' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>AWS virtual private cloud is the de-facto standard for networking AWS as it provides
+                        additional security controls such as Security Groups, Network Access Control Lists (NACL's) and
+                        routing.
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        However the use of VPC is not compulsory and resources such as EC2 can be created outside of VPC
+                        (usingEC2 Classic). It is the recommendation to make all resources a member of a VPC if
+                        possible to benefit from the increased security controls they offer and reduce undue network
+                        exposure.&amp;nbsp;
+                        &lt;div&gt;
+                        &amp;nbsp;
+                        &lt;br /&gt;
+                        &lt;b&gt;Remediation:&lt;br /&gt;&lt;/b&gt;Move or migrate the resources to a VPC.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt; Content provided by
+                        &lt;a href="https://hydrasit.com" target="_blank"&gt; Hydras IT LTD&lt;/a&gt;
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references />
+          <standards />
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>Ensure that each AWS resource you own that is able to exist in a VPC does so.</steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

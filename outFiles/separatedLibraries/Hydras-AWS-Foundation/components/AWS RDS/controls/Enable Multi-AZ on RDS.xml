@@ -1,0 +1,89 @@
+<control ref='aws-tier-3.5' name='Enable Multi-AZ on RDS' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;div&gt;
+  Amazon Relational Database Service (RDS) is a managed relational database service which handles routine database tasks such as provisioning, patching, backup, recovery, failure detection, and repair. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt;
+  There are 6 database engines available for customer to run their database workloads on: 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt;Amazon Aurora (MySQL Compatible)&lt;/li&gt; 
+  &lt;li&gt;MySQL&lt;/li&gt; 
+  &lt;li&gt;MariaDB&lt;/li&gt; 
+  &lt;li&gt;Oracle&lt;/li&gt; 
+  &lt;li&gt;Microsoft SQL Server&lt;/li&gt; 
+  &lt;li&gt;PostgreSQL&lt;/li&gt; 
+ &lt;/ul&gt; 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;div&gt;
+   Provides AWS managed high availability of the Database Tier across 2 availability zones within a region through asynchronous replication at the data layer. 
+ &lt;/div&gt; 
+ &lt;div&gt; 
+  &lt;br /&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;b&gt;Remediation:&lt;/b&gt; 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;div style=""&gt;
+   Using the Amazon unified command line interface: 
+ &lt;/div&gt; 
+ &lt;div style=""&gt; 
+  &lt;ul&gt; 
+   &lt;li&gt;Modify each no-multi-az DB instance, and make it Multi-AZ enabled:&lt;/li&gt; 
+  &lt;/ul&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt; 
+   &lt;div style=""&gt;
+     aws rds modify-db-instance --db-instance-identifier &amp;lt;your_db_instance&amp;gt; --multi-az 
+   &lt;/div&gt; 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='Amazon docs: describe db instances' url='http://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-instances.html' />
+            <reference name='Amazon docs: modify db instances' url='http://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-instance.html' />
+          </references>
+          <standards>
+            <standard ref='3.5' supportedStandardRef='cis-amazon-web-services-three-tier-web-architecture-benchmark' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;div&gt;
+                            Using the Amazon unified command line interface:
+                            &lt;/div&gt;
+                            &lt;div&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt;Check if your application DB instances are Multi-AZ enabled:&lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;/div&gt;
+                            &lt;blockquote&gt;
+                            &lt;blockquote&gt;
+                            &lt;div&gt;
+                            aws rds describe-db-instances --filters Name=tag:data_tier_tag,Values=data_tier_tag_value
+                            --query &amp;quot;DBInstances[*].{MultiAZ:MultiAZ,
+                            DBInstanceIdentifier:DBInstanceIdentifier}&amp;quot;
+                            &lt;/div&gt;
+                            &lt;/blockquote&gt;
+                            &lt;/blockquote&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

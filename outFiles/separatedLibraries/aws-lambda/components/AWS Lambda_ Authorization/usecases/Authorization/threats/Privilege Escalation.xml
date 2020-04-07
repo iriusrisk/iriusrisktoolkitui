@@ -1,0 +1,19 @@
+<threat ref="CAPEC-233" name="Privilege Escalation" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>	&lt;p&gt;An adversary exploits a weakness enabling them to elevate their privilege and perform an action that they are not supposed to be authorized to perform.&lt;/p&gt;</desc>
+                            <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="25"/>
+                            <references/>
+                            <controls>
+                                <control ref="AWS-LAMBDA-C12" mitigation="33"/>
+                                <control ref="AWS-LAMBDA-C14" mitigation="33"/>
+                                <control ref="Hydras-AWS-IAM-2.7" mitigation="34"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="AWS-LAMBDA-W10">
+                                    <controls>
+                                        <control ref="AWS-LAMBDA-C12" mitigation="33"/>
+                                        <control ref="AWS-LAMBDA-C14" mitigation="33"/>
+                                        <control ref="Hydras-AWS-IAM-2.7" mitigation="34"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

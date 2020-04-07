@@ -1,0 +1,37 @@
+<control ref="PCI-R6-6.5.1b" name="6.5.1b - Use parametrized queries" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>The use of prepared statements with variable binding (aka parameterized queries) is how all
+                        developers
+                        should first be taught how to write database queries. They are simple to write, and easier to
+                        understand
+                        than dynamic queries. Parameterized queries force the developer to first define all the SQL
+                        code, and then
+                        pass in each parameter to the query later. This coding style allows the database to distinguish
+                        between code
+                        and data, regardless of what user input is supplied.
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="6.5.1b" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;6.5.1 Examine software-development policies and procedures and interview
+                            responsible
+                            personnel to verify that injection flaws are addressed by coding techniques that include:
+                            &lt;/p&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt; &lt;p&gt;Validating input to verify user data cannot modify meaning of commands
+                            and queries.
+                            &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Utilizing parameterized queries.&amp;nbsp;&lt;/p&gt; &lt;/li&gt;
+                            &lt;/ul&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T12:09:54.347000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

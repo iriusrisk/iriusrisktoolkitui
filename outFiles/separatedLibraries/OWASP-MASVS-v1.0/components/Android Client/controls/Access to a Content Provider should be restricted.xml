@@ -1,0 +1,43 @@
+<control ref="CAPEC-1-ANDROID-CONT" name="Access to a Content Provider should be restricted" platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>Malicious applications on the mobile device may be able to access a Content Provider, and
+                        sensitive data it has access to, if it is not properly restricted to only the expected
+                        applications.
+                        Explicitly restrict access to Content Providers to expected applications.
+                        Note that prior to Android 4.2, the Content Provider was automatically exported unless
+                        explicitly declared as NOT exported.
+                    </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="OWASP MASVS - Testing For Sensitive Functionality Exposure Through IPC" url="https://sushi2k.gitbooks.io/the-owasp-mobile-security-testing-guide/content/0x05h-Testing-Platform-Interaction.html#testing-for-sensitive-functionality-exposure-through-ipc"/>
+                        <reference name="OWASP MASVS - Testing Whether Sensitive Data Is Exposed via IPC Mechanisms" url="https://sushi2k.gitbooks.io/the-owasp-mobile-security-testing-guide/content/0x05d-Testing-Data-Storage.html#determining-whether-sensitive-stored-data-has-been-exposed-via-ipc-mechanisms"/>
+                    </references>
+                    <standards>
+                        <standard ref="2.6" supportedStandardRef="OWASP-MASVS-L1"/>
+                        <standard ref="6.4" supportedStandardRef="OWASP-MASVS-L1"/>
+                        <standard ref="2.6" supportedStandardRef="OWASP-MASVS-L1+R"/>
+                        <standard ref="6.4" supportedStandardRef="OWASP-MASVS-L1+R"/>
+                        <standard ref="2.6" supportedStandardRef="OWASP-MASVS-L2"/>
+                        <standard ref="2.6" supportedStandardRef="OWASP-MASVS-L2+R"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>Check AndrodManifest.xml for Content Providers:&amp;nbsp; 
+&lt;div&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt;Every &lt;i&gt;provider&lt;/i&gt; tag exposed in the file should have the following minimum set of permissions to work with the attributes:&amp;nbsp;&lt;/li&gt; 
+  &lt;ul&gt; 
+   &lt;li&gt;&lt;a href="https://developer.android.com/guide/topics/manifest/provider-element.html#gprmsn"&gt;android:grantUriPermssions&lt;/a&gt;: Temporary permission flag.&lt;/li&gt; 
+   &lt;li&gt;&lt;a href="https://developer.android.com/guide/topics/manifest/provider-element.html#prmsn"&gt;android:permission&lt;/a&gt;: Single provider-wide read/write permission.&amp;nbsp;&lt;/li&gt; 
+   &lt;li&gt;&lt;a href="https://developer.android.com/guide/topics/manifest/provider-element.html#rprmsn"&gt;android:readPermission&lt;/a&gt;: Provider-wide read permission.&amp;nbsp;&lt;/li&gt; 
+   &lt;li&gt;&lt;a href="https://developer.android.com/guide/topics/manifest/provider-element.html#wprmsn"&gt;android:writePermission&lt;/a&gt;: Provider-wide write permission.&lt;/li&gt; 
+  &lt;/ul&gt; 
+ &lt;/ul&gt; 
+&lt;/div&gt;</steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-02T10:21:32.718000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

@@ -1,0 +1,3 @@
+#!/bin/bash -x
+diff -u ${1}1_sub.py ${1}2_sub.py | vim -R -
+

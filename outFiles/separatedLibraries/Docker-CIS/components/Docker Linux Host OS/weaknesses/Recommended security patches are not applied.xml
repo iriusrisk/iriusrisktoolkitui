@@ -1,0 +1,15 @@
+<weakness ref='UNPATCHED-SERVER' name='Recommended security patches are not applied' state='0' impact='100'>
+          <desc>When patches are not applied in a timely manner then the server or system could be vulnerable
+                        to known security issues. These issues could be used by an attacker to gain access to the
+                        system.
+                    </desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2018-05-30T14:52:12.901'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>

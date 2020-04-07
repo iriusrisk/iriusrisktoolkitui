@@ -1,0 +1,38 @@
+<control ref="TIME-STATE" name="Verify concurrent systems does not introduce unexpected behaviour" platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+                        Failure to enforce proper access and locking of resources can result in race-conditions, where
+                        concurrent calls can subvert the security controls or logical flow within an application. For
+                        example, in a financial system, parallel threads may simultaneously check an account balance
+                        before making a withdrawal to ensure adequate funds are present, before both conduct a
+                        transaction and take the account overdrawn.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Verify that controls related to the proper management of time and state in an
+                        environment that supports simultaneous or near-simultaneous computation by multiple systems,
+                        processes, or threads are properly implemented.&lt;/li&gt;
+                        &lt;li&gt;Verify the safeguards in place, and the logical sequence of checking, locking, and
+                        transacting are resistant to race-conditions.&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards/>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+                            &lt;li&gt;Identify the areas of the application where concurrent access to resources can
+                            happen.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Verify that unexpected input, timing or action sequence is not causing unexpected
+                            behavior on the system.&lt;/li&gt;
+                            &lt;/ol&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2017-06-19T10:45:00.395000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

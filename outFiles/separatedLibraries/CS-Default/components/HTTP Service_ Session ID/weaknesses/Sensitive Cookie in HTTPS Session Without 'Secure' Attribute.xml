@@ -1,0 +1,16 @@
+<weakness ref="CWE-614" name="Sensitive Cookie in HTTPS Session Without 'Secure' Attribute" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references>
+                            <reference name="CWE-614: Sensitive Cookie in HTTPS Session Without 'Secure' Attribute" url="https://cwe.mitre.org/data/definitions/614.html"/>
+                        </references>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2017-03-21T16:50:31.325000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The Secure attribute for sensitive cookies in HTTPS sessions is not set, which could cause the
+                        user agent to send those cookies in plaintext over an HTTP session.
+                    </desc>
+                </weakness>

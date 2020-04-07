@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project ref="CS-Default-Security-Policies" name="Continuum Security Policies" revision="4" type="LIBRARY" status="OPEN"
+         enabled="true" priority="0" tags="" workflowState="">
+    <desc>A default set of rules that implement security policies such as applying PCI DSS and EU GDPR when required.
+        This library has not got any Risk Pattern.
+    </desc>
+    <udts/>
+    <supportedStandards/>
+    <categoryComponents/>
+    <componentDefinitions/>
+    <components/>
+    <rules>
+        <rule name='Security Standard: Apply EU GDPR - EU citizen' module='component' generatedByGui='true'>
+            <condition name='Question is answered' type='Question' field='id' value='eu_gdpr.handle.group.yes'>
+                <pattern name='Condition with answer' pattern='${type}(${field} == "${value}", answer == true);'/>
+            </condition>
+            <action project='' value='EU-GDPR_::_EU-GDPR' name='Apply security standard'
+                    type='drools-without-variable-type'>
+                <pattern name='Apply security standard'
+                         pattern='insertLogical(new SecurityStandard("${value-1}", "${value-2}")); insertLogical(new com.iriusrisk.drools.model.Notification(com.iriusrisk.drools.model.NotificationType.INFO, "apply.standard.${value-1}", "apply.standard.msg,${value-1}", true));insertLogical(new Conclusion(ConclusionType.POLICY, "id-${value-1}", "security.standard.will.apply", "${value-1}"));'/>
+            </action>
+            <content>
+                CnBhY2thZ2UgY29tLmlyaXVzcmlzay5kcm9vbHM7CgppbXBvcnQgY29tLmlyaXVzcmlzay5kcm9vbHMubW9kZWwuKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2subW9kZWwuKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2suKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2suZmFjdG9yaWVzLkRyb29sc1ZhbHVlQ29udmVydGVyOwppbXBvcnQgY29tLmlyaXVzcmlzay51dGlscy5FbnRpdHlXaXRoVURUVXRpbDsKCmdsb2JhbCBjb20uaXJpdXNyaXNrLnNlcnZpY2VzLmRyb29scy5Ecm9vbHNTZXJ2aWNlIGRyb29sc1NlcnZpY2UKCnJ1bGUgIlNlY3VyaXR5IFN0YW5kYXJkOiBBcHBseSBFVSBHRFBSIC0gRVUgY2l0aXplbiIKbm8tbG9vcAp3aGVuCiAgICAkcHJvamVjdCA6IFByb2plY3QoKQogICAgUXVlc3Rpb24oaWQgPT0gImV1X2dkcHIuaGFuZGxlLmdyb3VwLnllcyIsIGFuc3dlciA9PSB0cnVlKTsKICAgIAp0aGVuCiAgICBpbnNlcnRMb2dpY2FsKG5ldyBTZWN1cml0eVN0YW5kYXJkKCJFVS1HRFBSIiwgIkVVLUdEUFIiKSk7IGluc2VydExvZ2ljYWwobmV3IGNvbS5pcml1c3Jpc2suZHJvb2xzLm1vZGVsLk5vdGlmaWNhdGlvbihjb20uaXJpdXNyaXNrLmRyb29scy5tb2RlbC5Ob3RpZmljYXRpb25UeXBlLklORk8sICJhcHBseS5zdGFuZGFyZC5FVS1HRFBSIiwgImFwcGx5LnN0YW5kYXJkLm1zZyxFVS1HRFBSIiwgdHJ1ZSkpO2luc2VydExvZ2ljYWwobmV3IENvbmNsdXNpb24oQ29uY2x1c2lvblR5cGUuUE9MSUNZLCAiaWQtRVUtR0RQUiIsICJzZWN1cml0eS5zdGFuZGFyZC53aWxsLmFwcGx5IiwgIkVVLUdEUFIiKSk7CmVuZAogICAg
+            </content>
+        </rule>
+        <rule name='Security Standard: Apply EU GDPR - EU GDPR Environment' module='component' generatedByGui='true'>
+            <condition name='Risk pattern exists' type='drools-without-variable-type' field='id'
+                       value='EU GDPR_::_EU_GDPR_APPLICATION'>
+                <pattern name='Risk pattern exists'
+                         pattern='$riskPattern : RiskPattern(libraryRef == "${value-1}",ref == "${value-2}");'/>
+            </condition>
+            <action project='' value='EU-GDPR_::_EU-GDPR' name='Apply security standard'
+                    type='drools-without-variable-type'>
+                <pattern name='Apply security standard'
+                         pattern='insertLogical(new SecurityStandard("${value-1}", "${value-2}")); insertLogical(new com.iriusrisk.drools.model.Notification(com.iriusrisk.drools.model.NotificationType.INFO, "apply.standard.${value-1}", "apply.standard.msg,${value-1}", true));insertLogical(new Conclusion(ConclusionType.POLICY, "id-${value-1}", "security.standard.will.apply", "${value-1}"));'/>
+            </action>
+            <content>
+                CnBhY2thZ2UgY29tLmlyaXVzcmlzay5kcm9vbHM7CgppbXBvcnQgY29tLmlyaXVzcmlzay5kcm9vbHMubW9kZWwuKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2subW9kZWwuKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2suKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2suZmFjdG9yaWVzLkRyb29sc1ZhbHVlQ29udmVydGVyOwppbXBvcnQgY29tLmlyaXVzcmlzay51dGlscy5FbnRpdHlXaXRoVURUVXRpbDsKCmdsb2JhbCBjb20uaXJpdXNyaXNrLnNlcnZpY2VzLmRyb29scy5Ecm9vbHNTZXJ2aWNlIGRyb29sc1NlcnZpY2UKCnJ1bGUgIlNlY3VyaXR5IFN0YW5kYXJkOiBBcHBseSBFVSBHRFBSIC0gRVUgR0RQUiBFbnZpcm9ubWVudCIKbm8tbG9vcAp3aGVuCiAgICAkcHJvamVjdCA6IFByb2plY3QoKQogICAgJHJpc2tQYXR0ZXJuIDogUmlza1BhdHRlcm4obGlicmFyeVJlZiA9PSAiRVUgR0RQUiIscmVmID09ICJFVV9HRFBSX0FQUExJQ0FUSU9OIik7CiAgICAKdGhlbgogICAgaW5zZXJ0TG9naWNhbChuZXcgU2VjdXJpdHlTdGFuZGFyZCgiRVUtR0RQUiIsICJFVS1HRFBSIikpOyBpbnNlcnRMb2dpY2FsKG5ldyBjb20uaXJpdXNyaXNrLmRyb29scy5tb2RlbC5Ob3RpZmljYXRpb24oY29tLmlyaXVzcmlzay5kcm9vbHMubW9kZWwuTm90aWZpY2F0aW9uVHlwZS5JTkZPLCAiYXBwbHkuc3RhbmRhcmQuRVUtR0RQUiIsICJhcHBseS5zdGFuZGFyZC5tc2csRVUtR0RQUiIsIHRydWUpKTtpbnNlcnRMb2dpY2FsKG5ldyBDb25jbHVzaW9uKENvbmNsdXNpb25UeXBlLlBPTElDWSwgImlkLUVVLUdEUFIiLCAic2VjdXJpdHkuc3RhbmRhcmQud2lsbC5hcHBseSIsICJFVS1HRFBSIikpOwplbmQKICAgIA==
+            </content>
+        </rule>
+        <rule name='Security Standard: Apply PCI-DSS - Cardholder Data Environment' module='component'
+              generatedByGui='true'>
+            <condition name='Risk pattern exists' type='drools-without-variable-type' field='id'
+                       value='PCI-DSSv3.2_::_PCI-CDE'>
+                <pattern name='Risk pattern exists'
+                         pattern='$riskPattern : RiskPattern(libraryRef == "${value-1}",ref == "${value-2}");'/>
+            </condition>
+            <action project='' value='PCI-DSS-v3.2_::_PCI-DSS-v3.2' name='Apply security standard'
+                    type='drools-without-variable-type'>
+                <pattern name='Apply security standard'
+                         pattern='insertLogical(new SecurityStandard("${value-1}", "${value-2}")); insertLogical(new com.iriusrisk.drools.model.Notification(com.iriusrisk.drools.model.NotificationType.INFO, "apply.standard.${value-1}", "apply.standard.msg,${value-1}", true));insertLogical(new Conclusion(ConclusionType.POLICY, "id-${value-1}", "security.standard.will.apply", "${value-1}"));'/>
+            </action>
+            <content>
+                CnBhY2thZ2UgY29tLmlyaXVzcmlzay5kcm9vbHM7CgppbXBvcnQgY29tLmlyaXVzcmlzay5kcm9vbHMubW9kZWwuKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2subW9kZWwuKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2suKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2suZmFjdG9yaWVzLkRyb29sc1ZhbHVlQ29udmVydGVyOwppbXBvcnQgY29tLmlyaXVzcmlzay51dGlscy5FbnRpdHlXaXRoVURUVXRpbDsKCmdsb2JhbCBjb20uaXJpdXNyaXNrLnNlcnZpY2VzLmRyb29scy5Ecm9vbHNTZXJ2aWNlIGRyb29sc1NlcnZpY2UKCnJ1bGUgIlNlY3VyaXR5IFN0YW5kYXJkOiBBcHBseSBQQ0ktRFNTIC0gQ2FyZGhvbGRlciBEYXRhIEVudmlyb25tZW50Igpuby1sb29wCndoZW4KICAgICRwcm9qZWN0IDogUHJvamVjdCgpCiAgICAkcmlza1BhdHRlcm4gOiBSaXNrUGF0dGVybihsaWJyYXJ5UmVmID09ICJQQ0ktRFNTdjMuMiIscmVmID09ICJQQ0ktQ0RFIik7CiAgICAKdGhlbgogICAgaW5zZXJ0TG9naWNhbChuZXcgU2VjdXJpdHlTdGFuZGFyZCgiUENJLURTUy12My4yIiwgIlBDSS1EU1MtdjMuMiIpKTsgaW5zZXJ0TG9naWNhbChuZXcgY29tLmlyaXVzcmlzay5kcm9vbHMubW9kZWwuTm90aWZpY2F0aW9uKGNvbS5pcml1c3Jpc2suZHJvb2xzLm1vZGVsLk5vdGlmaWNhdGlvblR5cGUuSU5GTywgImFwcGx5LnN0YW5kYXJkLlBDSS1EU1MtdjMuMiIsICJhcHBseS5zdGFuZGFyZC5tc2csUENJLURTUy12My4yIiwgdHJ1ZSkpO2luc2VydExvZ2ljYWwobmV3IENvbmNsdXNpb24oQ29uY2x1c2lvblR5cGUuUE9MSUNZLCAiaWQtUENJLURTUy12My4yIiwgInNlY3VyaXR5LnN0YW5kYXJkLndpbGwuYXBwbHkiLCAiUENJLURTUy12My4yIikpOwplbmQKICAgIA==
+            </content>
+        </rule>
+        <rule name='Security Standard: Apply PCI-DSS - Credit Card Data Processed' module='component'
+              generatedByGui='true'>
+            <condition name='Question is answered' type='Question' field='id' value='Credit Card DataProcessed'>
+                <pattern name='Condition with answer' pattern='${type}(${field} == "${value}", answer == true);'/>
+            </condition>
+            <action project='' value='PCI-DSS-v3.2_::_PCI-DSS-v3.2' name='Apply security standard'
+                    type='drools-without-variable-type'>
+                <pattern name='Apply security standard'
+                         pattern='insertLogical(new SecurityStandard("${value-1}", "${value-2}")); insertLogical(new com.iriusrisk.drools.model.Notification(com.iriusrisk.drools.model.NotificationType.INFO, "apply.standard.${value-1}", "apply.standard.msg,${value-1}", true));insertLogical(new Conclusion(ConclusionType.POLICY, "id-${value-1}", "security.standard.will.apply", "${value-1}"));'/>
+            </action>
+            <content>
+                CnBhY2thZ2UgY29tLmlyaXVzcmlzay5kcm9vbHM7CgppbXBvcnQgY29tLmlyaXVzcmlzay5kcm9vbHMubW9kZWwuKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2subW9kZWwuKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2suKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2suZmFjdG9yaWVzLkRyb29sc1ZhbHVlQ29udmVydGVyOwppbXBvcnQgY29tLmlyaXVzcmlzay51dGlscy5FbnRpdHlXaXRoVURUVXRpbDsKCmdsb2JhbCBjb20uaXJpdXNyaXNrLnNlcnZpY2VzLmRyb29scy5Ecm9vbHNTZXJ2aWNlIGRyb29sc1NlcnZpY2UKCnJ1bGUgIlNlY3VyaXR5IFN0YW5kYXJkOiBBcHBseSBQQ0ktRFNTIC0gQ3JlZGl0IENhcmQgRGF0YSBQcm9jZXNzZWQiCm5vLWxvb3AKd2hlbgogICAgJHByb2plY3QgOiBQcm9qZWN0KCkKICAgIFF1ZXN0aW9uKGlkID09ICJDcmVkaXQgQ2FyZCBEYXRhUHJvY2Vzc2VkIiwgYW5zd2VyID09IHRydWUpOwogICAgCnRoZW4KICAgIGluc2VydExvZ2ljYWwobmV3IFNlY3VyaXR5U3RhbmRhcmQoIlBDSS1EU1MtdjMuMiIsICJQQ0ktRFNTLXYzLjIiKSk7IGluc2VydExvZ2ljYWwobmV3IGNvbS5pcml1c3Jpc2suZHJvb2xzLm1vZGVsLk5vdGlmaWNhdGlvbihjb20uaXJpdXNyaXNrLmRyb29scy5tb2RlbC5Ob3RpZmljYXRpb25UeXBlLklORk8sICJhcHBseS5zdGFuZGFyZC5QQ0ktRFNTLXYzLjIiLCAiYXBwbHkuc3RhbmRhcmQubXNnLFBDSS1EU1MtdjMuMiIsIHRydWUpKTtpbnNlcnRMb2dpY2FsKG5ldyBDb25jbHVzaW9uKENvbmNsdXNpb25UeXBlLlBPTElDWSwgImlkLVBDSS1EU1MtdjMuMiIsICJzZWN1cml0eS5zdGFuZGFyZC53aWxsLmFwcGx5IiwgIlBDSS1EU1MtdjMuMiIpKTsKZW5kCiAgICA=
+            </content>
+        </rule>
+        <rule name='Security Standard: Apply PCI-DSS - Credit Card Data Stored' module='component'
+              generatedByGui='true'>
+            <condition name='Question is answered' type='Question' field='id' value='Credit Card DataStored'>
+                <pattern name='Condition with answer' pattern='${type}(${field} == "${value}", answer == true);'/>
+            </condition>
+            <action project='' value='PCI-DSS-v3.2_::_PCI-DSS-v3.2' name='Apply security standard'
+                    type='drools-without-variable-type'>
+                <pattern name='Apply security standard'
+                         pattern='insertLogical(new SecurityStandard("${value-1}", "${value-2}")); insertLogical(new com.iriusrisk.drools.model.Notification(com.iriusrisk.drools.model.NotificationType.INFO, "apply.standard.${value-1}", "apply.standard.msg,${value-1}", true));insertLogical(new Conclusion(ConclusionType.POLICY, "id-${value-1}", "security.standard.will.apply", "${value-1}"));'/>
+            </action>
+            <content>
+                CnBhY2thZ2UgY29tLmlyaXVzcmlzay5kcm9vbHM7CgppbXBvcnQgY29tLmlyaXVzcmlzay5kcm9vbHMubW9kZWwuKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2subW9kZWwuKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2suKjsKaW1wb3J0IGNvbS5pcml1c3Jpc2suZmFjdG9yaWVzLkRyb29sc1ZhbHVlQ29udmVydGVyOwppbXBvcnQgY29tLmlyaXVzcmlzay51dGlscy5FbnRpdHlXaXRoVURUVXRpbDsKCmdsb2JhbCBjb20uaXJpdXNyaXNrLnNlcnZpY2VzLmRyb29scy5Ecm9vbHNTZXJ2aWNlIGRyb29sc1NlcnZpY2UKCnJ1bGUgIlNlY3VyaXR5IFN0YW5kYXJkOiBBcHBseSBQQ0ktRFNTIC0gQ3JlZGl0IENhcmQgRGF0YSBTdG9yZWQiCm5vLWxvb3AKd2hlbgogICAgJHByb2plY3QgOiBQcm9qZWN0KCkKICAgIFF1ZXN0aW9uKGlkID09ICJDcmVkaXQgQ2FyZCBEYXRhU3RvcmVkIiwgYW5zd2VyID09IHRydWUpOwogICAgCnRoZW4KICAgIGluc2VydExvZ2ljYWwobmV3IFNlY3VyaXR5U3RhbmRhcmQoIlBDSS1EU1MtdjMuMiIsICJQQ0ktRFNTLXYzLjIiKSk7IGluc2VydExvZ2ljYWwobmV3IGNvbS5pcml1c3Jpc2suZHJvb2xzLm1vZGVsLk5vdGlmaWNhdGlvbihjb20uaXJpdXNyaXNrLmRyb29scy5tb2RlbC5Ob3RpZmljYXRpb25UeXBlLklORk8sICJhcHBseS5zdGFuZGFyZC5QQ0ktRFNTLXYzLjIiLCAiYXBwbHkuc3RhbmRhcmQubXNnLFBDSS1EU1MtdjMuMiIsIHRydWUpKTtpbnNlcnRMb2dpY2FsKG5ldyBDb25jbHVzaW9uKENvbmNsdXNpb25UeXBlLlBPTElDWSwgImlkLVBDSS1EU1MtdjMuMiIsICJzZWN1cml0eS5zdGFuZGFyZC53aWxsLmFwcGx5IiwgIlBDSS1EU1MtdjMuMiIpKTsKZW5kCiAgICA=
+            </content>
+        </rule>
+    </rules>
+</project>

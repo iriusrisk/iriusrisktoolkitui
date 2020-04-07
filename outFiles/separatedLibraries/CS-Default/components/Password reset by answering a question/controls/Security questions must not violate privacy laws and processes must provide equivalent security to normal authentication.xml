@@ -1,0 +1,54 @@
+<control ref="CSD_PWD-REC-Q" name="Security questions must not violate privacy laws and processes must provide equivalent security to normal authentication" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+                        It is common for application to utilize 'security questions' as additional identity verification
+                        steps in the registration, authentication, and recovery processes. While these questions provide
+                        additional assurance, they should not be considered a true secret, or of equal security to the
+                        user's password. Furthermore, it is important that laws and legislation around private and
+                        personally identifiable information (PII) are observed, and the risk of disclosure of the
+                        security questions and answers should be considered.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Ensure the security questions do not violate privacy laws (e.g. asking for a SSN or
+                        Cardholder Data)&lt;/li&gt;
+                        &lt;li&gt;Questions and answers must be prevent from malicious recovery (e.g. enumeration or
+                        brute-force attacks)&lt;/li&gt;
+                        &lt;li&gt;The questions, and processes in which they are used, must be strong enough to provide
+                        equivalence to the main authentication process.&lt;/li&gt;
+                        &lt;li&gt;Processes involving the security questions must prevent an attacker with publicly
+                        available (or common personal) information about the victim from accessing their account. For
+                        example, date of birth, place of birth, birthdate, and mother's maiden name are common pieces of
+                        security information that are not truly secret.&lt;/li&gt;
+                        &lt;li&gt;Consider allowing the user to define their own security questions (challenges) and
+                        answers (responses) with guidance.&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="AC-2" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="IA-1" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="2.24" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="2.24" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="2.24" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+                            &lt;li&gt;Check the question set the application has for security questions.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Check their compliance against the &lt;a
+                            href="https://www.owasp.org/index.php/Choosing_and_Using_Security_Questions_Cheat_Sheet"
+                            rel="nofollow"&gt;OWASP guidelines&lt;/a&gt;.&lt;/li&gt;
+                            &lt;/ol&gt;
+                        </steps>
+                        <notes></notes>
+                        <references>
+                            <reference name="OWASP - Choosing and Using Security Questions" url="https://www.owasp.org/index.php/Choosing_and_Using_Security_Questions_Cheat_Sheet"/>
+                        </references>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-11-24T12:41:07.955000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

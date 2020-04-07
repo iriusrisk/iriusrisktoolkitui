@@ -1,0 +1,13 @@
+<weakness ref="EU-GDPR-NO-INCIDENT-MANAGEMENT" name="No incident management process/IRT" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T14:56:18.203000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>No or ineffective incident response team and/or process causing an ineffective containment and treatment of data breaches.
+                    </desc>
+                </weakness>

@@ -1,0 +1,41 @@
+<control ref="PCI-R9-9.1.1" name="9.1.1 - Use video cameras or access control mechanisms to monitor access to sensitive areas" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+                        &lt;p&gt;When investigating physical breaches, these controls can help identify the individuals
+                        that
+                        physically accessed the sensitive areas, as well as when they entered and exited.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;Criminals attempting to gain physical access to sensitive areas will often attempt to
+                        disable or
+                        bypass the monitoring controls. To protect these controls from tampering, video cameras could be
+                        positioned
+                        so they are out of reach and/or be monitored to detect tampering. Similarly, access control
+                        mechanisms could
+                        be monitored or have physical protections installed to prevent them being damaged or disabled by
+                        malicious
+                        individuals.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="9.1.1" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;9.1.1.a Verify that either video cameras or access control mechanisms (or both)
+                            are in place
+                            to monitor the entry/exit points to sensitive areas. &lt;/p&gt;
+                            &lt;p&gt;9.1.1.b Verify that either video cameras or access control mechanisms (or both) are
+                            protected
+                            from tampering or disabling.&amp;nbsp;&lt;/p&gt;
+                            &lt;p&gt; &lt;/p&gt;
+                            &lt;p&gt;9.1.1.c Verify that data from video cameras and/or access control mechanisms is
+                            reviewed, and
+                            that data is stored for at least three months.&amp;nbsp;&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T15:51:15.170000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

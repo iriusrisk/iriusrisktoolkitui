@@ -1,0 +1,26 @@
+<weakness ref='CWE-250' name='Execution with Unnecessary Privileges' state='0' impact='100'>
+          <desc>The software performs an operation at a privilege level that is higher than the minimum level
+                        required, which creates new weaknesses or amplifies the consequences of other weaknesses.
+
+                        New weaknesses can be exposed because running with extra privileges, such as root or
+                        Administrator, can disable the normal security checks being performed by the operating system or
+                        surrounding environment. Other pre-existing weaknesses can turn into security vulnerabilities if
+                        they occur while operating at raised privileges. Privilege management functions can behave in
+                        some less-than-obvious ways, and they have different quirks on different platforms. These
+                        inconsistencies are particularly pronounced if you are transitioning from one non-root user to
+                        another. Signal handlers and spawned processes run at the privilege of the owning process, so if
+                        a process is running as root when a signal fires or a sub-process is executed, the signal
+                        handler or sub-process will operate with root privileges.
+                    </desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2018-05-29T09:16:00.986'>
+              <output></output>
+            </source>
+            <references>
+              <reference name='CWE-250: Execution with Unnecessary Privileges' url='https://cwe.mitre.org/data/definitions/250.html' />
+            </references>
+            <udts />
+          </test>
+        </weakness>

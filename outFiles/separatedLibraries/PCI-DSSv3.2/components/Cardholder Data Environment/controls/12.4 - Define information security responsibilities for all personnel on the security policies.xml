@@ -1,0 +1,28 @@
+<control ref="PCI-R12-12.4" name="12.4 - Define information security responsibilities for all personnel on the security policies" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Without clearly defined security roles and responsibilities assigned, there could be
+                        inconsistent interaction with the security group, leading to unsecured implementation of
+                        technologies or use
+                        of outdated or unsecured technologies.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="12.4" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;12.4.a Verify that information security policies clearly define information
+                            security
+                            responsibilities for all personnel. &lt;/p&gt;
+                            &lt;p&gt;12.4.b Interview a sample of responsible personnel to verify they understand the
+                            security
+                            policies.&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-07T22:28:27.301000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

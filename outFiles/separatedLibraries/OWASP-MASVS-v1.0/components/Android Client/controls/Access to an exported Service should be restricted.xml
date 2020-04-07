@@ -1,0 +1,40 @@
+<control ref="CAPEC-1-ANDROID-SRV" name="Access to an exported Service should be restricted" platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>Malicious applications on the mobile device may be able to start and bind to an exported
+                        Service if access is not properly restricted. Depending on the exposed functionality, this may
+                        allow a malicious application to perform unauthorized actions, gain access to sensitive
+                        information, or corrupt the internal state of the application.
+                        Restrict access to start and bind to an exported Service to authorized applications only
+                    </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="OWASP MASVS - Testing For Sensitive Functionality Exposure Through IPC" url="https://sushi2k.gitbooks.io/the-owasp-mobile-security-testing-guide/content/0x05h-Testing-Platform-Interaction.html#testing-for-sensitive-functionality-exposure-through-ipc"/>
+                        <reference name="OWASP MASVS - Testing Whether Sensitive Data Is Exposed via IPC Mechanisms" url="https://sushi2k.gitbooks.io/the-owasp-mobile-security-testing-guide/content/0x05d-Testing-Data-Storage.html#determining-whether-sensitive-stored-data-has-been-exposed-via-ipc-mechanisms"/>
+                    </references>
+                    <standards>
+                        <standard ref="2.6" supportedStandardRef="OWASP-MASVS-L1"/>
+                        <standard ref="6.4" supportedStandardRef="OWASP-MASVS-L1"/>
+                        <standard ref="2.6" supportedStandardRef="OWASP-MASVS-L1+R"/>
+                        <standard ref="6.4" supportedStandardRef="OWASP-MASVS-L1+R"/>
+                        <standard ref="2.6" supportedStandardRef="OWASP-MASVS-L2"/>
+                        <standard ref="2.6" supportedStandardRef="OWASP-MASVS-L2+R"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>Check AndrodManifest.xml for exported services:&amp;nbsp; 
+&lt;div&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt;Check all the existing server tags.&lt;/li&gt; 
+  &lt;li&gt;Look for the attribute &lt;i&gt;android:permission=&amp;quot;&amp;quot;&lt;/i&gt; and check it has the appropriate permissions&amp;nbsp;&lt;/li&gt; 
+  &lt;li&gt;Those permissions should be as restrictive as possible. - e.g. Single provider-wide read/write permission.&lt;/li&gt; 
+  &lt;li&gt;If this attribute is not present for the server tag, inspect the &lt;i&gt;application&lt;/i&gt; element's permission attribute that will be applied to the service.&lt;/li&gt; 
+  &lt;li&gt;If neither attribute is set, the service is not protected by a permission.&lt;/li&gt; 
+ &lt;/ul&gt; 
+&lt;/div&gt;</steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-02T10:21:32.718000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

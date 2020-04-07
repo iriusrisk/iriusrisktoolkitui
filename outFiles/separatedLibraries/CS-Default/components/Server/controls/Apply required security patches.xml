@@ -1,0 +1,46 @@
+<control ref="PATCH-SERVER" name="Apply required security patches" platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+                        Vendors and other maintainers of software release patches in response to security flaws and
+                        other bugs in their products.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Apply patches and other software updates in a timely manner to prevent unexpected
+                        failures or exploitation.&lt;/li&gt;
+                        &lt;li&gt;Clearly define an approach for testing and applying patches, in particular security
+                        patches, with expected timescales. &amp;nbsp;There is often a small window between release of a
+                        patch, and potentially malicious actors reverse-engineering the patch to identify and exploit
+                        the flaw.&lt;/li&gt;
+                        &lt;li&gt;Use a threat intelligence, vulnerability scanning, or other alerting service to ensure
+                        the project team is aware of issues within the project or its components promptly.&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="CM-1" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="19.1" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="19.1" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="19.1" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="A9:2017-Using Components with Known Vulnerabilities" supportedStandardRef="owasp-top-10-2017"/>
+                        <standard ref="A6:2017-Security Misconfiguration" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+                            &lt;li&gt;Verify there is a processes for identifying, categorizing, and prioritizing
+                            security and other patches.&lt;/li&gt;
+                            &lt;li&gt;Review the testing and release process.&lt;/li&gt;
+                            &lt;li&gt;Verify patches are applied in a timely manner, in line with the policies and
+                            taking into account the associated risk.&lt;/li&gt;
+                            &lt;/ol&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2015-08-15T17:17:18.535000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

@@ -1,0 +1,19 @@
+<threat ref='DATA-EXPOSED-CHANNEL' name='The data is exposed through the transmission channel' state='Expose' source='MANUAL' owner='' library=''>
+              <desc>Attackers can obtain the data through the transmitted channel because this does not
+                                have the security measures in place to protect the data
+                            </desc>
+              <riskRating confidentiality='75' integrity='25' availability='50' easeOfExploitation='50' />
+              <references />
+              <weaknesses>
+                <weakness ref='DATA-TRANSMIT-CLEAR'>
+                  <controls>
+                    <control ref='GOOGLE-VM06' mitigation='50' />
+                    <control ref='GOOGLE-VM07' mitigation='50' />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref='GOOGLE-VM06' mitigation='50' />
+                <control ref='GOOGLE-VM07' mitigation='50' />
+              </controls>
+            </threat>

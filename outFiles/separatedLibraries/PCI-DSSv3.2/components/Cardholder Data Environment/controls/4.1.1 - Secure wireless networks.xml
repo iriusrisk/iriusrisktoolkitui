@@ -1,0 +1,45 @@
+<control ref="PCI-R4-4.1.1" name="4.1.1 - Secure wireless networks" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Ensure wireless networks transmitting cardholder data or connected to the cardholder
+                        data
+                        environment, use industry best practices to implement strong encryption for authentication and
+                        transmission.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt; &lt;/p&gt;
+                        &lt;p&gt;Malicious users use free and widely available tools to eavesdrop on wireless
+                        communications. Use of
+                        strong cryptography can help limit disclosure of sensitive information across wireless networks.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;Strong cryptography for authentication and transmission of cardholder data is required
+                        to prevent
+                        malicious users from gaining access to the wireless network or utilizing wireless networks to
+                        access other
+                        internal networks or data.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="4.1.1" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;4.1.1 Identify all wireless networks transmitting cardholder data or connected
+                            to the
+                            cardholder data environment. Examine documented standards and compare to system
+                            configuration settings to
+                            verify the following for all wireless networks identified: &lt;/p&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt; &lt;p&gt;Industry best practices are used to implement strong encryption for
+                            authentication and
+                            transmission. &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Weak encryption (for example, WEP, SSL) is not used as a security
+                            control for
+                            authentication or transmission.&amp;nbsp;&lt;/p&gt; &lt;/li&gt;
+                            &lt;/ul&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T09:20:07.647000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

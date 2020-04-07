@@ -1,0 +1,15 @@
+<weakness ref="CWE-229" name="Improper Handling of Values" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-04-04T17:37:55.127000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The software does not properly handle when the expected number
+                        of values for parameters, fields, or arguments is not provided in input, or if
+                        those values are undefined.
+                    </desc>
+                </weakness>

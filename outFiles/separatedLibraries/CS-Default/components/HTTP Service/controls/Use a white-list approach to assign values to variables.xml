@@ -1,0 +1,51 @@
+<control ref="ASSIGN-WHITE" name="Use a white-list approach to assign values to variables" platform="" cost="2" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;All data received from the client-side should be considered tainted and a potential
+                        risk, regardless of the source or transport method.&amp;nbsp;Using mass-assignment or
+                        auto-binding when accepting values from an untrusted source and mapping them to trusted server
+                        side values increases the risk of tainted data being used unsafely.&lt;/p&gt;
+                        &lt;p&gt;&lt;/p&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Bind individual values to specific fields, instead of binding whole objects.&lt;/li&gt;
+                        &lt;li&gt;Use available features of the language or framework that allow specification of white
+                        lists of attributes or fields that are allowed to be modified.&amp;nbsp;&lt;/li&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;For example, applications written with Ruby on Rails can use the attr_accessible
+                        (white list) or attr_protected (black list) macros in each class that may be used in mass
+                        assignment.&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/ul&gt;
+                    </desc>
+                    <implementations>
+                        <implementation platform="Spring.java">
+                            <desc>
+                                ICAgIEBSZXF1ZXN0TWFwcGluZyh2YWx1ZSA9ICIvdmVudWUve2NpdHl9L3twbGFjZX0iLCBtZXRob2QgPSAiR0VUIikKICAgIHB1YmxpYyBTdHJpbmcgZ2V0VmVudWVEZXRhaWxzKFZlbnVlIHZlbnVlLCBNb2RlbCBtb2RlbCkgewogICAgICAgIC8vIHZlbnVlIG9iamVjdCB3aWxsIGJlIGF1dG9tYXRpY2FsbHkgcG9wdWxhdGVkIHdpdGggY2l0eSBhbmQgcGxhY2UKICAgIH0=
+                            </desc>
+                        </implementation>
+                    </implementations>
+                    <references/>
+                    <standards>
+                        <standard ref="12.2.1" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="CA-8" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-10" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="5.16" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="5.16" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="A7:2017-Cross-Site Scripting (XSS)" supportedStandardRef="owasp-top-10-2017"/>
+                        <standard ref="A8:2017-Insecure Deserialization" supportedStandardRef="owasp-top-10-2017"/>
+                        <standard ref="A1:2017-Injection" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+                            &lt;li&gt;Identify the framework the component is using.&lt;/li&gt;
+                            &lt;li&gt;Check if this particular framework provides automatic binding of variables.&lt;/li&gt;
+                            &lt;li&gt;Verify it is disabled or restricted.&lt;/li&gt;
+                            &lt;/ol&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2015-08-15T17:17:16.263000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

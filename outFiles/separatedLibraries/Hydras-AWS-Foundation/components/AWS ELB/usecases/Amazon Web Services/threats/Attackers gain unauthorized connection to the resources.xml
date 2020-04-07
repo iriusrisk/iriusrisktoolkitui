@@ -1,0 +1,45 @@
+<threat ref='UNAUTHORIZED-CONECTIONS-AWS' name='Attackers gain unauthorized connection to the resources' state='Expose' source='MANUAL' owner='' library=''>
+              <desc>&lt;p&gt;Attackers could gain an unauthorized connection to the resources through
+                                misconfigured ports or security network configurations.&lt;/p&gt;
+                            </desc>
+              <riskRating confidentiality='100' integrity='100' availability='100' easeOfExploitation='25' />
+              <references />
+              <weaknesses>
+                <weakness ref='AWS-Network-5.2'>
+                  <controls>
+                    <control ref='aws-tier-3.1' mitigation='9' />
+                    <control ref='aws-tier-3.13' mitigation='9' />
+                    <control ref='aws-tier-3.14' mitigation='9' />
+                    <control ref='aws-tier-6.18' mitigation='9' />
+                    <control ref='aws-tier-6.26' mitigation='9' />
+                    <control ref='aws-tier-6.5' mitigation='10' />
+                  </controls>
+                </weakness>
+                <weakness ref='AWS-Network-5.1'>
+                  <controls>
+                    <control ref='aws-tier-6.1' mitigation='9' />
+                  </controls>
+                </weakness>
+                <weakness ref='AWS-NET-01'>
+                  <controls>
+                    <control ref='aws-tier-6.13' mitigation='9' />
+                    <control ref='aws-tier-6.17' mitigation='9' />
+                    <control ref='aws-tier-6.21' mitigation='9' />
+                    <control ref='aws-tier-6.22' mitigation='9' />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref='aws-tier-3.1' mitigation='9' />
+                <control ref='aws-tier-3.13' mitigation='9' />
+                <control ref='aws-tier-3.14' mitigation='9' />
+                <control ref='aws-tier-6.1' mitigation='9' />
+                <control ref='aws-tier-6.13' mitigation='9' />
+                <control ref='aws-tier-6.17' mitigation='9' />
+                <control ref='aws-tier-6.18' mitigation='9' />
+                <control ref='aws-tier-6.21' mitigation='9' />
+                <control ref='aws-tier-6.22' mitigation='9' />
+                <control ref='aws-tier-6.26' mitigation='9' />
+                <control ref='aws-tier-6.5' mitigation='10' />
+              </controls>
+            </threat>

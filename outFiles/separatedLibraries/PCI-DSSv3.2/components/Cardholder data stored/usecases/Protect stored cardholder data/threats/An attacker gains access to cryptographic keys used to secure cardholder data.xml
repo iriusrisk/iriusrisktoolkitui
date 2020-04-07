@@ -1,0 +1,45 @@
+<threat ref="PCI-R3-3.5" name="An attacker gains access to cryptographic keys used to secure cardholder data" state="Expose" source="MANUAL" owner="" library="">
+                            <desc></desc>
+                            <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="100"/>
+                            <references/>
+                            <controls>
+                                <control ref="PCI-R3-3.5" mitigation="7"/>
+                                <control ref="PCI-R3-3.5.1" mitigation="7"/>
+                                <control ref="PCI-R3-3.5.2" mitigation="8"/>
+                                <control ref="PCI-R3-3.5.3" mitigation="7"/>
+                                <control ref="PCI-R3-3.5.4" mitigation="7"/>
+                                <control ref="PCI-R3-3.6.1" mitigation="7"/>
+                                <control ref="PCI-R3-3.6.2" mitigation="7"/>
+                                <control ref="PCI-R3-3.6.3" mitigation="8"/>
+                                <control ref="PCI-R3-3.6.4" mitigation="7"/>
+                                <control ref="PCI-R3-3.6.5" mitigation="7"/>
+                                <control ref="PCI-R3-3.6.6" mitigation="7"/>
+                                <control ref="PCI-R3-3.6.7" mitigation="7"/>
+                                <control ref="PCI-R3-3.6.8" mitigation="7"/>
+                                <control ref="PCI-R3-3.7" mitigation="7"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="PCI-R3-3.x">
+                                    <controls>
+                                        <control ref="PCI-R3-3.5" mitigation="7"/>
+                                        <control ref="PCI-R3-3.5.2" mitigation="8"/>
+                                        <control ref="PCI-R3-3.5.3" mitigation="7"/>
+                                        <control ref="PCI-R3-3.5.4" mitigation="7"/>
+                                        <control ref="PCI-R3-3.6.1" mitigation="7"/>
+                                        <control ref="PCI-R3-3.6.2" mitigation="7"/>
+                                        <control ref="PCI-R3-3.6.3" mitigation="8"/>
+                                        <control ref="PCI-R3-3.6.4" mitigation="7"/>
+                                        <control ref="PCI-R3-3.6.5" mitigation="7"/>
+                                        <control ref="PCI-R3-3.6.6" mitigation="7"/>
+                                        <control ref="PCI-R3-3.6.7" mitigation="7"/>
+                                        <control ref="PCI-R3-3.6.8" mitigation="7"/>
+                                        <control ref="PCI-R3-3.7" mitigation="7"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="PCI-R3-3.5.1">
+                                    <controls>
+                                        <control ref="PCI-R3-3.5.1" mitigation="7"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

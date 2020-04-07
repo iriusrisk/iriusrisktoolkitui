@@ -1,0 +1,77 @@
+<control ref='D4.1' name='Ensure a user for the container has been created' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>Create a non-root user for the container in the Dockerfile for the container image.&amp;nbsp;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Rationale:&amp;nbsp;&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        It is a good practice to run the container as a non-root user, if possible. Though user
+                        namespace mapping is now available, if a user is already defined in the container image, the
+                        container is run as that user by default and specific user namespace remapping is not required.&amp;nbsp;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&amp;nbsp;&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Ensure that the Dockerfile for the container image contains the below instruction: USER Where
+                        username or ID refers to the user that could be found in the container base image. If there is
+                        no specific user created in the container base image, then add a useradd command to add the
+                        specific user before USER instruction. For example, add the below lines in the Dockerfile to
+                        create a user in the container:
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        &lt;div&gt;
+                        RUN useradd -d /home/username -m -s /bin/bash username USER username&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;div&gt;
+                        &lt;div&gt;
+                        Note: If there are users in the image that the containers do not need, consider deleting them.
+                        After deleting those users, commit the image and then generate new instances of containers for
+                        use.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Impact:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        None.
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='Docker github: 2918' url='https://github.com/docker/docker/issues/2918' />
+            <reference name='Docker github: 4572' url='https://github.com/docker/docker/pull/4572' />
+            <reference name='Docker github: 7906' url='https://github.com/docker/docker/issues/7906' />
+          </references>
+          <standards>
+            <standard ref='4.1' supportedStandardRef='Level 1 - Docker' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;blockquote&gt;
+                            docker ps --quiet --all | xargs docker inspect --format '{{ .Id }}: User={{ .Config.User }}'&amp;nbsp;
+                            &lt;/blockquote&gt;
+                            &lt;div&gt;
+                            The above command should return container username or user ID. If it is blank it means, the
+                            container is running as root.
+                            &lt;/div&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2016-08-02T10:21:32.718'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

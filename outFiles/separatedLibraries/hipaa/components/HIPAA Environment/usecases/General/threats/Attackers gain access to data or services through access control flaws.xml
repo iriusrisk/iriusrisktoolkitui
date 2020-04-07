@@ -1,0 +1,61 @@
+<threat ref='no-security-procedures-access-control' name='Attackers gain access to data or services through access control flaws' state='Expose' source='MANUAL' owner='' library=''>
+              <desc>&lt;p&gt;Attackers gain access to the system because the various security controls for protecting access to health information is not defined and not implemented.&lt;/p&gt;</desc>
+              <riskRating confidentiality='100' integrity='100' availability='100' easeOfExploitation='25' />
+              <references />
+              <weaknesses>
+                <weakness ref='controls-validate-access-facility'>
+                  <controls>
+                    <control ref='hippa-ac-04' mitigation='8' />
+                    <control ref='hippa-ac-05' mitigation='8' />
+                  </controls>
+                </weakness>
+                <weakness ref='inadequate-procedures-repairs'>
+                  <controls>
+                    <control ref='hipaa-doc-09' mitigation='9' />
+                  </controls>
+                </weakness>
+                <weakness ref='lack-procedures-manage-EPHI'>
+                  <controls>
+                    <control ref='hippa-ac-01' mitigation='9' />
+                    <control ref='hippa-ac-02' mitigation='8' />
+                    <control ref='hippa-ac-03' mitigation='8' />
+                    <control ref='hippa-ac-06' mitigation='8' />
+                    <control ref='hippa-sec-15' mitigation='8' />
+                  </controls>
+                </weakness>
+                <weakness ref='incomplete-hipaa-doc'>
+                  <controls>
+                    <control ref='hippa-sec-13' mitigation='8' />
+                  </controls>
+                </weakness>
+                <weakness ref='lack-physical-access-workstations'>
+                  <controls>
+                    <control ref='hippa-sec-14' mitigation='9' />
+                  </controls>
+                </weakness>
+                <weakness ref='risk-management-not-implemented'>
+                  <controls>
+                    <control ref='hippa-sec-12' mitigation='9' />
+                  </controls>
+                </weakness>
+                <weakness ref='HIPAA-CWE-694'>
+                  <controls>
+                    <control ref='hippa-log-01' mitigation='8' />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref='hipaa-doc-09' mitigation='9' />
+                <control ref='hippa-ac-01' mitigation='9' />
+                <control ref='hippa-ac-02' mitigation='8' />
+                <control ref='hippa-ac-03' mitigation='8' />
+                <control ref='hippa-ac-04' mitigation='8' />
+                <control ref='hippa-ac-05' mitigation='8' />
+                <control ref='hippa-ac-06' mitigation='8' />
+                <control ref='hippa-log-01' mitigation='8' />
+                <control ref='hippa-sec-12' mitigation='9' />
+                <control ref='hippa-sec-13' mitigation='8' />
+                <control ref='hippa-sec-14' mitigation='9' />
+                <control ref='hippa-sec-15' mitigation='8' />
+              </controls>
+            </threat>

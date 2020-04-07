@@ -1,0 +1,572 @@
+Library modified: CS-Default.xml.
+  --> [Modified] Threat 'CWE-937-WEB'. 
+  --> [Modified] Threat 'CWE-937'. 
+  --> [Modified] Countermeasure 'PATCH-SERVER'. 
+  --> [Modified] Countermeasure 'CWE-120-MANAGED'. 
+  --> [Modified] Countermeasure 'CWE-120-RANDOM'. 
+  --> [Modified] Threat '7k-CWE-PoorCQ'. 
+  --> [Modified] Threat '7k-CWE-ErrorH'. 
+  --> [Modified] Threat '7k-CWE-InputVR'. 
+  --> [Modified] Weakness 'CWE-388'. 
+  --> [Modified] Weakness 'CWE-513'. 
+  --> [Modified] Weakness 'CWE-517'. 
+  --> [Modified] Weakness 'CWE-1005'. 
+  --> [Modified] Weakness 'CWE-2'. 
+  --> [Modified] Countermeasure 'ENV-USE'. 
+  --> [Modified] Countermeasure 'INPUT-VAL'. 
+  --> [Modified] Countermeasure 'INS-ENC'. 
+  --> [Modified] Threat 'AUTH-DATASTORE-LEAST-PRIV'. 
+  --> [Modified] Weakness 'CWE-250'. 
+  --> [Modified] Countermeasure 'RESTRICT-ACCESS-DATABASE'. 
+  --> [Modified] Threat 'NTW-MITM'. 
+  --> [Modified] Countermeasure 'CWE-319-TRANSPORT'. 
+  --> [Modified] Countermeasure 'CS-CLIENT-SECRET'. 
+  --> [Modified] Threat 'CAPEC-21'. 
+  --> [Modified] Weakness 'CWE-602'. 
+  --> [Modified] Countermeasure 'AVOID-API-KEYS'. 
+  --> [Modified] Countermeasure 'CWE-312'. 
+  --> [Modified] Countermeasure 'CSD-PWD-MEM'. 
+  --> [Modified] Threat 'VULN-SERVICE'. 
+  --> [Modified] Weakness 'CWE-284'. 
+  --> [Modified] Countermeasure 'CDS-USER-TRACK'. 
+  --> [Modified] Countermeasure 'CWE-521'. 
+  --> [Modified] Countermeasure 'CWE-662'. 
+  --> [Deleted] Use case 'POST DATA'. 
+  --> [Modified] Threat 'SOURCE-LEAK'. 
+  --> [Modified] Threat 'CAPEC-172'. 
+  --> [Modified] Threat 'CAPEC-130'. 
+  --> [Modified] Threat 'CAPEC-300'. 
+  --> [Modified] Countermeasure 'CWE-319-TRANSPORT'. 
+  --> [Modified] Countermeasure 'CWE-799'. 
+  --> [Modified] Countermeasure 'CWE-541'. 
+  --> [Modified] Countermeasure 'OTG-BUSLOGIC-006'. 
+  --> [Modified] Countermeasure '2FA-Token-compromise'. 
+  --> [Modified] Countermeasure 'CSD-ADM-TRUST'. 
+  --> [Modified] Threat 'CAPEC-232'. 
+  --> [Modified] Threat 'CAPEC-215'. 
+  --> [Modified] Threat 'CAPEC-122'. 
+  --> [Modified] Countermeasure 'CWE-654'. 
+  --> [Modified] Countermeasure 'ASVS-8.2'. 
+  --> [Modified] Countermeasure 'ASVS-8.1'. 
+  --> [Modified] Countermeasure 'ACCESS-CONTROL-CENTRALIZED'. 
+  --> [Modified] Threat 'FILE-MAL-UPLOAD'. 
+  --> [Modified] Weakness 'UNTRUSTED-FILE-HANDLING'. 
+  --> [Modified] Countermeasure 'WEB-EXEC-DATA'. 
+  --> [Modified] Countermeasure 'WEB-FILE-DATA'. 
+  --> [Modified] Countermeasure 'FILE-SCAN'. 
+  --> [Modified] Countermeasure 'FILE-DATA-CHECK'. 
+  --> [Modified] Threat 'CAPEC-59'. 
+  --> [Modified] Countermeasure 'CWE-384'. 
+  --> [Modified] Countermeasure 'CWE-331'. 
+  --> [Modified] Countermeasure 'CWE-613-LOGOUT'. 
+  --> [Modified] Countermeasure 'CWE-330'. 
+  --> [Modified] Threat 'CSD-AUTH-HASH'. 
+  --> [Modified] Threat 'CAPEC-16'. 
+  --> [Modified] Threat 'CWE-204-USERNAME-LOGIN'. 
+  --> [Modified] Weakness 'CWE-916'. 
+  --> [Modified] Countermeasure 'CWE-654'. 
+  --> [Modified] Countermeasure 'CWE-255-PWD-CHANGE'. 
+  --> [Modified] Countermeasure 'CWE-521'. 
+  --> [Modified] Countermeasure 'CWE-256'. 
+  --> [Modified] Countermeasure 'CWE-319-TRANSPORT'. 
+  --> [Modified] Threat 'CAPEC-201'. 
+  --> [Modified] Countermeasure 'WEB-SRV-XML'. 
+  --> [Modified] Countermeasure 'XPATH-ESCAPE'. 
+  --> [Modified] Countermeasure 'DATA-VAL'. 
+  --> [Modified] Threat 'CAPEC-117'. 
+  --> [Modified] Threat 'open-redirect-threat'. 
+  --> [Modified] Threat 'CAPEC-101'. 
+  --> [Modified] Weakness 'CWE-915'. 
+  --> [Modified] Weakness 'CWE-650'. 
+  --> [Modified] Weakness 'CWE-601'. 
+  --> [Modified] Countermeasure 'CWE-639'. 
+  --> [Modified] Countermeasure 'ASVS-11.5'. 
+  --> [Modified] Countermeasure 'RESTRICT-HTTP-METHODS'. 
+  --> [Modified] Countermeasure 'CWE-98-LIB'. 
+  --> [Modified] Countermeasure 'CWE-147'. 
+  --> [Modified] Threat 'FILE-MAL-UPLOAD'. 
+  --> [Modified] Weakness 'WEB-PATH-ROOT'. 
+  --> [New] Weakness 'CWE-94'. 
+  --> [New] Weakness 'UNTRUSTED-FILE-HANDLING'. 
+  --> [Modified] Countermeasure 'ASVS-16.6'. 
+  --> [New] Countermeasure 'WEB-EXEC-DATA'. 
+  --> [New] Countermeasure 'WEB-FILE-DATA'. 
+  --> [New] Countermeasure 'FILE-SCAN'. 
+  --> [New] Countermeasure 'FILE-DATA-CHECK'. 
+  --> [Modified] Threat 'CAPEC-61'. 
+  --> [Modified] Countermeasure 'CSD-PWD-CHG'. 
+  --> [Modified] Countermeasure 'RENEW-SESSION'. 
+  --> [Modified] Countermeasure 'CSD-SESS-FED'. 
+  --> [Modified] Countermeasure 'ASVS-2014-3.6'. 
+  --> [New] Countermeasure 'CWE-384'. 
+  --> [New] Countermeasure 'LIMIT-ACTIVE-SESSIONS'. 
+  --> [Modified] Threat 'CAPEC-136'. 
+  --> [Modified] Countermeasure 'CWE-150-LDAP'. 
+  --> [Modified] Threat 'CWE-778-AUTH'. 
+  --> [Modified] Threat 'EU-GDPR-DATA_LEAKAGE-UNAUTHZ-PARTIES'. 
+  --> [Modified] Countermeasure 'LOGS-INTEGRITY'. 
+  --> [Modified] Countermeasure 'ASVS-8.8'. 
+  --> [Modified] Countermeasure 'CSD-VAL-LOG'. 
+  --> [Modified] Countermeasure 'CDS-USER-TRACK'. 
+  --> [Modified] Countermeasure 'CWE-662'. 
+  --> [Modified] Threat 'CAPEC-167'. 
+  --> [Modified] Weakness 'CWE-312'. 
+  --> [Modified] Countermeasure 'CWE-312-ENCRYPT'. 
+  --> [Modified] Threat 'W3C-PLUGINS'. 
+  --> [Modified] Weakness 'IR-W3C-PLUGINS'. 
+  --> [Modified] Countermeasure 'CWE-311'. 
+  --> [Modified] Countermeasure 'CSD_PWD-REC-Q'. 
+  --> [Modified] Countermeasure 'CSD-PWD-OFF-CHAN'. 
+  --> [Modified] Countermeasure 'CSD-PWD-OFF-CHAN'. 
+  --> [Modified] Countermeasure 'CSD-PWD-OFF-CHAN'. 
+  --> [Modified] Weakness 'CWE-693'. 
+  --> [Modified] Weakness 'CWE-327'. 
+  --> [Modified] Countermeasure 'STRONG-ALGORITHMS-PROTOCOLS'. 
+  --> [Modified] Countermeasure 'CWE-330'. 
+  --> [Modified] Countermeasure 'ASVS-7.2'. 
+  --> [Modified] Countermeasure 'CWE-799'. 
+  --> [Modified] Threat 'BACKUP-COMPROMISE'. 
+  --> [Modified] Countermeasure 'CWE-311-AT-REST'. 
+  --> [Modified] Threat 'PRE-PROD'. 
+  --> [Modified] Countermeasure 'CWE-319-TRANSPORT'. 
+  --> [Modified] Countermeasure 'CWE-485-PREPROD'. 
+  --> [Modified] Countermeasure 'STRONG-ALGORITHMS-PROTOCOLS'. 
+  --> [Modified] Countermeasure 'CWE-319-TRANSPORT'. 
+  --> [Modified] Threat 'IRIUS-TRUST-SERVICE'. 
+  --> [Modified] Weakness 'CWE-370'. 
+  --> [Modified] Weakness 'CWE-327-POODLE'. 
+  --> [Modified] Countermeasure 'PATCH-SERVER'. 
+  --> [Modified] Countermeasure 'INF-UNNECESSARY-SERVICES'. 
+  --> [Modified] Threat 'CAPEC-66'. 
+  --> [Modified] Countermeasure 'CWE-89-PREPARED'. 
+  --> [Modified] Countermeasure 'CWE-256'. 
+  --> [Modified] Countermeasure 'CWE-312-ENCRYPT'. 
+  --> [Modified] Countermeasure 'DATA-VAL'. 
+  --> [Modified] Threat 'open-redirect-threat'. 
+  --> [Modified] Weakness 'CWE-601'. 
+  --> [Modified] Countermeasure 'CWE-79-HTML'. 
+  --> [Deleted] Threat 'ASVS-2014-3.3'. 
+  --> [Deleted] Weakness 'CWE-613'. 
+  --> [Deleted] Weakness 'cwe-613-logout'. 
+  --> [Modified] Countermeasure 'WEB-CSP'. 
+  --> [Modified] Countermeasure 'CWE-79-ENCODE'. 
+  --> [Modified] Countermeasure 'CWE-693-NOSNIFF'. 
+  --> [Modified] Countermeasure '@cwe-693-clickjack'. 
+  --> [Modified] Countermeasure 'CWE-693-X-XSS-PROTECTION'. 
+  --> [Deleted] Countermeasure 'ASVS-2014-3.5'. 
+  --> [Deleted] Countermeasure 'ASVS-2014-3.4'. 
+  --> [Deleted] Countermeasure 'ASVS-2014-3.3'. 
+  --> [Deleted] Countermeasure 'ASVS-3.2'. 
+  --> [Modified] Countermeasure 'CWE-922'. 
+  --> [Modified] Countermeasure 'CWE-942-CORS'. 
+  --> [Modified] Countermeasure 'CWE-525-CACHING'. 
+  --> [Modified] Countermeasure 'CWE-94'. 
+  --> [New] Component definition 'amazon-web-services-environment'. 
+  --> [New] Component definition 'internal-server'. 
+  --> [New] Component definition 'microsoft-azure-environment'. 
+  --> [New] Component definition 'google-cloud-platform-environment'. 
+  --> [Deleted] Component definition 'load-balancer'. 
+  --> [Modified] Category component 'service-side'. 
+  --> [New] Category component 'docker-category'. 
+  --> [New] Category component 'amazon-web-services'. 
+  --> [New] Category component 'on-premises-architecture'. 
+  --> [New] Category component 'microsoft-azure'. 
+  --> [New] Category component 'google-cloud-platform'. 
+  --> [New] Rule 'Q: Authentication - Web UI - Login'. 
+  --> [New] Rule 'Q: Authentication - Web UI - Login - *'. 
+  --> [Modified] Rule 'Q: Authentication - Server - Yes - User and Pass - Clear - *'. 
+  --> [Modified] Risk pattern 'DEPLOYMENT-ENVIRONMENT'. 
+  --> [New] Risk pattern 'web-browser-session'. 
+  --> [Deleted] Risk pattern 'LOAD-BALANCER'. 
+  --> [Deleted] Risk pattern 'INF-SERVER-AD'. 
+New library: iot-security-compliance-framework.xml.
+Library modified: PCI-DSSv3.2.xml.
+  --> [Modified] Countermeasure 'PCI-R10-10.1'. 
+  --> [Modified] Countermeasure 'PCI-R1-1.1.4'. 
+  --> [Modified] Countermeasure 'PCI-R12-12.6'. 
+  --> [Modified] Countermeasure 'PCI-R12-12.8'. 
+  --> [Modified] Countermeasure 'PCI-R2-2.1'. 
+  --> [Modified] Countermeasure 'PCI-R6-6.3.2'. 
+  --> [New] Rule 'Q: Cardholder Data - IoT Application - Credit Card - Processed - Which elements'. 
+  --> [New] Rule 'Q: Cardholder Data - IoT Application - Credit Card - Stored - Which elements'. 
+  --> [New] Rule 'Q: Cardholder Data - IoT Mobile Application - Credit Card - Processed - Which elements'. 
+  --> [New] Rule 'Q: Cardholder Data - IoT Mobile Application - Credit Card - Stored - Which elements'. 
+Library modified: OWASP-MASVS-v1.0.xml.
+  --> [Modified] Threat 'CAPEC-133'. 
+  --> [New] Weakness 'CWE-489'. 
+  --> [New] Weakness 'CWE-656'. 
+  --> [Modified] Countermeasure 'CAPEC-1-ANDROID-SRV'. 
+  --> [Modified] Countermeasure 'MASVS-7.2'. 
+  --> [Modified] Countermeasure 'CWE-20'. 
+  --> [New] Countermeasure 'MASVS-7.8'. 
+  --> [New] Countermeasure 'MASVS-8.8'. 
+  --> [New] Countermeasure 'MASVS-8.2'. 
+  --> [New] Countermeasure 'MASVS-7.4'. 
+  --> [New] Countermeasure 'MASVS-8.9'. 
+  --> [New] Countermeasure 'MASVS-7.3'. 
+  --> [Modified] Threat 'ACCESS-WEBVIEW'. 
+  --> [New] Weakness 'CWE-749'. 
+  --> [New] Weakness 'CWE-83'. 
+  --> [Modified] Countermeasure 'MASVS-6.8'. 
+  --> [Modified] Countermeasure 'MASVS-6.9'. 
+  --> [New] Countermeasure 'MASVS-6.6'. 
+  --> [New] Countermeasure 'MASVS-6.5'. 
+  --> [New] Countermeasure 'MASVS-6.7'. 
+  --> [Modified] Threat 'ACCESS-WEBVIEW'. 
+  --> [New] Weakness 'CWE-749'. 
+  --> [New] Weakness 'CWE-79'. 
+  --> [Modified] Countermeasure 'MASVS-6.6-IOS-UIWEBVIEW'. 
+  --> [New] Countermeasure 'MASVS-6.6'. 
+  --> [New] Countermeasure 'MASVS-6.5'. 
+  --> [New] Countermeasure 'MASVS-6.7'. 
+  --> [Modified] Threat 'CAPEC-133'. 
+  --> [Modified] Threat 'CAPEC-184'. 
+  --> [Modified] Threat 'CAPEC-122-MOBILE'. 
+  --> [New] Threat 'CAPEC-188'. 
+  --> [New] Weakness 'MASVS-EMULATION-TOOLS'. 
+  --> [New] Weakness 'MASVS-REVERSE-ENGINEERING-TOOLS'. 
+  --> [Modified] Countermeasure 'MASVS-2.11'. 
+  --> [Modified] Countermeasure 'CWE-250-MOBILE'. 
+  --> [New] Countermeasure 'MASVS-8.10'. 
+  --> [New] Countermeasure 'MASVS-8.8'. 
+  --> [New] Countermeasure 'MASVS-8.7'. 
+  --> [New] Countermeasure 'MASVS-8.3'. 
+  --> [New] Countermeasure 'MASVS-8.6'. 
+  --> [New] Countermeasure 'MASVS-8.5'. 
+  --> [New] Countermeasure 'MASVS-8.4'. 
+  --> [New] Countermeasure 'MASVS-8.2'. 
+  --> [New] Countermeasure 'MASVS-8.11'. 
+  --> [New] Countermeasure 'MASVS-8.1'. 
+  --> [New] Countermeasure 'MASVS-8.9'. 
+  --> [Modified] Countermeasure 'CWE-226'. 
+  --> [Modified] Threat 'CAPEC-21'. 
+  --> [Modified] Threat 'CAPEC-122-MOBILE'. 
+  --> [Modified] Countermeasure 'MASVS-2.5'. 
+  --> [Modified] Countermeasure 'MASVS-6.10'. 
+  --> [Modified] Countermeasure 'MASVS-2.7'. 
+  --> [Modified] Countermeasure 'CWE-295-MOBILE'. 
+  --> [New] Countermeasure 'MASVS-2.11'. 
+  --> [New] Countermeasure 'MASVS-8.1'. 
+  --> [New] Countermeasure 'CWE-250-MOBILE'. 
+  --> [New] Weakness 'CWE-530'. 
+  --> [New] Weakness 'CWE-323'. 
+  --> [New] Weakness 'CWE-321'. 
+  --> [Modified] Countermeasure 'CWE-921'. 
+  --> [Modified] Countermeasure 'CWE-921-LOGS-MOBILE'. 
+  --> [Modified] Countermeasure 'CWE-312-ENCRYPT'. 
+  --> [New] Countermeasure 'MASVS-2.8'. 
+  --> [New] Countermeasure 'MASVS-3.1'. 
+  --> [New] Countermeasure 'MASVS-3.5'. 
+  --> [Deleted] Rule 'C-Modify: Mobile - Android'. 
+  --> [Deleted] Rule 'C-Modify: Mobile - iOS'. 
+  --> [Deleted] Rule 'C-Modify: Mobile - No Android - No iOS'. 
+  --> [Deleted] Risk pattern 'MOBILE-CLIENT:REVERSE'. 
+Library modified: Eu-Gdpr.xml.
+  --> [Modified] Threat 'EU_GDPR-LACK_DATA_SUBJECT-CONTROL'. 
+  --> [Modified] Threat 'EU-GDPR-ILLEGAL-PROCESSING-PERSONAL-DATA'. 
+  --> [Modified] Threat 'EU-GDPR-NO-REPORT-DATA-SUBJECTS'. 
+  --> [Modified] Threat 'EU-GDPR-LACK-MONITORING'. 
+  --> [Modified] Weakness 'EU-GDPR-NO-REPORT-72-HOURS'. 
+  --> [Modified] Weakness 'EU-GDPR-NO-CONTRACT'. 
+  --> [Modified] Weakness 'EU-GDPR-NO-INCIDENT-MANAGEMENT'. 
+  --> [Modified] Weakness 'EU-GDPR-NO-LEGAL-BASE'. 
+  --> [Modified] Weakness 'EU-GDPR-NO-LEGITIMATE-INTEREST'. 
+  --> [Modified] Weakness 'EU-GDPR-NO-PROACTIVE-AUDITING'. 
+  --> [Modified] Weakness 'EU-GDPR-NO-PUBLIC-INTEREST'. 
+  --> [Modified] Weakness 'EU-GDPR-NO-VITAL-INTEREST'. 
+  --> [Modified] Weakness 'EU-GDPR-NO-PURPOSE'. 
+  --> [Modified] Countermeasure 'EU-GDPR-TREATMENT'. 
+  --> [Modified] Countermeasure 'EU-GDPR-REPORTING-TEMPLATES-PROCESS'. 
+  --> [Modified] Countermeasure 'EU-GDPR-PURPOSE'. 
+  --> [Modified] Countermeasure 'EU-GDPR-DOCUMENT-LEGAL-GROUNDS'. 
+  --> [Modified] Countermeasure 'EU-GDPR-PUBLIC-INTEREST'. 
+  --> [Modified] Countermeasure 'EU-GDPR-VITAL-INTEREST'. 
+  --> [Modified] Countermeasure 'EU-GDPR-LEGITIMATE-INTEREST'. 
+  --> [Modified] Countermeasure 'EU-GDPR-MONITORING'. 
+  --> [Modified] Countermeasure 'EU-GDPR-INCIDENT-DETECTABILITY'. 
+  --> [Modified] Countermeasure 'EU-GDPR-PPI-CONTRACT'. 
+  --> [Modified] Threat 'EU-GDPR-ILLEGAL-PROCESSING-PERSONAL-DATA'. 
+  --> [Modified] Threat 'EU_GDPR-LACK_DATA_SUBJECT-CONTROL'. 
+  --> [Modified] Threat 'EU-GDPR-SUBJECT-RIGTHS'. 
+  --> [Modified] Weakness 'EU-GDPR-NO-DATA-MAPPING'. 
+  --> [Modified] Weakness 'EU-GDPR-NO-CONSENT-MECHANISM'. 
+  --> [Modified] Weakness 'EU-GDPR-NOT-EXPORT-FUNCTIONALITY'. 
+  --> [Modified] Weakness 'EU-GDPR-NO-PROCESS'. 
+  --> [Modified] Weakness 'EU-GDPR-NO-PUBLIC-PRIVACY-NOTICE'. 
+  --> [Modified] Countermeasure 'EU-GDPR-CONSENT-MECHANISM'. 
+  --> [Modified] Countermeasure 'EU-GDPR-EXPORT-FUNCTIONALITY'. 
+  --> [Modified] Countermeasure 'EU-GDPR-EDITABLE-PERSONAL-DATA'. 
+  --> [Modified] Countermeasure 'EU-GDPR-PRIVACY-NOTICE'. 
+  --> [Modified] Countermeasure 'EU-GDPR-COMMUNICATION-CHANNEL'. 
+  --> [Modified] Threat 'EU-GDPR-DATA_LEAKAGE-UNAUTHZ-PARTIES'. 
+  --> [Modified] Weakness 'EU-GDPR-LOGICAL-DELETE-DATA-INACTIVITY'. 
+  --> [Modified] Weakness 'EU-GDPR-NO-ANONYMISATION'. 
+  --> [Modified] Weakness 'EU-GDPR-MISSING-ENCRYPTION-SENSITIVE-DATA'. 
+  --> [Modified] Weakness 'EU-GDPR-PRODUCTION-DATA-TEST-DATA'. 
+  --> [Modified] Weakness 'EU-GDPR-STORING-DATA-TOO-LONG'. 
+  --> [Modified] Weakness 'EU-GDPR-STORING-TOO-MUCH-DATA'. 
+  --> [Modified] Weakness 'EU-GDPR-UNAUTHENTICATED-DATA-ACCESS'. 
+  --> [Modified] Weakness 'EU-GDPR-UNNECESSARY-PRIVILEGES'. 
+  --> [Modified] Countermeasure 'EU-GDPR-ANONYMISATION'. 
+  --> [Modified] Countermeasure 'EU-GDPR-RETENTION-PERIODS'. 
+  --> [Modified] Countermeasure 'EU-GDPR-DOC-ALL-DATA-PROCESSED'. 
+  --> [Modified] Countermeasure 'EU-GDPR-ENCRYPT-PERSONAL-DATA'. 
+  --> [Modified] Countermeasure 'EU-GDPR-PERMANTLY-DELETE-UNCESSESSARY-DATA'. 
+  --> [Modified] Countermeasure 'CWE-306-SERVICE'. 
+  --> [Modified] Countermeasure 'EU-GDPR-ANONYMISED-DATA-TEST'. 
+  --> [Modified] Threat 'EU-GDPR-DATA_LEAKAGE-UNAUTHZ-PARTIES'. 
+  --> [Modified] Threat 'EU-GDPR-ILLEGAL-PROCESSING-PERSONAL-DATA'. 
+  --> [Modified] Threat 'EU-GDPR-INCORRECT-PROCESING-DATA'. 
+  --> [Modified] Threat 'EU-GDPR-REPUDATION'. 
+  --> [Modified] Threat 'EU-GDPR-LOSS-PERSONAL-DATA'. 
+  --> [Modified] Threat 'EU-GDPR-SUBJECT-RIGTHS'. 
+  --> [Modified] Weakness 'EU-GDPR-INSUFFICIENT-INPUT-VALIDATION'. 
+  --> [Modified] Weakness 'EU-GDPR-INSUFFICIENT-LOGGING'. 
+  --> [Modified] Weakness 'EU-GDPR-NO-DATA-INTEGRITY-CHECKS'. 
+  --> [Modified] Weakness 'EU-GDPR-NO-DELETION-FUNCTIONALITY'. 
+  --> [Modified] Weakness 'EU-GDPR-BAD-ALGORITHMS'. 
+  --> [Modified] Weakness 'EU-GDPR-UNAUTHENTICATED-DATA-ACCESS'. 
+  --> [Modified] Weakness 'EU-GDPR-UNNECESSARY-PRIVILEGES'. 
+  --> [Modified] Weakness 'EU-GDPR-UNRECOVERED-SENSITIVE-DATA'. 
+  --> [Modified] Countermeasure 'EU-GDPR-AUTOMATED-DECISIONS'. 
+  --> [Modified] Countermeasure 'EU-GDPR-BACKUP'. 
+  --> [Modified] Countermeasure 'EU-GDPR-INTEGRITY'. 
+  --> [Modified] Countermeasure 'EU-GDPR-IMPLEMENT-FORGET'. 
+  --> [Modified] Countermeasure 'EU-GDPR-INPUT-VADILATION'. 
+  --> [Modified] Countermeasure 'EU-GDPR-LOGGING'. 
+  --> [Modified] Countermeasure 'CWE-306-SERVICE'. 
+  --> [Modified] Threat 'EU-GDPR-ILLEGAL-PROCESSING-PERSONAL-DATA'. 
+  --> [Modified] Weakness 'EU-GDPR-NO-LEGAL-GROUND-INTERNATIONAL-TRANSFER'. 
+  --> [Modified] Countermeasure 'EU-GDPR-MANAGE-INTERNATIONAL-DATA-TRANSFERS'. 
+  --> [New] Rule 'Q: EU GDPR - All - PII - European Subjects (IoT Application)'. 
+  --> [New] Rule 'Q: EU GDPR - All - PII - European Subjects (IoT Mobile Application)'. 
+Library modified: Docker-CIS.xml.
+  --> [Modified] Weakness 'CWE-2'. 
+  --> [Modified] Countermeasure 'D5.11'. 
+  --> [Modified] Countermeasure 'D5.10'. 
+  --> [Modified] Weakness 'CWE-2'. 
+  --> [Modified] Countermeasure 'D2.10'. 
+  --> [Modified] Countermeasure 'D2.12'. 
+  --> [Modified] Countermeasure 'D2.11'. 
+  --> [Modified] Weakness 'CWE-2'. 
+  --> [Modified] Weakness 'CWE-284'. 
+  --> [Modified] Weakness 'CWE-2'. 
+  --> [Modified] Countermeasure 'D1.12'. 
+  --> [Modified] Weakness 'CWE-2'. 
+  --> [Modified] Countermeasure 'D7.6'. 
+  --> [Modified] Component definition 'docker-environment'. 
+  --> [New] Category component 'docker-category'. 
+  --> [Deleted] Category component 'environment'. 
+New library: aws-lambda.xml.
+Library modified: Hydras-AWS-Foundation.xml.
+  --> [Deleted] Use case 'PATCHING'. 
+  --> [Modified] Threat 'UNAUTHORIZED-CONNECTION'. 
+  --> [Modified] Threat 'NON-UPDATED-SYSTEMS-AWS'. 
+  --> [Modified] Threat 'NON-UPDATED-SYSTEMS-AWS'. 
+  --> [Modified] Countermeasure 'Hydras-AWS-EC2-6.2'. 
+  --> [Modified] Countermeasure 'Hydras-AWS-Network-5.6'. 
+  --> [Modified] Countermeasure 'Hydras-AWS-Network-5.7'. 
+  --> [Modified] Countermeasure 'Hydras-AWS-Network-5.5'. 
+  --> [Modified] Countermeasure 'Hydras-AWS-Network-5.3'. 
+  --> [Modified] Countermeasure 'Hydras-AWS-Network-5.4'. 
+  --> [Modified] Threat 'EAVESDROPPING-COMMUNICATIONS'. 
+  --> [New] Threat 'UNAUTHORIZED-CONECTIONS-AWS'. 
+  --> [New] Threat 'UNAUDITABLE-CHANGES-RESOURCES-AWS'. 
+  --> [Deleted] Threat 'UNAUTHORIZED-CONNECTION'. 
+  --> [Deleted] Threat 'UNAUTHORIZED-CONNECTIONS-RESOURCES'. 
+  --> [Deleted] Threat 'UNAUTHORIZED-ACCESS-NETWORK'. 
+  --> [Modified] Weakness 'AWS-NET-01'. 
+  --> [New] Weakness 'CWE-295'. 
+  --> [New] Weakness 'CWE-311'. 
+  --> [New] Weakness 'AWS-Logging-3.4'. 
+  --> [New] Weakness 'unknown-resource-status'. 
+  --> [Deleted] Weakness 'AWS-NET-04'. 
+  --> [Deleted] Weakness 'AWS-NET-02'. 
+  --> [Deleted] Weakness 'AWS-NET-03'. 
+  --> [Modified] Countermeasure 'Hydras-AWS-ELB-02'. 
+  --> [New] Countermeasure 'aws-tier-1.12'. 
+  --> [New] Countermeasure 'aws-tier-1.9'. 
+  --> [New] Countermeasure 'aws-tier-6.13'. 
+  --> [New] Countermeasure 'aws-tier-3.14'. 
+  --> [New] Countermeasure 'aws-tier-3.1'. 
+  --> [New] Countermeasure 'aws-tier-3.13'. 
+  --> [New] Countermeasure 'aws-tier-3.9'. 
+  --> [New] Countermeasure 'aws-tier-3.8'. 
+  --> [New] Countermeasure 'aws-tier-1.13'. 
+  --> [New] Countermeasure 'aws-tier-1.10'. 
+  --> [New] Countermeasure 'aws-tier-6.5'. 
+  --> [New] Countermeasure 'aws-tier-6.26'. 
+  --> [New] Countermeasure 'aws-tier-6.21'. 
+  --> [New] Countermeasure 'aws-tier-6.22'. 
+  --> [New] Countermeasure 'aws-tier-6.18'. 
+  --> [New] Countermeasure 'aws-tier-5.2'. 
+  --> [New] Countermeasure 'aws-tier-3.12'. 
+  --> [New] Countermeasure 'aws-tier-6.1'. 
+  --> [New] Countermeasure 'aws-tier-6.17'. 
+  --> [New] Countermeasure 'aws-tier-1.14'. 
+  --> [New] Countermeasure 'aws-tier-1.1'. 
+  --> [Deleted] Countermeasure 'Hydras-AWS-Network-5.6'. 
+  --> [Deleted] Countermeasure 'Hydras-AWS-Network-5.2'. 
+  --> [Deleted] Countermeasure 'Hydras-AWS-Network-5.1'. 
+  --> [Deleted] Countermeasure 'Hydras-AWS-Network-5.7'. 
+  --> [Deleted] Countermeasure 'Hydras-AWS-Network-5.5'. 
+  --> [Deleted] Countermeasure 'Hydras-AWS-Network-5.3'. 
+  --> [Deleted] Countermeasure 'Hydras-AWS-Network-5.4'. 
+  --> [Modified] Threat 'AWS-LOST-ACCESS-ROOT'. 
+  --> [Modified] Threat 'AWS-LOST-ACCESS-USER'. 
+  --> [Modified] Threat 'AWS-LOSS-CONTROL-ENV'. 
+  --> [New] Weakness 'LOST-ACCESS-ROOT-01'. 
+  --> [New] Weakness 'LOST-SECURITY-ALERTS'. 
+  --> [Modified] Countermeasure 'Hydras-AWS-EC2-6.3'. 
+  --> [Modified] Countermeasure 'Hydras-AWS-IAM-2.8'. 
+  --> [Modified] Countermeasure 'Hydras-AWS-IAM-2.1'. 
+  --> [Modified] Countermeasure 'Hydras-AWS-IAM-2.6'. 
+  --> [Modified] Countermeasure 'Hydras-AWS-IAM-1.20'. 
+  --> [Modified] Countermeasure 'Hydras-AWS-IAM-2.3'. 
+  --> [Modified] Countermeasure 'Hydras-AWS-IAM-1.21'. 
+  --> [Modified] Countermeasure 'Hydras-AWS-IAM-2.2'. 
+  --> [Modified] Countermeasure 'Hydras-AWS-IAM-2.10'. 
+  --> [Modified] Countermeasure 'Hydras-AWS-IAM-2.5'. 
+  --> [New] Countermeasure 'Hydras-AWS-Gov-1.1'. 
+  --> [New] Countermeasure 'Hydras-AWS-Gov-1.2'. 
+  --> [Modified] Use case 'API LOGGING AND AUDITING'. 
+  --> [Modified] Use case 'AWS RESOURCE LOGGING'. 
+  --> [Modified] Threat 'UNAUDITABLE-CHANGES-AWS'. 
+  --> [Modified] Threat 'UNAUDITABLE-CHANGES-RESOURCES-AWS'. 
+  --> [Modified] Weakness 'AWS-Logging-3.4'. 
+  --> [Modified] Countermeasure 'Hydras-AWS-Logging-3.9'. 
+  --> [Modified] Countermeasure 'Hydras-AWS-Logging-3.1'. 
+  --> [Modified] Countermeasure 'Hydras-AWS-Logging-3.2'. 
+  --> [Modified] Countermeasure 'Hydras-AWS-Logging-3.7'. 
+  --> [Modified] Countermeasure 'Hydras-AWS-Logging-3.8'. 
+  --> [Modified] Countermeasure 'Hydras-AWS-Logging-3.4'. 
+  --> [Modified] Threat 'UNAUTHORIZED_ACCESS_SYSTEMS_AWS'. 
+  --> [Modified] Threat 'UNAUTHORIZED-ACCESS-SECURITY-SYSTEMS-AWS'. 
+  --> [Modified] Threat 'UNAUTHORIZED-ACCESS-NETWORK-AWS'. 
+  --> [Modified] Countermeasure 'Hydras-AWS-Monitoring-4.4'. 
+  --> [Modified] Countermeasure 'Hydras-AWS-Monitoring-4.6'. 
+  --> [Modified] Countermeasure 'Hydras-AWS-Monitoring-4.2'. 
+  --> [Modified] Countermeasure 'Hydras-AWS-Monitoring-4.8'. 
+  --> [Modified] Countermeasure 'Hydras-AWS-Monitoring-4.10'. 
+  --> [Modified] Threat 'UNAUTHORIZED-CONECTIONS-AWS'. 
+  --> [Modified] Weakness 'AWS-Network-5.1'. 
+  --> [Modified] Countermeasure 'Hydras-AWS-Network-5.8'. 
+  --> [Modified] Countermeasure 'Hydras-AWS-EC2-6.1'. 
+  --> [Modified] Countermeasure 'Hydras-AWS-Network-5.2'. 
+  --> [Modified] Countermeasure 'Hydras-AWS-Network-5.1'. 
+  --> [Modified] Threat 'AWS-LOSS-CONTROL-ENV'. 
+  --> [Modified] Threat 'ACCESS-TO-DATA-AWS'. 
+  --> [New] Threat 'NON-UPDATED-SYSTEMS-AWS'. 
+  --> [New] Threat 'UNAUTHORIZED-CONECTIONS-AWS'. 
+  --> [New] Threat 'UNAUTHORIZED-ACCESS-SECURITY-SYSTEMS-AWS'. 
+  --> [New] Threat 'DATA-DELETED-EASY-AWS'. 
+  --> [Deleted] Threat 'UNAUTHORIZED-CONNECTION'. 
+  --> [Deleted] Threat 'UNAUTHORIZED-CONNECTIONS-RESOURCES'. 
+  --> [Deleted] Threat 'UNAUTHORIZED-ACCESS-NETWORK'. 
+  --> [New] Weakness 'database-publically-accesible'. 
+  --> [New] Weakness 'no-notification-incident'. 
+  --> [New] Weakness 'no-access-control-onrds'. 
+  --> [New] Weakness 'NOT_BACKUP_POLICIES'. 
+  --> [New] Weakness 'AWS-EC2-6.2'. 
+  --> [Deleted] Weakness 'AWS-Network-5.1'. 
+  --> [Deleted] Weakness 'AWS-NET-04'. 
+  --> [Deleted] Weakness 'AWS-NET-01'. 
+  --> [Deleted] Weakness 'AWS-NET-03'. 
+  --> [Deleted] Weakness 'AWS-NET-02'. 
+  --> [Modified] Countermeasure 'Hydras-AWS-RDS-01'. 
+  --> [New] Countermeasure 'aws-tier-6.34'. 
+  --> [New] Countermeasure 'aws-tier-6.30'. 
+  --> [New] Countermeasure 'aws-tier-3.6'. 
+  --> [New] Countermeasure 'aws-tier-1.4'. 
+  --> [New] Countermeasure 'aws-tier-4.4'. 
+  --> [New] Countermeasure 'aws-tier-4.3'. 
+  --> [New] Countermeasure 'aws-tier-3.5'. 
+  --> [New] Countermeasure 'aws-tier-3.7'. 
+  --> [Deleted] Countermeasure 'Hydras-AWS-S3-7.4'. 
+  --> [Deleted] Countermeasure 'Hydras-AWS-Network-5.6'. 
+  --> [Deleted] Countermeasure 'Hydras-AWS-Network-5.2'. 
+  --> [Deleted] Countermeasure 'Hydras-AWS-Network-5.1'. 
+  --> [Deleted] Countermeasure 'Hydras-AWS-Network-5.7'. 
+  --> [Deleted] Countermeasure 'Hydras-AWS-Network-5.5'. 
+  --> [Deleted] Countermeasure 'Hydras-AWS-Network-5.3'. 
+  --> [Deleted] Countermeasure 'Hydras-AWS-Network-5.4'. 
+  --> [Modified] Threat 'DATA-DELETED-EASY-AWS'. 
+  --> [Modified] Threat 'ACCESS-TO-DATA-AWS'. 
+  --> [Modified] Weakness 'AWS-S3-7.3'. 
+  --> [Modified] Countermeasure 'Hydras-AWS-S3-7.1'. 
+  --> [Modified] Countermeasure 'Hydras-AWS-S3-7.4'. 
+  --> [Modified] Threat 'AWS-LOST-CONTROL-NOTIFICATION'. 
+  --> [Modified] Threat 'ACCESS-TO-DATA-AWS'. 
+  --> [Modified] Weakness 'AWS-S3-7.3'. 
+  --> [New] Weakness 'log-actions-sending-out-notifications'. 
+  --> [New] Weakness 'no-access-control-publish-sns-topics'. 
+  --> [New] Weakness 'no-access-control-subscribe-sns-topics'. 
+  --> [Modified] Countermeasure 'Hydras-AWS-SNS-01'. 
+  --> [New] Countermeasure 'aws-tier-4.1'. 
+  --> [New] Countermeasure 'aws-tier-4.2'. 
+  --> [New] Countermeasure 'aws-tier-2.9'. 
+  --> [New] Countermeasure 'aws-tier-2.10'. 
+  --> [Modified] Component definition 'amazon-web-services-environment'. 
+  --> [New] Component definition 'ec2'. 
+  --> [New] Component definition 's3'. 
+  --> [New] Component definition 'rds'. 
+  --> [New] Component definition 'load-balancer'. 
+  --> [New] Component definition 'sns'. 
+  --> [New] Category component 'amazon-web-services'. 
+  --> [Deleted] Category component 'environment'. 
+  --> [Modified] Supported standard 'CIS AWS Standard'. 
+  --> [New] Supported standard 'cis-amazon-web-services-three-tier-web-architecture-benchmark'. 
+  --> [New] Rule 'Set Answer: Set Public Cloud when AWS EC2 is selected'. 
+  --> [New] Rule 'Set Answer: Set Public Cloud when AWS ELB is selected'. 
+  --> [New] Rule 'Set Answer: Set Public Cloud when AWS RDS is selected'. 
+  --> [New] Rule 'Set Answer: Set Public Cloud when AWS S3 is selected'. 
+  --> [New] Rule 'Set Answer: Set Public Cloud when AWS SNS is selected'. 
+  --> [Modified] Risk pattern 'HYDRAS-AWS-EC2'. 
+  --> [Modified] Risk pattern 'HYDRAS-AWS-ELB'. 
+  --> [Modified] Risk pattern 'HYDRAS-AWS-IAM'. 
+  --> [Modified] Risk pattern 'HYDRAS-AWS-LOG'. 
+  --> [Modified] Risk pattern 'HYDRAS-AWS-MON'. 
+  --> [Modified] Risk pattern 'HYDRAS-AWS-NET'. 
+  --> [Modified] Risk pattern 'HYDRAS-AWS-RDS'. 
+  --> [Modified] Risk pattern 'HYDRAS-AWS-S3'. 
+  --> [Modified] Risk pattern 'HYDRAS-AWS-SNS'. 
+  --> [Deleted] Risk pattern 'HYDRAS-AWS-GOV'. 
+Library modified: Microsoft-Azure.xml.
+  --> [Modified] Threat 'AZURE-LOST-ACCESS-ROOT'. 
+  --> [New] Weakness 'LOST-SECURITY-ALERTS'. 
+  --> [Modified] Countermeasure 'AZ-A02'. 
+  --> [Modified] Countermeasure 'AZ-A03'. 
+  --> [Modified] Countermeasure 'AZ-A04'. 
+  --> [New] Countermeasure 'AZ-A01'. 
+  --> [Modified] Countermeasure 'AZ-L05'. 
+  --> [Modified] Countermeasure 'AZ-Q02'. 
+  --> [Modified] Component definition 'microsoft-azure-environment'. 
+  --> [New] Component definition 'azure-virtual-machines'. 
+  --> [New] Component definition 'azure-storage'. 
+  --> [New] Component definition 'azure-sql'. 
+  --> [New] Category component 'microsoft-azure'. 
+  --> [Deleted] Category component 'environment'. 
+  --> [New] Rule 'Set Answer: Set Public Cloud when MS Azure SQL is selected'. 
+  --> [New] Rule 'Set Answer: Set Public Cloud when MS Azure Storage is selected'. 
+  --> [New] Rule 'Set Answer: Set Public Cloud when MS Azure Virtual Machines is selected'. 
+  --> [Deleted] Risk pattern 'AZURE-GOV'. 
+Library modified: Google-Cloud-Platform.xml.
+  --> [Modified] Threat 'GOOGLE-LOST-ACCESS-ROOT'. 
+  --> [New] Weakness 'LOST-SECURITY-ALERTS'. 
+  --> [Modified] Countermeasure 'GOOGLE-IAM05'. 
+  --> [Modified] Countermeasure 'GOOGLE-IAM06'. 
+  --> [New] Countermeasure 'GOOGLE-GOV01'. 
+  --> [Modified] Component definition 'google-cloud-platform-environment'. 
+  --> [New] Component definition 'google-virtual-machines'. 
+  --> [New] Component definition 'google-sql'. 
+  --> [New] Component definition 'google-storage'. 
+  --> [New] Component definition 'google-kubernetes'. 
+  --> [New] Category component 'google-cloud-platform'. 
+  --> [Deleted] Category component 'environment'. 
+  --> [New] Rule 'Risk Pattern: Google Cloud - Environment'. 
+  --> [New] Rule 'Set Answer: Set Public Cloud when Google Cloud Environment is selected'. 
+  --> [New] Rule 'Set Answer: Set Public Cloud when Google Kubernetes is selected'. 
+  --> [New] Rule 'Set Answer: Set Public Cloud when Google SQL is selected'. 
+  --> [New] Rule 'Set Answer: Set Public Cloud when Google Storage is selected'. 
+  --> [New] Rule 'Set Answer: Set Public Cloud when Google Virtual Machines is selected'. 
+  --> [Deleted] Risk pattern 'GOOGLE-CLOUD-GOV'. 

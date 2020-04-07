@@ -1,0 +1,14 @@
+<weakness ref='GOOGLE-MON01' name='Undetected changes in the security configurations' state='0' impact='100'>
+          <desc>Monitoring and alerting for security configurations are not configured and changes cannot be
+                        detected.
+                    </desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2018-05-31T09:31:01.373'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>

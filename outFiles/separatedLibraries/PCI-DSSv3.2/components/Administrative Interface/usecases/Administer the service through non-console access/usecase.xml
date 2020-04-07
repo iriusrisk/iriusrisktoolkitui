@@ -1,0 +1,2 @@
+<usecase ref="ADMINISTER THE SERVICE THROUGH NON-CONSOLE ACCESS" name="Administer the service through non-console access" desc="Refers to logical administrative access to a system component that occurs over a network interface rather than via a direct, physical connection to the system component. Non-console administrative access includes access from within local/internal networks as well as access from external, or remote, networks." library="">
+                    

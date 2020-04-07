@@ -1,0 +1,34 @@
+<control ref="AWS-LAMBDA-C16" name="Ensure it only exists one user to access to the API gateway" platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;The API gateway sits between the Lambda functions and the user. You must create an API gateway user that only has the ability to communicate with Lambda functions. It can only communicate between your internal perimeter. If the user is manipulated to send from a source other than theAPIgateway, access should be denied. You can also set Lambda authorizers in the API Gateway. &lt;/p&gt; 
+&lt;p&gt;&lt;b&gt;Remediation: &lt;/b&gt;&lt;br /&gt; Configure the Lambda authorizers on API methods: &lt;br /&gt;&lt;/p&gt; 
+&lt;ol&gt; 
+ &lt;li&gt;Sign in to the API Gateway console.&lt;/li&gt; 
+ &lt;li&gt;Create an API method and choose Authorizers under that API.&lt;/li&gt; 
+ &lt;li&gt;Give the permissions to access to the Lambda Functions only to one user.&lt;/li&gt; 
+&lt;/ol&gt; 
+&lt;p&gt;&lt;/p&gt;</desc>
+                    <implementations/>
+                    <references>
+                        <reference name="Configure Lambda Authorizer Using the API Gateway Console" url="https://docs.aws.amazon.com/apigateway/latest/developerguide/configure-api-gateway-lambda-authorization-with-console.html"/>
+                        <reference name="Set Up an IAM to Invoke Lambda Functions" url="https://docs.aws.amazon.com/apigateway/latest/developerguide/integrating-api-with-aws-services-lambda.html#api-as-lambda-proxy-setup-iam-role-policies"/>
+                        <reference name="Use API Gateway Lambda Authorizers" url="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html"/>
+                    </references>
+                    <standards/>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;Verify that Lambda authorizers are configured on API methods:&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;ol&gt; 
+ &lt;li&gt;Sign in to the API Gateway console.&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;Select each existing API and choose Authorizers under that API.&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;Check that it exist only one API gateway user with the permissions to access to the Lambda Functions.&lt;/li&gt; 
+&lt;/ol&gt; 
+&lt;p&gt;&lt;/p&gt;</steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-03-25T16:40:59">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

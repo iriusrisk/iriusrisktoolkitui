@@ -1,0 +1,16 @@
+<weakness ref='CWE-708' name='Incorrect Ownership Assignment' state='0' impact='100'>
+          <desc>The software assigns an owner to a resource, but the owner is outside of the intended control
+                        sphere.
+                    </desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2018-05-30T14:52:12.771'>
+              <output></output>
+            </source>
+            <references>
+              <reference name='CWE-708: Incorrect Ownership Assignment' url='https://cwe.mitre.org/data/definitions/708.html' />
+            </references>
+            <udts />
+          </test>
+        </weakness>

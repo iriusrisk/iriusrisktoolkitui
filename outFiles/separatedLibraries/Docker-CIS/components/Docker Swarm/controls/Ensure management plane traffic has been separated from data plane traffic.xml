@@ -1,0 +1,68 @@
+<control ref='D7.10' name='Ensure management plane traffic has been separated from data plane traffic' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>Separate management plane traffic from data plane traffic.&amp;nbsp;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Rationale:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Separating the management plane traffic from data plane traffic ensures that this traffic are on
+                        their respective paths. These paths could then be individually monitored and could be tied to
+                        different traffic control policies and monitoring. This also ensures that the management plane
+                        is always reachable despite the huge volume of data flow.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Initialize Swarm with dedicated interfaces for management and data planes respectively. For
+                        example,&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        docker swarm init --advertise-addr=192.168.0.1 --data-path-addr=17.1.0.3&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;b&gt;Impact:&lt;/b&gt;&amp;nbsp;
+                        &lt;div&gt;
+                        You would require 2 network interface cards per node.
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='Docker docs: Swarm data path addr' url='https://docs.docker.com/engine/reference/commandline/swarm_init/#--data-path-addr' />
+            <reference name='Moby github: 32717' url='https://github.com/moby/moby/pull/32717' />
+            <reference name='Moby github: 33938' url='https://github.com/moby/moby/issues/33938' />
+          </references>
+          <standards>
+            <standard ref='7.10' supportedStandardRef='Level 2 - Docker' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>Run the below command on each swarm node and ensure that the management plane address is
+                            different from the data plane address.&amp;nbsp;
+                            &lt;blockquote&gt;
+                            &lt;div&gt;
+                            docker node inspect --format '{{ .Status.Addr }}' self&amp;nbsp;
+                            &lt;/div&gt;
+                            &lt;/blockquote&gt;
+                            &lt;div&gt;
+                            Note: At the time of writing this benchmark, there is no way to inspect the data plane
+                            address. An issue has been raised and is in the reference link.
+                            &lt;/div&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2016-08-02T10:21:32.718'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

@@ -1,0 +1,21 @@
+<threat ref='UNAUTHORIZED-ACCESS-SECURITY-SYSTEMS' name='Attackers gain undetected access to the security system configurations' state='Expose' source='MANUAL' owner='' library=''>
+              <desc>Attackers could gain undetected access to the security system configurations and
+                                changes made by attackers couldn't be audited or detected.
+                            </desc>
+              <riskRating confidentiality='50' integrity='50' availability='50' easeOfExploitation='50' />
+              <references />
+              <weaknesses>
+                <weakness ref='GOOGLE-MON01'>
+                  <controls>
+                    <control ref='GOOGLE-MON03' mitigation='34' />
+                    <control ref='GOOGLE-MON04' mitigation='33' />
+                    <control ref='GOOGLE-MON13' mitigation='33' />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref='GOOGLE-MON03' mitigation='34' />
+                <control ref='GOOGLE-MON04' mitigation='33' />
+                <control ref='GOOGLE-MON13' mitigation='33' />
+              </controls>
+            </threat>

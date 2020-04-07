@@ -1,0 +1,52 @@
+<control ref='Hydras-AWS-Network-5.7' name='Use Network Access Control Lists (NACLs) for blacklisting' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>Network Access Control Lists (NACLs) act as packet filters across subnets, allowing or deny
+                        traffic per pre-created rules. It is recommended to use NACLs as a method of blacklisting IP
+                        addresses, denying either inbound or outbound access across your subnets.&amp;nbsp;
+                        &lt;div&gt;
+                        &amp;nbsp;
+                        &lt;br /&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;
+                        &lt;br /&gt;
+                        &lt;ol&gt;
+                        &lt;li&gt;Login to the AWS Management Console (with VPC update).&lt;/li&gt;
+                        &lt;li&gt;Select VPC from the services menu.&lt;/li&gt;
+                        &lt;li&gt;Select Network ACL's.&lt;/li&gt;
+                        &lt;li&gt;For each Network ACL ID, perform the following:&lt;/li&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Select the Inbound Rules tab.&lt;/li&gt;
+                        &lt;li&gt;Click edit.&lt;/li&gt;
+                        &lt;li&gt;add a DENY rule that will restrict inbound access from a blacklisted IP address or
+                        range to a designated port or IP range.&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/ol&gt;Content provided by
+                        &lt;a href="https://hydrasit.com" target="_blank"&gt; Hydras IT LTD&lt;/a&gt;
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references />
+          <standards />
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;ol&gt;
+                            &lt;li&gt;Login to the AWS Management Console.&lt;/li&gt;
+                            &lt;li&gt;Select VPC from the services menu.&lt;/li&gt;
+                            &lt;li&gt;Select Network ACLs.&lt;/li&gt;
+                            &lt;li&gt;For each Network ACL ID, perform the following:&amp;nbsp;&lt;/li&gt;
+                            &lt;/ol&gt;
+                            &lt;ul&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt;Click the Inbound Rules tab.&lt;/li&gt;
+                            &lt;li&gt;Ensure a rule exists the DENY's access from a blacklisted IP or range.&lt;/li&gt;
+                            &lt;li&gt;Click the Outbound Rules tab.&lt;/li&gt;
+                            &lt;li&gt;Ensure a rule exists the DENY's access to a blacklisted IP or range.&lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;/ul&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

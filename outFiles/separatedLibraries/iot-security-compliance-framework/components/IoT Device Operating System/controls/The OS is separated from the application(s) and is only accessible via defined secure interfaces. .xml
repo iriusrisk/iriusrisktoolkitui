@@ -1,0 +1,20 @@
+<control ref="IOT2.4.6.11" name="The OS is separated from the application(s) and is only accessible via defined secure interfaces. " platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;The Operating System is separated from the application(s) and is only accessible via defined secure interfaces.&lt;/p&gt; 
+&lt;p&gt;&lt;b&gt;&lt;font size="4"&gt;Rationale:&lt;br /&gt;&lt;/font&gt;&lt;/b&gt; Every device that is to be operated by an individual requires a user interface, usually referred to as a shell. The shell is the outermost layer around the Operating System kernel and is used to access its services including file management, process management (running and terminating applications), batch processing, and operating system monitoring and configuration.&lt;/p&gt; 
+&lt;p&gt;&lt;b&gt;&lt;font size="4"&gt;Remediation:&lt;br /&gt;&lt;/font&gt;&lt;/b&gt; Ensure that the Operating System is separated from the application(s) and is only accessible via defined secure interfaces.&lt;/p&gt;</desc>
+                    <implementations/>
+                    <references>
+                        <reference name="Operating System Structure" url="http://ycpcs.github.io/cs420-fall2014/lectures/lecture4_operating_system_structure.pdf"/>
+                    </references>
+                    <standards/>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-03-13T16:00:44">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

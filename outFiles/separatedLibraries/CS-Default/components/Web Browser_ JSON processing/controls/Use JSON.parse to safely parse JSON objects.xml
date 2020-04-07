@@ -1,0 +1,53 @@
+<control ref="CWE-94" name="Use JSON.parse to safely parse JSON objects" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+                        AJAX requests used to pass data between the client- and server- can contain any data, including
+                        malicious executable content. This data must be parsed in a safe manner to prevent malicious
+                        code being executed to compromise the application or it's users. Utilizing eval based solutions
+                        to process input data places the application at risk, as the malicious user has control over the
+                        data passed to the eval function, and could execute arbitrary code as a result. JSON.parse
+                        provides a means to convert the JSON payloads into an object without risk of execution.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Ensure all tainted and potentially malicious data is processed using JSON.parse.&lt;/li&gt;
+                        &lt;li&gt;Data should be validated and sanitized using appropriate syntactic and semantic
+                        checks, ideally against a white-list of known-good input.&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="12.2.1" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="12.6.1" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="CA-8" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-10" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-11" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-2" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="16.2" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="16.2" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="5.25" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="16.2" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="5.25" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="A8:2017-Insecure Deserialization" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;div&gt;
+                            &lt;ol&gt;
+                            &lt;li&gt;Identify application components receiving JSON as an input data.&lt;/li&gt;
+                            &lt;li&gt;Ensure the code interpreting the object is using the JSON.parse method.&lt;/li&gt;
+                            &lt;li&gt;If it is using an eval function the test should fail.&lt;/li&gt;
+                            &lt;/ol&gt;
+                            &lt;/div&gt;
+                            &lt;ol&gt;
+                            &lt;/ol&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-11-30T10:24:24.468000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

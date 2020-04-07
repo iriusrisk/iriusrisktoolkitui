@@ -1,0 +1,17 @@
+<threat ref="PCI-R12-12.x3" name="Poor hiring processes lead to an insider caused security breach" state="Expose" source="MANUAL" owner="" library="">
+                            <desc></desc>
+                            <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="100"/>
+                            <references/>
+                            <controls>
+                                <control ref="PCI-R12-12.6" mitigation="50"/>
+                                <control ref="PCI-R12-12.7" mitigation="50"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="PCI-R12-12.x">
+                                    <controls>
+                                        <control ref="PCI-R12-12.6" mitigation="50"/>
+                                        <control ref="PCI-R12-12.7" mitigation="50"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

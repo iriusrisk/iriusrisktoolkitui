@@ -1,0 +1,2 @@
+<component ref='INTER-CONTAINER-RESTRICTION' name='Inter-Container Restriction' desc='This Risk Pattern contains the recommendations applied when the containers should NOT communicate with each other.' groupName='' tags='' position='9' library='' diagramPositionX='0' diagramPositionY='0' componentDefinitionRef=''>
+      

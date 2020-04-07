@@ -1,0 +1,18 @@
+<weakness ref="CWE-525-REPOST" name="Authentication services responds with HTTP 2xx status code" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references>
+                            <reference name="CWE-525: Information Exposure Through Browser Caching" url="https://cwe.mitre.org/data/definitions/525.html"/>
+                        </references>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2015-08-15T17:17:21.453000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>If the server responds with an HTTP 200 status code, then by refreshing the page, the browser
+                        will resubmit the entered details. This could allow an attacker with access to the victim's
+                        browser to resubmit and capture sensitive data that was previously submitted.&amp;nbsp;
+                        &lt;br /&gt;
+                    </desc>
+                </weakness>

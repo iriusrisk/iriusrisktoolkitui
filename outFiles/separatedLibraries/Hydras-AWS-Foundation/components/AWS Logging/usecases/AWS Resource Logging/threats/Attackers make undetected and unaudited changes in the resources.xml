@@ -1,0 +1,38 @@
+<threat ref='UNAUDITABLE-CHANGES-RESOURCES-AWS' name='Attackers make undetected and unaudited changes in the resources' state='Expose' source='MANUAL' owner='' library=''>
+              <desc>&lt;div&gt;
+                                If audit trails in the resources are not enabled or not protected, attackers could gain
+                                access to the system and modify or delete data from the resources and the changes are
+                                not detected.
+                                &lt;/div&gt;
+                            </desc>
+              <riskRating confidentiality='100' integrity='100' availability='100' easeOfExploitation='25' />
+              <references />
+              <weaknesses>
+                <weakness ref='AWS-Logging-3.4'>
+                  <controls>
+                    <control ref='Hydras-AWS-Logging-3.6' mitigation='25' />
+                  </controls>
+                </weakness>
+                <weakness ref='AWS-Logging-3.8'>
+                  <controls>
+                    <control ref='Hydras-AWS-Logging-3.8' mitigation='25' />
+                  </controls>
+                </weakness>
+                <weakness ref='AWS-Logging-3.7'>
+                  <controls>
+                    <control ref='Hydras-AWS-Logging-3.7' mitigation='25' />
+                  </controls>
+                </weakness>
+                <weakness ref='AWS-Logging-3.9'>
+                  <controls>
+                    <control ref='Hydras-AWS-Logging-3.9' mitigation='25' />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref='Hydras-AWS-Logging-3.6' mitigation='25' />
+                <control ref='Hydras-AWS-Logging-3.7' mitigation='25' />
+                <control ref='Hydras-AWS-Logging-3.8' mitigation='25' />
+                <control ref='Hydras-AWS-Logging-3.9' mitigation='25' />
+              </controls>
+            </threat>

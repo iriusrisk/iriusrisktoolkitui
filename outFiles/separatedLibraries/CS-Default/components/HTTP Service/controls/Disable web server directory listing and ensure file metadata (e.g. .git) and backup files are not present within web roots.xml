@@ -1,0 +1,47 @@
+<control ref="DIRECTORY_LISTING" name="Disable web server directory listing and ensure file metadata (e.g. .git) and backup files are not present within web roots" platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+                        Indexable directories allow an attacker to easily discover the existence of content on your web
+                        server that should remain private.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ol&gt;
+                        &lt;li&gt;Disable directory listings in the web - or application-server configuration by
+                        default.&lt;/li&gt;
+                        &lt;li&gt;Restrict access to unnecessary directories and files.&lt;/li&gt;
+                        &lt;li&gt;Create an index (default) file for each directory.&lt;/li&gt;
+                        &lt;/ol&gt;
+                        &lt;/div&gt;
+                    </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="Apache - auto index" url="http://httpd.apache.org/docs/trunk/mod/mod_autoindex.html"/>
+                        <reference name="Apache - directory listing" url="https://wiki.apache.org/httpd/DirectoryListings"/>
+                        <reference name="Doc cenciz - Directory listing" url="http://doc.cenzic.com/sadoc9x14ba847/CPL0001023.htm"/>
+                        <reference name="OWASP Directory_Indexing" url="https://www.owasp.org/index.php/OWASP_Periodic_Table_of_Vulnerabilities_-_Directory_Indexing"/>
+                        <reference name="OWASP Insecure Indexing" url="https://www.owasp.org/index.php/File_System#Insecure_Indexing"/>
+                    </references>
+                    <standards>
+                        <standard ref="CM-2" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="CM-6" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="4.5" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="4.5" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="4.5" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="A5:2017-Broken Access Control" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>Check that the directory listing is disabled in the web server.</steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-08-06T16:26:48.341000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

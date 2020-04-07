@@ -1,0 +1,34 @@
+<control ref='Hydras-AWS-Logging-3.2' name='Enable CloudTrail log file validation' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>Enabling log file validation will provide additional integrity checking of CloudTrail as it
+                        creates a digest for each log file it writes to S3. These digests can then be used to determine
+                        if a log has been modified since being written
+                        &lt;br /&gt;
+                        &lt;br /&gt;
+                        &lt;b&gt;Remediation:&lt;br /&gt;&lt;/b&gt;
+                        &lt;blockquote&gt;
+                        aws cloudtrail update-trail --name &amp;lt;trail_name&amp;gt; --enable-log-file-validation
+                        &lt;/blockquote&gt;
+                        &lt;br /&gt;Content provided by
+                        &lt;a href="https://hydrasit.com" target="_blank"&gt; Hydras IT LTD&lt;/a&gt;
+                    </desc>
+          <implementations />
+          <references />
+          <standards>
+            <standard ref='2.2' supportedStandardRef='CIS AWS Standard' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;blockquote&gt;
+                            aws cloudtrail describe-trails&amp;nbsp;
+                            &lt;/blockquote&gt;Ensure LogFileValidationEnabled = true (for each trail)
+                            &lt;ol&gt;
+                            &lt;/ol&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

@@ -1,0 +1,19 @@
+<threat ref='CAPEC-37-CONTAINER-RUNTIME' name='Attackers gain access to the docker container by using sensitive data which was found embedded within it' state='Expose' source='MANUAL' owner='' library=''>
+              <desc>An attacker examines a target system to find sensitive data that has been embedded
+                                within it. This information can reveal confidential contents, such as account numbers or
+                                individual keys/credentials which can be used as an intermediate step in a larger
+                                attack.
+                            </desc>
+              <riskRating confidentiality='100' integrity='100' availability='100' easeOfExploitation='100' />
+              <references />
+              <weaknesses>
+                <weakness ref='CWE-200'>
+                  <controls>
+                    <control ref='D5.5' mitigation='100' />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref='D5.5' mitigation='100' />
+              </controls>
+            </threat>

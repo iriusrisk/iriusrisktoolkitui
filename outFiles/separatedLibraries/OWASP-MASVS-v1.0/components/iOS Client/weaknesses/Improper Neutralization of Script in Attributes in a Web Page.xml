@@ -1,0 +1,16 @@
+<weakness ref="CWE-83" name="Improper Neutralization of Script in Attributes in a Web Page" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references>
+                            <reference name="CWE-83: Improper Neutralization of Script in Attributes in a Web Page" url="https://cwe.mitre.org/data/definitions/83.html"/>
+                        </references>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-04-25T15:32:55.623000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The software does not neutralize or incorrectly neutralizes "javascript:" or other URIs from
+                        dangerous attributes within tags, such as onmouseover, onload, onerror, or style.
+                    </desc>
+                </weakness>

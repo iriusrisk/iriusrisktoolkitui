@@ -1,0 +1,71 @@
+<control ref="PCI-R6-6.3.2" name="6.3.2 - Review custom code prior to release to production" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Review custom code prior to release to production or customers in order to identify
+                        any
+                        potential coding vulnerability (using either manual or automated processes) to include at least
+                        the
+                        following:&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Code changes are reviewed by individuals other than the originating code author, and
+                        by
+                        individuals knowledgeable about code-review techniques and secure coding practices.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Code reviews ensure code is developed according to secure coding guidelines&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Appropriate corrections are implemented prior to release.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Code-review results are reviewed and approved by management prior to release.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt; &lt;/p&gt;
+                        &lt;p&gt;Security vulnerabilities in custom code are commonly exploited by malicious individuals
+                        to gain
+                        access to a network and compromise cardholder data.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;An individual knowledgeable and experienced in code-review techniques should be
+                        involved in the
+                        review process. Code reviews should be performed by someone other than the developer of the code
+                        to allow
+                        for an independent, objective review. Automated tools or processes may also be used in lieu of
+                        manual
+                        reviews, but keep in mind that it may be difficult or even impossible for an automated tool to
+                        identify some
+                        coding issues.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;Correcting coding errors before the code is deployed into a production environment or
+                        released to
+                        customers prevents the code exposing the environments to potential exploit. Faulty code is also
+                        far more
+                        difficult and expensive to address after it has been deployed or released into production
+                        environments.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;Including a formal review and sign-off by management prior to release helps to ensure
+                        that code is
+                        approved and has been developed in accordance with policies and procedures.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="6.3.2" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt; &lt;/p&gt;
+                            &lt;p&gt;&lt;b&gt;6.3.2.a &lt;/b&gt;Examine written software-development procedures and
+                            interview
+                            responsible personnel to verify that all custom application code changes must be reviewed
+                            (using either
+                            manual or automated processes) as follows:&lt;/p&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt;&lt;p&gt;Code changes are reviewed by individuals other than the originating code
+                            author, and by
+                            individuals who are knowledgeable in code-review techniques and secure coding practices.&lt;/p&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;p&gt;Code reviews ensure code is developed according to secure coding
+                            guidelines (see PCI
+                            DSS Requirement 6.5).&lt;/p&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;p&gt;Appropriate corrections are implemented prior to release.&lt;/p&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;p&gt;Code-review results are reviewed and approved by management prior to
+                            release.&amp;nbsp;&lt;/p&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;p&gt;&lt;b&gt;6.3.2.b &lt;/b&gt;Select a sample of recent custom application changes and
+                            verify that
+                            custom application code is reviewed according to 6.3.2.a, above.&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T12:26:05.129000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

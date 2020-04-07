@@ -1,0 +1,49 @@
+<control ref="PCI-R9-9.9.1" name="9.9.1 - Maintain an up-to-date list of devices that interact with cardholder data" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;The list should include the following:&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Make, model of device&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- &amp;nbsp;Location of device (for example, the address of the site or facility where
+                        the device
+                        is located)&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Device serial number or other method of unique identification&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt; &lt;/p&gt;
+                        &lt;p&gt;Keeping an up-to-date list of devices helps an organization keep track of where devices
+                        are
+                        supposed to be, and quickly identify if a device is missing or lost.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;The method for maintaining a list of devices may be automated (for example, a
+                        device-management
+                        system) or manual (for example, documented in electronic or paper records). For on-the-road
+                        devices, the
+                        location may include the name of the personnel to whom the device is assigned.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="9.9.1" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;9.9.1.a Examine the list of devices to verify it includes: &lt;/p&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt; &lt;p&gt;Make, model of device &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Location of device (for example, the address of the site or facility
+                            where the device
+                            is located) &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Device serial number or other method of unique identification. &lt;/p&gt;
+                            &lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;p&gt;9.9.1.b Select a sample of devices from the list and observe devices and device
+                            locations to
+                            verify that the list is accurate and up to date. &lt;/p&gt;
+                            &lt;p&gt;9.9.1.c Interview personnel to verify the list of devices is updated when devices
+                            are added,
+                            relocated, decommissioned, etc.&amp;nbsp;&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T16:17:22.348000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

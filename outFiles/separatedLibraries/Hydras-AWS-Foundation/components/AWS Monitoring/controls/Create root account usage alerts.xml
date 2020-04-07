@@ -1,0 +1,64 @@
+<control ref='Hydras-AWS-Monitoring-4.2' name='Create root account usage alerts' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>When cloudtrail is configured and sending alerts to cloudwatch logs these logs can be queried
+                        to identify suspicious API activity. One such activity that should be monitored is usage of the
+                        root account. This account should not be used on a day to day basis due to its full unrestricted
+                        privilege therefore usage should be by exception. Monitoring this usage should capture any
+                        suspicious activity used on the account.
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;
+                        &lt;br /&gt;
+                        &lt;ol&gt;
+                        &lt;li&gt;Identify the log group name: aws cloudtrail describe-trails&lt;/li&gt;
+                        &lt;li&gt;Note the &amp;lt;group&amp;gt; value associated with CloudWatchLogsLogGroupArn.&lt;/li&gt;
+                        &lt;li&gt;Get a list of all associated metric filters for this &amp;lt;group&amp;gt;: aws logs
+                        describe-metric-filters --log-group-name &amp;quot;&amp;lt;group&amp;gt;&amp;quot;&lt;/li&gt;
+                        &lt;li&gt;Ensure the output contains the following: &amp;quot;filterPattern&amp;quot;: &amp;quot;{
+                        $.userIdentity.type = \&amp;quot;Root\&amp;quot; &amp;amp;&amp;amp; $.userIdentity.invokedBy NOT
+                        EXISTS &amp;amp;&amp;amp; $.eventType != \&amp;quot;AwsServiceEvent\&amp;quot; } &amp;quot;&lt;/li&gt;
+                        &lt;li&gt;Note the metricName value associated with the filterPattern found in step 4.&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;Get a list of CloudWatch alarms and filter on the metricName captured in step 4: aws
+                        cloudwatch describe-alarms --query 'MetricAlarms[?MetricName==`&amp;lt;metricName&amp;gt;`]'&lt;/li&gt;
+                        &lt;li&gt;Note the AlarmActions value - this will provide the SNS topic ARN value.&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;Ensure there is at least one subscriber to the SNS topic: aws sns
+                        list-subscriptions-by-topic --topic-arn &amp;lt;topic_arm&amp;gt;&amp;nbsp;&lt;/li&gt;
+                        &lt;/ol&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Content provided by
+                        &lt;a href="https://hydrasit.com" target="_blank"&gt; Hydras IT LTD&lt;/a&gt;
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references />
+          <standards>
+            <standard ref='3.3' supportedStandardRef='CIS AWS Standard' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;ol&gt;
+                            &lt;li&gt;Identify the log group name: aws cloudtrail describe-trails&lt;/li&gt;
+                            &lt;li&gt;Note the &amp;lt;group&amp;gt; value associated with CloudWatchLogsLogGroupArn.&lt;/li&gt;
+                            &lt;li&gt;Get a list of all associated metric filters for this &amp;lt;group&amp;gt;: aws
+                            logs describe-metric-filters --log-group-name &amp;quot;&amp;lt;group&amp;gt;&amp;quot;&lt;/li&gt;
+                            &lt;li&gt;Ensure the output contains the following: &amp;quot;filterPattern&amp;quot;: &amp;quot;{
+                            $.userIdentity.type = \&amp;quot;Root\&amp;quot; &amp;amp;&amp;amp; $.userIdentity.invokedBy
+                            NOT EXISTS &amp;amp;&amp;amp; $.eventType != \&amp;quot;AwsServiceEvent\&amp;quot; } &amp;quot;&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Note the metricName value associated with the filterPattern found in step 4.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Get a list of CloudWatch alarms and filter on the metricName captured in step 4:&amp;nbsp;aws
+                            cloudwatch describe-alarms --query 'MetricAlarms[?MetricName==`&amp;lt;metricName&amp;gt;`]'&lt;/li&gt;
+                            &lt;li&gt;Note the AlarmActions value - this will provide the SNS topic ARN value.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Ensure there is at least one subscriber to the SNS topic: aws sns
+                            list-subscriptions-by-topic --topic-arn &amp;lt;topic_arm&amp;gt;&lt;/li&gt;
+                            &lt;/ol&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

@@ -1,0 +1,16 @@
+<weakness ref='CWE-400' name='Uncontrolled Resource Consumption (&apos;Resource Exhaustion&apos;)' state='0' impact='100'>
+          <desc>The software does not properly restrict the size or amount of resources that are requested or
+                        influenced by an actor, which can be used to consume more resources than intended.
+                    </desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2018-05-30T14:52:00.046'>
+              <output></output>
+            </source>
+            <references>
+              <reference name='CWE-400: Uncontrolled Resource Consumption (&apos;Resource Exhaustion&apos;)' url='https://cwe.mitre.org/data/definitions/400.html' />
+            </references>
+            <udts />
+          </test>
+        </weakness>

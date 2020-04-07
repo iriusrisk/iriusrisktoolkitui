@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project ref="iot-library-stage-1" name="IoT Library Stage 1" revision="1" type="LIBRARY" status="OPEN" enabled="true" priority="0" tags="" workflowState="">
+    <desc>IoTSF-Framework</desc>
+    <categoryComponents/>
+    <componentDefinitions/>
+    <udts/>
+    <dataflows/>
+    <supportedStandards/>
+    <components>
+        <component ref="iot-device-operating-system" name="IoT Device Operating System" desc="" tags="" position="3" groupName="" library="" diagramPositionX="0" diagramPositionY="0" componentDefinitionRef="">
+            <weaknesses>
+                <weakness ref="CWE-250" name="Execution with Unnecessary Privileges" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-02-12T12:01:32">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The software performs an operation at a privilege level that is higher than the minimum level required, which creates new weaknesses or amplifies the consequences of other weaknesses.
+New weaknesses can be exposed because running with extra privileges, such as root or Administrator, can disable the normal security checks being performed by the operating system or surrounding environment. Other pre-existing weaknesses can turn into security vulnerabilities if they occur while operating at raised privileges. Privilege management functions can behave in some less-than-obvious ways, and they have different quirks on different platforms. These inconsistencies are particularly pronounced if you are transitioning from one non-root user to another. Signal handlers and spawned processes run at the privilege of the owning process, so if a process is running as root when a signal fires or a sub-process is executed, the signal handler or sub-process will operate with root privileges.  </desc>
+                </weakness>
+                <weakness ref="CWE-732" name="Incorrect Permission Assignment for Critical Resource" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-02-12T12:01:32">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The software specifies permissions for a security-critical resource in a way that allows that resource to be read or modified by unintended actors.
+When a resource is given a permissions setting that provides access to a wider range of actors than required, it could lead to the exposure of sensitive information, or the modification of that resource by unintended parties. This is especially dangerous when the resource is related to program configuration, execution or sensitive user data.  </desc>
+                </weakness>
+            </weaknesses>
+            <controls>
+                <control ref="IOT2.4.6.9" name="Applications are operated at the lowest privilege level possible." platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>	&lt;p&gt;Applications are operated at the lowest privilege level possible.&lt;/p&gt;
+
+	&lt;p&gt;Rationale:&lt;br /&gt;
+Applications are following the principle of the least privilege like every module (such as processes, a users, etc.), which means that they must be able to access only the information and resources that are necessary for their legitimate purpose. Doing this minimizes the amount of damage that results if an attacker successfully exploits any known or future vulnerability.&lt;/p&gt;
+
+	&lt;p&gt;Remediation:&lt;br /&gt;
+Configure the Operating System to operate applications at the lowest privilege level possible.&lt;/p&gt;</desc>
+                    <implementations/>
+                    <references>
+                        <reference name="Principle_of_Least_Privilege" url="https://www.owasp.org/index.php/Category:Access_Control#Principle_of_Least_Privilege" />
+                    </references>
+                    <standards/>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-02-12T12:01:32">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>
+            </controls>
+            <usecases>
+                <usecase ref="authentication-and-authorization" name="Authentication and Authorization" desc="" library="">
+                    <threats>
+                        <threat ref="CAPEC-122" name="Privilege Abuse" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>	&lt;p&gt;An adversary is able to exploit features of the target that should be reserved for privileged users or administrators but are exposed to use by lower or non-privileged accounts. Access to sensitive information and functionality must be controlled to ensure that only authorized users are able to access these resources. If access control mechanisms are absent or misconfigured, a user may be able to access resources that are intended only for higher level users. An adversary may be able to exploit this to utilize a less trusted account to gain information and perform activities reserved for more trusted accounts. This attack differs from privilege escalation and other privilege stealing attacks in that the adversary never actually escalates their privileges but instead is able to use a lesser degree of privilege to access resources that should be (but are not) reserved for higher privilege accounts. Likewise, the adversary does not exploit trust or subvert systems &amp;#8211; all control functionality is working as configured but the configuration does not adequately protect sensitive resources at an appropriate level.&lt;/p&gt;</desc>
+                            <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="25"/>
+                            <references/>
+                            <controls>
+                                <control ref="IOT2.4.6.9" mitigation="12"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-250">
+                                    <controls>
+                                        <control ref="IOT2.4.6.9" mitigation="12"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="CWE-732">
+                                    <controls>
+                                        <control ref="IOT2.4.6.9" mitigation="12"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>
+                    </threats>
+                </usecase>
+            </usecases>
+        </component>
+        <component ref="iot-privacy" name="IoT Privacy" desc="" tags="" position="10" groupName="" library="" diagramPositionX="0" diagramPositionY="0" componentDefinitionRef="">
+            <weaknesses>
+                <weakness ref="CWE-254-PROD" name="The product lacks key security features" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-02-12T12:01:33">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The product lacks of key security features such as protection against tampering, unprotected storages or it has other misconfigurations and omissions during production.</desc>
+                </weakness>
+            </weaknesses>
+            <controls>
+                <control ref="IOT2.4.12.8" name="The product/service can be made compliant with the local and/or regional Personal Information protection legislation where the product is to be sold." platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>	&lt;p&gt;The product/service can be made compliant with the local and/or regional Personal Information protection legislation where the product is to be sold.&lt;/p&gt;
+
+	&lt;p&gt;Rationale:&lt;br /&gt;
+All data protection laws set out to protect personal data, however there is a fine line between what is and isn’t personal data among local data regulations. Therefore in case a product or a service is about to be sold e.g. in the European Union, it has to be compliant with the General Data Protection Regulation (&lt;span class="caps"&gt;GDPR&lt;/span&gt;).&lt;/p&gt;
+
+	&lt;p&gt;Remediation:&lt;br /&gt;
+Ensure that the product/service is compliant with the local and/or regional Personal Information protection legislation where the product is to be sold.&lt;/p&gt;
+
+	&lt;p&gt;Impact:&lt;br /&gt;
+None&lt;/p&gt;
+
+	&lt;p&gt;Compliance Class: 1 and above&lt;/p&gt;
+
+	&lt;p&gt;Applicability: M&lt;/p&gt;</desc>
+                    <implementations/>
+                    <references>
+                        <reference name="Overview of the General Data Protection Regulations (GDPR)" url="https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/"/>
+                    </references>
+                    <standards/>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-02-12T12:01:33">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>
+            </controls>
+            <usecases>
+                <usecase ref="general" name="General" desc="" library="">
+                    <threats>
+                        <threat ref="IOT-INSUF-SEC" name="Exploitation of insufficient IoT Security" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>	&lt;p&gt;Attackers will often attempt to exploit&lt;br /&gt;
+insufficient tampering protection, unprotected storages or other misconfigured features.&lt;/p&gt;</desc>
+                            <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="25"/>
+                            <references/>
+                            <controls>
+                                <control ref="IOT2.4.12.8" mitigation="33"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-254-PROD">
+                                    <controls>
+                                        <control ref="IOT2.4.12.8" mitigation="33"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>
+                    </threats>
+                </usecase>
+            </usecases>
+        </component>
+    </components>
+    <rules/>
+</project>

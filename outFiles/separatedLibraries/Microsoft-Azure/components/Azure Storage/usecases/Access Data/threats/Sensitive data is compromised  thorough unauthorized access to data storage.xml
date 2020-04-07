@@ -1,0 +1,15 @@
+<threat ref='ACCESS-TO-DATA' name='Sensitive data is compromised  thorough unauthorized access to data storage' state='Expose' source='MANUAL' owner='' library=''>
+              <desc></desc>
+              <riskRating confidentiality='75' integrity='25' availability='50' easeOfExploitation='50' />
+              <references />
+              <weaknesses>
+                <weakness ref='AZURE-ACCESS-DATA-01'>
+                  <controls>
+                    <control ref='AZ-S01' mitigation='100' />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref='AZ-S01' mitigation='100' />
+              </controls>
+            </threat>

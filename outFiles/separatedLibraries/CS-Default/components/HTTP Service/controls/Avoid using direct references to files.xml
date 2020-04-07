@@ -1,0 +1,67 @@
+<control ref="CWE-639" name="Avoid using direct references to files" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+                        All data received from the client-side should be considered tainted and a potential risk,
+                        regardless of the source or transport method. Many flaws in applications result from unsafe
+                        handling of filenames or path data, for example directory traversal and arbitrary file
+                        disclosure. Use of filenames or other direct references to objects such as files at the
+                        server-side increases the risk of compromise of the system or unauthorized access to other
+                        files, content, or functionality.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Avoid using direct references to files or validate file name.&lt;/li&gt;
+                        &lt;li&gt;For example instead of using:&amp;nbsp;&lt;a&gt;www.example.com/open.jsp?file=details.txt&amp;nbsp;&lt;/a&gt;use:&amp;nbsp;&lt;a&gt;www.example.com/open.jsp?file=[GUID]&lt;/a&gt;&amp;nbsp;and
+                        then use a lookup table on the server to associate the [GUID] value with file details.txt.&lt;/li&gt;
+                        &lt;li&gt;Files should be stored outside the web-root to prevent an attacker browsing directly
+                        to them.&lt;/li&gt;
+                        &lt;li&gt;Do not use obscurity to prevent access; for example do not rely on renaming a file to
+                        include a random string to prevent direct download or disclosure.&lt;/li&gt;
+                        &lt;/ul&gt;If direct references are used to access files from within the web-root deviating from
+                        recommended security practice, the following must be implemented:
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;String input validation must be applied.&amp;nbsp; Identify and filter for directory
+                        traversal meta-characters such as &amp;quot;../&amp;quot; or &amp;quot;..\&amp;quot; or &amp;quot;/&amp;quot;,
+                        together with encoded variations and derivations.&lt;/li&gt;
+                        &lt;li&gt;Use of a strict white-list of files that may be downloaded.&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="12.2.1" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="9.2.3" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="AC-1" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="AC-5" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="AC-6" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="CA-8" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-10" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="4.4" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="5.13" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="4.4" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="5.13" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="4.4" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="5.13" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="A5:2017-Broken Access Control" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+                            &lt;li&gt;When a parameter that represent a file or a file path is found on the application.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;For each of them try to change this parameter to gain access to unexpected files.&amp;nbsp;&lt;/li&gt;
+                            &lt;/ol&gt;For example:
+                            &lt;a&gt;www.example.com/open.jsp?file=details.txt&lt;/a&gt;
+                            &lt;br /&gt;Shouldn't be implemented that way and if so, it should not be possible to access
+                            files outside of a set (i.e. file=/etc/passwd or file=
+                            &lt;a href="http://www.google.com"&gt;http://www.google.com&lt;/a&gt;, etc.).
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2015-08-15T17:17:16.241000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

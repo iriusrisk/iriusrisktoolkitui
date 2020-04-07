@@ -1,0 +1,48 @@
+<control ref="WEB-FILE-DATA" name="Do not use untrusted client-side data in server-side file operations" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+                        The application may be required to base server-side file operations based on client-side
+                        actions. This can expose the application to attack through remote or local file-inclusion, or
+                        remote code execution attacks if unsafe data is used in file inclusion, class loader, or
+                        reflection capabilities.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Tainted, untrusted, client-side data must not be used directly in server-side file
+                        load operations.&lt;/li&gt;
+                        &lt;li&gt;Where server-side operations are dependent on client-side input, this should be mapped
+                        to pre-defined operations on the server-side rather than using tainted client-side input
+                        directly.&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;&lt;/div&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="12.6.1" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="SI-10" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-16" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-3" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-6" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="16.4" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="16.4" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="16.4" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="A8:2017-Insecure Deserialization" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+                            &lt;li&gt;Identify sources of data into the application. &lt;br /&gt;&lt;/li&gt;
+                            &lt;li&gt;Classify them into trusted and untrusted. &lt;br /&gt;&lt;/li&gt;
+                            &lt;li&gt;if they are untrusted, make sure there is a validation and sanitization mechanism
+                            before sending this data into another system (Database, Command, etc.).&lt;br /&gt;&lt;/li&gt;
+                            &lt;/ol&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-11-30T12:59:27.639000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

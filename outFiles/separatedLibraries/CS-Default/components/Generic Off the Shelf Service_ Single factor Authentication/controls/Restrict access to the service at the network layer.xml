@@ -1,0 +1,37 @@
+<control ref="RESTRICT-SERVICE" name="Restrict access to the service at the network layer" platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+                        Access to APIs should be restricted to expected sources, limiting exposure of the service and
+                        its attack surface, and therefore likelihood of a malicious party gaining access to the system.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Apply network layer security controls so that only the necessary and expected IP
+                        addresses are permitted access to connect to the service.&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="A2:2017-Broken Authentication" supportedStandardRef="owasp-top-10-2017"/>
+                        <standard ref="A8:2017-Insecure Deserialization" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+                            &lt;li&gt;Check that the network access to the service is only allowed for the components
+                            which needs it.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;There should be a firewall protecting the network segment in which the service is
+                            installed.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Check that the firewall restricts access to only the minimum required connections
+                            using the principal of least privilege.&lt;/li&gt;
+                            &lt;/ol&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-11-23T21:01:06.125000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

@@ -1,0 +1,27 @@
+<threat ref="ASVS-2014-3.12" name="Attackers could compromise users' sessions by comproming the session cookie" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>If the same session cookie is used for multiple applications, and one of those
+                                applications has a vulnerability which discloses the session ID. Then by compromising
+                                the session cookie in one application, the attacker would have access to the ID for the
+                                other.
+                            </desc>
+                            <riskRating confidentiality="50" integrity="50" availability="100" easeOfExploitation="75"/>
+                            <references/>
+                            <controls>
+                                <control ref="ASVS-2014-3.12-DOMAIN" mitigation="33"/>
+                                <control ref="ASVS-2014-3.12-PATH" mitigation="33"/>
+                                <control ref="ASVS-2014-3.6" mitigation="34"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-384">
+                                    <controls>
+                                        <control ref="ASVS-2014-3.6" mitigation="34"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="COOKIE-WEAKNESS">
+                                    <controls>
+                                        <control ref="ASVS-2014-3.12-DOMAIN" mitigation="33"/>
+                                        <control ref="ASVS-2014-3.12-PATH" mitigation="33"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

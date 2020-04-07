@@ -1,0 +1,49 @@
+<control ref="AWS-LAMBDA-C25" name="Set time-outs on invocations of functions" platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;To prevent your Lambda function from running indefinitely, you specify a timeout. You shall set this value based on your expected execution time. The default for functions created in the console is 3 seconds. To ensure that you write clean code also verify that the termination criteria are met every time to prevent endless or long invocations.&lt;/p&gt; 
+&lt;p&gt;&lt;b&gt;Remediation:&lt;br /&gt;&lt;/b&gt;&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;Update the timeout of your functions using the following AWS CLI command:&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;p&gt;aws lambda update-function-configuration --function-name myfunction --timeout 3&lt;/p&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;In the example, we change the timeout limit to 3 seconds&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;p&gt;&lt;/p&gt;</desc>
+                    <implementations/>
+                    <references>
+                        <reference name="AWS Lambda Limits" url="https://docs.aws.amazon.com/lambda/latest/dg/limits.html"/>
+                        <reference name="Best practices for AWS Lambda timeouts" url="http://blog.epsagon.com/best-practices-for-aws-lambda-timeouts"/>
+                        <reference name="Function configuration" url="https://docs.aws.amazon.com/lambda/latest/dg/resource-model.html"/>
+                    </references>
+                    <standards/>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;Use AWS CLI and use the following command to view the timeout limit per function:&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;p&gt;aws lambda get-function --function-name function-name&amp;nbsp;&lt;/p&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;Check all function and verify that they have got set a well the timeout limit.&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;p&gt;&lt;/p&gt;</steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-03-25T16:40:59">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

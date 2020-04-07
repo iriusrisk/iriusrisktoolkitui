@@ -1,0 +1,26 @@
+<control ref="PCI-R7-7.1.3" name="7.1.3 - Assign access based on job classification and function" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Once needs are defined for user roles (per PCI DSS requirement 7.1.1), it is easy to
+                        grant
+                        individuals access according to their job classification and function by using the
+                        already-created roles.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="7.1.3" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;7.1.3 Select a sample of user IDs and interview responsible management personnel
+                            to verify
+                            that privileges assigned are based on that individual's job classification and
+                            function.&amp;nbsp;&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T14:01:44.480000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

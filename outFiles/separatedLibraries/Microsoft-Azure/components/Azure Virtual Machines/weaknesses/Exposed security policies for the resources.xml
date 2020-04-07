@@ -1,0 +1,22 @@
+<weakness ref='AZURE-VM01' name='Exposed security policies for the resources' state='0' impact='100'>
+          <desc>The security policies are not configured and the security configurations are exposed for the
+                        attackers.
+                    </desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;div&gt;
+                            &lt;ol&gt;
+                            &lt;li&gt;On the Security Center dashboard, select Security policy, and then select your
+                            subscription.&lt;/li&gt;
+                            &lt;li&gt;Select Prevention policy.&lt;/li&gt;
+                            &lt;li&gt;Check that the required policy items are enabled.&amp;nbsp;&lt;/li&gt;
+                            &lt;/ol&gt;
+                            &lt;/div&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2017-06-12T09:58:41.671'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>

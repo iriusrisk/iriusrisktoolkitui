@@ -1,0 +1,31 @@
+<control ref="PCI-R10-10.5.5" name="10.5.5 - Use change-detection technologies to detect unauthorized changes" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Use file-integrity monitoring or change-detection software on logs to ensure that
+                        existing log
+                        data cannot be changed without generating alerts (although new data being added should not cause
+                        an alert).&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt; &lt;/p&gt;
+                        &lt;p&gt;File-integrity monitoring or change-detection systems check for changes to critical
+                        files, and
+                        notify when such changes are noted. For file-integrity monitoring purposes, an entity usually
+                        monitors files
+                        that don't regularly change, but when changed indicate a possible compromise.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="10.5.5" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>10.5.5 Examine system settings, monitored files, and results from monitoring activities
+                            to verify the
+                            use of file-integrity monitoring or change-detection software on logs.&amp;nbsp;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T17:13:15.722000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

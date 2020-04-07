@@ -1,0 +1,53 @@
+<control ref="PATCH-SERVICE" name="Apply required security patches to the service" platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+                        &lt;div&gt;
+                        Vendors and other maintainers of software release patches in response to security flaws and
+                        other bugs in their products.&amp;nbsp; The longer a system is exposed with a known security
+                        vulnerability, the easier to compromise it is as the exploit became public, they get included
+                        into automated exploitation suites like Metasploit and a wider audience is able to exploit them.&amp;nbsp;
+                        &amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Apply patches and other software updates in a timely manner to prevent unexpected
+                        failures or exploitation.&lt;/li&gt;
+                        &lt;li&gt;Clearly define an approach for testing and applying patches, in particular security
+                        patches, with expected timescales. &amp;nbsp;There is often a small window between release of a
+                        patch, and potentially malicious actors reverse-engineering the patch to identify and exploit
+                        the flaw.&lt;/li&gt;
+                        &lt;li&gt;Use a threat intelligence, vulnerability scanning, or other alerting service to ensure
+                        the project team is aware of issues within the project or its components promptly.&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="CM-1" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="19.1" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="19.1" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="19.1" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="A6:2017-Security Misconfiguration" supportedStandardRef="owasp-top-10-2017"/>
+                        <standard ref="A9:2017-Using Components with Known Vulnerabilities" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;br /&gt;
+                            &lt;ol&gt;
+                            &lt;li&gt;Check with the software or service vendor whether security vulnerabilities and
+                            their associated patches are available for the version deployed.&lt;/li&gt;
+                            &lt;li&gt;Evaluate the criticality of the vulnerability and schedule a fix accordingly.&lt;/li&gt;
+                            &lt;/ol&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2015-08-15T17:17:18.535000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

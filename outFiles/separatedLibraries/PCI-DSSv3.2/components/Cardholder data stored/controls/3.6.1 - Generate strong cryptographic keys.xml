@@ -1,0 +1,29 @@
+<control ref="PCI-R3-3.6.1" name="3.6.1 - Generate strong cryptographic keys" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;The encryption solution must generate strong keys, as defined in the &lt;i&gt;PCI DSS
+                        and
+                        PA-DSS Glossary of Terms, Abbreviations, and Acronyms &lt;/i&gt;under &amp;quot;Cryptographic
+                        Key
+                        Generation.&amp;quot; Use of strong cryptographic keys significantly increases the level of
+                        security of
+                        encrypted cardholder data.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="3.6.1" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;3.6.1.a Verify that key-management procedures specify how to generate strong
+                            keys. &lt;/p&gt;
+                            &lt;p&gt;3.6.1.b Observe the procedures for generating keys to verify that strong keys are
+                            generated.&amp;nbsp;&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T09:01:53.066000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

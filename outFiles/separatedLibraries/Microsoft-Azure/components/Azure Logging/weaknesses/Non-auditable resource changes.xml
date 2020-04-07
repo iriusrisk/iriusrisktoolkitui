@@ -1,0 +1,27 @@
+<weakness ref='AZURE-LOGS01' name='Non-auditable resource changes' state='0' impact='100'>
+          <desc>&lt;div&gt;
+                        The Diagnostic Logs are not activated and configured. Therefore, the changes or the access to
+                        the resources are not recorded into the logs.
+                        &lt;/div&gt;
+                    </desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;div&gt;
+                            &lt;ol&gt;
+                            &lt;li&gt;Go to the Azure portal.&lt;/li&gt;
+                            &lt;li&gt;Go to the blade for your web app and in &amp;quot;Monitoring&amp;quot; &amp;gt;&amp;gt;
+                            &amp;quot;Diagnostics logs&amp;quot;.&lt;/li&gt;
+                            &lt;li&gt;Check that &amp;quot;Application Logging (Filesystem)&amp;quot; and &amp;quot;Application
+                            Logging (Blob)&amp;quot; are enabled.&lt;/li&gt;
+                            &lt;li&gt;Check that the type &amp;quot;Storage&amp;quot; or &amp;quot;File System&amp;quot;
+                            are enabled.&lt;/li&gt;
+                            &lt;/ol&gt;
+                            &lt;/div&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2017-05-23T14:54:42.546'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>

@@ -1,0 +1,19 @@
+<weakness ref="CWE-204" name="Response Discrepancy Information Exposure" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references>
+                            <reference name="CWE-204: Response Discrepancy Information Exposure" url="https://cwe.mitre.org/data/definitions/204.html"/>
+                        </references>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2015-08-15T17:17:15.084000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The software provides different responses to incoming requests in a way that allows an actor
+                        to determine system state information that is outside of that actor's control sphere.
+                        &lt;br /&gt;This issue frequently occurs during authentication, where a difference in
+                        failed-login messages could allow an attacker to determine if the username is valid or not.
+                        These exposures can be inadvertent (bug) or intentional (design).
+                    </desc>
+                </weakness>

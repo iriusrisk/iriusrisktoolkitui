@@ -1,0 +1,12 @@
+<weakness ref='AWS-Logging-3.4' name='Non-auditable actions in the resources' state='0' impact='100'>
+          <desc>The actions in the resources are not audited and not recorded in the logs.</desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>

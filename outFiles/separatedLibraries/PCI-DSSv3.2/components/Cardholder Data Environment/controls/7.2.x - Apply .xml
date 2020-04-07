@@ -1,0 +1,38 @@
+<control ref="PCI-R7-7.2.x" name='7.2.x - Apply "deny-all" as a default for access controlled systems' platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Without a mechanism to restrict access based on user's need to know, a user may
+                        unknowingly be
+                        granted access to cardholder data. Access control systems automate the process of restricting
+                        access and
+                        assigning privileges. Additionally, a default "deny-all" setting ensures no one is
+                        granted
+                        access until and
+                        unless a rule is established specifically granting such access. Entities may have one or more
+                        access
+                        controls systems to manage user access.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="7.2.x" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;7.2 Examine system settings and vendor documentation to verify that an access
+                            control
+                            system(s) is implemented as follows: &lt;/p&gt;
+                            &lt;p&gt;7.2.1 Confirm that access control systems are in place on all system components.&lt;/p&gt;
+                            &lt;p&gt;7.2.2 Confirm that access control systems are configured to enforce privileges
+                            assigned to
+                            individuals based on job classification and function. &lt;/p&gt;
+                            &lt;p&gt;7.2.3 Confirm that the access control systems have a default "deny-all"
+                            setting.&amp;nbsp;&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T14:06:40.646000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

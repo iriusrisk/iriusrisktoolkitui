@@ -1,0 +1,14 @@
+<weakness ref="EU-GDPR-LOGICAL-DELETE-DATA-INACTIVITY" name="Data is retained for longer than is necessary" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T13:02:20.753000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>Storing personal data too long might lead to negative consequences for the data subject (e.g. a large amount of data might lead to invasive profiling, identity theft, ...)
+          &lt;br/&gt;&lt;br/&gt;Data subject = person of whom data is processed.
+          </desc>
+                </weakness>

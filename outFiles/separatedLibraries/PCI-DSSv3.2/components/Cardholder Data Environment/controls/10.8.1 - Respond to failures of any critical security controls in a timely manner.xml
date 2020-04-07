@@ -1,0 +1,79 @@
+<control ref="PCI-R10-10.8.1" name="10.8.1 - Respond to failures of any critical security controls in a timely manner" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Processes for responding to failures in security controls must include:&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Restoring security functions&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Identifying and documenting the duration (date and time start to end) of the security
+                        failure&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Identifying and documenting cause(s) of failure, including root cause, and
+                        documenting
+                        remediation required to address root cause&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Identifying and addressing any security issues that arose during the failure&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Performing a risk assessment to determine whether further actions are required as a
+                        result of the
+                        security failure&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Implementing controls to prevent cause of failure from reoccurring&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Resuming monitoring of security controls&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt; &lt;/p&gt;
+                        &lt;p&gt;If critical security control failures alerts are not quickly and effectively responded
+                        to,
+                        attackers may use this time to insert malicious software, gain control of a system, or steal
+                        data from the
+                        entity's environment.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;Documented evidence (e.g., records within a problem management system) should support
+                        that
+                        processes and procedures are in place to respond to security failures. In addition, personnel
+                        should be
+                        aware of their responsibilities in the event of a failure. Actions and responses to the failure
+                        should be
+                        captured in the documented evidence.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+                        &lt;br /&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="10.8.1" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;10.8.1.a Examine documented policies and procedures and interview personnel to
+                            verify
+                            processes are defined and implemented to respond to a security control failure, and include:
+                            &lt;/p&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt; &lt;p&gt;Restoring security functions &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Identifying and documenting the duration (date and time &lt;/p&gt; &lt;p&gt;start
+                            to
+                            end) of the security failure &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Identifying and documenting cause(s) of failure, including &lt;/p&gt;
+                            &lt;p&gt;root
+                            cause, and documenting remediation required to &lt;/p&gt; &lt;p&gt;address root cause &lt;/p&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Identifying and addressing any security issues that arose &lt;/p&gt;
+                            &lt;p&gt;during
+                            the failure &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Performing a risk assessment to determine whether further &lt;/p&gt;
+                            &lt;p&gt;actions
+                            are required as a result of the security failure &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Implementing controls to prevent cause of failure from &lt;/p&gt; &lt;p&gt;reoccurring
+                            &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Resuming monitoring of security controls&lt;/p&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;p&gt;10.8.1.b Examine records to verify that security control failures are documented to
+                            include: &lt;/p&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt; &lt;p&gt;Identification of cause(s) of the failure, including root cause &lt;/p&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Duration (date and time start and end) of the security failure &lt;/p&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Details of the remediation required to address the root cause&amp;nbsp;&lt;/p&gt;
+                            &lt;/li&gt;
+                            &lt;/ul&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T16:45:07.323000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

@@ -1,0 +1,71 @@
+<control ref='D2.1.2' name='Ensure all network traffic is restricted between containers on the default bridge' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>By default, all network traffic is allowed between containers on the same host on the default
+                        network bridge. If not desired, restrict all inter-container communication.&amp;nbsp;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Rationale:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        By default, unrestricted network traffic is enabled between all containers on the same host on
+                        the default network bridge. Thus, each container has the potential of reading all packets across
+                        the container network on the same host. This might lead to an unintended and unwanted disclosure
+                        of information to other containers. Hence, restrict the inter-container communication on the
+                        default network bridge.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Run the docker in daemon mode and pass --icc=false as an argument. For Example,
+                        &lt;/div&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        dockerd --icc=false&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Impact:&amp;nbsp;&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        The inter-container communication would be disabled on the default network bridge. If any
+                        communication between containers on the same host is desired in the future, then it needs to be
+                        explicitly defined using container linking or alternatively custom networks have to be defined.
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='Docker docs: Bridge' url='https://docs.docker.com/network/bridge/' />
+          </references>
+          <standards>
+            <standard ref='2.1' supportedStandardRef='Level 1 - Docker' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>Run the below command and verify that the default network bridge has been configured to
+                            restrict inter-container communication.&amp;nbsp;
+                            &lt;blockquote&gt;
+                            &lt;div&gt;
+                            docker network ls --quiet | xargs docker network inspect --format '{{ .Name }}: {{ .Options
+                            }}'&amp;nbsp;
+                            &lt;/div&gt;
+                            &lt;/blockquote&gt;
+                            &lt;div&gt;
+                            It should return com.docker.network.bridge.enable_icc:false for the default network bridge.
+                            &lt;/div&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2016-08-02T10:21:32.718'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

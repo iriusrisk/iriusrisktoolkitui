@@ -1,0 +1,21 @@
+<control ref="IOT2.4.6.8" name="OS kernel and its functions are prevented from being called by external product level interfaces and unauthorized applications" platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;The product's OS kernel and its functions are prevented from being called by external product level interfaces and unauthorized applications.&lt;/p&gt; 
+&lt;p&gt;&lt;b&gt;&lt;font size="4"&gt;Rationale:&lt;br /&gt;&lt;/font&gt;&lt;/b&gt; The kernel is a computer program that is the core of a computer's Operating System, with complete control over everything in the system. Therefore only internal calls should be allowed and only from authorized applications in order to minimize the exposed attack surface.&lt;/p&gt; 
+&lt;p&gt;&lt;b&gt;&lt;font size="4"&gt;Remediation:&lt;br /&gt;&lt;/font&gt;&lt;/b&gt; Configure the product's OS kernel and its functions to prevented being called by external product level interfaces and unauthorized applications.&lt;/p&gt;</desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="2.4.6.8" supportedStandardRef="iotsf-class-1"/>
+                        <standard ref="2.4.6.8" supportedStandardRef="iotsf-class-2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-03-13T16:00:44">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

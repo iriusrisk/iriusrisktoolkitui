@@ -1,0 +1,39 @@
+<control ref='GOOGLE-IAM06' name='Use Security Key for 2-Step Verification for administrator or co-administrator accounts' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>Ensure that the users with administrator and co-administrator accounts activate and configure the second factor authentication provided by Google. With 2-Step Verification, you can log into Google with a security key.&amp;nbsp; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;b&gt;Remediation:&amp;nbsp;&lt;/b&gt; 
+&lt;/div&gt; 
+&lt;div&gt;
+  To activate and configure 2 Factor Authentication, you shall follow the following steps: 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;ol&gt; 
+  &lt;li&gt;Go to the 2-Step Verification page section of &lt;a href="https://myaccount.google.com/signinoptions/two-step-verification"&gt;My Account&lt;/a&gt;.&amp;nbsp;&lt;/li&gt; 
+  &lt;li&gt;Click Add security key.&lt;/li&gt; 
+  &lt;li&gt;Follow the on-screen instructions.&lt;/li&gt; 
+ &lt;/ol&gt; 
+&lt;/div&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='Google Cloud: mobile account' url='https://support.google.com/accounts/answer/6103523?co=GENIE.Platform%3DAndroid#phone' />
+            <reference name='Google support: answers' url='https://support.google.com/accounts/answer/6103534' />
+          </references>
+          <standards />
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;ol&gt;
+                            &lt;li&gt;Go to the 2-Step Verification page section of My Account.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Check that 2-Step Verification authentication is enabled and configured correctly.&lt;/li&gt;
+                            &lt;/ol&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2016-08-02T10:21:32.718'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

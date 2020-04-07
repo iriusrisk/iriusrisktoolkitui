@@ -1,0 +1,12 @@
+<weakness ref="PCI-R3-3.5.1" name="Service Provider has a flawed architecture regarding cryptographic components" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T08:50:22.716000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>This is a requirement from PCI that only applies to Service Providers</desc>
+                </weakness>

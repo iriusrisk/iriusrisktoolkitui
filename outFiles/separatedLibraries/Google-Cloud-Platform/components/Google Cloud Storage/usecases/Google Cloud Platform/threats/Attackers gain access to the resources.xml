@@ -1,0 +1,15 @@
+<threat ref='ACCESS-TO-RESOURCES' name='Attackers gain access to the resources' state='Expose' source='MANUAL' owner='' library=''>
+              <desc></desc>
+              <riskRating confidentiality='75' integrity='25' availability='50' easeOfExploitation='50' />
+              <references />
+              <weaknesses>
+                <weakness ref='GOOGLE-EASY-FIND-RESOURCES'>
+                  <controls>
+                    <control ref='GOOGLE-STO03' mitigation='100' />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref='GOOGLE-STO03' mitigation='100' />
+              </controls>
+            </threat>

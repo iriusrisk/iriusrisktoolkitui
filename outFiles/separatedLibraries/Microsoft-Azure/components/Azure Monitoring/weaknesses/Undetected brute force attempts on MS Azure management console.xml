@@ -1,0 +1,22 @@
+<weakness ref='AZURE-MON06' name='Undetected brute force attempts on MS Azure management console' state='0' impact='100'>
+          <desc>The failure connection attempts (brute force) must be audited and monitored and correspondent
+                        personnel must be alerted and informed.
+                    </desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;div&gt;
+                            &lt;ol&gt;
+                            &lt;li&gt;Go to &amp;quot;Monitor&amp;quot; and then to &amp;quot;Alerts&amp;quot;.&lt;/li&gt;
+                            &lt;li&gt;Check that there is any rule to notify when several console login failure attempts
+                            occur.&lt;/li&gt;
+                            &lt;li&gt;Check if these rules are enabled.&lt;/li&gt;
+                            &lt;/ol&gt;
+                            &lt;/div&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2017-05-23T14:40:48.165'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>

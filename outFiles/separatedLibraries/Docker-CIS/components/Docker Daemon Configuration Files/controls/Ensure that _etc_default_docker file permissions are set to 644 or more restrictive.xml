@@ -1,0 +1,61 @@
+<control ref='D3.20' name='Ensure that /etc/default/docker file permissions are set to 644 or more restrictive' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>Verify that the /etc/default/docker file permissions are correctly set to 644 or more
+                        restrictive.&amp;nbsp;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Rationale:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        /etc/default/docker file contains sensitive parameters that may alter the behavior of docker
+                        daemon. Hence, it should be writable only by root to maintain the integrity of the file.
+                        &lt;br /&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&amp;nbsp;&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        chmod 644 /etc/default/docker&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;div&gt;
+                        This would set the file permissions for this file to 644.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Impact:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        None.
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='Docker docs: Configuring' url='https://docs.docker.com/engine/admin/configuring/' />
+          </references>
+          <standards>
+            <standard ref='3.20' supportedStandardRef='Level 1 - Docker' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>Execute the below command to verify the file permissions are correctly set to 644 or more
+                            restrictive:&amp;nbsp;
+                            &lt;blockquote&gt;
+                            &lt;div&gt;
+                            stat -c %a /etc/default/docker
+                            &lt;/div&gt;
+                            &lt;/blockquote&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2016-08-02T10:21:32.718'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

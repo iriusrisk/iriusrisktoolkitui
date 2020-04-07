@@ -1,0 +1,38 @@
+<threat ref="R6-INSECURE-DEV" name="Cardholder data exposed through insecure development practices" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>Attackers gain access to cardholder data in pre-production environments or exposed in
+                                development
+                                and test environments
+                            </desc>
+                            <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="100"/>
+                            <references/>
+                            <controls>
+                                <control ref="PCI-PAN-DEV-6.4.3" mitigation="10"/>
+                                <control ref="PCI-R6-6.4.1" mitigation="15"/>
+                                <control ref="PCI-R6-6.4.2" mitigation="10"/>
+                                <control ref="PCI-R6-6.4.4" mitigation="15"/>
+                                <control ref="PCI-R6-6.4.5.1" mitigation="10"/>
+                                <control ref="PCI-R6-6.4.5.2" mitigation="10"/>
+                                <control ref="PCI-R6-6.4.5.3" mitigation="10"/>
+                                <control ref="PCI-R6-6.4.5.4" mitigation="10"/>
+                                <control ref="PCI-R6-6.4.6" mitigation="10"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="R6.4-SEGREGATION">
+                                    <controls>
+                                        <control ref="PCI-PAN-DEV-6.4.3" mitigation="10"/>
+                                        <control ref="PCI-R6-6.4.2" mitigation="10"/>
+                                        <control ref="PCI-R6-6.4.4" mitigation="15"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="PCI-R6-6.4">
+                                    <controls>
+                                        <control ref="PCI-R6-6.4.1" mitigation="15"/>
+                                        <control ref="PCI-R6-6.4.5.1" mitigation="10"/>
+                                        <control ref="PCI-R6-6.4.5.2" mitigation="10"/>
+                                        <control ref="PCI-R6-6.4.5.3" mitigation="10"/>
+                                        <control ref="PCI-R6-6.4.5.4" mitigation="10"/>
+                                        <control ref="PCI-R6-6.4.6" mitigation="10"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

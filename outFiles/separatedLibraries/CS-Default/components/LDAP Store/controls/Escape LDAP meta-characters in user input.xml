@@ -1,0 +1,63 @@
+<control ref="CWE-150-LDAP" name="Escape LDAP meta-characters in user input" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+                        &lt;div&gt;
+                        All data received from the client-side should be considered tainted and a potential risk,
+                        regardless of the source or transport method.&amp;nbsp;As such, all data from the client side
+                        must be subjected to strict validation, sanitization, and encoding against expected syntactic
+                        and semantic criteria.
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        When using user supplied input in an LDAP query:
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Ensure that LDAP specific meta-characters are escaped before the query is executed.&lt;/li&gt;
+                        &lt;li&gt;Define a specification of the data that is expected at each input; both the syntax
+                        (e.g. alphanumeric only) and semantics (e.g. a word of between 1 and 25 characters, or a
+                        specific list). As an example of business rule logic, &amp;quot;boat&amp;quot; may be
+                        syntactically valid because it only contains alphanumeric characters, but it is not valid if the
+                        input is only expected to contain colors such as &amp;quot;red&amp;quot; or &amp;quot;blue.&amp;quot;&lt;/li&gt;
+                        &lt;li&gt;Implement a 'known good' or white-list approach, where only inputs that meet the
+                        strict criteria for each input are accepted, and reject, transform, or encapsulate any
+                        non-compliant data.&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="12.2.1" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="CA-8" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-10" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="5.11" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="5.11" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="5.11" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="A1:2017-Injection" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+                            &lt;li&gt;For every part of the code which manages LDAP queries.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Check it is correctly escaping the following characters: &amp;quot;\&amp;quot;,
+                            &amp;quot;(&amp;quot;, &amp;quot;|&amp;quot;, &amp;quot;&amp;lt;&amp;quot;, &amp;quot;/&amp;quot;,
+                            &amp;quot;)&amp;quot;, &amp;quot;=&amp;quot;, &amp;quot;~&amp;quot;, &amp;quot;&amp;amp;&amp;quot;,
+                            &amp;quot;&amp;gt;&amp;quot;, &amp;quot;*&amp;quot; .&lt;/li&gt;
+                            &lt;/ol&gt;A safe method to automatically escape those characters is to use a framework
+                            which allows LDAP prepared statements.&amp;nbsp;
+                            &lt;br /&gt;
+                            &lt;br /&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2015-08-15T17:17:16.559000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

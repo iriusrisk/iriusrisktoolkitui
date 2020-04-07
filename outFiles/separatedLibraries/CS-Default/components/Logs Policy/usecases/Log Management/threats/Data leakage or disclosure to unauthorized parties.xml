@@ -1,0 +1,23 @@
+<threat ref="EU-GDPR-DATA_LEAKAGE-UNAUTHZ-PARTIES" name="Data leakage or disclosure to unauthorized parties" state="Expose" source="MANUAL" owner="admin" library="">
+                            <desc>&lt;span style=""&gt;Unauthorized party might access/breach the personal data of the
+                                data subject.&lt;/span&gt;
+                            </desc>
+                            <riskRating confidentiality="50" integrity="50" availability="75" easeOfExploitation="25"/>
+                            <references/>
+                            <controls>
+                                <control ref="CWE-532" mitigation="70"/>
+                                <control ref="LOG-RETENTION" mitigation="30"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-532">
+                                    <controls>
+                                        <control ref="CWE-532" mitigation="70"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="CWE-779">
+                                    <controls>
+                                        <control ref="LOG-RETENTION" mitigation="30"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

@@ -1,0 +1,24 @@
+<weakness ref="AWS-LAMBDA-W3" name="Data in transit was sent via an unencrypted protocol" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-03-25T16:40:59">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>Sensitive data must be protected when it is transmitted through the network. Currently the security best practice is to send any data over an encrypted channel. As a rule of thumb if data must be protected when it is stored, this data must also be protected during transmission.&amp;nbsp; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt;
+  Some examples of sensitive data include:&amp;nbsp; 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;ol&gt; 
+  &lt;li&gt;Information used in authentication (e.g. Credentials, PINs, Session identifiers, Tokens, Cookies…)&amp;nbsp;&lt;/li&gt; 
+  &lt;li&gt;Information protected by laws, regulations or specific organizational policy (e.g. Credit Cards, Customers data)&lt;/li&gt; 
+ &lt;/ol&gt; 
+&lt;/div&gt;</desc>
+                </weakness>

@@ -1,0 +1,18 @@
+<threat ref="CAPEC-137-MASS" name="Functionality could be subverted through mass assignment" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>If the application binds parameters to backend objects, then attackers could
+                                potentially
+                                set fields on those objects that were not designed to be modified by the user.
+                            </desc>
+                            <riskRating confidentiality="75" integrity="75" availability="1" easeOfExploitation="75"/>
+                            <references/>
+                            <controls>
+                                <control ref="ASSIGN-WHITE" mitigation="100"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-915">
+                                    <controls>
+                                        <control ref="ASSIGN-WHITE" mitigation="100"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

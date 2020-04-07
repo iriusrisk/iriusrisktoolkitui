@@ -1,0 +1,27 @@
+<control ref="AVOID-API-KEYS" name='Avoid the usage of static "API keys" and similar' platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>Avoid to use of static &amp;quot;API keys&amp;quot; or similar when we have to access to
+                        external systems. We have to create a mechanisms to generate, manage and delete API keys to
+                        grant access to external systems.
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="IA-3" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="IA-8" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="18.6" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="18.6" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="18.6" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>Check that the application is not using any static &amp;quot;API keys&amp;quot; or
+                            similar.
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-08-07T11:40:44.660000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

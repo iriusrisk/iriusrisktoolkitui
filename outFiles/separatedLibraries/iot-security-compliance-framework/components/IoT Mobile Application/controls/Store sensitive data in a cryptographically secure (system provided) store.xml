@@ -1,0 +1,33 @@
+<control ref="CWE-312-ENCRYPT" name="Store sensitive data in a cryptographically secure (system provided) store" platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Applications storing or caching data locally are at risk of attack and compromise of that data. Most mobile devices and operating systems offer built in &lt;span class="caps"&gt;API&lt;/span&gt;'s to store data in their encrypted stores, such as the Keychain on iOS. These stores are ultimately encrypted using a key derived from the device passcode and require the user to set a passcode. However, they do not enforce the quality of the passcode, nor is it possible to determine the quality of the passcode (and therefore, ultimately the key) from within the application.&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;Data should not be stored locally unless there is an explicit requirement to do so. This includes restricting thumbnails or screenshots of pages in the application that contain private data.&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;Data that must be stored on the client side must be held in a cryptographically secure store.&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;Use OS provided stores to protect private data on the client side, acknowledging that the residual risk from users with weak passwords may affect that data.&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;Do not store highly sensitive/financial data on the client-side without implementing a provably strong cryptographic process. For example, it should be encrypted using a key derived from an independent password where the strength of this password can be verified.&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;p&gt;&lt;/p&gt;</desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="2.1" supportedStandardRef="OWASP-MASVS-L1"/>
+                        <standard ref="2.1" supportedStandardRef="OWASP-MASVS-L2"/>
+                        <standard ref="A3:2017-Sensitive Data Exposure" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;Identify in which points the component is storing sensitive data.&amp;nbsp;&lt;/li&gt; 
+ &lt;li&gt;Check the storage routines and verify they are using OS &lt;span class="caps"&gt;API&lt;/span&gt;s which are built on top of secure storage components.&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;p&gt;&lt;/p&gt;</steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-03-13T16:00:46">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

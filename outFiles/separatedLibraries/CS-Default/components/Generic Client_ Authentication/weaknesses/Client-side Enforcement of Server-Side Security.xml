@@ -1,0 +1,23 @@
+<weakness ref="CWE-602" name="Client-side Enforcement of Server-Side Security" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references>
+                            <reference name="CWE-602: client-side Enforcement of Server-Side Security" url="http://cwe.mitre.org/data/definitions/602.html"/>
+                        </references>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2015-08-15T17:17:13.660000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The software is composed of a server that relies on the client to implement a mechanism that
+                        is intended to protect the server.&amp;nbsp;
+                        &lt;div&gt;
+                        &amp;nbsp;
+                        &lt;br /&gt;When the server relies on protection mechanisms placed on the client side, an
+                        attacker can modify the client-side behavior to bypass the protection mechanisms resulting in
+                        potentially unexpected interactions between the client and server. The consequences will vary,
+                        depending on what the mechanisms are trying to protect.
+                        &lt;/div&gt;
+                    </desc>
+                </weakness>

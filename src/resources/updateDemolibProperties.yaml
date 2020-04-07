@@ -1,0 +1,361 @@
+Hydras-AWS-Foundation:
+  categories:
+    amazonWebService:
+      name: Amazon Web Services
+      ref: amazon-web-services
+  componentDefinitions:
+    ec2:
+      name: EC2
+      ref: ec2
+      desc: ''
+      category: amazon-web-services
+      riskPattern: [HYDRAS-AWS-EC2]
+    s3:
+      name: S3
+      ref: s3
+      desc: ''
+      category: amazon-web-services
+      riskPattern: [HYDRAS-AWS-S3]
+    rds:
+      name: RDS
+      ref: rds
+      desc: ''
+      category: amazon-web-services
+      riskPattern: [HYDRAS-AWS-RDS]
+    elb:
+      name: ELB
+      ref: elb
+      desc: ''
+      category: amazon-web-services
+      riskPattern: [HYDRAS-AWS-ELB]
+    sns:
+      name: SNS
+      ref: sns
+      desc: ''
+      category: amazon-web-services
+      riskPattern: [HYDRAS-AWS-SNS]
+  rulesToRemove:
+    rule1: 'Risk Pattern: AWS - SNS'
+    rule2: 'Q: AWS - SNS'
+    rule3: 'Q: AWS - SNS - *'
+  rulesToCreate:
+    rule1:
+      name: "Set Answer: Set Public Cloud when AWS EC2 is selected"
+      module: "component"
+      conditions:
+        condition1:
+          name: 'Is specific component definition'
+          type: 'drools-without-variable-type'
+          field: 'id'
+          value: 'ec2'
+          pattern:
+            name: 'Is specific component definition'
+            pattern: 'ComponentDefinitionProperties(ref == "${value}");'
+      actions:
+        action1:
+          name: 'Answer Question'
+          type: 'drools-without-variable-type'
+          project: ''
+          value: 'Public Cloud_::_true_::_true'
+          pattern:
+            name: 'Action of answer question'
+            pattern: '$questionToAnswer : Question(id == "${value-1}", answer != ${value-2}); eval(!${value-3} || !$questionToAnswer.isManuallyModified());_:::_modify($questionToAnswer) { setAnswer(${value-2}), setCanBeManuallyModified(${value-3}) };'
+    rule2:
+      name: "Set Answer: Set Public Cloud when AWS S3 is selected"
+      module: "component"
+      conditions:
+        condition1:
+          name: 'Is specific component definition'
+          type: 'drools-without-variable-type'
+          field: 'id'
+          value: 's3'
+          pattern:
+            name: 'Is specific component definition'
+            pattern: 'ComponentDefinitionProperties(ref == "${value}");'
+      actions:
+        action1:
+          name: 'Answer Question'
+          type: 'drools-without-variable-type'
+          project: ''
+          value: 'Public Cloud_::_true_::_true'
+          pattern:
+            name: 'Action of answer question'
+            pattern: '$questionToAnswer : Question(id == "${value-1}", answer != ${value-2}); eval(!${value-3} || !$questionToAnswer.isManuallyModified());_:::_modify($questionToAnswer) { setAnswer(${value-2}), setCanBeManuallyModified(${value-3}) };'
+    rule3:
+      name: "Set Answer: Set Public Cloud when AWS ELB is selected"
+      module: "component"
+      conditions:
+        condition1:
+          name: 'Is specific component definition'
+          type: 'drools-without-variable-type'
+          field: 'id'
+          value: 'elb'
+          pattern:
+            name: 'Is specific component definition'
+            pattern: 'ComponentDefinitionProperties(ref == "${value}");'
+      actions:
+        action1:
+          name: 'Answer Question'
+          type: 'drools-without-variable-type'
+          project: ''
+          value: 'Public Cloud_::_true_::_true'
+          pattern:
+            name: 'Action of answer question'
+            pattern: '$questionToAnswer : Question(id == "${value-1}", answer != ${value-2}); eval(!${value-3} || !$questionToAnswer.isManuallyModified());_:::_modify($questionToAnswer) { setAnswer(${value-2}), setCanBeManuallyModified(${value-3}) };'
+    rule4:
+      name: "Set Answer: Set Public Cloud when AWS SNS is selected"
+      module: "component"
+      conditions:
+        condition1:
+          name: 'Is specific component definition'
+          type: 'drools-without-variable-type'
+          field: 'id'
+          value: 'sns'
+          pattern:
+            name: 'Is specific component definition'
+            pattern: 'ComponentDefinitionProperties(ref == "${value}");'
+      actions:
+        action1:
+          name: 'Answer Question'
+          type: 'drools-without-variable-type'
+          project: ''
+          value: 'Public Cloud_::_true_::_true'
+          pattern:
+            name: 'Action of answer question'
+            pattern: '$questionToAnswer : Question(id == "${value-1}", answer != ${value-2}); eval(!${value-3} || !$questionToAnswer.isManuallyModified());_:::_modify($questionToAnswer) { setAnswer(${value-2}), setCanBeManuallyModified(${value-3}) };'
+    rule5:
+      name: "Set Answer: Set Public Cloud when AWS RDS is selected"
+      module: "component"
+      conditions:
+        condition1:
+          name: 'Is specific component definition'
+          type: 'drools-without-variable-type'
+          field: 'id'
+          value: 'rds'
+          pattern:
+            name: 'Is specific component definition'
+            pattern: 'ComponentDefinitionProperties(ref == "${value}");'
+      actions:
+        action1:
+          name: 'Answer Question'
+          type: 'drools-without-variable-type'
+          project: ''
+          value: 'Public Cloud_::_true_::_true'
+          pattern:
+            name: 'Action of answer question'
+            pattern: '$questionToAnswer : Question(id == "${value-1}", answer != ${value-2}); eval(!${value-3} || !$questionToAnswer.isManuallyModified());_:::_modify($questionToAnswer) { setAnswer(${value-2}), setCanBeManuallyModified(${value-3}) };'
+Microsoft-Azure:
+  categories:
+    microsoftAzure:
+      name: Microsoft Azure
+      ref: microsoft-azure
+  componentDefinitions:
+    virtualMachines:
+      name: Microsoft Azure Virtual Machines
+      ref: azure-virtual-machines
+      desc: ''
+      category: microsoft-azure
+      riskPattern: [AZURE-VIRTUAL-MACHINES]
+    storage:
+      name: Microsoft Azure Storage
+      ref: azure-storage
+      desc: ''
+      category: microsoft-azure
+      riskPattern: [AZURE-STORAGE]
+    sql:
+      name: Microsoft Azure SQL
+      ref: azure-sql
+      desc: ''
+      category: microsoft-azure
+      riskPattern: [AZURE-SQL]
+  rulesToCreate:
+    rule1:
+      name: "Set Answer: Set Public Cloud when MS Azure SQL is selected"
+      module: "component"
+      conditions:
+        condition1:
+          name: 'Is specific component definition'
+          type: 'drools-without-variable-type'
+          field: 'id'
+          value: 'azure-sql'
+          pattern:
+            name: 'Is specific component definition'
+            pattern: 'ComponentDefinitionProperties(ref == "${value}");'
+      actions:
+        action1:
+          name: 'Answer Question'
+          type: 'drools-without-variable-type'
+          project: ''
+          value: 'Public Cloud_::_true_::_true'
+          pattern:
+            name: 'Action of answer question'
+            pattern: '$questionToAnswer : Question(id == "${value-1}", answer != ${value-2}); eval(!${value-3} || !$questionToAnswer.isManuallyModified());_:::_modify($questionToAnswer) { setAnswer(${value-2}), setCanBeManuallyModified(${value-3}) };'
+    rule2:
+      name: "Set Answer: Set Public Cloud when MS Azure Storage is selected"
+      module: "component"
+      conditions:
+        condition1:
+          name: 'Is specific component definition'
+          type: 'drools-without-variable-type'
+          field: 'id'
+          value: 'azure-storage'
+          pattern:
+            name: 'Is specific component definition'
+            pattern: 'ComponentDefinitionProperties(ref == "${value}");'
+      actions:
+        action1:
+          name: 'Answer Question'
+          type: 'drools-without-variable-type'
+          project: ''
+          value: 'Public Cloud_::_true_::_true'
+          pattern:
+            name: 'Action of answer question'
+            pattern: '$questionToAnswer : Question(id == "${value-1}", answer != ${value-2}); eval(!${value-3} || !$questionToAnswer.isManuallyModified());_:::_modify($questionToAnswer) { setAnswer(${value-2}), setCanBeManuallyModified(${value-3}) };'
+    rule3:
+      name: "Set Answer: Set Public Cloud when MS Azure Virtual MAchines is selected"
+      module: "component"
+      conditions:
+        condition1:
+          name: 'Is specific component definition'
+          type: 'drools-without-variable-type'
+          field: 'id'
+          value: 'azure-virtual-machines'
+          pattern:
+            name: 'Is specific component definition'
+            pattern: 'ComponentDefinitionProperties(ref == "${value}");'
+      actions:
+        action1:
+          name: 'Answer Question'
+          type: 'drools-without-variable-type'
+          project: ''
+          value: 'Public Cloud_::_true_::_true'
+          pattern:
+            name: 'Action of answer question'
+            pattern: '$questionToAnswer : Question(id == "${value-1}", answer != ${value-2}); eval(!${value-3} || !$questionToAnswer.isManuallyModified());_:::_modify($questionToAnswer) { setAnswer(${value-2}), setCanBeManuallyModified(${value-3}) };'
+Google-Cloud-Platform:
+  categories:
+    googleCloud:
+      name: Google Cloud Platform
+      ref: google-cloud-platform
+  componentDefinitions:
+    virtualMachines:
+      name: Google Cloud Virtual Machines
+      ref: google-virtual-machines
+      desc: ''
+      category: google-cloud-platform
+      riskPattern: [GOOGLE-CLOUD-VM]
+    sql:
+      name: Google Cloud SQL
+      ref: google-sql
+      desc: ''
+      category: google-cloud-platform
+      riskPattern: [GOOGLE-CLOUD-SQL]
+    storage:
+      name: Google Cloud Storage
+      ref: google-storage
+      desc: ''
+      category: google-cloud-platform
+      riskPattern: [GOOGLE-CLOUD-STORAGE]
+    kubernetes:
+      name: Google Cloud Kubernetes
+      ref: google-kubernetes
+      desc: ''
+      category: google-cloud-platform
+      riskPattern: [GOOGLE-CLOUD-KUB]
+  rulesToCreate:
+    rule1:
+      name: "Set Answer: Set Public Cloud when Google Kubernetes is selected"
+      module: "component"
+      conditions:
+        condition1:
+          name: 'Is specific component definition'
+          type: 'drools-without-variable-type'
+          field: 'id'
+          value: 'google-kubernetes'
+          pattern:
+            name: 'Is specific component definition'
+            pattern: 'ComponentDefinitionProperties(ref == "${value}");'
+      actions:
+        action1:
+          name: 'Answer Question'
+          type: 'drools-without-variable-type'
+          project: ''
+          value: 'Public Cloud_::_true_::_true'
+          pattern:
+            name: 'Action of answer question'
+            pattern: '$questionToAnswer : Question(id == "${value-1}", answer != ${value-2}); eval(!${value-3} || !$questionToAnswer.isManuallyModified());_:::_modify($questionToAnswer) { setAnswer(${value-2}), setCanBeManuallyModified(${value-3}) };'
+    rule2:
+      name: "Set Answer: Set Public Cloud when Google SQL is selected"
+      module: "component"
+      conditions:
+        condition1:
+          name: 'Is specific component definition'
+          type: 'drools-without-variable-type'
+          field: 'id'
+          value: 'google-sql'
+          pattern:
+            name: 'Is specific component definition'
+            pattern: 'ComponentDefinitionProperties(ref == "${value}");'
+      actions:
+        action1:
+          name: 'Answer Question'
+          type: 'drools-without-variable-type'
+          project: ''
+          value: 'Public Cloud_::_true_::_true'
+          pattern:
+            name: 'Action of answer question'
+            pattern: '$questionToAnswer : Question(id == "${value-1}", answer != ${value-2}); eval(!${value-3} || !$questionToAnswer.isManuallyModified());_:::_modify($questionToAnswer) { setAnswer(${value-2}), setCanBeManuallyModified(${value-3}) };'
+    rule3:
+      name: "Set Answer: Set Public Cloud when Google Storage is selected"
+      module: "component"
+      conditions:
+        condition1:
+          name: 'Is specific component definition'
+          type: 'drools-without-variable-type'
+          field: 'id'
+          value: 'google-storage'
+          pattern:
+            name: 'Is specific component definition'
+            pattern: 'ComponentDefinitionProperties(ref == "${value}");'
+      actions:
+        action1:
+          name: 'Answer Question'
+          type: 'drools-without-variable-type'
+          project: ''
+          value: 'Public Cloud_::_true_::_true'
+          pattern:
+            name: 'Action of answer question'
+            pattern: '$questionToAnswer : Question(id == "${value-1}", answer != ${value-2}); eval(!${value-3} || !$questionToAnswer.isManuallyModified());_:::_modify($questionToAnswer) { setAnswer(${value-2}), setCanBeManuallyModified(${value-3}) };'
+    rule4:
+      name: "Set Answer: Set Public Cloud when Google Virtual Machines is selected"
+      module: "component"
+      conditions:
+        condition1:
+          name: 'Is specific component definition'
+          type: 'drools-without-variable-type'
+          field: 'id'
+          value: 'google-virtual-machines'
+          pattern:
+            name: 'Is specific component definition'
+            pattern: 'ComponentDefinitionProperties(ref == "${value}");'
+      actions:
+        action1:
+          name: 'Answer Question'
+          type: 'drools-without-variable-type'
+          project: ''
+          value: 'Public Cloud_::_true_::_true'
+          pattern:
+            name: 'Action of answer question'
+            pattern: '$questionToAnswer : Question(id == "${value-1}", answer != ${value-2}); eval(!${value-3} || !$questionToAnswer.isManuallyModified());_:::_modify($questionToAnswer) { setAnswer(${value-2}), setCanBeManuallyModified(${value-3}) };'
+CS-Default:  
+  categories:
+    onPremisesArchitecture:
+      name: On Premises Architecture
+      ref: on-premises-architecture
+  componentDefinitions:
+    internalServer:
+      name: Internal Server
+      ref: internal-server
+      desc: ''
+      category: on-premises-architecture
+      riskPattern: [INF-SERVER]

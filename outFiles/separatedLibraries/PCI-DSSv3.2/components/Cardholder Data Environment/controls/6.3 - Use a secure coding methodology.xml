@@ -1,0 +1,47 @@
+<control ref="PCI-R6-6.3" name="6.3 - Use a secure coding methodology" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Develop internal and external software applications (including web-based
+                        administrative access
+                        to applications) securely, as follows:&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- In accordance with PCI DSS (for example, secure authentication and logging)&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Based on industry standards and/or best practices.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Incorporating information security throughout the software-development life cycle&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt; &lt;/p&gt;
+                        &lt;p&gt;Without the inclusion of security during the requirements definition, design, analysis,
+                        and testing
+                        phases of software development, security vulnerabilities can be inadvertently or maliciously
+                        introduced into
+                        the production environment.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;Understanding how sensitive data is handled by the application-including when
+                        stored,
+                        transmitted,
+                        and when in memory-can help identify where data needs to be protected.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="6.3" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;6.3.a Examine written software-development processes to verify that the
+                            processes are based
+                            on industry standards and/or best practices. &lt;/p&gt;
+                            &lt;p&gt;6.3.b Examine written software-development processes to verify that information
+                            security is
+                            included throughout the life cycle. &lt;/p&gt;
+                            &lt;p&gt;6.3.c Examine written software-development processes to verify that software
+                            applications are
+                            developed in accordance with PCI DSS. &lt;/p&gt;
+                            &lt;p&gt;6.3.d Interview software developers to verify that written software-development
+                            processes are
+                            implemented.&amp;nbsp;&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T12:23:36.160000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

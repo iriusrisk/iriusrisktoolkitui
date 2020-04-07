@@ -1,0 +1,54 @@
+<control ref='AZ-A04' name='Enable MFA for Administrator &amp; Co Administrator accounts' platform='' cost='0' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;div&gt;
+  Enable multi-factor authentication (MFA) device enhances the security of the login process for the Administrator accounts. With MFA, users have a device that generates a unique authentication code (a one-time password, or OTP) and users must provide both their normal credentials (like their username and password) and the OTP. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt;
+  The MFA device can either be a special piece of hardware, or it can be a virtual device. The recommendation for the Service Administrator &amp;amp; Co Administrator accounts is to use MFA to increase the level of security of the login process. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;b&gt;Remediation:&amp;nbsp;&lt;/b&gt; 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;ol&gt; 
+  &lt;li&gt;Log into the Azure portal as an owner.&lt;/li&gt; 
+  &lt;li&gt;Select Azure Active Directory.&lt;/li&gt; 
+  &lt;li&gt;Go into &amp;quot;Users and groups&amp;quot; &amp;gt; &amp;quot;All users&amp;quot;.&lt;/li&gt; 
+  &lt;li&gt;Select &amp;quot;Multi-Factor Authentication&amp;quot;.&lt;/li&gt; 
+  &lt;li&gt;Choose all the Service Administrator &amp;amp; Co Administrator accounts and enable MFA.&amp;nbsp;&lt;/li&gt; 
+ &lt;/ol&gt; 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;div&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='MS Azure - How to require two-step verification for a user or group' url='https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states' />
+          </references>
+          <standards />
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;div&gt;
+                            &lt;ol&gt;
+                            &lt;li&gt;Log into the Azure portal as an owner.&lt;/li&gt;
+                            &lt;li&gt;Select Azure Active Directory.&lt;/li&gt;
+                            &lt;li&gt;Go into &amp;quot;Users and groups&amp;quot; &amp;gt; &amp;quot;All users&amp;quot;.&lt;/li&gt;
+                            &lt;li&gt;Select &amp;quot;Multi-Factor Authentication&amp;quot;.&lt;/li&gt;
+                            &lt;li&gt;Check all Administrator accounts have got the MFA flag enabled.&lt;/li&gt;
+                            &lt;/ol&gt;
+                            &lt;/div&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2017-05-10T13:26:09.437'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

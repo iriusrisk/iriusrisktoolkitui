@@ -1,0 +1,14 @@
+<weakness ref='GOOGLE-LOGS01' name='Non-auditable resource changes' state='0' impact='100'>
+          <desc>The Diagnostic Logs are not activated and configured. Therefore, the changes or access to the
+                        resources are not recorded in the logs.
+                    </desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2018-05-31T09:31:01.249'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>

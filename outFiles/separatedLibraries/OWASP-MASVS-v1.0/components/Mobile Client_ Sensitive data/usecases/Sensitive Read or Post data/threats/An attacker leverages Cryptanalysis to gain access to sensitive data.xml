@@ -1,0 +1,29 @@
+<threat ref="CAPEC-97" name="An attacker leverages Cryptanalysis to gain access to sensitive data" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>Cryptanalysis is the process of finding weaknesses in cryptographic algorithms and
+                                using these weaknesses to decipher the ciphertext without knowing the secret key
+                                (instance deduction). Sometimes the weakness is not in the cryptographic algorithm
+                                itself, but rather in how it is applied that makes cryptanalysis successful. An attacker
+                                may have other goals as well, such as:
+                                The goal of the attacker performing cryptanalysis will depend on the specific needs of
+                                the attacker in a given attack context. In most cases, if cryptanalysis is successful at
+                                all, an attacker will not be able to go past being able to deduce some information about
+                                the plaintext (goal 3). However, that may be sufficient for an attacker, depending on
+                                the context.
+                            </desc>
+                            <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="100"/>
+                            <references/>
+                            <controls>
+                                <control ref="MASVS-3.2" mitigation="33"/>
+                                <control ref="MASVS-3.3-KEY-AES" mitigation="34"/>
+                                <control ref="MASVS-3.4" mitigation="33"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-327">
+                                    <controls>
+                                        <control ref="MASVS-3.2" mitigation="33"/>
+                                        <control ref="MASVS-3.3-KEY-AES" mitigation="34"/>
+                                        <control ref="MASVS-3.4" mitigation="33"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

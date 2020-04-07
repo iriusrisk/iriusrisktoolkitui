@@ -1,0 +1,58 @@
+<control ref='GOOGLE-SQL01' name='Enable SSL channel encryption to connect to the database' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>Enable and configure SSL encryption with the certificates to connect to the SQL database. This
+                        way only users with the appropriate certificate can connect to the SQL database. Remediation:
+                        You can create up to 10 client certificates for each instance. If you lose the private key for a
+                        certificate, you must create a new one; the private key cannot be recovered.&amp;nbsp;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ol&gt;
+                        &lt;li&gt;Go to the Cloud SQL Instances page in the &lt;a
+                        href="https://console.cloud.google.com/sql/instances"&gt;Google Cloud Platform Console&lt;/a&gt;.&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;Click the instance name to open its Instance details page.&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;Select the SSL tab.&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;In the SSL Connections section, click Allow only SSL connection to enforce that only
+                        SSL connections can connect to the instances. (This step is not required. However, if you do not
+                        require SSL for all connections, any issue with your SSL configuration can cause all connections
+                        to default silently to unencrypted.)&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;In the Client Certificates section, click Create a Client Certificate.&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;In the New client certificate dialog box, give the certificate a name unique for this
+                        instance and click Add.&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;In the first section of the New SSL certificate created dialog box, click the link to
+                        download the private key to a file named client-key.pem. (Important: Store this private key
+                        securely. If you lose it, you must create a new client certificate.)&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;In the second section, click the link to download the client certificate to a file
+                        named client-cert.pem.&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;In the third section, click the link to download the server certificate to a file
+                        named server-ca.pem.&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;Click Close.&lt;/li&gt;
+                        &lt;/ol&gt;
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='Google Cloud docs: MySQL SSL configuration' url='https://cloud.google.com/sql/docs/mysql/configure-ssl-instance?-419#introduction' />
+          </references>
+          <standards />
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;ol&gt;
+                            &lt;li&gt;Go to the Cloud SQL Instances page in the Google Cloud Platform Console.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Click the instance name to open its Instance details page.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Select the SSL tab.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;In the SSL Connections section, check that the SSL Connections are configured and
+                            enabled correctly.&lt;/li&gt;
+                            &lt;/ol&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2016-08-02T10:21:32.718'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

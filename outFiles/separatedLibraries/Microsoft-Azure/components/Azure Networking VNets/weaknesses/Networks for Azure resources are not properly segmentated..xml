@@ -1,0 +1,25 @@
+<weakness ref='AZURE-VNET01' name='Networks for Azure resources are not properly segmentated.' state='0' impact='100'>
+          <desc>&lt;div&gt;
+                        Resources in the same VNet are compromised because when one of them is attacked and the
+                        attackers gain access, they also gain access to all resources.
+                        &lt;/div&gt;
+                    </desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;div&gt;
+                            Identify the resources and the Microsoft Azure instances.
+                            &lt;/div&gt;
+                            &lt;div&gt;
+                            Check that the resources are in the correct VNet.
+                            &lt;/div&gt;
+                            &lt;div&gt;
+                            Check that the Microsoft Azure instances&amp;nbsp;are into different VNets.
+                            &lt;/div&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2017-05-10T09:26:52.732'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>

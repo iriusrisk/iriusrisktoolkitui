@@ -1,0 +1,13 @@
+<weakness ref='GOOGLE-OBSOLETE-APPS-ACCESS' name='Obsolete applications have access to the resources' state='0' impact='100'>
+          <desc>There are obsolete applications that no one uses, with permissions to access the resources.
+                    </desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2018-05-31T09:31:02.400'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>

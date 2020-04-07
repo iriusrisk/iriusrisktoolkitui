@@ -1,0 +1,14 @@
+<weakness ref="IR-W3C-PLUGINS" name="Application requires the use of third party browser plugins" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-11-18T14:42:12.683000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The application requires the use of third party browser plugins in order to function.&amp;nbsp;
+                        This increases the attack surface.
+                    </desc>
+                </weakness>

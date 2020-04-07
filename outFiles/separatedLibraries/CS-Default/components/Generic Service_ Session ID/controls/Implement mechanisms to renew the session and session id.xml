@@ -1,0 +1,37 @@
+<control ref="RENEW-SESSION" name="Implement mechanisms to renew the session and session id" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="EDITED">
+                    <desc>Implement a mechanism to generate a new session and new session id, when a successful
+                        authentication or re-authentication occurs. After this creation, the old session and session ID
+                        shall be removed securely.
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="9.4.2" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="AC-16" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="CA-8" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="3.7" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="3.7" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="3.7" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="A2:2017-Broken Authentication" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;div&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt;Log in to the application.&lt;/li&gt;
+                            &lt;li&gt;Open another browser and go to the login page.&lt;/li&gt;
+                            &lt;li&gt;Log in to the application for second time.&lt;/li&gt;
+                            &lt;li&gt;Check that the old session and session id are removed.&lt;/li&gt;
+                            &lt;li&gt;Check that a new session is created with new session id.&lt;/li&gt;
+                            &lt;li&gt;Check that the old and new session id's are different.&lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;/div&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-08-06T13:09:22.525000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

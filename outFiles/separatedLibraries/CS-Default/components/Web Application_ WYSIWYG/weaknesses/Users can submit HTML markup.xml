@@ -1,0 +1,38 @@
+<weakness ref="CWE-79-HTML" name="Users can submit HTML markup" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>When using a WYSIWYG editor in which the user is able to input HTML code, that HTML code
+                            should be whitelisted and cleaned before sending it to the server or printing it back to the
+                            application.&amp;nbsp;
+                            &lt;br /&gt;
+                            &lt;br /&gt;
+                        </steps>
+                        <notes></notes>
+                        <references>
+                            <reference name="CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')" url="https://cwe.mitre.org/data/definitions/79.html"/>
+                        </references>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-11-29T19:59:33.741000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>&lt;br /&gt;The software does not neutralize or incorrectly neutralizes user-controllable
+                        input before it is placed in output that is used as a web page that is served to other users.
+                        client-side injection (XSS, HTML, CSS...) vulnerabilities occur when:
+                        &lt;ol&gt;
+                        &lt;li&gt;Untrusted data enters a web application, typically from a web request.&lt;/li&gt;
+                        &lt;li&gt;The web application dynamically generates a web page that contains this untrusted
+                        data.&lt;/li&gt;
+                        &lt;li&gt;During page generation, the application does not prevent the data from containing
+                        content that is executable by a web browser, such as JavaScript, HTML tags, HTML attributes,
+                        mouse events, Flash, ActiveX, etc.&lt;/li&gt;
+                        &lt;li&gt;A victim visits the generated web page through a web browser, which contains malicious
+                        script that was injected using the untrusted data.&lt;/li&gt;
+                        &lt;li&gt;Since the script comes from a web page that was sent by the web server, the victim's
+                        web browser executes the malicious script in the context of the web server's domain.&lt;/li&gt;
+                        &lt;li&gt;This effectively violates the intention of the web browser's same-origin policy, which
+                        states that scripts in one domain should not be able to access resources or run code in a
+                        different domain.&lt;/li&gt;
+                        &lt;/ol&gt;
+                        &lt;br /&gt;
+                    </desc>
+                </weakness>

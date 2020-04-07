@@ -1,0 +1,20 @@
+<weakness ref='LOST-SECURITY-ALERTS' name='Misconfigured Security contact details' state='0' impact='100'>
+          <desc>The security contact details for the Azure subscription are not properly configured.</desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;div&gt;
+                            &lt;ol&gt;
+                            &lt;li&gt;Access &amp;quot;Azure Security Center&amp;quot;.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;In the &amp;quot;Recommendations&amp;quot; tab choose &amp;quot;Provide security
+                            contact details&amp;quot;.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Check that all fields are filled.&lt;/li&gt;
+                            &lt;/ol&gt;
+                            &lt;/div&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-24T15:56:01.547'>
+              <output />
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>

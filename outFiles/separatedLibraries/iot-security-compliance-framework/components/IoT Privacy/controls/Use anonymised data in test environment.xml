@@ -1,0 +1,36 @@
+<control ref="EU-GDPR-ANONYMISED-DATA-TEST" name="Use anonymised data in test environment" platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>	&lt;p&gt;Implement anonymization/pseudonymization or give a risk based explanation (from the standpoint of the data subject) why anonymization and pseudonymization are not used. Anonymization makes it impossible to reidentify the data subject while pseudonymization uses randomization techniques to make personal data less identifiable.The following techniques provide a degree of anonymization and pseudonymization and might be used: &amp;#8211; noise addition
+ &amp;#8211; substitution
+ &amp;#8211; aggregation or K-anonymity
+ &amp;#8211; L-diversity
+ &amp;#8211; differential privacy
+ &amp;#8211; hashing or tokenization
+ &amp;#8211; dummy data
+ If anonymization/pseudonymization is not possible, other security controls should be implemented, such as: &amp;#8211; strong logical access control to test environment
+ &amp;#8211; deletion of test environment data after tests have been conducted&lt;/p&gt;</desc>
+                    <implementations/>
+                    <references>
+                        <reference name="EU GDPR - EU Data Protection" url="http://ec.europa.eu/justice/data-protection/reform/files/regulation_oj_en.pdf"/>
+                    </references>
+                    <standards>
+                        <standard ref="Art.32" supportedStandardRef="EU-GDPR"/>
+                        <standard ref="2.4.12.4" supportedStandardRef="iotsf-class-0"/>
+                        <standard ref="2.4.12.4" supportedStandardRef="iotsf-class-1"/>
+                        <standard ref="2.4.12.4" supportedStandardRef="iotsf-class-2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;Verify anonymization / pseudonymization of all user personal data is leveraged for data residing within the test environment (truly anonymized data is stripped of &lt;span class="caps"&gt;ALL&lt;/span&gt; personally identifiable information and additional data would be required to reidentify a specific user when leveraging data pseudonymization).&lt;/li&gt; 
+ &lt;li&gt;If anonymization / pseudonymization is not leveraged for user personal data residing within the test environment, verify documentation exists justifying why this is and ensure security is as robust as the production environment.&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;p&gt;&lt;/p&gt;</steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-03-13T16:00:47">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

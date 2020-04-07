@@ -1,0 +1,16 @@
+<weakness ref='AWS-Monitoring-4.4' name='Changes in the security configurations can be not detected' state='0' impact='100'>
+          <desc>&lt;div&gt;
+                        Monitoring and alerting for security configurations are not configured and changes cannot be
+                        detected.&amp;nbsp;
+                        &lt;/div&gt;
+                    </desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>

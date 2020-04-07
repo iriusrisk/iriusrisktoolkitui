@@ -1,0 +1,40 @@
+<control ref="CWE-295-MOBILE" name="Validate that the certificate presented by the server is signed by a trusted Certificate Authority" platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>The client should verify that the TLS certificate presented by the server has been signed by a
+                        recognized certificate authority and that the information in the certificate is valid.
+                    </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="OWASP MASVS - Android - Testing Endpoint Identify Verification" url="https://sushi2k.gitbooks.io/the-owasp-mobile-security-testing-guide/content/0x05g-Testing-Network-Communication.html#testing-endpoint-identify-verification"/>
+                        <reference name="OWASP MASVS - iOS - Testing Endpoint Identify Verification" url="https://sushi2k.gitbooks.io/the-owasp-mobile-security-testing-guide/content/0x06g-Testing-Network-Communication.html#app-transport-security"/>
+                    </references>
+                    <standards>
+                        <standard ref="5.3" supportedStandardRef="OWASP-MASVS-L1"/>
+                        <standard ref="5.3" supportedStandardRef="OWASP-MASVS-L1+R"/>
+                        <standard ref="5.3" supportedStandardRef="OWASP-MASVS-L2"/>
+                        <standard ref="5.3" supportedStandardRef="OWASP-MASVS-L2+R"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>For every starting connection the client does to a TLS enabled end-point the certificate
+                            must be verified. This verification includes:&amp;nbsp;
+                            &lt;div&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt;in first place to check the certificate is valid, it is neither expired nor
+                            revoked, the private key used is of a reasonable length, the signature algorithm is of a
+                            reasonable strength and the Distinguished Name matches with the one of the server we are
+                            connecting to.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Verification also includes checking the certificate against the certificate chain.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Also verify that the certificate chain is trusted against a local copy of the
+                            Certificate Authority certificate, in which we have set up the trust.&amp;nbsp;&lt;/li&gt;
+                            &lt;/ul&gt;For Android, we shall review the code and search how it has used the methods of
+                            TrustManager and HostnameVerifier.
+                            &lt;/div&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-02T10:21:32.718000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

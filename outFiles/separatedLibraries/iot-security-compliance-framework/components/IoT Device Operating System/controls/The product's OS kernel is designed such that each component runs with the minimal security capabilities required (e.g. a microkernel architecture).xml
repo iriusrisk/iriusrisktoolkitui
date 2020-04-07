@@ -1,0 +1,28 @@
+<control ref="IOT2.4.6.13" name="The product's OS kernel is designed such that each component runs with the minimal security capabilities required (e.g. a microkernel architecture)" platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>	&lt;p&gt;Monolithic kernels are large in size and the structure &amp;#8211; or lack of structure &amp;#8211; makes them difficult to change and maintain without affecting other parts of the kernel. The microkernel approach is based on the idea of only placing essential core real-time operating system functions in the kernel, and other functionality is designed in modules that communicate through the kernel via minimal well-defined interfaces. The microkernel approach results in easy reconfigurable systems without the need to rebuild the kernel.&lt;/p&gt;
+
+	&lt;p&gt;Modern mainstream operating systems (OSes) are designed for functionality, speed and ease of development. With the increase of functionality and support for more diverse hardware, their size and complexity keeps growing. These OSes have a monolithic structure, with most services contained in the kernel, i.e. the part of the system that executes in the privileged mode of the hardware. The result is an explosive growth in the amount of privileged code.&lt;/p&gt;
+
+	&lt;p&gt;Any code executing in privileged mode can bypass security, and is therefore inherently part of a system&amp;#8217;s trusted computing base (&lt;span class="caps"&gt;TCB&lt;/span&gt;). Hence we are experiencing a rapid growth of the &lt;span class="caps"&gt;TCB&lt;/span&gt; of mainstream OSes. As almost all code is buggy, and the number of bugs grows with the size of the code base, this &lt;span class="caps"&gt;TCB&lt;/span&gt; growth is bound to lead to a growth in the number of vulnerabilities.&lt;/p&gt;
+
+	&lt;p&gt;Microkernel design, with its ability to reduce &lt;span class="caps"&gt;TCB&lt;/span&gt; size, contain faults and encapsulate untrusted components, is, in terms of security, superior to monolithic systems.&lt;/p&gt;
+
+	&lt;p&gt;Examples of microkernel architecture are: Mach, L4, &lt;span class="caps"&gt;QNX&lt;/span&gt;, &lt;span class="caps"&gt;MINIX&lt;/span&gt;, &lt;span class="caps"&gt;IBM&lt;/span&gt; K42.&lt;/p&gt;</desc>
+                    <implementations/>
+                    <references>
+                        <reference name="The Jury Is In: Monolithic OS Design Is Flawed" url="http://ts.data61.csiro.au/publications/csiro_full_text/Biggs_LH_18.pdf"/>
+                    </references>
+                    <standards>
+                        <standard ref="2.4.6.13" supportedStandardRef="iotsf-class-2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-03-13T16:00:44">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

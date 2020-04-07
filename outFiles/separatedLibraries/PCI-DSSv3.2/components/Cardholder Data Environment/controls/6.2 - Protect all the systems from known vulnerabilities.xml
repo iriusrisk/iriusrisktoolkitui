@@ -1,0 +1,66 @@
+<control ref="PCI-R6-6.2" name="6.2 - Protect all the systems from known vulnerabilities" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Ensure that all system components and software are protected from known
+                        vulnerabilities by
+                        installing applicable vendor-supplied security patches. Install critical security patches within
+                        one month
+                        of release.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt; &lt;/p&gt;
+                        &lt;p&gt;There is a constant stream of attacks using widely published exploits, often called
+                        &amp;quot;zero
+                        day&amp;quot; (an attack that exploits a previously unknown vulnerability), against otherwise
+                        secured
+                        systems. If the most recent patches are not implemented on critical systems as soon as possible,
+                        a malicious
+                        individual can use these exploits to attack or disable a system, or gain access to sensitive
+                        data.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;Prioritizing patches for critical infrastructure ensures that high-priority systems and
+                        devices are
+                        protected from vulnerabilities as soon as possible after a patch is released. Consider
+                        prioritizing patch
+                        installations such that security patches for critical or at-risk systems are installed within 30
+                        days, and
+                        other lower-risk patches are installed within 2-3 months.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;This requirement applies to applicable patches for all installed software, including
+                        payment
+                        applications (both those that are PA-DSS validated and those that are not).&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="6.2" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;6.2.a Examine policies and procedures related to security- patch installation to
+                            verify
+                            processes are defined for: &lt;/p&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt; &lt;p&gt;Installation of applicable critical vendor-supplied security patches
+                            within one month
+                            of release. &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Installation of all applicable vendor-supplied security patches within
+                            an appropriate
+                            time frame (for example, within three months).&lt;/p&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;p&gt;6.2.b For a sample of system components and related software, compare the list of
+                            security
+                            patches installed on each system to the most recent vendor security-patch list, to verify
+                            the following:
+                            &lt;/p&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt; &lt;p&gt;That applicable critical vendor-supplied security patches are installed
+                            within one
+                            month of release. &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;All applicable vendor-supplied security patches are installed within an
+                            appropriate
+                            time frame (for example, within three months).&amp;nbsp;&lt;/p&gt; &lt;/li&gt;
+                            &lt;/ul&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T12:18:58.262000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

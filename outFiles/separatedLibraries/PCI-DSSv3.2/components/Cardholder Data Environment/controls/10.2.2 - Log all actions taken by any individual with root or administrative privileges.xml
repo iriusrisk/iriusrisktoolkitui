@@ -1,0 +1,29 @@
+<control ref="PCI-R10-10.2.2" name="10.2.2 - Log all actions taken by any individual with root or administrative privileges" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Accounts with increased privileges, such as the "administrator" or
+                        "root" account,
+                        have the
+                        potential to greatly impact the security or operational functionality of a system. Without a log
+                        of the
+                        activities performed, an organization is unable to trace any issues resulting from an
+                        administrative mistake
+                        or misuse of privilege back to the specific action and individual.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="10.2.2" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;10.2.2 Verify all actions taken by any individual with root or administrative
+                            privileges are
+                            logged.&amp;nbsp;&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T16:50:44.592000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

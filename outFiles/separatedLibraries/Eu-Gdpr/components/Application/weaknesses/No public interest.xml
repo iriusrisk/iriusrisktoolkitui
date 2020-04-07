@@ -1,0 +1,13 @@
+<weakness ref="EU-GDPR-NO-PUBLIC-INTEREST" name="No public interest" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T12:49:16.026000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>Application is not created for a specific governmental agency (e.g. law enforcement, courts, intelligence agencies, ...) which may process personal data because it is in the public interest of society.
+          </desc>
+                </weakness>

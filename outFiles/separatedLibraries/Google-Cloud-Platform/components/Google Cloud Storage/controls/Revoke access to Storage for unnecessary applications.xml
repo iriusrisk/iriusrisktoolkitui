@@ -1,0 +1,37 @@
+<control ref='GOOGLE-STO01' name='Revoke access to Storage for unnecessary applications' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>Create a mechanism or process to review all applications with access to the Data Storage and
+                        verify that these applications should have access. If an application should not have access to
+                        the data storage, you have to revoke the access from this application.&amp;nbsp;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&amp;nbsp;&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ol&gt;
+                        &lt;li&gt;To revoke the access from an application, go to the &lt;a
+                        href="https://www.google.com/accounts/ManageAccount"&gt;Google Account&lt;/a&gt;.&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;Click in to Authorizing applications and sites.&lt;/li&gt;
+                        &lt;li&gt;In the next page, you can revoke access for applications by clicking Revoke Access
+                        next to the application.&lt;/li&gt;
+                        &lt;/ol&gt;
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='Google Cloud docs: Best practices Storage security' url='https://cloud.google.com/storage/docs/best-practices#security' />
+          </references>
+          <standards />
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>Check that there are only the necessary accesses from applications to the data storages.
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2016-08-02T10:21:32.718'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

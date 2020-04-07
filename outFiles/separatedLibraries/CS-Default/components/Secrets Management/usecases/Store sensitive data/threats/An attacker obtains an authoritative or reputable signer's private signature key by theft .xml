@@ -1,0 +1,18 @@
+<threat ref="CAPEC-474" name="An attacker obtains an authoritative or reputable signer's private signature key by theft " state="Expose" source="MANUAL" owner="admin" library="">
+                            <desc>An attacker obtains an authoritative or reputable signer's private signature key by
+                                theft and then uses this key to forge signatures from the original signer to mislead a
+                                victim into performing actions that benefit the attacker.
+                            </desc>
+                            <riskRating confidentiality="75" integrity="75" availability="100" easeOfExploitation="100"/>
+                            <references/>
+                            <controls>
+                                <control ref="CSD-KEY-MGMT" mitigation="100"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-320">
+                                    <controls>
+                                        <control ref="CSD-KEY-MGMT" mitigation="100"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

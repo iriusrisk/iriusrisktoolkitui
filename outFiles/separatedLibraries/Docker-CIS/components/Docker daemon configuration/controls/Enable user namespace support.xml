@@ -1,0 +1,83 @@
+<control ref='D2.8' name='Enable user namespace support' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>Enable user namespace support in Docker daemon to utilize container user to host user
+                        re-mapping. This recommendation is beneficial where containers you are using do not have an
+                        explicit container user defined in the container image. If container images that you are using
+                        have a pre-defined non-root user, this recommendation may be skipped since this feature is still
+                        in its infancy and might give you unpredictable issues and complexities.&amp;nbsp;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Rationale:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        The Linux kernel user namespace support in Docker daemon provides additional security for the
+                        Docker host system. It allows a container to have a unique range of user and group IDs which are
+                        outside the traditional user and group range utilized by the host system. For example, the root
+                        user will have expected administrative privilege inside the container but can effectively be
+                        mapped to an unprivileged UID on the host system.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Please consult Docker documentation for various ways in which this can be configured depending
+                        upon your requirements. Your steps might also vary based on platform - For example, on Red Hat,
+                        sub-UIDs and sub-GIDs mapping creation does not work automatically. You might have to create
+                        your own mapping. However, the high-level steps are as below:&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Step 1: Ensure that the files /etc/subuid and /etc/subgid exist. touch /etc/subuid /etc/subgid&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Step 2: Start the docker daemon with --userns-remap flag dockerd --userns-remap=default&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Impact:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        User namespace remapping makes quite a few Docker features incompatible and also currently
+                        breaks a few functionalities. Check out the Docker documentation and referenced links for
+                        details.
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='Docker docs: Daemon user namespace options' url='https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-user-namespace-options' />
+            <reference name='Docker - linux foundation: Namespaces' url='http://events.linuxfoundation.org/sites/events/files/slides/User%20Namespaces%20-%20ContainerCon%202015%20-%2016-9-final_0.pdf' />
+            <reference name='Docker linux: user namespaces' url='http://man7.org/linux/man-pages/man7/user_namespaces.7.html' />
+          </references>
+          <standards>
+            <standard ref='2.8' supportedStandardRef='Level 2 - Docker' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;blockquote&gt;
+                            ps -p $(docker inspect --format='{{ .State.Pid }}' ) -o pid,user&amp;nbsp;
+                            &lt;/blockquote&gt;
+                            &lt;div&gt;
+                            The above command would find the PID of the container and then would list the host user
+                            associated with the container process. If the container process is running as root, then
+                            this recommendation is non-compliant. Alternatively, you can run docker info to ensure that
+                            the userns is listed under Security Options:&amp;nbsp;
+                            &lt;/div&gt;
+                            &lt;blockquote&gt;
+                            &lt;div&gt;
+                            docker info --format '{{ .SecurityOptions }}'
+                            &lt;/div&gt;
+                            &lt;/blockquote&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2016-08-02T10:21:32.718'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

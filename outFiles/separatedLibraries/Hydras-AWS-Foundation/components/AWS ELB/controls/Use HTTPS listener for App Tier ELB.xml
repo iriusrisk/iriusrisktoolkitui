@@ -1,0 +1,84 @@
+<control ref='aws-tier-1.14' name='Use HTTPS listener for App Tier ELB' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;div&gt;
+  A load balancer takes requests from clients and distributes them across the EC2 instances that are registered with the load balancer (also known as back-end instances). 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt;
+  A listener is a process that checks for connection requests. It is configured with a protocol and a port for front-end (client to load balancer) connections. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt;
+  Note: an HTTPS listener configured on the ELB is not mandatory if you are terminating SSL connections directly on the App Tier EC2 instances, and using a TCP listener on the ELB (TCP pass-through) 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt;
+  Using an HTTPS Elastic Load Balancer listener will make sure the application traffic between the client and the App Tier ELB is encrypted over the SSL\TLS channel. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;b&gt;Remediation:&lt;/b&gt; 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;div style=""&gt;
+   Using the Amazon unified command line interface: 
+ &lt;/div&gt; 
+ &lt;div style=""&gt; 
+  &lt;ul&gt; 
+   &lt;li&gt;If the ListenerDescription field is missing, add a new HTTPS listener configured with a SSL\TLS certificate (the listener forwards traffic to the backend instances on port 80, but this can be modified by editing InstancePort=80):&lt;/li&gt; 
+  &lt;/ul&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt; 
+   &lt;div style=""&gt;
+     aws elb create-load-balancer-listeners --load-balancer-name &amp;lt;app_tier_elb&amp;gt; --listeners Protocol=HTTPS,LoadBalancerPort=443,InstanceProtocol=HTTP,InstancePort=80, SSLCertificateId=ssl_certificate_arn 
+   &lt;/div&gt; 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='Amazon docs: create load balancer listeners' url='http://docs.aws.amazon.com/cli/latest/reference/elb/create-load-balancer-listeners.html' />
+            <reference name='Amazon docs: describe load balancers' url='http://docs.aws.amazon.com/cli/latest/reference/elb/describe-load-balancers.html' />
+            <reference name='Amazon docs: ELB listener configuration' url='http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-listener-config.html' />
+          </references>
+          <standards>
+            <standard ref='1.14' supportedStandardRef='cis-amazon-web-services-three-tier-web-architecture-benchmark' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;div&gt;
+  Using the Amazon unified command line interface: 
+&lt;/div&gt; 
+&lt;div&gt;
+  (Note that you should replace &amp;lt;app_tier_elb&amp;gt; with your App tier ELB name) 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt;Check if the App Tier ELB is using an HTTPS or TCP listener. Note if the ListenerDescription field is missing or not:&lt;/li&gt; 
+ &lt;/ul&gt; 
+&lt;/div&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt;
+    aws elb describe-load-balancers --load-balancer-names &amp;lt;app_tier_elb&amp;gt; --query &amp;quot;LoadBalancerDescriptions[*].{LoadBalancerName:LoadBalancerName, DNSName:DNSName, Scheme:Scheme, ListenerDescriptions:ListenerDescriptions[?Listener.Protocol == 'HTTPS' || Listener.Protocol == 'TCP']}&amp;quot; --output table 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt;</steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

@@ -1,0 +1,42 @@
+<control ref="ASVS-2014-3.5" name="Provide logout links on all pages that require authentication" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+                        Applications requiring users authenticate to access privileged, secret, or potentially sensitive
+                        information or functionality must also allow users a clear way to terminate their access;
+                        typically through a logout or log off option.
+                        &lt;/div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Provide clearly visible logout links/options on all pages after a user has logged in.&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;Ensure the user's session is terminated at the server-side, and not at the
+                        client-side.&lt;/li&gt;
+                        &lt;/ul&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="IA-1" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="3.5" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="3.5" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="3.5" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;div&gt;
+                            &lt;ol&gt;
+                            &lt;li&gt;Log in to access the application as an authenticated user.&lt;/li&gt;
+                            &lt;li&gt;Identify all pages accessible to authenticated users (for example by spidering the
+                            site)&lt;/li&gt;
+                            &lt;li&gt;Manually or programmatically check each authenticated page to ensure a
+                            logout/logoff option is present.&lt;/li&gt;
+                            &lt;/ol&gt;
+                            &lt;/div&gt;
+                            &lt;ol&gt;
+                            &lt;/ol&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2015-08-15T17:17:20.289000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

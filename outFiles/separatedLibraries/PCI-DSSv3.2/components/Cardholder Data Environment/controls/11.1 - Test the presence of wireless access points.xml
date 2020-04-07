@@ -1,0 +1,99 @@
+<control ref="PCI-R11-11.1" name="11.1 - Test the presence of wireless access points" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;- Detect and identify all authorized and unauthorized wireless access points on a
+                        quarterly
+                        basis.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Maintain an inventory of authorized wireless access points including a documented
+                        business
+                        justification.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt; &lt;/p&gt;
+                        &lt;p&gt;- Maintain an inventory of authorized wireless access points including a documented
+                        business
+                        justification.&lt;/p&gt;
+                        &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+                        &lt;p&gt;Implementation and/or exploitation of wireless technology within a network are some of
+                        the most
+                        common paths for malicious users to gain access to the network and cardholder data. If a
+                        wireless device or
+                        network is installed without a company's knowledge, it can allow an attacker to easily and
+                        "invisibly" enter
+                        the network. Unauthorized wireless devices may be hidden within or attached to a computer or
+                        other system
+                        component, or be attached directly to a network port or network device, such as a switch or
+                        router. Any such
+                        unauthorized device could result in an unauthorized access point into the environment.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;Knowing which wireless devices are authorized can help administrators quickly identify
+                        non-authorized wireless devices, and responding to the identification of unauthorized wireless
+                        access points
+                        helps to proactively minimize the exposure of CDE to malicious individuals.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;Due to the ease with which a wireless access point can be attached to a network, the
+                        difficulty in
+                        detecting their presence, and the increased risk presented by unauthorized wireless devices,
+                        these processes
+                        must be performed even when a policy exists prohibiting the use of wireless technology.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;The size and complexity of a particular environment will dictate the appropriate tools
+                        and
+                        processes to be used to provide sufficient assurance that a rogue wireless access point has not
+                        been
+                        installed in the environment.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="11.1" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;&lt;b&gt;11.1.a&lt;/b&gt; Examine policies and procedures to verify processes
+                            are defined
+                            for detection and identification of both authorized and unauthorized wireless access points
+                            on a quarterly
+                            basis. &lt;/p&gt;
+                            &lt;p&gt;&lt;b&gt;11.1.b&lt;/b&gt; Verify that the methodology is adequate to detect and
+                            identify any
+                            unauthorized wireless access points, including at least the following: &lt;/p&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt; &lt;p&gt;WLAN cards inserted into system components &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Portable or mobile devices attached to system components to create a
+                            wireless access
+                            point (for example, by USB, etc.) &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Wireless devices attached to a network port or network device. &lt;/p&gt;
+                            &lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;p&gt;&lt;b&gt;11.1.c&lt;/b&gt; If wireless scanning is utilized, examine output from
+                            recent wireless
+                            scans to verify that: &lt;/p&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt; &lt;p&gt;Authorized and unauthorized wireless access points are identified, and
+                            &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;The scan is performed at least quarterly for all system components and
+                            facilities.
+                            &lt;/p&gt; &lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;p&gt;&lt;b&gt;11.1.d&lt;/b&gt; If automated monitoring is utilized (for example,
+                            wireless IDS/IPS,
+                            NAC, etc.), verify the configuration will generate alerts to notify personnel.&amp;nbsp;&lt;/p&gt;
+                            &lt;p&gt; &lt;/p&gt;
+                            &lt;p&gt;&lt;b&gt;11.1.1&lt;/b&gt; Examine documented records to verify that an inventory of
+                            authorized
+                            wireless access points is maintained and a business justification is documented for all
+                            authorized
+                            wireless access points. &lt;/p&gt;
+                            &lt;p&gt;&lt;b&gt;11.1.2.a&lt;/b&gt; Examine the organization's incident response plan
+                            (Requirement 12.10)
+                            to verify it defines and requires a response in the event that an unauthorized wireless
+                            access point is
+                            detected. &lt;/p&gt;
+                            &lt;p&gt;&lt;b&gt;11.1.2.b&lt;/b&gt; Interview responsible personnel and/or inspect recent
+                            wireless scans
+                            and related responses to verify action is taken when unauthorized wireless access points are
+                            found.&amp;nbsp;&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-07T21:33:07.444000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

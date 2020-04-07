@@ -1,0 +1,35 @@
+<control ref="ASVS-8.8" name="Escape meta-characters from un-trusted data " platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="MANUAL">
+                    <desc>If untrusted data, including any data received from the client side of a connection is
+                        directly written to a log file, then this data could contain newline or other meta-characters
+                        that would allow an attacker to forge log entries.
+                        &lt;div&gt;
+                        Such meta-characters should first be escaped or removed before the data is written to the
+                        logging system.
+                        &lt;/div&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="8.8" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="A10:2017-Insufficient Logging&amp;Monitoring" supportedStandardRef="owasp-top-10-2017"/>
+                        <standard ref="A1:2017-Injection" supportedStandardRef="owasp-top-10-2017"/>
+                        <standard ref="A7:2017-Cross-Site Scripting (XSS)" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+                            &lt;li&gt;Identify the logging system in use.&lt;/li&gt;
+                            &lt;li&gt;Check whether the logging system automatically escapes meta-characters such as
+                            newline and/or carriage return.&lt;/li&gt;
+                            &lt;li&gt;If not, then check that there is a central function that escapes these
+                            meta-characters before writing them to the log file.&lt;/li&gt;
+                            &lt;/ol&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-11-19T07:11:21.980000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

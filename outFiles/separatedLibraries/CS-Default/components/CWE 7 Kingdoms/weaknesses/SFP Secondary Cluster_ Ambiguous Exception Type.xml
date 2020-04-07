@@ -1,0 +1,14 @@
+<weakness ref="CWE-960" name="SFP Secondary Cluster: Ambiguous Exception Type" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-04-04T17:39:58.578000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>This category identifies Software Fault Patterns (SFPs) within
+                        the Ambiguous Exception Type cluster.
+                    </desc>
+                </weakness>

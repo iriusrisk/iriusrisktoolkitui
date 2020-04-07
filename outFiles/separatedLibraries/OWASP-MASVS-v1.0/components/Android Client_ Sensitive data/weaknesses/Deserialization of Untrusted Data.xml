@@ -1,0 +1,16 @@
+<weakness ref="CWE-502" name="Deserialization of Untrusted Data" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references>
+                            <reference name="CWE-502: Deserialization of Untrusted Data" url="https://cwe.mitre.org/data/definitions/502.html"/>
+                        </references>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-05-29T09:15:58.113000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The application deserializes untrusted data without sufficiently verifying that the resulting
+                        data will be valid.
+                    </desc>
+                </weakness>

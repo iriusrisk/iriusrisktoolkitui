@@ -1,0 +1,50 @@
+<control ref="ASVS-8.2" name="Deny access by default if a security control fails with an exception." platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+                        If a security control fails, the application shall not allow the user access to the application.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Therefore, if in the security control an exception is launched the system should stay in a
+                        secure state, meaning access is denied to the user.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Conversely, access will only be granted if there is no security failure / exception.
+                        &lt;/div&gt;
+                    </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="OWASP Fail securely" url="https://www.owasp.org/index.php/Security_by_Design_Principles#Fail_securely"/>
+                        <reference name="OWASP Fail securely" url="https://www.owasp.org/index.php/Fail_securely"/>
+                    </references>
+                    <standards>
+                        <standard ref="AC-24" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-11" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="8.2" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="8.2" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="A2:2017-Broken Authentication" supportedStandardRef="owasp-top-10-2017"/>
+                        <standard ref="A5:2017-Broken Access Control" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>Check if the security controls fail, we cannot get access to the application.
+                            &lt;div&gt;
+                            &lt;br /&gt;
+                            &lt;/div&gt;
+                            &lt;div&gt;
+                            Ensure that if a security control fails or throws an exception access is denied to the
+                            application for the user
+                            &lt;/div&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-08-24T08:51:40.321000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

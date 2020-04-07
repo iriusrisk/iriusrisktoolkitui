@@ -1,0 +1,59 @@
+<control ref="CWE-636" name="Ensure authentication fails securely on the server-side" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+                        The authenticated state at the server-side should default to failed (fail closed). This prevents
+                        attacks that subvert the authentication system by causing errors in the process at a point the
+                        application considers the user to be authenticated without having logged in successfully (fail
+                        open).
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Unless the authentication process has completed successfully (i.e. the user has been
+                        identified and the correct authentication credentials or tokens have been provided to verify
+                        that identity), the status of any subsequent error path should be an authentication failure.&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                    </desc>
+                    <implementations>
+                        <implementation platform="Example.php">
+                            <desc>
+                                aXNBZG1pbiA9IGZhbHNlOyAvL1RoaXMgd291bGQgbm90IGZhaWwgc2VjdXJlbHkgaWYgd2UgaGFkIHB1dCBpc0FkbWluPXRydWUgaGVyZS4KdHJ5IHsKICBjb2RlV2hpY2hNYXlGYWlsKCk7CiAgaXNBZG1pbiA9IGlzVXNlcklucm9sZSggIkFkbWluaXN0cmF0b3IiICk7Cn0KY2F0Y2ggKEV4Y2VwdGlvbiBleCkKewogIGxvZy53cml0ZShleC50b1N0cmluZygpKTsKfQovL1NvdXJjZTogaHR0cHM6Ly93d3cub3dhc3Aub3JnL2luZGV4LnBocC9GYWlsX3NlY3VyZWx5
+                            </desc>
+                        </implementation>
+                    </implementations>
+                    <references/>
+                    <standards>
+                        <standard ref="9.4.2" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="AC-16" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="AC-7" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="2.6" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="2.6" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="2.6" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="A2:2017-Broken Authentication" supportedStandardRef="owasp-top-10-2017"/>
+                        <standard ref="A5:2017-Broken Access Control" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+                            &lt;li&gt;Identify the authentication entry points of the component.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;For each of them, cause error conditions and check the final status.&lt;/li&gt;
+                            &lt;/ol&gt;Several error conditions are:&amp;nbsp;
+                            &lt;ul&gt;
+                            &lt;li&gt;Expire timeouts&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Provide uncompleted credentials (i.e username and no password)&lt;/li&gt;
+                            &lt;li&gt;Provide unexpected input (long username, long passwords)&lt;/li&gt;
+                            &lt;li&gt;Send invalid calls or methods (i.e. if the server expects an HTTP POST send a GET)&lt;/li&gt;
+                            &lt;li&gt;Use a made up Session ID with the right and wrong formats&lt;/li&gt;
+                            &lt;li&gt;...&lt;/li&gt;
+                            &lt;/ul&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-11-28T13:09:30.913000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

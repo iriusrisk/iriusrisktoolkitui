@@ -1,0 +1,115 @@
+<control ref='aws-tier-6.26' name='Create the App tier ELB as Internal' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;div&gt;
+  An internal load balancer routes traffic to your EC2 instances in private subnets using private IP addresses. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt;
+  Create an internal load balancer and register the database servers with it. The web servers receive requests from the Internet-facing load balancer and send requests for the database servers to the internal load balancer. The database servers receive requests from the internal load balancer. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt;
+  When an internal load balancer is created, it receives a public DNS name with the following form: 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;blockquote&gt; 
+ &lt;div&gt;
+   internal-name-123456789.region.elb.amazonaws.com 
+ &lt;/div&gt; 
+ &lt;div&gt; 
+  &lt;br /&gt; 
+ &lt;/div&gt; 
+&lt;/blockquote&gt; 
+&lt;div&gt;
+  The DNS servers resolve the DNS name of your load balancer to the private IP addresses of the load balancer nodes for your internal load balancer. Each load balancer node is connected to the private IP addresses of the back-end instances that are in its Availability Zone using elastic network interfaces. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt;
+  Creating the App tier ELB as internal will prevent access to the app tier from the Internet and will allow access from the Web tier instances. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;b&gt;Remediation:&lt;/b&gt; 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;div style=""&gt;
+   Using the Amazon unified command line interface: 
+ &lt;/div&gt; 
+ &lt;div style=""&gt; 
+  &lt;ul&gt; 
+   &lt;li&gt;Create new internal ELB for your App tier:&lt;/li&gt; 
+  &lt;/ul&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt; 
+   &lt;div style=""&gt;
+     aws elb create-load-balancer --load-balancer-name app_tier_elb --scheme internal --listeners listener_config --subnets app_tier_subnet1 app_tier_subnet2 --security-groups app_tier_elb_security_group 
+   &lt;/div&gt; 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt; 
+&lt;div&gt; 
+ &lt;div style=""&gt; 
+  &lt;ul&gt; 
+   &lt;li&gt;Register App tier instances with the new App tier ELB:&lt;/li&gt; 
+  &lt;/ul&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt; 
+   &lt;div style=""&gt;
+     aws elb register-instances-with-load-balancer --load-balancer-name app_tier_elb --instances &amp;lt;app_tier_instance1&amp;gt; &amp;lt;app_tier_instance2&amp;gt; &amp;lt;app_tier_instance3&amp;gt; 
+   &lt;/div&gt; 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='Amazon docs: create load balancer' url='http://docs.aws.amazon.com/cli/latest/reference/elb/create-load-balancer.html' />
+            <reference name='Amazon docs: describe load balancers' url='http://docs.aws.amazon.com/cli/latest/reference/elb/describe-load-balancers.html' />
+            <reference name='Amazon docs: ELB internal load balancers' url='http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-internal-load-balancers.html' />
+            <reference name='Amazon docs: register instances with load balancer' url='http://docs.aws.amazon.com/cli/latest/reference/elb/register-instances-with-load-balancer.html' />
+          </references>
+          <standards>
+            <standard ref='6.26' supportedStandardRef='cis-amazon-web-services-three-tier-web-architecture-benchmark' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;div&gt;
+  Using the Amazon unified command line interface: 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt;Check the Scheme of your App tier ELB, and make sure it is &amp;quot;internal&amp;quot;:&lt;/li&gt; 
+ &lt;/ul&gt; 
+&lt;/div&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt;
+    aws elb describe-load-balancers --load-balancer-name &amp;lt;app_tier_elb&amp;gt; --query &amp;quot;LoadBalancerDescriptions[*].{LoadBalancerName:LoadBalancerName, Scheme:Scheme}&amp;quot; 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt;</steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

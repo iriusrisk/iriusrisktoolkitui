@@ -1,0 +1,15 @@
+<weakness ref="CWE-517" name="Other Intentional, Nonmalicious Weakness" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-04-04T17:45:17.705000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>Other kinds of intentional but non-malicious security flaws are
+                        possible. Functional requirements that are written without regard to security
+                        requirements can lead to such flaws.
+                    </desc>
+                </weakness>

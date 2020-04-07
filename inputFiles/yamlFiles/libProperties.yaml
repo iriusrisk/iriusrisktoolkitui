@@ -1,0 +1,15 @@
+libraryName: 'IoT Library Stage 1'
+libraryRef: 'iot-library-stage-1'
+#If enabled the script will use libraryDetails.py script to get statistics about the generated XML file.
+showLibraryStats: true
+#If enabled the script will look for the schema file library.xsd to validate the generated XML file.
+doSchemaValidation: true
+#Category components for defined Component Definitions
+categoryComponentNames: []
+categoryComponentRefs: []
+#We define Component Definition properties
+componentDefinitionNames: []
+componentDefinitionRefs: []
+componentDefinitionDescs: []
+componentDefinitionCategoryRefs: []
+RiskPatternsImportedWithComponentDefinition: []

@@ -1,0 +1,22 @@
+<control ref="MASVS-3.5" name="Do not re-use the same cryptographic key for multiple purposes" platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc></desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="3.5" supportedStandardRef="OWASP-MASVS-L1"/>
+                        <standard ref="3.5" supportedStandardRef="OWASP-MASVS-L1+R"/>
+                        <standard ref="3.5" supportedStandardRef="OWASP-MASVS-L2"/>
+                        <standard ref="3.5" supportedStandardRef="OWASP-MASVS-L2+R"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>Check that the same cryptographic key is not used for several purposes.
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-02T10:21:32.718000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

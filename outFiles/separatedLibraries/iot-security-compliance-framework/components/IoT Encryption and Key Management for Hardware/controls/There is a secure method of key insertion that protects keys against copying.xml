@@ -1,0 +1,24 @@
+<control ref="IOT2.4.9.4" name="There is a secure method of key insertion that protects keys against copying" platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;There is a secure method of key insertion that protects keys against copying.&lt;/p&gt; 
+&lt;p&gt;&lt;b&gt;&lt;font size="4"&gt;Rationale:&lt;br /&gt;&lt;/font&gt;&lt;/b&gt; Keys should be protected from copying, using a secure insertion method. This can be achieved by using a dedicated secure and trusted hardware module which stores and protects the keys.&lt;/p&gt; 
+&lt;p&gt;&lt;b&gt;&lt;font size="4"&gt;Remediation:&lt;br /&gt;&lt;/font&gt;&lt;/b&gt; Trusted Platform Module (&lt;span class="caps"&gt;TPM&lt;/span&gt;, also known as &lt;span class="caps"&gt;ISO&lt;/span&gt;/IEC 11889) is an international standard for a secure cryptoprocessor, a dedicated microcontroller designed to secure hardware through integrated cryptographic keys. Each &lt;span class="caps"&gt;TPM&lt;/span&gt; chip has a unique and secret &lt;span class="caps"&gt;RSA&lt;/span&gt; key burned in as it is produced. Pushing the security down to the hardware level provides more protection than a software-only solution.&lt;/p&gt;</desc>
+                    <implementations/>
+                    <references>
+                        <reference name="Trusted Platform Module (TPM)" url="https://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf"/>
+                        <reference name="Trusted Platform Module (TPM) definition" url="https://whatis.techtarget.com/definition/trusted-platform-module-TPM"/>
+                    </references>
+                    <standards>
+                        <standard ref="2.4.9.4" supportedStandardRef="iotsf-class-1"/>
+                        <standard ref="2.4.9.4" supportedStandardRef="iotsf-class-2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-03-13T16:00:45">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

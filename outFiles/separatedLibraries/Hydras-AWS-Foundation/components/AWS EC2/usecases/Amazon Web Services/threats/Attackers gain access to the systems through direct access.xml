@@ -1,0 +1,33 @@
+<threat ref='UNAUTHORIZED-CONNECTION' name='Attackers gain access to the systems through direct access' state='Expose' source='MANUAL' owner='' library=''>
+              <desc>&lt;div&gt;
+                                Attackers gain a unauthorized connection to the system through misconfigured ports or
+                                security network configurations.
+                                &lt;/div&gt;
+                            </desc>
+              <riskRating confidentiality='100' integrity='100' availability='100' easeOfExploitation='25' />
+              <references />
+              <weaknesses>
+                <weakness ref='AWS-NET-01'>
+                  <controls>
+                    <control ref='Hydras-AWS-Network-5.5' mitigation='25' />
+                    <control ref='Hydras-AWS-Network-5.6' mitigation='25' />
+                  </controls>
+                </weakness>
+                <weakness ref='AWS-NET-02'>
+                  <controls>
+                    <control ref='Hydras-AWS-Network-5.3' mitigation='25' />
+                  </controls>
+                </weakness>
+                <weakness ref='AWS-NET-03'>
+                  <controls>
+                    <control ref='Hydras-AWS-Network-5.4' mitigation='25' />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref='Hydras-AWS-Network-5.3' mitigation='25' />
+                <control ref='Hydras-AWS-Network-5.4' mitigation='25' />
+                <control ref='Hydras-AWS-Network-5.5' mitigation='25' />
+                <control ref='Hydras-AWS-Network-5.6' mitigation='25' />
+              </controls>
+            </threat>

@@ -1,0 +1,14 @@
+<weakness ref='LOST-ACCESS-ROOT-01' name='The Root Account is misconfigured' state='0' impact='100'>
+          <desc>The administrator account is misconfigured. The security question to recover or reset the
+                        password and the authentication method are not configured.
+                    </desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-24T14:48:26.301'>
+              <output />
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>

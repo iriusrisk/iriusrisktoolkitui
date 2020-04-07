@@ -1,0 +1,15 @@
+<weakness ref='GOOGLE-MON04' name='Undetected changes in the security groups' state='0' impact='100'>
+          <desc>Changes in the security groups must be traced and monitored and the corresponding personnel
+                        must approve these changes. If the configuration is not appropriate, attackers can gain access
+                        to security systems.
+                    </desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2018-05-31T09:31:01.404'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>

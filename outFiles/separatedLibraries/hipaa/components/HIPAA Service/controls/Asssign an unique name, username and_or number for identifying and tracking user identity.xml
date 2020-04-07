@@ -1,0 +1,22 @@
+<control ref='hippa-log-01' name='Asssign an unique name, username and/or number for identifying and tracking user identity' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;p&gt;Assign an unique name and/or number for identifying and tracking user identity.&lt;/p&gt; 
+&lt;p&gt; User identification is a way to identify a specific user of an information system, typically by name and/or number. A unique user identifier allows an entity to track specific user activity when that user is logged into an information system. It enables an entity to hold users accountable for functions performed on information systems with EPHI when logged into those systems.&lt;/p&gt; 
+&lt;p&gt; A single format for user identification is not described or provided. Covered entities must determine the best user identification strategy based on their workforce and operations. Some organizations may use the employee name or a variation of the name (e.g. jsmith). However, other organizations may choose an alternative such as assignment of a set of random numbers and characters. A randomly assigned user identifier is more difficult for an unauthorized user (e.g., a hacker) to guess, but may also be more difficult for authorized users to remember its decision. Regardless of the format, no one other than the user needs to remember the user identifier.&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='Security Standards: Technical Safeguards' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/techsafeguards.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.312(a)(1)(A)' supportedStandardRef='hipaa-required' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:50.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

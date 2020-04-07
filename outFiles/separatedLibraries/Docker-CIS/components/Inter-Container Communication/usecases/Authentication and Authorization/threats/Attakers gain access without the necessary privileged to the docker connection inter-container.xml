@@ -1,0 +1,29 @@
+<threat ref='CAPEC-122-DOCKER-CONTAINERS' name='Attakers gain access without the necessary privileged to the docker connection inter-container' state='Expose' source='MANUAL' owner='' library=''>
+              <desc>An adversary is able to exploit features of the target that should be reserved for
+                                privileged users or administrators but are exposed to use by lower or non-privileged
+                                accounts. Access to sensitive information and functionality must be controlled to ensure
+                                that only authorized users are able to access these resources. If access control
+                                mechanisms are absent or misconfigured, a user may be able to access resources that are
+                                intended only for higher level users. An adversary may be able to exploit this to
+                                utilize a less trusted account to gain information and perform activities reserved for
+                                more trusted accounts. This attack differs from privilege escalation and other privilege
+                                stealing attacks in that the adversary never actually escalates their privileges but
+                                instead is able to use a lesser degree of privilege to access resources that should be
+                                (but are not) reserved for higher privilege accounts. Likewise, the adversary does not
+                                exploit trust or subvert systems - all control functionality is working as configured
+                                but the configuration does not adequately protect sensitive resources at an appropriate
+                                level.
+                            </desc>
+              <riskRating confidentiality='100' integrity='100' availability='100' easeOfExploitation='100' />
+              <references />
+              <weaknesses>
+                <weakness ref='CWE-276'>
+                  <controls>
+                    <control ref='D2.1.1' mitigation='100' />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref='D2.1.1' mitigation='100' />
+              </controls>
+            </threat>

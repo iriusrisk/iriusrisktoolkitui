@@ -1,0 +1,80 @@
+<control ref="PCI-R3-3.1" name="3.1 - Keep cardholder data storage to a minimum" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;implementing data retention and disposal policies, procedures and processes that
+                        include at
+                        least the following for all cardholder data (CHD) storage:&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Limiting data storage amount and retention time to that which is required for legal,
+                        regulatory,
+                        and/or business requirements&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Specific retention requirements for cardholder data&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Processes for secure deletion of data when no longer needed&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- A quarterly process for identifying and securely deleting stored cardholder data that
+                        exceeds
+                        defined retention.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt; &lt;/p&gt;
+                        &lt;p&gt;A formal data retention policy identifies what data needs to be retained, and where
+                        that data
+                        resides so it can be securely destroyed or deleted as soon as it is no longer needed.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;The only cardholder data that may be stored after authorization is the primary account
+                        number or
+                        PAN (rendered unreadable), expiration date, cardholder name, and service code.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;Understanding where cardholder data is located is necessary so it can be properly
+                        retained or
+                        disposed of when no longer needed. In order to define appropriate retention requirements, an
+                        entity first
+                        needs to understand their own business needs as well as any legal or regulatory obligations that
+                        apply to
+                        their industry, and/or that apply to the type of data being retained.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="3.1" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;3.1.a Examine the data retention and disposal policies, procedures and processes
+                            to verify
+                            they include the following for all cardholder data (CHD) storage: &lt;/p&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt; &lt;p&gt;Limiting data storage amount and retention time to that which is
+                            required for legal,
+                            regulatory, and/or business requirements. &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Specific requirements for retention of cardholder data (for example,
+                            cardholder data
+                            needs to be held for X period for Y business reasons). &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Processes for secure deletion of cardholder data when no longer needed
+                            for legal,
+                            regulatory, or business reasons. &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;A quarterly process for identifying and securely deleting stored
+                            cardholder data that
+                            exceeds defined retention requirements. &lt;/p&gt; &lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;p&gt;3.1.b Interview personnel to verify that: &lt;/p&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt; &lt;p&gt;All locations of stored cardholder data are included in the &lt;/p&gt;
+                            &lt;p&gt;data
+                            retention and disposal processes. &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Either a quarterly automatic or manual process is in place to identify
+                            and securely
+                            delete stored cardholder data. &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;The quarterly automatic or manual process is performed for all locations
+                            of cardholder
+                            data.&amp;nbsp;&lt;/p&gt; &lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;p&gt;3.1.c For a sample of system components that store cardholder data: &lt;/p&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt; &lt;p&gt;Examine files and system records to verify that the data stored does not
+                            exceed the
+                            requirements defined in the data retention policy &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Observe the deletion mechanism to verify data is deleted securely.&amp;nbsp;&lt;/p&gt;
+                            &lt;/li&gt;
+                            &lt;/ul&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T08:20:15.824000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

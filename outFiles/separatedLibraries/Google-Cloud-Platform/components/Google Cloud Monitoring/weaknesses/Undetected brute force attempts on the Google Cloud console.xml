@@ -1,0 +1,14 @@
+<weakness ref='GOOGLE-MON06' name='Undetected brute force attempts on the Google Cloud console' state='0' impact='100'>
+          <desc>Failed connection attempts (brute force) must be audited and monitored and the corresponding
+                        personnel must be alerted and informed.
+                    </desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2018-05-31T09:31:01.428'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>

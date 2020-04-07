@@ -1,0 +1,86 @@
+<control ref="PCI-R12-12.3" name="12.3 - Develop usage policies for critical technologies and define proper use of these technologies" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;These policies should require at least:&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Explicit approval by authorized parties&amp;nbsp;&lt;/p&gt; -&amp;nbsp;Authentication
+                        for use of
+                        the technology-&amp;nbsp;A list of all such devices and personnel with access-&amp;nbsp;A method
+                        to
+                        accurately and readily determine owner, contact information, and purpose (for example, labeling,
+                        coding,
+                        and/or inventorying of devices)- Acceptable uses of the technology-&amp;nbsp;Acceptable network
+                        locations
+                        for the technologies-&amp;nbsp;List of company-approved products-&amp;nbsp;Automatic disconnect
+                        of sessions
+                        for remote-access technologies after a specific period of inactivity-&amp;nbsp;Activation of
+                        remote-access
+                        technologies for vendors and business partners only when needed by vendors and business
+                        partners, with
+                        immediate deactivation after use- For personnel accessing cardholder data via remote-access
+                        technologies,
+                        prohibit the copying, moving, and storage of cardholder data onto local hard drives and
+                        removable electronic
+                        media, unless explicitly authorized for a defined business need.Where there is an authorized
+                        business need,
+                        the usage policies must require the data be protected in accordance with all applicable PCI DSS
+                        Requirements.
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="12.3" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt; &lt;/p&gt;
+                            &lt;p&gt;&lt;b&gt;12.3&lt;/b&gt; Examine the usage policies for critical technologies and
+                            interview
+                            responsible personnel to verify the following policies are implemented and followed:&lt;/p&gt;
+                            &lt;p&gt;&lt;b&gt;12.3.1&lt;/b&gt; Verify that the usage policies include processes for
+                            explicit approval
+                            from authorized parties to use the technologies.&lt;/p&gt;
+                            &lt;p&gt;&lt;b&gt;12.3.2&lt;/b&gt; Verify that the usage policies include processes for all
+                            technology use
+                            to be authenticated with user ID and password or other authentication item (for example,
+                            token).&lt;/p&gt;
+                            &lt;p&gt;&lt;b&gt;12.3.3&lt;/b&gt; Verify that the usage policies define:&lt;/p&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt;&lt;p&gt;A list of all critical devices, and&lt;/p&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;p&gt;A list of personnel authorized to use the device&amp;nbsp;&lt;/p&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;p&gt;12.3.4 Verify that the usage policies define a method to accurately and readily
+                            determine owner,
+                            contact information, and purpose (for example, labeling, coding, and/or inventorying of
+                            devices). &lt;/p&gt;
+                            &lt;p&gt;12.3.5 Verify that the usage policies define acceptable uses for the technology.
+                            &lt;/p&gt;
+                            &lt;p&gt;12.3.6 Verify that the usage policies define acceptable network locations for the
+                            technology.
+                            &lt;/p&gt;
+                            &lt;p&gt;12.3.7 Verify that the usage policies include a list of company-approved products.
+                            &lt;/p&gt;
+                            &lt;p&gt;12.3.8.a Verify that the usage policies require automatic disconnect of sessions
+                            for
+                            remote-access technologies after a specific period of inactivity. &lt;/p&gt;
+                            &lt;p&gt;12.3.8.b Examine configurations for remote access technologies to verify that
+                            remote access
+                            sessions will be automatically disconnected after a specific period of inactivity. &lt;/p&gt;
+                            &lt;p&gt;12.3.9 Verify that the usage policies require activation of remote-access
+                            technologies used by
+                            vendors and business partners only when needed by vendors.&lt;/p&gt;
+                            &lt;p&gt; &lt;/p&gt;
+                            &lt;p&gt;12.3.10.a Verify that the usage policies prohibit copying, moving, or storing of
+                            cardholder data
+                            onto local hard drives and removable electronic media when accessing such data via
+                            remote-access
+                            technologies. &lt;/p&gt;
+                            &lt;p&gt;12.3.10.b For personnel with proper authorization, verify that usage policies
+                            require the
+                            protection of cardholder data in accordance with PCI DSS Requirements.&amp;nbsp;&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-07T22:26:34.921000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

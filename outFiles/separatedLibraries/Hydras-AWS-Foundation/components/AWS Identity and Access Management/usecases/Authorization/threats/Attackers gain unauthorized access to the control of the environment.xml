@@ -1,0 +1,50 @@
+<threat ref='AWS-LOSS-CONTROL-ENV' name='Attackers gain unauthorized access to the control of the environment' state='Expose' source='MANUAL' owner='' library=''>
+              <desc>&lt;div&gt;
+                                Attackers could gain unauthorized access to the control of the environment, due of the
+                                user accounts or role groups are not well defined and configured. Therefore, attackers
+                                can make changes without the root approval.&amp;nbsp;
+                                &lt;/div&gt;
+                            </desc>
+              <riskRating confidentiality='100' integrity='100' availability='100' easeOfExploitation='25' />
+              <references />
+              <weaknesses>
+                <weakness ref='AWS-IAM-2.8'>
+                  <controls>
+                    <control ref='Hydras-AWS-IAM-2.10' mitigation='12' />
+                  </controls>
+                </weakness>
+                <weakness ref='AWS-IAM-1.21'>
+                  <controls>
+                    <control ref='Hydras-AWS-IAM-1.21' mitigation='12' />
+                  </controls>
+                </weakness>
+                <weakness ref='AWS-IAM-2.7'>
+                  <controls>
+                    <control ref='Hydras-AWS-EC2-6.3' mitigation='12' />
+                    <control ref='Hydras-AWS-IAM-1.20' mitigation='12' />
+                    <control ref='Hydras-AWS-IAM-2.7' mitigation='13' />
+                    <control ref='Hydras-AWS-IAM-2.8' mitigation='13' />
+                  </controls>
+                </weakness>
+                <weakness ref='AWS-EXPIRATION-DATE'>
+                  <controls>
+                    <control ref='Hydras-AWS-IAM-2.11' mitigation='13' />
+                  </controls>
+                </weakness>
+                <weakness ref='AWS-IAM-2.12'>
+                  <controls>
+                    <control ref='Hydras-AWS-IAM-2.12' mitigation='13' />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref='Hydras-AWS-EC2-6.3' mitigation='12' />
+                <control ref='Hydras-AWS-IAM-1.20' mitigation='12' />
+                <control ref='Hydras-AWS-IAM-1.21' mitigation='12' />
+                <control ref='Hydras-AWS-IAM-2.10' mitigation='12' />
+                <control ref='Hydras-AWS-IAM-2.11' mitigation='13' />
+                <control ref='Hydras-AWS-IAM-2.12' mitigation='13' />
+                <control ref='Hydras-AWS-IAM-2.7' mitigation='13' />
+                <control ref='Hydras-AWS-IAM-2.8' mitigation='13' />
+              </controls>
+            </threat>

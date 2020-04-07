@@ -1,0 +1,2 @@
+<component ref='INTER-CONTAINER-COMMUNICATION' name='Inter-Container Communication' desc='This Risk Pattern contains the recommendations applied when the containers should communicate with each other.' groupName='' tags='' position='8' library='' diagramPositionX='0' diagramPositionY='0' componentDefinitionRef=''>
+      

@@ -1,0 +1,23 @@
+<threat ref='CAPEC-157-SWARM' name='Attackers get sensitive data from docker swarm through sniffing the transmisions between components' state='Expose' source='MANUAL' owner='' library=''>
+              <desc>An attacker monitors information transmitted between logical or physical nodes of a
+                                network. The attacker need not be able to prevent reception or change content but must
+                                simply be able to observe and read the traffic. The attacker might precipitate or
+                                indirectly influence the content of the observed transaction, but the attacker is never
+                                the intended recipient of the information. Any transmission medium can theoretically be
+                                sniffed if the attacker can listen to the contents between the sender and recipient.
+                            </desc>
+              <riskRating confidentiality='50' integrity='50' availability='100' easeOfExploitation='100' />
+              <references />
+              <weaknesses>
+                <weakness ref='CWE-311'>
+                  <controls>
+                    <control ref='D7.4' mitigation='50' />
+                    <control ref='D7.6' mitigation='50' />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref='D7.4' mitigation='50' />
+                <control ref='D7.6' mitigation='50' />
+              </controls>
+            </threat>

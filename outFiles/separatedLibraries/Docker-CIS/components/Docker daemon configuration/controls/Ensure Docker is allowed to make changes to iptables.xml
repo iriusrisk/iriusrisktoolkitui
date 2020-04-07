@@ -1,0 +1,70 @@
+<control ref='D2.3' name='Ensure Docker is allowed to make changes to iptables' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>Iptables are used to set up, maintain, and inspect the tables of IP packet filter rules in the
+                        Linux kernel. Allow the Docker daemon to make changes to the iptables.&amp;nbsp;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Rationale:&amp;nbsp;&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Docker will never make changes to your system iptables rules if you choose to set it so. Docker
+                        server would automatically make the needed changes to iptables based on how you choose your
+                        networking options for the containers if it is allowed to do so. It is recommended to let Docker
+                        server make changes to iptables automatically to avoid networking misconfiguration that might
+                        hamper the communication between containers and to the outside world. Additionally, it would
+                        save you the hassle of updating iptables every time you choose to run the containers or modify
+                        networking options.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&amp;nbsp;&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Do not run the Docker daemon with --iptables=false parameter. For example, do not start the
+                        Docker daemon as below:&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        dockerd --iptables=false&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Impact:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Docker daemon service start requires iptables rules to be enabled before it starts. Any restarts
+                        of iptables during docker daemon operation may result in losing docker-created rules. Adding
+                        iptables-persistent to your iptables install can assist with mitigating this impact.
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='Docker and Iptables' url='https://fralef.me/docker-and-iptables.html' />
+            <reference name='Docker docs: Container communication' url='https://docs.docker.com/engine/userguide/networking/default_network/container-communication/' />
+          </references>
+          <standards>
+            <standard ref='2.3' supportedStandardRef='Level 1 - Docker' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;blockquote&gt;
+                            ps -ef | grep dockerd&amp;nbsp;
+                            &lt;/blockquote&gt;
+                            &lt;div&gt;
+                            Ensure that the --iptables parameter is either not present or not set to false.
+                            &lt;/div&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2016-08-02T10:21:32.718'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

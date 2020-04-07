@@ -1,0 +1,15 @@
+<weakness ref="CWE-295" name="Improper Certificate Validation" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references>
+                            <reference name="CWE-295: Improper Certificate Validation" url="https://cwe.mitre.org/data/definitions/295.html"/>
+                        </references>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-05-29T09:16:00.912000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The software does not validate, or incorrectly validates, a certificate.
+                    </desc>
+                </weakness>

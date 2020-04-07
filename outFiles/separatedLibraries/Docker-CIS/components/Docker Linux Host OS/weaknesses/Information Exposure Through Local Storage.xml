@@ -1,0 +1,19 @@
+<weakness ref='CWE-922' name='Information Exposure Through Local Storage' state='0' impact='100'>
+          <desc>The software stores sensitive information without properly limiting read or write access by
+                        unauthorized actors.
+                        If read access is not properly restricted, then attackers can steal the sensitive information.
+                        If write access is not properly restricted, then attackers can modify and possibly delete the
+                        data, causing incorrect results and possibly a denial of service.
+                    </desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2018-05-30T14:52:12.809'>
+              <output></output>
+            </source>
+            <references>
+              <reference name='CWE-922: Information Exposure Through Local Storage' url='https://cwe.mitre.org/data/definitions/922.html' />
+            </references>
+            <udts />
+          </test>
+        </weakness>

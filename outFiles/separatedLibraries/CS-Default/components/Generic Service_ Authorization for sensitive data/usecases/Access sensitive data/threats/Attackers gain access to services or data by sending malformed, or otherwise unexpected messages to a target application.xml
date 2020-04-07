@@ -1,0 +1,33 @@
+<threat ref="CAPEC-215" name="Attackers gain access to services or data by sending malformed, or otherwise unexpected messages to a target application" state="Expose" source="MANUAL" owner="admin" library="">
+                            <desc>An attacker sends random, malformed, or otherwise unexpected messages to a target
+                                application and observes the application's log or error messages returned. Fuzzing
+                                techniques involve sending random or malformed messages to a target and monitoring the
+                                target's response. The attacker does not initially know how a target will respond to
+                                individual messages but by attempting a large number of message variants they may find a
+                                variant that trigger's desired behavior. In this attack, the purpose of the fuzzing is
+                                to observe the application's log and error messages, although fuzzing a target can also
+                                sometimes cause the target to enter an unstable state, causing a crash. By observing
+                                logs and error messages, the attacker can learn details about the configuration of the
+                                target application and might be able to cause the target to disclose sensitive
+                                information.
+                                &lt;br /&gt;
+                            </desc>
+                            <riskRating confidentiality="25" integrity="25" availability="100" easeOfExploitation="100"/>
+                            <references/>
+                            <controls>
+                                <control ref="ASVS-8.1" mitigation="50"/>
+                                <control ref="ASVS-8.2" mitigation="50"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-209">
+                                    <controls>
+                                        <control ref="ASVS-8.1" mitigation="50"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="CWE-636">
+                                    <controls>
+                                        <control ref="ASVS-8.2" mitigation="50"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

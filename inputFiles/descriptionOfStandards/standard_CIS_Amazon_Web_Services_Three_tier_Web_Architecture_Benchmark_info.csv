@@ -1,0 +1,96 @@
+Category|Ref|Req.|Included
+cis-amazon-web-services-three-tier-web-architecture-benchmark|CIS Amazon Web Services Three-tier Web Architecture Benchmark||
+Data Protection|1.1|Ensure a customer created Customer Master Key (CMK) is created for the Web-tier|x
+Data Protection|1.2|EEnsure a customer created Customer Master Key (CMK) is created for the App-tier|x
+Data Protection|1.3|Ensure a customer created Customer Master Key (CMK) is created for the Database-Tier|x
+Data Protection|1.4|Ensure Databases running on RDS have encryption at rest enabled|x
+Data Protection|1.5|Ensure all EBS volumes for Web-Tier are encrypted|x
+Data Protection|1.6|Ensure all EBS volumes for App-Tier are encrypted|x
+Data Protection|1.7|Ensure all Customer owned Amazon Machine Images for Web Tier are not shared publicly|x
+Data Protection|1.8|Ensure all Customer owned Amazon Machine Images for Application Tier are not shared publicly|x
+Data Protection|1.9|Ensure Web Tier ELB have SSL/TLS Certificate attached|x
+Data Protection|1.10|Ensure Web Tier ELB have the latest SSL Security Policies configured|x
+Data Protection|1.11|Ensure Web Tier ELB is using HTTPS listener|x
+Data Protection|1.12|Ensure App Tier ELB have SSL\TLS Certificate attached|x
+Data Protection|1.13|Ensure App Tier ELB have the latest SSL Security Policies configured|x
+Data Protection|1.14|Ensure App Tier ELB is using HTTPS listener|x
+Data Protection|1.15|Ensure all Public Web Tier SSL\TLS certificates are >30 days from Expiration|x
+Data Protection|1.16|Ensure all S3 buckets have policy to require server-side and in transit encryption for all objects stored in bucket.	|x
+Data Protection|1.17|Ensure CloudFront to Origin connection is configured using TLS1.1+ as the SSL\TLS protocol|x
+Identity and Access Management|2.1|Ensure IAM Policy for EC2 IAM Roles for Web tier is configured|x
+Identity and Access Management|2.2|Ensure IAM Policy for EC2 IAM Roles for App tier is configured|x
+Identity and Access Management|2.3|Ensure an IAM Role for Amazon EC2 is created for Web Tier|x
+Identity and Access Management|2.4|Ensure an IAM Role for Amazon EC2 is created for App Tier|x
+Identity and Access Management|2.5|Ensure AutoScaling Group Launch Configuration for Web Tier is configured to use a customer created Web-Tier IAM Role|x
+Identity and Access Management|2.6|Ensure AutoScaling Group Launch Configuration for App Tier is configured to use an App-Tier IAM Role|x
+Identity and Access Management|2.7|Ensure an IAM group for administration purposes is created|x
+Identity and Access Management|2.8|Ensure an IAM policy that allows admin privileges for all services used is created|x
+Identity and Access Management|2.9|Ensure SNS Topics do not Allow ‘Everyone’ To Publish|x
+Identity and Access Management|2.10|Ensure SNS Topics do not Allow ‘Everyone’ To Subscribe|x
+Business Continuity|3.1|Ensure each Auto-Scaling Group has an associated Elastic Load Balancer|x
+Business Continuity|3.2|Ensure each Auto-Scaling Group is configured for multiple Availability Zones|x
+Business Continuity|3.3|Ensure Auto-Scaling Launch Configuration for Web-Tier is configured to use an approved Amazon Machine Image         |x
+Business Continuity|3.4|Ensure Auto-Scaling Launch Configuration for App-Tier is configured to use an approved Amazon Machine Image|x
+Business Continuity|3.5|Ensure Relational Database Service is Multi-AZ Enabled|x
+Business Continuity|3.6|Ensure Relational Database Service Instances have Auto Minor Version Upgrade Enabled|x
+Business Continuity|3.7|Ensure Relational Database Service backup retention policy is set|x
+Business Continuity|3.8|Ensure Web Tier Elastic Load Balancer has application layer Health Check Configured|x
+Business Continuity|3.9|Ensure App Tier Elastic Load Balancer has application layer Health Check Configured|x
+Business Continuity|3.10|Ensure S3 buckets have versioning enabled|x
+Business Continuity|3.11|Configure HTTP to HTTPS Redirects with a CloudFront Viewer Protocol Policy|x
+Business Continuity|3.12|Ensure all CloudFront Distributions require HTTPS between CloudFront and your Web-Tier ELB origin|x
+Business Continuity|3.13|Ensure Web Tier Auto-Scaling Group has an associated Elastic Load Balancer|x
+Business Continuity|3.14|Ensure App Tier Auto-Scaling Group has an associated Elastic Load Balancer|x
+Event Monitoring and Response|4.1|Ensure a SNS topic is created for sending out notifications from Cloudtwatch Alarms and Auto-Scaling Groups|x
+Event Monitoring and Response|4.2|Ensure a SNS topic is created for sending out notifications from RDS events|x
+Event Monitoring and Response|4.3|Ensure RDS event subscriptions are enabled for Instance level events|x
+Event Monitoring and Response|4.4|Ensure RDS event subscriptions are enabled for DB security groups|x
+Event Monitoring and Response|4.5|Ensure that a log metric filter for the Cloudwatch group assigned to the "VPC Flow Logs" is created|x
+Event Monitoring and Response|4.6|Ensure that a Cloudtwach Alarm is created for the "VPC Flow Logs" metric filter and an Alarm Action is configured|x
+Event Monitoring and Response|4.7|Ensure Billing Alerts are enabled for increments of X spend|x
+Audit and Logging|5.1|Ensure all resources are correctly tagged|x
+Audit and Logging|5.2|Ensure AWS Elastic Load Balancer logging is enabled|x
+Audit and Logging|5.3|Ensure AWS Cloudfront Logging is enabled|x
+Audit and Logging|5.4|Ensure Cloudwatch Log Group is created for Web Tier|x
+Audit and Logging|5.5|Ensure Cloudwatch Log Group is created for App Tier|x
+Audit and Logging|5.6|Ensure Cloudwatch Log Group for Web Tier has a retention period|x
+Audit and Logging|5.7|Ensure Cloudwatch Log Group for App Tier has a retention period|x
+Audit and Logging|5.8|Ensure an agent for AWS Cloudwatch Logs is installed within Auto-Scaling Group for Web-Tier|x
+Audit and Logging|5.9|Ensure an agent for AWS Cloudwatch Logs is installed within Auto-Scaling Group for App-Tier|x
+Audit and Logging|5.10|Ensure an AWS Managed Config Rule for encrypted volumes is applied to Web Tier|x
+Audit and Logging|5.11|Ensure an AWS Managed Config Rule for encrypted volumes is applied to App Tier|x
+Audit and Logging|5.12|Ensure an AWS Managed Config Rule for EIPs attached to EC2 instances within VPC|x
+Networking|6.1|Ensure Root Domain Alias Record Points to ELB|x
+Networking|6.2|Ensure a DNS alias record for the root domain|x
+Networking|6.3|Use CloudFront Content Distribution Network|x
+Networking|6.4|Ensure Geo-Restriction is enabled within Cloudfront Distribution|x
+Networking|6.5|Ensure subnets for the Web tier ELB are created|x
+Networking|6.6|Ensure subnets for the Web tier are created|x
+Networking|6.7|Ensure subnets for the App tier are created|x
+Networking|6.8|Ensure subnets for the Data tier are created|x
+Networking|6.9|Ensure Elastic IPs for the NAT Gateways are allocated|x
+Networking|6.10|Ensure NAT Gateways are created in at least 2 Availability Zones|x
+Networking|6.11|Ensure a route table for the public subnets is created|x
+Networking|6.12|Ensure a route table for the private subnets is created|x
+Networking|6.13|Ensure Routing Table associated with Web tier ELB subnet have the default route (0.0.0.0/0) defined to allow connectivity to the VPC Internet Gateway (IGW)|x
+Networking|6.14|Ensure Routing Table associated with Web tier subnet have the default route (0.0.0.0/0) defined to allow connectivity to the VPC NAT Gateway|x
+Networking|6.15|Ensure Routing Table associated with App tier subnet have the default route (0.0.0.0/0) defined to allow connectivity to the VPC NAT Gateway|x
+Networking|6.16|Ensure Routing Table associated with Data tier subnet have NO default route (0.0.0.0/0) defined to allow connectivity to the VPC NAT Gateway|x
+Networking|6.17|Use a Web-Tier ELB Security Group to accept only HTTP/HTTPS|x
+Networking|6.18|Ensure Web tier ELB Security Group is not used in the Auto Scaling launch configuration of any other tier (Web App)|x
+Networking|6.19|Create the Web tier Security Group and ensure it allows inbound connections from Web tier ELB Security Group for explicit ports|x
+Networking|6.20|Ensure Web tier Security Group has no inbound rules for CIDR of 0 (Global Allow)|x
+Networking|6.21|Create the App tier ELB Security Group and ensure only accepts HTTP/HTTPS|x
+Networking|6.22|Create the App tier Security Group and ensure it allows inbound connections from App tier ELB Security Group for explicit ports|x
+Networking|6.23|Ensure App tier Security Group has no inbound rules for CIDR of 0 (Global Allow)|x
+Networking|6.24|Create the Data tier Security Group and ensure it allows inbound connections from App tier Security Group for explicit ports|x
+Networking|6.25|Ensure Data tier Security Group has no inbound rules for CIDR of 0 (Global Allow)|x
+Networking|6.26|Ensure the App tier ELB is created as Internal|x
+Networking|6.27|Ensure EC2 instances within Web Tier have no Elastic / Public IP addresses associated|x
+Networking|6.28|Ensure EC2 instances within App Tier have no Elastic / Public IP addresses associated|x
+Networking|6.29|Ensure EC2 instances within Data Tier have no Elastic / Public IP addresses associated|x
+Networking|6.30|Ensure RDS Database is not publically accessible|x
+Networking|6.31|Don't use the default VPC|x
+Networking|6.32|Ensure Auto-Scaling Launch Configuration for Web Tier is configured to use the Web Tier Security Group|x
+Networking|6.33|Ensure Auto-Scaling Launch Configuration for App Tier is configured to use the App Tier Security Group|x
+Networking|6.34|Ensure RDS Database is configured to use the Data Tier Security Group|x

@@ -1,0 +1,62 @@
+<control ref='D5.30' name='Ensure the host&apos;s user namespaces is not shared' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>Do not share the host's user namespaces with the containers.&amp;nbsp;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Rationale:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        User namespaces ensure that a root process inside the container will be mapped to a non-root
+                        process outside the container. Sharing the user namespaces of the host with the container thus
+                        does not isolate users on the host with users on the containers.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Do not share user namespaces between host and containers. For example, do not run a container as
+                        below:&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        docker run --rm -it --userns=host ubuntu bash&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;b&gt;Impact:&amp;nbsp;&lt;/b&gt;
+                        &lt;div&gt;
+                        None
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='Docker docs: run options' url='https://docs.docker.com/engine/reference/commandline/run/#options' />
+            <reference name='Docker docs: userns remap' url='https://docs.docker.com/engine/security/userns-remap/' />
+            <reference name='Docker github: 12648' url='https://github.com/docker/docker/pull/12648' />
+            <reference name='Linux foundation: user namespaces' url='https://events.linuxfoundation.org/sites/events/files/slides/User%20Namespaces%20-%20ContainerCon%202015%20-%2016-9-final_0.pdf' />
+          </references>
+          <standards>
+            <standard ref='5.30' supportedStandardRef='Level 1 - Docker' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>Run the below command and ensure that it does not return any value for UsernsMode. If it
+                            returns a value of host, it means the host user namespace is shared with the containers.&amp;nbsp;
+                            &lt;blockquote&gt;
+                            &lt;div&gt;
+                            docker ps --quiet --all | xargs docker inspect --format '{{ .Id }}: UsernsMode={{
+                            .HostConfig.UsernsMode }}'
+                            &lt;/div&gt;
+                            &lt;/blockquote&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2016-08-02T10:21:32.718'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

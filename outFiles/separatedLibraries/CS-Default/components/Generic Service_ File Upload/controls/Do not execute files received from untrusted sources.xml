@@ -1,0 +1,36 @@
+<control ref="WEB-EXEC-DATA" name="Do not execute files received from untrusted sources" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;div&gt;&lt;/div&gt;
+                        &lt;div&gt;
+                        Untrusted file data sources could contain malicious software, data sources should not be
+                        executed even if an anti-malware scanner has been run against the file.&amp;nbsp;&amp;nbsp;
+                        &lt;/div&gt;This includes use of pre-processing that may result in execution (e.g. eval of
+                        tainted content).
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="12.5.1" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="9.4.5" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="SI-10" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-3" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-6" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="16.8" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="16.8" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="16.8" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+                            &lt;li&gt;Identify the data entry points for the application.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Check the source of this data.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Verify this data is not being executed or permanently stored at any point.&lt;/li&gt;
+                            &lt;/ol&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-11-30T13:06:44.055000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

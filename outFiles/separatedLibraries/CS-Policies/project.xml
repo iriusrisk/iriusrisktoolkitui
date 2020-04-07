@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Copyright (c) 2012-2019 Continuum Security.  All rights reserved.The content of this library is the property of Continuum Security SL and may only be used in whole or in part with a valid license for IriusRisk.-->
+<project ref='CS-Default-Security-Policies' name='CS-Default-Security-Policies' revision='9' type='LIBRARY' status='OPEN' enabled='true' priority='0' tags=''>
+  <desc>A default set of rules that implement security policies such as applying PCI DSS and EU GDPR when required.
+        This library has not got any Risk Pattern.
+    </desc>
+  <categoryComponents />
+  <componentDefinitions />
+  <supportedStandards />
+  <udts />
+  

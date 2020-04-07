@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:complexType name="airplane">
+        <xs:complexContent>
+            <xs:extension base="vehicleType" >
+                <xs:sequence>
+                    <xs:element name="pilotname" type="xs:string" />
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

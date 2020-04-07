@@ -1,0 +1,129 @@
+<threat ref='CAPEC-122-DOCKER-DAEMON-CONFIG-FILES' name='Attakers gain access without the necessary privileged to the docker daemon configuration files&#10;&#10;' state='Expose' source='MANUAL' owner='' library=''>
+              <desc>An adversary is able to exploit features of the target that should be reserved for
+                                privileged users or administrators but are exposed to use by lower or non-privileged
+                                accounts. Access to sensitive information and functionality must be controlled to ensure
+                                that only authorized users are able to access these resources. If access control
+                                mechanisms are absent or misconfigured, a user may be able to access resources that are
+                                intended only for higher level users. An adversary may be able to exploit this to
+                                utilize a less trusted account to gain information and perform activities reserved for
+                                more trusted accounts. This attack differs from privilege escalation and other privilege
+                                stealing attacks in that the adversary never actually escalates their privileges but
+                                instead is able to use a lesser degree of privilege to access resources that should be
+                                (but are not) reserved for higher privilege accounts. Likewise, the adversary does not
+                                exploit trust or subvert systems - all control functionality is working as configured
+                                but the configuration does not adequately protect sensitive resources at an appropriate
+                                level.
+                            </desc>
+              <riskRating confidentiality='100' integrity='100' availability='50' easeOfExploitation='50' />
+              <references />
+              <weaknesses>
+                <weakness ref='CWE-250'>
+                  <controls>
+                    <control ref='D3.1' mitigation='5' />
+                    <control ref='D3.10' mitigation='5' />
+                    <control ref='D3.11' mitigation='5' />
+                    <control ref='D3.12' mitigation='5' />
+                    <control ref='D3.13' mitigation='5' />
+                    <control ref='D3.14' mitigation='5' />
+                    <control ref='D3.15' mitigation='5' />
+                    <control ref='D3.16' mitigation='5' />
+                    <control ref='D3.17' mitigation='5' />
+                    <control ref='D3.18' mitigation='5' />
+                    <control ref='D3.19' mitigation='5' />
+                    <control ref='D3.2' mitigation='5' />
+                    <control ref='D3.20' mitigation='5' />
+                    <control ref='D3.3' mitigation='5' />
+                    <control ref='D3.4' mitigation='5' />
+                    <control ref='D3.5' mitigation='5' />
+                    <control ref='D3.6' mitigation='5' />
+                    <control ref='D3.7' mitigation='5' />
+                    <control ref='D3.8' mitigation='5' />
+                    <control ref='D3.9' mitigation='5' />
+                  </controls>
+                </weakness>
+                <weakness ref='CWE-276'>
+                  <controls>
+                    <control ref='D3.1' mitigation='5' />
+                    <control ref='D3.10' mitigation='5' />
+                    <control ref='D3.11' mitigation='5' />
+                    <control ref='D3.12' mitigation='5' />
+                    <control ref='D3.13' mitigation='5' />
+                    <control ref='D3.14' mitigation='5' />
+                    <control ref='D3.15' mitigation='5' />
+                    <control ref='D3.16' mitigation='5' />
+                    <control ref='D3.17' mitigation='5' />
+                    <control ref='D3.18' mitigation='5' />
+                    <control ref='D3.19' mitigation='5' />
+                    <control ref='D3.2' mitigation='5' />
+                    <control ref='D3.20' mitigation='5' />
+                    <control ref='D3.3' mitigation='5' />
+                    <control ref='D3.4' mitigation='5' />
+                    <control ref='D3.5' mitigation='5' />
+                    <control ref='D3.6' mitigation='5' />
+                    <control ref='D3.7' mitigation='5' />
+                    <control ref='D3.8' mitigation='5' />
+                    <control ref='D3.9' mitigation='5' />
+                  </controls>
+                </weakness>
+                <weakness ref='CWE-708'>
+                  <controls>
+                    <control ref='D3.1' mitigation='5' />
+                    <control ref='D3.11' mitigation='5' />
+                    <control ref='D3.13' mitigation='5' />
+                    <control ref='D3.15' mitigation='5' />
+                    <control ref='D3.17' mitigation='5' />
+                    <control ref='D3.19' mitigation='5' />
+                    <control ref='D3.3' mitigation='5' />
+                    <control ref='D3.5' mitigation='5' />
+                    <control ref='D3.7' mitigation='5' />
+                    <control ref='D3.9' mitigation='5' />
+                  </controls>
+                </weakness>
+                <weakness ref='CWE-732'>
+                  <controls>
+                    <control ref='D3.1' mitigation='5' />
+                    <control ref='D3.10' mitigation='5' />
+                    <control ref='D3.11' mitigation='5' />
+                    <control ref='D3.12' mitigation='5' />
+                    <control ref='D3.13' mitigation='5' />
+                    <control ref='D3.14' mitigation='5' />
+                    <control ref='D3.15' mitigation='5' />
+                    <control ref='D3.16' mitigation='5' />
+                    <control ref='D3.17' mitigation='5' />
+                    <control ref='D3.18' mitigation='5' />
+                    <control ref='D3.19' mitigation='5' />
+                    <control ref='D3.2' mitigation='5' />
+                    <control ref='D3.20' mitigation='5' />
+                    <control ref='D3.3' mitigation='5' />
+                    <control ref='D3.4' mitigation='5' />
+                    <control ref='D3.5' mitigation='5' />
+                    <control ref='D3.6' mitigation='5' />
+                    <control ref='D3.7' mitigation='5' />
+                    <control ref='D3.8' mitigation='5' />
+                    <control ref='D3.9' mitigation='5' />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref='D3.1' mitigation='5' />
+                <control ref='D3.10' mitigation='5' />
+                <control ref='D3.11' mitigation='5' />
+                <control ref='D3.12' mitigation='5' />
+                <control ref='D3.13' mitigation='5' />
+                <control ref='D3.14' mitigation='5' />
+                <control ref='D3.15' mitigation='5' />
+                <control ref='D3.16' mitigation='5' />
+                <control ref='D3.17' mitigation='5' />
+                <control ref='D3.18' mitigation='5' />
+                <control ref='D3.19' mitigation='5' />
+                <control ref='D3.2' mitigation='5' />
+                <control ref='D3.20' mitigation='5' />
+                <control ref='D3.3' mitigation='5' />
+                <control ref='D3.4' mitigation='5' />
+                <control ref='D3.5' mitigation='5' />
+                <control ref='D3.6' mitigation='5' />
+                <control ref='D3.7' mitigation='5' />
+                <control ref='D3.8' mitigation='5' />
+                <control ref='D3.9' mitigation='5' />
+              </controls>
+            </threat>

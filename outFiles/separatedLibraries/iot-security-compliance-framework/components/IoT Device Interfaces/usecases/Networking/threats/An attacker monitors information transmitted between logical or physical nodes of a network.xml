@@ -1,0 +1,33 @@
+<threat ref="CAPEC-157" name="An attacker monitors information transmitted between logical or physical nodes of a network" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>&lt;p&gt;An attacker monitors information transmitted between logical or physical nodes of a network. The attacker need not be able to prevent reception or change content but must simply be able to observe and read the traffic. The attacker might precipitate or indirectly influence the content of the observed transaction, but the attacker is never the intended recipient of the information. Any transmission medium can theoretically be sniffed if the attacker can listen to the contents between the sender and recipient.&lt;/p&gt;</desc>
+                            <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="25"/>
+                            <references/>
+                            <controls>
+                                <control ref="IOT2.4.7.12" mitigation="25"/>
+                                <control ref="IOT2.4.7.13" mitigation="25"/>
+                                <control ref="IOT2.4.7.14" mitigation="25"/>
+                                <control ref="IOT2.4.7.5" mitigation="25"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-319">
+                                    <controls>
+                                        <control ref="IOT2.4.7.13" mitigation="25"/>
+                                        <control ref="IOT2.4.7.14" mitigation="25"/>
+                                        <control ref="IOT2.4.7.5" mitigation="25"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="CWE-326">
+                                    <controls>
+                                        <control ref="IOT2.4.7.12" mitigation="25"/>
+                                        <control ref="IOT2.4.7.13" mitigation="25"/>
+                                        <control ref="IOT2.4.7.14" mitigation="25"/>
+                                        <control ref="IOT2.4.7.5" mitigation="25"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="SSL-WEAK-CIPHERS">
+                                    <controls>
+                                        <control ref="IOT2.4.7.13" mitigation="25"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

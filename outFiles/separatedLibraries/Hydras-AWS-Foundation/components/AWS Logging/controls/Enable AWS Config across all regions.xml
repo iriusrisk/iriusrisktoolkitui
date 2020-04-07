@@ -1,0 +1,52 @@
+<control ref='Hydras-AWS-Logging-3.9' name='Enable AWS Config across all regions' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>AWS Config tracks configuration changes to resources as they occur and is therefore a good
+                        source of identifying whether unintentional or malicious changes have occurred to resources with
+                        the AWS account.
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;
+                        &lt;br /&gt;
+                        &lt;ol&gt;
+                        &lt;li&gt;Sign in to the AWS Management Console (with Config update permissions).&lt;/li&gt;
+                        &lt;li&gt;Select Config from the services menu.&lt;/li&gt;
+                        &lt;li&gt;Define which resources you want to record in the selected region.&lt;/li&gt;
+                        &lt;li&gt;Choose to include global resources (IAM resources).&lt;/li&gt;
+                        &lt;li&gt;Specify an S3 bucket.&lt;/li&gt;
+                        &lt;li&gt;Create an SNS Topic&amp;nbsp;&amp;nbsp;&lt;/li&gt;
+                        &lt;/ol&gt;Content provided by
+                        &lt;a href="https://hydrasit.com" target="_blank"&gt; Hydras IT LTD&lt;/a&gt;
+                        &lt;br /&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references />
+          <standards>
+            <standard ref='2.5' supportedStandardRef='CIS AWS Standard' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;ol&gt;
+                            &lt;li&gt;Sign in to the AWS Management Console (with Config update permissions)&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Select Config from the services menu&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;If presented with Setup AWS Config follow the procedure highlighted in the
+                            remediation section&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;On the Resource inventory page, Click on &amp;quot;edit&amp;quot;&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Ensure 1 or both check-boxes under &amp;quot;All Resources&amp;quot; is checked.&amp;nbsp;&lt;/li&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt;Include global resources related to IAM resources&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;which needs to be enabled in 1 region only.&lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;li&gt;Ensure the correct S3 bucket has been defined.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Ensure the correct SNS topic has been defined.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Repeat steps 2 to 7 for each region (you'll need to change region in the top right
+                            corner of the AWS management console to do this).&lt;/li&gt;
+                            &lt;/ol&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

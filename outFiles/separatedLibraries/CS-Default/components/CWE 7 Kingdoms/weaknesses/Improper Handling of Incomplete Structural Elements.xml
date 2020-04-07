@@ -1,0 +1,14 @@
+<weakness ref="CWE-238" name="Improper Handling of Incomplete Structural Elements" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-04-04T17:38:37.357000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The software does not handle or incorrectly handles when a
+                        particular structural element is not completely specified.
+                    </desc>
+                </weakness>

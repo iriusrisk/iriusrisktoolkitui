@@ -1,0 +1,32 @@
+<threat ref='AWS-LOST-ACCESS-USER' name='Attackers gain unauthorized access to the user account due to the lack of configuration of the account' state='Expose' source='MANUAL' owner='' library=''>
+              <desc>&lt;div&gt;
+                                Attackers could gain unauthorized access to the user account due to the lack of
+                                configuration of the account, like the security question to reset the password was
+                                configured incorrectly.
+                                &lt;/div&gt;
+                            </desc>
+              <riskRating confidentiality='100' integrity='100' availability='100' easeOfExploitation='25' />
+              <references />
+              <weaknesses>
+                <weakness ref='AWS-IAM-2.8'>
+                  <controls>
+                    <control ref='Hydras-AWS-IAM-2.4' mitigation='33' />
+                  </controls>
+                </weakness>
+                <weakness ref='AWS-IAM-2.6'>
+                  <controls>
+                    <control ref='Hydras-AWS-IAM-2.6' mitigation='33' />
+                  </controls>
+                </weakness>
+                <weakness ref='AWS-IAM-2.9'>
+                  <controls>
+                    <control ref='Hydras-AWS-IAM-2.9' mitigation='34' />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref='Hydras-AWS-IAM-2.4' mitigation='33' />
+                <control ref='Hydras-AWS-IAM-2.6' mitigation='33' />
+                <control ref='Hydras-AWS-IAM-2.9' mitigation='34' />
+              </controls>
+            </threat>

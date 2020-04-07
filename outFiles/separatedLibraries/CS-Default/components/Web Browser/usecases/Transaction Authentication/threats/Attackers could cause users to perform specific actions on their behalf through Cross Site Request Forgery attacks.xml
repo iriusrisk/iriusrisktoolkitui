@@ -1,0 +1,27 @@
+<threat ref="CAPEC-62" name="Attackers could cause users to perform specific actions on their behalf through Cross Site Request Forgery attacks" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>Attackers could cause users to perform actions by exploiting Cross Site Request
+                                Forgery vulnerabilities. This involves the attackers creating a malicious website that
+                                hosts a form or JavaScript designed to perform a POST or GET request against the target
+                                application. If the victim is logged into the target application, and then navigates to
+                                the attacker's malicious website, the form will be submitted and the operation performed
+                                by &amp;quot;riding&amp;quot; on the users existing session.
+                            </desc>
+                            <riskRating confidentiality="50" integrity="50" availability="100" easeOfExploitation="50"/>
+                            <references/>
+                            <controls>
+                                <control ref="CWE-352-TOKENS" mitigation="50"/>
+                                <control ref="RE-AUTH" mitigation="50"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-352">
+                                    <controls>
+                                        <control ref="CWE-352-TOKENS" mitigation="50"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="CWE-306">
+                                    <controls>
+                                        <control ref="RE-AUTH" mitigation="50"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

@@ -1,0 +1,9 @@
+<rule name="Conclusion: Data Store - data stores are OTS components" module="component" generatedByGui="true">
+            <condition name="Risk pattern exists" type="drools-without-variable-type" field="id" value="CS-Default_::_DATASTORE">
+                <pattern name="Risk pattern exists" pattern='$riskPattern : ImportWholeRiskPatternAwareDto(libraryRef == "${value-1}",riskPatternRef == "${value-2}");'/>
+            </condition>
+            <action project="" value="ConclusionType.HIDDEN_::_OTS-component_::_An off-the-shelf component that was not developed" name="Insert Conclusion" type="drools-without-variable-type">
+                <pattern name="Action of insert conclusion" pattern='insertLogical(new Conclusion(${value-1}, "${value-2}", "${value-3}"));'/>
+            </action>
+            <content></content>
+        </rule>

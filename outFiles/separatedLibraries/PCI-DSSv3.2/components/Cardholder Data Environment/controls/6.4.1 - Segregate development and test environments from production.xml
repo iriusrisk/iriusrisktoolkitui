@@ -1,0 +1,26 @@
+<control ref="PCI-R6-6.4.1" name="6.4.1 - Segregate development and test environments from production" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Separation must be enforced with access controls.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;Due to the constantly changing state of development and test environments, they tend to
+                        be less
+                        secure than the production environment. Without adequate separation between environments, it may
+                        be possible
+                        for the production environment, and cardholder data, to be compromised due to less-stringent
+                        security
+                        configurations and possible vulnerabilities in a test or development environment.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="6.4.1" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T12:34:03.494000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

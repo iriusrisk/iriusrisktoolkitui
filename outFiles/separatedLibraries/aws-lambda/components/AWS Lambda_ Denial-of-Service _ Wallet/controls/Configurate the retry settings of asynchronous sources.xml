@@ -1,0 +1,48 @@
+<control ref="AWS-LAMBDA-C26" name="Configurate the retry settings of asynchronous sources" platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Any Lambda function invoked asynchronously is retried twice before the event is discarded. If the retries fail and you’re unsure why, use Dead Letter Queues (DLQ) to direct unprocessed events to an Amazon SQS queue or an Amazon SNS topic to analyze the failure.&lt;/p&gt; 
+&lt;p&gt;AWS Lambda directs events that cannot be processed to the specified Amazon SNS topic or Amazon SQS queue. Functions that don’t specify a DLQ will discard events after they have exhausted their retries. For more information about retry policies, see AWS Lambda Retry Behavior.&lt;/p&gt; 
+&lt;p&gt;You configure a DLQ by specifying the Amazon Resource Name TargetArn value on the Lambda function’s DeadLetterConfig parameter.&lt;/p&gt; 
+&lt;p&gt;&lt;b&gt;Remediation:&lt;br /&gt;&lt;/b&gt; Update the timeout of your functions using the following AWS CLI command:&lt;br /&gt;&lt;/p&gt; 
+&lt;blockquote&gt; 
+ &lt;p&gt; aws lambda update-function-configuration --function-name myfunction --dead-letter-config (structure)&lt;/p&gt; 
+&lt;/blockquote&gt; 
+&lt;p&gt;A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see Dead Letter Queues in the references.&lt;br /&gt;&lt;/p&gt; 
+&lt;blockquote&gt; 
+ &lt;p&gt; Shorthand Syntax:&lt;/p&gt; 
+ &lt;p&gt; TargetArn=string&lt;/p&gt; 
+ &lt;p&gt; JSON Syntax:&lt;/p&gt; 
+ &lt;p&gt;{ “TargetArn”: “string”&lt;/p&gt; 
+ &lt;p&gt; }&lt;/p&gt; 
+&lt;/blockquote&gt;</desc>
+                    <implementations/>
+                    <references>
+                        <reference name="AWS CLI update-function-configuration" url="https://docs.aws.amazon.com/cli/latest/reference/lambda/update-function-configuration.html"/>
+                        <reference name="AWS Lambda Retry Behavior" url="https://docs.aws.amazon.com/lambda/latest/dg/retries-on-errors.html"/>
+                        <reference name="Dead Letter Queue" url="https://docs.aws.amazon.com/lambda/latest/dg/dlq.html"/>
+                    </references>
+                    <standards/>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;Use AWS CLI and use the following command to view the timeout limit per function:&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;p&gt;aws lambda get-function --function-name function-name&amp;nbsp;&lt;/p&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;Check all function and verify that they have got set a well the timeout limit.&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;p&gt;&lt;/p&gt;</steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-03-25T16:40:59">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

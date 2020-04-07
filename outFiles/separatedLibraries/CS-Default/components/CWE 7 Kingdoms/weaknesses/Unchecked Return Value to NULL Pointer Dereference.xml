@@ -1,0 +1,14 @@
+<weakness ref="CWE-690" name="Unchecked Return Value to NULL Pointer Dereference" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-04-04T17:41:45.080000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The product does not check for an error after calling a function that can return with a NULL
+                        pointer if the function fails, which leads to a resultant NULL pointer dereference.
+                    </desc>
+                </weakness>

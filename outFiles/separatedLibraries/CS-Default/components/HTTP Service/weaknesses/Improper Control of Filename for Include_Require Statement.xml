@@ -1,0 +1,24 @@
+<weakness ref="CWE-98" name="Improper Control of Filename for Include/Require Statement" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references>
+                            <reference name="CWE-98: Improper Control of Filename for Include/Require Statement in PHP Program ('PHP Remote File Inclusion')" url="https://cwe.mitre.org/data/definitions/98.html"/>
+                        </references>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2015-08-15T17:17:16.173000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The application receives input from an upstream component, but it does not restrict or
+                        incorrectly restricts the input before its usage in &amp;quot;require,&amp;quot; &amp;quot;include,&amp;quot;
+                        or similar functions.&amp;nbsp;
+                        &lt;div&gt;
+                        &amp;nbsp;
+                        &lt;br /&gt;In certain versions and configurations, this can allow an attacker to specify a URL
+                        to a remote location from which the software will obtain the code to execute. In other cases in
+                        association with path traversal, the attacker can specify a local file that may contain
+                        executable statements that can be parsed by the interpreter.
+                        &lt;/div&gt;
+                    </desc>
+                </weakness>

@@ -1,0 +1,60 @@
+<control ref="STRONG-ALGORITHMS-PROTOCOLS" name="Ensure that only strong algorithms, cyphers and protocols are used" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+  Ensure that the application is using strong algorithms, cyphers and protocols. The general practice and required minimum key lengths depend on the scenarios listed below. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt;Key exchange: Diffie-Hellman key exchange with minimum 2048 bits&lt;/li&gt; 
+  &lt;li&gt;Message Integrity: HMAC-SHA2&lt;/li&gt; 
+  &lt;li&gt;Message Hash: SHA2 256 bits&lt;/li&gt; 
+  &lt;li&gt;Asymmetric encryption: RSA 2048 bits&lt;/li&gt; 
+  &lt;li&gt;Symmetric-key algorithm: AES 128 bits&lt;/li&gt; 
+  &lt;li&gt;Password Hashing: Argon2, PBKDF2, Scrypt, Bcrypt.&lt;/li&gt; 
+ &lt;/ul&gt; 
+&lt;/div&gt;</desc>
+                    <implementations/>
+                    <references>
+                        <reference name="NIST SP 800-175b" url="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-175b.pdf"/>
+                        <reference name="NIST SP 800-57" url="https://nvlpubs.nist.gov/nistpubs/specialpublications/nist.sp.800-57pt1r4.pdf"/>
+                        <reference name="OWASP cryptographic storage" url="https://www.owasp.org/index.php/Cryptographic_Storage_Cheat_Sheet"/>
+                        <reference name="OWASP key management" url="https://www.owasp.org/index.php/Key_Management_Cheat_Sheet"/>
+                    </references>
+                    <standards>
+                        <standard ref="164.312(a)(1)(D)" supportedStandardRef="hipaa-addressable"/>
+                        <standard ref="164.312(c)(1)" supportedStandardRef="hipaa-addressable"/>
+                        <standard ref="10.1.1" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="13.2.1" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="SC-1" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SC-12" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-6" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="10.15" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="7.7" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="10.15" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="7.7" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="10.15" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="7.7" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="7.8" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="A3:2017-Sensitive Data Exposure" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>Check that the Cryptographic protocols comply to the best practices listed bellow:
+                            &lt;br /&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt;Key exchange: Diffie-Hellman key exchange with minimum 2048
+                            bits&lt;/li&gt;
+                            &lt;li&gt;Message Integrity: HMAC-SHA2&lt;/li&gt;
+                            &lt;li&gt;Message Hash: SHA2 256 bits&lt;/li&gt;
+                            &lt;li&gt;Asymmetric encryption: RSA 2048 bits&lt;/li&gt;
+                            &lt;li&gt;Symmetric-key algorithm: AES 128 bits&lt;/li&gt;
+                            &lt;li&gt;Password Hashing: Argon2, PBKDF2, Scrypt, Bcrypt.&lt;br /&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-08-07T09:33:09.745000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

@@ -1,0 +1,12 @@
+<weakness ref="AWS-LAMBDA-W2" name="The Data Store is directly exposed to the internet" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-03-25T16:40:59">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>Data Stores are accessible by the public internet with no - or weak - authentication.</desc>
+                </weakness>

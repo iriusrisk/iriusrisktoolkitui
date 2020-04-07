@@ -1,0 +1,79 @@
+<control ref='D4.3' name='Ensure unnecessary packages are not installed in the container' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>Containers tend to be minimal and slimmed down versions of the Operating System. Do not
+                        install anything that does not justify the purpose of the container.&amp;nbsp;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Rationale:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Bloated containers with unnecessary software could possibly increase the attack surface of the
+                        container. This also voids the concept of minimal and slimmed down versions of container images.
+                        Hence, do not install anything else apart from what is truly needed for the purpose of the
+                        container.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        At the outset, do not install anything on the container that does not justify the purpose. If
+                        the image had some packages that your container does not use, uninstall them. Consider using a
+                        minimal base image rather than the standard Redhat/Centos/Debian images if you can. Some of the
+                        options include BusyBox and Alpine. Not only does this trim your image size from &amp;gt;150Mb
+                        to ~20 Mb, there are also fewer tools and paths to escalate privileges. You can even remove the
+                        package installer as a final hardening measure for leaf/production containers.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Impact:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        None.
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='Docker docs: Docker images' url='https://docs.docker.com/userguide/dockerimages/' />
+            <reference name='Docker github: busybox' url='https://github.com/progrium/busybox' />
+            <reference name='Docker linux: slimming down' url='http://www.livewyer.com/blog/2015/02/24/slimming-down-your-docker-containers-alpine-linux' />
+          </references>
+          <standards>
+            <standard ref='4.3' supportedStandardRef='Level 1 - Docker' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;b&gt;Step 1:&lt;/b&gt; List all the running instances of containers by executing
+                            below command:&amp;nbsp;
+                            &lt;blockquote&gt;
+                            &lt;div&gt;
+                            docker ps --quiet&amp;nbsp;
+                            &lt;/div&gt;
+                            &lt;/blockquote&gt;
+                            &lt;div&gt;
+                            &lt;b&gt; Step 2:&lt;/b&gt; For each container instance, execute the below or equivalent
+                            command:&amp;nbsp;
+                            &lt;/div&gt;
+                            &lt;blockquote&gt;
+                            &lt;div&gt;
+                            docker exec $INSTANCE_ID rpm -qa&amp;nbsp;
+                            &lt;/div&gt;
+                            &lt;/blockquote&gt;
+                            &lt;div&gt;
+                            The above command will list the packages installed on the container. Review the list and
+                            ensure that it is legitimate.
+                            &lt;/div&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2016-08-02T10:21:32.718'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

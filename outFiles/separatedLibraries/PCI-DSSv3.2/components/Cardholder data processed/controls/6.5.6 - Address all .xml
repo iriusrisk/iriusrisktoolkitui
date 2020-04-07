@@ -1,0 +1,30 @@
+<control ref="PCI-R6-6.5.6" name='6.5.6 - Address all "high risk" detected vulnerabilities' platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;All vulnerabilities identified by an organization's vulnerability risk-ranking
+                        process (defined
+                        in Requirement 6.1) to be "high risk" and that could affect the application should
+                        be identified
+                        and
+                        addressed during application development.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="6.5.6" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;6.5.6 Examine software-development policies and procedures and interview
+                            responsible
+                            personnel to verify that coding techniques address any "high risk"
+                            vulnerabilities that
+                            could affect the
+                            application, as identified in PCI DSS Requirement 6.1.&amp;nbsp;&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T13:31:35.822000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

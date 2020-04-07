@@ -1,0 +1,49 @@
+<control ref="CWE-204-USERNAME-TIMING" name="Ensure failed login timings do not reveal account status" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+                        As with variations in error codes and messages, the timing of responses from the application can
+                        be used by an attacker to infer information about user accounts and the system. For example, it
+                        may be computationally more expensive to check a valid username against its password in the
+                        back-end than to reject a login based on an unknown username. This computational cost may be
+                        reflected in the delay between attempting to authenticate, and being rejected, which an attacker
+                        may be able to detect and use to enumerate accounts.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;The solution will vary depending on the individual implementation, but in general a
+                        random time delay should be introduced if a predictable time difference is detectable between
+                        valid and invalid accounts&lt;/li&gt;
+                        &lt;li&gt;For example, login functions that first perform a database select on the username and
+                        then on the password could cause the response time to be consistently different for existent and
+                        non-existent usernames. If so, a random time delay should be included in the response to mask
+                        this difference&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="9.4.2" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="IA-1" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="2.28" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+                            &lt;li&gt;Identify the authentication verification routines.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Send a series of partially successful and unsuccessful authentication attempts.&lt;/li&gt;
+                            &lt;li&gt;For each of the two groups calculate the average response time and check there is
+                            no significant difference between them that could help username enumeration or credential
+                            discovery.&lt;/li&gt;
+                            &lt;/ol&gt;A time-based attack technique could be used to enumerate the users of a given
+                            system, if the application takes different time to respond based on the use of a successful
+                            username or an invalid one, this could be used to guess the real usernames based on lists
+                            (dictionary attack).
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2015-08-15T17:17:15.128000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

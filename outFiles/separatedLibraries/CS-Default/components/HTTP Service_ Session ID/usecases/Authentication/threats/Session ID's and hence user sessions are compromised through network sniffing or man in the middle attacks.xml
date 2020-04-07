@@ -1,0 +1,21 @@
+<threat ref="CAPEC-158-SESSION" name="Session ID's and hence user sessions are compromised through network sniffing or man in the middle attacks" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>An attacker with access to the network path between the victim and the server could
+                                employ a sniffer to sniff clear text traffic on the network. If the session ID is
+                                transmitted in clear text, then the attacker could compromise it and thereby gain access
+                                to the user's session.
+                            </desc>
+                            <riskRating confidentiality="50" integrity="50" availability="50" easeOfExploitation="75"/>
+                            <references>
+                                <reference name="WASC-04" url="http://projects.webappsec.org/w/page/13246945/Insufficient%20Transport%20Layer%20Protection"/>
+                            </references>
+                            <controls>
+                                <control ref="SESS-SNIFF-COOKIE" mitigation="100"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-614">
+                                    <controls>
+                                        <control ref="SESS-SNIFF-COOKIE" mitigation="100"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

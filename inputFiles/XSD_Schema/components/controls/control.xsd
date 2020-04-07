@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="implementations.xsd"/>
+    <xs:include schemaLocation="references.xsd"/>
+    <xs:include schemaLocation="standards.xsd"/>
+    <xs:include schemaLocation="../../udts/udts.xsd"/>
+    <xs:include schemaLocation="../tests/test.xsd"/>
+    <xs:complexType name="controlType">
+        <xs:all>
+            <xs:element type="xs:string" name="desc"/>
+            <xs:element type="implementationsType" name="implementations"/>
+            <xs:element type="referencesType" name="references"/>
+            <xs:element type="standardsType" name="standards"/>
+            <xs:element type="udtsType" name="udts"/>
+            <xs:element type="testType" name="test"/>
+        </xs:all>
+        <xs:attribute type="xs:string" name="ref" use="required"/>
+        <xs:attribute type="xs:string" name="name" use="required"/>
+        <xs:attribute type="xs:string" name="issueId" use="required"/>
+        <xs:attribute type="xs:string" name="platform" use="optional"/>
+        <xs:attribute type="xs:integer" name="cost" use="required"/>
+        <xs:attribute type="xs:integer" name="risk" use="required"/>
+        <xs:attribute type="xs:string" name="state" use="required"/>
+        <xs:attribute type="xs:string" name="owner" use="required"/>
+        <xs:attribute type="xs:string" name="library" use="required"/>
+        <xs:attribute type="xs:string" name="source" use="required"/>
+    </xs:complexType>
+</xs:schema>

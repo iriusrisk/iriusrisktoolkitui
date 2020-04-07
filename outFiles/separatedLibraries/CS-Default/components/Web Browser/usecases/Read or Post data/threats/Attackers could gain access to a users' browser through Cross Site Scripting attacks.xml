@@ -1,0 +1,47 @@
+<threat ref="CAPEC-341" name="Attackers could gain access to a users' browser through Cross Site Scripting attacks" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>Cross Site Scripting vulnerabilities could allow attackers to gain control of
+                                users'
+                                browsers, which in turn would allow them to:&lt;div&gt;&lt;ol&gt;&lt;li&gt;Re-write
+                                browser
+                                content&lt;/li&gt;&lt;li&gt;Read the users' session cookie and thereby hijack their
+                                session&lt;/li&gt;&lt;li&gt;Read
+                                form data from the users' browser&lt;/li&gt;&lt;li&gt;Trick users into installing
+                                malware&amp;nbsp;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;
+                            </desc>
+                            <riskRating confidentiality="50" integrity="50" availability="1" easeOfExploitation="25"/>
+                            <references/>
+                            <controls>
+                                <control ref="CWE-693-NOSNIFF" mitigation="20"/>
+                                <control ref="CWE-693-X-XSS-PROTECTION" mitigation="20"/>
+                                <control ref="CWE-79-ENCODE" mitigation="20"/>
+                                <control ref="CWE-84-HTTP-ONLY" mitigation="20"/>
+                                <control ref="WEB-CSP" mitigation="20"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-79">
+                                    <controls>
+                                        <control ref="CWE-79-ENCODE" mitigation="20"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="CWE-693-NOSNIFF">
+                                    <controls>
+                                        <control ref="CWE-693-NOSNIFF" mitigation="20"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="CWE-84-HTTP-ONLY">
+                                    <controls>
+                                        <control ref="CWE-84-HTTP-ONLY" mitigation="20"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="WEB-CSP">
+                                    <controls>
+                                        <control ref="WEB-CSP" mitigation="20"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="CWE-693-X-XSS-PROTECTION">
+                                    <controls>
+                                        <control ref="CWE-693-X-XSS-PROTECTION" mitigation="20"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

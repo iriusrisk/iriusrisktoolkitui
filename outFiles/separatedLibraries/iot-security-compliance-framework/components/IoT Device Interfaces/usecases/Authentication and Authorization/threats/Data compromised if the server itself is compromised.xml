@@ -1,0 +1,15 @@
+<threat ref="SERVER-ATTACK" name="Data compromised if the server itself is compromised" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>	&lt;p&gt;If attackers compromise the server that hosts the service or data, then the data and the service itself could be at risk of compromise. The server could be compromised through any of the services that it exposes.&lt;/p&gt;</desc>
+                            <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="25"/>
+                            <references/>
+                            <controls>
+                                <control ref="INF-UNNECESSARY-SERVICES" mitigation="100"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="UNNECESSARY-SERVICES">
+                                    <controls>
+                                        <control ref="INF-UNNECESSARY-SERVICES" mitigation="100"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

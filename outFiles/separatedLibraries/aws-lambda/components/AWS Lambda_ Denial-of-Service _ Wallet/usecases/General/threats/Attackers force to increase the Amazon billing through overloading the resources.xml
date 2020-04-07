@@ -1,0 +1,28 @@
+<threat ref="AWS-LAMBDA-T12" name="Attackers force to increase the Amazon billing through overloading the resources" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>	&lt;p&gt;One of the principles of Lambda functions is that you pay for the amount of time your code is running. This pushes the developer to write efficient code. Efficient code should also be limited in execution time. An attacker could try to force services to overload resources and push the boundaries.&lt;/p&gt;</desc>
+                            <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="25"/>
+                            <references/>
+                            <controls>
+                                <control ref="AWS-LAMBDA-C11" mitigation="20"/>
+                                <control ref="AWS-LAMBDA-C22" mitigation="20"/>
+                                <control ref="AWS-LAMBDA-C24" mitigation="20"/>
+                                <control ref="AWS-LAMBDA-C25" mitigation="20"/>
+                                <control ref="AWS-LAMBDA-C26" mitigation="20"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="AWS-LAMBDA-W16">
+                                    <controls>
+                                        <control ref="AWS-LAMBDA-C22" mitigation="20"/>
+                                        <control ref="AWS-LAMBDA-C24" mitigation="20"/>
+                                        <control ref="AWS-LAMBDA-C25" mitigation="20"/>
+                                        <control ref="AWS-LAMBDA-C26" mitigation="20"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="AWS-LAMBDA-W19">
+                                    <controls>
+                                        <control ref="AWS-LAMBDA-C11" mitigation="20"/>
+                                        <control ref="AWS-LAMBDA-C26" mitigation="20"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

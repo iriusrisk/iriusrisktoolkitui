@@ -1,0 +1,71 @@
+<control ref='D5.1' name='Ensure AppArmor Profile is Enabled' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>AppArmor is an effective and easy-to-use Linux application security system. It is available on
+                        quite a few Linux distributions by default such as Debian and Ubuntu. Rationale: AppArmor
+                        protects the Linux OS and applications from various threats by enforcing security policy which
+                        is also known as AppArmor profile. You can create your own AppArmor profile for containers or
+                        use the Docker's default AppArmor profile. This would enforce security policies on the
+                        containers as defined in the profile.&amp;nbsp;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&amp;nbsp;&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        If AppArmor is applicable for your Linux OS, use it. You may have to follow below set of steps:&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ol&gt;
+                        &lt;li&gt;Verify if AppArmor is installed. If not, install it.&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;Create or import an AppArmor profile for Docker containers.&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;Put this profile in enforcing mode.&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;Start your Docker container using the customized AppArmor profile. For example,&amp;nbsp;&lt;/li&gt;
+                        &lt;/ol&gt;
+                        &lt;/div&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        docker run --interactive --tty --security-opt=&amp;quot;apparmor:PROFILENAME&amp;quot; centos
+                        /bin/bash
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;Alternatively, you can keep the docker's default apparmor profile.
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Impact:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        The container (process) would have a set of restrictions as defined in the AppArmor profile. If
+                        your AppArmor profile is mis-configured, then the container may not entirely work as expected.
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='Docker docs: Apparmor' url='https://docs.docker.com/engine/security/apparmor/' />
+            <reference name='Docker docs: other kernel security features' url='https://docs.docker.com/engine/security/security/#other-kernel-security-features' />
+            <reference name='Docker docs: security configuration' url='https://docs.docker.com/engine/reference/run/#security-configuration' />
+          </references>
+          <standards>
+            <standard ref='5.1' supportedStandardRef='Level 1 - Docker' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;blockquote&gt;
+                            docker ps --quiet --all | xargs docker inspect --format '{{ .Id }}: AppArmorProfile={{
+                            .AppArmorProfile }}'&amp;nbsp;
+                            &lt;/blockquote&gt;
+                            &lt;div&gt;
+                            The above command should return a valid AppArmor Profile for each container instance.
+                            &lt;/div&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2016-08-02T10:21:32.718'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

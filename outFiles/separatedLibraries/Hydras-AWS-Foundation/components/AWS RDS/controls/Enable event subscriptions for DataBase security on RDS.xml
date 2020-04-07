@@ -1,0 +1,71 @@
+<control ref='aws-tier-4.4' name='Enable event subscriptions for DataBase security on RDS' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;p&gt;AWS Relational Database Services offers customers a managed database engine solution
+                        for hosting customer created databases which can allow for a reduction in operational burden on
+                        customers.&lt;/p&gt;
+                        &lt;p&gt;RDS event subscriptions provide notification of selected event changes at a DB security
+                        group level.&lt;/p&gt;
+                        &lt;p&gt;Event subscriptions are designed to provide incident notification of events which may
+                        affect the network availability of the RDS instance.&lt;/p&gt;
+                        &lt;p&gt;&lt;b&gt;Remediation:&lt;/b&gt;&lt;/p&gt;
+                        &lt;p&gt;Using the Amazon unified CLI:&lt;/p&gt;
+                        &lt;p&gt;&lt;/p&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Create a new event subscription for DB Security Group events:&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;p&gt;&lt;/p&gt;
+                        &lt;p&gt;&lt;/p&gt;
+                        &lt;blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;p&gt;aws rds create-event-subscription --subscription-name rds_event_subscription
+                        --sns-topic-arn
+                        sns_topic_arn
+                        --source-type db-security-group --event-categories rds_events
+                        --source-ids events_source_ids --enabled&lt;/p&gt;
+                        &lt;/blockquote&gt;
+                        &lt;/blockquote&gt;
+                    </desc>
+          <implementations />
+          <references />
+          <standards>
+            <standard ref='4.4' supportedStandardRef='cis-amazon-web-services-three-tier-web-architecture-benchmark' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;div&gt;
+                            Using the Amazon unified CLI:
+                            &lt;/div&gt;
+                            &lt;div&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt;List all present event subscriptions and review the value of &amp;quot;db-security-group&amp;quot;
+                            associated with &amp;quot;SourceType&amp;quot; element:&lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;/div&gt;
+                            &lt;blockquote&gt;
+                            &lt;blockquote&gt;
+                            &lt;div&gt;
+                            aws rds describe-event-subscriptions --query
+                            'EventSubscriptionsList[*].{SourceType:SourceType, SourceIdsList:SourceIdsList,
+                            EventCategoriesList:EventCategoriesList}'
+                            &lt;/div&gt;
+                            &lt;div&gt;
+                            &lt;br /&gt;
+                            &lt;/div&gt;
+                            &lt;/blockquote&gt;
+                            &lt;/blockquote&gt;
+                            &lt;div&gt;
+                            &amp;quot;EventCategoriesList&amp;quot; will list all event categories which will be
+                            reported on
+                            &lt;/div&gt;
+                            &lt;div&gt;
+                            &amp;quot;SourceIdsList&amp;quot; will list all RDS DB instances included (null=all
+                            instances)
+                            &lt;/div&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

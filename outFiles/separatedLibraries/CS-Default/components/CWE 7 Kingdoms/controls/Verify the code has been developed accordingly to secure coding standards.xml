@@ -1,0 +1,41 @@
+<control ref="SEC-CODING" name="Verify the code has been developed accordingly to secure coding standards" platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+                        Secure development should be an integral part of any development process to ensure robust,
+                        secure, and stable systems are built. Functional and non-functional security requirements, and
+                        supporting coding standards and guidelines should be in place and enforced. If the application
+                        does not follow secure coding practices, there is a higher chance that an attacker could exploit
+                        this fact to gain access to the application.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Confirm secure coding standards are in place, integrated into the development
+                        lifecycle, and are sufficient to protect the application.&lt;/li&gt;
+                        &lt;li&gt;Verify the code has been developed accordingly to secure coding standards&lt;/li&gt;
+                        &lt;li&gt;The code should be developed with security in mind.&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;/div&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards/>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+                            &lt;li&gt;Do a code review.&lt;/li&gt;
+                            &lt;li&gt;Check security concerns against corporate standards or well-known ones.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Static Application Security Testing could help to find some vulnerabilities on an
+                            automated way.&amp;nbsp;&lt;/li&gt;
+                            &lt;/ol&gt;
+                        </steps>
+                        <notes></notes>
+                        <references>
+                            <reference name="CERT Secure Coding Standards" url="https://www.securecoding.cert.org/confluence/display/seccode/SEI+CERT+Coding+Standards"/>
+                        </references>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2017-06-19T10:34:30.960000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

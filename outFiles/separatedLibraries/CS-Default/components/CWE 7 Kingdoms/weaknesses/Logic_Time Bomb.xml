@@ -1,0 +1,15 @@
+<weakness ref="CWE-511" name="Logic/Time Bomb" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-04-04T17:45:00.333000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The software contains code that is designed to disrupt the
+                        legitimate operation of the software (or its environment) when a certain time
+                        passes, or when a certain logical condition is met.
+                    </desc>
+                </weakness>

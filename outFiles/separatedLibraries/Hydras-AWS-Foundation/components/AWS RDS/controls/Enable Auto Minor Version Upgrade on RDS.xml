@@ -1,0 +1,60 @@
+<control ref='aws-tier-3.6' name='Enable Auto Minor Version Upgrade on RDS' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;p&gt;Amazon Relational Database Service (RDS) is a managed relational database service which handles routine database tasks such as provisioning, patching, backup, recovery, failure detection, and repair.&lt;/p&gt; 
+&lt;p&gt;There are 6 database engines available for customers to run their database workloads on:&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;Amazon Aurora (MySQL Compatible)&lt;/li&gt; 
+ &lt;li&gt;MySQL&lt;/li&gt; 
+ &lt;li&gt;MariaDB&lt;/li&gt; 
+ &lt;li&gt;Oracle&lt;/li&gt; 
+ &lt;li&gt;Microsoft SQL Server&lt;/li&gt; 
+ &lt;li&gt;PostgreSQL&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;p&gt;If the database engine used by your application supports it, ensure that the RDS Instances have Auto Minor Version Upgrade Enabled.&lt;/p&gt; 
+&lt;p&gt;&lt;b&gt;Remediation:&lt;/b&gt;&lt;/p&gt; 
+&lt;p&gt;Using the Amazon unified command line interface:&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;Modify each DB instance with auto-minor-version-upgrade set to False, and enable auto-minor-version-upgrade:&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;p&gt;aws rds modify-db-instance --db-instance-identifier &amp;lt;your_db_instance&amp;gt; --auto-minor-version-upgrade&lt;/p&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='Amazon docs: describe db instances' url='http://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-instances.html' />
+            <reference name='Amazon docs: modify db instances' url='http://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-instance.html' />
+          </references>
+          <standards>
+            <standard ref='3.6' supportedStandardRef='cis-amazon-web-services-three-tier-web-architecture-benchmark' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;div&gt;
+                            Using the Amazon unified command line interface:
+                            &lt;/div&gt;
+                            &lt;div&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt;Check if your application DB instances have Auto Minor Version Upgrade enabled:&lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;/div&gt;
+                            &lt;blockquote&gt;
+                            &lt;blockquote&gt;
+                            &lt;div&gt;
+                            aws rds describe-db-instances --filters Name=tag:data_tier_tag,Values=data_tier_tag_value
+                            --query &amp;quot;DBInstances[*].{AutoMinorVersionUpgrade:AutoMinorVersionUpgrade,
+                            DBInstanceIdentifier:DBInstanceIdentifier}&amp;quot;
+                            &lt;/div&gt;
+                            &lt;/blockquote&gt;
+                            &lt;/blockquote&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

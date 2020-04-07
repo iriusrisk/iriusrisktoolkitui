@@ -1,0 +1,50 @@
+<control ref="PCI-R7-7.1.2" name="7.1.2 - Apply the least privilege security principle" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Restrict access to privileged user IDs to least privileges necessary to perform job
+                        responsibilities.&amp;nbsp;&lt;/p&gt;
+                        &lt;br /&gt;
+                        &lt;p&gt;When assigning privileged IDs, it is important to assign individuals only the
+                        privileges they need
+                        to perform their job (the "least privileges"). For example, the database
+                        administrator or backup
+                        administrator should not be assigned the same privileges as the overall systems administrator.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt; &lt;/p&gt;
+                        &lt;p&gt;Assigning least privileges helps prevent users without sufficient knowledge about the
+                        application
+                        from incorrectly or accidentally changing application configuration or altering its security
+                        settings.
+                        Enforcing least privilege also helps to minimize the scope of damage if an unauthorized person
+                        gains access
+                        to a user ID.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="7.1.2" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;7.1.2.a Interview personnel responsible for assigning access to verify that
+                            access to
+                            privileged user IDs is:&lt;/p&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt;&lt;p&gt;Assigned only to roles that specifically require such privileged access&lt;/p&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;p&gt;Restricted to least privileges necessary to perform job responsibilities.&amp;nbsp;&lt;/p&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;p&gt; &lt;/p&gt;
+                            &lt;p&gt;7.1.2.b Select a sample of user IDs with privileged access and interview
+                            responsible management
+                            personnel to verify that privileges assigned are: &lt;/p&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt; &lt;p&gt;Necessary for that individual's job function &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Restricted to least privileges necessary to perform job
+                            responsibilities.&lt;/p&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T14:00:36.513000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

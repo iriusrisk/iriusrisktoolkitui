@@ -1,0 +1,9 @@
+<rule name="Conclusion: Web UI was inserted" module="component" generatedByGui="true">
+            <condition name="Risk pattern exists" type="drools-without-variable-type" field="id" value="CS-Default_::_BROWSER">
+                <pattern name="Risk pattern exists" pattern='$riskPattern : ImportWholeRiskPatternAwareDto(libraryRef == "${value-1}",riskPatternRef == "${value-2}");'/>
+            </condition>
+            <action project="" value="ConclusionType.HIDDEN_::_conclusion.webui.created_::_Web UI components was created." name="Insert Conclusion" type="drools-without-variable-type">
+                <pattern name="Action of insert conclusion" pattern='insertLogical(new Conclusion(${value-1}, "${value-2}", "${value-3}"));'/>
+            </action>
+            <content></content>
+        </rule>

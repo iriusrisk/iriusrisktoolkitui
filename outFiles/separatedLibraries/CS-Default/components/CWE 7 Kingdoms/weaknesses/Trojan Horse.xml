@@ -1,0 +1,16 @@
+<weakness ref="CWE-507" name="Trojan Horse" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-04-04T17:44:49.091000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The software appears to contain benign or useful functionality,
+                        but it also contains code that is hidden from normal operation that violates the
+                        intended security policy of the user or the system
+                        administrator.
+                    </desc>
+                </weakness>

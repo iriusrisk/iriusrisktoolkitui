@@ -1,0 +1,30 @@
+<threat ref='LOSS-CONTROL_ENV' name='Attackers gain unauthorized access to the control of the environment' state='Expose' source='MANUAL' owner='' library=''>
+              <desc>&lt;div&gt;
+                                Attackers could gain unauthorized access to the control of the environment, due of the
+                                user accounts or role groups are not well defined and configured. Therefore, attackers
+                                can make changes without the root approval.
+                                &lt;/div&gt;
+                            </desc>
+              <riskRating confidentiality='75' integrity='75' availability='75' easeOfExploitation='50' />
+              <references />
+              <weaknesses>
+                <weakness ref='AZURE-ACCESS-01'>
+                  <controls>
+                    <control ref='AZ-A09' mitigation='20' />
+                    <control ref='AZ-A10' mitigation='30' />
+                    <control ref='AZ-A11' mitigation='30' />
+                  </controls>
+                </weakness>
+                <weakness ref='AZURE-EXPIRATION-DATE'>
+                  <controls>
+                    <control ref='AZ-A12' mitigation='20' />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref='AZ-A09' mitigation='20' />
+                <control ref='AZ-A10' mitigation='30' />
+                <control ref='AZ-A11' mitigation='30' />
+                <control ref='AZ-A12' mitigation='20' />
+              </controls>
+            </threat>

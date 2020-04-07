@@ -1,0 +1,25 @@
+<threat ref="SOURCE-LEAK" name="Attackers gain control of the system through a source code leakage" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>Attackers gain unauthorized access to a service by reading raw source code returned by
+                                the service, if this code contains confidential information such as authentication
+                                credentials or other secrets that can be used to access the service.&amp;nbsp;
+                                &lt;div&gt;
+                                &lt;br /&gt;
+                                &lt;/div&gt;
+                                &lt;div&gt;
+                                Configuration files that can be downloaded from the service could also be used to gain
+                                access to sensitive information.&amp;nbsp;
+                                &lt;/div&gt;
+                            </desc>
+                            <riskRating confidentiality="50" integrity="50" availability="50" easeOfExploitation="50"/>
+                            <references/>
+                            <controls>
+                                <control ref="CWE-541" mitigation="100"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-541">
+                                    <controls>
+                                        <control ref="CWE-541" mitigation="100"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

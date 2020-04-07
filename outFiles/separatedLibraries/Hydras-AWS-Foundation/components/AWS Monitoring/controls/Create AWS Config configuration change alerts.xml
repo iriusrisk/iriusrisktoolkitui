@@ -1,0 +1,140 @@
+<control ref='Hydras-AWS-Monitoring-4.9' name='Create AWS Config configuration change alerts' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>When cloudtrail is configured and sending alerts to cloudwatch logs these logs can be queried
+                        to identify suspicious API activity. One such activity that should be monitored is AWS Config
+                        changes. AWS config tracks configuration changes within the environment and is a useful change
+                        management tool. Therefore alerting on config changes ensures the continued visibility of AWS
+                        configuration items.
+                        &lt;div&gt;
+                        &amp;nbsp;
+                        &lt;br /&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;
+                        &lt;br /&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Create a metric filter that checks for AWS Config changes:&amp;nbsp;&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                        &lt;blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        aws logs put-metric-filter&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        --log-group-name &amp;lt;group&amp;gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        --filter-name &amp;lt;name&amp;gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        --metric- transformations &amp;lt;value&amp;gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        --filter-pattern '{($.eventSource = config.amazonaws.com) &amp;amp;&amp;amp;
+                        (($.eventName=StopConfigurationRecorder)||($.eventName=DeleteDeliveryChannel)||($.even
+                        tName=PutDeliveryChannel)||($.eventName=PutConfigurationRecorder))}'&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;/blockquote&gt;
+                        &lt;/blockquote&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Create an SNS topic for notifications: aws sns create-topic --name &amp;lt;topic_name&amp;gt;&lt;/li&gt;
+                        &lt;li&gt;Create an SNS subscription to the topic created above: aws sns subscribe --topic-arn
+                        &amp;lt;topic_arn&amp;gt; --protocol email --notification-endpoint &amp;lt;email@example.com&amp;gt;&lt;/li&gt;
+                        &lt;li&gt;Create an alarm based on the above steps:&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                        &lt;blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        aws cloudwatch put-metric-alarm&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        --alarm-name &amp;lt;value&amp;gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        --metric-name &amp;lt;metric_filter_name&amp;gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        --statistic Sum&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        --period 300&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        --threshold 1&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        --comparison-operator GreaterThanOrEqualToThreshold&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        --evaluation-periods 1&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        --namespace &amp;lt;CloudTrailMetrics&amp;gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        --alarm-actions &amp;lt;topic_arn&amp;gt;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;/blockquote&gt;
+                        &lt;/blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;/blockquote&gt;
+                        &lt;div&gt;
+                        Content provided by
+                        &lt;a href="https://hydrasit.com" target="_blank"&gt; Hydras IT LTD&lt;/a&gt;
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references />
+          <standards>
+            <standard ref='3.9' supportedStandardRef='CIS AWS Standard' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;ul&gt;
+                            &lt;li&gt;Identify the log group name: aws cloudtrail describe-trails&lt;/li&gt;
+                            &lt;li&gt;Note the &amp;lt;group&amp;gt; value associated with CloudWatchLogsLogGroupArn.&lt;/li&gt;
+                            &lt;li&gt;Get a list of all associated metric filters for this &amp;lt;group&amp;gt;: aws
+                            logs describe-metric-filters --log-group-name &amp;quot;&amp;lt;group&amp;gt;&amp;quot;&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Ensure the output contains the following:&lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;blockquote&gt;
+                            &lt;blockquote&gt;
+                            &amp;quot;filterPattern&amp;quot;: &amp;quot;{($.eventSource = config.amazonaws.com) &amp;amp;&amp;amp;
+                            (($.eventName=StopConfigurationRecorder)||($.eventName=DeleteDeliveryChannel)||($.even
+                            tName=PutDeliveryChannel)||($.eventName=PutConfigurationRecorder))}&amp;quot;&amp;nbsp;
+                            &lt;/blockquote&gt;
+                            &lt;/blockquote&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt;Note the metricName value associated with the filterPattern found in step 4.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Get a list of CloudWatch alarms and filter on the metricName captured in step 4:
+                            aws cloudwatch describe-alarms --query 'MetricAlarms[?MetricName==`&amp;lt;metricName&amp;gt;`]'&lt;/li&gt;
+                            &lt;li&gt;Note the AlarmActions value - this will provide the SNS topic ARN value.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Ensure there is at least one subscriber to the SNS topic: aws sns
+                            list-subscriptions-by-topic --topic-arn &amp;lt;topic_arm&amp;gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

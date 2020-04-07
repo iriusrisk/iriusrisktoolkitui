@@ -1,0 +1,44 @@
+<control ref="PCI-R8-8.x" name="8.x - Document and communicate authentication policies and procedures to all users" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>This has to include:&amp;nbsp;
+                        &lt;br /&gt;
+                        &lt;p&gt;-&amp;nbsp;Guidance on selecting strong authentication credentials&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Guidance for how users should protect their authentication credentials&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Instructions not to reuse previously used passwords&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Instructions to change passwords if there is any suspicion the&amp;nbsp;password
+                        could be
+                        compromised.&lt;/p&gt;
+                        &lt;p&gt;Communicating password/authentication policies and procedures to all users helps those
+                        users
+                        understand and abide by the policies.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;For example, guidance on selecting strong passwords may include suggestions to help
+                        personnel
+                        select hard-to-guess passwords that don't contain dictionary words, and that don't
+                        contain
+                        information about
+                        the user (such as the user ID, names of family members, date of birth, etc.). Guidance for
+                        protecting
+                        authentication credentials may include not writing down passwords or saving them in insecure
+                        files, and
+                        being alert for malicious individuals who may attempt to exploit their passwords (for example,
+                        by calling an
+                        employee and asking for their password so the caller can "troubleshoot a problem").&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;Instructing users to change passwords if there is a chance the password is no longer
+                        secure can
+                        prevent malicious users from using a legitimate password to gain unauthorized access.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="8.x" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T15:16:10.713000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

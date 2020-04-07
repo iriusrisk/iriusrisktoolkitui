@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Copyright (c) 2012-2019 Continuum Security.  All rights reserved.The content of this library is the property of Continuum Security SL and may only be used in whole or in part with a valid license for IriusRisk.-->
+<project ref="iot-security-compliance-framework" name="IoT Security Compliance Framework" revision="8" type="LIBRARY" status="OPEN" enabled="true" priority="0" tags="">
+    <desc>Library with Risk Patterns for IoT Security based on the controls of "IoT Security Compliance Framework" (Release 2.0, December 2018) published by the IOT Security Foundation (https://www.iotsecurityfoundation.org/).</desc>
+    <categoryComponents>
+        <categoryComponent ref="iot-components" name="IoT components"/>
+    </categoryComponents>
+    <componentDefinitions>
+        <componentDefinition ref="iot-operating-system" name="IoT Operating System" desc="IoT Operating System are designed to perform within the constraints of the internet of things devices; including restrictions on memory, size, power, and processing capacity. IoT operating system is a type of embedded OS that can transfer data over the internet." categoryRef="iot-components">
+            <riskPatterns>
+                <riskPattern ref="iot-authentication-and-authorization"/>
+                <riskPattern ref="iot-device-software-os"/>
+                <riskPattern ref="iot-device-operating-system"/>
+                <riskPattern ref="iot-device-interfaces"/>
+            </riskPatterns>
+        </componentDefinition>
+        <componentDefinition ref="iot-application" name="IoT Application" desc="IoT Application comprises the IoT firmware and the programs and applications installed/running in a IoT device." categoryRef="iot-components">
+            <riskPatterns>
+                <riskPattern ref="iot-device-software"/>
+                <riskPattern ref="iot-authentication-and-authorization"/>
+            </riskPatterns>
+        </componentDefinition>
+        <componentDefinition ref="iot-mobile-application" name="IoT Mobile Application" desc="IoT Mobile Application comprises the IoT programs and applications installed/running in a mobile device." categoryRef="iot-components">
+            <riskPatterns>
+                <riskPattern ref="iot-authentication-and-authorization"/>
+                <riskPattern ref="iot-mobile-application"/>
+            </riskPatterns>
+        </componentDefinition>
+    </componentDefinitions>
+    <udts/>
+    <supportedStandards>
+        <supportedStandard ref="OWASP-MASVS-L1+R" name="OWASP-MASVS-L1+R"/>
+        <supportedStandard ref="OWASP-MASVS-L2+R" name="OWASP-MASVS-L2+R"/>
+        <supportedStandard ref="OWASP-MASVS-L1" name="OWASP-MASVS-L1"/>
+        <supportedStandard ref="OWASP-MASVS-L2" name="OWASP-MASVS-L2"/>
+        <supportedStandard ref="EU-GDPR" name="EU-GDPR"/>
+        <supportedStandard ref="iotsf-class-0" name="IoTSF Class 0"/>
+        <supportedStandard ref="iotsf-class-1" name="IoTSF Class 1"/>
+        <supportedStandard ref="iotsf-class-2" name="IoTSF Class 2"/>
+        <supportedStandard ref="ISO/IEC 27002:2013" name="ISO/IEC 27002:2013"/>
+        <supportedStandard ref="OWASP-ASVS-Level-1" name="OWASP-ASVS-Level-1"/>
+        <supportedStandard ref="OWASP-ASVS-Level-2" name="OWASP-ASVS-Level-2"/>
+        <supportedStandard ref="OWASP-ASVS-Level-3" name="OWASP-ASVS-Level-3"/>
+        <supportedStandard ref="NIST 800-53" name="NIST 800-53"/>
+        <supportedStandard ref="owasp-top-10-2017" name="OWASP Top 10 2017"/>
+    </supportedStandards>
+    

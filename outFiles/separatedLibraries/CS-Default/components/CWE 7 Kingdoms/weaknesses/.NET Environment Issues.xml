@@ -1,0 +1,14 @@
+<weakness ref="CWE-519" name=".NET Environment Issues" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-04-04T17:35:21.057000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>This category lists weaknesses related to environmental
+                        problems in .NET framework applications.
+                    </desc>
+                </weakness>

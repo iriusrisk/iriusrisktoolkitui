@@ -1,0 +1,123 @@
+<control ref="DATA-VAL" name="Validate all data received from the client side" platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+                        All data received from the client-side should be considered tainted and a potential risk,
+                        regardless of the source or transport method. &amp;nbsp;For example, while hidden form fields,
+                        cookies, or other headers may be obfuscated from a user, along with parameters passed in
+                        ViewStates or other encapsulated forms, these can be modified by the user at the client-side in
+                        memory, or in transit on the network. Similarly, data passed from binary or compiled components
+                        can be modified in situ or in transit.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;i&gt;&lt;br /&gt;&lt;/i&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;i&gt;Furthermore, encryption only secures the data in transit between the two ends of the
+                        encrypted tunnel (one end of which is typically controlled by the client); data passing through
+                        the link may still be malicious.&lt;/i&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        As such, all data from the client side must be subjected to strict validation, sanitization, and
+                        encoding against expected syntactic and semantic criteria.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Define a specification of the data that is expected at each input; both the syntax
+                        (e.g. alphanumeric only) and semantics (e.g. a word of between 1 and 25 characters, or a
+                        specific list). As an example of business rule logic, &amp;quot;boat&amp;quot; may be
+                        syntactically valid because it only contains alphanumeric characters, but it is not valid if the
+                        input is only expected to contain colors such as &amp;quot;red&amp;quot; or &amp;quot;blue.&amp;quot;&lt;/li&gt;
+                        &lt;li&gt;Implement a 'known good' or white-list approach, where only inputs that meet the
+                        strict criteria for each input are accepted, and reject, transform, or encapsulate any
+                        non-compliant data.&lt;/li&gt;
+                        &lt;li&gt;While useful for identifying malicious content, do not rely on looking for specific
+                        malformed or attack payloads (blacklists). It is almost impossible to maintain a comprehensive
+                        and accurate blacklist due to the complexity and evolving nature of attacks, opportunities to
+                        obfuscate payloads, and changes to the code's execution environment. As noted, blacklists can be
+                        useful for detecting and logging potential attacks, or determining which inputs are so malformed
+                        that they should be rejected outright.&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;Validate all data received from the client, including values such as HTTP headers and
+                        cookie values if these are used as input on the server side, X- headers, and other platform
+                        specific data objects passed between the client and server.&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="12.2.1" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="12.6.1" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="CA-8" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SC-13" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-1" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-10" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-11" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-15" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="5.14" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="7.2" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="5.14" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="5.19" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="5.20" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="5.21" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="7.2" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="5.14" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="5.19" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="5.20" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="5.21" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="5.6" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="7.2" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="A1:2017-Injection" supportedStandardRef="owasp-top-10-2017"/>
+                        <standard ref="A8:2017-Insecure Deserialization" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>
+                            &lt;div&gt;
+                            &lt;ol&gt;
+                            &lt;li&gt;Identify data input points for the application, for example:&lt;/li&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt;Forms with user input (including hidden fields)&lt;/li&gt;
+                            &lt;li&gt;API calls&lt;/li&gt;
+                            &lt;li&gt;HTTP Headers&lt;/li&gt;
+                            &lt;li&gt;Application states such as ASP Viewstates&lt;/li&gt;
+                            &lt;li&gt;Serialized Java objects&lt;/li&gt;
+                            &lt;li&gt;Any data structure received from the client-side&lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;li&gt;For every input, define accepted input (both syntactic and semantic criteria)&lt;/li&gt;
+                            &lt;li&gt;Where possible, define a white-list of accepted input or characters&lt;/li&gt;
+                            &lt;li&gt;For each of the inputs, ensure that the data is validated against the define
+                            whitelists (for example with a regular expression) before being processed.&lt;/li&gt;
+                            &lt;/ol&gt;
+                            &lt;div&gt;
+                            To test data validation:
+                            &lt;/div&gt;
+                            &lt;div&gt;
+                            &lt;ol&gt;
+                            &lt;li&gt;Review the acceptable input criteria, and build test cases that deviate from it
+                            (invalid characters, lengths, ranges etc.)&lt;/li&gt;
+                            &lt;li&gt;Pass invalid input to the application and review error trapping and handling.&lt;/li&gt;
+                            &lt;li&gt;Where unexpected exceptions occur, the application may be vulnerable to attack.&lt;/li&gt;
+                            &lt;/ol&gt;
+                            &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div&gt;
+                            A number of tools can be used to aid in testing: &amp;nbsp;&amp;nbsp;
+                            &lt;ul&gt;
+                            &lt;li&gt;Directly your browser with the Developer Tools&lt;/li&gt;
+                            &lt;li&gt;Use a browser extension which allows you to modify the request and responses on
+                            the fly (i.e. Tamper Data)&lt;/li&gt;
+                            &lt;li&gt;Use a proxy which allows you to modify the request and response on the fly (i.e.
+                            OWASP ZAP, Burp, Fiddler, etc.)&amp;nbsp;&lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;/div&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2015-08-15T17:17:15.983000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

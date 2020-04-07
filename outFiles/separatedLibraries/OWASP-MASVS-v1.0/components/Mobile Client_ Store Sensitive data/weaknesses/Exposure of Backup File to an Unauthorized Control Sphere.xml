@@ -1,0 +1,16 @@
+<weakness ref="CWE-530" name="Exposure of Backup File to an Unauthorized Control Sphere" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references>
+                            <reference name="CWE-530: Exposure of Backup File to an Unauthorized Control Sphere" url="https://cwe.mitre.org/data/definitions/530.html"/>
+                        </references>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-04-25T15:57:24.719000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>A backup file is stored in a directory that is accessible to actors outside of the intended
+                        control sphere.
+                    </desc>
+                </weakness>

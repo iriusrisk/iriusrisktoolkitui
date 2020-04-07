@@ -1,0 +1,47 @@
+<control ref='AZ-L04' name='Enable Failed Request Tracing' platform='' cost='0' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;div&gt;
+                        Enable to obtain the detailed information on failed requests, including a trace of the IIS
+                        components used to process the request and the time taken in each component. This can be useful
+                        if you are attempting to increase site performance or isolate what is causing a specific HTTP
+                        error to be returned.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ol&gt;
+                        &lt;li&gt;Go to the Azure portal.&lt;/li&gt;
+                        &lt;li&gt;Go to the blade for your web app and in &amp;quot;Monitoring&amp;quot; &amp;gt;&amp;gt;
+                        &amp;quot;Diagnostics logs&amp;quot;.&lt;/li&gt;
+                        &lt;li&gt;Enable the &amp;quot;Failed request tracing&amp;quot;.&lt;/li&gt;
+                        &lt;li&gt;Push &amp;quot;Save&amp;quot; to save the changes.&lt;/li&gt;
+                        &lt;/ol&gt;
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='MS Azure - Enable diagnostics logging for web apps in Azure App Service' url='https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-enable-diagnostic-log' />
+          </references>
+          <standards />
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;div&gt;
+                            &lt;ol&gt;
+                            &lt;li&gt;Go to the Azure portal.&lt;/li&gt;
+                            &lt;li&gt;Go to the blade for your web app and in &amp;quot;Monitoring&amp;quot; &amp;gt;&amp;gt;
+                            &amp;quot;Diagnostics logs&amp;quot;.&lt;/li&gt;
+                            &lt;li&gt;Check that the &amp;quot;Failed request tracing&amp;quot; is enabled.&lt;/li&gt;
+                            &lt;/ol&gt;
+                            &lt;/div&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2017-05-23T14:15:51.866'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

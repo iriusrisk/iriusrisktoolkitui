@@ -1,0 +1,67 @@
+<control ref='D5.27' name='Ensure docker commands always get the latest version of the image' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>Always ensure that you are using the latest version of the image within your repository and
+                        not the cached older versions.&amp;nbsp;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Rationale:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Multiple docker commands such as docker pull, docker run, etc. are known to have an issue that
+                        by default, they extract the local copy of the image, if present, even though there is an
+                        updated version of the image with the &amp;quot;same tag&amp;quot; in the upstream repository.
+                        This could lead to using older and vulnerable images.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Use proper version pinning mechanisms (the latest tag which is assigned by default is still
+                        vulnerable to caching attacks) to avoid extracting the cached older versions. Version pinning
+                        mechanisms should be used for base images, packages, and entire images too. You can customize
+                        version pinning rules as per your requirements.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Impact:&amp;nbsp;&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        None
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='Docker github: 16609' url='https://github.com/docker/docker/pull/16609' />
+          </references>
+          <standards>
+            <standard ref='5.27' supportedStandardRef='Level 1 - Docker' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;b&gt;Step 1: &lt;/b&gt;Open your image repository and list the image version history
+                            for the image you are inspecting.&amp;nbsp;
+                            &lt;div&gt;
+                            &lt;b&gt; Step 2:&lt;/b&gt; Observe the status when the docker pull command is triggered. If
+                            the status is shown as Image is up to date, it means that you are getting the cached version
+                            of the image.&amp;nbsp;
+                            &lt;div&gt;
+                            &lt;b&gt; Step 3:&lt;/b&gt; Match the version of the image you are running with the latest
+                            version reported in your repository which tells if you are running the cached version or the
+                            latest copy.
+                            &lt;/div&gt;
+                            &lt;/div&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2016-08-02T10:21:32.718'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

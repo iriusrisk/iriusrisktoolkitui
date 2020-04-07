@@ -1,0 +1,12 @@
+<weakness ref="UNRESTRICTED-NETWORK" name="Service is exposed to a wide attack surface" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-03-13T16:00:43">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The product is exposed or reachable by an unnecessarily large group of potential attackers. An over-exposure of a component increases the chance of an attacker gaining access to the system through a vulnerability.</desc>
+                </weakness>

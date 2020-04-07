@@ -1,0 +1,22 @@
+<control ref="IOT2.4.12.14" name="The product or service only records audio/visual data in accordance with the authorization of the user (e.g., no passive recording without explicit authorization)" platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>	&lt;p&gt;IoT provider should ensure the appropriate level of users' privacy. This includes the obligation to inform users about the collection of their personal information, receive consent to do so in certain cases, follow data minimization obligations, and much more.  Users' privacy must be implemented by design, considering data protection at the very early stages of development.&lt;/p&gt;</desc>
+                    <implementations/>
+                    <references>
+                        <reference name="ESOMAR Data Protection Checklist" url="https://www.esomar.org/uploads/public/knowledge-and-standards/codes-and-guidelines/ESOMAR-Data-Protection-Checklist_September-2017.pdf"/>
+                    </references>
+                    <standards>
+                        <standard ref="2.4.12.14" supportedStandardRef="iotsf-class-0"/>
+                        <standard ref="2.4.12.14" supportedStandardRef="iotsf-class-1"/>
+                        <standard ref="2.4.12.14" supportedStandardRef="iotsf-class-2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-03-13T16:00:47">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

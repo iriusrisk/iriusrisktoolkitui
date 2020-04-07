@@ -1,0 +1,17 @@
+<weakness ref="CWE-650" name="Trusting HTTP Permission Methods on the Server Side" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-08-07T09:54:59.319000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The server contains a protection mechanism that assumes that
+                        any URI that is accessed using HTTP GET will not cause a state change to the
+                        associated resource. This might allow attackers to bypass intended access
+                        restrictions and conduct resource modification and deletion attacks, since some
+                        applications allow GET to modify state.
+                    </desc>
+                </weakness>

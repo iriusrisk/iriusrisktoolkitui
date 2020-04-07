@@ -1,0 +1,20 @@
+<threat ref='UNAUDITABLE-CHANGES-AZURE' name='Attackers make undetected and unaudited changes to system configurations' state='Expose' source='MANUAL' owner='' library=''>
+              <desc>If audit trails are not properly protected, an attacker could gain access to the
+                                system, modify the status of resources or exfiltrate sensitive data without being
+                                noticed.
+                            </desc>
+              <riskRating confidentiality='50' integrity='75' availability='25' easeOfExploitation='25' />
+              <references />
+              <weaknesses>
+                <weakness ref='AZURE-LOGS01'>
+                  <controls>
+                    <control ref='AZ-Q04' mitigation='50' />
+                    <control ref='AZ-Q05' mitigation='50' />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref='AZ-Q04' mitigation='50' />
+                <control ref='AZ-Q05' mitigation='50' />
+              </controls>
+            </threat>

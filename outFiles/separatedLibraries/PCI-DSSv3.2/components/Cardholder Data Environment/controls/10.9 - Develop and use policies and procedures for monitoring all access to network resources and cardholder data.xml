@@ -1,0 +1,28 @@
+<control ref="PCI-R10-10.9" name="10.9 - Develop and use policies and procedures for monitoring all access to network resources and cardholder data" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Personnel need to be aware of and following security policies and daily operational
+                        procedures
+                        for monitoring all access to network resources and cardholder data on a continuous basis.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="10.9" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;10.9 Examine documentation and interview personnel to verify that security
+                            policies and
+                            operational procedures for monitoring all access to network resources and cardholder data
+                            are: &lt;/p&gt;
+                            &lt;p&gt;-&amp;nbsp;Documented&lt;/p&gt;
+                            &lt;p&gt;- In use, and&lt;/p&gt;
+                            &lt;p&gt;- Known to all affected parties.&amp;nbsp;&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T16:47:30.306000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

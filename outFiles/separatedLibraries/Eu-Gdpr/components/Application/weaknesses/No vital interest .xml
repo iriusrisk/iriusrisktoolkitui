@@ -1,0 +1,14 @@
+<weakness ref="EU-GDPR-NO-VITAL-INTEREST" name="No vital interest " state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T12:46:24.909000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>No situation in which personal data processing might safe the life of the data subjects and therefore makes personal data processing legal.&lt;br /&gt;&lt;br /&gt; 
+          Data subject = person of whom data is processed.
+          </desc>
+                </weakness>

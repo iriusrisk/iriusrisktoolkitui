@@ -1,0 +1,2 @@
+<component ref="GENERIC-SERVICE:SESSION" name="Generic Service: Session ID" desc="A service that uses a session ID to maintain session state" tags="" position="14" groupName="" library="" diagramPositionX="0" diagramPositionY="0" componentDefinitionRef="">
+            

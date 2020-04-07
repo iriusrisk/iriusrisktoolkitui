@@ -1,0 +1,36 @@
+<control ref='Hydras-AWS-Logging-3.8' name='Export EC2 OS logs to cloudwatch logs' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>Cloudwatch logs is an AWS service that allows you to send logs from an EC2 instance to
+                        cloudwatch via an agent installed locally on the machine. The logs are then stored centrally
+                        within cloudwatch logs and metric alerts can be configured so that security incidents can be
+                        reported to the security team. It is recommended to enable cloudwatch log monitoring on all EC2
+                        servers.
+                        &lt;br /&gt;
+                        &lt;br /&gt;
+                        &lt;b&gt;Remediation:&lt;br /&gt;&lt;/b&gt;Follow the directions provided in &amp;quot;http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/EC2NewInstanceCWL.html&amp;quot;
+                        to install and enable Cloudwatch Logs on a new EC2 instance.
+                        &lt;br /&gt;
+                        &lt;br /&gt;Content provided by
+                        &lt;a href="https://hydrasit.com" target="_blank"&gt; Hydras IT LTD&lt;/a&gt;
+                    </desc>
+          <implementations />
+          <references />
+          <standards />
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;ol&gt;
+                            &lt;li&gt;Sign into the management console.&lt;/li&gt;
+                            &lt;li&gt;Select Cloudwatch from the services menu.&amp;nbsp;&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;In the left pane click &amp;quot;Logs&amp;quot;.&amp;nbsp;&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Click on your log group.&lt;/li&gt;
+                            &lt;li&gt;Click on your log stream.&lt;/li&gt;
+                            &lt;li&gt;Ensure event data is being captured as per the logs on your machine.&lt;/li&gt;
+                            &lt;/ol&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

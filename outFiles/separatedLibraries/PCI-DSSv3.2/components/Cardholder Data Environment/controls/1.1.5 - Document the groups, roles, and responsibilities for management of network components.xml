@@ -1,0 +1,31 @@
+<control ref="PCI-R1-1.1.5" name="1.1.5 - Document the groups, roles, and responsibilities for management of network components" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;This description of roles and assignment of responsibilities ensures that personnel
+                        are aware
+                        of who is responsible for the security of all network components, and that those assigned to
+                        manage
+                        components are aware of their responsibilities. If roles and responsibilities are not formally
+                        assigned,
+                        devices could be left unmanaged.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="1.1.5" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;1.1.5.a Verify that firewall and router configuration standards include a
+                            description of
+                            groups, roles, and responsibilities for management of network components. &lt;/p&gt;
+                            &lt;p&gt;1.1.5.b Interview personnel responsible for management of network components to
+                            confirm that
+                            roles and responsibilities are assigned as documented.&amp;nbsp;&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-04T14:47:34.301000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

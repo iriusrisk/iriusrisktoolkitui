@@ -1,0 +1,16 @@
+<weakness ref="CWE-912" name="Hidden Functionality" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-04-04T17:47:49.531000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The software contains functionality that is not documented, not
+                        part of the specification, and not accessible through an interface or command
+                        sequence that is obvious to the software's users or
+                        administrators.
+                    </desc>
+                </weakness>

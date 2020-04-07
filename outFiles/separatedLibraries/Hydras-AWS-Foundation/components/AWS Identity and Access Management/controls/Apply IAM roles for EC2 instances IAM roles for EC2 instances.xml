@@ -1,0 +1,62 @@
+<control ref='Hydras-AWS-EC2-6.3' name='Apply IAM roles for EC2 instances IAM roles for EC2 instances' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>Applications that run on an Amazon EC2 instance need credentials in order to access other AWS
+                        services. To provide credentials to the application in a secure way, use IAM roles. A role is an
+                        entity that has its own set of permissions, but that isn't a user or group. Roles also don't
+                        have their own permanent set of credentials the way IAM users do. In the case of Amazon EC2, IAM
+                        dynamically provides temporary credentials to the EC2 instance, and these credentials are
+                        automatically rotated for you.
+                        &lt;br /&gt;
+                        &lt;br /&gt;When you launch an EC2 instance, you can specify a role for the instance as a launch
+                        parameter. Applications that run on the EC2 instance can use the role's credentials when they
+                        access AWS resources. The role's permissions determine what the application is allowed to do. It
+                        is recommended that all EC2 instances be launched with a role, even if the role has no
+                        permissions (as they can be added later if desired).
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;
+                        &lt;br /&gt;
+                        &lt;ol&gt;
+                        &lt;li&gt;Login to the AWS Management Console.&lt;/li&gt;
+                        &lt;li&gt;Select EC2 from the services menu.&lt;/li&gt;
+                        &lt;li&gt;Select &amp;quot;Launch Instance&amp;quot;.&lt;/li&gt;
+                        &lt;li&gt;Complete the wizard until step 3 at which point ensure an IAM role is selected for the
+                        &amp;quot;IAM role&amp;quot; option (note the role must already exist).&lt;/li&gt;
+                        &lt;li&gt;Complete the wizard to launch the instance.&lt;/li&gt;
+                        &lt;/ol&gt;NB: You cannot add a role to an instance that has been launched without one. In these
+                        cases create an AMI from an existing instance and launch a new instance, assigning an IAM role
+                        as detailed above.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;Content provided by
+                        &lt;a href="https://hydrasit.com" target="_blank"&gt; Hydras IT LTD&lt;/a&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references />
+          <standards>
+            <standard ref='1.19' supportedStandardRef='CIS AWS Standard' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;ol&gt;
+                            &lt;li&gt;Login to the AWS Management Console.&lt;/li&gt;
+                            &lt;li&gt;Select EC2 from the services menu.&lt;/li&gt;
+                            &lt;li&gt;Select &amp;quot;Instances&amp;quot; from the left hand menu.&lt;/li&gt;
+                            &lt;li&gt;For each instance in the list:&lt;/li&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt;select the instance&lt;/li&gt;
+                            &lt;li&gt;in the preview pane confirm the instance has an &amp;quot;IAM Role&amp;quot;
+                            assigned (if a hyphen &amp;quot;-&amp;quot; is shown then your instance has no role
+                            assigned).&lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;/ol&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

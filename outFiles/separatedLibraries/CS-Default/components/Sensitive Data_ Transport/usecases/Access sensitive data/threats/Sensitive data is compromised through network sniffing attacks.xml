@@ -1,0 +1,36 @@
+<threat ref="CAPEC-158" name="Sensitive data is compromised through network sniffing attacks" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>An attacker monitoring network traffic between nodes of a public or multicast network.&amp;nbsp;
+                                &lt;div&gt;
+                                &lt;ul&gt;
+                                &lt;li&gt;The attacker need not be able to prevent reception or change content but must
+                                simply be able to observe and read the traffic.&amp;nbsp;&lt;/li&gt;
+                                &lt;li&gt;The attacker might precipitate or indirectly influence the content of the
+                                observed transaction, but the attacker is never the intended recipient of the
+                                information.&amp;nbsp;&lt;/li&gt;
+                                &lt;/ul&gt;
+                                &lt;/div&gt;
+                                &lt;div&gt;
+                                This differs from other sniffing attacks in that it is over a public network rather via
+                                some other communications channel, such as radio.
+                                &lt;br /&gt;
+                                &lt;/div&gt;
+                            </desc>
+                            <riskRating confidentiality="75" integrity="75" availability="50" easeOfExploitation="50"/>
+                            <references/>
+                            <controls>
+                                <control ref="CWE-319-TRANSPORT" mitigation="70"/>
+                                <control ref="STRONG-ALGORITHMS-PROTOCOLS" mitigation="30"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-319">
+                                    <controls>
+                                        <control ref="CWE-319-TRANSPORT" mitigation="70"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="CWE-327">
+                                    <controls>
+                                        <control ref="STRONG-ALGORITHMS-PROTOCOLS" mitigation="30"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

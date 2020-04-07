@@ -1,0 +1,51 @@
+<threat ref="CAPEC-133" name="An attacker attempts to invoke all common switches and options to discover weaknesses " state="Expose" source="MANUAL" owner="" library="">
+                            <desc>An attacker attempts to invoke all common switches and options in the target
+                                application for the purpose of discovering weaknesses in the target. For example, in
+                                some applications, adding the --debug switch causes debugging information to be
+                                displayed, which can sometimes reveal sensitive processing or configuration information
+                                to an attacker.&amp;nbsp;
+                                &lt;div&gt;
+                                &lt;br /&gt;
+                                &lt;/div&gt;
+                                &lt;div&gt;
+                                This attack differs from other forms of API abuse in that the attacker is blindly
+                                attempting to invoke options in the hope that one of them will work rather than
+                                specifically targeting a known option. Nonetheless, even if the attacker is familiar
+                                with the published options of a targeted application this attack method may still be
+                                fruitful as it might discover unpublicized functionality.
+                                &lt;/div&gt;
+                            </desc>
+                            <riskRating confidentiality="50" integrity="50" availability="100" easeOfExploitation="100"/>
+                            <references/>
+                            <controls>
+                                <control ref="MASVS-7.2" mitigation="14"/>
+                                <control ref="MASVS-7.3" mitigation="14"/>
+                                <control ref="MASVS-7.4" mitigation="16"/>
+                                <control ref="MASVS-7.8" mitigation="14"/>
+                                <control ref="MASVS-8.2" mitigation="14"/>
+                                <control ref="MASVS-8.8" mitigation="14"/>
+                                <control ref="MASVS-8.9" mitigation="14"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-215">
+                                    <controls>
+                                        <control ref="MASVS-7.2" mitigation="14"/>
+                                        <control ref="MASVS-7.3" mitigation="14"/>
+                                        <control ref="MASVS-7.4" mitigation="16"/>
+                                        <control ref="MASVS-8.2" mitigation="14"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="CWE-489">
+                                    <controls>
+                                        <control ref="MASVS-7.4" mitigation="16"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="CWE-656">
+                                    <controls>
+                                        <control ref="MASVS-7.8" mitigation="14"/>
+                                        <control ref="MASVS-8.8" mitigation="14"/>
+                                        <control ref="MASVS-8.9" mitigation="14"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

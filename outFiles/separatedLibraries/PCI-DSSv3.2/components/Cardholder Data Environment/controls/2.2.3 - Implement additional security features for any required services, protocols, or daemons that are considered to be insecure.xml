@@ -1,0 +1,35 @@
+<control ref="PCI-R2-2.2.3" name="2.2.3 - Implement additional security features for any required services, protocols, or daemons that are considered to be insecure" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Enabling security features before new servers are deployed will prevent servers being
+                        installed
+                        into the environment with insecure configurations.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;Ensuring that all insecure services, protocols, and daemons are adequately secured with
+                        appropriate
+                        security features makes it more difficult for malicious individuals to take advantage of
+                        commonly used
+                        points of compromise within a network.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;Refer to industry standards and best practices for information on strong cryptography
+                        and secure
+                        protocols (e.g., NIST SP 800-52 and SP 800-57, OWASP, etc.).&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="2.2.3" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;2.2.3.a Inspect configuration settings to verify that security features are
+                            documented and
+                            implemented for all insecure services, daemons, or protocols.&lt;/p&gt;
+                            &lt;p&gt;2.2.3.b If SSL/early TLS is used, perform testing procedures in Appendix A2:
+                            Additional PCI DSS
+                            Requirements for Entities using SSL/Early TLS&amp;nbsp;&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-04T16:27:03.364000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

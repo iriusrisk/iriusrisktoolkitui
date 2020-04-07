@@ -1,0 +1,15 @@
+<threat ref="CWE-94" name="Attackers gain access to the system through Server Side Code Injection" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>	&lt;p&gt;Server Side Code Injection happens when an attacker is able to direct input under his control and mix it with executed code on server side by modifying the logic executed on it. Depending on the code isolation, this event could grant the user with access to system resources and data.&lt;/p&gt;</desc>
+                            <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="25"/>
+                            <references/>
+                            <controls>
+                                <control ref="DATA-VAL" mitigation="100"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-78">
+                                    <controls>
+                                        <control ref="DATA-VAL" mitigation="100"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

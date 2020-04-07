@@ -1,0 +1,45 @@
+<control ref='Hydras-AWS-Network-5.6' name='Restrict all traffic with the default security group' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>Security groups are analogous to firewalls and therefore provide stateful filtering of
+                        ingress/egress network traffic to AWS resources. It is recommended to limit all traffic
+                        (ingress/egress) on the default security group in order to force the use of least privilege via
+                        custom created security groups.
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;
+                        &lt;br /&gt;
+                        &lt;ol&gt;
+                        &lt;li&gt;Identify AWS resources that exist within the default security group.&lt;/li&gt;
+                        &lt;li&gt;Create a set of least privilege security groups for those resources.&lt;/li&gt;
+                        &lt;li&gt;Place the resources in those security groups.&lt;/li&gt;
+                        &lt;li&gt;Remove the resources noted in 1 from the default security group.&lt;/li&gt;
+                        &lt;/ol&gt;Content provided by
+                        &lt;a href="https://hydrasit.com" target="_blank"&gt; Hydras IT LTD&lt;/a&gt;
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references />
+          <standards />
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;ol&gt;
+                            &lt;li&gt;Login to the AWS Management Console.&lt;/li&gt;
+                            &lt;li&gt;Select VPC from the services menu.&lt;/li&gt;
+                            &lt;li&gt;Select Security Groups.&lt;/li&gt;
+                            &lt;li&gt;For each security group, perform the following:&amp;nbsp;&lt;/li&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt;Select the default security group.&lt;/li&gt;
+                            &lt;li&gt;Click the Inbound Rules tab.&lt;/li&gt;
+                            &lt;li&gt;Ensure no rule exist.&lt;/li&gt;
+                            &lt;li&gt;Click the Outbound Rules tab.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Ensure no rules exist.&lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;/ol&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

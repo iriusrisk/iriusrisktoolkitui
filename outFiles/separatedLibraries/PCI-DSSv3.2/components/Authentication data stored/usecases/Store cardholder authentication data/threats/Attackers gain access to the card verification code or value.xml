@@ -1,0 +1,20 @@
+<threat ref="PCI-CDH-STORED-3.2.2" name="Attackers gain access to the card verification code or value" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>&lt;p&gt;The purpose of the card validation code is to protect &amp;quot;card-not-present&amp;quot;
+                                transactions-Internet or mail order/telephone order (MO/TO) transactions-where
+                                the consumer and the card are not present.&amp;nbsp;&lt;/p&gt;
+                                &lt;p&gt;If this data is stolen, malicious individuals can execute fraudulent Internet
+                                and MO/TO transactions.&amp;nbsp;&lt;/p&gt;
+                            </desc>
+                            <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="100"/>
+                            <references/>
+                            <controls>
+                                <control ref="PCI-CDH-STORAGE-3.2.2" mitigation="100"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="PCI-CDH-STORED-3.2.2">
+                                    <controls>
+                                        <control ref="PCI-CDH-STORAGE-3.2.2" mitigation="100"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

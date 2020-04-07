@@ -1,0 +1,64 @@
+<control ref="CWE-120-RANDOM" name="Enable and enforce Address Space Layout Randomisation (ASLR)" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+                        Modern operating systems offer randomization of process address space to reduce the
+                        predictability of the location of code elements in memory, and inhibit exploitation of overflow
+                        vulnerabilities.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        However, it is often possible to disable or otherwise at least partially opt out of these
+                        protections at a system or process level.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Ensure ASLR is enabled and enforced at the operating system level where possible.&lt;/li&gt;
+                        &lt;li&gt;Enable ASLR controls in the project.&lt;/li&gt;
+                        &lt;li&gt;Review dependencies to ensure they utilize ASLR, and if not, consider alternatives
+                        that do.&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;&lt;/div&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="12.2.1" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="SI-10" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-16" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-6" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="5.1" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="5.1" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="19.9" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="5.1" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+                            &lt;li&gt;Confirm the Operating System has ASLR enabled, for example:&lt;/li&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt;Linux: Check&amp;nbsp;/proc/sys/kernel/randomize_va_space which must contain &amp;quot;2&amp;quot;&lt;/li&gt;
+                            &lt;li&gt;Windows: it is enabled by default starting from Windows Vista. &amp;nbsp;The
+                            Enhanced Mitigation Experience Toolkit (EMET) tool from Microsoft can be used to check
+                            system ASLR status, as can the registry key&amp;nbsp;&lt;code&gt;HKLM\SYSTEM\CurrentControlSet\Control\Session
+                            Manager\Memory Management\MoveImages&lt;/code&gt;.&lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;ol&gt;
+                            &lt;/ol&gt;
+                            &lt;li&gt;On Windows, binaries can be set to not use ASLR with the&amp;nbsp;/DYNAMICBASE:NO
+                            compiler flag. Check the binary has not been compiled that way.&lt;/li&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt;Tools including Process Explorer and PowerShell command PowerShell Get-PESecurity
+                            can be used to confirm ASLR for individual binaries.&lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;/ol&gt;
+                        </steps>
+                        <notes></notes>
+                        <references>
+                            <reference name="ASLR - Definition" url="https://en.wikipedia.org/wiki/Address_space_layout_randomization"/>
+                            <reference name="ASLR in Windows" url="https://msdn.microsoft.com/en-us/library/bb384887.aspx"/>
+                        </references>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2015-08-15T17:17:12.931000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

@@ -1,0 +1,25 @@
+<weakness ref="CWE-120" name="Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references>
+                            <reference name="CWE-120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')" url="http://cwe.mitre.org/data/definitions/120.html"/>
+                            <reference name="Smashing The Stack For Fun And Profit" url="http://insecure.org/stf/smashstack.html"/>
+                        </references>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2015-08-15T17:17:12.896000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The program copies an input buffer to an output buffer without verifying that the size of the
+                        input buffer is less than the size of the output buffer, leading to a buffer overflow.
+                        &lt;br /&gt;A buffer overflow condition exists when a program attempts to put more data in a
+                        buffer than it can hold, or when a program attempts to put data in a memory area outside of the
+                        boundaries of a buffer. The simplest type of error, and the most common cause of buffer
+                        overflows, is the &amp;quot;classic&amp;quot; case in which the program copies the buffer
+                        without restricting how much is copied. Other variants exist, but the existence of a classic
+                        overflow strongly suggests that the programmer is not considering even the most basic of
+                        security protections.
+                        &lt;br /&gt;
+                    </desc>
+                </weakness>

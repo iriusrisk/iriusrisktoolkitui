@@ -1,0 +1,79 @@
+<control ref='D2.12' name='Ensure centralized and remote logging is configured' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>Docker now supports various log drivers. A preferable way to store logs is the one that
+                        supports centralized and remote logging.&amp;nbsp;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Rationale:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Centralized and remote logging ensures that all important log records are safe despite
+                        catastrophic events. Docker now supports various such logging drivers. Use the one that suits
+                        your environment the best.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Step 1: Setup the desired log driver by following its documentation.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Step 2: Start the docker daemon with that logging driver. For example,&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        dockerd --log-driver=syslog --log-opt syslog-address=tcp://192.xxx.xxx.xxx&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Impact:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        None.
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='Docker docs: Logging' url='https://docs.docker.com/engine/admin/logging/overview/' />
+          </references>
+          <standards>
+            <standard ref='2.12' supportedStandardRef='Level 2 - Docker' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>Run docker info and ensure that the Logging Driver property set as appropriate.&amp;nbsp;
+                            &lt;blockquote&gt;
+                            &lt;div&gt;
+                            docker info --format '{{ .LoggingDriver }}'&amp;nbsp;
+                            &lt;/div&gt;
+                            &lt;/blockquote&gt;
+                            &lt;div&gt;
+                            Alternatively, the below command would give you the --log-driver setting, if configured.&amp;nbsp;
+                            &lt;/div&gt;
+                            &lt;div&gt;
+                            &lt;br /&gt;
+                            &lt;/div&gt;
+                            &lt;div&gt;
+                            Ensure that it is set as appropriate.&amp;nbsp;
+                            &lt;/div&gt;
+                            &lt;blockquote&gt;
+                            &lt;div&gt;
+                            ps -ef | grep dockerd
+                            &lt;/div&gt;
+                            &lt;/blockquote&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2016-08-02T10:21:32.718'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

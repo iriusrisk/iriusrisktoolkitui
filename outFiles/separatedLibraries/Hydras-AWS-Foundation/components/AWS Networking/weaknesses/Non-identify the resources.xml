@@ -1,0 +1,15 @@
+<weakness ref='AWS-Network-5.1' name='Non-identify the resources' state='0' impact='100'>
+          <desc>Resources are not registered in the safety net systems, and there are more unidentified
+                        resources. This can be a problem because these unidentified resources can have unknown
+                        weaknesses.
+                    </desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>

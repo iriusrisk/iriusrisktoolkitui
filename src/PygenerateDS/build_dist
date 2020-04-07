@@ -1,0 +1,15 @@
+#!/bin/sh -v
+#cp ../Xslt/xsltvsgenerateds/xsltvsgenerateds.css .
+#cp ../Xslt/xsltvsgenerateds/xsltvsgenerateds.html .
+#rst2html.py --source-url=generateDS.txt --generator \
+#    --stylesheet-path=/home/dkuhlman/bin/dave_docutils.css \
+#    generateDS.txt generateDS.html
+generate generateDS.txt
+generate librarytemplate_howto.txt
+generate generateds_gui_notes.txt
+cd tutorial
+generate generateds_tutorial.txt
+zip -f generateds_tutorial.zip
+cd ..
+#python setup.py sdist --formats=gztar,zip
+python setup.py sdist --formats=gztar

@@ -1,0 +1,12 @@
+<rule name='Q: Docker - Repositories' module='component' generatedByGui='true'>
+    <condition name='Question is answered' type='Question' field='id' value='docker.so.linux'>
+      <pattern name='Condition with answer' pattern='${type}(${field} == "${value}", answer == true);' />
+    </condition>
+    <condition name='Risk pattern exists' type='drools-without-variable-type' field='id' value='Docker CIS_::_DOCKER'>
+      <pattern name='Risk pattern exists' pattern='$riskPattern : ImportWholeRiskPatternAwareDto(libraryRef == "${value-1}",riskPatternRef == "${value-2}");' />
+    </condition>
+    <action project='' value='docker.repo_::_Docker_::_Are you using container images from a third party/public repository?_::_6202_::_true_::_false_::_' name='Insert Question Group' type='drools-without-variable-type'>
+      <pattern name='Action of insert question group' pattern='QuestionGroup group = new QuestionGroup("${value-1}","${value-2}","${value-3}", ${value-4}, "${value-7}"); group.setFlags(${value-5}, ${value-6}); insertLogical(group);' />
+    </action>
+    <content />
+  </rule>

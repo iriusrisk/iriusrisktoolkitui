@@ -1,0 +1,44 @@
+<control ref="CWE-98-LIB" name="Use a library that is not vulnerable to Remote File Inclusion" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+                        The Remote File Inclusion (RFI) attack vector is prevalent, and has affected a number of
+                        libraries. It can lead to remote code execution, data exposure, and other compromise of the
+                        application and underlying server.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Use a library that is not known to be susceptible to Remote File Inclusion (RFI)
+                        vulnerabilities.&lt;/li&gt;
+                        &lt;li&gt;Use an independently vetted library or framework that does not allow this weakness to
+                        occur or provides constructs that make this weakness easier to avoid.&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;Follow rigorous data validation and sanitization processes.&lt;/li&gt;
+                        &lt;li&gt;Perform regular checks for published vulnerabilities the libraries in use.&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;/div&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="5.13" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="5.13" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="5.13" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="A9:2017-Using Components with Known Vulnerabilities" supportedStandardRef="owasp-top-10-2017"/>
+                        <standard ref="A3:2017-Sensitive Data Exposure" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+                            &lt;li&gt;Identify the parts of the code which are including files or resources that came
+                            from user controlled input.&lt;/li&gt;
+                            &lt;li&gt;Use a browser to modify this data and make it point to unexpected files (i.e.
+                            /etc/services) or remote locations.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Verify the source code and the restriction over this inputs.&lt;/li&gt;
+                            &lt;/ol&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2015-08-15T17:17:16.218000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

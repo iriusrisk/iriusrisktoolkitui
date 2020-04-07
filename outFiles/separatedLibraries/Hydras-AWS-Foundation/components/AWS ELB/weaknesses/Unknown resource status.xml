@@ -1,0 +1,14 @@
+<weakness ref='unknown-resource-status' name='Unknown resource status' state='0' impact='100'>
+          <desc>We do not have our resources current status and as a result lose control of some resources,
+                        for example, we may believe these resources are inactive when in fact the status has changed and we are unaware. 
+                    </desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>

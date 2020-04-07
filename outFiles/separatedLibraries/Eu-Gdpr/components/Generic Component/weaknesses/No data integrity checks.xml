@@ -1,0 +1,13 @@
+<weakness ref="EU-GDPR-NO-DATA-INTEGRITY-CHECKS" name="No data integrity checks" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T14:28:30.163000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>Inadequate integrity protection (e.g. encryption, strong logical access rights, ...) which leaves personal data vulnerable towards man in the middle attacks. 
+          </desc>
+                </weakness>

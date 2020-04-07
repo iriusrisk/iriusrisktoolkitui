@@ -1,0 +1,48 @@
+<control ref="AWS-LAMBDA-C17" name="Limit the lifetime of your containers" platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Ensure that your containers and functions lifecycles are handled correctly and no lingering processes exist.&lt;/p&gt; 
+&lt;p&gt;&lt;b&gt;Remediation:&lt;br /&gt;&lt;/b&gt; Use CloudWatch metrics to view the number of tasks in your services that are in the RUNNING state and set a CloudWatch alarm for this metric to alert you if the number of running tasks in your service falls below a specified value.&lt;/p&gt; 
+&lt;p&gt; To view the number of running tasks in a service&lt;br /&gt;&lt;/p&gt; 
+&lt;ol&gt; 
+ &lt;li&gt;Open the CloudWatch console at https://console.aws.amazon.com/cloudwatch/.&lt;/li&gt; 
+ &lt;li&gt;On the navigation pane, choose Metrics.&lt;/li&gt; 
+ &lt;li&gt;On the All metrics tab, choose ECS.&lt;/li&gt; 
+ &lt;li&gt;Choose ClusterName, ServiceName and then choose any metric (either CPUUtilization or MemoryUtilization) that corresponds to the service to view running tasks in.&lt;/li&gt; 
+ &lt;li&gt;On the Graphed metrics tab, change Period to 1 Minute and Statistic to Sample Count.&lt;/li&gt; 
+&lt;/ol&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;To create a CloudWatch alarm on a metric&lt;br /&gt;&lt;/p&gt; 
+&lt;ol&gt; 
+ &lt;li&gt;Open the CloudWatch console at https://console.aws.amazon.com/cloudwatch/.&lt;/li&gt; 
+ &lt;li&gt;On the left navigation, choose Alarms, Create Alarm.&lt;/li&gt; 
+ &lt;li&gt;In the CloudWatch Metrics by Category section, choose ECS Metrics &amp;gt; ClusterName.&lt;/li&gt; 
+ &lt;li&gt;On the Modify Alarm page, choose the MemoryReservation metric for the default cluster and choose Next.&lt;/li&gt; 
+ &lt;li&gt;In the Alarm Threshold section, enter a name and description for your alarm.&lt;/li&gt; 
+ &lt;li&gt;Set the threshold and time period requirement to MemoryReservation greater than 75% for 1 period.&lt;/li&gt; 
+ &lt;li&gt;Configure a notification to send when the alarm is triggered. You can also choose to delete the notification if you don’t want to configure one now.&lt;/li&gt; 
+&lt;/ol&gt; 
+&lt;p&gt;&lt;/p&gt;</desc>
+                    <implementations/>
+                    <references>
+                        <reference name="AWS Step 1: Create a CloudWatch Alarm for a Metric" url="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch_alarm_autoscaling.html"/>
+                        <reference name="CloudWatch metrics" url="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-metrics.html#available_cloudwatch_metrics"/>
+                    </references>
+                    <standards/>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;Check CloudWatch data on containers and services that are in the RUNNING state.&lt;br /&gt;&lt;/p&gt; 
+&lt;ol&gt; 
+ &lt;li&gt;Open the CloudWatch console at https://console.aws.amazon.com/cloudwatch/.&lt;/li&gt; 
+ &lt;li&gt;On the navigation pane, choose Metrics.&lt;/li&gt; 
+ &lt;li&gt;On the All metrics tab, choose ECS.&lt;/li&gt; 
+ &lt;li&gt;Choose ClusterName, ServiceName and then choose any metric (either CPUUtilization or MemoryUtilization) that corresponds to the service to view running tasks in.&lt;/li&gt; 
+ &lt;li&gt;On the Graphed metrics tab, change Period to 1 Minute and Statistic to Sample Count.&lt;/li&gt; 
+&lt;/ol&gt; 
+&lt;p&gt;&lt;/p&gt;</steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-03-25T16:40:59">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

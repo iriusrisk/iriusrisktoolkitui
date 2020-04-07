@@ -1,0 +1,24 @@
+<threat ref="CAPEC-21" name="Attackers bypass authentication implemented on the client side" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>If a predictable token is used to authorize requests to read or post data, or if the
+                                token can easily be compromised, then an attacker could use this token to impersonate
+                                the user.&amp;nbsp;
+                                &lt;div&gt;
+                                &amp;nbsp;
+                                &lt;br /&gt;In mobile applications, using seemingly unique values such as the IMEI or
+                                UDID numbers to authorize users can be abused since any application on the device can
+                                read these values.
+                                &lt;/div&gt;
+                            </desc>
+                            <riskRating confidentiality="100" integrity="100" availability="50" easeOfExploitation="25"/>
+                            <references/>
+                            <controls>
+                                <control ref="CWE-592" mitigation="100"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-602">
+                                    <controls>
+                                        <control ref="CWE-592" mitigation="100"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

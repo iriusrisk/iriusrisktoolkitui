@@ -1,0 +1,27 @@
+<threat ref="CAPEC-204" name="An attacker examines a target application's cache for sensitive information" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>An attacker examines a target application's cache for sensitive information. Many
+                                applications that communicate with remote entities or which perform intensive
+                                calculations utilize caches to improve efficiency. However, if the application computes
+                                or receives sensitive information and the cache is not appropriately protected, an
+                                attacker can browse the cache and retrieve this information. This can result in the
+                                disclosure of sensitive information.
+                            </desc>
+                            <riskRating confidentiality="50" integrity="50" availability="100" easeOfExploitation="100"/>
+                            <references/>
+                            <controls>
+                                <control ref="MASVS-2.5" mitigation="50"/>
+                                <control ref="MASVS-2.7" mitigation="50"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-524">
+                                    <controls>
+                                        <control ref="MASVS-2.7" mitigation="50"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="MOB-INFO-LEAK">
+                                    <controls>
+                                        <control ref="MASVS-2.5" mitigation="50"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

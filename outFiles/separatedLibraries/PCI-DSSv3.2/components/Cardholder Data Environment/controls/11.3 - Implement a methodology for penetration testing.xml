@@ -1,0 +1,82 @@
+<control ref="PCI-R11-11.3" name="11.3 - Implement a methodology for penetration testing" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;This methodology must include the following:&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Is based on industry-accepted penetration testing approaches (for example, NIST
+                        SP800-115)&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Includes coverage for the entire CDE perimeter and critical systems&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Includes testing from both inside and outside the network&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Includes testing to validate any segmentation and scope-reduction controls&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Defines application-layer penetration tests to include, at a minimum, the
+                        vulnerabilities listed
+                        in Requirement 6.5&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Defines network-layer penetration tests to include components that support network
+                        functions as
+                        well as operating systems&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Includes review and consideration of threats and vulnerabilities experienced in the
+                        last 12
+                        months&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Specifies retention of penetration testing results and remediation activities
+                        results.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt; &lt;/p&gt;
+                        &lt;p&gt;The intent of a penetration test is to simulate a real-world attack situation with a
+                        goal of
+                        identifying how far an attacker would be able to penetrate into an environment. This allows an
+                        entity to
+                        gain a better understanding of their potential exposure and develop a strategy to defend against
+                        attacks.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;A penetration test differs from a vulnerability scan, as a penetration test is an
+                        active process
+                        that may include exploiting identified vulnerabilities. Conducting a vulnerability scan may be
+                        one of the
+                        first steps a penetration tester will perform in order to plan the testing strategy, although it
+                        is not the
+                        only step. Even if a vulnerability scan does not detect known vulnerabilities, the penetration
+                        tester will
+                        often gain enough knowledge about the system to identify possible security gaps.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;Penetration testing is generally a highly manual process. While some automated tools
+                        may be used,
+                        the tester uses their knowledge of systems to penetrate into an environment. Often the tester
+                        will chain
+                        several types of exploits together with a goal of breaking through layers of defenses. For
+                        example, if the
+                        tester finds a means to gain access to an application server, they will then use the compromised
+                        server as a
+                        point to stage a new attack based on the resources the server has access to. In this way, a
+                        tester is able
+                        to simulate the methods performed by an attacker to identify areas of potential weakness in the
+                        environment.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="11.3" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;11.3 Examine penetration-testing methodology and interview responsible personnel
+                            to verify a
+                            methodology is implemented that includes the following:&lt;/p&gt;
+                            &lt;p&gt;- Is based on industry-accepted penetration testing approaches (for example, NIST
+                            SP800-115)&lt;/p&gt;
+                            &lt;p&gt;- Includes coverage for the entire CDE perimeter and critical systems&lt;/p&gt;
+                            &lt;p&gt;- Testing from both inside and outside the network&lt;/p&gt;
+                            &lt;p&gt;- Includes testing to validate any segmentation and scope-reduction controls&lt;/p&gt;
+                            &lt;p&gt;- Defines application-layer penetration tests to include, at a minimum, the
+                            vulnerabilities
+                            listed in Requirement 6.5&lt;/p&gt;
+                            &lt;p&gt;- Defines network-layer penetration tests to include components that support
+                            network functions as
+                            well as operating systems&lt;/p&gt;
+                            &lt;p&gt;- Includes review and consideration of threats and vulnerabilities experienced in
+                            the last 12
+                            months&lt;/p&gt;
+                            &lt;p&gt;- Specifies retention of penetration testing results and remediation activities
+                            results.&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-07T21:45:40.509000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

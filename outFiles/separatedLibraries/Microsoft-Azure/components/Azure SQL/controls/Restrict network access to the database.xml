@@ -1,0 +1,56 @@
+<control ref='AZ-Q01' name='Restrict network access to the database' platform='' cost='0' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;div&gt;
+                        Set up the firewall rules for the SQL databases in Azure. By default, all connections to the
+                        server and the databases inside the server are rejected except for connections from other Azure
+                        services. Set the secure configuration 'Allow access to Azure services' to OFF. To connect to
+                        the database from an Azure VM or cloud service, create a Reserved IP and allow only the reserved
+                        IP address access through the firewall.
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;&lt;br /&gt;&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ol&gt;
+                        &lt;li&gt;Log in to the Azure portal.&lt;/li&gt;
+                        &lt;li&gt;Click SQL databases from the left-hand menu and click the database you would like to
+                        configure the firewall rule for on the SQL databases page. The overview page for your database
+                        opens, showing you the fully qualified server name (such as
+                        mynewserver-20170313.database.windows.net) and provides options for further configuration.&lt;/li&gt;
+                        &lt;li&gt;Click Set server firewall on the toolbar as shown in the previous image. The Firewall
+                        settings page for the SQL Database server opens.&lt;/li&gt;
+                        &lt;li&gt;Click Add client IP on the toolbar to add the public IP address of the computer
+                        connected to the portal with or enter the firewall rule manually and then click Save.&lt;/li&gt;
+                        &lt;li&gt;Click OK and then click the X to close the Firewall settings page.&lt;/li&gt;
+                        &lt;/ol&gt;
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='MS Azure - Azure SQL Database server-level and database-level firewall rules' url='https://docs.microsoft.com/en-us/azure/sql-database/sql-database-firewall-configure' />
+          </references>
+          <standards />
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;div&gt;
+                            &lt;ol&gt;
+                            &lt;li&gt;Log in to the Azure portal.&lt;/li&gt;
+                            &lt;li&gt;Click SQL databases from the left-hand menu and click the database you would like
+                            to configure the firewall rule for on the SQL databases page. The overview page for your
+                            database opens, showing you the fully qualified server name (such as
+                            mynewserver-20170313.database.windows.net) and provides options for further configuration.&lt;/li&gt;
+                            &lt;li&gt;Click Set server firewall on the toolbar as shown in the previous image.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Check that the firewall for the Database SQL is correctly configured.&lt;/li&gt;
+                            &lt;/ol&gt;
+                            &lt;/div&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2017-06-12T10:18:20.292'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

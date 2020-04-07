@@ -1,0 +1,31 @@
+<control ref="IOT2.4.7.3" name="Any unintended packet forwarding function should be blocked" platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;For products with one or more network interfaces, any unintended packet forwarding function should be blocked.&lt;/p&gt; 
+&lt;p&gt;&lt;b&gt;&lt;font size="4"&gt;Rationale:&lt;br /&gt;&lt;/font&gt;&lt;/b&gt; Forwarding refers to the router-local action of transferring the packet from an input link interface to the appropriate output link interface. When applications allow user input to forward requests between different parts of the site, the application must check that the user is authorized to access the &lt;span class="caps"&gt;URL&lt;/span&gt;, perform the functions it provides, and is an appropriate &lt;span class="caps"&gt;URL&lt;/span&gt; request. If the application fails to perform these checks, an attacker crafted &lt;span class="caps"&gt;URL&lt;/span&gt; may pass the application's access control check and then forward the attacker to an administrative function that is not normally permitted.&lt;/p&gt; 
+&lt;p&gt;&lt;b&gt;&lt;font size="4"&gt;Remediation:&lt;br /&gt;&lt;/font&gt;&lt;/b&gt; Ensure that any unintended packet forwarding function is blocked to stop undesirable communication paths.&lt;/p&gt;</desc>
+                    <implementations/>
+                    <references>
+                        <reference name="Top 10 2013-A10-Unvalidated Redirects and Forwards" url="https://www.owasp.org/index.php/Top_10_2013-A10-Unvalidated_Redirects_and_Forwards"/>
+                        <reference name="Unvalidated Redirects and Forwards Cheat Sheet" url="https://www.owasp.org/index.php/Unvalidated_Redirects_and_Forwards_Cheat_Sheet"/>
+                    </references>
+                    <standards>
+                        <standard ref="2.4.7.3" supportedStandardRef="iotsf-class-1"/>
+                        <standard ref="2.4.7.3" supportedStandardRef="iotsf-class-2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;The best way to find out if an application has any unvalidated redirects or forwards is to:&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;ol&gt; 
+ &lt;li&gt;Review the code for all uses of redirect or forward (called a transfer in .NET). For each use, identify if the target &lt;span class="caps"&gt;URL&lt;/span&gt; is included in any parameter values. If so, if the target &lt;span class="caps"&gt;URL&lt;/span&gt; isn't validated against a whitelist, you are vulnerable.&lt;/li&gt; 
+ &lt;li&gt;Also, spider the site to see if it generates any redirects (&lt;span class="caps"&gt;HTTP&lt;/span&gt; response codes 300-307, typically 302). Look at the parameters supplied prior to the redirect to see if they appear to be a target &lt;span class="caps"&gt;URL&lt;/span&gt; or a piece of such a &lt;span class="caps"&gt;URL&lt;/span&gt;. If so, change the &lt;span class="caps"&gt;URL&lt;/span&gt; target and observe whether the site redirects to the new target.&lt;/li&gt; 
+ &lt;li&gt;If code is unavailable, check all parameters to see if they look like part of a redirect or forward &lt;span class="caps"&gt;URL&lt;/span&gt; destination and test those that do.&lt;/li&gt; 
+&lt;/ol&gt; 
+&lt;p&gt;&lt;/p&gt;</steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-03-13T16:00:43">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

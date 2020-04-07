@@ -1,0 +1,45 @@
+<control ref='Hydras-AWS-S3-7.1' name='Configure S3 bucket versioning for sensitive data' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>Amazon Simple Storage Service is storage for the Internet. It is designed to make web-scale
+                        computing easier for developers.
+                        &lt;br /&gt;
+                        &lt;br /&gt;Amazon S3 has a simple web services interface that you can use to store and retrieve
+                        any amount of data, at any time, from anywhere on the web. It gives any developer access to the
+                        same highly scalable, reliable, fast, inexpensive data storage infrastructure that Amazon uses
+                        to run its own global network of web sites.
+                        &lt;br /&gt;
+                        &lt;br /&gt;To add an extra layer of security to data stored within S3 it is possible to enable
+                        object versioning. Object versioning enables the recovery of objects from accidental overwrite
+                        or accidental deletion. If an object is deleted, instead of being removed, S3 write a delete
+                        marker which becomes the current version that means previous versions can always be recovered.
+                        It is recommended that versioning be enabled for buckets storing sensitive data.
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;b&gt;Remediation:&lt;br /&gt;&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        aws s3api put-bucket-versioning --bucket my-bucket --versioning-configuration Status=Enabled
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;div&gt;
+                        &lt;p&gt;Content provided by &lt;a href="https://hydrasit.com" target="_blank"&gt; Hydras IT LTD&lt;/a&gt;&lt;/p&gt;
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references />
+          <standards />
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;blockquote&gt;
+                            aws s3api get-bucket-versioning --bucket my-bucket&amp;nbsp;
+                            &lt;/blockquote&gt;If you don't see &amp;quot;Status&amp;quot;: &amp;quot;Enabled&amp;quot;
+                            then your bucket has no versioning enabled.
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

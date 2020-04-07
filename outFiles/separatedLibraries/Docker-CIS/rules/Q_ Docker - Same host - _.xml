@@ -1,0 +1,12 @@
+<rule name='Q: Docker - Same host - *' module='component' generatedByGui='true'>
+    <condition name='Question Group exists' type='drools-without-variable-type' field='id' value='docker.sameHost'>
+      <pattern name='Question group exists' pattern='$group : QuestionGroup(id == "${value}") @Watch(!*);' />
+    </condition>
+    <action project='' value='docker.sameHost.no_::_No_::_' name='Insert Question' type='drools-without-variable-type'>
+      <pattern name='Action of insert question' pattern='insertLogical(new Question($group, "${value-1}", "${value-2}", "${value-3}"));' />
+    </action>
+    <action project='' value='docker.sameHost.yes_::_Yes_::_' name='Insert Question' type='drools-without-variable-type'>
+      <pattern name='Action of insert question' pattern='insertLogical(new Question($group, "${value-1}", "${value-2}", "${value-3}"));' />
+    </action>
+    <content />
+  </rule>

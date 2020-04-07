@@ -1,0 +1,15 @@
+<weakness ref="CSD-ADM-OPEN" name="Access to the administration interfaces is open to untrusted parties" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-11-29T18:01:04.722000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The application does not restrict access to administration interfaces to untrusted parties.&amp;nbsp;
+                        &lt;br /&gt;This fact could allow an attacker to chain vulnerabilities to gain unauthorized
+                        access to the system.
+                    </desc>
+                </weakness>

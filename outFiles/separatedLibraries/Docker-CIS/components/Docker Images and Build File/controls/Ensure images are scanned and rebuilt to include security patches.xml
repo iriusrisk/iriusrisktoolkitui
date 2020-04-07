@@ -1,0 +1,77 @@
+<control ref='D4.4' name='Ensure images are scanned and rebuilt to include security patches' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>Images should be scanned "frequently" for any vulnerabilities. Rebuild the images to include
+                        patches and then instantiate new containers from it.
+
+                        Rationale:
+                        Vulnerabilities are loopholes/bugs that can be exploited and security patches are updates to
+                        resolve these vulnerabilities. We can use image vulnerability scanning tools to find any kind of
+                        vulnerabilities within the images and then check for available patches to mitigate these
+                        vulnerabilities. Patches update the system to the most recent code base. Being on the current
+                        code base is important because that's where vendors focus on fixing problems. Evaluate the
+                        security patches before applying and follow the patching best practices.
+                        Also, it would be better if, image vulnerability scanning tools could perform binary level
+                        analysis or hash based verification instead of just version string matching.
+
+                        Remediation:
+                        Follow the below steps to rebuild the images with security patches:
+
+                        Step 1: Pull all the base images (i.e., given your set of Dockerfiles, extract all images
+                        declared in FROM instructions, and re-pull them to check for an updated/patched versions). Patch
+                        the packages within the images too.
+
+                        docker pull
+
+                        Step 2: Force a rebuild of each image:
+
+                        docker build --no-cache
+
+                        Step 3: Restart all containers with the updated images.
+                        You could also use ONBUILD directive in the Dockerfile to trigger particular update instructions
+                        for images that you know are used as base images frequently.
+
+                        Impact:
+                        None
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='Docker blog: security images scan' url='https://blog.docker.com/2016/05/docker-security-scanning/' />
+            <reference name='Docker docs: Docker images' url='https://docs.docker.com/userguide/dockerimages/' />
+            <reference name='Docker docs: Image scan' url='https://docs.docker.com/docker-cloud/builds/image-scan/' />
+            <reference name='Docker docs: Onbuild' url='https://docs.docker.com/engine/reference/builder/#/onbuild' />
+          </references>
+          <standards>
+            <standard ref='4.4' supportedStandardRef='Level 1 - Docker' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;b&gt;Step 1:&lt;/b&gt; List all the running instances of containers by executing
+                            below command:&amp;nbsp;
+                            &lt;blockquote&gt;
+                            &lt;div&gt;
+                            docker ps --quiet&amp;nbsp;
+                            &lt;/div&gt;
+                            &lt;/blockquote&gt;
+                            &lt;div&gt;
+                            &lt;b&gt; Step 2:&lt;/b&gt; For each container instance, execute the below or equivalent
+                            command to find the list of packages installed within the container. Ensure that the
+                            security updates for various affected packages are installed.&amp;nbsp;
+                            &lt;/div&gt;
+                            &lt;blockquote&gt;
+                            &lt;div&gt;
+                            docker exec $INSTANCE_ID rpm -qa&amp;nbsp;
+                            &lt;/div&gt;
+                            &lt;/blockquote&gt;
+                            &lt;div&gt;
+                            Alternatively, you could run image vulnerability scanning tools which can scan all the
+                            images in your ecosystem and then apply patches for the detected vulnerabilities based on
+                            your patch management procedures.
+                            &lt;/div&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2016-08-02T10:21:32.718'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

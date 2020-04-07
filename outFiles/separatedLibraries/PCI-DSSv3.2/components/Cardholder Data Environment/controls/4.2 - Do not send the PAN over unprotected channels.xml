@@ -1,0 +1,32 @@
+<control ref="CWE-319-TRANSPORT-PAN" name="4.2 - Do not send the PAN over unprotected channels" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Never send unprotected PANs by end-user messaging technologies (for example, e-mail,
+                        instant
+                        messaging, SMS, chat, etc.).&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+                        &lt;p&gt;E-mail, instant messaging, SMS, and chat can be easily intercepted by packet-sniffing
+                        during
+                        delivery across internal and public networks. Do not utilize these messaging tools to send PAN
+                        unless they
+                        are configured to provide strong encryption.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;Additionally, if an entity requests PAN via end-user messaging technologies, the entity
+                        should
+                        provide a tool or method to protect these PANs using strong cryptography or render PANs
+                        unreadable before
+                        transmission.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="4.2" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T09:22:40.121000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

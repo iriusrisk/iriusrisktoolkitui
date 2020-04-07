@@ -1,0 +1,64 @@
+<control ref='D3.12' name='Ensure that Docker server certificate file permissions are set to 444 or more restrictive' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>Verify that the Docker server certificate file (the file that is passed along with --tlscert
+                        parameter) has permissions of 444 or more restrictive.&amp;nbsp;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Rationale:&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        The Docker server certificate file should be protected from any tampering. It is used to
+                        authenticate Docker server based on the given server certificate. Hence, it must have
+                        permissions of 444 to maintain the integrity of the certificate.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        chmod 444&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;div&gt;
+                        This would set the file permissions of the Docker server file to 444.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Impact:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        None.
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='Docker docs: Insecure registry' url='https://docs.docker.com/registry/insecure/' />
+            <reference name='Docker docs: Security https' url='https://docs.docker.com/engine/security/https/' />
+          </references>
+          <standards>
+            <standard ref='3.12' supportedStandardRef='Level 1 - Docker' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>Execute the below command to verify the Docker server certificate file has permissions of
+                            444 or more restrictive:&amp;nbsp;
+                            &lt;blockquote&gt;
+                            &lt;div&gt;
+                            stat -c %a
+                            &lt;/div&gt;
+                            &lt;/blockquote&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2016-08-02T10:21:32.718'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

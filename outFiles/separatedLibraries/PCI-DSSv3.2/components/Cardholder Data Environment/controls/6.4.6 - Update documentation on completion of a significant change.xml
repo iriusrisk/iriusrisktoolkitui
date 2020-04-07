@@ -1,0 +1,43 @@
+<control ref="PCI-R6-6.4.6" name="6.4.6 - Update documentation on completion of a significant change" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Having processes to analyze significant changes helps ensure that all appropriate PCI
+                        DSS
+                        controls are applied to any systems or networks added or changed within the in-scope
+                        environment.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;Building this validation into change management processes helps ensure that device
+                        inventories and
+                        configuration standards are kept up to date and security controls are applied where needed.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;A change management process should include supporting evidence that PCI DSS
+                        requirements are
+                        implemented or preserved through the iterative process. Examples of PCI DSS requirements that
+                        could be
+                        impacted include, but are not limited to:&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Network diagram is updated to reflect changes.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Systems are configured per configuration standards, with all default passwords
+                        changed and
+                        unnecessary services disabled.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Systems are protected with required controls-e.g., file-integrity monitoring
+                        (FIM),
+                        anti-virus,
+                        patches, audit logging.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Sensitive authentication data (SAD) is not stored and all cardholder data (CHD)
+                        storage is
+                        documented and incorporated into data-retention policy and procedures&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- New systems are included in the&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="6.4.6" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T12:42:41.168000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

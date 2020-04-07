@@ -1,0 +1,39 @@
+<control ref='Hydras-AWS-IAM-2.12' name='Rotate KMS CMK Keys at least every year' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>Rotating keys regularly reduces the impact of a compromised key being used to access data
+                        since old keys cannot be used once rotated.&amp;nbsp;
+                        &lt;div&gt;
+                        &amp;nbsp;
+                        &lt;br /&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;
+                        &lt;br /&gt;
+                        &lt;ol&gt;
+                        &lt;li&gt;List keys with:&amp;nbsp; &amp;quot;aws kms list-keys&amp;quot;.&lt;/li&gt;
+                        &lt;li&gt;For each key enable rotation: &amp;quot;aws kms enable-key-rotation --key-id &amp;lt;key_id&amp;gt;&amp;quot;.&amp;nbsp;&amp;nbsp;&lt;/li&gt;
+                        &lt;/ol&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Content provided by
+                        &lt;a href="https://hydrasit.com" target="_blank"&gt; Hydras IT LTD&lt;/a&gt;
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references />
+          <standards>
+            <standard ref='2.8' supportedStandardRef='CIS AWS Standard' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;ol&gt;
+                            &lt;li&gt;List keys with: aws kms list-keys&lt;/li&gt;
+                            &lt;li&gt;For each key check for rotation:&amp;nbsp;aws kms get-key-rotation-status --key-id
+                            &amp;lt;key_id&amp;gt;&lt;/li&gt;
+                            &lt;/ol&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

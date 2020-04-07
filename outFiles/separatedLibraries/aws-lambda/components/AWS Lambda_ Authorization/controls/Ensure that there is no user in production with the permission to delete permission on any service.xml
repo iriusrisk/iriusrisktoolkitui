@@ -1,0 +1,45 @@
+<control ref="AWS-LAMBDA-C14" name="Ensure that there is no user in production with the permission to delete permission on any service" platform="" cost="1" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;Ensure that there is no user in production that can delete services, functions and perhaps even data. This will ensure that nobody deletes items by accident. If delete actions are required in production, ensure that you have proper guidelines in place to prevent accidental deletion.&lt;/p&gt; 
+&lt;p&gt;&lt;b&gt;Remediation:&lt;br /&gt;&lt;/b&gt; To view a function’s resource-based policy, use the get-policy command.&lt;br /&gt;&lt;/p&gt; 
+&lt;blockquote&gt; 
+ &lt;p&gt; aws lambda get-policy --function-name my-function --output text&lt;/p&gt; 
+&lt;/blockquote&gt; 
+&lt;p&gt;For versions and aliases, append the version number or alias to the function name.&lt;br /&gt;&lt;/p&gt; 
+&lt;blockquote&gt; 
+ &lt;p&gt; aws lambda get-policy --function-name my-function:PROD&lt;/p&gt; 
+&lt;/blockquote&gt; 
+&lt;p&gt;To remove permissions from your function, use remove-permission.&lt;br /&gt;&lt;/p&gt; 
+&lt;blockquote&gt; 
+ &lt;p&gt; aws lambda remove-permission --function-name example --statement-id sns&lt;/p&gt; 
+&lt;/blockquote&gt; 
+&lt;p&gt;Use the get-layer-version-policy command to view the permissions on a layer, and remove-layer-version-permission to remove statements from the policy.&lt;br /&gt;&lt;/p&gt; 
+&lt;blockquote&gt; 
+ &lt;p&gt; aws lambda get-layer-version-policy --layer-name my-layer --version-number 3 --output text&lt;/p&gt; 
+&lt;/blockquote&gt; 
+&lt;blockquote&gt; 
+ &lt;p&gt;aws lambda remove-layer-version-permission --layer-name my-layer --version-number 3 --statement-id engineering-org&lt;/p&gt; 
+&lt;/blockquote&gt;</desc>
+                    <implementations/>
+                    <references>
+                        <reference name="AWS Lambda Permissions Model" url="https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html"/>
+                        <reference name="Configure Lambda Authorizer Using the API Gateway Console" url="https://docs.aws.amazon.com/apigateway/latest/developerguide/configure-api-gateway-lambda-authorization-with-console.html"/>
+                        <reference name="Use API Gateway Lambda Authorizers" url="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html"/>
+                        <reference name="Using Identity-Based Policies (IAM Policies) for AWS Lambda" url="https://docs.aws.amazon.com/lambda/latest/dg/access-control-identity-based.html"/>
+                        <reference name="Using Resource-Based Policies for AWS Lambda (Lambda Function Policies)" url="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html"/>
+                    </references>
+                    <standards/>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;Use the following command to view the remove permission over a certain function:&lt;br /&gt;&lt;/p&gt; 
+&lt;blockquote&gt; 
+ &lt;p&gt; aws lambda get-layer-version-policy --layer-name my-layer --version-number 3 --output text&lt;/p&gt; 
+&lt;/blockquote&gt; 
+&lt;p&gt;Verify that the command above doesn’t show the permissions defined with “Action”: [“lambda:DeleteFunction”]&lt;/p&gt;</steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-03-25T16:40:59">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

@@ -1,0 +1,2 @@
+<component ref="HTTP-SERVICE:AUTHZ" name="HTTP-Service: Authorization" desc="Server side access control functions for a web application" tags="" position="35" groupName="" library="" diagramPositionX="0" diagramPositionY="0" componentDefinitionRef="">
+            

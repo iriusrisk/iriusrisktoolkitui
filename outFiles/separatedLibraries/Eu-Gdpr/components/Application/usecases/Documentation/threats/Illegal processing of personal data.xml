@@ -1,0 +1,40 @@
+<threat ref="EU-GDPR-ILLEGAL-PROCESSING-PERSONAL-DATA" name="Illegal processing of personal data" state="Expose" source="MANUAL" owner="admin" library="">
+                            <desc>Processing personal data without legal grounds which makes it possible for data subjects to file a complaint at local Data Protection Authority which might lead to administrative fines.
+              </desc>
+                            <riskRating confidentiality="75" integrity="50" availability="50" easeOfExploitation="50"/>
+                            <references/>
+                            <controls>
+                                <control ref="EU-GDPR-DOCUMENT-LEGAL-GROUNDS" mitigation="20"/>
+                                <control ref="EU-GDPR-LEGITIMATE-INTEREST" mitigation="20"/>
+                                <control ref="EU-GDPR-PPI-CONTRACT" mitigation="20"/>
+                                <control ref="EU-GDPR-PUBLIC-INTEREST" mitigation="20"/>
+                                <control ref="EU-GDPR-VITAL-INTEREST" mitigation="20"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="EU-GDPR-NO-CONTRACT">
+                                    <controls>
+                                        <control ref="EU-GDPR-PPI-CONTRACT" mitigation="20"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="EU-GDPR-NO-LEGAL-BASE">
+                                    <controls>
+                                        <control ref="EU-GDPR-DOCUMENT-LEGAL-GROUNDS" mitigation="20"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="EU-GDPR-NO-LEGITIMATE-INTEREST">
+                                    <controls>
+                                        <control ref="EU-GDPR-LEGITIMATE-INTEREST" mitigation="20"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="EU-GDPR-NO-PUBLIC-INTEREST">
+                                    <controls>
+                                        <control ref="EU-GDPR-PUBLIC-INTEREST" mitigation="20"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="EU-GDPR-NO-VITAL-INTEREST">
+                                    <controls>
+                                        <control ref="EU-GDPR-VITAL-INTEREST" mitigation="20"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

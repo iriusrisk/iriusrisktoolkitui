@@ -1,0 +1,42 @@
+<control ref='Hydras-AWS-RDS-02' name='Assign to IAM roles the permissions for RDS instances' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>The following AWS managed policies, which you can attach to users in your account, are
+                        specific to Amazon RDS:
+                        &lt;br /&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;&lt;b&gt;AmazonRDSReadOnlyAccess:&lt;/b&gt; Grants read-only access to all Amazon RDS
+                        resources for the root AWS account.&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;&lt;b&gt;AmazonRDSFullAccess:&lt;/b&gt; Grants full access to all Amazon RDS resources
+                        for the root AWS account.&lt;/li&gt;
+                        &lt;/ul&gt;You can also create custom IAM policies that allow users to access the required
+                        Amazon RDS API actions and resources. You can attach these custom policies to the IAM users or
+                        groups that require those permissions.
+                        &lt;br /&gt;
+                        &lt;br /&gt;The permissions above shall be assigned to roles or groups:
+                        &lt;br /&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;The roles or groups only do calls to the API to get information, the
+                        AmazonRDSReadOnlyAccess permission shall be assigned.&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;The roles or groups who are responsible of managing the RDS instances shall be
+                        assigned the AmazonRDSFullAccess permission.&lt;/li&gt;
+                        &lt;/ul&gt;
+                    </desc>
+          <implementations />
+          <references />
+          <standards />
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;ul&gt;
+                            &lt;li&gt;Review the IAM roles and groups.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Check that all roles or groups have got the AmazonRDSReadOnlyAccess permission.&lt;/li&gt;
+                            &lt;li&gt;Check that only the appropriate personnel have got AmazonRDSFullAccess permissions
+                            to manage the RDS instances.&lt;/li&gt;
+                            &lt;/ul&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

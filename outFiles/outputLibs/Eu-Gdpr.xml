@@ -1,0 +1,2308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project ref="EU GDPR" name="EU GDPR" revision="29" type="LIBRARY" status="OPEN" enabled="true" priority="0" tags="">
+    <desc>This library provides a set of development requirements that help comply with EU General Data Protection
+        Regulation (GDPR) (EU) 2016/679.
+    </desc>
+    <categoryComponents>
+        <categoryComponent ref="regulatory" name="Regulatory"/>
+    </categoryComponents>
+    <componentDefinitions>
+        <componentDefinition ref="eu-gdpr-environment" name="EU GDPR Environment" desc="Choose this component if the application handles EU citizen personal data" categoryRef="regulatory">
+            <riskPatterns>
+                <riskPattern ref="EU_GDPR_APPLICATION"/>
+            </riskPatterns>
+        </componentDefinition>
+    </componentDefinitions>
+    <udts/>
+    <supportedStandards>
+        <supportedStandard ref="EU-GDPR" name="EU-GDPR"/>
+        <supportedStandard ref="iotsf-class-0" name="IoTSF Class 0"/>
+        <supportedStandard ref="iotsf-class-1" name="IoTSF Class 1"/>
+        <supportedStandard ref="iotsf-class-2" name="IoTSF Class 2"/>
+        <supportedStandard ref="ISO/IEC 27002:2013" name="ISO/IEC 27002:2013"/>
+        <supportedStandard ref="OWASP-ASVS-Level-1" name="OWASP-ASVS-Level-1"/>
+        <supportedStandard ref="OWASP-ASVS-Level-2" name="OWASP-ASVS-Level-2"/>
+        <supportedStandard ref="OWASP-ASVS-Level-3" name="OWASP-ASVS-Level-3"/>
+        <supportedStandard ref="NIST 800-53" name="NIST 800-53"/>
+        <supportedStandard ref="owasp-top-10-2017" name="OWASP Top 10 2017"/>
+    </supportedStandards>
+    <components>
+        <component ref="EU_GDPR_APPLICATION" name="Application" desc="This threats and countermeasures in this pattern apply to the entire application, if any of the components of the application handle EU personal data.  This pattern should be imported once per application." tags="" position="1" groupName="" library="" diagramPositionX="0" diagramPositionY="0" componentDefinitionRef="">
+            <weaknesses>
+                <weakness ref="EU-GDPR-NO-REPORT-72-HOURS" name="Lack of breach report within 72 hours" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T14:58:19.219000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>No notification of data breaches towards the Data Protection Authority and Data Subjects. &lt;br /&gt;&lt;br /&gt;Data Subject = Person of whom personal data is processed
+                    </desc>
+                </weakness>
+                <weakness ref="EU-GDPR-NO-CONTRACT" name="No contract" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T12:33:38.150000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>No contract which can be used to prove to data protection authorities that the processing is legitimate/legal.
+                    </desc>
+                </weakness>
+                <weakness ref="EU-GDPR-NO-DETECTION-PROCESS" name="No detection mechanism/process" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T14:54:10.821000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The non-existence or inefficiency of data breach processes and tools.</desc>
+                </weakness>
+                <weakness ref="EU-GDPR-NO-INCIDENT-MANAGEMENT" name="No incident management process/IRT" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T14:56:18.203000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>No or ineffective incident response team and/or process causing an ineffective containment and treatment of data breaches.
+                    </desc>
+                </weakness>
+                <weakness ref="EU-GDPR-NO-LEGAL-BASE" name="No legal base" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T12:42:48.556000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>No other law (lex specialis) which overrides the GDPR (lex generalis) which makes the personal data processing required/legal.
+          </desc>
+                </weakness>
+                <weakness ref="EU-GDPR-NO-LEGITIMATE-INTEREST" name="No legitimate interest" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T12:51:13.259000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>No (documented) reasoning which proves that the benefits of the processing organization outweigh the potential negative consequences for the data subject.&lt;br /&gt;&lt;br /&gt; 
+          Data subject = person of whom data is processed.
+          </desc>
+                </weakness>
+                <weakness ref="EU-GDPR-NO-PROACTIVE-AUDITING" name="No (proactive) auditing" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T15:01:51.602000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>Harder to conduct forensic analysis after an attack succeeds in order to pinpoint the source of the attack.
+          </desc>
+                </weakness>
+                <weakness ref="EU-GDPR-NO-PUBLIC-INTEREST" name="No public interest" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T12:49:16.026000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>Application is not created for a specific governmental agency (e.g. law enforcement, courts, intelligence agencies, ...) which may process personal data because it is in the public interest of society.
+          </desc>
+                </weakness>
+                <weakness ref="EU-GDPR-NO-VITAL-INTEREST" name="No vital interest " state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T12:46:24.909000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>No situation in which personal data processing might safe the life of the data subjects and therefore makes personal data processing legal.&lt;br /&gt;&lt;br /&gt; 
+          Data subject = person of whom data is processed.
+          </desc>
+                </weakness>
+                <weakness ref="EU-GDPR-NO-PURPOSE" name="Not a clear purpose" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-02-22T13:18:07.111000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>No clear or unethical purpose for the processing of personal data. Without a clear purpose the application can also be unnecessary from a business perspective.
+          </desc>
+                </weakness>
+            </weaknesses>
+            <controls>
+                <control ref="EU-GDPR-TREATMENT" name="Create mechanisms for the treatment of potential data breaches" platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="MANUAL">
+                    <desc>Create an Incident Response Management Process for the treatment of potential data breaches. This process should involve the DPO and provide sufficient factual data to the DPO.
+          </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="EU GDPR - EU Data Protection" url="http://ec.europa.eu/justice/data-protection/reform/files/regulation_oj_en.pdf"/>
+                    </references>
+                    <standards>
+                        <standard ref="Art.33" supportedStandardRef="EU-GDPR"/>
+                        <standard ref="Art.34" supportedStandardRef="EU-GDPR"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;div&gt;
+              Verify Incident Management Process documentation exists for dealing with potential data breaches and is compliant with the requirements of the Data Protection Practitioner.
+              &lt;/div&gt;
+            </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T14:56:44.267000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>
+                <control ref="EU-GDPR-REPORTING-TEMPLATES-PROCESS" name="Create reporting templates &amp; process" platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="MANUAL">
+                    <desc>Ensure that your organization has a process and templates for reporting data breaches towards the data protection authority and data subjects.
+          </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="EU GDPR - EU Data Protection" url="http://ec.europa.eu/justice/data-protection/reform/files/regulation_oj_en.pdf"/>
+                    </references>
+                    <standards>
+                        <standard ref="Art.33" supportedStandardRef="EU-GDPR"/>
+                        <standard ref="Art.34" supportedStandardRef="EU-GDPR"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>Verify processes and templates exist for reporting data breaches of user personal data to affected users and the data protection authority within 72 hours of becoming aware of the incident.
+            </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T14:58:50.884000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>
+                <control ref="EU-GDPR-PURPOSE" name="Define the purpose of the data processing" platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="MANUAL">
+                    <desc>The purpose of the application must be formally documented. This purpose serves as the input for different controls as the processing purpose must be legitimated and all used data fields can only be used if it can be shown that they are required for the documented purpose.&lt;br /&gt;&lt;br/&gt; 
+          The purpose should also be used in order to document the functional requirements of the application. 
+          Functional requirements should be limited to the documented purpose.
+          </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="EU GDPR - EU Data Protection" url="http://ec.europa.eu/justice/data-protection/reform/files/regulation_oj_en.pdf"/>
+                    </references>
+                    <standards>
+                        <standard ref="Art.5" supportedStandardRef="EU-GDPR"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>Verify documentation exists detailing the purpose for all user personal data requested within the application user interface.
+            </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T12:31:48.099000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>
+                <control ref="EU-GDPR-DOCUMENT-LEGAL-GROUNDS" name="Document legal grounds for processing" platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="MANUAL">
+                    <desc>You must involve the DPO and/or legal department to decide on the legal legitimation that can be used.&lt;br /&gt;&lt;br /&gt;You must document the legal base that can be used. 
+          </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="EU GDPR - EU Data Protection" url="http://ec.europa.eu/justice/data-protection/reform/files/regulation_oj_en.pdf"/>
+                    </references>
+                    <standards>
+                        <standard ref="Art.6" supportedStandardRef="EU-GDPR"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;div&gt;
+                &lt;ol&gt;
+                &lt;li&gt;Verify documentation exists detailing the legal justification for processing all user personal data.&lt;/li&gt;
+                &lt;li&gt;Ensure this document complies with the requirements of the Data Protection Practitioner.&lt;/li&gt;
+                &lt;/ol&gt;
+                &lt;/div&gt;
+            </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T12:43:23.092000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>
+                <control ref="EU-GDPR-PUBLIC-INTEREST" name="Document the public interests for processing" platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="MANUAL">
+                    <desc>You must involve the DPO and/or legal department to decide on the legitimation that can be used.&lt;br /&gt;&lt;br /&gt;Document if/why the public interests for processing can be used.&lt;br /&gt;
+                    </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="EU GDPR - EU Data Protection" url="http://ec.europa.eu/justice/data-protection/reform/files/regulation_oj_en.pdf"/>
+                    </references>
+                    <standards>
+                        <standard ref="Art.6" supportedStandardRef="EU-GDPR"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+              &lt;li&gt;Verify documentation exists detailing "public interest" justification for processing user personal data.&lt;/li&gt;
+              &lt;li&gt;Verify &amp;quot;public interest&amp;quot; justifications are in compliance with the requirements of the Data Protection Practitioner.&lt;/li&gt;
+              &lt;/ol&gt;
+            </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T12:50:03.937000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>
+                <control ref="EU-GDPR-VITAL-INTEREST" name="Document the vital interests for processing" platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="MANUAL">
+                    <desc>You must involve the DPO and/or legal department to decide on the legitimation that can be used.
+          &lt;br /&gt;&lt;br /&gt;
+          Document if/why the vital interests for processing can be used.
+          </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="EU GDPR - EU Data Protection" url="http://ec.europa.eu/justice/data-protection/reform/files/regulation_oj_en.pdf"/>
+                    </references>
+                    <standards>
+                        <standard ref="Art.6" supportedStandardRef="EU-GDPR"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;div&gt;
+                &lt;ol&gt;
+                &lt;li&gt;Verify documentation exists detailing "vital interest" justification for processing personal data.&lt;/li&gt;
+                &lt;li&gt;Verify &amp;quot;vital interest&amp;quot; justification is in compliance with the requirements of the  Data Protection Practitioner.&lt;/li&gt;
+                &lt;/ol&gt;
+                &lt;/div&gt;
+            </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T12:47:06.533000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>
+                <control ref="EU-GDPR-LEGITIMATE-INTEREST" name="Evaluate if legitimate interests can be applied + document reasoning" platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="MANUAL">
+                    <desc>You must involve the DPO and/or legal department to decide on the legitimation that can be used.&lt;br /&gt;&lt;br /&gt;Evaluate if legitimate interests can be applied. This is an assessment of why the rights of the organization outweigh the risks of a data subject.&lt;br /&gt;
+          </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="EU GDPR - EU Data Protection" url="http://ec.europa.eu/justice/data-protection/reform/files/regulation_oj_en.pdf"/>
+                    </references>
+                    <standards>
+                        <standard ref="Art.6" supportedStandardRef="EU-GDPR"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;div&gt;
+                &lt;ol&gt;
+                &lt;li&gt;Verify with the Data Protection Practitioner, user personal data being processed by the application falls within &amp;quot;acceptable&amp;quot; boundaries regarding the benefits to the organization vs the potential negative consequences
+                for the user.&lt;/li&gt;
+                &lt;li&gt;Verify this is documented.&lt;/li&gt;
+                &lt;/ol&gt;
+                &lt;/div&gt;
+            </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T12:51:45.183000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>
+                <control ref="EU-GDPR-MONITORING" name="Implement a monitoring system to alert the SOC operators" platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="MANUAL">
+                    <desc>Implement a monitoring system to alert the SOC operators of suspicious behaviors and potential data breaches. The purpose of proactive monitoring is to prevent data breaches or stop an active data breach before personal data is exfiltrated and hereby ensure adequate information security of personal data.
+          </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="EU GDPR - EU Data Protection" url="http://ec.europa.eu/justice/data-protection/reform/files/regulation_oj_en.pdf"/>
+                    </references>
+                    <standards>
+                        <standard ref="Art.32" supportedStandardRef="EU-GDPR"/>
+                        <standard ref="Art.5" supportedStandardRef="EU-GDPR"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;div&gt;
+                &lt;ol&gt;
+                &lt;li&gt;Test accessing user personal data mimicking the &amp;quot;suspicious&amp;quot; behavior of an malicious actor and verify activities are detected and relevant security personnel alerted by monitoring tools.&lt;/li&gt;
+                &lt;li&gt;Test unauthorized user personal data exfiltration and verify this is detected and relevant security personnel alerted by monitoring tools.&lt;/li&gt;
+                &lt;/ol&gt;
+                &lt;/div&gt;
+            </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T15:02:16.142000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>
+                <control ref="EU-GDPR-INCIDENT-DETECTABILITY" name="Implement a monitoring tool" platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="MANUAL">
+                    <desc>Make sure that all access to personal data is logged.&lt;br /&gt;&lt;br /&gt;Implement a monitoring tool (e.g. SIEM) in order to automatically notify potential data breaches and/or implement process so that employees and data subjects (persons of whom personal data is processed) can manually report potential breaches.
+          </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="EU GDPR - EU Data Protection" url="http://ec.europa.eu/justice/data-protection/reform/files/regulation_oj_en.pdf"/>
+                    </references>
+                    <standards>
+                        <standard ref="Art.33" supportedStandardRef="EU-GDPR"/>
+                        <standard ref="Art.34" supportedStandardRef="EU-GDPR"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;div&gt;
+                &lt;ol&gt;
+                &lt;li&gt;Test accessing user personal data as legitimate users, employees, administrators and malicious actors.&lt;/li&gt;
+                &lt;li&gt;Verify all the above activities are successfully logged.&lt;/li&gt;
+                &lt;li&gt;Verify &amp;quot;suspicious&amp;quot; activity generated by mimicking an malicious actor is detected and relevant security personnel alerted by security monitoring tools.&lt;/li&gt;
+                &lt;li&gt;Verify employees and users have a mechanism whereby they can manually report known, potential, or suspected data breaches.&lt;/li&gt;
+                &lt;/ol&gt;
+                &lt;/div&gt;
+            </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T14:54:43.584000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>
+                <control ref="EU-GDPR-PPI-CONTRACT" name="Present Personal information contract" platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="MANUAL">
+                    <desc>Upon registering to the application, include a privacy notice within the contract specifying:
+          &lt;br /&gt;
+          &lt;br /&gt;(a) the identity and the contact details of the controller and, where applicable, of the controller's representative;
+          &lt;br /&gt;(b) the contact details of the Data Protection Officer, where applicable; 
+          &lt;br /&gt;(c) the purposes of the processing for which the personal data are intended as well as the legal basis for the processing; 
+          &lt;br /&gt;(d) the categories of personal data concerned;
+          &lt;br /&gt;(e) the recipients or categories of recipients of the personal data;
+          &lt;br /&gt;(f) where applicable, the fact that the controller intends to transfer personal data to a third country or international organization.
+          &lt;br /&gt;
+          &lt;br /&gt;You must involve the DPO and/or legal department to decide on the legitimation that can be used.
+          </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="EU GDPR - EU Data Protection" url="http://ec.europa.eu/justice/data-protection/reform/files/regulation_oj_en.pdf"/>
+                    </references>
+                    <standards>
+                        <standard ref="Art.6" supportedStandardRef="EU-GDPR"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;div&gt;
+                &lt;ol&gt;
+                &lt;li&gt;Verify users are presented with the Personal Information Contract policy when registering with the application.&lt;/li&gt;
+                &lt;li&gt;Verify the Personal Information Contract policy notice is in compliance with the requirements of the Data Protection Practitioner.&lt;/li&gt;
+                &lt;/ol&gt;
+                &lt;/div&gt;
+            </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T12:34:21.683000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>
+            </controls>
+            <usecases>
+                <usecase ref="ACCESS-CONTROL" name="Access Control" desc="" library="">
+                    <threats>
+                        <threat ref="EU_GDPR-LACK_DATA_SUBJECT-CONTROL" name="Lack of Data Subject Control" state="Expose" source="MANUAL" owner="admin" library="">
+                            <desc>Processing personal data can only happen if the data subject has been properly informed. Processing personal data without proper notice makes it possible for data subjects to file a complaint at local Data Protection Authority which might lead to administrative fines.
+              </desc>
+                            <riskRating confidentiality="75" integrity="50" availability="50" easeOfExploitation="25"/>
+                            <references/>
+                            <controls>
+                                <control ref="EU-GDPR-PURPOSE" mitigation="100"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="EU-GDPR-NO-PURPOSE">
+                                    <controls>
+                                        <control ref="EU-GDPR-PURPOSE" mitigation="100"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>
+                    </threats>
+                </usecase>
+                <usecase ref="DOCUMENTATION" name="Documentation" desc="" library="">
+                    <threats>
+                        <threat ref="EU-GDPR-ILLEGAL-PROCESSING-PERSONAL-DATA" name="Illegal processing of personal data" state="Expose" source="MANUAL" owner="admin" library="">
+                            <desc>Processing personal data without legal grounds which makes it possible for data subjects to file a complaint at local Data Protection Authority which might lead to administrative fines.
+              </desc>
+                            <riskRating confidentiality="75" integrity="50" availability="50" easeOfExploitation="50"/>
+                            <references/>
+                            <controls>
+                                <control ref="EU-GDPR-DOCUMENT-LEGAL-GROUNDS" mitigation="20"/>
+                                <control ref="EU-GDPR-LEGITIMATE-INTEREST" mitigation="20"/>
+                                <control ref="EU-GDPR-PPI-CONTRACT" mitigation="20"/>
+                                <control ref="EU-GDPR-PUBLIC-INTEREST" mitigation="20"/>
+                                <control ref="EU-GDPR-VITAL-INTEREST" mitigation="20"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="EU-GDPR-NO-CONTRACT">
+                                    <controls>
+                                        <control ref="EU-GDPR-PPI-CONTRACT" mitigation="20"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="EU-GDPR-NO-LEGAL-BASE">
+                                    <controls>
+                                        <control ref="EU-GDPR-DOCUMENT-LEGAL-GROUNDS" mitigation="20"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="EU-GDPR-NO-LEGITIMATE-INTEREST">
+                                    <controls>
+                                        <control ref="EU-GDPR-LEGITIMATE-INTEREST" mitigation="20"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="EU-GDPR-NO-PUBLIC-INTEREST">
+                                    <controls>
+                                        <control ref="EU-GDPR-PUBLIC-INTEREST" mitigation="20"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="EU-GDPR-NO-VITAL-INTEREST">
+                                    <controls>
+                                        <control ref="EU-GDPR-VITAL-INTEREST" mitigation="20"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>
+                    </threats>
+                </usecase>
+                <usecase ref="MONITORING-AND-REPORTING" name="Monitoring and Reporting" desc="" library="">
+                    <threats>
+                        <threat ref="EU-GDPR-NO-REPORT-DATA-SUBJECTS" name="Failure to report a breach can result in financial penalties" state="Expose" source="MANUAL" owner="admin" library="">
+                            <desc>Data subjects are unaware of a breach and cannot take measures in order to minimize the impact of the attack and prevent reoccurence. Also the  rights of the data subjects are not ensured by a follow-up investigation of the local data protection authority.
+              </desc>
+                            <riskRating confidentiality="75" integrity="75" availability="50" easeOfExploitation="25"/>
+                            <references/>
+                            <controls>
+                                <control ref="EU-GDPR-REPORTING-TEMPLATES-PROCESS" mitigation="100"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="EU-GDPR-NO-REPORT-72-HOURS">
+                                    <controls>
+                                        <control ref="EU-GDPR-REPORTING-TEMPLATES-PROCESS" mitigation="100"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>
+                        <threat ref="EU-GDPR-LACK-MONITORING" name="Inadequate monitoring and incident response" state="Expose" source="MANUAL" owner="admin" library="">
+                            <desc>Attackers can gain undetected access to sensitive data without detection. 
+              </desc>
+                            <riskRating confidentiality="25" integrity="75" availability="50" easeOfExploitation="50"/>
+                            <references/>
+                            <controls>
+                                <control ref="EU-GDPR-INCIDENT-DETECTABILITY" mitigation="30"/>
+                                <control ref="EU-GDPR-MONITORING" mitigation="30"/>
+                                <control ref="EU-GDPR-TREATMENT" mitigation="40"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="EU-GDPR-NO-PROACTIVE-AUDITING">
+                                    <controls>
+                                        <control ref="EU-GDPR-MONITORING" mitigation="30"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="EU-GDPR-NO-DETECTION-PROCESS">
+                                    <controls>
+                                        <control ref="EU-GDPR-INCIDENT-DETECTABILITY" mitigation="30"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="EU-GDPR-NO-INCIDENT-MANAGEMENT">
+                                    <controls>
+                                        <control ref="EU-GDPR-TREATMENT" mitigation="40"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>
+                    </threats>
+                </usecase>
+            </usecases>
+        </component>
+        <component ref="EU-GDPR-COMPONENT-UI" name="Component with UI" desc="A component that exposes an interface to a user, this could be a GUI or an API" tags="" position="5" groupName="" library="" diagramPositionX="0" diagramPositionY="0" componentDefinitionRef="">
+            <weaknesses>
+                <weakness ref="EU-GDPR-NO-DATA-MAPPING" name="Lack of functionality to view personal data provided" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-02-22T13:34:34.148000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>No user functionality or information within application which can be used by data subjects to access his personal data or request his personal data.
+          </desc>
+                </weakness>
+                <weakness ref="EU-GDPR-NO-CONSENT-MECHANISM" name="No consent mechanism (conform GDPR &amp; E-privacy Regulation) " state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-02-22T12:31:05.303000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>No consent mechanisms (or a consent mechanism that does not comply with the GDPR and E-privacy legislation consent requirements) so the organization is unable prove to data protection authorities that the processing is legitimate/legal.
+          </desc>
+                </weakness>
+                <weakness ref="EU-GDPR-NOT-EXPORT-FUNCTIONALITY" name="No export functionality" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-02-22T13:44:51.921000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>No exportability functionality (for users or admins) which would allow the user to (directly or indirectly via an admin) export his personal data in a clear, readable format and transport it to another data controller. </desc>
+                </weakness>
+                <weakness ref="EU-GDPR-NO-PROCESS" name="No process to edit and update personal data" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-02-22T13:34:34.184000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>No process through which the data subject can directly modify their personal information which is no longer correct.
+          </desc>
+                </weakness>
+                <weakness ref="EU-GDPR-NO-PUBLIC-PRIVACY-NOTICE" name="No public privacy notice" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T14:16:36.906000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>&lt;ul&gt;
+              &lt;li&gt;No or incomplete privacy notice&lt;/li&gt;
+              &lt;li&gt;Privacy notice not findable for data subjects within the application&lt;/li&gt;
+              &lt;li&gt;Privacy notice not given within 72 hours after data was gathered directly or indirectly from data subject&lt;/li&gt;
+              &lt;/ul&gt;Data subject = person of whom personal data is processed
+          </desc>
+                </weakness>
+            </weaknesses>
+            <controls>
+                <control ref="EU-GDPR-CONSENT-MECHANISM" name="Create a consent mechanism" platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="MANUAL">
+                    <desc>Implement a consent mechanism which allows data subjects (persons of whom personal data is processed) to give their consent for certain processing activities. This is mainly used for cookies and secondary purposes such as direct marketing, newsletters, ...&lt;br/&gt; 
+          &lt;br/&gt;The consent mechanism often consists of a check box. These check boxes are required for every single secondary purpose (not allowed to implement one consent box for all purposes). The consent boxes should: &lt;br /&gt;
+              &lt;ul&gt;
+              &lt;li&gt;be inactive by default (the data subject should active the box)&lt;/li&gt;
+              &lt;li&gt;revocable (the data subject must be able to revoke the consent in a way that is as easy as it was to give consent, this can be done by implementing a platform on which the data subject can actively manage his/her consents) &lt;/li&gt;
+              &lt;li&gt;Traceable (a consent database is required to track when consent was given and revoked. This must include timestamps) &lt;/li&gt;
+              &lt;/ul&gt;
+              &lt;br /&gt;You must involve the DPO and/or legal department to decide on the legitimation that can be used.
+          </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="EU GDPR - EU Data Protection" url="http://ec.europa.eu/justice/data-protection/reform/files/regulation_oj_en.pdf"/>
+                    </references>
+                    <standards>
+                        <standard ref="Art.6" supportedStandardRef="EU-GDPR"/>
+                        <standard ref="Art.7" supportedStandardRef="EU-GDPR"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;div&gt;
+                &lt;ol&gt;
+                &lt;li&gt;Verify appropriate user personal data consent mechanisms are in place and are not pre-granted.&lt;/li&gt;
+                &lt;li&gt;Verify users can modify their data consent choices in a manner as easy as giving consent.&lt;/li&gt;
+                &lt;li&gt;Verify the above above user activities have been appropriately logged.&lt;/li&gt;
+                &lt;/ol&gt;
+                &lt;/div&gt;
+            </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T12:41:32.691000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>
+                <control ref="EU-GDPR-EXPORT-FUNCTIONALITY" name="Implement export functionality" platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="MANUAL">
+                    <desc>All data gathered from a user should be exportable. This does not include derived fields that were created by the organization, such as customer segmentation fields.&lt;br /&gt; 
+          &lt;br/&gt;Provide or develop the means that will contribute to answer data portability requests, such as download tools or Application Programming Interfaces (API). &lt;br /&gt; 
+          &lt;br /&gt;They should guarantee that personal data are transmitted in a structured, commonly used and machine-readable format, and they should be encouraged to ensure the interoperability of the data format provided in the exercise of a data portability request. 
+          &lt;br/&gt;see also - http://ec.europa.eu/newsroom/document.cfm?doc_id=44099 (Guidelines on the right to &amp;quot;data portability&amp;quot; by WP29)&amp;quot;
+          </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="EU GDPR - EU Data Protection" url="http://ec.europa.eu/justice/data-protection/reform/files/regulation_oj_en.pdf"/>
+                    </references>
+                    <standards>
+                        <standard ref="Art.20" supportedStandardRef="EU-GDPR"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;div&gt;
+                &lt;ol&gt;
+                &lt;li&gt;Verify users have the functionality to request personal data transfer and/or download their own data.&lt;/li&gt;
+                &lt;li&gt;Verify data is in a form acceptable to the Data Protection Practitioner.&lt;/li&gt;
+                &lt;/ol&gt;
+                &lt;/div&gt;
+            </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T14:21:47.026000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>
+                <control ref="EU-GDPR-EDITABLE-PERSONAL-DATA" name="Implement the process to edit personal data" platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="MANUAL">
+                    <desc>Individuals are entitled to have personal data rectified if it is inaccurate or incomplete. &lt;br /&gt;Provide a form or API for users to update or correct their data. If the personal data is shared with other systems you should also update the data there. Ensure that all data submitted by the user can be modified. No personal data should be read-only. 
+          </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="EU GDPR - EU Data Protection" url="http://ec.europa.eu/justice/data-protection/reform/files/regulation_oj_en.pdf"/>
+                    </references>
+                    <standards>
+                        <standard ref="Art.15" supportedStandardRef="EU-GDPR"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;div&gt;
+                &lt;ol&gt;
+                &lt;li&gt;Verify users have the ability to edit inaccurate personal information either directly or via a form within the application user interface.&lt;/li&gt;
+                &lt;li&gt;Ensure these personal data changes are replicated throughout the operational environment.&lt;/li&gt;
+                &lt;/ol&gt;
+                &lt;/div&gt;
+            </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T14:33:26.408000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>
+                <control ref="EU-GDPR-PRIVACY-NOTICE" name="Integrate a privacy notice within the application" platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="MANUAL">
+                    <desc>You must involve the DPO in order to receive a GDPR compliant privacy notice. This notice should at least mention:
+          &lt;br /&gt;&lt;br /&gt;(a) the identity and the contact details of the controller and, where applicable, of the controller's representative; 
+          &lt;br /&gt;(b) the contact details of the Data Protection Officer, where applicable; 
+          &lt;br /&gt;(c) the purposes of the processing for which the personal data are intended as well as the legal basis for the processing; 
+          &lt;br /&gt;(d) the categories of personal data concerned;
+          &lt;br /&gt;(e) the recipients or categories of recipients of the personal data;
+          &lt;br /&gt;(f) where applicable, the fact that the controller intends to transfer personal data to a third country or international organization
+          &lt;br /&gt;(g) the period for which the personal data will be stored, or if that is not possible, the criteria used to determine that period; 
+          &lt;br /&gt;(h) where the processing is based on the legitimate interests pursued by the controller or by a third party; 
+          &lt;br /&gt;(i) the existence of the right to request from the controller access to and rectification or erasure of personal data or restriction of processing concerning the data subject and to object to processing as well as the right to data portability; 
+          &lt;br /&gt;(j) the existence of the right to withdraw consent at any time, without affecting the lawfulness of processing based on consent before its withdrawal; 
+          &lt;br /&gt;(k) the right to lodge a complaint with a supervisory authority; 
+          &lt;br /&gt;(l) from which source the personal data originate, and if applicable, whether it came from publicly accessible sources; 
+          &lt;br /&gt;(m) the existence of automated decision-making, including profiling
+          &lt;br /&gt;&lt;br /&gt;Integrate privacy notice in application, before data subjects enter or push their personal data.
+          &lt;br /&gt;&lt;br /&gt;
+          This data should also be provided towards the data subject if the data is not gathered directly from the data subject.
+          </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="EU GDPR - EU Data Protection" url="http://ec.europa.eu/justice/data-protection/reform/files/regulation_oj_en.pdf"/>
+                    </references>
+                    <standards>
+                        <standard ref="Art.12" supportedStandardRef="EU-GDPR"/>
+                        <standard ref="Art.13" supportedStandardRef="EU-GDPR"/>
+                        <standard ref="Art.14" supportedStandardRef="EU-GDPR"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;div&gt;
+                &lt;ol&gt;
+                &lt;li&gt;Verify users have easy access to privacy notices within the application interface.&lt;/li&gt;
+                &lt;li&gt;Verify privacy notices are presented to the user before they submit their personal data.&lt;/li&gt;
+                &lt;li&gt;Verify privacy notices are in accordance with the requirements of the Data Protection practitioner.&lt;/li&gt;
+                &lt;/ol&gt;
+                &lt;/div&gt;
+            </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T14:17:13.546000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>
+                <control ref="EU-GDPR-COMMUNICATION-CHANNEL" name="Provide a communication channel for the data subject for privacy questions" platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="MANUAL">
+                    <desc>Provide a communication channel for the data subject for privacy questions (within the application or through other means (example. privacy@organization.com) and make it possible to export data so that you could provide an overview of all data that was delivered/imported by the data subject within the application.
+          &lt;br /&gt;
+          &lt;br /&gt;(Implementation Tip: Facebook has a functionality which allows users to manually request the right to information. This request automatically generates a downloadable report which includes all information that was gathered from the data subject).
+          </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="EU GDPR - EU Data Protection" url="http://ec.europa.eu/justice/data-protection/reform/files/regulation_oj_en.pdf"/>
+                    </references>
+                    <standards>
+                        <standard ref="Art.12" supportedStandardRef="EU-GDPR"/>
+                        <standard ref="Art.13" supportedStandardRef="EU-GDPR"/>
+                        <standard ref="Art.14" supportedStandardRef="EU-GDPR"/>
+                        <standard ref="Art.30" supportedStandardRef="EU-GDPR"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+                &lt;li&gt;Verify users have the functionality available within the application interface for easy contact routes for privacy questions.&lt;/li&gt;
+                &lt;li&gt;Verify operational mechanisms are in place to gather all user personal data processed by the application and export that data to the user.&lt;/li&gt;
+                &lt;/ol&gt;
+            </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T14:19:23.093000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>
+            </controls>
+            <usecases>
+                <usecase ref="PERSONAL-DATA" name="Personal Data" desc="" library="">
+                    <threats>
+                        <threat ref="EU-GDPR-ILLEGAL-PROCESSING-PERSONAL-DATA" name="Illegal processing of personal data" state="Expose" source="MANUAL" owner="admin" library="">
+                            <desc>Processing personal data without legal grounds which makes it possible for data subjects to file a complaint at local Data Protection Authority which might lead to administrative fines. 
+              </desc>
+                            <riskRating confidentiality="75" integrity="50" availability="50" easeOfExploitation="50"/>
+                            <references/>
+                            <controls>
+                                <control ref="EU-GDPR-CONSENT-MECHANISM" mitigation="100"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="EU-GDPR-NO-CONSENT-MECHANISM">
+                                    <controls>
+                                        <control ref="EU-GDPR-CONSENT-MECHANISM" mitigation="100"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>
+                        <threat ref="EU_GDPR-LACK_DATA_SUBJECT-CONTROL" name="Lack of Data Subject Control" state="Expose" source="MANUAL" owner="admin" library="">
+                            <desc>Processing personal data can only happen if the data subject has been properly informed. Processing personal data without proper notice makes it possible for data subjects to file a complaint at local Data Protection Authority which might lead to administrative fines. 
+              </desc>
+                            <riskRating confidentiality="75" integrity="50" availability="50" easeOfExploitation="25"/>
+                            <references/>
+                            <controls>
+                                <control ref="EU-GDPR-PRIVACY-NOTICE" mitigation="100"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="EU-GDPR-NO-PUBLIC-PRIVACY-NOTICE">
+                                    <controls>
+                                        <control ref="EU-GDPR-PRIVACY-NOTICE" mitigation="100"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>
+                        <threat ref="EU-GDPR-SUBJECT-RIGTHS" name="Subjects cannot exercise their rights over their personal data" state="Expose" source="MANUAL" owner="admin" library="">
+                            <desc>Data subject cannot exercise their rights which makes it possible for data subjects to file a complaint at local Data Protection Authority which might lead to administrative fines.
+              &lt;br /&gt;&lt;br /&gt;Data subject = person of whom personal data is processed
+              </desc>
+                            <riskRating confidentiality="100" integrity="100" availability="25" easeOfExploitation="25"/>
+                            <references/>
+                            <controls>
+                                <control ref="EU-GDPR-COMMUNICATION-CHANNEL" mitigation="30"/>
+                                <control ref="EU-GDPR-EDITABLE-PERSONAL-DATA" mitigation="40"/>
+                                <control ref="EU-GDPR-EXPORT-FUNCTIONALITY" mitigation="30"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="EU-GDPR-NO-DATA-MAPPING">
+                                    <controls>
+                                        <control ref="EU-GDPR-COMMUNICATION-CHANNEL" mitigation="30"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="EU-GDPR-NOT-EXPORT-FUNCTIONALITY">
+                                    <controls>
+                                        <control ref="EU-GDPR-EXPORT-FUNCTIONALITY" mitigation="30"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="EU-GDPR-NO-PROCESS">
+                                    <controls>
+                                        <control ref="EU-GDPR-EDITABLE-PERSONAL-DATA" mitigation="40"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>
+                    </threats>
+                </usecase>
+            </usecases>
+        </component>
+        <component ref="EU-GDPR-DATASTORE" name="Datastore Component" desc="" tags="" position="2" groupName="" library="" diagramPositionX="0" diagramPositionY="0" componentDefinitionRef="">
+            <weaknesses>
+                <weakness ref="EU-GDPR-LOGICAL-DELETE-DATA-INACTIVITY" name="Data is retained for longer than is necessary" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T13:02:20.753000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>Storing personal data too long might lead to negative consequences for the data subject (e.g. a large amount of data might lead to invasive profiling, identity theft, ...)
+          &lt;br/&gt;&lt;br/&gt;Data subject = person of whom data is processed.
+          </desc>
+                </weakness>
+                <weakness ref="EU-GDPR-NO-ANONYMISATION" name="Insufficient anonymisation or pseudonymisation" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-02-22T12:32:19.749000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>Personal data which is not - or incorrectly - anonymized or pseudonymized is more vulnerable to malicious personal data processing because the data subjects are more easily identifiable.
+          &lt;br /&gt;&lt;br /&gt;Data subject = person of whom data is processed.
+          </desc>
+                </weakness>
+                <weakness ref="EU-GDPR-MISSING-ENCRYPTION-SENSITIVE-DATA" name="Missing Encryption of Sensitive Data" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-02-23T13:20:13.619000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>&lt;ul&gt;
+              &lt;li&gt;Weak encryption algorithms&lt;/li&gt;
+              &lt;li&gt;Loss of encryption keys&lt;/li&gt;
+              &lt;li&gt;Compromised encryption keys&lt;/li&gt;
+              &lt;li&gt;Revoked keys are still active (bad key lifecycle management)&lt;/li&gt;
+              &lt;/ul&gt;
+          </desc>
+                </weakness>
+                <weakness ref="EU-GDPR-PRODUCTION-DATA-TEST-DATA" name="Production data used in a test environment" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-02-22T12:36:46.799000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>Production data is stored in a less protected test environment where personal data is easier breached and other security controls are in place.
+          </desc>
+                </weakness>
+                <weakness ref="EU-GDPR-STORING-DATA-TOO-LONG" name="Storing data too long" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-02-22T12:28:41.396000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>Storing personal data too long might lead to negative consequences for the data subject (e.g. a large amount of data might lead to invasive profiling, identity theft, ...)
+          &lt;br /&gt;&lt;br /&gt;Data subject = person of whom data is processed.
+          </desc>
+                </weakness>
+                <weakness ref="EU-GDPR-STORING-TOO-MUCH-DATA" name="Storing too much data" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-02-22T12:57:32.079000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>Storing too much personal data of data subjects which might lead to negative consequences for the data subject (e.g. a large amount of data might lead to invasive profiling, identity 
+          &lt;br /&gt;&lt;br /&gt;Data subject = person of whom data is processed.
+          </desc>
+                </weakness>
+                <weakness ref="EU-GDPR-UNAUTHENTICATED-DATA-ACCESS" name="Unauthenticated data access" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-02-24T19:17:04.660000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>Authentication can be bypassed.</desc>
+                </weakness>
+                <weakness ref="EU-GDPR-UNNECESSARY-PRIVILEGES" name="Unnecessary privileges to process the data" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T14:42:52.773000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>Authorization can be bypassed</desc>
+                </weakness>
+            </weaknesses>
+            <controls>
+                <control ref="EU-GDPR-ANONYMISATION" name="Anonymisation/pseudonimisation the data" platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="MANUAL">
+                    <desc>Implement anonymization/pseudonymization or give a risk based explanation (from the standpoint of the data subject) why anonymization and pseudonymization are not used. Anonymization makes it impossible to reidentify the data subject while pseudonymization uses randomization techniques to
+                        make personal data less identifiable.
+                        &lt;br /&gt;&lt;br /&gt;The following techniques provide a degree of anonymization and pseudonymization and might be used:&lt;br /&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;noise addition&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;substitution&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;aggregation or K-anonymity&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;L-diversity&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;differential privacy&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;hashing or tokenization&lt;/li&gt;
+                        &lt;li&gt;dummy data&lt;/li&gt;
+                        &lt;/ul&gt;
+                    </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="EU GDPR - EU Data Protection" url="http://ec.europa.eu/justice/data-protection/reform/files/regulation_oj_en.pdf"/>
+                    </references>
+                    <standards>
+                        <standard ref="Art.5" supportedStandardRef="EU-GDPR"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;div&gt;
+                &lt;ol&gt;
+                &lt;li&gt;Verify anonymized data is stripped of ALL personally identifiable information. It should be impossible to reidentify specific users.&lt;/li&gt;
+                &lt;li&gt;Verify additional data would be required to reidentify a specific user when leveraging data pseudonymization.&lt;/li&gt;
+                &lt;/ol&gt;
+                &lt;/div&gt;
+            </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T12:56:50.151000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>
+                <control ref="CWE-285" name="Apply authorization checks to segregate and control access to user data" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+                        &lt;div&gt;
+                        Applications protecting sensitive or otherwise restricted resources must ensure only appropriate
+                        and authorized users may access the application data. It is important that an application
+                        prevents unauthorized users gaining inappropriate access to each other's data; although user A
+                        and user B may both be trusted to access data within the application, they may be authorized to
+                        only access different subsets of the protected resources.&amp;nbsp; E.g. user A should not be
+                        able to access user B's personal data by manipulating a request (typical examples are
+                        manipulation of an ID value or other object reference sent in the URL or body of an HTTP
+                        request).
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        It is not sufficient to rely on obscurity, for example obfuscated or secret URLs or filenames.
+                        The application must validate each request for protected data against the proven identity of the
+                        user. Before providing access to restricted resources the application must:
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Ensure the user has undergone appropriate authentication (identification and
+                        verification, or ID&amp;amp;V). E.g. they must have provided their identity and confirmed this
+                        with a password, token, or other verification. Typically this will be through checking the
+                        validity of the session token issued after login.&lt;/li&gt;
+                        &lt;li&gt;Confirm the user is entitled to access the data or resource they are requesting. E.g.
+                        their confirmed identify checked against a server-side access control matrix to determine
+                        whether they may access the requested resource.&lt;/li&gt;
+                        &lt;li&gt;Access controls should be granular, and allow for access to individual resources to be
+                        issued to individual users or roles.&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;div&gt;
+                        URL and asset based access control is provided by most web-frameworks, and it is preferable to
+                        use an established and proven framework.
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                    </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="Avatao Challenge: Controlling Access" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/558b3090-847a-11e5-a837-0800200c9a66"/>
+                        <reference name="Avatao Challenge: Path to the secret - fix" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/05c949b3-4be3-42b7-af29-d86b3cda8c2e"/>
+                        <reference name="Avatao Challenge: L1K3 API 2 - Break It" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/fa6f24c4-2f17-11e6-bdf4-0800200c9a66"/>
+                        <reference name="Avatao Challenge: L1K3 Drive 2 Tutorial" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/b443bf01-f52d-442b-be5d-1f8d9aa32037"/>
+                        <reference name="Avatao Challenge: L1K3 Drive 2" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/e069a6c1-8265-4115-9126-f8e188c62765"/>
+                        <reference name="Avatao Challenge: Path to the secret" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/07a3986b-492a-47f1-9458-85c90d6b571f2"/>
+                        <reference name="Avatao Challenge: Math Exam" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/c7a7eac0-fa7f-11e6-9598-0800200c9a66"/>
+                        <reference name="Avatao Challenge: L1K3 Drive 0" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/1c34218e-bf48-4d93-95fe-dfd521d8f019"/>
+                        <reference name="Avatao Challenge: Nice books" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/ade3ecc0-2634-11e7-9598-0800200c9a66"/>
+                        <reference name="Avatao Challenge: Secure Bank" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/a0ede2d0-fdc8-11e6-9598-0800200c9a66"/>
+                        <reference name="Avatao Challenge: L1K3 API 2 - Fix It" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/fa6f24c6-2f17-11e6-bdf4-0800200c9a66"/>
+                        <reference name="Avatao Challenge: ASCII Gallery" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/1ff95e60-70c6-11e5-a837-0800200c9a66"/>
+                        <reference name="Avatao Challenge: Free Money" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/63a9f140-0af0-11e7-9598-0800200c9a66"/>
+                        <reference name="Avatao Challenge: L1K3 Drive 1" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/630fa4fc-3138-4805-bd78-ea85e492c2e2"/>
+                    </references>
+                    <standards>
+                        <standard ref="Art.32" supportedStandardRef="EU-GDPR"/>
+                        <standard ref="9.1.1" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="9.2.2" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="9.2.3" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="9.4.1" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="2.4.10.2" supportedStandardRef="iotsf-class-0"/>
+                        <standard ref="2.4.12.3" supportedStandardRef="iotsf-class-0"/>
+                        <standard ref="2.4.10.2" supportedStandardRef="iotsf-class-1"/>
+                        <standard ref="2.4.12.3" supportedStandardRef="iotsf-class-1"/>
+                        <standard ref="2.4.8.9" supportedStandardRef="iotsf-class-1"/>
+                        <standard ref="2.4.10.2" supportedStandardRef="iotsf-class-2"/>
+                        <standard ref="2.4.12.3" supportedStandardRef="iotsf-class-2"/>
+                        <standard ref="2.4.8.9" supportedStandardRef="iotsf-class-2"/>
+                        <standard ref="AC-1" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="AC-24" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="AC-5" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="AC-6" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="CM-7" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-12" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-4" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="4.1" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="4.4" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="4.8" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="4.1" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="4.4" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="4.8" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="9.5" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="4.1" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="4.4" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="4.8" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="9.5" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="A5:2017-Broken Access Control" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+                            &lt;li&gt;Using two different browsers configured with an intercepting proxy.&lt;/li&gt;
+                            &lt;li&gt;Login as user A in browser A.&lt;/li&gt;
+                            &lt;li&gt;Login as user B in browser B.&lt;/li&gt;
+                            &lt;li&gt;For every operation that displays sensitive data belonging to user A:&lt;/li&gt;
+                            &lt;ol&gt;
+                            &lt;li&gt;Perform the operation as user A and view their sensitive data&lt;/li&gt;
+                            &lt;li&gt;Obtain the session ID of user B&lt;/li&gt;
+                            &lt;li&gt;Configure the proxy to intercept&lt;/li&gt;
+                            &lt;li&gt;Perform the operation as user A again, but this time intercept all the requests
+                            and replace user A's session ID with that of user B&lt;/li&gt;
+                            &lt;li&gt;Ensure that user A's sensitive data is &lt;b&gt;not &lt;/b&gt;visible&lt;/li&gt;
+                            &lt;/ol&gt;
+                            &lt;/ol&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2015-08-15T17:17:14.266000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>
+                <control ref="EU-GDPR-RETENTION-PERIODS" name="Define the retention periods of the data" platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="MANUAL">
+                    <desc>Define retention periods within the design phase for all data fields taking into account the defined purpose. These retention periods can be variable (e.g. 5 years after latest interaction with data subject). Retention periods for back-ups should also be included.
+          &lt;br /&gt;&lt;br /&gt;You must include your DPO/Legal department to define the retention periods as other laws may impact the retention requirements.
+          </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="EU GDPR - EU Data Protection" url="http://ec.europa.eu/justice/data-protection/reform/files/regulation_oj_en.pdf"/>
+                    </references>
+                    <standards>
+                        <standard ref="Art.5" supportedStandardRef="EU-GDPR"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+                &lt;li&gt;Verify documentation exists which details user personal data retention policy requirements for all user personal data submitted within the application user interface.&lt;/li&gt;
+                &lt;li&gt;Ensure the above is in accordance with the requirements of the Data Protection Practitioner.&lt;/li&gt;
+                &lt;li&gt;Check if user personal data exists within the operational environment that exceeds the age of the retention policy.&lt;/li&gt;
+                &lt;/ol&gt;
+            </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T12:59:37.340000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>
+                <control ref="EU-GDPR-DOC-ALL-DATA-PROCESSED" name="Document all data processed" platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="MANUAL">
+                    <desc>All data fields used by the application need to be documented as to why they are required taking into account the defined purpose. This should be done within the design phase as only data fields that support the defined finality may be included within the application. Open text fields should also be avoided unless there is a very good reason as to why they are needed.&amp;nbsp;
+          </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="EU GDPR - EU Data Protection" url="http://ec.europa.eu/justice/data-protection/reform/files/regulation_oj_en.pdf"/>
+                    </references>
+                    <standards>
+                        <standard ref="Art.5" supportedStandardRef="EU-GDPR"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+                &lt;li&gt;Verify documentation exists detailing the purpose for all personal data requested within the application user interface.&lt;/li&gt;
+                &lt;li&gt;Verify users are unable to submit extraneous unnecessary personal data within the application user interface.&lt;/li&gt;
+                &lt;/ol&gt;
+            </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T12:53:44.130000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>
+                <control ref="EU-GDPR-ENCRYPT-PERSONAL-DATA" name="Encrypt personal data" platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="MANUAL">
+                    <desc>Implement encryption at rest (see guidance below) or give risk-based explanation why encryption was not implemented.&lt;br /&gt;&lt;br /&gt;Use well known encryption libraries, taking into account the data use, and do not invent your own. 
+          &lt;br /&gt;
+              &lt;ul&gt;
+              &lt;li&gt;personal data must be encrypted&lt;/li&gt;
+              &lt;li&gt;data that is not used by the application (e.g. passwords, ...) should be hashed so they cannot be recovered easily&lt;/li&gt;
+              &lt;/ul&gt;
+          </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="EU GDPR - EU Data Protection" url="http://ec.europa.eu/justice/data-protection/reform/files/regulation_oj_en.pdf"/>
+                    </references>
+                    <standards>
+                        <standard ref="Art.32" supportedStandardRef="EU-GDPR"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;div&gt;
+                &lt;ol&gt;
+                &lt;li&gt;Verify user personal data processed by the application is encrypted at rest (eg databases).&lt;/li&gt;
+                &lt;li&gt;If encryption is not being leveraged verify documentation exists outlining the reasoning for that decision.&lt;/li&gt;
+                &lt;/ol&gt;
+                &lt;/div&gt;
+            </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T14:44:50.785000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>
+                <control ref="EU-GDPR-PERMANTLY-DELETE-UNCESSESSARY-DATA" name="Permanently delete unnecessary data" platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="MANUAL">
+                    <desc>Ensure that personal data is automatically deleted, within operational and back-up environments, whenever the defined retention periods have expired. This requires automatic identification of latest activities within the database (timestamping logging) and a data deletion functionality.
+          </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="EU GDPR - EU Data Protection" url="http://ec.europa.eu/justice/data-protection/reform/files/regulation_oj_en.pdf"/>
+                    </references>
+                    <standards>
+                        <standard ref="Art.5" supportedStandardRef="EU-GDPR"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>
+                &lt;ol&gt;
+                &lt;li&gt;Verify personal data timestamp logging is in place indicating the time period in which the data was obtained from the user.&lt;/li&gt;
+                &lt;li&gt;Verify completion of automatic personal data deletion after mandated retention time-period has elapsed.&lt;/li&gt;
+                &lt;/ol&gt;
+            </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T13:03:23.281000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>
+                <control ref="CWE-306-SERVICE" name="Require authentication before presenting restricted data" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+              The application should ensure users have undergone an Identification and Verification (ID&amp;amp;V) process before allowing access to secret, sensitive or otherwise restricted data. For less sensitive but still restricted data, simple verification of the location of the user may suffice
+              (e.g. IP restrictions).
+              &lt;/div&gt;
+              &lt;div&gt;
+              &lt;ul&gt;
+              &lt;li&gt;For non-sensitive but non-public data, access could be restricted by IP address, for example limiting access to internal networks, workstations, or gateways&lt;/li&gt;
+              &lt;li&gt;For more sensitive data, TLS client-side certificates may be appropriate&lt;/li&gt;
+              &lt;li&gt;Where secret or other sensitive data is handled, a full authentication process to identify and validate users with single or multi-factor authentication may be required&lt;/li&gt;
+              &lt;/ul&gt;
+              &lt;/div&gt;
+          </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="EU GDPR - EU Data Protection" url="http://ec.europa.eu/justice/data-protection/reform/files/regulation_oj_en.pdf"/>
+                        <reference name="Avatao Challenge: Cookies" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/59784157-08ef-4650-8d15-5b65411dfcd7"/>
+                        <reference name="Avatao Challenge: L1K3 API 3 - Break It" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/28f6e705-6a01-11e6-bdf4-0800200c9a66"/>
+                        <reference name="Avatao Challenge: Lazy Admin 1" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/2b758e00-2e29-11e6-bdf4-0800200c9a66"/>
+                        <reference name="Avatao Challenge: L1K3 API 3 - Fix It" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/28f6e707-6a01-11e6-bdf4-0800200c9a66"/>
+                        <reference name="Avatao Challenge: Do not share your secrets - Part 2" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/28f909ee-6a01-11e6-bdf4-0800200c9a66"/>
+                        <reference name="Avatao Challenge: Good Old JWT" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/293aaa04-7b22-4666-97bf-3bb0f6c2f291"/>
+                        <reference name="Avatao Challenge: Do not share your secrets - Part 1" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/28f909ef-6a01-11e6-bdf4-0800200c9a66"/>
+                        <reference name="Avatao Challenge: Lazy Admin 2" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/28f58778-6a01-11e6-bdf4-0800200c9a66"/>
+                        <reference name="Avatao Challenge: Login With Identity Provider" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/7cc0e5c0-8ede-4041-9cf9-36b2cdabe228"/>
+                        <reference name="Avatao Challenge: Password Recovery" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/57533bb0-8872-11e5-a837-0800200c9a66"/>
+                        <reference name="Avatao Challenge: Multilevel Login" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/980ac3c0-887d-11e5-a837-0800200c9a66"/>
+                    </references>
+                    <standards>
+                        <standard ref="Art.32" supportedStandardRef="EU-GDPR"/>
+                        <standard ref="AC-14" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="AC-21" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="AC-22" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="IA-1" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-12" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-4" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="2.1" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="2.1" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="9.5" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="2.1" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="9.5" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="A2:2017-Broken Authentication" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+                &lt;li&gt;Identify which parts of the service present sensitive data.&amp;nbsp;&lt;/li&gt;
+                &lt;li&gt;Try to obtain access to this information without any type of authentication, for example, attempt to navigate directly to URLs that present sensitive data.&lt;/li&gt;
+                &lt;/ol&gt;
+            </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2015-08-15T17:17:14.585000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>
+                <control ref="EU-GDPR-ANONYMISED-DATA-TEST" name="Use anonymised data in test environment" platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="MANUAL">
+                    <desc>Implement anonymization/pseudonymization or give a risk based explanation (from the standpoint of the data subject) why anonymization and pseudonymization are not used. Anonymization makes it impossible to reidentify the data subject while pseudonymization uses randomization techniques to make personal data less identifiable.
+          &lt;br /&gt;&lt;br /&gt;The following techniques provide a degree of anonymization and pseudonymization and might be used:
+              &lt;ul&gt;
+              &lt;li&gt;noise addition&amp;nbsp;&lt;/li&gt;
+              &lt;li&gt;substitution&amp;nbsp;&lt;/li&gt;
+              &lt;li&gt;aggregation or K-anonymity&amp;nbsp;&lt;/li&gt;
+              &lt;li&gt;L-diversity&amp;nbsp;&lt;/li&gt;
+              &lt;li&gt;differential privacy&amp;nbsp;&lt;/li&gt;
+              &lt;li&gt;hashing or tokenization&lt;/li&gt;
+              &lt;li&gt;dummy data&lt;/li&gt;
+              &lt;/ul&gt;&lt;br /&gt;If anonymization/pseudonymization is not possible, other security controls should be implemented, such as:
+              &lt;ul&gt;
+              &lt;li&gt;strong logical access control to test environment&lt;/li&gt;
+              &lt;li&gt;deletion of test environment data after tests have been conducted&lt;/li&gt;
+              &lt;/ul&gt;
+          </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="EU GDPR - EU Data Protection" url="http://ec.europa.eu/justice/data-protection/reform/files/regulation_oj_en.pdf"/>
+                    </references>
+                    <standards>
+                        <standard ref="Art.32" supportedStandardRef="EU-GDPR"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+                &lt;li&gt;Verify anonymization / pseudonymization of all user personal data is leveraged for data residing within the test environment (truly anonymized data is stripped of ALL personally identifiable information and additional data would be required to reidentify a specific user when leveraging data pseudonymization).&lt;/li&gt;
+                &lt;li&gt;If anonymization / pseudonymization is not leveraged for user personal data residing within the test environment, verify documentation exists justifying why this is and ensure security is as robust as the production environment.&lt;/li&gt;
+                &lt;/ol&gt;
+            </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T14:46:46.327000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>
+            </controls>
+            <usecases>
+                <usecase ref="PERSONAL-DATA" name="Personal Data" desc="" library="">
+                    <threats>
+                        <threat ref="EU-GDPR-DATA_LEAKAGE-UNAUTHZ-PARTIES" name="Data leakage or disclosure to unauthorized parties" state="Expose" source="MANUAL" owner="admin" library="">
+                            <desc>Unauthorized party might access/breach the personal data of the
+                                data subject.
+                            </desc>
+                            <riskRating confidentiality="50" integrity="50" availability="75" easeOfExploitation="25"/>
+                            <references/>
+                            <controls>
+                                <control ref="CWE-285" mitigation="20"/>
+                                <control ref="CWE-306-SERVICE" mitigation="20"/>
+                                <control ref="EU-GDPR-ANONYMISATION" mitigation="10"/>
+                                <control ref="EU-GDPR-ANONYMISED-DATA-TEST" mitigation="10"/>
+                                <control ref="EU-GDPR-DOC-ALL-DATA-PROCESSED" mitigation="10"/>
+                                <control ref="EU-GDPR-ENCRYPT-PERSONAL-DATA" mitigation="10"/>
+                                <control ref="EU-GDPR-PERMANTLY-DELETE-UNCESSESSARY-DATA" mitigation="10"/>
+                                <control ref="EU-GDPR-RETENTION-PERIODS" mitigation="10"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="EU-GDPR-LOGICAL-DELETE-DATA-INACTIVITY">
+                                    <controls>
+                                        <control ref="EU-GDPR-PERMANTLY-DELETE-UNCESSESSARY-DATA" mitigation="10"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="EU-GDPR-NO-ANONYMISATION">
+                                    <controls>
+                                        <control ref="EU-GDPR-ANONYMISATION" mitigation="10"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="EU-GDPR-MISSING-ENCRYPTION-SENSITIVE-DATA">
+                                    <controls>
+                                        <control ref="EU-GDPR-ENCRYPT-PERSONAL-DATA" mitigation="10"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="EU-GDPR-PRODUCTION-DATA-TEST-DATA">
+                                    <controls>
+                                        <control ref="EU-GDPR-ANONYMISED-DATA-TEST" mitigation="10"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="EU-GDPR-STORING-DATA-TOO-LONG">
+                                    <controls>
+                                        <control ref="EU-GDPR-RETENTION-PERIODS" mitigation="10"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="EU-GDPR-STORING-TOO-MUCH-DATA">
+                                    <controls>
+                                        <control ref="EU-GDPR-DOC-ALL-DATA-PROCESSED" mitigation="10"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="EU-GDPR-UNAUTHENTICATED-DATA-ACCESS">
+                                    <controls>
+                                        <control ref="CWE-306-SERVICE" mitigation="20"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="EU-GDPR-UNNECESSARY-PRIVILEGES">
+                                    <controls>
+                                        <control ref="CWE-285" mitigation="20"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>
+                    </threats>
+                </usecase>
+            </usecases>
+        </component>
+        <component ref="EU-GDPR-GENERIC-COMPONENT" name="Generic Component" desc="" tags="" position="3" groupName="" library="" diagramPositionX="0" diagramPositionY="0" componentDefinitionRef="">
+            <weaknesses>
+                <weakness ref="EU-GDPR-INSUFFICIENT-INPUT-VALIDATION" name="Insufficient input validation" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T14:23:25.556000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>No logical checks to see if personal data which is uploaded into the application is correct (e.g. format requirements, input possibility controls, ...)
+          </desc>
+                </weakness>
+                <weakness ref="EU-GDPR-INSUFFICIENT-LOGGING" name="Insufficient Logging" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-02-22T13:17:23.218000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>When a security-critical event occurs, the software either does not record the event or omits important details about the event when logging it. 
+          &lt;br /&gt; &lt;br /&gt;
+          When security-critical events are not logged properly, such as a failed login attempt, this can make malicious behavior more difficult to detect&amp;nbsp;
+          </desc>
+                </weakness>
+                <weakness ref="EU-GDPR-NO-DATA-INTEGRITY-CHECKS" name="No data integrity checks" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T14:28:30.163000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>Inadequate integrity protection (e.g. encryption, strong logical access rights, ...) which leaves personal data vulnerable towards man in the middle attacks. 
+          </desc>
+                </weakness>
+                <weakness ref="EU-GDPR-NO-DELETION-FUNCTIONALITY" name="Not data deletion functionality" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T14:12:01.417000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>Personal data is not automatically deleted when retention periods have expired, which means data must be manually deleted by an administrator who can easily forget this task.
+          &lt;br /&gt;&lt;br /&gt;
+          Personal data that was deleted becomes operational again after a restore because the data was not deleted from the back-ups nor was there a process in place to reidentify and delete personal data that was previously deleted.
+          </desc>
+                </weakness>
+                <weakness ref="EU-GDPR-BAD-ALGORITHMS" name="Profiling algorithms that lead to erroneous profiles" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T15:04:00.719000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>Bad algorithms which lead to erroneous profiles.</desc>
+                </weakness>
+                <weakness ref="EU-GDPR-UNAUTHENTICATED-DATA-ACCESS" name="Unauthenticated data access" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T14:39:36.022000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>Authentication can be bypassed.</desc>
+                </weakness>
+                <weakness ref="EU-GDPR-UNNECESSARY-PRIVILEGES" name="Unnecessary privileges to process the data" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T14:41:33.980000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>Authorization can be bypassed</desc>
+                </weakness>
+                <weakness ref="EU-GDPR-UNRECOVERED-SENSITIVE-DATA" name="Unrecovered sensitive data" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T14:48:16.319000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The sensitive data cannot be recovered after the data has been accidentally or intentionally deleted due to non-existent data backup.
+          </desc>
+                </weakness>
+            </weaknesses>
+            <controls>
+                <control ref="CWE-285" name="Apply authorization checks to segregate and control access to user data" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+                        &lt;div&gt;
+                        Applications protecting sensitive or otherwise restricted resources must ensure only appropriate
+                        and authorized users may access the application data. It is important that an application
+                        prevents unauthorized users gaining inappropriate access to each other's data; although user A
+                        and user B may both be trusted to access data within the application, they may be authorized to
+                        only access different subsets of the protected resources.&amp;nbsp; E.g. user A should not be
+                        able to access user B's personal data by manipulating a request (typical examples are
+                        manipulation of an ID value or other object reference sent in the URL or body of an HTTP
+                        request).
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        It is not sufficient to rely on obscurity, for example obfuscated or secret URLs or filenames.
+                        The application must validate each request for protected data against the proven identity of the
+                        user. Before providing access to restricted resources the application must:
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;ul&gt;
+                        &lt;li&gt;Ensure the user has undergone appropriate authentication (identification and
+                        verification, or ID&amp;amp;V). E.g. they must have provided their identity and confirmed this
+                        with a password, token, or other verification. Typically this will be through checking the
+                        validity of the session token issued after login.&lt;/li&gt;
+                        &lt;li&gt;Confirm the user is entitled to access the data or resource they are requesting. E.g.
+                        their confirmed identify checked against a server-side access control matrix to determine
+                        whether they may access the requested resource.&lt;/li&gt;
+                        &lt;li&gt;Access controls should be granular, and allow for access to individual resources to be
+                        issued to individual users or roles.&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;div&gt;
+                        URL and asset based access control is provided by most web-frameworks, and it is preferable to
+                        use an established and proven framework.
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                    </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="Avatao Challenge: Controlling Access" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/558b3090-847a-11e5-a837-0800200c9a66"/>
+                        <reference name="Avatao Challenge: Path to the secret - fix" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/05c949b3-4be3-42b7-af29-d86b3cda8c2e"/>
+                        <reference name="Avatao Challenge: L1K3 API 2 - Break It" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/fa6f24c4-2f17-11e6-bdf4-0800200c9a66"/>
+                        <reference name="Avatao Challenge: L1K3 Drive 2 Tutorial" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/b443bf01-f52d-442b-be5d-1f8d9aa32037"/>
+                        <reference name="Avatao Challenge: L1K3 Drive 2" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/e069a6c1-8265-4115-9126-f8e188c62765"/>
+                        <reference name="Avatao Challenge: Path to the secret" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/07a3986b-492a-47f1-9458-85c90d6b571f2"/>
+                        <reference name="Avatao Challenge: Math Exam" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/c7a7eac0-fa7f-11e6-9598-0800200c9a66"/>
+                        <reference name="Avatao Challenge: L1K3 Drive 0" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/1c34218e-bf48-4d93-95fe-dfd521d8f019"/>
+                        <reference name="Avatao Challenge: Nice books" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/ade3ecc0-2634-11e7-9598-0800200c9a66"/>
+                        <reference name="Avatao Challenge: Secure Bank" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/a0ede2d0-fdc8-11e6-9598-0800200c9a66"/>
+                        <reference name="Avatao Challenge: L1K3 API 2 - Fix It" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/fa6f24c6-2f17-11e6-bdf4-0800200c9a66"/>
+                        <reference name="Avatao Challenge: ASCII Gallery" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/1ff95e60-70c6-11e5-a837-0800200c9a66"/>
+                        <reference name="Avatao Challenge: Free Money" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/63a9f140-0af0-11e7-9598-0800200c9a66"/>
+                        <reference name="Avatao Challenge: L1K3 Drive 1" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/630fa4fc-3138-4805-bd78-ea85e492c2e2"/>
+                    </references>
+                    <standards>
+                        <standard ref="Art.32" supportedStandardRef="EU-GDPR"/>
+                        <standard ref="9.1.1" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="9.2.2" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="9.2.3" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="9.4.1" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="2.4.10.2" supportedStandardRef="iotsf-class-0"/>
+                        <standard ref="2.4.12.3" supportedStandardRef="iotsf-class-0"/>
+                        <standard ref="2.4.10.2" supportedStandardRef="iotsf-class-1"/>
+                        <standard ref="2.4.12.3" supportedStandardRef="iotsf-class-1"/>
+                        <standard ref="2.4.8.9" supportedStandardRef="iotsf-class-1"/>
+                        <standard ref="2.4.10.2" supportedStandardRef="iotsf-class-2"/>
+                        <standard ref="2.4.12.3" supportedStandardRef="iotsf-class-2"/>
+                        <standard ref="2.4.8.9" supportedStandardRef="iotsf-class-2"/>
+                        <standard ref="AC-1" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="AC-24" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="AC-5" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="AC-6" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="CM-7" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-12" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-4" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="4.1" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="4.4" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="4.8" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="4.1" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="4.4" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="4.8" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="9.5" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="4.1" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="4.4" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="4.8" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="9.5" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="A5:2017-Broken Access Control" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+                            &lt;li&gt;Using two different browsers configured with an intercepting proxy.&lt;/li&gt;
+                            &lt;li&gt;Login as user A in browser A.&lt;/li&gt;
+                            &lt;li&gt;Login as user B in browser B.&lt;/li&gt;
+                            &lt;li&gt;For every operation that displays sensitive data belonging to user A:&lt;/li&gt;
+                            &lt;ol&gt;
+                            &lt;li&gt;Perform the operation as user A and view their sensitive data&lt;/li&gt;
+                            &lt;li&gt;Obtain the session ID of user B&lt;/li&gt;
+                            &lt;li&gt;Configure the proxy to intercept&lt;/li&gt;
+                            &lt;li&gt;Perform the operation as user A again, but this time intercept all the requests
+                            and replace user A's session ID with that of user B&lt;/li&gt;
+                            &lt;li&gt;Ensure that user A's sensitive data is &lt;b&gt;not &lt;/b&gt;visible&lt;/li&gt;
+                            &lt;/ol&gt;
+                            &lt;/ol&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2015-08-15T17:17:14.266000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>
+                <control ref="EU-GDPR-AUTOMATED-DECISIONS" name="Automated decisions and profiling" platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="MANUAL">
+                    <desc>You must involve the DPO to make sure that automated decisions are ethical and correct and to make sure that data subjects can object to the profiling activities (foresee a secondary process that can manually bypass the processing).
+          </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="EU GDPR - EU Data Protection" url="http://ec.europa.eu/justice/data-protection/reform/files/regulation_oj_en.pdf"/>
+                    </references>
+                    <standards>
+                        <standard ref="Art.21" supportedStandardRef="EU-GDPR"/>
+                        <standard ref="Art.22" supportedStandardRef="EU-GDPR"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>
+                &lt;ol&gt;
+                &lt;li&gt;Verify with the Data Protection Practitioner the reasoning for automatically gathering personal data from users for profiling purposes is compliant and justified with their requirements.&lt;/li&gt;
+                &lt;li&gt;Verify user mechanisms are in place to object to these profiling activities.&lt;/li&gt;
+                &lt;/ol&gt;
+            </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T15:04:26.235000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>
+                <control ref="EU-GDPR-BACKUP" name="Implement a Backup and Recovery process" platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="MANUAL">
+                    <desc>Ensure backup policy is active and tested.The policy should describe the required recovery time objective (RTO) and recovery point objective (RPO) so that the availability of personal data can be restored in a timely manner (based upon the requirements specified by the DPO/CISO).
+          &lt;br /&gt;&lt;br /&gt;
+          Ensure an SLA has been defined for data availability. How 'timely manner' will be interpreted depends on your SLA. 
+          </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="EU GDPR - EU Data Protection" url="http://ec.europa.eu/justice/data-protection/reform/files/regulation_oj_en.pdf"/>
+                    </references>
+                    <standards>
+                        <standard ref="Art.32" supportedStandardRef="EU-GDPR"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>
+                &lt;ol&gt;
+                &lt;li&gt;Verify backup policy documentation exists that are up-to-date and in compliance with the requirements of the Data Protection Practitioner.&lt;/li&gt;
+                &lt;li&gt;Regularly test data backup procedures and data restoration.&lt;/li&gt;
+                &lt;/ol&gt;
+            </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T14:48:40.303000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>
+                <control ref="EU-GDPR-INTEGRITY" name="Implement data sanity and data integrity checks" platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="MANUAL">
+                    <desc>Implement data sanity and data integrity checks. Data sanity checks are run on a regular basis to validate the sanity of the data (e.g. through statistical analysis). Data integrity checks are performed when data is entered or changed to ensure the data complies to business validation rules as well as common sense rules (e.g. age should not be over 130 years)
+          </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="EU GDPR - EU Data Protection" url="http://ec.europa.eu/justice/data-protection/reform/files/regulation_oj_en.pdf"/>
+                    </references>
+                    <standards>
+                        <standard ref="Art.5" supportedStandardRef="EU-GDPR"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>Test if users are able to submit malformed, invalid, untrusted, unauthorized data leveraging an intercepting proxy. Especially consider the issue of bypassing non-editable controls such as hidden-fields&amp;nbsp;
+            </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T14:28:59.889000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>
+                <control ref="EU-GDPR-IMPLEMENT-FORGET" name="Implement forget user functionality" platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="MANUAL">
+                    <desc>Make sure that your deletion functionality also facilitates the manual deletion of one data subject (person of whom personal data is processed) at any given point in time. All data of the data subject should be deleted from the operational databases as well as back-ups.
+          &lt;br /&gt;&lt;br /&gt;
+          Implementation Advice: You should develop a script to ensure the re-deletion of data subjects (persons of whom personal data is processed) who exercised their right to be forgotten and run it after each database restore. The data subjects should be deleted from the script whenever the retention period of the data has expired.
+          </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="EU GDPR - EU Data Protection" url="http://ec.europa.eu/justice/data-protection/reform/files/regulation_oj_en.pdf"/>
+                    </references>
+                    <standards>
+                        <standard ref="Art.17" supportedStandardRef="EU-GDPR"/>
+                        <standard ref="Art.5" supportedStandardRef="EU-GDPR"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>
+                &lt;ol&gt;
+                &lt;li&gt;Verify the capability to delete a user's personal data from within operational storage.&lt;/li&gt;
+                &lt;li&gt;Verify this user data will not be reactivated during restoration of data backup.&lt;/li&gt;
+                &lt;/ol&gt;
+            </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T14:12:39.055000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>
+                <control ref="EU-GDPR-INPUT-VADILATION" name="Implement input validation controls" platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="MANUAL">
+                    <desc>
+          Implement input validation controls to ensure personal data is captured correctly. This may include:
+              &lt;ol&gt;
+              &lt;li&gt;Input validation based on business logic rules (All data needs to be validated before processing. Ensure the type of data is checked as well its range when applicable (e.g : age between 0 and 150)&lt;/li&gt;
+              &lt;li&gt;Restrict input to trusted sources (Eg. E-ID) and formats&lt;/li&gt;
+              &lt;li&gt;Let the data subject (=person of whom personal data is processed) manually input his/her data and/or review his data before submitting&lt;/li&gt;
+              &lt;li&gt;Review &amp;amp; Resolution of errors (Supplemental Guidance: Resolution of input validation errors includes, for example, correcting systemic causes of errors and resubmitting transactions with corrected input)&lt;/li&gt;
+              &lt;/ol&gt;
+          </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="EU GDPR - EU Data Protection" url="http://ec.europa.eu/justice/data-protection/reform/files/regulation_oj_en.pdf"/>
+                    </references>
+                    <standards>
+                        <standard ref="Art.5" supportedStandardRef="EU-GDPR"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>
+                &lt;ol&gt;
+                &lt;li&gt;Verify user personal data is properly formed with strong validation patterns both syntactically (eg dates) and semantically (eg age is within expected range).&lt;/li&gt;
+                &lt;li&gt;Test by attempting to submit malformed and logically invalid personal data into the user interface.&lt;/li&gt;
+                &lt;/ol&gt;
+            </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T14:23:55.788000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>
+                <control ref="EU-GDPR-LOGGING" name="Logging the data access and the modification of personal data" platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="MANUAL">
+                    <desc>Make sure that every access and modification of personal data is logged (The log should be precise enough to know who changed what and when). This includes data access from the application as well as data access from privileged accounts, such as database admins. In practice, this means logging both on application, middleware and operating system (OS) level.
+          </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="EU GDPR - EU Data Protection" url="http://ec.europa.eu/justice/data-protection/reform/files/regulation_oj_en.pdf"/>
+                    </references>
+                    <standards>
+                        <standard ref="Art.32" supportedStandardRef="EU-GDPR"/>
+                        <standard ref="Art.5" supportedStandardRef="EU-GDPR"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+                &lt;li&gt;Test accessing and modifying user personal data as legitimate users, employees, administrators and malicious actors.&lt;/li&gt;
+                &lt;li&gt;Verify appropriate logging of all the above activities are successful and sufficiently detailed.&lt;/li&gt;
+                &lt;/ol&gt;
+            </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T15:00:32.431000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>
+                <control ref="CWE-306-SERVICE" name="Require authentication before presenting restricted data" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;div&gt;
+              The application should ensure users have undergone an Identification and Verification (ID&amp;amp;V) process before allowing access to secret, sensitive or otherwise restricted data. For less sensitive but still restricted data, simple verification of the location of the user may suffice
+              (e.g. IP restrictions).
+              &lt;/div&gt;
+              &lt;div&gt;
+              &lt;ul&gt;
+              &lt;li&gt;For non-sensitive but non-public data, access could be restricted by IP address, for example limiting access to internal networks, workstations, or gateways&lt;/li&gt;
+              &lt;li&gt;For more sensitive data, TLS client-side certificates may be appropriate&lt;/li&gt;
+              &lt;li&gt;Where secret or other sensitive data is handled, a full authentication process to identify and validate users with single or multi-factor authentication may be required&lt;/li&gt;
+              &lt;/ul&gt;
+              &lt;/div&gt;
+          </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="EU GDPR - EU Data Protection" url="http://ec.europa.eu/justice/data-protection/reform/files/regulation_oj_en.pdf"/>
+                        <reference name="Avatao Challenge: Cookies" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/59784157-08ef-4650-8d15-5b65411dfcd7"/>
+                        <reference name="Avatao Challenge: L1K3 API 3 - Break It" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/28f6e705-6a01-11e6-bdf4-0800200c9a66"/>
+                        <reference name="Avatao Challenge: Lazy Admin 1" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/2b758e00-2e29-11e6-bdf4-0800200c9a66"/>
+                        <reference name="Avatao Challenge: L1K3 API 3 - Fix It" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/28f6e707-6a01-11e6-bdf4-0800200c9a66"/>
+                        <reference name="Avatao Challenge: Do not share your secrets - Part 2" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/28f909ee-6a01-11e6-bdf4-0800200c9a66"/>
+                        <reference name="Avatao Challenge: Good Old JWT" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/293aaa04-7b22-4666-97bf-3bb0f6c2f291"/>
+                        <reference name="Avatao Challenge: Do not share your secrets - Part 1" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/28f909ef-6a01-11e6-bdf4-0800200c9a66"/>
+                        <reference name="Avatao Challenge: Lazy Admin 2" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/28f58778-6a01-11e6-bdf4-0800200c9a66"/>
+                        <reference name="Avatao Challenge: Login With Identity Provider" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/7cc0e5c0-8ede-4041-9cf9-36b2cdabe228"/>
+                        <reference name="Avatao Challenge: Password Recovery" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/57533bb0-8872-11e5-a837-0800200c9a66"/>
+                        <reference name="Avatao Challenge: Multilevel Login" url="https://platform.avatao.com/paths/f4b690b6-07b7-4945-92ad-516941735661/challenges/980ac3c0-887d-11e5-a837-0800200c9a66"/>
+                    </references>
+                    <standards>
+                        <standard ref="Art.32" supportedStandardRef="EU-GDPR"/>
+                        <standard ref="AC-14" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="AC-21" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="AC-22" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="IA-1" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-12" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-4" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="2.1" supportedStandardRef="OWASP-ASVS-Level-1"/>
+                        <standard ref="2.1" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="9.5" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="2.1" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="9.5" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="A2:2017-Broken Authentication" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;ol&gt;
+                &lt;li&gt;Identify which parts of the service present sensitive data.&amp;nbsp;&lt;/li&gt;
+                &lt;li&gt;Try to obtain access to this information without any type of authentication, for example, attempt to navigate directly to URLs that present sensitive data.&lt;/li&gt;
+                &lt;/ol&gt;
+            </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2015-08-15T17:17:14.585000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>
+            </controls>
+            <usecases>
+                <usecase ref="PERSONAL-DATA" name="Personal Data" desc="" library="">
+                    <threats>
+                        <threat ref="EU-GDPR-DATA_LEAKAGE-UNAUTHZ-PARTIES" name="Data leakage or disclosure to unauthorized parties" state="Expose" source="MANUAL" owner="admin" library="">
+                            <desc>Unauthorized party might access/breach the personal data of the data subject.
+              </desc>
+                            <riskRating confidentiality="50" integrity="50" availability="75" easeOfExploitation="25"/>
+                            <references/>
+                            <controls>
+                                <control ref="CWE-285" mitigation="50"/>
+                                <control ref="CWE-306-SERVICE" mitigation="50"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="EU-GDPR-UNAUTHENTICATED-DATA-ACCESS">
+                                    <controls>
+                                        <control ref="CWE-306-SERVICE" mitigation="50"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="EU-GDPR-UNNECESSARY-PRIVILEGES">
+                                    <controls>
+                                        <control ref="CWE-285" mitigation="50"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>
+                        <threat ref="EU-GDPR-ILLEGAL-PROCESSING-PERSONAL-DATA" name="Illegal processing of personal data" state="Expose" source="MANUAL" owner="admin" library="">
+                            <desc>Processing personal data without legal grounds which makes it possible for data subjects to file a complaint at local Data Protection Authority which might lead to administrative fines.
+              </desc>
+                            <riskRating confidentiality="75" integrity="50" availability="50" easeOfExploitation="50"/>
+                            <references/>
+                            <controls>
+                                <control ref="EU-GDPR-AUTOMATED-DECISIONS" mitigation="100"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="EU-GDPR-BAD-ALGORITHMS">
+                                    <controls>
+                                        <control ref="EU-GDPR-AUTOMATED-DECISIONS" mitigation="100"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>
+                        <threat ref="EU-GDPR-INCORRECT-PROCESING-DATA" name="Incorrect or corrupt data which is used for processing" state="Expose" source="MANUAL" owner="admin" library="">
+                            <desc>Incorrect personal data is processed which imposes negative consequences for the data subject.
+              </desc>
+                            <riskRating confidentiality="75" integrity="100" availability="50" easeOfExploitation="25"/>
+                            <references/>
+                            <controls>
+                                <control ref="EU-GDPR-INPUT-VADILATION" mitigation="50"/>
+                                <control ref="EU-GDPR-INTEGRITY" mitigation="50"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="EU-GDPR-INSUFFICIENT-INPUT-VALIDATION">
+                                    <controls>
+                                        <control ref="EU-GDPR-INPUT-VADILATION" mitigation="50"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="EU-GDPR-NO-DATA-INTEGRITY-CHECKS">
+                                    <controls>
+                                        <control ref="EU-GDPR-INTEGRITY" mitigation="50"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>
+                        <threat ref="EU-GDPR-REPUDATION" name="Lack of detectability and evidence" state="Expose" source="MANUAL" owner="admin" library="">
+                            <desc>Attackers can gain undetected access to sensitive data and they are not monitored.
+              </desc>
+                            <riskRating confidentiality="25" integrity="75" availability="50" easeOfExploitation="50"/>
+                            <references/>
+                            <controls>
+                                <control ref="EU-GDPR-LOGGING" mitigation="100"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="EU-GDPR-INSUFFICIENT-LOGGING">
+                                    <controls>
+                                        <control ref="EU-GDPR-LOGGING" mitigation="100"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>
+                        <threat ref="EU-GDPR-LOSS-PERSONAL-DATA" name="Loss of personal data" state="Expose" source="MANUAL" owner="admin" library="">
+                            <desc>Personal data can be lost by (accidental or malicious) deletion and system failures.
+              </desc>
+                            <riskRating confidentiality="75" integrity="75" availability="50" easeOfExploitation="50"/>
+                            <references/>
+                            <controls>
+                                <control ref="EU-GDPR-BACKUP" mitigation="100"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="EU-GDPR-UNRECOVERED-SENSITIVE-DATA">
+                                    <controls>
+                                        <control ref="EU-GDPR-BACKUP" mitigation="100"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>
+                        <threat ref="EU-GDPR-SUBJECT-RIGTHS" name="Subjects cannot exercise their rights over their personal data" state="Expose" source="MANUAL" owner="admin" library="">
+                            <desc>Data subject cannot exercise their rights which makes it possible for data subjects to file a complaint at local Data Protection Authority which might lead to administrative fines.
+              &lt;br /&gt;&lt;br /&gt;
+              Data subject = person of whom personal data is processed 
+              </desc>
+                            <riskRating confidentiality="100" integrity="100" availability="25" easeOfExploitation="25"/>
+                            <references/>
+                            <controls>
+                                <control ref="EU-GDPR-IMPLEMENT-FORGET" mitigation="100"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="EU-GDPR-NO-DELETION-FUNCTIONALITY">
+                                    <controls>
+                                        <control ref="EU-GDPR-IMPLEMENT-FORGET" mitigation="100"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>
+                    </threats>
+                </usecase>
+            </usecases>
+        </component>
+        <component ref="INTERNATIONAL-TRANSFER" name="International Transfer" desc="Transfer of data to third countries" tags="" position="4" groupName="" library="" diagramPositionX="0" diagramPositionY="0" componentDefinitionRef="">
+            <weaknesses>
+                <weakness ref="EU-GDPR-NO-LEGAL-GROUND-INTERNATIONAL-TRANSFER" name="No legal ground used for international data transfer to third countries" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-02-22T12:27:55.832000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>&lt;ul&gt;
+              &lt;li&gt;No binding corporate rules or standard model clauses with non-EU third party&lt;/li&gt;
+              &lt;li&gt;Inadequate due diligence of third parties&amp;nbsp;&lt;/li&gt;
+              &lt;/ul&gt;
+          </desc>
+                </weakness>
+            </weaknesses>
+            <controls>
+                <control ref="EU-GDPR-MANAGE-INTERNATIONAL-DATA-TRANSFERS" name="Manage international data transfers" platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="MANUAL">
+                    <desc>You must involve the DPO/Legal in order to ensure that the international transfer of data is legal. The DPO can make use of adequacy decisions, Binding Corporate Rules (BCRs), standard EU model clauses or derivatives (Privacy shield) whenever they apply.
+          </desc>
+                    <implementations/>
+                    <references>
+                        <reference name="EU GDPR - EU Data Protection" url="http://ec.europa.eu/justice/data-protection/reform/files/regulation_oj_en.pdf"/>
+                    </references>
+                    <standards>
+                        <standard ref="Art.44" supportedStandardRef="EU-GDPR"/>
+                        <standard ref="Art.45" supportedStandardRef="EU-GDPR"/>
+                        <standard ref="Art.46" supportedStandardRef="EU-GDPR"/>
+                        <standard ref="Art.47" supportedStandardRef="EU-GDPR"/>
+                        <standard ref="Art.48" supportedStandardRef="EU-GDPR"/>
+                        <standard ref="Art.49" supportedStandardRef="EU-GDPR"/>
+                        <standard ref="Art.50" supportedStandardRef="EU-GDPR"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>Verify international transfer of user personal data to non-EU countries is compliant with the requirements of the Data Protection Practitioner.
+            </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-01-18T15:06:44.847000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>
+            </controls>
+            <usecases>
+                <usecase ref="PERSONAL-DATA" name="Personal Data" desc="" library="">
+                    <threats>
+                        <threat ref="EU-GDPR-ILLEGAL-PROCESSING-PERSONAL-DATA" name="Illegal processing of personal data" state="Expose" source="MANUAL" owner="admin" library="">
+                            <desc>Processing personal data without legal grounds which makes it possible for data subjects to file a complaint at local Data Protection Authority which might lead to administrative fines.
+              </desc>
+                            <riskRating confidentiality="75" integrity="50" availability="50" easeOfExploitation="50"/>
+                            <references/>
+                            <controls>
+                                <control ref="EU-GDPR-MANAGE-INTERNATIONAL-DATA-TRANSFERS" mitigation="100"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="EU-GDPR-NO-LEGAL-GROUND-INTERNATIONAL-TRANSFER">
+                                    <controls>
+                                        <control ref="EU-GDPR-MANAGE-INTERNATIONAL-DATA-TRANSFERS" mitigation="100"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>
+                    </threats>
+                </usecase>
+            </usecases>
+        </component>
+    </components>
+    <rules>
+        <rule name="Conclusion: EU GDPR - All - PII - Processed" module="component" generatedByGui="true">
+            <condition name="Question is answered" type="Question" field="id" value="Personally Identifiable InformationProcessed">
+                <pattern name="Condition with answer" pattern='${type}(${field} == "${value}", answer == true);'/>
+            </condition>
+            <action project="" value="ConclusionType.HIDDEN_::_pii.handled_::_Personal Identifiable Information is handled" name="Insert Conclusion" type="drools-without-variable-type">
+                <pattern name="Action of insert conclusion" pattern='insertLogical(new Conclusion(${value-1}, "${value-2}", "${value-3}"));'/>
+            </action>
+        </rule>
+        <rule name="Conclusion: EU GDPR - All - PII - Received" module="component" generatedByGui="true">
+            <condition name="Question is answered" type="Question" field="id" value="Personally Identifiable InformationReceived by component">
+                <pattern name="Condition with answer" pattern='${type}(${field} == "${value}", answer == true);'/>
+            </condition>
+            <action project="" value="ConclusionType.HIDDEN_::_pii.handled_::_Personal Identifiable Information is handled" name="Insert Conclusion" type="drools-without-variable-type">
+                <pattern name="Action of insert conclusion" pattern='insertLogical(new Conclusion(${value-1}, "${value-2}", "${value-3}"));'/>
+            </action>
+        </rule>
+        <rule name="Conclusion: EU GDPR - All - PII - Sent" module="component" generatedByGui="true">
+            <condition name="Question is answered" type="Question" field="id" value="Personally Identifiable InformationSent from component">
+                <pattern name="Condition with answer" pattern='${type}(${field} == "${value}", answer == true);'/>
+            </condition>
+            <action project="" value="ConclusionType.HIDDEN_::_pii.handled_::_Personal Identifiable Information is handled" name="Insert Conclusion" type="drools-without-variable-type">
+                <pattern name="Action of insert conclusion" pattern='insertLogical(new Conclusion(${value-1}, "${value-2}", "${value-3}"));'/>
+            </action>
+        </rule>
+        <rule name="Conclusion: EU GDPR - All - PII - Stored" module="component" generatedByGui="true">
+            <condition name="Question is answered" type="Question" field="id" value="Personally Identifiable InformationStored">
+                <pattern name="Condition with answer" pattern='${type}(${field} == "${value}", answer == true);'/>
+            </condition>
+            <action project="" value="ConclusionType.HIDDEN_::_pii.handled_::_Personal Identifiable Information is handled" name="Insert Conclusion" type="drools-without-variable-type">
+                <pattern name="Action of insert conclusion" pattern='insertLogical(new Conclusion(${value-1}, "${value-2}", "${value-3}"));'/>
+            </action>
+        </rule>
+        <rule name="Modify-Control: EU GDPR - Not Client with UI + International Transfer" module="component" generatedByGui="true">
+            <condition name="Question is answered" type="Question" field="id" value="eu_gdpr.internationalTransfer.yes">
+                <pattern name="Condition with answer" pattern='${type}(${field} == "${value}", answer == true);'/>
+            </condition>
+            <condition name="Question is not answered" type="Question" field="id" value="eu_gdpr.UI.yes">
+                <pattern name="Condition without answer" pattern='not ${type}(${field} == "${value}", answer == true);'/>
+            </condition>
+            <action project="EU GDPR" value="EU GDPR_::_EU-GDPR-GENERIC-COMPONENT_::_EU GDPR_::_EU-GDPR-GENERIC-COMPONENT_::_PERSONAL-DATA_::_EU-GDPR-ILLEGAL-PROCESSING-PERSONAL-DATA_::_EU-GDPR-AUTOMATED-DECISIONS_::_50" name="Modify Mitigation Value" type="drools-without-variable-type">
+                <pattern name="Action of modify mitigation value" pattern='insertLogical(RiskMitigationModifier.setMitigationValue("${value-1}", "${value-2}", "${value-6}", "${value-7}", "${value-8}"));'/>
+            </action>
+            <action project="EU GDPR" value="EU GDPR_::_INTERNATIONAL-TRANSFER_::_EU GDPR_::_INTERNATIONAL-TRANSFER_::_PERSONAL-DATA_::_EU-GDPR-ILLEGAL-PROCESSING-PERSONAL-DATA_::_EU-GDPR-MANAGE-INTERNATIONAL-DATA-TRANSFERS_::_50" name="Modify Mitigation Value" type="drools-without-variable-type">
+                <pattern name="Action of modify mitigation value" pattern='insertLogical(RiskMitigationModifier.setMitigationValue("${value-1}", "${value-2}", "${value-6}", "${value-7}", "${value-8}"));'/>
+            </action>
+        </rule>
+        <rule name="Q: EU GDPR - All - PII - European Subjects (Client)" module="component" generatedByGui="true">
+            <condition name="Conclusion exists" type="drools-without-variable-type" field="id" value="pii.handled">
+                <pattern name="Conclusion exists" pattern='Conclusion(id == "${value}");'/>
+            </condition>
+            <condition name="Risk pattern exists" type="drools-without-variable-type" field="id" value="CS-Default_::_GENERIC-CLIENT">
+                <pattern name="Risk pattern exists" pattern='$riskPattern : ImportWholeRiskPatternAwareDto(libraryRef == "${value-1}",riskPatternRef == "${value-2}");'/>
+            </condition>
+            <action project="" value="pii.handled.group_::_Data Privacy_::_Does this component handle personally identifiable information from citizens of the European Union?_::_2120_::_true_::_false_::_" name="Insert Question Group" type="drools-without-variable-type">
+                <pattern name="Action of insert question group" pattern='QuestionGroup group = new QuestionGroup("${value-1}","${value-2}","${value-3}", ${value-4}, "${value-7}"); group.setFlags(${value-5}, ${value-6}); insertLogical(group);'/>
+            </action>
+        </rule>
+        <rule name="Q: EU GDPR - All - PII - European Subjects (DataStore)" module="component" generatedByGui="true">
+            <condition name="Conclusion exists" type="drools-without-variable-type" field="id" value="pii.handled">
+                <pattern name="Conclusion exists" pattern='Conclusion(id == "${value}");'/>
+            </condition>
+            <condition name="Risk pattern exists" type="drools-without-variable-type" field="id" value="CS-Default_::_DATASTORE">
+                <pattern name="Risk pattern exists" pattern='$riskPattern : ImportWholeRiskPatternAwareDto(libraryRef == "${value-1}",riskPatternRef == "${value-2}");'/>
+            </condition>
+            <action project="" value="pii.handled.group_::_Data Privacy_::_Does this component handle personally identifiable information from citizens of the European Union?_::_2120_::_true_::_false_::_" name="Insert Question Group" type="drools-without-variable-type">
+                <pattern name="Action of insert question group" pattern='QuestionGroup group = new QuestionGroup("${value-1}","${value-2}","${value-3}", ${value-4}, "${value-7}"); group.setFlags(${value-5}, ${value-6}); insertLogical(group);'/>
+            </action>
+        </rule>
+        <rule name="Q: EU GDPR - All - PII - European Subjects (IoT Application)" module="component" generatedByGui="true">
+            <condition name="Conclusion exists" type="drools-without-variable-type" field="id" value="pii.handled">
+                <pattern name="Conclusion exists" pattern='Conclusion(id == "${value}");'/>
+            </condition>
+            <condition name="Is specific component definition" type="drools-without-variable-type" field="id" value="iot-application">
+                <pattern name="Is specific component definition" pattern='ComponentDefinitionProperties(ref == "${value}");'/>
+            </condition>
+            <action project="" value="pii.handled.group_::_Data Privacy_::_Does this component handle personally identifiable information from citizens of the European Union?_::_2120_::_true_::_false_::_" name="Insert Question Group" type="drools-without-variable-type">
+                <pattern name="Action of insert question group" pattern='QuestionGroup group = new QuestionGroup("${value-1}","${value-2}","${value-3}", ${value-4}, "${value-7}"); group.setFlags(${value-5}, ${value-6}); insertLogical(group);'/>
+            </action>
+        </rule>
+        <rule name="Q: EU GDPR - All - PII - European Subjects (IoT Mobile Application)" module="component" generatedByGui="true">
+            <condition name="Conclusion exists" type="drools-without-variable-type" field="id" value="pii.handled">
+                <pattern name="Conclusion exists" pattern='Conclusion(id == "${value}");'/>
+            </condition>
+            <condition name="Is specific component definition" type="drools-without-variable-type" field="id" value="iot-mobile-application">
+                <pattern name="Is specific component definition" pattern='ComponentDefinitionProperties(ref == "${value}");'/>
+            </condition>
+            <action project="" value="pii.handled.group_::_Data Privacy_::_Does this component handle personally identifiable information from citizens of the European Union?_::_2120_::_true_::_false_::_" name="Insert Question Group" type="drools-without-variable-type">
+                <pattern name="Action of insert question group" pattern='QuestionGroup group = new QuestionGroup("${value-1}","${value-2}","${value-3}", ${value-4}, "${value-7}"); group.setFlags(${value-5}, ${value-6}); insertLogical(group);'/>
+            </action>
+        </rule>
+        <rule name="Q: EU GDPR - All - PII - European Subjects (Mobile Device Client)" module="component" generatedByGui="true">
+            <condition name="Conclusion exists" type="drools-without-variable-type" field="id" value="pii.handled">
+                <pattern name="Conclusion exists" pattern='Conclusion(id == "${value}");'/>
+            </condition>
+            <condition name="Is specific component definition" type="drools-without-variable-type" field="id" value="mobile-device-client">
+                <pattern name="Is specific component definition" pattern='ComponentDefinitionProperties(ref == "${value}");'/>
+            </condition>
+            <action project="" value="pii.handled.group_::_Data Privacy_::_Does this component handle personally identifiable information from citizens of the European Union?_::_2120_::_true_::_false_::_" name="Insert Question Group" type="drools-without-variable-type">
+                <pattern name="Action of insert question group" pattern='QuestionGroup group = new QuestionGroup("${value-1}","${value-2}","${value-3}", ${value-4}, "${value-7}"); group.setFlags(${value-5}, ${value-6}); insertLogical(group);'/>
+            </action>
+        </rule>
+        <rule name="Q: EU GDPR - All - PII - European Subjects (Service)" module="component" generatedByGui="true">
+            <condition name="Conclusion exists" type="drools-without-variable-type" field="id" value="pii.handled">
+                <pattern name="Conclusion exists" pattern='Conclusion(id == "${value}");'/>
+            </condition>
+            <condition name="Risk pattern exists" type="drools-without-variable-type" field="id" value="CS-Default_::_GENERIC-SERVICE">
+                <pattern name="Risk pattern exists" pattern='$riskPattern : ImportWholeRiskPatternAwareDto(libraryRef == "${value-1}",riskPatternRef == "${value-2}");'/>
+            </condition>
+            <action project="" value="pii.handled.group_::_Data Privacy_::_Does this component handle personally identifiable information from citizens of the European Union?_::_2120_::_true_::_false_::_" name="Insert Question Group" type="drools-without-variable-type">
+                <pattern name="Action of insert question group" pattern='QuestionGroup group = new QuestionGroup("${value-1}","${value-2}","${value-3}", ${value-4}, "${value-7}"); group.setFlags(${value-5}, ${value-6}); insertLogical(group);'/>
+            </action>
+        </rule>
+        <rule name="Q: EU GDPR - All - PII - European Subjects - *" module="component" generatedByGui="true">
+            <condition name="Question Group exists" type="drools-without-variable-type" field="id" value="pii.handled.group">
+                <pattern name="Question group exists" pattern='$group : QuestionGroup(id == "${value}") @Watch(!*);'/>
+            </condition>
+            <action project="" value="eu_gdpr.handle.group.no_::_No_::_" name="Insert Question" type="drools-without-variable-type">
+                <pattern name="Action of insert question" pattern='insertLogical(new Question($group, "${value-1}", "${value-2}", "${value-3}"));'/>
+            </action>
+            <action project="" value="eu_gdpr.handle.group.yes_::_Yes_::_" name="Insert Question" type="drools-without-variable-type">
+                <pattern name="Action of insert question" pattern='insertLogical(new Question($group, "${value-1}", "${value-2}", "${value-3}"));'/>
+            </action>
+        </rule>
+        <rule name="Q: EU GDPR - All - PII - European Subjects - International Transfer" module="component" generatedByGui="true">
+            <condition name="Question is answered" type="Question" field="id" value="eu_gdpr.handle.group.yes">
+                <pattern name="Condition with answer" pattern='${type}(${field} == "${value}", answer == true);'/>
+            </condition>
+            <action project="" value="eu_gdpr.internationalTransfer_::_Data Privacy_::_Does this component transfer personal data outside of the European Union?_::_2121_::_true_::_true_::_Only answer 'Yes' if this component itself is responsible for transferring data outside the EU.  Answer 'No' if another component within this model is responsible for the transfer." name="Insert Question Group" type="drools-without-variable-type">
+                <pattern name="Action of insert question group" pattern='QuestionGroup group = new QuestionGroup("${value-1}","${value-2}","${value-3}", ${value-4}, "${value-7}"); group.setFlags(${value-5}, ${value-6}); insertLogical(group);'/>
+            </action>
+        </rule>
+        <rule name="Q: EU GDPR - All - PII - European Subjects - International Transfer - *" module="component" generatedByGui="true">
+            <condition name="Question Group exists" type="drools-without-variable-type" field="id" value="eu_gdpr.internationalTransfer">
+                <pattern name="Question group exists" pattern='$group : QuestionGroup(id == "${value}") @Watch(!*);'/>
+            </condition>
+            <action project="" value="eu_gdpr.internationalTransfer.no_::_No_::_" name="Insert Question" type="drools-without-variable-type">
+                <pattern name="Action of insert question" pattern='insertLogical(new Question($group, "${value-1}", "${value-2}", "${value-3}"));'/>
+            </action>
+            <action project="" value="eu_gdpr.internationalTransfer.yes_::_Yes_::_" name="Insert Question" type="drools-without-variable-type">
+                <pattern name="Action of insert question" pattern='insertLogical(new Question($group, "${value-1}", "${value-2}", "${value-3}"));'/>
+            </action>
+        </rule>
+        <rule name="Q: EU GDPR - All - PII - European Subjects - UI" module="component" generatedByGui="true">
+            <condition name="Question is answered" type="Question" field="id" value="eu_gdpr.handle.group.yes">
+                <pattern name="Condition with answer" pattern='${type}(${field} == "${value}", answer == true);'/>
+            </condition>
+            <action project="" value="eu_gdpr.exposes.UI_::_Data Privacy_::_Does this component itself expose an interface that a user can interact with?_::_2122_::_true_::_true_::_Only choose 'Yes' if this component itself exposes a user interface.  Answer 'No' if another component within this model presents the user interface.  " name="Insert Question Group" type="drools-without-variable-type">
+                <pattern name="Action of insert question group" pattern='QuestionGroup group = new QuestionGroup("${value-1}","${value-2}","${value-3}", ${value-4}, "${value-7}"); group.setFlags(${value-5}, ${value-6}); insertLogical(group);'/>
+            </action>
+        </rule>
+        <rule name="Q: EU GDPR - All - PII - European Subjects - UI - *" module="component" generatedByGui="true">
+            <condition name="Question Group exists" type="drools-without-variable-type" field="id" value="eu_gdpr.exposes.UI">
+                <pattern name="Question group exists" pattern='$group : QuestionGroup(id == "${value}") @Watch(!*);'/>
+            </condition>
+            <action project="" value="eu_gdpr.UI.no_::_No_::_" name="Insert Question" type="drools-without-variable-type">
+                <pattern name="Action of insert question" pattern='insertLogical(new Question($group, "${value-1}", "${value-2}", "${value-3}"));'/>
+            </action>
+            <action project="" value="eu_gdpr.UI.yes_::_Yes_::_" name="Insert Question" type="drools-without-variable-type">
+                <pattern name="Action of insert question" pattern='insertLogical(new Question($group, "${value-1}", "${value-2}", "${value-3}"));'/>
+            </action>
+        </rule>
+        <rule name="Risk Pattern: EU GDPR - Client with UI + Expoxed" module="component" generatedByGui="true">
+            <condition name="Question is answered" type="Question" field="id" value="eu_gdpr.UI.yes">
+                <pattern name="Condition with answer" pattern='${type}(${field} == "${value}", answer == true);'/>
+            </condition>
+            <condition name="Question is not answered" type="Question" field="id" value="eu_gdpr.internationalTransfer.yes">
+                <pattern name="Condition without answer" pattern='not ${type}(${field} == "${value}", answer == true);'/>
+            </condition>
+            <action project="EU GDPR" value="EU GDPR_::_EU-GDPR-COMPONENT-UI" name="Import Risk Pattern" type="drools-without-variable-type">
+                <pattern name="Action of import a risk pattern" pattern='insertLogical(ImportRiskPatternFactory.importRiskPattern("${value-1}", "${value-2}", 50));'/>
+            </action>
+            <action project="EU GDPR" value="EU GDPR_::_EU-GDPR-COMPONENT-UI_::_EU GDPR_::_EU-GDPR-COMPONENT-UI_::_PERSONAL-DATA_::_EU-GDPR-ILLEGAL-PROCESSING-PERSONAL-DATA_::_EU-GDPR-CONSENT-MECHANISM_::_50" name="Modify Mitigation Value" type="drools-without-variable-type">
+                <pattern name="Action of modify mitigation value" pattern='insertLogical(RiskMitigationModifier.setMitigationValue("${value-1}", "${value-2}", "${value-6}", "${value-7}", "${value-8}"));'/>
+            </action>
+            <action project="EU GDPR" value="EU GDPR_::_EU-GDPR-COMPONENT-UI_::_EU GDPR_::_EU-GDPR-COMPONENT-UI_::_PERSONAL-DATA_::_EU-GDPR-SUBJECT-RIGTHS_::_EU-GDPR-COMMUNICATION-CHANNEL_::_25" name="Modify Mitigation Value" type="drools-without-variable-type">
+                <pattern name="Action of modify mitigation value" pattern='insertLogical(RiskMitigationModifier.setMitigationValue("${value-1}", "${value-2}", "${value-6}", "${value-7}", "${value-8}"));'/>
+            </action>
+            <action project="EU GDPR" value="EU GDPR_::_EU-GDPR-COMPONENT-UI_::_EU GDPR_::_EU-GDPR-COMPONENT-UI_::_PERSONAL-DATA_::_EU-GDPR-SUBJECT-RIGTHS_::_EU-GDPR-EDITABLE-PERSONAL-DATA_::_25" name="Modify Mitigation Value" type="drools-without-variable-type">
+                <pattern name="Action of modify mitigation value" pattern='insertLogical(RiskMitigationModifier.setMitigationValue("${value-1}", "${value-2}", "${value-6}", "${value-7}", "${value-8}"));'/>
+            </action>
+            <action project="EU GDPR" value="EU GDPR_::_EU-GDPR-COMPONENT-UI_::_EU GDPR_::_EU-GDPR-COMPONENT-UI_::_PERSONAL-DATA_::_EU-GDPR-SUBJECT-RIGTHS_::_EU-GDPR-EXPORT-FUNCTIONALITY_::_25" name="Modify Mitigation Value" type="drools-without-variable-type">
+                <pattern name="Action of modify mitigation value" pattern='insertLogical(RiskMitigationModifier.setMitigationValue("${value-1}", "${value-2}", "${value-6}", "${value-7}", "${value-8}"));'/>
+            </action>
+            <action project="EU GDPR" value="EU GDPR_::_EU-GDPR-GENERIC-COMPONENT_::_EU GDPR_::_EU-GDPR-GENERIC-COMPONENT_::_PERSONAL-DATA_::_EU-GDPR-ILLEGAL-PROCESSING-PERSONAL-DATA_::_EU-GDPR-AUTOMATED-DECISIONS_::_50" name="Modify Mitigation Value" type="drools-without-variable-type">
+                <pattern name="Action of modify mitigation value" pattern='insertLogical(RiskMitigationModifier.setMitigationValue("${value-1}", "${value-2}", "${value-6}", "${value-7}", "${value-8}"));'/>
+            </action>
+            <action project="EU GDPR" value="EU GDPR_::_EU-GDPR-GENERIC-COMPONENT_::_EU GDPR_::_EU-GDPR-GENERIC-COMPONENT_::_PERSONAL-DATA_::_EU-GDPR-SUBJECT-RIGTHS_::_EU-GDPR-IMPLEMENT-FORGET_::_25" name="Modify Mitigation Value" type="drools-without-variable-type">
+                <pattern name="Action of modify mitigation value" pattern='insertLogical(RiskMitigationModifier.setMitigationValue("${value-1}", "${value-2}", "${value-6}", "${value-7}", "${value-8}"));'/>
+            </action>
+        </rule>
+        <rule name="Risk Pattern: EU GDPR - Client with UI + International Transfer" module="component" generatedByGui="true">
+            <condition name="Question is answered" type="Question" field="id" value="eu_gdpr.UI.yes">
+                <pattern name="Condition with answer" pattern='${type}(${field} == "${value}", answer == true);'/>
+            </condition>
+            <condition name="Question is answered" type="Question" field="id" value="eu_gdpr.internationalTransfer.yes">
+                <pattern name="Condition with answer" pattern='${type}(${field} == "${value}", answer == true);'/>
+            </condition>
+            <action project="EU GDPR" value="EU GDPR_::_EU-GDPR-COMPONENT-UI" name="Import Risk Pattern" type="drools-without-variable-type">
+                <pattern name="Action of import a risk pattern" pattern='insertLogical(ImportRiskPatternFactory.importRiskPattern("${value-1}", "${value-2}", 50));'/>
+            </action>
+            <action project="EU GDPR" value="EU GDPR_::_EU-GDPR-COMPONENT-UI_::_EU GDPR_::_EU-GDPR-COMPONENT-UI_::_PERSONAL-DATA_::_EU-GDPR-ILLEGAL-PROCESSING-PERSONAL-DATA_::_EU-GDPR-CONSENT-MECHANISM_::_30" name="Modify Mitigation Value" type="drools-without-variable-type">
+                <pattern name="Action of modify mitigation value" pattern='insertLogical(RiskMitigationModifier.setMitigationValue("${value-1}", "${value-2}", "${value-6}", "${value-7}", "${value-8}"));'/>
+            </action>
+            <action project="EU GDPR" value="EU GDPR_::_EU-GDPR-COMPONENT-UI_::_EU GDPR_::_EU-GDPR-COMPONENT-UI_::_PERSONAL-DATA_::_EU-GDPR-SUBJECT-RIGTHS_::_EU-GDPR-COMMUNICATION-CHANNEL_::_25" name="Modify Mitigation Value" type="drools-without-variable-type">
+                <pattern name="Action of modify mitigation value" pattern='insertLogical(RiskMitigationModifier.setMitigationValue("${value-1}", "${value-2}", "${value-6}", "${value-7}", "${value-8}"));'/>
+            </action>
+            <action project="EU GDPR" value="EU GDPR_::_EU-GDPR-COMPONENT-UI_::_EU GDPR_::_EU-GDPR-COMPONENT-UI_::_PERSONAL-DATA_::_EU-GDPR-SUBJECT-RIGTHS_::_EU-GDPR-EDITABLE-PERSONAL-DATA_::_25" name="Modify Mitigation Value" type="drools-without-variable-type">
+                <pattern name="Action of modify mitigation value" pattern='insertLogical(RiskMitigationModifier.setMitigationValue("${value-1}", "${value-2}", "${value-6}", "${value-7}", "${value-8}"));'/>
+            </action>
+            <action project="EU GDPR" value="EU GDPR_::_EU-GDPR-COMPONENT-UI_::_EU GDPR_::_EU-GDPR-COMPONENT-UI_::_PERSONAL-DATA_::_EU-GDPR-SUBJECT-RIGTHS_::_EU-GDPR-EXPORT-FUNCTIONALITY_::_25" name="Modify Mitigation Value" type="drools-without-variable-type">
+                <pattern name="Action of modify mitigation value" pattern='insertLogical(RiskMitigationModifier.setMitigationValue("${value-1}", "${value-2}", "${value-6}", "${value-7}", "${value-8}"));'/>
+            </action>
+            <action project="EU GDPR" value="EU GDPR_::_EU-GDPR-GENERIC-COMPONENT_::_EU GDPR_::_EU-GDPR-GENERIC-COMPONENT_::_PERSONAL-DATA_::_EU-GDPR-ILLEGAL-PROCESSING-PERSONAL-DATA_::_EU-GDPR-AUTOMATED-DECISIONS_::_30" name="Modify Mitigation Value" type="drools-without-variable-type">
+                <pattern name="Action of modify mitigation value" pattern='insertLogical(RiskMitigationModifier.setMitigationValue("${value-1}", "${value-2}", "${value-6}", "${value-7}", "${value-8}"));'/>
+            </action>
+            <action project="EU GDPR" value="EU GDPR_::_EU-GDPR-GENERIC-COMPONENT_::_EU GDPR_::_EU-GDPR-GENERIC-COMPONENT_::_PERSONAL-DATA_::_EU-GDPR-SUBJECT-RIGTHS_::_EU-GDPR-IMPLEMENT-FORGET_::_25" name="Modify Mitigation Value" type="drools-without-variable-type">
+                <pattern name="Action of modify mitigation value" pattern='insertLogical(RiskMitigationModifier.setMitigationValue("${value-1}", "${value-2}", "${value-6}", "${value-7}", "${value-8}"));'/>
+            </action>
+            <action project="EU GDPR" value="EU GDPR_::_INTERNATIONAL-TRANSFER_::_EU GDPR_::_INTERNATIONAL-TRANSFER_::_PERSONAL-DATA_::_EU-GDPR-ILLEGAL-PROCESSING-PERSONAL-DATA_::_EU-GDPR-MANAGE-INTERNATIONAL-DATA-TRANSFERS_::_40" name="Modify Mitigation Value" type="drools-without-variable-type">
+                <pattern name="Action of modify mitigation value" pattern='insertLogical(RiskMitigationModifier.setMitigationValue("${value-1}", "${value-2}", "${value-6}", "${value-7}", "${value-8}"));'/>
+            </action>
+        </rule>
+        <rule name="Risk Pattern: EU GDPR - Data Stored" module="component" generatedByGui="true">
+            <condition name="Question is answered" type="Question" field="id" value="Personally Identifiable InformationStored">
+                <pattern name="Condition with answer" pattern='${type}(${field} == "${value}", answer == true);'/>
+            </condition>
+            <condition name="Question is answered" type="Question" field="id" value="eu_gdpr.handle.group.yes">
+                <pattern name="Condition with answer" pattern='${type}(${field} == "${value}", answer == true);'/>
+            </condition>
+            <action project="EU GDPR" value="EU GDPR_::_EU-GDPR-DATASTORE" name="Import Risk Pattern" type="drools-without-variable-type">
+                <pattern name="Action of import a risk pattern" pattern='insertLogical(ImportRiskPatternFactory.importRiskPattern("${value-1}", "${value-2}", 50));'/>
+            </action>
+        </rule>
+        <rule name="Risk Pattern: EU GDPR - Generic component" module="component" generatedByGui="true">
+            <condition name="Question is answered" type="Question" field="id" value="Personally Identifiable InformationProcessed">
+                <pattern name="Condition with answer" pattern='${type}(${field} == "${value}", answer == true);'/>
+            </condition>
+            <condition name="Question is answered" type="Question" field="id" value="eu_gdpr.handle.group.yes">
+                <pattern name="Condition with answer" pattern='${type}(${field} == "${value}", answer == true);'/>
+            </condition>
+            <action project="EU GDPR" value="EU GDPR_::_EU-GDPR-GENERIC-COMPONENT" name="Import Risk Pattern" type="drools-without-variable-type">
+                <pattern name="Action of import a risk pattern" pattern='insertLogical(ImportRiskPatternFactory.importRiskPattern("${value-1}", "${value-2}", 50));'/>
+            </action>
+        </rule>
+        <rule name="Risk Pattern: EU GDPR - International Transfer" module="component" generatedByGui="true">
+            <condition name="Question is answered" type="Question" field="id" value="eu_gdpr.internationalTransfer.yes">
+                <pattern name="Condition with answer" pattern='${type}(${field} == "${value}", answer == true);'/>
+            </condition>
+            <action project="EU GDPR" value="EU GDPR_::_INTERNATIONAL-TRANSFER" name="Import Risk Pattern" type="drools-without-variable-type">
+                <pattern name="Action of import a risk pattern" pattern='insertLogical(ImportRiskPatternFactory.importRiskPattern("${value-1}", "${value-2}", 50));'/>
+            </action>
+        </rule>
+        <rule name="Set Answer: EU GDPR regulatory --&gt; PII Processed" module="component" generatedByGui="true">
+            <condition name="Is specific component definition" type="drools-without-variable-type" field="id" value="eu-gdpr-environment">
+                <pattern name="Is specific component definition" pattern='ComponentDefinitionProperties(ref == "${value}");'/>
+            </condition>
+            <action project="" value="Personally Identifiable InformationProcessed_::_true_::_false" name="Answer Question" type="drools-without-variable-type">
+                <pattern name="Action of answer question" pattern='$questionToAnswer : Question(id == "${value-1}", answer != ${value-2}); eval(!${value-3} || !$questionToAnswer.isManuallyModified());_:::_modify($questionToAnswer) { setAnswer(${value-2}), setCanBeManuallyModified(${value-3}) };'/>
+            </action>
+        </rule>
+    </rules>
+</project>

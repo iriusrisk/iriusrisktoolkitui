@@ -1,0 +1,15 @@
+<weakness ref="CWE-323" name="Reusing a Nonce, Key Pair in Encryption" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references>
+                            <reference name="CWE-323: Reusing a Nonce, Key Pair in Encryption" url="https://cwe.mitre.org/data/definitions/323.html"/>
+                        </references>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-05-29T09:16:01.159000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>Nonces should be used for the present occasion and only once.
+                    </desc>
+                </weakness>

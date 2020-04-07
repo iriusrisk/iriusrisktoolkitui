@@ -1,0 +1,21 @@
+<weakness ref="CWE-226" name="Sensitive information is not cleared from memory" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references>
+                            <reference name="CWE-226: Sensitive information is not cleared from memory" url="https://cwe.mitre.org/data/definitions/226.html"/>
+                        </references>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-05-29T09:15:59.461000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>The software does not fully clear previously used information in a data structure, file, or
+                        other resource, before making that resource available to a party in another control sphere.
+
+                        This typically results from new data that is not as long as the old data, which leaves portions
+                        of the old data still available. Equivalent errors can occur in other situations where the
+                        length of data is variable but the associated data structure is not. If memory is not cleared
+                        after use, it may allow unintended actors to read the data when the memory is reallocated.
+                    </desc>
+                </weakness>

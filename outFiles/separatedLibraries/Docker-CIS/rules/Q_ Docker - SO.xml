@@ -1,0 +1,9 @@
+<rule name='Q: Docker - SO' module='component' generatedByGui='true'>
+    <condition name='Risk pattern exists' type='drools-without-variable-type' field='id' value='Docker CIS_::_DOCKER'>
+      <pattern name='Risk pattern exists' pattern='$riskPattern : ImportWholeRiskPatternAwareDto(libraryRef == "${value-1}",riskPatternRef == "${value-2}");' />
+    </condition>
+    <action project='' value='docker.so_::_Docker_::_Which operating system is used for Docker containers?_::_6200_::_true_::_false_::_' name='Insert Question Group' type='drools-without-variable-type'>
+      <pattern name='Action of insert question group' pattern='QuestionGroup group = new QuestionGroup("${value-1}","${value-2}","${value-3}", ${value-4}, "${value-7}"); group.setFlags(${value-5}, ${value-6}); insertLogical(group);' />
+    </action>
+    <content />
+  </rule>

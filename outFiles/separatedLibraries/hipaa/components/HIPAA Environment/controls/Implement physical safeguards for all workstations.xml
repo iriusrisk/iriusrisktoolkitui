@@ -1,0 +1,23 @@
+<control ref='hippa-sec-14' name='Implement physical safeguards for all workstations' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>&lt;p&gt;Implement physical safeguards for all workstations with access to electronic protected health information and restrict access to unauthorized users.&lt;/p&gt; 
+&lt;p&gt; While the Workstation Use standard addresses the policies and procedures for how workstations shall be used and protected, the Workstation Security standard addresses how workstations are to be physically protected from unauthorized users.&lt;/p&gt; 
+&lt;p&gt; Covered entities may implement a variety of strategies to restrict access to workstations dealing with EPHI. One way may be to completely restrict physical access to the workstations by keeping them in a secure room where only authorized personnel work.&lt;/p&gt; 
+&lt;p&gt; As with all standards and implementation specifications, what is reasonable and appropriate for one covered entity may not apply to another. The risk analysis should be used to help with the decision-making process.&lt;/p&gt;</desc>
+          <implementations />
+          <references>
+            <reference name='HIPAA Security Standards: Physical Safeguards' url='https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/physsafeguards.pdf' />
+          </references>
+          <standards>
+            <standard ref='164.310(c)' supportedStandardRef='hipaa-required' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-08-09T14:30:47.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

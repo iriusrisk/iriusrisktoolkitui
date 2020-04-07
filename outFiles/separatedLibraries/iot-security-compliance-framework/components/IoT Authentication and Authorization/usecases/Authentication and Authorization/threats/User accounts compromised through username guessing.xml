@@ -1,0 +1,23 @@
+<threat ref="CAPEC-112-USERNAME" name="User accounts compromised through username guessing" state="Expose" source="MANUAL" owner="" library="">
+                            <desc>	&lt;p&gt;Attackers could perform a brute force attack against the login function by choosing a simple password that users are likely to use for the site, and that meets the site&amp;#8217;s password policy. Then they could use an automated script to iterate through a list of possible usernames. These could be obtained from a dictionary, or generated through pure brute force means. &lt;/p&gt;
+
+ This type of attack cannot be defended against using an account lockout policy because each username is only attempted once.</desc>
+                            <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="25"/>
+                            <references/>
+                            <controls>
+                                <control ref="CWE-521" mitigation="50"/>
+                                <control ref="CWE-799-LOGIN" mitigation="50"/>
+                            </controls>
+                            <weaknesses>
+                                <weakness ref="CWE-521">
+                                    <controls>
+                                        <control ref="CWE-521" mitigation="50"/>
+                                    </controls>
+                                </weakness>
+                                <weakness ref="CWE-307">
+                                    <controls>
+                                        <control ref="CWE-799-LOGIN" mitigation="50"/>
+                                    </controls>
+                                </weakness>
+                            </weaknesses>
+                        </threat>

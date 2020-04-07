@@ -1,0 +1,46 @@
+<control ref='Hydras-AWS-Gov-1.1' name='Configure the security challenge questions within the AWS Account' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>When an AWS account is initially created it is configured with a top level account known as the &amp;quot;root&amp;quot; account that has full administration access to all resources. In the event that the password or MFA device associated with this account is lost AWS support may recover it by asking you to answer the security questions. 
+&lt;div&gt; 
+ &lt;br /&gt; 
+ &lt;b&gt;Remediation:&lt;/b&gt; 
+ &lt;br /&gt; 
+ &lt;ol&gt; 
+  &lt;li&gt;Login to the AWS Account as root.&lt;/li&gt; 
+  &lt;li&gt;Click account name on the top right of the management console.&lt;/li&gt; 
+  &lt;li&gt;Select &amp;quot;My Account&amp;quot;.&lt;/li&gt; 
+  &lt;li&gt;Scroll down to &amp;quot;Configure Security Challenge Questions&amp;quot;.&lt;/li&gt; 
+  &lt;li&gt;Click on Edit.&lt;/li&gt; 
+  &lt;li&gt;For each question:&lt;/li&gt; 
+  &lt;ul&gt; 
+   &lt;li&gt;Select an appropriate question.&lt;/li&gt; 
+   &lt;li&gt;Enter an appropriate answer.&lt;/li&gt; 
+   &lt;li&gt;Follow the above process for all 3 questions.&lt;/li&gt; 
+  &lt;/ul&gt; 
+  &lt;li&gt;Click Update when complete.&lt;/li&gt; 
+  &lt;li&gt;We recommend to store the questions and answers in a secure location such as a safe where they can be used in case recovery is required.&lt;/li&gt; 
+ &lt;/ol&gt;Content provided by 
+ &lt;a href="https://hydrasit.com" target="_blank"&gt; Hydras IT LTD&lt;/a&gt; 
+&lt;/div&gt;</desc>
+          <implementations />
+          <references />
+          <standards>
+            <standard ref='1.15' supportedStandardRef='CIS AWS Standard' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;ol&gt;
+                            &lt;li&gt;Login to the AWS Account as root.&lt;/li&gt;
+                            &lt;li&gt;Click account name on the top right of the management console.&lt;/li&gt;
+                            &lt;li&gt;Select &amp;quot;My Account&amp;quot;.&lt;/li&gt;
+                            &lt;li&gt;Scroll down to &amp;quot;Configure Security Challenge Questions&amp;quot;.&lt;/li&gt;
+                            &lt;li&gt;Confirm whether questions and answers have been saved.&lt;/li&gt;
+                            &lt;/ol&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

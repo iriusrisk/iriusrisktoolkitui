@@ -1,0 +1,44 @@
+<control ref="PCI-R12-12.2" name="12.2 - Implement a risk-assessment process" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;This process:&lt;/p&gt;
+                        &lt;p&gt;- Is performed at least annually and upon significant changes to the environment (for
+                        example,
+                        acquisition, merger, relocation, etc.),&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Identifies critical assets, threats, and vulnerabilities, and&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;- Results in a formal, documented analysis of risk.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt; &lt;/p&gt;
+                        &lt;p&gt;A risk assessment enables an organization to identify threats and associated
+                        vulnerabilities with
+                        the potential to negatively impact their business. Examples of different risk considerations
+                        include
+                        cybercrime, web attacks, and POS malware. Resources can then be effectively allocated to
+                        implement controls
+                        that reduce the likelihood and/or the potential impact of the threat being realized.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;Performing risk assessments at least annually and upon significant changes allows the
+                        organization
+                        to keep up to date with organizational changes and evolving threats, trends, and technologies.&amp;nbsp;&lt;/p&gt;
+                        &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="12.2" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;12.2.a Verify that an annual risk-assessment process is documented that: &lt;/p&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt; &lt;p&gt;Identifies critical assets, threats, and vulnerabilities &lt;/p&gt; &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;Results in a formal, documented analysis of risk &lt;/p&gt; &lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;p&gt;12.2.b Review risk-assessment documentation to verify that the risk-assessment
+                            process is
+                            performed at least annually and upon significant changes to the environment.&amp;nbsp;&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-07T22:22:35.689000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

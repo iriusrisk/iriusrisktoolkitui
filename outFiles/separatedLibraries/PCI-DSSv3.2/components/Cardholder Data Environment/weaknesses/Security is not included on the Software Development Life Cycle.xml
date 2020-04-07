@@ -1,0 +1,15 @@
+<weakness ref="PCI -R6-6.3" name="Security is not included on the Software Development Life Cycle" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-14T15:38:11.076000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>Security is missing during the requirements definition, design, analysis, and testing phases
+                        of software
+                        development,
+                    </desc>
+                </weakness>

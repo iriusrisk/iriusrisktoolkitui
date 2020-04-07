@@ -1,0 +1,6 @@
+#!/bin/bash
+cp oneperType00_1One.py oneperType00_2One.py
+cp oneperType01_1One.py oneperType01_2One.py
+cp oneperType02_1One.py oneperType02_2One.py
+cp oneperType03_1One.py oneperType03_2One.py
+

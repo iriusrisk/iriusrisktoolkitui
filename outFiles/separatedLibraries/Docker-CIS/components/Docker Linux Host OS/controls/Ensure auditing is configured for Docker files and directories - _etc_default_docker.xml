@@ -1,0 +1,71 @@
+<control ref='D1.10' name='Ensure auditing is configured for Docker files and directories - /etc/default/docker' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>Audit /etc/default/docker, if applicable.&amp;nbsp;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Rationale:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Apart from auditing your regular Linux file system and system calls, audit all Docker related
+                        files and directories. Docker daemon runs with root privileges. Its behavior depends on some key
+                        files and directories. /etc/default/docker is one such file. It holds various parameters for
+                        Docker daemon. It must be audited, if applicable.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Add a rule for /etc/default/docker file. For example, Add the line as below in
+                        /etc/audit/audit.rules file:
+                        &lt;/div&gt;
+                        &lt;blockquote&gt;
+                        &lt;div&gt;
+                        -w /etc/default/docker -k docker&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;/blockquote&gt;
+                        &lt;div&gt;
+                        Then, restart the audit daemon. For example, service auditd restart&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Impact:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Auditing generates quite big log files. Ensure to rotate and archive them periodically. Also,
+                        create a separate partition of audit logs to avoid filling root file system.
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='Docker redhat: chap system auditin' url='https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Security_Guide/chap-system_auditing.html' />
+          </references>
+          <standards>
+            <standard ref='1.10' supportedStandardRef='Level 1 - Linux Host OS' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>Verify that there is an audit rule corresponding to /etc/default/docker file. For
+                            example, execute below command:&amp;nbsp;
+                            &lt;blockquote&gt;
+                            &lt;div&gt;
+                            auditctl -l | grep /etc/default/docker&amp;nbsp;
+                            &lt;/div&gt;
+                            &lt;/blockquote&gt;
+                            &lt;div&gt;
+                            This should list a rule for /etc/default/docker file.
+                            &lt;/div&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2016-08-02T10:21:32.718'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

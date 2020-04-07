@@ -1,0 +1,12 @@
+<weakness ref="AWS-LAMBDA-W19" name="No validation for asynchronous events" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-03-25T16:40:59">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>Lambda can handle several different event types that can trigger a serverless function. These event types don't necessarily need to be HTTP requests (e.g. S3, SNS, SES, CloudWatch Events, etc.). This increases the potential attack surface and introduces complexities to secure the serverless functions.</desc>
+                </weakness>

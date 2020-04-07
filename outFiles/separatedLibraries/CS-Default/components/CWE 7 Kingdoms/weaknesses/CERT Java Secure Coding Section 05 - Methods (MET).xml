@@ -1,0 +1,15 @@
+<weakness ref="CWE-850" name="CERT Java Secure Coding Section 05 - Methods (MET)" state="0" impact="100">
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps></steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-04-04T17:46:53.368000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                    <desc>Weaknesses in this category are related to rules in the Methods
+                        (MET) section of the CERT Java Secure Coding Standard. Since not all rules map
+                        to specific weaknesses, this category may be incomplete.
+                    </desc>
+                </weakness>

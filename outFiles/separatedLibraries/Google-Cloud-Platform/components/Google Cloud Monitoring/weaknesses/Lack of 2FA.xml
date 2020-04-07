@@ -1,0 +1,15 @@
+<weakness ref='GOOGLE-MON03' name='Lack of 2FA' state='0' impact='100'>
+          <desc>Login to the console without using Multi-factor Authentication (MFA) is considered as
+                        suspicious activity. Therefore connection without MFA must be audited and monitored and the
+                        corresponding security group must be informed and must validate this connection.
+                    </desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2018-05-31T09:31:01.396'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>

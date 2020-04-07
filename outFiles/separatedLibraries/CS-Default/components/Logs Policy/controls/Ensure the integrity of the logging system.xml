@@ -1,0 +1,33 @@
+<control ref="LOGS-INTEGRITY" name="Ensure the integrity of the logging system" platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="MANUAL">
+                    <desc>Ensure Log integrity for the application generated logs, such as storing logs on write-once media, forwarding a copy of the logs to a centralized SIEM or generating message digests for each log file.</desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="164.312(c)(1)" supportedStandardRef="hipaa-addressable"/>
+                        <standard ref="12.1.2" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="12.4.2" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="AC-24" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="AC-3" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="AU-4" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="AU-9" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SA-18" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SC-28" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-4" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="8.6" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="8.11" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="8.6" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="A10:2017-Insufficient Logging&amp;Monitoring" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>Check the logs integrity is controlled by making daily backups or leveraging external
+                            tools for log monitoring.
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-08-07T08:47:41.869000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

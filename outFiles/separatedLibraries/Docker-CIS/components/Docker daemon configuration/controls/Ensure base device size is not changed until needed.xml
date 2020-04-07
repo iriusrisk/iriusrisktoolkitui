@@ -1,0 +1,61 @@
+<control ref='D2.10' name='Ensure base device size is not changed until needed' platform='' cost='1' risk='0' state='Recommended' owner='' library='' source='MANUAL'>
+          <desc>In certain circumstances, you might need containers bigger than 10G in size. In these cases,
+                        carefully choose the base device size.&amp;nbsp;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Rationale:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        The base device size can be increased at daemon restart. Increasing the base device size allows
+                        all future images and containers to be of the new base device size. A user can use this option
+                        to expand the base device size however shrinking is not permitted. This value affects the
+                        system-wide "base" empty filesystem that may already be initialized and inherited by pulled
+                        images. Though the file system does not allot the increased size if it is empty, it will use
+                        more space for the empty case depending upon the device size. This may cause a denial of service
+                        by ending up in file system being over-allocated or full.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;&lt;br /&gt;&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Remediation:&lt;/b&gt;&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        Do not set --storage-opt dm.basesize until needed.&amp;nbsp;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;br /&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        &lt;b&gt;Impact:&amp;nbsp;&lt;/b&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                        None.
+                        &lt;/div&gt;
+                    </desc>
+          <implementations />
+          <references>
+            <reference name='Docker docs: Storage drive options' url='https://docs.docker.com/engine/reference/commandline/dockerd/#storage-driver-options' />
+          </references>
+          <standards>
+            <standard ref='2.10' supportedStandardRef='Level 2 - Docker' />
+          </standards>
+          <udts />
+          <test expiryDate='' expiryPeriod='0'>
+            <steps>&lt;blockquote&gt;
+                            ps -ef | grep dockerd&amp;nbsp;
+                            &lt;/blockquote&gt;
+                            &lt;div&gt;
+                            Execute the above command and it should not show any --storage-opt dm.basesize parameters.
+                            &lt;/div&gt;
+                        </steps>
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2016-08-02T10:21:32.718'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>

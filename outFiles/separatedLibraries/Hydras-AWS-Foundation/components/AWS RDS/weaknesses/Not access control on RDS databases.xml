@@ -1,0 +1,14 @@
+<weakness ref='no-access-control-onrds' name='Not access control on RDS databases' state='0' impact='100'>
+          <desc>There are no access control mechanisms on the RDS database resources and any user can gain access
+                        to them and exfiltrate the data.
+                    </desc>
+          <test expiryDate='' expiryPeriod='0'>
+            <steps />
+            <notes />
+            <source filename='' args='' type='Manual' result='Not Tested' enabled='true' timestamp='2019-04-01T07:51:15.000'>
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>

@@ -1,0 +1,68 @@
+<control ref="CWE-330" name="Use a cryptographically secure pseudo-random number generator" platform="" cost="0" risk="0" state="Recommended" owner="admin" library="" source="EDITED">
+                    <desc>&lt;div&gt;
+  Use a well-vetted algorithm that is currently considered to be strong and secure by experts in the field and ensure well-tested implementation with adequate length seeds. In general, if a pseudo-random number generator is not advertised as being cryptographically secure, then it is probably a statistical PRNG and should not be used in a security-sensitive context.&amp;nbsp; 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt;
+  Pseudo-random number generators can produce predictable numbers if the generator is known and the seed can be guessed. A 256-bit seed is a good starting point for producing a &amp;quot;random enough&amp;quot; number. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;b&gt;Remediation:&lt;/b&gt; 
+&lt;/div&gt; 
+&lt;div&gt;
+  Ensure that all random numbers, especially those used for cryptographic parameters (keys, IV’s, MAC tags), random file names, random GUIDs, and random strings are generated in a cryptographically strong fashion. 
+ &lt;br /&gt; 
+ &lt;br /&gt;Ensure that random algorithms are seeded with sufficient entropy. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt;
+  Use a secure pseudo-random number generator ensuring it leverages an appropriate length seed. The recommendation by FIPS 140-2 is 256-bit seed. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt;Tools like NIST RNG Test tool (as used in PCI PTS Derived Test Requirements) can be used to comprehensively assess the quality of a Random Number Generator by reading e.g. 128MB of data from the RNG source and then assessing its randomness properties with the tool. 
+ &lt;br /&gt; 
+ &lt;br /&gt;The following libraries are considered weak random numbers generators and should not be used. 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;C library: random(), rand() instead use getrandom(2) instead&lt;/li&gt; 
+ &lt;li&gt;Java library: java.util.Random() instead use java.security.SecureRandom instead&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;br /&gt;For secure random number generation, refer to NIST SP 800-90A. CTR-DRBG, HASH-DRBG, HMAC-DRBG are recommended. Refer to NIST SP800-22 A Statistical Test Suite for Random and Pseudorandom Number Generators for Cryptographic Applications, and the testing toolkit.</desc>
+                    <implementations/>
+                    <references>
+                        <reference name="NIST Security Policies for Random and Pseudorandom Number Generators for Cryptographic Applications" url="https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-22r1a.pdf"/>
+                    </references>
+                    <standards>
+                        <standard ref="164.312(a)(1)(D)" supportedStandardRef="hipaa-addressable"/>
+                        <standard ref="SC-13" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-17" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="SI-6" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="7.6" supportedStandardRef="OWASP-ASVS-Level-2"/>
+                        <standard ref="7.15" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="7.6" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="A3:2017-Sensitive Data Exposure" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>Check that an adequately strong algorithm is used to generate random values, and that
+                            those random values are of a minimum 256-bit seed.
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-08-20T08:09:34.379000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

@@ -1,0 +1,45 @@
+<control ref="PCI-R8-8.3.2" name="8.3.2 - Use multi-factor authentication for remote network access" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>&lt;p&gt;This requirement is intended to apply to all personnel-including general users,
+                        administrators,
+                        and vendors (for support or maintenance) with remote access to the network-where that
+                        remote
+                        access could
+                        lead to access to the CDE. If remote access is to an entity's network that has appropriate
+                        segmentation,
+                        such that remote users cannot access or impact the cardholder data environment, multi-factor
+                        authentication
+                        for remote access to that network would not be required. However, multi-factor authentication is
+                        required
+                        for any remote access to networks with access to the cardholder data environment, and is
+                        recommended for all
+                        remote access to the entity's networks.&amp;nbsp;&lt;/p&gt;
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="8.3.2" supportedStandardRef="PCI-DSS-v3.2"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>&lt;p&gt;8.3.2.a Examine system configurations for remote access servers and systems to
+                            verify
+                            multi-factor authentication is required for: &lt;/p&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt; &lt;p&gt;All remote access by personnel, both user and administrator, and &lt;/p&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt; &lt;p&gt;All third-party/vendor remote access (including access to applications
+                            and system
+                            components for support or maintenance purposes). &lt;/p&gt; &lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;p&gt;8.3.2.b Observe a sample of personnel (for example, users and administrators)
+                            connecting remotely
+                            to the network and verify that at least two of the three authentication methods are used.&amp;nbsp;&lt;/p&gt;
+                        </steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2016-08-05T15:13:32.676000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>

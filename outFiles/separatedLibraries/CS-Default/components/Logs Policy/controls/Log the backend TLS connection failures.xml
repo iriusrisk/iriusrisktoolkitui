@@ -1,0 +1,24 @@
+<control ref="LOG-TLS-FAILURES" name="Log the backend TLS connection failures" platform="" cost="0" risk="0" state="Recommended" owner="" library="" source="MANUAL">
+                    <desc>Implement functionality to record backend TLS connection failures and include these in the
+                        logs.
+                    </desc>
+                    <implementations/>
+                    <references/>
+                    <standards>
+                        <standard ref="12.4.1" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="13.2.1" supportedStandardRef="ISO/IEC 27002:2013"/>
+                        <standard ref="AU-2" supportedStandardRef="NIST 800-53"/>
+                        <standard ref="10.4" supportedStandardRef="OWASP-ASVS-Level-3"/>
+                        <standard ref="A10:2017-Insufficient Logging&amp;Monitoring" supportedStandardRef="owasp-top-10-2017"/>
+                    </standards>
+                    <udts/>
+                    <test expiryDate="" expiryPeriod="0">
+                        <steps>Check that backend TLS connection failures are recorded in the logs.</steps>
+                        <notes></notes>
+                        <references/>
+                        <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2018-08-07T09:24:21.504000">
+                            <output></output>
+                        </source>
+                        <udts/>
+                    </test>
+                </control>
