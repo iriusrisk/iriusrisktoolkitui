@@ -1,2 +1,0 @@
-<component ref='DOCKER-DAEMON-CONFIGURATION-FILES' name='Docker Daemon Configuration Files' desc='This Risk Pattern covers Docker related files and directory permissions and ownership. Keeping the files and directories that may contain sensitive parameters secure, is important for correct and secure functioning of Docker daemon.' groupName='' tags='' position='4' library='' diagramPositionX='0' diagramPositionY='0' componentDefinitionRef=''>
-      

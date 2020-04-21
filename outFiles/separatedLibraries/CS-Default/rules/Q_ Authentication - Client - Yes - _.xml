@@ -1,9 +1,0 @@
-<rule name="Q: Authentication - Client - Yes - *" module="component" generatedByGui="true">
-            <condition name="Question Group exists" type="drools-without-variable-type" field="id" value="authenticateServer">
-                <pattern name="Question group exists" pattern='$group : QuestionGroup(id == "${value}") @Watch(!*);'/>
-            </condition>
-            <action project="" value="client.ssl_::_The client will only connect to the server if the server presents a valid SSL certificate signed by a trusted Certificate Authority_::_" name="Insert Question" type="drools-without-variable-type">
-                <pattern name="Action of insert question" pattern='insertLogical(new Question($group, "${value-1}", "${value-2}", "${value-3}"));'/>
-            </action>
-            <content></content>
-        </rule>

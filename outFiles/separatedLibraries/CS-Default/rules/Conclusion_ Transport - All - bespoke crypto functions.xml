@@ -1,9 +1,0 @@
-<rule name="Conclusion: Transport - All - bespoke crypto functions" module="component" generatedByGui="true">
-            <condition name="Question is answered" type="Question" field="id" value="bespokeCrypto">
-                <pattern name="Condition with answer" pattern='${type}(${field} == "${value}", answer == true);'/>
-            </condition>
-            <action project="" value="ConclusionType.WARNING_::_bespokeCrypto_::_Using bespoke cryptographic functions that have not been publicly reviewed pose a serious risk to the confidentiality of data.  Strongly consider using standard peer-reviewed cryptographic functions and libraries." name="Insert Conclusion" type="drools-without-variable-type">
-                <pattern name="Action of insert conclusion" pattern='insertLogical(new Conclusion(${value-1}, "${value-2}", "${value-3}"));'/>
-            </action>
-            <content></content>
-        </rule>

@@ -1,2 +1,0 @@
-<component ref='DOCKER-DAEMON-CONFIGURATION' name='Docker daemon configuration' desc='This Risk Pattern lists the recommendations that alter and secure the behavior of the Docker daemon. The settings that are under this section affect ALL container instances.' groupName='' tags='' position='3' library='' diagramPositionX='0' diagramPositionY='0' componentDefinitionRef=''>
-      

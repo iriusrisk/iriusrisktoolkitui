@@ -1,9 +1,0 @@
-<rule name='Security Standard: Apply EU GDPR - EU citizen' module='component' generatedByGui='true'>
-    <condition name='Question is answered' type='Question' field='id' value='eu_gdpr.handle.group.yes'>
-      <pattern name='Condition with answer' pattern='${type}(${field} == "${value}", answer == true);' />
-    </condition>
-    <action project='' value='EU-GDPR_::_EU-GDPR' name='Apply security standard' type='drools-without-variable-type'>
-      <pattern name='Apply security standard' pattern='insertLogical(new SecurityStandard("${value-1}", "${value-2}")); insertLogical(new com.iriusrisk.drools.model.Notification(com.iriusrisk.drools.model.NotificationType.INFO, "apply.standard.${value-1}", "apply.standard.msg,${value-1}", true));insertLogical(new Conclusion(ConclusionType.POLICY, "id-${value-1}", "security.standard.will.apply", "${value-1}"));' />
-    </action>
-    <content />
-  </rule>

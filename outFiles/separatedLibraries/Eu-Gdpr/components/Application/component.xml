@@ -1,2 +1,0 @@
-<component ref="EU_GDPR_APPLICATION" name="Application" desc="This threats and countermeasures in this pattern apply to the entire application, if any of the components of the application handle EU personal data.  This pattern should be imported once per application." tags="" position="1" groupName="" library="" diagramPositionX="0" diagramPositionY="0" componentDefinitionRef="">
-            

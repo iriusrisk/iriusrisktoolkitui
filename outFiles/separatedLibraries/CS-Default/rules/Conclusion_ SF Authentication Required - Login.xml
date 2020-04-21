@@ -1,9 +1,0 @@
-<rule name="Conclusion: SF Authentication Required - Login" module="component" generatedByGui="true">
-            <condition name="Question is answered" type="Question" field="id" value="authn.browser.sf">
-                <pattern name="Condition with answer" pattern='${type}(${field} == "${value}", answer == true);'/>
-            </condition>
-            <action project="" value="ConclusionType.INFO_::_authRequired_::_Authentication required" name="Insert Conclusion" type="drools-without-variable-type">
-                <pattern name="Action of insert conclusion" pattern='insertLogical(new Conclusion(${value-1}, "${value-2}", "${value-3}"));'/>
-            </action>
-            <content></content>
-        </rule>

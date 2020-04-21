@@ -1,9 +1,0 @@
-<rule name="ControlApplied: Authentication - Browser - SSL" module="component" generatedByGui="true">
-            <condition name="Question is answered" type="Question" field="id" value="browser.ssl.signed">
-                <pattern name="Condition with answer" pattern='${type}(${field} == "${value}", answer == true);'/>
-            </condition>
-            <action project="CS-Default" value="CWE-295" name="Apply Control" type="drools-without-variable-type">
-                <pattern name="Action of create requirement" pattern='insertLogical(ControlRef.createRequirement("${value}"));'/>
-            </action>
-            <content></content>
-        </rule>
