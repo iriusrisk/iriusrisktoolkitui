@@ -1,9 +1,0 @@
-<rule name="Q: EU GDPR - All - PII - European Subjects - International Transfer" module="component" generatedByGui="true">
-            <condition name="Question is answered" type="Question" field="id" value="eu_gdpr.handle.group.yes">
-                <pattern name="Condition with answer" pattern='${type}(${field} == "${value}", answer == true);'/>
-            </condition>
-            <action project="" value="eu_gdpr.internationalTransfer_::_Data Privacy_::_Does this component transfer personal data outside of the European Union?_::_2121_::_true_::_true_::_Only answer 'Yes' if this component itself is responsible for transferring data outside the EU.  Answer 'No' if another component within this model is responsible for the transfer." name="Insert Question Group" type="drools-without-variable-type">
-                <pattern name="Action of insert question group" pattern='QuestionGroup group = new QuestionGroup("${value-1}","${value-2}","${value-3}", ${value-4}, "${value-7}"); group.setFlags(${value-5}, ${value-6}); insertLogical(group);'/>
-            </action>
-            <content></content>
-        </rule>

@@ -1,9 +1,0 @@
-<rule name="Q: Languages/Frameworks - Web UI - Structured Data - *" module="component" generatedByGui="true">
-            <condition name="Question Group exists" type="drools-without-variable-type" field="id" value="ui.data">
-                <pattern name="Question group exists" pattern='$group : QuestionGroup(id == "${value}") @Watch(!*);'/>
-            </condition>
-            <action project="" value="browser.data.json_::_JSON is used to interchange data_::_" name="Insert Question" type="drools-without-variable-type">
-                <pattern name="Action of insert question" pattern='insertLogical(new Question($group, "${value-1}", "${value-2}", "${value-3}"));'/>
-            </action>
-            <content></content>
-        </rule>

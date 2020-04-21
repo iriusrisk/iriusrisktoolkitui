@@ -12,6 +12,7 @@ from src.mergeLibraries import mergeLibrariesByPaths
 from src.generateHtmlStandardvsCountermeasures import generateHtmlFromLibrariesAndStandard
 from src.updateServerWithCloudComponents import *
 from src.addReferencesFromExcel import addReferencesToLibrariesByExcelFile
+from src.riskCalculator import calculateRiskToHTML
 from pathlib import Path
 import subprocess
 from src.common import readConfig, writeConfig, testConnection
@@ -46,6 +47,7 @@ sg.change_look_and_feel('DefaultNoMoreNagging')
 #BUTTON_COLOR=('white', '#424632')
 BUTTON_COLOR=('black', '#f2f2f2')
 PATH_LIBS = Path.cwd() / "libraries"
+PATH_TEMPLATES = Path.cwd() / "products"
 PATH_EXCELS = Path.cwd() / "inputFiles" / "spreadSheetFiles" 
 
 def selectionOfExcelFile(title, files, mainPath, home):
@@ -196,6 +198,22 @@ def getLayoutLibs():
 
   return layout
 
+
+def getLayoutProducts():
+  products = list()
+  for product in os.listdir(str(PATH_TEMPLATES)):
+    if product.endswith(".xml"):
+      products.append([sg.Checkbox(product.replace(".xml", ""), key=product.replace(".xml", ""), default=False)])
+
+  products.append([sg.Button("Select all products", key='selectAllProducts', button_color=BUTTON_COLOR)])
+  products.append([sg.Text('Filename:'), sg.Input(key='fileBrowseValueProduct'), sg.FileBrowse(key='browseProduct')])
+
+  layout = [
+    [sg.Frame("Select the product or products to use (working directory: '../products/'):", products, key='products')]
+  ]
+
+  return layout
+
 def checkConnection(ev, home, values):
   if ev == "test-connection":
     msg=testConnection(values['urlServer'], values['apiToken'])
@@ -311,6 +329,12 @@ def selectAllLibraries(ev, home):
       if lib.endswith(".xml"):
         home.FindElement(lib.replace(".xml", "")).Update(True)
 
+def selectAllProducts(ev, home):
+  if ev is "selectAllProducts":
+    for lib in os.listdir(str(PATH_TEMPLATES)):
+      if lib.endswith(".xml"):
+        home.FindElement(lib.replace(".xml", "")).Update(True)
+
 def selectAllExcels(ev, home):
   if ev is "selectAllFiles":
     for lib in os.listdir(str(PATH_EXCELS)):
@@ -322,6 +346,11 @@ def deSelectAllExcels(home):
 
 def deSelectAllLibraries(home):
   for lib in os.listdir(str(PATH_LIBS)):
+    if lib.endswith(".xml"):
+      home.FindElement(lib.replace(".xml", "")).Update(False)
+
+def deSelectAllProducts(home):
+  for lib in os.listdir(str(PATH_TEMPLATES)):
     if lib.endswith(".xml"):
       home.FindElement(lib.replace(".xml", "")).Update(False)
 
@@ -343,6 +372,13 @@ def getSelectedLibs(values, files):
         files.append(PATH_LIBS / lib)
   return files
 
+def getSelectedProducts(values, files):
+  for lib in os.listdir(str(PATH_TEMPLATES)):
+    if lib.endswith(".xml"):
+      if values[lib.replace(".xml","")]:
+        files.append(PATH_TEMPLATES / lib)
+  return files
+
 def getSelectedExcels(values, files):
   for file in os.listdir(str(PATH_EXCELS)):
     if values[file]:
@@ -362,6 +398,7 @@ def getSelectedData(values, files):
 def showMainFrame(home):
   home.FindElement("frameUpgrade").Update(visible=False)
   home.FindElement("frameLibs").Update(visible=False)
+  home.FindElement("frameProducts").Update(visible=False)
   home.FindElement("frameExcels").Update(visible=False)
   home.FindElement("options").Update(visible=False)
   home.FindElement("standards").Update(visible=False)
@@ -382,7 +419,7 @@ def getCommandOS():
     command = 'start'
   return command
 
-def selectionWindow(title, home, showChangeLogOptions=False, showOptions=False, showStandards=False, showServerConfig=False, showExcelOptions=False, showExistingStandards=False, showUpgrade=False):  
+def selectionWindow(title, home, showChangeLogOptions=False, showOptions=False, showStandards=False, showServerConfig=False, showExcelOptions=False, showExistingStandards=False, showUpgrade=False, showProductOptions=False):
   data=Data()
   data.normalChangeLog = False
 
@@ -391,6 +428,9 @@ def selectionWindow(title, home, showChangeLogOptions=False, showOptions=False, 
   home.FindElement("existingStandards").Update(visible=False)
   home.FindElement("buttons").Update(visible=True)
   home.FindElement("exit").Update(visible=False)
+  if showProductOptions:
+    home.FindElement("frameLibs").Update(visible=False)
+    home.FindElement("frameProducts").Update(visible=True)
   if showUpgrade:
     home.FindElement("frameUpgrade").Update(visible=True)
     home.FindElement("frameLibs").Update(visible=False)
@@ -417,10 +457,12 @@ def selectionWindow(title, home, showChangeLogOptions=False, showOptions=False, 
   while True:    
     ev, values = home.Read() 
     selectAllLibraries(ev, home)
+    selectAllProducts(ev, home)
     selectAllExcels(ev, home)
     checkConnection(ev, home, values)
     if ev is "cancel" or ev == 'exit':
       home.FindElement('fileBrowseValue').update('')
+      home.FindElement('fileBrowseValueProduct').update('')
       home.FindElement('fileBrowseValueExcel').update('')
       showMainFrame(home)
       return Data()
@@ -451,6 +493,8 @@ def selectionWindow(title, home, showChangeLogOptions=False, showOptions=False, 
         data.files=getSelectedExcels(values, data.files)
       if showChangeLogOptions:
         data.files, data.normalChangeLog =getSelectedData(values, data.files)
+      if showProductOptions:
+        data.files=getSelectedProducts(values, data.files)
       if showExistingStandards:
         data.selectedStandard_path = values['comboExistingStandards']
       if home.FindElement('fileBrowseValueExcel').Get() != "":
@@ -459,11 +503,16 @@ def selectionWindow(title, home, showChangeLogOptions=False, showOptions=False, 
       if home.FindElement('fileBrowseValue').Get() != "":
         data.files.append(Path(home.FindElement('fileBrowseValue').Get()))
         home.FindElement('fileBrowseValue').update('')
+      if home.FindElement('fileBrowseValueProduct').Get() != "":
+        data.files.append(Path(home.FindElement('fileBrowseValueProduct').Get()))
+        home.FindElement('fileBrowseValueProduct').update('')
+
       if values['apiToken'] != "" and values['urlServer'] != "":
         data.serverUrl=values['urlServer']
         data.apiToken=values['apiToken']
         writeConfig(data.serverUrl, data.apiToken)
-      
+
+      deSelectAllProducts(home)
       deSelectAllLibraries(home)
       deSelectAllExcels(home)
       showMainFrame(home)
@@ -518,7 +567,6 @@ def checkIfConvertXmlToExcel(event, results, home, links):
           xmlPath= file,
           excelPath=excelPath)
         results+="Library '%s' was converted to Excel file successfully and the output file is in the path '%s'.\n"%(str(file.name), Path.cwd() / "outFiles" / "spreadSheets" / file.name.replace(".xml",".xlsx"))
-        print(links)
         links.append(link)
       else:
         results+="File '%s' is not converted, because its extension is wrong"%file
@@ -639,7 +687,7 @@ def checkIfChangeLog(event, results, home, links):
 
 def checkIfAddStandardToLibrary(event, results, home, links):
   # select library with options (standard from a list)
-  if event == "9. Add Standard to li  brary or libraries":
+  if event == "9. Add Standard to library or libraries":
     libs=list()
     libs_path=Path.cwd() / "libraries"
     for lib in os.listdir(str(libs_path)):
@@ -730,24 +778,51 @@ def checkIfConvertRulesFromExcelToXML(event, results, home, links):
 
   return results, links
 
+def checkIfRiskFromXML(event, results, home, links):
+  if event == "15. Show risk calculation from XML product file":
+    startProgressBar(home)
+    productArray = list()
+    for product in os.listdir(str(Path.cwd() / "products")):
+      if product.endswith(".xml"):
+        productArray.append(product)
+    data = selectionWindow(
+      title="Select the product or products to show risk calculation:",
+      showProductOptions=True,
+      home=home)
+
+    for file in data.files:
+      if file.name.endswith(".xml"):
+        htmlPath = Path.cwd() / "outFiles" / "generatedHtml" / str(file.name.replace(".xml", ".html"))
+        link = calculateRiskToHTML(
+          xmlPath=file,
+          htmlPath=htmlPath)
+        results += "Risk was calculated for product '%s' successfully and the output file is in the path '%s'.\n" % (
+        str(file.name), Path.cwd() / "outFiles" / "generatedHtml" / file.name.replace(".xml", ".html"))
+        links.append(link)
+
+      else:
+        results += "Risk is not calculated for '%s' because its extension is wrong" % file
+  return results, links
+
 def loadMainLayout():
-  layout = [      
+  layout = [
           [sg.Button("1. Join library from several files", button_color=BUTTON_COLOR, size=SIZE_ELEMENT)],
           [sg.Button("2. Separate library in several files", button_color=BUTTON_COLOR, size=SIZE_ELEMENT)],
-          [sg.Button("3. Convert XML file to Excel file", button_color=BUTTON_COLOR, size=SIZE_ELEMENT)], 
-          [sg.Button("4. Convert Excel file to XML file", button_color=BUTTON_COLOR, size=SIZE_ELEMENT)], 
-          [sg.Button("5. Generate HTML file from XML file", button_color=BUTTON_COLOR, size=SIZE_ELEMENT)], 
-          [sg.Button("6. Show library details", button_color=BUTTON_COLOR, size=SIZE_ELEMENT)], 
-          [sg.Button("7. Check the threat mitigation of a library", button_color=BUTTON_COLOR, size=SIZE_ELEMENT)], 
-          [sg.Button("8. Generate the ChangeLog file from two versions", button_color=BUTTON_COLOR, size=SIZE_ELEMENT)], 
+          [sg.Button("3. Convert XML file to Excel file", button_color=BUTTON_COLOR, size=SIZE_ELEMENT)],
+          [sg.Button("4. Convert Excel file to XML file", button_color=BUTTON_COLOR, size=SIZE_ELEMENT)],
+          [sg.Button("5. Generate HTML file from XML file", button_color=BUTTON_COLOR, size=SIZE_ELEMENT)],
+          [sg.Button("6. Show library details", button_color=BUTTON_COLOR, size=SIZE_ELEMENT)],
+          [sg.Button("7. Check the threat mitigation of a library", button_color=BUTTON_COLOR, size=SIZE_ELEMENT)],
+          [sg.Button("8. Generate the ChangeLog file from two versions", button_color=BUTTON_COLOR, size=SIZE_ELEMENT)],
           [sg.Button("9. Add Standard to library or libraries", button_color=BUTTON_COLOR, size=SIZE_ELEMENT)],
           [sg.Button("10. Upgrade a library with other version of the same library", button_color=BUTTON_COLOR, size=SIZE_ELEMENT)],
-          [sg.Button("11. Generate HTML file with the relationships between a standard and the countermeasures", button_color=BUTTON_COLOR, size=SIZE_ELEMENT)], 
+          [sg.Button("11. Generate HTML file with the relationships between a standard and the countermeasures", button_color=BUTTON_COLOR, size=SIZE_ELEMENT)],
           [sg.Button("12. Upload the selected libraries to the configured server", button_color=BUTTON_COLOR, size=SIZE_ELEMENT)],
           [sg.Button("13. Add control references using the mapping from Excel file", button_color=BUTTON_COLOR, size=SIZE_ELEMENT)],
           [sg.Button("14. Convert Rules from Excel file to XML file", button_color=BUTTON_COLOR, size=SIZE_ELEMENT)],
-          
-  ] 
+          [sg.Button("15. Show risk calculation from XML product file", button_color=BUTTON_COLOR, size=SIZE_ELEMENT)],
+
+  ]
   return layout
 
 
@@ -758,6 +833,7 @@ def main():
 
   layout = loadMainLayout()
   layoutLibs=getLayoutLibs()
+  layoutProducts=getLayoutProducts()
   layoutExcels=getLayoutExcels()
   layoutUpgrade=getLayoutUpgrade()
   changeLogLayout = getChangeLogLayout()
@@ -765,7 +841,8 @@ def main():
 
   mainLayout=[[
     sg.Frame("Select the action to do:", layout, key='mainFrame'), 
-    sg.Frame("Select the libraries to use:", layoutLibs, key='frameLibs', visible=False), 
+    sg.Frame("Select the libraries to use:", layoutLibs, key='frameLibs', visible=False),
+    sg.Frame("Select the products to use:", layoutProducts, key='frameProducts', visible=False),
     sg.Frame("Select the Excels to use:", layoutExcels, key='frameExcels', visible=False),
     sg.Frame("Upgrading library:", layoutUpgrade, key='frameUpgrade', visible=False),
     sg.Frame("Select libraries to generate the ChangeLog:", changeLogLayout, key='changeLogFrame', visible=False),
@@ -798,6 +875,7 @@ def main():
     results, links=checkIfUploadLibrariesToServer(event, results, home, links)
     results, links=checkIfAddReferencesFromExcel(event, results, home, links)
     results, links=checkIfConvertRulesFromExcelToXML(event, results, home, links)
+    results, links=checkIfRiskFromXML(event, results, home, links)
     
     finishProgressBar(home)
     logger.info("Results page is shown.")

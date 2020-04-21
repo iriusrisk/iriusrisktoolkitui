@@ -1,9 +1,0 @@
-<rule name='Set Answer: Set Public Cloud when AWS SNS is selected' module='component' generatedByGui='true'>
-    <condition name='Is specific component definition' type='drools-without-variable-type' field='id' value='sns'>
-      <pattern name='Is specific component definition' pattern='ComponentDefinitionProperties(ref == "${value}");' />
-    </condition>
-    <action project='' value='Public Cloud_::_true_::_true' name='Answer Question' type='drools-without-variable-type'>
-      <pattern name='Action of answer question' pattern='$questionToAnswer : Question(id == "${value-1}", answer != ${value-2}); eval(!${value-3} || !$questionToAnswer.isManuallyModified());_:::_modify($questionToAnswer) { setAnswer(${value-2}), setCanBeManuallyModified(${value-3}) };' />
-    </action>
-    <content />
-  </rule>

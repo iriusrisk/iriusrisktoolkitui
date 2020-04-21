@@ -1,9 +1,0 @@
-<rule name="Q: Authentication - Server - Yes - 2FA" module="component" generatedByGui="true">
-            <condition name="Question is answered" type="Question" field="id" value="2FAuth">
-                <pattern name="Condition with answer" pattern='${type}(${field} == "${value}", answer == true);'/>
-            </condition>
-            <action project="" value="twoFactorType_::_Authentication_::_How will 2FA be implemented?_::_6220_::_true_::_false" name="Insert Question Group" type="drools-without-variable-type">
-                <pattern name="Action of insert question group" pattern='QuestionGroup group = new QuestionGroup("${value-1}","${value-2}","${value-3}", ${value-4}, "${value-7}"); group.setFlags(${value-5}, ${value-6}); insertLogical(group);'/>
-            </action>
-            <content></content>
-        </rule>

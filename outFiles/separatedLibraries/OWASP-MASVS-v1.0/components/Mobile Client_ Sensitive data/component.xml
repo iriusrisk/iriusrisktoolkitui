@@ -1,2 +1,0 @@
-<component ref="MOBILE-CLIENT:SENS-DATA" name="Mobile Client: Sensitive data" desc="This risk pattern is imported when we have a mobile device, and we don't know which operating system runs and the mobile app uses sensitive data (all processes with sensitive data, i.e. read, post). This is a common risk pattern for all types of operating systems." tags="" position="6" groupName="" library="" diagramPositionX="0" diagramPositionY="0" componentDefinitionRef="">
-            

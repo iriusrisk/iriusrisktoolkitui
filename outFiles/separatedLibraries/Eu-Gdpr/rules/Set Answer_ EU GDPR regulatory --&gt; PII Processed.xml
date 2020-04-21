@@ -1,9 +1,0 @@
-<rule name="Set Answer: EU GDPR regulatory --&gt; PII Processed" module="component" generatedByGui="true">
-            <condition name="Is specific component definition" type="drools-without-variable-type" field="id" value="eu-gdpr-environment">
-                <pattern name="Is specific component definition" pattern='ComponentDefinitionProperties(ref == "${value}");'/>
-            </condition>
-            <action project="" value="Personally Identifiable InformationProcessed_::_true_::_false" name="Answer Question" type="drools-without-variable-type">
-                <pattern name="Action of answer question" pattern='$questionToAnswer : Question(id == "${value-1}", answer != ${value-2}); eval(!${value-3} || !$questionToAnswer.isManuallyModified());_:::_modify($questionToAnswer) { setAnswer(${value-2}), setCanBeManuallyModified(${value-3}) };'/>
-            </action>
-            <content></content>
-        </rule>

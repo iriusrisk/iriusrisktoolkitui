@@ -1,2 +1,0 @@
-<component ref="SENS-DATA:TRANSPORT:TLS" name="Sensitive Data: Transport using SSL/TLS" desc="Transport sensitive data between client and server using SSL/TLS" tags="" position="28" groupName="" library="" diagramPositionX="0" diagramPositionY="0" componentDefinitionRef="">
-            

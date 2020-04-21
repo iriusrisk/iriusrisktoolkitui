@@ -1,2 +1,0 @@
-<component ref="ANDROID-CLIENT" name="Android Client" desc="A device running Android. This risk pattern is imported when we have a mobile device, and the client application runs in an android operating system." tags="" position="1" groupName="" library="" diagramPositionX="0" diagramPositionY="0" componentDefinitionRef="">
-            

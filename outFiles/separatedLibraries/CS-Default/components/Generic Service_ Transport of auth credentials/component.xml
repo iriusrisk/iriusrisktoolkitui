@@ -1,2 +1,0 @@
-<component ref="AUTHN-SF:DATA-TRANSPORT" name="Generic Service: Transport of auth credentials" desc="The data transport mechanism between the client and server components that transmits authentication credentials" tags="" position="16" groupName="" library="" diagramPositionX="0" diagramPositionY="0" componentDefinitionRef="">
-            
