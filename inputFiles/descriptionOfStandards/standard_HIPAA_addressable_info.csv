@@ -1,0 +1,24 @@
+Category|Ref|Req.|Included
+hipaa-addressable|HIPAA Addressable||
+Administrative Saveguards|164.308(a)(3)(ii)(A)|Authorization and/or Supervision|x
+Administrative Saveguards|164.308(a)(3)(ii)(B)|Workforce Clearance Procedure|x
+Administrative Saveguards|164.308(a)(3)(ii)(C)|Termination Procedures|x
+Administrative Saveguards|164.308(a)(4)(B)|Access Authorization|x
+Administrative Saveguards|164.308(a)(4)(C)|Access Establishment and Modification|x
+Administrative Saveguards|164.308(A)(5)(A)|Security Reminders|x
+Administrative Saveguards|164.308(A)(5)(B)|Protection from Malicious Software|x
+Administrative Saveguards|164.308(A)(5)(C)|Log-in Monitoring|x
+Administrative Saveguards|164.308(A)(5)(D)|Password Management|x
+Administrative Saveguards|164.308(a)(7)(D)|Testing and Revision Procedures|x
+Administrative Saveguards|164.308(a)(7)(E)|Applications and Data Criticality Analysis|x
+Physical Safeguards|164.310(a)(1)(A)|Contingency Operations|x
+Physical Safeguards|164.310(a)(1)(B)|Facility Security Plan|x
+Physical Safeguards|164.310(a)(1)(C)|Access Control and Validation Procedures|x
+Physical Safeguards|164.310(a)(1)(D)|Maintenance Records|x
+Physical Safeguards|164.310(d)(1)(C)|Accountability|x
+Physical Safeguards|164.310(d)(1)(D)|Data Backup and Storage|x
+Technical Safeguards|164.312(a)(1)(C)|Automatic Logoff|x
+Technical Safeguards|164.312(a)(1)(D)|Encryption and Decryption|x
+Technical Safeguards|164.312(c)(1)|Mechanism to Authenticate Electronic Protected Health Information|x
+Technical Safeguards|164.312(e)(1)(A)|Integrity Controls|x
+Technical Safeguards|164.312(e)(1)(B)|Encryption|x

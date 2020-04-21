@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:enum_import01="enum_import01"
+    xmlns:enum_import02="enum_import02"
+    targetNamespace="enum_import00">
+
+    <xs:import schemaLocation="enum_import01.xsd" namespace="enum_import01"/>
+    <xs:import schemaLocation="enum_import02.xsd" namespace="enum_import02"/>
+
+    <xs:complexType name="Type00_1">
+        <xs:sequence>
+            <xs:element name="inner01" type="enum_import01:Type01_1" />
+            <xs:element name="inner02" type="enum_import02:Type02_1" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Type00_2">
+        <xs:attribute default="33" name="attr1" type="enum_import01:IntType01_1" />
+    </xs:complexType>
+
+    <xs:simpleType name="EnumType00_1">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="float" />
+            <xs:enumeration value="int" />
+            <xs:enumeration value="Name" />
+            <xs:enumeration value="token" />
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

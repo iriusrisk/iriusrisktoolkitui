@@ -1,0 +1,3 @@
+#!/bin/bash -x
+cp ${1}2_sup.py ${1}1_sup.py
+cp ${1}2_sub.py ${1}1_sub.py

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="risk-rating.xsd"/>
+    <xs:include schemaLocation="../../controls/references.xsd"/>
+    <xs:include schemaLocation="weaknesses-ref.xsd"/>
+    <xs:include schemaLocation="controls-ref.xsd"/>
+    <xs:complexType name="threatType">
+        <xs:all>
+            <xs:element type="xs:string" name="desc"/>
+            <xs:element type="riskRatingType" name="riskRating"/>
+            <xs:element type="referencesType" name="references"/>
+            <xs:element type="controlsRefType" name="controls"/>
+            <xs:element type="weaknessesRefType" name="weaknesses"/>
+        </xs:all>
+        <xs:attribute type="xs:string" name="ref" use="required"/>
+        <xs:attribute type="xs:string" name="name" use="required"/>
+        <xs:attribute type="xs:string" name="state" use="required"/>
+        <xs:attribute type="xs:string" name="source" use="required"/>
+        <xs:attribute type="xs:string" name="owner" use="required"/>
+        <xs:attribute type="xs:string" name="library" use="required"/>
+    </xs:complexType>
+</xs:schema>

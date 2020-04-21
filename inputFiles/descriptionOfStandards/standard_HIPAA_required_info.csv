@@ -1,0 +1,29 @@
+Category|Ref|Req.|Included
+hipaa-required|HIPAA Required||
+Administrative Saveguards|164.308(a)(1)(ii)(A)|Risk Analysis|x
+Administrative Saveguards|164.308(a)(1)(ii)(B)|Risk Management|x
+Administrative Saveguards|164.308(a)(1)(ii)(C)|Sanction Policy|x
+Administrative Saveguards|164.308(a)(1)(ii)(D)|Information System Activity Review|x
+Administrative Saveguards|164.308(a)(2)|Assigned Security Responsibility|x
+Administrative Saveguards|164.308(a)(4)(A)|Isolating Health Care Clearinghouse Functions|x
+Administrative Saveguards|164.308(a)(6)|Response and reporting|x
+Administrative Saveguards|164.308(a)(7)(A)|Data Backup Plan|x
+Administrative Saveguards|164.308(a)(7)(B)|Disaster Recovery Plan|x
+Administrative Saveguards|164.308(a)(7)(C)|Emergency Mode Operation Plan|x
+Administrative Saveguards|164.308(a)(8)|Evaluation|x
+Administrative Saveguards|164.308(b)(1)|Written Contract or Other Arrangement|x
+Physical Safeguards|164.310(b)|Workstation Use|x
+Physical Safeguards|164.310(c)|Workstation Security|x
+Physical Safeguards|164.310(d)(1)(A)|Disposal|x
+Physical Safeguards|164.310(d)(1)(B)|Media Re-use|x
+Technical Safeguards|164.312(a)(1)(A)|Unique User Identification|x
+Technical Safeguards|164.312(a)(1)(B)|Emergency Access Procedure|x
+Technical Safeguards|164.312(b)|Audit Controls|x
+Technical Safeguards|164.312(d)|Person or Entity Authentication|x
+Organizational Requirements|164.314(a)(2)(i)|Business Associate Contracts|x
+Organizational Requirements|164.314(a)(2)(ii)|Other Arrangements|x
+Organizational Requirements|164.314(b)(2)|Implementation Specifications|x
+Policies and Procedures and documentation requirements|164.316(a)|Policies and Procedures|x
+Policies and Procedures and documentation requirements|164.316(b)(2)(i)|Time Limit|x
+Policies and Procedures and documentation requirements|164.316(b)(2)(ii)|Availability|x
+Policies and Procedures and documentation requirements|164.316(b)(2)(iii)|Updates|x

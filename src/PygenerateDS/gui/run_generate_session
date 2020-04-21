@@ -1,0 +1,5 @@
+#!/bin/bash
+../generateDS.py \
+    -o generateds_gui_session.py \
+    --member-specs=list \
+    generateds_gui_session.xsd

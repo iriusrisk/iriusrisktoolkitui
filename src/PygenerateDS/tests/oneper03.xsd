@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    >
+
+<!-- During unit tests, this schema file is actually read from
+     http://www.davekuhlman.org.
+     See xs:include element in oneper00.xsd.
+-->
+
+    <xs:element name="root03" type="oneperType03_1" />
+
+    <xs:complexType name="oneperType03_1">
+        <xs:sequence>
+            <xs:element name="helpername" type="xs:string"/>
+            <xs:element name="inner01" type="oneperType02_2" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="oneperType03_2">
+        <xs:sequence>
+            <xs:element name="helperdescription" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
+

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="source.xsd"/>
+    <xs:include schemaLocation="../controls/references.xsd"/>
+    <xs:include schemaLocation="../../udts/udts.xsd"/>
+    <xs:complexType name="testType">
+        <xs:all>
+            <xs:element type="xs:string" name="steps"/>
+            <xs:element type="xs:string" name="notes"/>
+            <xs:element type="referencesType" name="references"/>
+            <xs:element type="sourceType" name="source"/>
+            <xs:element type="udtsType" name="udts"/>
+        </xs:all>
+        <xs:attribute type="xs:string" name="expiryDate" use="required"/>
+        <xs:attribute type="xs:string" name="expiryPeriod" use="required"/>
+    </xs:complexType>
+</xs:schema>

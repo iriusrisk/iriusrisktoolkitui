@@ -1,0 +1,76 @@
+<container>
+    <purchaseOrder orderDate="1999-12-01">
+        <shipTo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ipo:UKAddress">
+            <name>Helen Zoe</name>
+            <street>47 Eden Street</street>
+            <city>Cambridge</city>
+            <postcode>CB1 1JR</postcode>
+        </shipTo>
+        <billTo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ipo:USAddress">
+            <name>Robert Smith</name>
+            <street>8 Oak Avenue</street>
+            <city>Old Town</city>
+            <state>PA</state>
+            <zip>95819</zip>
+        </billTo>
+        <items>
+            <item xmlns:ipo="http://www.example.com/IPO" partNum="833-AA">
+                <productName>Lapis necklace</productName>
+                <quantity>1</quantity>
+                <USPrice>99.950000000000003</USPrice>
+                <comment>Want this for the holidays</comment>
+                <shipDate>1999-12-05</shipDate>
+            </item>
+        </items>
+    </purchaseOrder>
+    <!-- =============================== -->
+    <ABC:purchaseOrder xmlns:ABC="http://www.example.com/IPO" orderDate="1999-12-01">
+        <ABC:shipTo xmlns:ABC="http://www.example.com/IPO" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ipo:UKAddress">
+            <ABC:name>Helen Zoe</ABC:name>
+            <ABC:street>47 Eden Street</ABC:street>
+            <ABC:city>Cambridge</ABC:city>
+            <ABC:postcode>CB1 1JR</ABC:postcode>
+        </ABC:shipTo>
+        <ABC:billTo xmlns:ABC="http://www.example.com/IPO" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ipo:USAddress">
+            <ABC:name>Robert Smith</ABC:name>
+            <ABC:street>8 Oak Avenue</ABC:street>
+            <ABC:city>Old Town</ABC:city>
+            <ABC:state>PA</ABC:state>
+            <ABC:zip>95819</ABC:zip>
+        </ABC:billTo>
+        <ABC:items xmlns:ABC="http://www.example.com/IPO">
+            <ABC:item xmlns:ipo="http://www.example.com/IPO" partNum="833-AA">
+                <ABC:productName>Lapis necklace</ABC:productName>
+                <ABC:quantity>1</ABC:quantity>
+                <ABC:USPrice>99.950000000000003</ABC:USPrice>
+                <ABC:comment>Want this for the holidays</ABC:comment>
+                <ABC:shipDate>1999-12-05</ABC:shipDate>
+            </ABC:item>
+        </ABC:items>
+    </ABC:purchaseOrder>
+    <!-- =============================== -->
+    <ipo:purchaseOrder xmlns:ipo="http://www.example.com/IPO" orderDate="1999-12-01">
+        <ipo:shipTo xmlns:ipo="http://www.example.com/IPO" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ipo:UKAddress">
+            <ipo:name>Helen Zoe</ipo:name>
+            <ipo:street>47 Eden Street</ipo:street>
+            <ipo:city>Cambridge</ipo:city>
+            <ipo:postcode>CB1 1JR</ipo:postcode>
+        </ipo:shipTo>
+        <ipo:billTo xmlns:ipo="http://www.example.com/IPO" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ipo:USAddress">
+            <ipo:name>Robert Smith</ipo:name>
+            <ipo:street>8 Oak Avenue</ipo:street>
+            <ipo:city>Old Town</ipo:city>
+            <ipo:state>PA</ipo:state>
+            <ipo:zip>95819</ipo:zip>
+        </ipo:billTo>
+        <ipo:items xmlns:ipo="http://www.example.com/IPO">
+            <ipo:item xmlns:ipo="http://www.example.com/IPO" partNum="833-AA">
+                <ipo:productName>Lapis necklace</ipo:productName>
+                <ipo:quantity>1</ipo:quantity>
+                <ipo:USPrice>99.950000000000003</ipo:USPrice>
+                <ipo:comment>Want this for the holidays</ipo:comment>
+                <ipo:shipDate>1999-12-05</ipo:shipDate>
+            </ipo:item>
+        </ipo:items>
+    </ipo:purchaseOrder>
+</container>

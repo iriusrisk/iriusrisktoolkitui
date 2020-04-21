@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0">
+
+<xs:element name="animalCollection">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="animal" type="animal" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+<xs:complexType name="animal" abstract="true"></xs:complexType>
+
+<xs:complexType name="dog">
+  <xs:complexContent>
+    <xs:extension base="animal">
+      <xs:sequence>
+        <xs:element name="name" type="xs:string"/>
+      </xs:sequence>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+</xs:schema>

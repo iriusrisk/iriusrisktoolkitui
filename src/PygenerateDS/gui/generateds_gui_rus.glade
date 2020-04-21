@@ -1,0 +1,1691 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+    <requires lib="gtk+" version="3."/>
+    <object class="GtkAccelGroup" id="accelgroup1"/>
+    <object class="GtkDialog" id="content_dialog">
+        <property name="can_focus">False</property>
+        <property name="border_width">5</property>
+        <property name="title" translatable="yes">Сообщения и контент</property>
+        <property name="default_width">800</property>
+        <property name="default_height">600</property>
+        <property name="type_hint">normal</property>
+        <child internal-child="vbox">
+            <object class="GtkBox" id="dialog-vbox3">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="spacing">2</property>
+                <child internal-child="action_area">
+                    <object class="GtkButtonBox" id="dialog-action_area3">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="layout_style">end</property>
+                        <child>
+                            <object class="GtkButton" id="content_dialog_ok_button">
+                                <property name="label" translatable="yes">OK</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <signal name="activate" handler="on_ok_button_activate" swapped="no"/>
+                            </object>
+                            <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">False</property>
+                                <property name="position">0</property>
+                            </packing>
+                        </child>
+                    </object>
+                    <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                        <property name="pack_type">end</property>
+                        <property name="position">0</property>
+                    </packing>
+                </child>
+                <child>
+                    <object class="GtkScrolledWindow" id="scrolledwindow1">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="min_content_width">250</property>
+                        <property name="min_content_height">500</property>
+                        <child>
+                            <object class="GtkTextView" id="content_textview">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="editable">False</property>
+                            </object>
+                        </child>
+                    </object>
+                    <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">1</property>
+                    </packing>
+                </child>
+            </object>
+        </child>
+        <action-widgets>
+            <action-widget response="0">content_dialog_ok_button</action-widget>
+        </action-widgets>
+    </object>
+    <object class="GtkImage" id="image1">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="stock">gtk-save</property>
+    </object>
+    <object class="GtkImage" id="image2">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="stock">gtk-save-as</property>
+    </object>
+    <object class="GtkImage" id="image3">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="stock">gtk-open</property>
+    </object>
+    <object class="GtkImage" id="image4">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="stock">gtk-clear</property>
+    </object>
+    <object class="GtkWindow" id="window1">
+        <property name="can_focus">False</property>
+        <accel-groups>
+            <group name="accelgroup1"/>
+        </accel-groups>
+        <signal name="delete-event" handler="on_window_delete_event" swapped="no"/>
+        <child>
+            <object class="GtkVBox" id="vbox1">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <child>
+                    <object class="GtkMenuBar" id="menubar1">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <child>
+                            <object class="GtkMenuItem" id="menuitem1">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="label" translatable="yes">_Файл</property>
+                                <property name="use_underline">True</property>
+                                <child type="submenu">
+                                    <object class="GtkMenu" id="menu1">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <child>
+                                            <object class="GtkImageMenuItem" id="clear_menuitem">
+                                                <property name="label">Clear</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="image">image4</property>
+                                                <property name="use_stock">False</property>
+                                                <property name="accel_group">accelgroup1</property>
+                                                <signal name="activate" handler="on_clear_menuitem_activate" swapped="no"/>
+                                                <accelerator key="n" signal="activate" modifiers="GDK_CONTROL_MASK"/>
+                                            </object>
+                                        </child>
+                                        <child>
+                                            <object class="GtkImageMenuItem" id="open_session_menuitem">
+                                                <property name="label">_Load session</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="tooltip_text" translatable="yes">Загрузите предыдущую сохраненную сессию.</property>
+                                                <property name="use_underline">True</property>
+                                                <property name="image">image3</property>
+                                                <property name="use_stock">False</property>
+                                                <property name="accel_group">accelgroup1</property>
+                                                <signal name="activate" handler="on_open_session_menuitem_activate" swapped="no"/>
+                                                <accelerator key="o" signal="activate" modifiers="GDK_CONTROL_MASK"/>
+                                            </object>
+                                        </child>
+                                        <child>
+                                            <object class="GtkImageMenuItem" id="save_session_menuitem">
+                                                <property name="label">_Save session</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="tooltip_text" translatable="yes">Сохранить текущую сессию.</property>
+                                                <property name="use_underline">True</property>
+                                                <property name="image">image1</property>
+                                                <property name="use_stock">False</property>
+                                                <property name="accel_group">accelgroup1</property>
+                                                <signal name="activate" handler="on_save_session_menuitem_activate" swapped="no"/>
+                                                <accelerator key="s" signal="activate" modifiers="GDK_CONTROL_MASK"/>
+                                            </object>
+                                        </child>
+                                        <child>
+                                            <object class="GtkImageMenuItem" id="save_session_as_menuitem">
+                                                <property name="label">Save session as ...</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="tooltip_text" translatable="yes">Сохранить текущую сессию в
+файле, выбранном пользователем.</property>
+                                                <property name="image">image2</property>
+                                                <property name="use_stock">False</property>
+                                                <property name="accel_group">accelgroup1</property>
+                                                <signal name="activate" handler="on_save_session_as_menuitem_activate" swapped="no"/>
+                                            </object>
+                                        </child>
+                                        <child>
+                                            <object class="GtkSeparatorMenuItem" id="menuitem5">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                            </object>
+                                        </child>
+                                        <child>
+                                            <object class="GtkImageMenuItem" id="imagemenuitem5">
+                                                <property name="label">gtk-quit</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="tooltip_text" translatable="yes">Выход из приложения.</property>
+                                                <property name="use_underline">True</property>
+                                                <property name="use_stock">True</property>
+                                                <property name="accel_group">accelgroup1</property>
+                                                <signal name="activate" handler="on_quit_menu_item_activate" swapped="no"/>
+                                            </object>
+                                        </child>
+                                    </object>
+                                </child>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="GtkMenuItem" id="menuitem2">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="label" translatable="yes">_Инструменты</property>
+                                <property name="use_underline">True</property>
+                                <child type="submenu">
+                                    <object class="GtkMenu" id="menu2">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <child>
+                                            <object class="GtkMenuItem" id="capture_cl_menuitem">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="tooltip_text" translatable="yes">Получить командную строку, которая использовалась бы
+, чтобы произвести модули (bindings modules).</property>
+                                                <property name="label" translatable="yes">_Capture CL</property>
+                                                <property name="use_underline">True</property>
+                                                <signal name="activate" handler="on_capture_cl_menuitem_activate" swapped="no"/>
+                                                <accelerator key="t" signal="activate" modifiers="GDK_CONTROL_MASK"/>
+                                            </object>
+                                        </child>
+                                        <child>
+                                            <object class="GtkMenuItem" id="generate_menuitem">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="tooltip_text" translatable="yes">Генерировать модули привязки.</property>
+                                                <property name="label" translatable="yes">_Произвести</property>
+                                                <property name="use_underline">True</property>
+                                                <signal name="activate" handler="on_generate_menuitem_activate" swapped="no"/>
+                                                <accelerator key="g" signal="activate" modifiers="GDK_CONTROL_MASK"/>
+                                            </object>
+                                        </child>
+                                    </object>
+                                </child>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="GtkMenuItem" id="menuitem4">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="label" translatable="yes">_Помощь</property>
+                                <property name="use_underline">True</property>
+                                <child type="submenu">
+                                    <object class="GtkMenu" id="menu3">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <child>
+                                            <object class="GtkImageMenuItem" id="imagemenuitem10">
+                                                <property name="label">gtk-about</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="use_underline">True</property>
+                                                <property name="use_stock">True</property>
+                                                <property name="accel_group">accelgroup1</property>
+                                                <signal name="activate" handler="on_about_menu_item_activate" swapped="no"/>
+                                            </object>
+                                        </child>
+                                    </object>
+                                </child>
+                            </object>
+                        </child>
+                    </object>
+                    <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">0</property>
+                    </packing>
+                </child>
+                <child>
+                    <object class="GtkScrolledWindow" id="scrolledwindow2">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="shadow_type">in</property>
+                        <property name="min_content_width">1000</property>
+                        <property name="min_content_height">600</property>
+                        <child>
+                            <object class="GtkViewport" id="viewport1">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <child>
+                                    <object class="GtkTable" id="table1">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="n_rows">29</property>
+                                        <property name="n_columns">4</property>
+                                        <child>
+                                            <placeholder></placeholder>
+                                        </child>
+                                        <child>
+                                            <placeholder></placeholder>
+                                        </child>
+                                        <child>
+                                            <placeholder></placeholder>
+                                        </child>
+                                        <child>
+                                            <placeholder></placeholder>
+                                        </child>
+                                        <child>
+                                            <placeholder></placeholder>
+                                        </child>
+                                        <child>
+                                            <placeholder></placeholder>
+                                        </child>
+                                        <child>
+                                            <placeholder></placeholder>
+                                        </child>
+                                        <child>
+                                            <placeholder></placeholder>
+                                        </child>
+                                        <child>
+                                            <placeholder></placeholder>
+                                        </child>
+                                        <child>
+                                            <placeholder></placeholder>
+                                        </child>
+                                        <child>
+                                            <placeholder></placeholder>
+                                        </child>
+                                        <child>
+                                            <placeholder></placeholder>
+                                        </child>
+                                        <child>
+                                            <placeholder></placeholder>
+                                        </child>
+                                        <child>
+                                            <placeholder></placeholder>
+                                        </child>
+                                        <child>
+                                            <placeholder></placeholder>
+                                        </child>
+                                        <child>
+                                            <placeholder></placeholder>
+                                        </child>
+                                        <child>
+                                            <placeholder></placeholder>
+                                        </child>
+                                        <child>
+                                            <placeholder></placeholder>
+                                        </child>
+                                        <child>
+                                            <placeholder></placeholder>
+                                        </child>
+                                        <child>
+                                            <placeholder></placeholder>
+                                        </child>
+                                        <child>
+                                            <placeholder></placeholder>
+                                        </child>
+                                        <child>
+                                            <placeholder></placeholder>
+                                        </child>
+                                        <child>
+                                            <placeholder></placeholder>
+                                        </child>
+                                        <child>
+                                            <placeholder></placeholder>
+                                        </child>
+                                        <child>
+                                            <placeholder></placeholder>
+                                        </child>
+                                        <child>
+                                            <placeholder></placeholder>
+                                        </child>
+                                        <child>
+                                            <placeholder></placeholder>
+                                        </child>
+                                        <child>
+                                            <placeholder></placeholder>
+                                        </child>
+                                        <child>
+                                            <placeholder></placeholder>
+                                        </child>
+                                        <child>
+                                            <placeholder></placeholder>
+                                        </child>
+                                        <child>
+                                            <placeholder></placeholder>
+                                        </child>
+                                        <child>
+                                            <object class="GtkLabel" id="label1">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="label" translatable="yes">Введите файл схемы:</property>
+                                                <property name="xalign">0</property>
+                                            </object>
+                                        </child>
+                                        <child>
+                                            <object class="GtkLabel" id="label2">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="label" translatable="yes">Выходной файл суперкласса:</property>
+                                                <property name="xalign">0</property>
+                                            </object>
+                                            <packing>
+                                                <property name="top_attach">1</property>
+                                                <property name="bottom_attach">2</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkLabel" id="label3">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="label" translatable="yes">Выходной файл подкласса:</property>
+                                                <property name="xalign">0</property>
+                                            </object>
+                                            <packing>
+                                                <property name="top_attach">2</property>
+                                                <property name="bottom_attach">3</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkLabel" id="label4">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="label" translatable="yes">Перезапись без вопросов:</property>
+                                                <property name="xalign">0</property>
+                                            </object>
+                                            <packing>
+                                                <property name="top_attach">3</property>
+                                                <property name="bottom_attach">4</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkCheckButton" id="force_checkbutton">
+                                                <property name="label" translatable="yes">Ускоорить</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="receives_default">False</property>
+                                                <property name="tooltip_text" translatable="yes">Всегда перезаписывать выходные файлы.
+без запроса подтверждение.</property>
+                                                <property name="xalign">0</property>
+                                                <property name="draw_indicator">True</property>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">3</property>
+                                                <property name="bottom_attach">4</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkEntry" id="input_schema_entry">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="tooltip_text" translatable="yes">Путь и название
+вводят XML-схему, определяющую
+привязки, которые будут произведены.</property>
+                                                <property name="invisible_char">-</property>
+                                                <property name="width_chars">80</property>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkEntry" id="output_superclass_entry">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="tooltip_text" translatable="yes">Путь и название выходного файла
+, чтобы быть сгенерированными и содержать
+суперклассы.</property>
+                                                <property name="invisible_char">-</property>
+                                                <signal name="changed" handler="on_output_superclass_entry_changed" swapped="no"/>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">1</property>
+                                                <property name="bottom_attach">2</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkEntry" id="output_subclass_entry">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="tooltip_text" translatable="yes">Путь и название выходного файла
+, чтобы быть сгенерированными и содержать
+подклассы.</property>
+                                                <property name="invisible_char">-</property>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">2</property>
+                                                <property name="bottom_attach">3</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkLabel" id="label5">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="label" translatable="yes">Префикс (для названий классов):</property>
+                                                <property name="xalign">0</property>
+                                            </object>
+                                            <packing>
+                                                <property name="top_attach">4</property>
+                                                <property name="bottom_attach">5</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkEntry" id="prefix_entry">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="tooltip_text" translatable="yes">Префикс для названий классов.</property>
+                                                <property name="invisible_char">-</property>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">4</property>
+                                                <property name="bottom_attach">5</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkLabel" id="label6">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="label" translatable="yes">Префикс пространства имен:</property>
+                                                <property name="xalign">0</property>
+                                            </object>
+                                            <packing>
+                                                <property name="top_attach">5</property>
+                                                <property name="bottom_attach">6</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkEntry" id="namespace_prefix_entry">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="events">GDK_KEY_RELEASE_MASK | GDK_STRUCTURE_MASK</property>
+                                                <property name="tooltip_text" translatable="yes">Переопределите пространство имен по умолчанию
+префикс в файле схемы. Пример
+:-a "xsd": Значение по умолчанию
+: "xs":.</property>
+                                                <property name="invisible_char">-</property>
+                                                <signal name="changed" handler="on_namespace_prefix_entry_changed" swapped="no"/>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">5</property>
+                                                <property name="bottom_attach">6</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkLabel" id="label7">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="label" translatable="yes">Имя файла поведения:</property>
+                                                <property name="xalign">0</property>
+                                            </object>
+                                            <packing>
+                                                <property name="top_attach">6</property>
+                                                <property name="bottom_attach">7</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkEntry" id="behavior_filename_entry">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="tooltip_text" translatable="yes">Введите имя файла для поведений
+добавлемых к подклассам.</property>
+                                                <property name="invisible_char">-</property>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">6</property>
+                                                <property name="bottom_attach">7</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkLabel" id="label8">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="label" translatable="yes">Генерировать свойства  Python:</property>
+                                                <property name="xalign">0</property>
+                                            </object>
+                                            <packing>
+                                                <property name="top_attach">7</property>
+                                                <property name="bottom_attach">8</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkCheckButton" id="properties_checkbutton">
+                                                <property name="label" translatable="yes">Свойства</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="receives_default">False</property>
+                                                <property name="tooltip_text" translatable="yes">Генерировать свойства Python для переменных-членов
+так, чтобы значение могло быть восстановлено и изменено
+, не называя функции getter и setter.</property>
+                                                <property name="xalign">0</property>
+                                                <property name="draw_indicator">True</property>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">7</property>
+                                                <property name="bottom_attach">8</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkLabel" id="label10">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="label" translatable="yes">Суффикс подкласса:</property>
+                                                <property name="xalign">0</property>
+                                            </object>
+                                            <packing>
+                                                <property name="top_attach">9</property>
+                                                <property name="bottom_attach">10</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkEntry" id="subclass_suffix_entry">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="tooltip_text" translatable="yes">Дополнительный текст к сгенерированными подназваниям классов. Значение по умолчанию
+= "Sub".</property>
+                                                <property name="invisible_char">-</property>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">9</property>
+                                                <property name="bottom_attach">10</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkLabel" id="label11">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="label" translatable="yes">Элемент корня:</property>
+                                                <property name="xalign">0</property>
+                                            </object>
+                                            <packing>
+                                                <property name="top_attach">10</property>
+                                                <property name="bottom_attach">11</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkEntry" id="root_element_entry">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="tooltip_text" translatable="yes">Предположите, что это значение - имя
+элемента корня документа
+, Значение по умолчанию - первый элемент, определенный в схеме.</property>
+                                                <property name="invisible_char">-</property>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">10</property>
+                                                <property name="bottom_attach">11</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkButton" id="input_schema_chooser_button">
+                                                <property name="label" translatable="yes">Выбрать</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="receives_default">True</property>
+                                                <property name="tooltip_text" translatable="yes">Выберите входной файл схемы.</property>
+                                                <signal name="clicked" handler="on_input_schema_chooser_button_clicked" swapped="no"/>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">2</property>
+                                                <property name="right_attach">3</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkButton" id="output_superclass_chooser_button">
+                                                <property name="label" translatable="yes">Выбрать</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="receives_default">True</property>
+                                                <property name="tooltip_text" translatable="yes">Выберите выходной файл привязки суперкласса.</property>
+                                                <signal name="clicked" handler="on_output_superclass_chooser_button_clicked" swapped="no"/>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">2</property>
+                                                <property name="right_attach">3</property>
+                                                <property name="top_attach">1</property>
+                                                <property name="bottom_attach">2</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkButton" id="output_subclass_chooser_button">
+                                                <property name="label" translatable="yes">Выбрать</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="receives_default">True</property>
+                                                <property name="tooltip_text" translatable="yes">Выберите выходной файл привязки подкласса.</property>
+                                                <signal name="clicked" handler="on_output_subclass_chooser_button_clicked" swapped="no"/>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">2</property>
+                                                <property name="right_attach">3</property>
+                                                <property name="top_attach">2</property>
+                                                <property name="bottom_attach">3</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkButton" id="behavior_filename_chooser_button">
+                                                <property name="label" translatable="yes">Выбрать</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="receives_default">True</property>
+                                                <property name="tooltip_text" translatable="yes">Choose the nput file name for
+behaviors added to subclasses.</property>
+                                                <signal name="clicked" handler="on_behavior_filename_chooser_button_clicked" swapped="no"/>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">2</property>
+                                                <property name="right_attach">3</property>
+                                                <property name="top_attach">6</property>
+                                                <property name="bottom_attach">7</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkLabel" id="label12">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="label" translatable="yes">Модуль суперкласса:</property>
+                                                <property name="xalign">0</property>
+                                            </object>
+                                            <packing>
+                                                <property name="top_attach">11</property>
+                                                <property name="bottom_attach">12</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkEntry" id="superclass_module_entry">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="tooltip_text" translatable="yes">Имя модуля суперкласса в модуле подкласса. Значение по умолчанию
+= "???".</property>
+                                                <property name="invisible_char">-</property>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">11</property>
+                                                <property name="bottom_attach">12</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkLabel" id="label13">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="label" translatable="yes">Использовать старые  getter и setter:</property>
+                                                <property name="xalign">0</property>
+                                            </object>
+                                            <packing>
+                                                <property name="top_attach">12</property>
+                                                <property name="bottom_attach">13</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkCheckButton" id="old_getters_setters_checkbutton">
+                                                <property name="label" translatable="yes">Старые getter и setter</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="receives_default">False</property>
+                                                <property name="tooltip_text" translatable="yes">Называть getter и setter getVar () и setVar (),
+вместо get_var () и set_var ().</property>
+                                                <property name="xalign">0</property>
+                                                <property name="draw_indicator">True</property>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">12</property>
+                                                <property name="bottom_attach">13</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkLabel" id="label14">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="label" translatable="yes">Путь корпусов контрольного устройства:</property>
+                                                <property name="xalign">0</property>
+                                            </object>
+                                            <packing>
+                                                <property name="top_attach">13</property>
+                                                <property name="bottom_attach">14</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkLabel" id="label15">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="label" translatable="yes">Пользовательский модуль методов:</property>
+                                                <property name="xalign">0</property>
+                                            </object>
+                                            <packing>
+                                                <property name="top_attach">14</property>
+                                                <property name="bottom_attach">15</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkLabel" id="label16">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="label" translatable="yes">Никакие даты:</property>
+                                                <property name="xalign">0</property>
+                                            </object>
+                                            <packing>
+                                                <property name="top_attach">15</property>
+                                                <property name="bottom_attach">16</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkLabel" id="label17">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="label" translatable="yes">Никакие версии:</property>
+                                                <property name="xalign">0</property>
+                                            </object>
+                                            <packing>
+                                                <property name="top_attach">16</property>
+                                                <property name="bottom_attach">17</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkCheckButton" id="no_dates_checkbutton">
+                                                <property name="label" translatable="yes">Никакие даты в произведенном выводе</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="receives_default">False</property>
+                                                <property name="tooltip_text" translatable="yes">Не включать текущую дату в произведенные
+файлы. Это полезно, если Вы хотите минимизировать
+, количество изменений (no-operation)
+в сгенрированном  коде питона.</property>
+                                                <property name="xalign">0</property>
+                                                <property name="draw_indicator">True</property>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">15</property>
+                                                <property name="bottom_attach">16</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkEntry" id="validator_bodies_entry">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="tooltip_text" translatable="yes">Путь к каталогу, содержащему файлы, которые обеспечивают
+корпуса (внедрения) методов контрольного устройства.</property>
+                                                <property name="invisible_char">-</property>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">13</property>
+                                                <property name="bottom_attach">14</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkButton" id="validator_bodies_chooser_button">
+                                                <property name="label" translatable="yes">Выбрать</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="receives_default">True</property>
+                                                <property name="tooltip_text" translatable="yes">Выберите путь к каталогу, содержащему файлы, которые обеспечивают
+органы (реализации) методов проверки.</property>
+                                                <signal name="clicked" handler="on_validator_bodies_chooser_button_clicked" swapped="no"/>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">2</property>
+                                                <property name="right_attach">3</property>
+                                                <property name="top_attach">13</property>
+                                                <property name="bottom_attach">14</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkCheckButton" id="no_versions_checkbutton">
+                                                <property name="label" translatable="yes">Никакая информация о версии в произведенном выводе</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="receives_default">False</property>
+                                                <property name="tooltip_text" translatable="yes">Не включайть текущую версию в произведенные
+файлы. Это полезно, если Вы хотите минимизировать
+, количество изменений (no-operationт)
+в сгенрированном  коде питона.</property>
+                                                <property name="xalign">0</property>
+                                                <property name="draw_indicator">True</property>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">16</property>
+                                                <property name="bottom_attach">17</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkButton" id="user_methods_button">
+                                                <property name="label" translatable="yes">Выбрать</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="receives_default">True</property>
+                                                <property name="tooltip_text" translatable="yes">Выберите дополнительный модуль, содержащий пользовательские методы. См.
+секцию "User Methods" в документации.</property>
+                                                <signal name="clicked" handler="on_user_methods_chooser_button_clicked" swapped="no"/>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">2</property>
+                                                <property name="right_attach">3</property>
+                                                <property name="top_attach">14</property>
+                                                <property name="bottom_attach">15</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkEntry" id="user_methods_entry">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="tooltip_text" translatable="yes">Дополнительный модуль, содержащий пользовательские методы. См.
+секцию "Пользовательские Методы" в документации.</property>
+                                                <property name="invisible_char">-</property>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">14</property>
+                                                <property name="bottom_attach">15</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkLabel" id="label18">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="label" translatable="yes">Никакой процесс не включает:</property>
+                                                <property name="xalign">0</property>
+                                            </object>
+                                            <packing>
+                                                <property name="top_attach">17</property>
+                                                <property name="bottom_attach">18</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkLabel" id="label19">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="label" translatable="yes">Тишина:</property>
+                                                <property name="xalign">0</property>
+                                            </object>
+                                            <packing>
+                                                <property name="top_attach">18</property>
+                                                <property name="bottom_attach">19</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkCheckButton" id="no_process_includes_checkbutton">
+                                                <property name="label" translatable="yes">Не обрабатывать включения в схему</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="receives_default">False</property>
+                                                <property name="tooltip_text" translatable="yes">Не обрабатывать включенные файлы XML-схемы.
+Значением по умолчанию generateDS.py вставит контент
+от файлов, на которые ссылаются &amp;lt;включают.../&amp;gt;
+элементы в XML-схемы, которая будет обработана.</property>
+                                                <property name="xalign">0</property>
+                                                <property name="draw_indicator">True</property>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">17</property>
+                                                <property name="bottom_attach">18</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkCheckButton" id="silence_checkbutton">
+                                                <property name="label" translatable="yes">Генерировать код, который не повторяет разобранный XML</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="receives_default">False</property>
+                                                <property name="tooltip_text" translatable="yes">Обычно, код, произведенный с generateDS
+, повторяет разбираемую информацию. Используйте
+эта опция, чтобы выключить это поведение.</property>
+                                                <property name="xalign">0</property>
+                                                <property name="draw_indicator">True</property>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">18</property>
+                                                <property name="bottom_attach">19</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkLabel" id="label20">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="label" translatable="yes">Определения пространства имен:</property>
+                                                <property name="xalign">0</property>
+                                            </object>
+                                            <packing>
+                                                <property name="top_attach">19</property>
+                                                <property name="bottom_attach">20</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkLabel" id="label21">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="label" translatable="yes">Внешнее кодировка:</property>
+                                                <property name="xalign">0</property>
+                                            </object>
+                                            <packing>
+                                                <property name="top_attach">20</property>
+                                                <property name="bottom_attach">21</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkLabel" id="label22">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="label" translatable="yes">Спецификации членов:</property>
+                                                <property name="xalign">0</property>
+                                            </object>
+                                            <packing>
+                                                <property name="top_attach">22</property>
+                                                <property name="bottom_attach">23</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkEntry" id="namespace_defs_entry">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="tooltip_text" translatable="yes">Определение пространства имен, которое будет передано в как
+, оценивает за namespacedef_ параметр
+экспорт () метод сгенерированными разбором
+() и parseString () функции. Значение по умолчанию
+= ''. Пример:
+xmlns:abc = "http://www.abc.com"</property>
+                                                <property name="invisible_char">-</property>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">19</property>
+                                                <property name="bottom_attach">20</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkEntry" id="external_encoding_entry">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="tooltip_text" translatable="yes">Закодируйте вывод, полученый сгенерированными экспортом
+методы, используя это кодирование. Значение по умолчанию, если опущено,
+является значением, возвращенным sys.getdefaultencoding (). Пример
+: utf-8.</property>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">20</property>
+                                                <property name="bottom_attach">21</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkHBox" id="member_specs_combobox_container">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <child>
+                                                    <placeholder></placeholder>
+                                                </child>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">22</property>
+                                                <property name="bottom_attach">23</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkCheckButton" id="empty_namespace_prefix_checkbutton">
+                                                <property name="label" translatable="yes">Свободный</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="receives_default">False</property>
+                                                <property name="tooltip_text" translatable="yes">Пустое пространство имен
+префикс в XML-схеме, не
+значение по умолчанию ("xs":).</property>
+                                                <property name="xalign">0</property>
+                                                <property name="draw_indicator">True</property>
+                                                <signal name="toggled" handler="on_empty_namespace_prefix_checkbutton_toggled" swapped="no"/>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">2</property>
+                                                <property name="right_attach">3</property>
+                                                <property name="top_attach">5</property>
+                                                <property name="bottom_attach">6</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkCheckButton" id="auto_super_checkbutton">
+                                                <property name="label" translatable="yes">Автоматически</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="receives_default">False</property>
+                                                <property name="tooltip_text" translatable="yes">Используйте имя файла суперкласса
+как основа  имени модуля
+суперкласса.</property>
+                                                <property name="xalign">0</property>
+                                                <property name="draw_indicator">True</property>
+                                                <signal name="toggled" handler="on_auto_super_checkbutton_toggled" swapped="no"/>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">2</property>
+                                                <property name="right_attach">3</property>
+                                                <property name="top_attach">11</property>
+                                                <property name="bottom_attach">12</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkButton" id="input_schema_clear_button">
+                                                <property name="label">gtk-clear</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="receives_default">True</property>
+                                                <property name="tooltip_text" translatable="yes">Очистить поле входного файла схемы.</property>
+                                                <property name="use_stock">True</property>
+                                                <signal name="clicked" handler="on_clear_button_clicked" swapped="no"/>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">3</property>
+                                                <property name="right_attach">4</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkButton" id="output_superclass_clear_button">
+                                                <property name="label">gtk-clear</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="receives_default">True</property>
+                                                <property name="tooltip_text" translatable="yes">Очистить поле выходного файла суперкласса.</property>
+                                                <property name="use_stock">True</property>
+                                                <signal name="clicked" handler="on_clear_button_clicked" swapped="no"/>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">3</property>
+                                                <property name="right_attach">4</property>
+                                                <property name="top_attach">1</property>
+                                                <property name="bottom_attach">2</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkButton" id="output_subclass_clear_button">
+                                                <property name="label">gtk-clear</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="receives_default">True</property>
+                                                <property name="tooltip_text" translatable="yes">Очистить поле  выходного файла подкласса.</property>
+                                                <property name="use_stock">True</property>
+                                                <signal name="clicked" handler="on_clear_button_clicked" swapped="no"/>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">3</property>
+                                                <property name="right_attach">4</property>
+                                                <property name="top_attach">2</property>
+                                                <property name="bottom_attach">3</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkButton" id="prefix_clear_button">
+                                                <property name="label">gtk-clear</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="receives_default">True</property>
+                                                <property name="tooltip_text" translatable="yes">Очистить поле префикса.</property>
+                                                <property name="use_stock">True</property>
+                                                <signal name="clicked" handler="on_clear_button_clicked" swapped="no"/>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">3</property>
+                                                <property name="right_attach">4</property>
+                                                <property name="top_attach">4</property>
+                                                <property name="bottom_attach">5</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkButton" id="namespace_prefix_clear_button">
+                                                <property name="label">gtk-clear</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="receives_default">True</property>
+                                                <property name="tooltip_text" translatable="yes">Очистить поле префикса пространства имен XML.</property>
+                                                <property name="use_stock">True</property>
+                                                <signal name="clicked" handler="on_clear_button_clicked" swapped="no"/>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">3</property>
+                                                <property name="right_attach">4</property>
+                                                <property name="top_attach">5</property>
+                                                <property name="bottom_attach">6</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkButton" id="behavior_filename_clear_button">
+                                                <property name="label">gtk-clear</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="receives_default">True</property>
+                                                <property name="tooltip_text" translatable="yes">Очистить поле имени файла поведения.</property>
+                                                <property name="use_stock">True</property>
+                                                <signal name="clicked" handler="on_clear_button_clicked" swapped="no"/>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">3</property>
+                                                <property name="right_attach">4</property>
+                                                <property name="top_attach">6</property>
+                                                <property name="bottom_attach">7</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkButton" id="subclass_suffix_clear_button">
+                                                <property name="label">gtk-clear</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="receives_default">True</property>
+                                                <property name="tooltip_text" translatable="yes">Очистить суффикс подкласса.</property>
+                                                <property name="use_stock">True</property>
+                                                <signal name="clicked" handler="on_clear_button_clicked" swapped="no"/>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">3</property>
+                                                <property name="right_attach">4</property>
+                                                <property name="top_attach">9</property>
+                                                <property name="bottom_attach">10</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkButton" id="root_element_clear_button">
+                                                <property name="label">gtk-clear</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="receives_default">True</property>
+                                                <property name="tooltip_text" translatable="yes">Очистить поле элемента корня.</property>
+                                                <property name="use_stock">True</property>
+                                                <signal name="clicked" handler="on_clear_button_clicked" swapped="no"/>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">3</property>
+                                                <property name="right_attach">4</property>
+                                                <property name="top_attach">10</property>
+                                                <property name="bottom_attach">11</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkButton" id="superclass_module_clear_button">
+                                                <property name="label">gtk-clear</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="receives_default">True</property>
+                                                <property name="tooltip_text" translatable="yes">Очистить поле модуля суперкласса.</property>
+                                                <property name="use_stock">True</property>
+                                                <signal name="clicked" handler="on_clear_button_clicked" swapped="no"/>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">3</property>
+                                                <property name="right_attach">4</property>
+                                                <property name="top_attach">11</property>
+                                                <property name="bottom_attach">12</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkButton" id="validator_bodies_clear_button">
+                                                <property name="label">gtk-clear</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="receives_default">True</property>
+                                                <property name="tooltip_text" translatable="yes">Очистить поле пути контрольных методов.</property>
+                                                <property name="use_stock">True</property>
+                                                <signal name="clicked" handler="on_clear_button_clicked" swapped="no"/>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">3</property>
+                                                <property name="right_attach">4</property>
+                                                <property name="top_attach">13</property>
+                                                <property name="bottom_attach">14</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkButton" id="user_methods_clear_button">
+                                                <property name="label">gtk-clear</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="receives_default">True</property>
+                                                <property name="tooltip_text" translatable="yes">Очистить поле пользовательского модуля методов.</property>
+                                                <property name="use_stock">True</property>
+                                                <signal name="clicked" handler="on_clear_button_clicked" swapped="no"/>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">3</property>
+                                                <property name="right_attach">4</property>
+                                                <property name="top_attach">14</property>
+                                                <property name="bottom_attach">15</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkButton" id="namespace_defs_clear_button">
+                                                <property name="label">gtk-clear</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="receives_default">True</property>
+                                                <property name="tooltip_text" translatable="yes">Очистить поле определений пространства имен.</property>
+                                                <property name="use_stock">True</property>
+                                                <signal name="clicked" handler="on_clear_button_clicked" swapped="no"/>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">3</property>
+                                                <property name="right_attach">4</property>
+                                                <property name="top_attach">19</property>
+                                                <property name="bottom_attach">20</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkButton" id="external_encoding_clear_button">
+                                                <property name="label">gtk-clear</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="receives_default">True</property>
+                                                <property name="tooltip_text" translatable="yes">Очистить поле внешней кодировки.</property>
+                                                <property name="use_stock">True</property>
+                                                <signal name="clicked" handler="on_clear_button_clicked" swapped="no"/>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">3</property>
+                                                <property name="right_attach">4</property>
+                                                <property name="top_attach">20</property>
+                                                <property name="bottom_attach">21</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkLabel" id="label23">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="label" translatable="yes">Получить в кодировке:</property>
+                                                <property name="xalign">0</property>
+                                            </object>
+                                            <packing>
+                                                <property name="top_attach">21</property>
+                                                <property name="bottom_attach">22</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkCheckButton" id="get_encoded_checkbutton">
+                                                <property name="label" translatable="yes">getter(ы) возвращают закодированные значения по умолчанию</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="receives_default">False</property>
+                                                <property name="tooltip_text" translatable="yes">getter(ы)возвращают закодированное значение по умолчанию если истина.
+Может быть изменен во времени выполнения или
+(1) глобальная переменная замены GetEncodedValue или
+(2) использовать дополнительный параметр getter</property>
+                                                <property name="xalign">0</property>
+                                                <property name="draw_indicator">True</property>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">21</property>
+                                                <property name="bottom_attach">22</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkLabel" id="label24">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="label" translatable="yes">Экспорт:</property>
+                                                <property name="xalign">0</property>
+                                            </object>
+                                            <packing>
+                                                <property name="top_attach">23</property>
+                                                <property name="bottom_attach">24</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkEntry" id="export_spec_entry">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="tooltip_text" translatable="yes">Определяет экспортные функции, которые будут произведены. Значение - отделенный список разделителя любого следующего: "write" (записать XML файл), "literal" (записать код питона), "etree" (создают дерево элемента (может преобразовать в последовательную форму к XML)). Пример: "write etree". Значение по умолчанию: "write".</property>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">23</property>
+                                                <property name="bottom_attach">24</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkLabel" id="label25">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="label" translatable="yes">Один файл XSD:</property>
+                                                <property name="xalign">0</property>
+                                            </object>
+                                            <packing>
+                                                <property name="top_attach">24</property>
+                                                <property name="bottom_attach">25</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkCheckButton" id="one_file_per_xsd_checkbutton">
+                                                <property name="label" translatable="yes">Создавать модуль питона для каждого обработанного XSD.</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="receives_default">False</property>
+                                                <property name="tooltip_text" translatable="yes">Создавать модуль питона для каждого обработанного XSD.</property>
+                                                <property name="xalign">0</property>
+                                                <property name="draw_indicator">True</property>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">24</property>
+                                                <property name="bottom_attach">25</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkLabel" id="label26">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="label" translatable="yes">Каталог Output:</property>
+                                                <property name="xalign">0</property>
+                                            </object>
+                                            <packing>
+                                                <property name="top_attach">25</property>
+                                                <property name="bottom_attach">26</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkEntry" id="output_directory_entry">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="tooltip_text" translatable="yes">Используемый вместе с --one-file-per-xsd. Каталог, где будут созданы модули.</property>
+                                                <property name="invisible_char">-</property>
+                                                <property name="width_chars">80</property>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">25</property>
+                                                <property name="bottom_attach">26</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkButton" id="output_directory_chooser_button">
+                                                <property name="label" translatable="yes">Выбрать</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="receives_default">True</property>
+                                                <property name="tooltip_text" translatable="yes">Выберите выходной каталог для one-file-per-xsd.</property>
+                                                <signal name="clicked" handler="on_output_directory_chooser_button_clicked" swapped="no"/>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">2</property>
+                                                <property name="right_attach">3</property>
+                                                <property name="top_attach">25</property>
+                                                <property name="bottom_attach">26</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkButton" id="output_directory_clear_button">
+                                                <property name="label">gtk-clear</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="receives_default">True</property>
+                                                <property name="tooltip_text" translatable="yes">Очистить поле выходного каталога .</property>
+                                                <property name="use_stock">True</property>
+                                                <signal name="clicked" handler="on_clear_button_clicked" swapped="no"/>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">3</property>
+                                                <property name="right_attach">4</property>
+                                                <property name="top_attach">25</property>
+                                                <property name="bottom_attach">26</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkButton" id="export_spec_clear_button">
+                                                <property name="label">gtk-clear</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="receives_default">True</property>
+                                                <property name="tooltip_text" translatable="yes">Очистить поле экспорт.</property>
+                                                <property name="use_stock">True</property>
+                                                <signal name="clicked" handler="on_clear_button_clicked" swapped="no"/>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">3</property>
+                                                <property name="right_attach">4</property>
+                                                <property name="top_attach">23</property>
+                                                <property name="bottom_attach">24</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkLabel" id="label27">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="label" translatable="yes">Суффикс модуля</property>
+                                                <property name="xalign">0</property>
+                                            </object>
+                                            <packing>
+                                                <property name="top_attach">26</property>
+                                                <property name="bottom_attach">27</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkLabel" id="label28">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="label" translatable="yes">Сохранить теги CData:</property>
+                                                <property name="xalign">0</property>
+                                            </object>
+                                            <packing>
+                                                <property name="top_attach">27</property>
+                                                <property name="bottom_attach">28</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkLabel" id="label29">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="label" translatable="yes">Список имени очистки:</property>
+                                                <property name="xalign">0</property>
+                                            </object>
+                                            <packing>
+                                                <property name="top_attach">28</property>
+                                                <property name="bottom_attach">29</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkEntry" id="module_suffix_entry">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="tooltip_text" translatable="yes">Использоваться вместе с  --one-file-per-xsd. Добавить XXX в конец каждого созданного файла.</property>
+                                                <property name="invisible_char">-</property>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">26</property>
+                                                <property name="bottom_attach">27</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkEntry" id="cleanup_name_list_entry">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="tooltip_text" translatable="yes">Определяет список 2 кортежей, используемых для очистки имен. Первый элемент - образец поиска регулярного выражения, и второй замена. Пример: "[(' [-:]'. '_ '), ('^ __ ', 'Особенный')]". Значение по умолчанию: "[(' [-:]'.', _ ')]".</property>
+                                                <property name="invisible_char">-</property>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">28</property>
+                                                <property name="bottom_attach">29</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkCheckButton" id="preserve_cdata_tags_checkbutton">
+                                                <property name="label" translatable="yes">Сохранить теги CData</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="receives_default">False</property>
+                                                <property name="tooltip_text" translatable="yes">Сохранить теги CDATA. Значение по умолчанию: False.</property>
+                                                <property name="xalign">0</property>
+                                                <property name="draw_indicator">True</property>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">27</property>
+                                                <property name="bottom_attach">28</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkButton" id="module_suffix_clear_button">
+                                                <property name="label">gtk-clear</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="receives_default">True</property>
+                                                <property name="tooltip_text" translatable="yes">Очистить поле суффикса модуля.</property>
+                                                <property name="use_stock">True</property>
+                                                <signal name="clicked" handler="on_clear_button_clicked" swapped="no"/>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">3</property>
+                                                <property name="right_attach">4</property>
+                                                <property name="top_attach">26</property>
+                                                <property name="bottom_attach">27</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkButton" id="cleanup_name_list_clear_button">
+                                                <property name="label">gtk-clear</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="receives_default">True</property>
+                                                <property name="tooltip_text" translatable="yes">Очистить поле списка имени очистки.</property>
+                                                <property name="use_stock">True</property>
+                                                <signal name="clicked" handler="on_clear_button_clicked" swapped="no"/>
+                                            </object>
+                                            <packing>
+                                                <property name="left_attach">3</property>
+                                                <property name="right_attach">4</property>
+                                                <property name="top_attach">28</property>
+                                                <property name="bottom_attach">29</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <placeholder></placeholder>
+                                        </child>
+                                        <child>
+                                            <placeholder></placeholder>
+                                        </child>
+                                        <child>
+                                            <placeholder></placeholder>
+                                        </child>
+                                    </object>
+                                </child>
+                            </object>
+                        </child>
+                    </object>
+                    <packing>
+                        <property name="expand">True</property>
+                        <property name="fill">True</property>
+                        <property name="position">1</property>
+                    </packing>
+                </child>
+                <child>
+                    <object class="GtkHBox" id="hbox1">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="homogeneous">True</property>
+                        <child>
+                            <object class="GtkButton" id="generate_button">
+                                <property name="label" translatable="yes">Генерировать</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="tooltip_text" translatable="yes">Генерировать модули привязки.</property>
+                                <signal name="clicked" handler="on_generate_button_clicked" swapped="no"/>
+                            </object>
+                            <packing>
+                                <property name="expand">True</property>
+                                <property name="fill">True</property>
+                                <property name="position">0</property>
+                            </packing>
+                        </child>
+                        <child>
+                            <object class="GtkButton" id="quit_button">
+                                <property name="label" translatable="yes">Выход</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="tooltip_text" translatable="yes">Выход из приложения.</property>
+                                <signal name="clicked" handler="on_quit_button_clicked" swapped="no"/>
+                            </object>
+                            <packing>
+                                <property name="expand">True</property>
+                                <property name="fill">True</property>
+                                <property name="position">1</property>
+                            </packing>
+                        </child>
+                    </object>
+                    <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                        <property name="position">2</property>
+                    </packing>
+                </child>
+                <child>
+                    <object class="GtkStatusbar" id="statusbar1">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="spacing">2</property>
+                    </object>
+                    <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">3</property>
+                    </packing>
+                </child>
+                <child>
+                    <placeholder></placeholder>
+                </child>
+            </object>
+        </child>
+    </object>
+    <object class="GtkImage" id="image5">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="stock">gtk-missing-image</property>
+    </object>
+</interface>

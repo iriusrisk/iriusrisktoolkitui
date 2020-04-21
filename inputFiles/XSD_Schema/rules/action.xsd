@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="pattern.xsd"/>
+    <xs:complexType name="actionType">
+        <xs:sequence>
+            <xs:element type="patternType" name="pattern"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="project" use="required"/>
+        <xs:attribute type="xs:string" name="value" use="required"/>
+        <xs:attribute type="xs:string" name="name" use="required"/>
+        <xs:attribute type="xs:string" name="type" use="required"/>
+    </xs:complexType>
+</xs:schema>

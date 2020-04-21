@@ -1,0 +1,858 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.13: http://docutils.sourceforge.net/" />
+<title>lxml.objectify notes</title>
+<meta name="author" content="Dave Kuhlman" />
+<meta name="date" content="July 06, 2015" />
+<style type="text/css">
+
+/* css */
+
+body {
+  font: 90% 'Lucida Grande', Verdana, Geneva, Lucida, Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: black;
+  margin: 2em;
+  padding: 2em;
+}
+
+a[href] {
+  color: #436976;
+  background-color: transparent;
+}
+
+a.toc-backref {
+  text-decoration: none;
+}
+
+h1 a[href] {
+  text-decoration: none;
+  color: #fcb100;
+  background-color: transparent;
+}
+
+a.strong {
+  font-weight: bold;
+}
+
+img {
+  margin: 0;
+  border: 0;
+}
+
+p {
+  margin: 0.5em 0 1em 0;
+  line-height: 1.5em;
+}
+p a {
+  text-decoration: underline;
+}
+p a:visited {
+  color: purple;
+  background-color: transparent;
+}
+p a:active {
+  color: red;
+  background-color: transparent;
+}
+a:hover {
+  text-decoration: none;
+}
+p img {
+  border: 0;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #003a6b;
+  background-color: transparent;
+  font: 100% 'Lucida Grande', Verdana, Geneva, Lucida, Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding-top: 0.5em;
+}
+
+h1 {
+  font-size: 160%;
+  margin-bottom: 0.5em;
+  border-bottom: 1px solid #fcb100;
+}
+h2 {
+  font-size: 140%;
+  margin-bottom: 0.5em;
+  border-bottom: 1px solid #aaa;
+}
+h3 {
+  font-size: 130%;
+  margin-bottom: 0.5em;
+  text-decoration: underline;
+}
+h4 {
+  font-size: 110%;
+  font-weight: bold;
+}
+h5 {
+  font-size: 100%;
+  font-weight: bold;
+}
+h6 {
+  font-size: 80%;
+  font-weight: bold;
+}
+
+ul a, ol a {
+  text-decoration: underline;
+}
+
+dt {
+  font-weight: bold;
+}
+dt a {
+  text-decoration: none;
+}
+
+dd {
+  line-height: 1.5em;
+  margin-bottom: 1em;
+}
+
+legend {
+  background: #ffffff;
+  padding: 0.5em;
+}
+
+form {
+  margin: 0;
+}
+
+
+dl.form {
+  margin: 0;
+  padding: 1em;
+}
+
+dl.form dt {
+  width: 30%;
+  float: left;
+  margin: 0;
+  padding: 0 0.5em 0.5em 0;
+  text-align: right;
+}
+
+input {
+  font: 100% 'Lucida Grande', Verdana, Geneva, Lucida, Arial, Helvetica, sans-serif;
+  color: black;
+  background-color: white;
+  vertical-align: middle;
+}
+
+abbr, acronym, .explain {
+  color: black;
+  background-color: transparent;
+}
+
+q, blockquote {
+}
+
+code, pre {
+  font-family: monospace;
+  font-size: 1.2em;
+  display: block;
+  padding: 10px;
+  border: 1px solid #838183;
+  background-color: #eee;
+  color: #000;
+  overflow: auto;
+  margin: 0.5em 1em;
+}
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+tt.docutils {
+  background-color: #dddddd;
+}
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+</head>
+<body>
+<div class="document" id="lxml-objectify-notes">
+<h1 class="title">lxml.objectify notes</h1>
+<table class="docinfo" frame="void" rules="none">
+<col class="docinfo-name" />
+<col class="docinfo-content" />
+<tbody valign="top">
+<tr><th class="docinfo-name">Author:</th>
+<td>Dave Kuhlman</td></tr>
+<tr><th class="docinfo-name">Address:</th>
+<td><pre class="address">
+dkuhlman (at) davekuhlman (dot) org
+</pre>
+</td></tr>
+<tr><th class="docinfo-name">Revision:</th>
+<td>1.1a</td></tr>
+<tr><th class="docinfo-name">Date:</th>
+<td>July 06, 2015</td></tr>
+</tbody>
+</table>
+<!-- vim:ft=rst: -->
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Copyright:</th><td class="field-body">Copyright (c) 2015 Dave Kuhlman.  All Rights Reserved.
+This software is subject to the provisions of the MIT License
+<a class="reference external" href="http://www.opensource.org/licenses/mit-license.php">http://www.opensource.org/licenses/mit-license.php</a>.</td>
+</tr>
+<tr class="field"><th class="field-name">Abstract:</th><td class="field-body">A document intended to help those getting started with
+<tt class="docutils literal">lxml.objectify</tt> and, in particular, to help those
+attempting to transition from <tt class="docutils literal">generateDS.py</tt>.</td>
+</tr>
+</tbody>
+</table>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="auto-toc simple">
+<li><a class="reference internal" href="#introduction" id="id1">1&nbsp;&nbsp;&nbsp;Introduction</a></li>
+<li><a class="reference internal" href="#migrating-from-generateds-py-to-lxml-objectify" id="id2">2&nbsp;&nbsp;&nbsp;Migrating from generateDS.py to lxml.objectify</a><ul class="auto-toc">
+<li><a class="reference internal" href="#parsing-an-xml-instance-document" id="id3">2.1&nbsp;&nbsp;&nbsp;Parsing an XML instance document</a></li>
+<li><a class="reference internal" href="#exporting-an-xml-document" id="id4">2.2&nbsp;&nbsp;&nbsp;Exporting an XML document</a><ul class="auto-toc">
+<li><a class="reference internal" href="#exporting-without-ignorable-whitespace" id="id5">2.2.1&nbsp;&nbsp;&nbsp;Exporting without &quot;ignorable whitespace&quot;</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-lxml-objectify-api-access-to-children-and-attributes" id="id6">2.3&nbsp;&nbsp;&nbsp;The lxml.objectify API -- access to children and attributes</a></li>
+<li><a class="reference internal" href="#manipulating-and-modifying-the-element-tree" id="id7">2.4&nbsp;&nbsp;&nbsp;Manipulating and modifying the element tree</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#useful-tips-and-hints" id="id8">3&nbsp;&nbsp;&nbsp;Useful tips and hints</a><ul class="auto-toc">
+<li><a class="reference internal" href="#a-mini-library-of-helpful-functions" id="id9">3.1&nbsp;&nbsp;&nbsp;A mini-library of helpful functions</a></li>
+<li><a class="reference internal" href="#printing-a-more-readable-representation" id="id10">3.2&nbsp;&nbsp;&nbsp;Printing a (more) readable representation</a></li>
+<li><a class="reference internal" href="#exploring-element-specific-api" id="id11">3.3&nbsp;&nbsp;&nbsp;Exploring element-specific API</a></li>
+<li><a class="reference internal" href="#searching-an-xml-document" id="id12">3.4&nbsp;&nbsp;&nbsp;Searching an XML document</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sample-applications-with-lxml-objectify" id="id13">4&nbsp;&nbsp;&nbsp;Sample applications with lxml.objectify</a></li>
+<li><a class="reference internal" href="#evaluation-and-comparison-lxml-objectify-vs-generateds-py" id="id14">5&nbsp;&nbsp;&nbsp;Evaluation and comparison -- lxml.objectify vs. generateDS.py</a><ul class="auto-toc">
+<li><a class="reference internal" href="#api-discovery" id="id15">5.1&nbsp;&nbsp;&nbsp;API discovery</a></li>
+<li><a class="reference internal" href="#namespaces" id="id16">5.2&nbsp;&nbsp;&nbsp;Namespaces</a></li>
+<li><a class="reference internal" href="#summary" id="id17">5.3&nbsp;&nbsp;&nbsp;Summary</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="introduction">
+<h1><a class="toc-backref" href="#id1">1&nbsp;&nbsp;&nbsp;Introduction</a></h1>
+<p>This document is an attempt to give a little help to those starting
+out with <tt class="docutils literal">lxml.objectify</tt>.  But, it does not attempt to replace
+the official doc, which you can find here:
+<a class="reference external" href="http://lxml.de/objectify.html">http://lxml.de/objectify.html</a>.</p>
+<p>Much of the code in this document assumes that you have done the
+following in your Python code:</p>
+<pre class="literal-block">
+from lxml import objectify
+</pre>
+</div>
+<div class="section" id="migrating-from-generateds-py-to-lxml-objectify">
+<h1><a class="toc-backref" href="#id2">2&nbsp;&nbsp;&nbsp;Migrating from generateDS.py to lxml.objectify</a></h1>
+<p>With <tt class="docutils literal">lxml.objectify</tt>, unlike <tt class="docutils literal">generateDS.py</tt>, there is no need
+to generate code before processing an XML instance document.</p>
+<div class="section" id="parsing-an-xml-instance-document">
+<h2><a class="toc-backref" href="#id3">2.1&nbsp;&nbsp;&nbsp;Parsing an XML instance document</a></h2>
+<p>Use something like the following:</p>
+<pre class="literal-block">
+def objectify_parse(infilename):
+    doctree = objectify.parse(infilename)
+    root = doctree.getroot()
+    return doctree, root
+</pre>
+<p>Or, when you want to validate against a schema while parsing, use:</p>
+<pre class="literal-block">
+def objectify_parse_with_schema(schemaname, infilename):
+    schema = etree.XMLSchema(file=schemaname)
+    parser = objectify.makeparser(schema=schema)
+    doctree = objectify.parse(infilename, parser=parser)
+    root = doctree.getroot()
+    return doctree, root
+</pre>
+<p>And, if validation against a schema is one of your needs, don't
+forget the <tt class="docutils literal">xmllint</tt> command line tool.  For example:</p>
+<pre class="literal-block">
+$ xmllint --noout --schema my_schema.xsd my_instancedoc.xml
+</pre>
+</div>
+<div class="section" id="exporting-an-xml-document">
+<h2><a class="toc-backref" href="#id4">2.2&nbsp;&nbsp;&nbsp;Exporting an XML document</a></h2>
+<p>There are several ways:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; print etree.tostring(doctree)
+&gt;&gt;&gt; print etree.tostring(root)
+&gt;&gt;&gt; doctree.write(sys.stdout)
+&gt;&gt;&gt; doctree.write(sys.stdout, pretty_print=True)
+</pre>
+<p>You can also export a sub-tree:</p>
+<pre class="literal-block">
+In [163]: person = root.person[1]
+In [164]: print etree.tostring(person, pretty_print=True)
+</pre>
+<p>And, with optional pretty printing (indenting) and an XML
+declaration:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; doctree.write(my_output_file, pretty_print=True)
+&gt;&gt;&gt; doctree.write(my_output_file, xml_declaration=True)
+&gt;&gt;&gt; doctree.write(my_output_file, pretty_print=True, xml_declaration=True)
+</pre>
+<p>Yet more examples:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; a = obj.fromstring('&lt;aaa&gt;&lt;bbb&gt;111&lt;/bbb&gt;&lt;bbb&gt;&lt;ccc&gt;222&lt;/ccc&gt;&lt;/bbb&gt;&lt;/aaa&gt;')
+&gt;&gt;&gt; etree.tostring(a)
+&gt;&gt;&gt; print etree.tostring(a)
+&gt;&gt;&gt; print etree.tostring(a, pretty_print=True)
+&gt;&gt;&gt; print etree.tostring(a.bbb[1], pretty_print=True)    # pretty print a subtree
+</pre>
+<div class="section" id="exporting-without-ignorable-whitespace">
+<h3><a class="toc-backref" href="#id5">2.2.1&nbsp;&nbsp;&nbsp;Exporting without &quot;ignorable whitespace&quot;</a></h3>
+<p>The <tt class="docutils literal">export</tt> methods generated by <tt class="docutils literal">generateDS.py</tt> support an
+optional argument (<tt class="docutils literal">pretty_print=True</tt>) that enables you to export
+a document <em>without</em> ignorable whitespace.  <tt class="docutils literal">lxml.objectify</tt> has
+support for that also:</p>
+<ol class="arabic">
+<li><p class="first">Parse the document initially without the ignorable whitespace.
+Example:</p>
+<pre class="literal-block">
+parser = etree.XMLParser(remove_blank_text=True)
+doc = etree.parse(filename, parser)
+root = doc.getroot()
+</pre>
+</li>
+<li><p class="first">In some cases you might need to remove ignorable whitespace with
+something like the following:</p>
+<pre class="literal-block">
+for element in root.iter():
+    element.tail = None
+</pre>
+</li>
+</ol>
+<p>The above code examples and more information on ignorable whitespace
+and formatting serialized output (also known as &quot;export&quot; in
+<tt class="docutils literal">generateDS.py</tt>) can be found in the <tt class="docutils literal">lxml</tt> FAQ:
+<a class="reference external" href="http://lxml.de/FAQ.html#why-doesn-t-the-pretty-print-option-reformat-my-xml-output">http://lxml.de/FAQ.html#why-doesn-t-the-pretty-print-option-reformat-my-xml-output</a></p>
+</div>
+</div>
+<div class="section" id="the-lxml-objectify-api-access-to-children-and-attributes">
+<h2><a class="toc-backref" href="#id6">2.3&nbsp;&nbsp;&nbsp;The lxml.objectify API -- access to children and attributes</a></h2>
+<p><strong>Attributes</strong> -- The attributes of an <tt class="docutils literal">lxml.objectify</tt> XML element are
+available in a dictionary-like object.  But you can also access them
+directly throught the element.  Examples:</p>
+<pre class="literal-block">
+In [81]: element.attrib
+Out[81]: {'ratio': '3.2', 'id': '1', 'value': 'abcd'}
+In [82]:
+In [82]: element.get('ratio')
+Out[82]: '3.2'
+In [83]: print element.get('ratio')
+3.2
+In [84]: print element.get('ratioxxx')
+None
+</pre>
+<p>And, use <tt class="docutils literal">element.set(key, value)</tt> to set an attribute's value.</p>
+<p>Iterate over the attributes using the standard dictionary API on the
+elements <tt class="docutils literal">el.attrib</tt> attribute.  Example:</p>
+<pre class="literal-block">
+In [48]: link = root.Link[2]
+In [49]: for key, value in link.attrib.items():
+   ....:     print 'key: {}  value: {}'.format(key, value)
+   ....:
+key: rel  value: down
+key: type  value: application/vnd.vmware.admin.vmwExtension+xml
+key: href  value: https://vcloud.example.com/api/admin/extension
+</pre>
+<p><strong>Children</strong> -- The children of an XML element are available by using
+the child's tag as an attribute.  For example, if the element
+<tt class="docutils literal">people</tt> has one or more children whose tag is <tt class="docutils literal">person</tt>, then
+those children can be accessed as follows:</p>
+<pre class="literal-block">
+In [87]: people.person        # first person available without index
+Out[87]: &lt;Element person at 0x7fa0f1814ea8&gt;
+In [88]: people.person[0]     # same as previous
+Out[88]: &lt;Element person at 0x7fa0f1814ea8&gt;
+In [89]: people.person[1]
+Out[89]: &lt;Element person at 0x7fa0f1814e60&gt;
+</pre>
+<p>You can also use <tt class="docutils literal">getattr()</tt> to access child elements.  You may
+need to do this when there are children from different namespaces
+within the same element.  Examples:</p>
+<pre class="literal-block">
+In [50]: rootgroup = root.RootGroup
+In [51]: rootgroup.Group
+Out[51]: &lt;Element {http://hdfgroup.org/HDF5/XML/schema/HDF5-File.xsd}Group at 0x7f8d34a05b48&gt;
+In [52]:
+In [52]: getattr(rootgroup, 'Group')
+Out[52]: &lt;Element {http://hdfgroup.org/HDF5/XML/schema/HDF5-File.xsd}Group at 0x7f8d34a05b48&gt;
+In [53]:
+In [53]: getattr(rootgroup, '{http://hdfgroup.org/HDF5/XML/schema/HDF5-File.xsd}Group')
+Out[53]: &lt;Element {http://hdfgroup.org/HDF5/XML/schema/HDF5-File.xsd}Group at 0x7f8d34a05b48&gt;
+In [54]:
+In [54]: getattr(rootgroup, '{http://hdfgroup.org/HDF5/XML/schema/HDF5-File.xsd}Group')[1]
+Out[54]: &lt;Element {http://hdfgroup.org/HDF5/XML/schema/HDF5-File.xsd}Group at 0x7f8d34a05ab8&gt;
+</pre>
+<p>Iterate over the children by using the element's
+<tt class="docutils literal">el.iterchildren()</tt> method.  Example:</p>
+<pre class="literal-block">
+In [47]: for child in root.iterchildren():
+    print child.tag
+   ....:
+{http://www.vmware.com/vcloud/v1.5}Link
+{http://www.vmware.com/vcloud/v1.5}Link
+{http://www.vmware.com/vcloud/v1.5}Link
+{http://www.vmware.com/vcloud/v1.5}Link
+{http://www.vmware.com/vcloud/v1.5}Link
+</pre>
+</div>
+<div class="section" id="manipulating-and-modifying-the-element-tree">
+<h2><a class="toc-backref" href="#id7">2.4&nbsp;&nbsp;&nbsp;Manipulating and modifying the element tree</a></h2>
+<p>Modify text content -- You can assign to a leaf element to modify
+its text content, for example:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; dataset.datanode = 'a simple string'
+</pre>
+<p>However, you may want to use <tt class="docutils literal">lxml.objectify</tt> data types.  If you
+do not, <tt class="docutils literal">lxml.objectify</tt> may put them in a different namespace.
+Here are examples that preserve the existing data types:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; dataset.datanode = objectify.StringElement('a simple string')
+&gt;&gt;&gt; dataset.datanode = objectify.IntElement('200')
+&gt;&gt;&gt; dataset.datanode = objectify.FloatElement('300.5')
+</pre>
+<p>See the following for more on how to work with Python data types:
+<a class="reference external" href="http://lxml.de/objectify.html#python-data-types">http://lxml.de/objectify.html#python-data-types</a></p>
+<p>Creating new elements -- See this for information on how to add
+elements to the XML element tree:
+<a class="reference external" href="http://lxml.de/objectify.html#creating-objectify-trees">http://lxml.de/objectify.html#creating-objectify-trees</a></p>
+<p>You can also copy existing elements or sub-trees of elements, for
+example:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; import copy
+&gt;&gt;&gt; new_element = copy.deepcopy(old_element)
+&gt;&gt;&gt; parent_element.append(new_element)
+</pre>
+</div>
+</div>
+<div class="section" id="useful-tips-and-hints">
+<h1><a class="toc-backref" href="#id8">3&nbsp;&nbsp;&nbsp;Useful tips and hints</a></h1>
+<div class="section" id="a-mini-library-of-helpful-functions">
+<h2><a class="toc-backref" href="#id9">3.1&nbsp;&nbsp;&nbsp;A mini-library of helpful functions</a></h2>
+<p>Some of the helper functions mentioned below are available here:
+<a class="reference external" href="Objectify_files/objectify_helpers.py">objectify_helpers.py</a>.</p>
+</div>
+<div class="section" id="printing-a-more-readable-representation">
+<h2><a class="toc-backref" href="#id10">3.2&nbsp;&nbsp;&nbsp;Printing a (more) readable representation</a></h2>
+<p>In order to get a picture of the API available at various elements,
+you can use the <tt class="docutils literal">objectify.dump(element)</tt>.  For example:</p>
+<pre class="literal-block">
+In [237]: print objectify.dump(root.programmer)
+programmer = None [ObjectifiedElement]
+  * id = '2'
+  * language = 'python'
+  * editor = 'xml'
+    name = 'Charles Carlson' [StringElement]
+    interest = 'programming' [StringElement]
+    category = 2233 [IntElement]
+    description = 'A very happy programmer' [StringElement]
+    email = 'charles&#64;happyprogrammers.com' [StringElement]
+    elposint = 14 [IntElement]
+    elnonposint = 0 [IntElement]
+    elnegint = -12 [IntElement]
+    elnonnegint = 4 [IntElement]
+    eldate = '2005-04-26' [StringElement]
+    eldatetime = '2005-04-26T10:11:12' [StringElement]
+    eldatetime1 = '2006-05-27T10:11:12.40' [StringElement]
+    eltoken = 'aa bb    cc\tdd\n            ee' [StringElement]
+    elshort = 123 [IntElement]
+    ellong = 1324123412 [IntElement]
+    elparam = u'' [StringElement]
+      * id = 'id001'
+      * name = 'Davy'
+      * semantic = 'a big    semantic'
+      * type = 'abc'
+    elparam = u'' [StringElement]
+      * id = 'id002'
+      * name = 'Davy'
+      * semantic = 'a big    semantic'
+      * type = 'int'
+</pre>
+<p>A similar display can be gotten by using <tt class="docutils literal">str(element)</tt>.  But,
+in order to do so, you may need to call
+<tt class="docutils literal">objectify.enable_recursive_str()</tt>, first.  For
+example:</p>
+<pre class="literal-block">
+In [238]: print str(root.programmer)
+programmer = None [ObjectifiedElement]
+  * id = '2'
+  * language = 'python'
+  * editor = 'xml'
+    name = 'Charles Carlson' [StringElement]
+    interest = 'programming' [StringElement]
+    category = 2233 [IntElement]
+    description = 'A very happy programmer' [StringElement]
+    email = 'charles&#64;happyprogrammers.com' [StringElement]
+    elposint = 14 [IntElement]
+    elnonposint = 0 [IntElement]
+    elnegint = -12 [IntElement]
+    elnonnegint = 4 [IntElement]
+    eldate = '2005-04-26' [StringElement]
+    eldatetime = '2005-04-26T10:11:12' [StringElement]
+    eldatetime1 = '2006-05-27T10:11:12.40' [StringElement]
+    eltoken = 'aa bb    cc\tdd\n            ee' [StringElement]
+    elshort = 123 [IntElement]
+    ellong = 1324123412 [IntElement]
+    elparam = u'' [StringElement]
+      * id = 'id001'
+      * name = 'Davy'
+      * semantic = 'a big    semantic'
+      * type = 'abc'
+    elparam = u'' [StringElement]
+      * id = 'id002'
+      * name = 'Davy'
+      * semantic = 'a big    semantic'
+      * type = 'int'
+</pre>
+<p>This behavior of <tt class="docutils literal">str(o)</tt> can be turned on and off with the
+following:</p>
+<pre class="literal-block">
+In [75]: objectify.enable_recursive_str(True)
+In [76]: objectify.enable_recursive_str(False)
+</pre>
+<p>And, here is an implementation that mimics <tt class="docutils literal">objectify.dump(o)</tt> but has
+several additional features:</p>
+<ul class="simple">
+<li>It enables you to limit the number of levels of nesting and
+display of children and their children etc.  Imagine displaying
+the root node of a very large file containing many levels of
+nested children.</li>
+<li>It writes to a file rather than accumulating a string.  For some
+situations, this saves having to type <tt class="docutils literal">print</tt> in order to format
+the output.  And, again thinking about very large documents, it
+might save us from building up a huge string.</li>
+</ul>
+<pre class="literal-block">
+def swrite(element, maxlevels=None, outfile=sys.stdout):
+    &quot;&quot;&quot;Recursively write out a formatted, readable representation of element.
+    Possibly do shallow recursion.
+    Limit recursion to maxlevels (default is all levels).
+    Write output to file outfile (default is sys.stdout).
+    &quot;&quot;&quot;
+    wrt = outfile.write
+    swrite_(element, 0, maxlevels, wrt)
+
+
+def swrite_(element, indent, maxlevels, wrt):
+    indentstr = '    ' * indent
+    wrt('{}{}: {}\n'.format(indentstr, element.tag, repr(element), ))
+    for name, value in element.attrib.iteritems():
+        wrt('  {}* {}: {}\n'.format(indentstr, name, value, ))
+    indent += 1
+    if maxlevels is not None and indent &gt; maxlevels:
+        return
+    for child in element.iterchildren():
+        swrite_(child, indent, maxlevels, wrt)
+</pre>
+</div>
+<div class="section" id="exploring-element-specific-api">
+<h2><a class="toc-backref" href="#id11">3.3&nbsp;&nbsp;&nbsp;Exploring element-specific API</a></h2>
+<p>With <tt class="docutils literal">lxml.objectify</tt>, inspecting objects to determine the API for
+that specific element type is a frequent task.  You may find a
+function something like the following helpful:</p>
+<pre class="literal-block">
+Standard_attrs = set([ '__dict__', '__getattr__', 'addattr',
+    'countchildren', 'descendantpaths', '__class__', '__contains__',
+    '__copy__', '__deepcopy__', '__delattr__', '__delitem__',
+    '__doc__', '__format__', '__getattribute__', '__getitem__',
+    '__hash__', '__init__', '__iter__', '__len__', '__new__',
+    '__nonzero__', '__reduce__', '__reduce_ex__', '__repr__',
+    '__reversed__', '__setattr__', '__setitem__', '__sizeof__',
+    '__str__', '__subclasshook__', '_init', 'addnext',
+    'addprevious', 'append', 'attrib', 'base', 'clear', 'extend',
+    'find', 'findall', 'findtext', 'get', 'getchildren',
+    'getiterator', 'getnext', 'getparent', 'getprevious',
+    'getroottree', 'index', 'insert', 'items', 'iter',
+    'iterancestors', 'iterchildren', 'iterdescendants', 'iterfind',
+    'itersiblings', 'itertext', 'keys', 'makeelement', 'nsmap',
+    'prefix', 'remove', 'replace', 'set', 'sourceline', 'tag',
+    'tail', 'text', 'values', 'xpath', ])
+
+def members(element):
+    names = [attr for attr in dir(element) if attr not in Standard_attrs]
+    return names
+</pre>
+<p>I obtained that list of <tt class="docutils literal">Standard_attrs</tt> by doing <tt class="docutils literal">print
+dir(element)</tt> on a standard element (and then modifying it a bit).</p>
+<p>However, instead of calling that <tt class="docutils literal">members(o)</tt> function (above),
+the following snippet is likely just as useful:</p>
+<pre class="literal-block">
+In [96]: [child.tag for child in element.iterchildren()]
+Out[96]: ['example1', 'name', 'interest', 'interest', 'category', 'hot.agent']
+In [97]:
+In [97]: sorted([child.tag for child in element.iterchildren()])
+Out[97]: ['category', 'example1', 'hot.agent', 'interest', 'interest', 'name']
+</pre>
+<p>And, to save typing, the following functions might be helpful:</p>
+<pre class="literal-block">
+def children(element, tag=None):
+    &quot;&quot;&quot;Return a list of children of an element.
+    Optional argument tag can be a single string or list of strings
+    to select only children with that tag name.
+    &quot;&quot;&quot;
+    child_list = [child for child in element.iterchildren(tag=tag)]
+    return child_list
+
+def child_tags(element, tag=None):
+    &quot;&quot;&quot;Return a list of the tag names of the children of an element.
+    Optional argument tag can be a single string or list of strings
+    to select only children with that tag name.
+    &quot;&quot;&quot;
+    tags = [child.tag for child in element.iterchildren(tag=tag)]
+    return tags
+</pre>
+<p>Or, you may find this shallow dump function useful.  It uses
+<tt class="docutils literal">objectify.dump(o)</tt>, but attempts to <em>only</em> return the description
+of the top level object:</p>
+<pre class="literal-block">
+def sdump(element):
+    content = objectify.dump(element)
+    content = content.splitlines()
+    prefix = '        '
+    content = [line for line in content if not line.startswith(prefix)]
+    content = '\n'.join(content)
+    return content
+</pre>
+</div>
+<div class="section" id="searching-an-xml-document">
+<h2><a class="toc-backref" href="#id12">3.4&nbsp;&nbsp;&nbsp;Searching an XML document</a></h2>
+<p><tt class="docutils literal">lxml.objectify</tt> has its own XPath-like search capability with a
+(possibly) simpler form of the XPath/XQuery language.  See this for
+information about ObjectPath: <a class="reference external" href="http://lxml.de/objectify.html#objectpath">http://lxml.de/objectify.html#objectpath</a></p>
+<p>And, you can also use that lxml xpath on <tt class="docutils literal">lxml.objectify</tt>
+elements.  Example:</p>
+<pre class="literal-block">
+In [68]: root.xpath('.//&#64;Name')
+Out[68]:
+['dataset1-1',
+ 'dataset1-2',
+ 'subgroup01',
+ 'dataset2-1',
+ 'dataset2-2',
+ 'subgroup02',
+ 'dataset3-1',
+ 'dataset3-2',
+ 'subgroup03',
+ 'dataset3-3']
+</pre>
+<p>See this for information about the <tt class="docutils literal">lxml</tt> support for
+<tt class="docutils literal">xpath</tt>: <a class="reference external" href="http://lxml.de/xpathxslt.html">http://lxml.de/xpathxslt.html</a>.  And, see this for
+information about the XPath path language:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://www.w3.org/TR/2014/REC-xpath-30-20140408/#unabbrev">http://www.w3.org/TR/2014/REC-xpath-30-20140408/#unabbrev</a></li>
+<li><a class="reference external" href="http://www.w3.org/TR/2014/REC-xpath-30-20140408/#abbrev">http://www.w3.org/TR/2014/REC-xpath-30-20140408/#abbrev</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="sample-applications-with-lxml-objectify">
+<h1><a class="toc-backref" href="#id13">4&nbsp;&nbsp;&nbsp;Sample applications with lxml.objectify</a></h1>
+<ol class="arabic">
+<li><p class="first">Here is a sample application that parses and displays weather
+information from an XML document: <a class="reference external" href="Objectify_files/weather_test.py">weather_test.py</a>.</p>
+</li>
+<li><p class="first">This sample application picks data out of an XML document that
+was generated with <tt class="docutils literal">h5dump</tt>.  For example:</p>
+<pre class="literal-block">
+$ h5dump -x my_data.hdf5 &gt; my_data.hdf5.xml
+</pre>
+<p>This sample application attempts to create a new hdf5 data file from that XML
+document.  The code is here:
+<a class="reference external" href="Objectify_files/obj_hdf_xml.py">obj_hdf_xml.py</a></p>
+<p>Here is more information about HDF5:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://www.hdfgroup.org/">http://www.hdfgroup.org/</a></li>
+<li><a class="reference external" href="http://docs.h5py.org/en/latest/index.html">http://docs.h5py.org/en/latest/index.html</a> -- HDF5 for Python</li>
+</ul>
+</li>
+<li><p class="first">Here are several small applications that pick data out of files
+related to Vcloud.  I've included the Python code, a sample XML
+file, and a dump of the XML file produced by
+<tt class="docutils literal">objectify.dump(root)</tt>.  The code is here:
+<a class="reference external" href="Objectify_files/vcloud_samples.zip">vcloud_samples.zip</a>  And, you can learn
+more about Vcloud here:
+<a class="reference external" href="http://pubs.vmware.com/vcd-51/topic/com.vmware.vcloud.api.reference.doc_51/about.html">http://pubs.vmware.com/vcd-51/topic/com.vmware.vcloud.api.reference.doc_51/about.html</a></p>
+</li>
+</ol>
+</div>
+<div class="section" id="evaluation-and-comparison-lxml-objectify-vs-generateds-py">
+<h1><a class="toc-backref" href="#id14">5&nbsp;&nbsp;&nbsp;Evaluation and comparison -- lxml.objectify vs. generateDS.py</a></h1>
+<div class="section" id="api-discovery">
+<h2><a class="toc-backref" href="#id15">5.1&nbsp;&nbsp;&nbsp;API discovery</a></h2>
+<p><tt class="docutils literal">generateDS.py</tt> generates a class for each <tt class="docutils literal">xs:complexType</tt>.
+Therefore, there is Python code that you can inspect to determine
+the (generated) API, for example, getters, setters, constructor,
+export function, etc.  In order to do that, you will need to
+identify which generated class is the implementation for the element
+in which you are interested.</p>
+<p><tt class="docutils literal">lxml.objectify</tt> objects can be inspected using
+<tt class="docutils literal">objectify.dump(o)</tt> or one of the helper functions described in
+this document in section <a class="reference internal" href="#useful-tips-and-hints">Useful tips and hints</a>.  In order to
+perform this inspection, you must get access to an object of the
+type that you want to inspect.  Here are several ways to do that
+(and you may think of others):</p>
+<ul>
+<li><p class="first">Drop into the Python debugger by placing this code in your
+application where you have access to an object of the type you are
+interested in:</p>
+<pre class="literal-block">
+import pdb
+pdb.set_trace()
+</pre>
+<p>Or, if you have installed <tt class="docutils literal">ipython</tt> and <tt class="docutils literal">ipdb</tt>, use:</p>
+<pre class="literal-block">
+import ipdb
+ipdb.set_trace()
+</pre>
+<p><tt class="docutils literal">ipdb</tt> gives you tab completion for names available in the
+current scope.</p>
+</li>
+<li><p class="first">Parse and dump an XML instance document (using
+<tt class="docutils literal">objectify.dump(el)</tt>), capture it in a file, then look for the
+element of interest with your text editor.  Here is a simple
+utility script to help do that:</p>
+<pre class="literal-block">
+#!/usr/bin/env python
+
+import sys
+from lxml import objectify
+
+def dump(infilename):
+    doc = objectify.parse(infilename)
+    root = doc.getroot()
+    print objectify.dump(root)
+
+def main():
+    args = sys.argv[1:]
+    infilename = args[0]
+    dump(infilename)
+
+if __name__ == '__main__':
+    main()
+</pre>
+</li>
+<li><p class="first">Insert the the following code in your application at some point
+where it will have access to the element whose API you wish to
+discover:</p>
+<pre class="literal-block">
+print objectify.dump(element)
+</pre>
+<p>Or, if stdout (standard output) is not available and visible to
+you, something like the following:</p>
+<pre class="literal-block">
+import tempfile
+
+with tempfile.NamedTemporaryFile('w', delete=False) as outfile:
+    outfile.write(objectify.dump(element))
+    outfilename = outfile.name
+</pre>
+</li>
+<li><p class="first">Or, use one of the helpers above, for example:</p>
+<pre class="literal-block">
+print objectify_helpers.child_tags(element)
+</pre>
+</li>
+</ul>
+</div>
+<div class="section" id="namespaces">
+<h2><a class="toc-backref" href="#id16">5.2&nbsp;&nbsp;&nbsp;Namespaces</a></h2>
+<p><tt class="docutils literal">lxml.objectify</tt> handles namespaces correctly; <tt class="docutils literal">generateDS.py</tt>,
+especially when there are multiple namespaces in the same XML
+document, does not.</p>
+<p>Mostly, <tt class="docutils literal">lxml.objectify</tt> handles namespaces for you without
+additional effort on your part.  If you are working with an element
+that contains items from different namespaces, then see this:
+<a class="reference external" href="http://lxml.de/objectify.html#namespace-handling">http://lxml.de/objectify.html#namespace-handling</a>.  Sometimes, when
+you use <tt class="docutils literal">getattr(el, 'xxx')</tt> or el.iterchildren(tag='xxx'), you
+will need to include the namespace.  Examples:</p>
+<pre class="literal-block">
+In [15]: rootgroup = root.RootGroup
+In [16]: rootgroup.Group.tag
+Out[16]: '{http://hdfgroup.org/HDF5/XML/schema/HDF5-File.xsd}Group'
+In [17]: [el.tag for el in rootgroup.iterchildren(tag=&quot;{http://hdfgroup.org/HDF5/XML/schema/HDF5-File.xsd}Group&quot;)]
+Out[17]:
+['{http://hdfgroup.org/HDF5/XML/schema/HDF5-File.xsd}Group',
+ '{http://hdfgroup.org/HDF5/XML/schema/HDF5-File.xsd}Group',
+ '{http://hdfgroup.org/HDF5/XML/schema/HDF5-File.xsd}Group']
+</pre>
+<p>and:</p>
+<pre class="literal-block">
+In [24]: rootgroup.Dataset
+Out[24]: &lt;Element {http://hdfgroup.org/HDF5/XML/schema/HDF5-File.xsd}Dataset at 0x7f0293b65c68&gt;
+In [25]: getattr(rootgroup, &quot;{http://hdfgroup.org/HDF5/XML/schema/HDF5-File.xsd}Dataset&quot;)
+Out[25]: &lt;Element {http://hdfgroup.org/HDF5/XML/schema/HDF5-File.xsd}Dataset at 0x7f0293b65c68&gt;
+</pre>
+</div>
+<div class="section" id="summary">
+<h2><a class="toc-backref" href="#id17">5.3&nbsp;&nbsp;&nbsp;Summary</a></h2>
+<p>Although their approaches are very different, <tt class="docutils literal">generateDS.py</tt> and
+<tt class="docutils literal">lxml.objectify</tt> seem to solve the same set of problems and answer
+equivalent sets of needs.  <tt class="docutils literal">generateDS.py</tt> generates and gives you
+an API for each element type, specifically a Python class.  With
+<tt class="docutils literal">lxml.objectify</tt>, you can discover a (simulated) API by inspecting
+a dump produced by <tt class="docutils literal">lxml.objectify.dump(o)</tt> or by using
+<tt class="docutils literal">lxml.objectify</tt> and <tt class="docutils literal">lxml</tt> capabilities in each element to
+inspect the element.</p>
+<p>When might you want to use one rather than the other?</p>
+<ul class="simple">
+<li>Since <tt class="docutils literal">generateDS.py</tt> requires an XML schema in order to
+generate code, if you do <em>not</em> have an XML schema for your
+document type, then <tt class="docutils literal">generateDS.py</tt> is not an option for you.</li>
+<li>If you must handle an XML document that is defined by an XML
+schema that contains multiple namespaces, then, because of the
+problems that <tt class="docutils literal">generateDS.py</tt> has with namespaces, you should
+choose <tt class="docutils literal">lxml.objectify</tt>.</li>
+<li>If you want to produce Python code that defines and implements an
+API for a specific XML document type and you have an XML schema
+that defines that document type, then you may want to consider
+<tt class="docutils literal">generateDS.py</tt>.  If you want to be able to send that generated
+API for use by other developers, then the <tt class="docutils literal">generateDS.py</tt>
+approach might be an advantage to you.  However, the content
+produced by <tt class="docutils literal">lxml.objectify.dump(o)</tt> is very close to a
+description of an API for accessing an manipulating each element
+in an XML document.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr class="footer" />
+<a class="reference external" href="objectify_notes.txt">View document source</a>.
+Generated on: 2015-07-06 20:48 UTC.
+Generated by <a class="reference external" href="http://docutils.sourceforge.net/">Docutils</a> from <a class="reference external" href="http://docutils.sourceforge.net/rst.html">reStructuredText</a> source.
+
+</div>
+</body>
+</html>

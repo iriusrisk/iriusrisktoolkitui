@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="enum_import02">
+
+    <xs:complexType name="Type02_1">
+        <xs:sequence>
+            <xs:element name="userdescription" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="EnumType02_1">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="float" />
+            <xs:enumeration value="int" />
+            <xs:enumeration value="Name" />
+            <xs:enumeration value="token" />
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

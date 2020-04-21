@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="condition.xsd"/>
+    <xs:include schemaLocation="action.xsd"/>
+    <xs:complexType name="ruleType">
+        <xs:sequence>
+            <xs:element type="conditionType" name="condition" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element type="actionType" name="action" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element type="xs:string" name="content" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="name" use="required"/>
+        <xs:attribute type="xs:string" name="module" use="required"/>
+        <xs:attribute type="xs:boolean" name="generatedByGui" use="optional"/>
+    </xs:complexType>
+</xs:schema>

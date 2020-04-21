@@ -1,0 +1,39 @@
+Category|Ref|Req.|Included
+ISO/IEC 27002:2013|ISO/IEC 27002:2013||
+Access Control|9.1.1|Access control policy
+Access Control|9.1.2|Access to networks and network services
+Access Control|9.2.1|User registration and de-registration
+Access Control|9.2.2|User access provisioning
+Access Control|9.2.3|Management of privileged access rights
+Access Control|9.2.4|Management of secret authentication information of users
+Access Control|9.2.5|Review of user access rights
+Access Control|9.2.6|Removal or adjustment of access rights
+Access Control|9.3.1|Use of secret authentication information
+Access Control|9.4.1|Information access restriction
+Access Control|9.4.2|Secure log-on procedures
+Access Control|9.4.3|Password management system
+Access Control|9.4.4|Use of privileged utility programs
+Access Control|9.4.5|Access control to program source code
+Information System Acquisition Development and Maintenance|10.1.1|Policy on the use of cryptographic controls
+Information System Acquisition, Development and Maintenance|10.1.2|Key management
+Operations Security|12.1.1|Documented operating procedures
+Operations Security|12.1.2|Change management
+Operations Security|12.1.3|Capacity management
+Operations Security|12.1.4|Separation of development, testing and operational environments
+Operations Security|12.2.1|Controls against malware
+Operations Security|12.3.1|Information backup
+Operations Security|12.4.1|Event logging
+Operations Security|12.4.2|Protection of log information
+Operations Security|12.4.3|Administrator and operator logs
+Operations Security|12.4.4|Clock synchronisation
+Operations Security|12.5.1|Installation of software on operational systems
+Operations Security|12.6.1|Management of technical vulnerabilities
+Operations Security|12.6.2|Restrictions on software installation
+Operations Security|12.7.1|Information systems audit controls
+Communications Security|13.1.1|Network controls
+Communications Security|13.1.2|Security of network services
+Communications Security|13.1.3|Segregation in networks
+Communications Security|13.2.1|Information transfer policies and procedures
+Communications Security|13.2.2|Agreements on information transfer
+Communications Security|13.2.3|Electronic messaging
+Communications Security|13.2.4|Confidentiality or non-disclosure agreements
