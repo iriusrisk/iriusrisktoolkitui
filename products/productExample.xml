@@ -1,0 +1,1525 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project ref="product-example" name="productExample" revision="1" type="STANDARD" status="OPEN" enabled="true" priority="0" tags="" workflowState="">
+  <desc />
+  <questions />
+  <assets>
+    <asset type="DATA" name="Credit Card Data" desc="Card holder data including the full PAN and CVV number." identifier="">
+      <classification name="Cardholder data" desc="Credit card data under the remit of PCI" confidentiality="100" integrity="100" availability="30" />
+    </asset>
+    <asset type="DATA" name="Customer Data" desc="Data that uniquely identifies customers." identifier="">
+      <classification name="Personally Identifiable Information" desc="Any information relating to an identified or identifiable natural person ('Data Subject');&#10;                an identifiable person is one who can be identified, directly or indirectly,&#10;                in particular by reference to an identification number or to one or more factors specific to his&#10;                physical, physiological, mental, economic, cultural or social identity." confidentiality="80" integrity="80" availability="20" />
+    </asset>
+    <asset type="DATA" name="Personally Identifiable Information" desc="Any information relating to an identified or identifiable natural person ('Data Subject') an identifiable person is one who can be identified, directly or indirectly, in particular by reference to an identification number or to one or more factors specific to his physical, physiological, mental, economic, cultural or social identity." identifier="">
+      <classification name="Personally Identifiable Information" desc="Any information relating to an identified or identifiable natural person ('Data Subject');&#10;                an identifiable person is one who can be identified, directly or indirectly,&#10;                in particular by reference to an identification number or to one or more factors specific to his&#10;                physical, physiological, mental, economic, cultural or social identity." confidentiality="80" integrity="80" availability="20" />
+    </asset>
+  </assets>
+  <settings />
+  <dataflows />
+  <udts />
+  <components>
+    <component ref="route-53" name="Route 53 - DNS Service" desc="" groupName="" tags="" library="Hydras-AWS-Foundation" diagramPositionX="" diagramPositionY="" componentDefinitionRef="route-53" asvsVersion="4">
+      <questions />
+      <trustZones>
+        <trustZone name="Public" />
+      </trustZones>
+      <assets>
+        <asset name="Credit Card Data" accessType="20" />
+        <asset name="Customer Data" accessType="20" />
+      </assets>
+      <settings />
+      <weaknesses>
+        <weakness ref="AWS-Network-5.1" name="Non-identify the resources" state="0" impact="100" issueId="">
+          <desc>Resources are not registered in the safety net systems, and there are more unidentified
+                        resources. This can be a problem because these unidentified resources can have unknown
+                        weaknesses.
+                    </desc>
+          <test expiryDate="" expiryPeriod="0">
+            <steps />
+            <notes />
+            <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-04-01T07:51:15.000">
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>
+        <weakness ref="weakness3And4" name="weakness3And4" state="0" impact="100" issueId="">
+          <desc />
+          <test expiryDate="" expiryPeriod="0">
+            <steps />
+            <notes />
+            <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-12-10T11:47:27.687">
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>
+        <weakness ref="weakness4" name="weakness4" state="0" impact="100" issueId="">
+          <desc />
+          <test expiryDate="" expiryPeriod="0">
+            <steps />
+            <notes />
+            <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-12-10T11:45:50.813">
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>
+        <weakness ref="weaknessNoAsvs" name="weaknessNoAsvs" state="0" impact="100" issueId="">
+          <desc />
+          <test expiryDate="" expiryPeriod="0">
+            <steps />
+            <notes />
+            <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-12-10T11:46:52.220">
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>
+      </weaknesses>
+      <controls>
+        <control ref="asvs3And4Control" name="asvs3And4Control" issueId="" platform="" cost="0" risk="98" state="Recommended" owner="admin" library="" source="RULES">
+          <desc></desc>
+          <implementations />
+          <references />
+          <standards>
+            <standard ref="1.2" supportedStandardRef="OWASP-ASVS-Level-2" />
+            <standard ref="1.1" supportedStandardRef="owasp-asvs4-level-3" />
+          </standards>
+          <udts />
+          <test expiryDate="" expiryPeriod="0">
+            <steps />
+            <notes />
+            <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-11-14T11:22:19.674">
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>
+        <control ref="asvs4Control" name="asvs4Control" issueId="" platform="" cost="0" risk="98" state="Required" owner="admin" library="" source="RULES">
+          <desc></desc>
+          <implementations />
+          <references />
+          <standards>
+            <standard ref="3.1" supportedStandardRef="Level 1 - Docker" />
+            <standard ref="1.3" supportedStandardRef="owasp-asvs4-level-2" />
+          </standards>
+          <udts />
+          <test expiryDate="" expiryPeriod="0">
+            <steps />
+            <notes />
+            <source filename="" args="" type="Manual" result="Error" enabled="true" timestamp="2019-11-14T11:21:16.453">
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>
+        <control ref="aws-tier-6.2" name="Create a DNS alias record for the root domain" issueId="" platform="" cost="0" risk="39" state="Recommended" owner="admin" library="" source="RULES">
+          <desc>&lt;div&gt; 
+ &lt;b&gt; Description&lt;/b&gt;: 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br&gt; 
+&lt;/div&gt; 
+&lt;div&gt;
+  While ordinary Amazon Route 53 resource record sets are standard DNS resource record 
+&lt;/div&gt; 
+&lt;div&gt;
+  sets, alias resource record sets provide an Amazon Route 53-specific extension to DNS 
+&lt;/div&gt; 
+&lt;div&gt;
+  functionality. Instead of an IP address or a domain name, an alias resource record set 
+&lt;/div&gt; 
+&lt;div&gt;
+  contains a pointer to a CloudFront distribution or an ELB load balancer. 
+&lt;/div&gt; 
+&lt;div&gt;
+  Alias resource record sets can save you time because Amazon Route 53 automatically 
+&lt;/div&gt; 
+&lt;div&gt;
+  recognizes changes in the resource record sets that the alias resource record set refers to. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br&gt; 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;b&gt; Remediation&lt;/b&gt;: 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br&gt; 
+&lt;/div&gt; 
+&lt;div&gt;
+  First create a json file that represents the alias record that you want to add, and save it 
+&lt;/div&gt; 
+&lt;div&gt;
+  locally as "alias.json". Below you can find a simple alias record representation: 
+&lt;/div&gt; 
+&lt;blockquote&gt; 
+ &lt;div&gt;
+   { 
+ &lt;/div&gt; 
+ &lt;div&gt;
+   "Changes": [ 
+ &lt;/div&gt; 
+&lt;/blockquote&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt;
+    { 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;blockquote&gt; 
+   &lt;div&gt;
+     "Action": "CREATE", 
+   &lt;/div&gt; 
+  &lt;/blockquote&gt; 
+ &lt;/blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;blockquote&gt; 
+   &lt;div&gt;
+     "ResourceRecordSet": { 
+   &lt;/div&gt; 
+  &lt;/blockquote&gt; 
+ &lt;/blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;blockquote&gt; 
+   &lt;blockquote&gt; 
+    &lt;div&gt;
+      "Name": "&amp;lt;your_root_domain&amp;gt;", 
+    &lt;/div&gt; 
+   &lt;/blockquote&gt; 
+  &lt;/blockquote&gt; 
+ &lt;/blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;blockquote&gt; 
+   &lt;blockquote&gt; 
+    &lt;div&gt;
+      "Type": "A", 
+    &lt;/div&gt; 
+   &lt;/blockquote&gt; 
+  &lt;/blockquote&gt; 
+ &lt;/blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;blockquote&gt; 
+   &lt;blockquote&gt; 
+    &lt;div&gt;
+      "AliasTarget": { 
+    &lt;/div&gt; 
+   &lt;/blockquote&gt; 
+  &lt;/blockquote&gt; 
+ &lt;/blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;blockquote&gt; 
+   &lt;blockquote&gt; 
+    &lt;blockquote&gt; 
+     &lt;div&gt;
+       "HostedZoneId": "hosted zone ID for your CloudFront distribution, Amazon S3 bucket, Elastic Load Balancing load balancer, or Amazon Route 53 hosted zone", 
+     &lt;/div&gt; 
+    &lt;/blockquote&gt; 
+   &lt;/blockquote&gt; 
+  &lt;/blockquote&gt; 
+ &lt;/blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;blockquote&gt; 
+   &lt;blockquote&gt; 
+    &lt;blockquote&gt; 
+     &lt;div&gt;
+       "DNSName": "DNS domain name for your CloudFront distribution, Amazon S3 bucket, Elastic Load Balancing load balancer, or another resource record set in this hosted zone", 
+     &lt;/div&gt; 
+    &lt;/blockquote&gt; 
+   &lt;/blockquote&gt; 
+  &lt;/blockquote&gt; 
+ &lt;/blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;blockquote&gt; 
+   &lt;blockquote&gt; 
+    &lt;blockquote&gt; 
+     &lt;div&gt;
+       "EvaluateTargetHealth": false 
+     &lt;/div&gt; 
+    &lt;/blockquote&gt; 
+   &lt;/blockquote&gt; 
+  &lt;/blockquote&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;blockquote&gt; 
+   &lt;blockquote&gt; 
+    &lt;div&gt;
+      } 
+    &lt;/div&gt; 
+   &lt;/blockquote&gt;} 
+  &lt;/blockquote&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt;
+    } 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt; 
+&lt;blockquote&gt; 
+ &lt;div&gt;
+   ] 
+ &lt;/div&gt; 
+ &lt;div&gt;
+   } 
+ &lt;/div&gt; 
+&lt;/blockquote&gt; 
+&lt;div&gt; 
+ &lt;br&gt; 
+&lt;/div&gt; 
+&lt;div&gt;
+  Using the Amazon unified command line interface: 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt;Create an Alias records in your hosted zone: &lt;/li&gt; 
+ &lt;/ul&gt; 
+&lt;/div&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt;
+    aws route53 change-resource-record-sets --hosted-zone-id &amp;lt;your_hosted_zone_id&amp;gt; -- change-batch file:///PathTo/alias.json 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt;</desc>
+          <implementations />
+          <references>
+            <reference name="Change resource record sets" url="http://docs.aws.amazon.com/cli/latest/reference/route53/change-resource-record-sets.html" />
+            <reference name="List resource record sets" url="http://docs.aws.amazon.com/cli/latest/reference/route53/list-resource-record-sets.html" />
+            <reference name="Resource record sets: choosing alias/non alias" url="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html" />
+          </references>
+          <standards>
+            <standard ref="6.2" supportedStandardRef="cis-amazon-web-services-three-tier-web-architecture-benchmark" />
+          </standards>
+          <udts />
+          <test expiryDate="" expiryPeriod="0">
+            <steps>&lt;div&gt;
+  Using the Amazon unified command line interface: 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt;List only the Alias records of the hosted zone used by the application. Use the hosted zone id from the previous recommendation. Check if an Alias record is created for the root domain:&lt;/li&gt; 
+ &lt;/ul&gt; 
+&lt;/div&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt;
+    aws route53 list-resource-record-sets --hosted-zone-id &amp;lt;your_hosted_zone_id&amp;gt; --query 'ResourceRecordSets[?AliasTarget != null]' 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt;</steps>
+            <notes />
+            <source filename="" args="" type="Manual" result="Failed" enabled="true" timestamp="2020-03-18T09:14:28.530">
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>
+        <control ref="noAsvsControl1" name="noAsvsControl1" issueId="" platform="" cost="0" risk="98" state="Recommended" owner="admin" library="" source="RULES">
+          <desc></desc>
+          <implementations />
+          <references />
+          <standards>
+            <standard ref="2.1" supportedStandardRef="EU-GDPR" />
+            <standard ref="1.1" supportedStandardRef="NIST 800-53" />
+          </standards>
+          <udts />
+          <test expiryDate="" expiryPeriod="0">
+            <steps />
+            <notes />
+            <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-11-14T11:19:12.650">
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>
+        <control ref="aws-tier-6.1" name="Set Root Domain Alias Record to ELB" issueId="" platform="" cost="1" risk="39" state="Implemented" owner="admin" library="" source="EDITED">
+          <desc>&lt;div&gt;
+  Amazon Route 53 translates friendly domains names like www.example.com into IP addresses like 192.0.2.1. Amazon Route 53 responds to DNS queries using a global network of authoritative DNS servers, which reduces latency. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br&gt; 
+&lt;/div&gt; 
+&lt;div&gt;
+  When someone enters your domain name in a browser, a DNS request is forwarded to the nearest Amazon Route 53 DNS server in a global network of authoritative DNS servers. Amazon Route 53 responds with the IP address that you specified. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br&gt; 
+&lt;/div&gt; 
+&lt;div&gt;
+  Each domain has an associated hosted zone which contains the resource records pointing to each layer of the application. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br&gt; 
+&lt;/div&gt; 
+&lt;div&gt;
+  A private hosted zone is a container that holds information about how you want to route traffic for a domain and its subdomains within the Amazon Virtual Private Cloud (Amazon VPC). To begin, you create a private hosted zone and specify the Amazon VPCs that you want to associate with the hosted zone. You then create resource record sets that determine how Amazon Route 53 responds to queries for your domain and subdomains within and among your Amazon VPCs. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br&gt; 
+&lt;/div&gt; 
+&lt;div&gt;
+  Route53 provides special record type called Alias that allows creation of an A record for the root domain and points it to the fully qualified domain of the Elastic Load Balancer (ELB) associated with the web-server layer or Amazon CloudFront. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br&gt; 
+&lt;/div&gt; 
+&lt;div&gt;
+  In the same way records for all other layers should be created in order to allow flexibility in the application design and not hard-code the FQDN of a resource. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br&gt; 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;b&gt;Remediation:&lt;/b&gt; 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;div style=""&gt;
+   Using the Amazon unified command line interface: 
+ &lt;/div&gt; 
+ &lt;div style=""&gt; 
+  &lt;ul&gt; 
+   &lt;li&gt;Create a hosted zone for YourDomain.com:&lt;/li&gt; 
+  &lt;/ul&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt; 
+   &lt;div style=""&gt;
+     aws route53 create-hosted-zone --name &amp;lt;your_domain.com&amp;gt; --caller-reference &amp;lt;any_string&amp;gt; 
+   &lt;/div&gt; 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt;</desc>
+          <implementations />
+          <references>
+            <reference name="Amazon docs: about hosted zones" url="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/AboutHostedZones.html" />
+            <reference name="Amazon docs: create hosted zones" url="http://docs.aws.amazon.com/cli/latest/reference/route53/create-hosted-zone.html" />
+            <reference name="Amazon docs: list hosted zones" url="http://docs.aws.amazon.com/cli/latest/reference/route53/list-hosted-zones.html" />
+          </references>
+          <standards>
+            <standard ref="6.1" supportedStandardRef="cis-amazon-web-services-three-tier-web-architecture-benchmark" />
+          </standards>
+          <udts />
+          <test expiryDate="" expiryPeriod="0">
+            <steps>&lt;div&gt;
+                            Using the Amazon unified command line interface:
+                            &lt;/div&gt;
+                            &lt;div&gt;
+                            &lt;ul&gt;
+                            &lt;li&gt;List all the hosted zones and check if the domain name used by the application is
+                            present among them:&lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;/div&gt;
+                            &lt;blockquote&gt;
+                            &lt;blockquote&gt;
+                            &lt;div&gt;
+                            aws route53 list-hosted-zones --query 'HostedZones[*].{Name:Name, Id:Id}' --output table
+                            &lt;/div&gt;
+                            &lt;/blockquote&gt;
+                            &lt;/blockquote&gt;
+                        </steps>
+            <notes />
+            <source filename="" args="" type="Manual" result="Passed" enabled="true" timestamp="2019-04-01T07:51:15.000">
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>
+      </controls>
+      <usecases>
+        <usecase ref="AMAZON-WEB-SERVICES" name="Amazon Web Services" desc="" library="">
+          <threats>
+            <threat ref="UNAUTHORIZED-CONECTIONS-AWS" name="Attackers gain unauthorized connection to the resources" state="Partly-Mitigate" source="RULES" owner="admin" library="">
+              <desc>&lt;p&gt;Attackers could gain an unauthorized connection to the resources through misconfigured ports or security network configurations.&lt;/p&gt;</desc>
+              <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="25" />
+              <references />
+              <weaknesses>
+                <weakness ref="AWS-Network-5.1">
+                  <controls>
+                    <control ref="aws-tier-6.1" mitigation="50" />
+                    <control ref="aws-tier-6.2" mitigation="50" />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref="aws-tier-6.1" mitigation="50" />
+                <control ref="aws-tier-6.2" mitigation="50" />
+              </controls>
+            </threat>
+          </threats>
+        </usecase>
+        <usecase ref="asvs4usecase" name="asvs4useCase" desc="" library="">
+          <threats>
+            <threat ref="asvs4Threat" name="asvs4Threat" state="Expose" source="RULES" owner="admin" library="">
+              <desc></desc>
+              <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="100" />
+              <references />
+              <weaknesses>
+                <weakness ref="weakness4">
+                  <controls>
+                    <control ref="asvs4Control" mitigation="100" />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref="asvs4Control" mitigation="100" />
+              </controls>
+            </threat>
+          </threats>
+        </usecase>
+        <usecase ref="asvsusecase" name="asvsUseCase" desc="" library="">
+          <threats>
+            <threat ref="asvs4Threat" name="asvs4Threat" state="Expose" source="RULES" owner="admin" library="">
+              <desc></desc>
+              <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="100" />
+              <references />
+              <weaknesses>
+                <weakness ref="weakness4">
+                  <controls>
+                    <control ref="asvs4Control" mitigation="100" />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref="asvs4Control" mitigation="100" />
+              </controls>
+            </threat>
+            <threat ref="asvsThreat1" name="asvsThreat1" state="Expose" source="RULES" owner="admin" library="">
+              <desc></desc>
+              <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="100" />
+              <references />
+              <weaknesses>
+                <weakness ref="weakness3And4">
+                  <controls>
+                    <control ref="asvs3And4Control" mitigation="100" />
+                  </controls>
+                </weakness>
+                <weakness ref="weakness4">
+                  <controls>
+                    <control ref="asvs4Control" mitigation="100" />
+                  </controls>
+                </weakness>
+                <weakness ref="weaknessNoAsvs">
+                  <controls>
+                    <control ref="noAsvsControl1" mitigation="100" />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref="asvs3And4Control" mitigation="100" />
+                <control ref="asvs4Control" mitigation="100" />
+                <control ref="noAsvsControl1" mitigation="100" />
+              </controls>
+            </threat>
+          </threats>
+        </usecase>
+      </usecases>
+    </component>
+    <component ref="sns" name="SNS - Simple Notification Service" desc="" groupName="" tags="" library="Hydras-AWS-Foundation" diagramPositionX="" diagramPositionY="" componentDefinitionRef="sns" asvsVersion="4">
+      <questions />
+      <trustZones>
+        <trustZone name="Internet" />
+      </trustZones>
+      <assets>
+        <asset name="Credit Card Data" accessType="20" />
+        <asset name="Customer Data" accessType="20" />
+      </assets>
+      <settings />
+      <weaknesses>
+        <weakness ref="log-actions-sending-out-notifications" name="Log the actions to send out notifications" state="0" impact="100" issueId="">
+          <desc>The sensitive data is not encrypted in transit with HTTPS or SSL, and the data is accessible
+                        in the canal.
+                    </desc>
+          <test expiryDate="" expiryPeriod="0">
+            <steps />
+            <notes />
+            <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-04-01T07:51:15.000">
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>
+        <weakness ref="no-access-control-publish-sns-topics" name="No access control to publish on SNS topics" state="0" impact="100" issueId="">
+          <desc>The notifications are not centralized; therefore, the control of these notifications and who
+                        receives them is not easily managed.
+                    </desc>
+          <test expiryDate="" expiryPeriod="0">
+            <steps />
+            <notes />
+            <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-04-01T07:51:15.000">
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>
+        <weakness ref="no-access-control-subscribe-sns-topics" name="No access control to subscribe on SNS topics" state="0" impact="100" issueId="">
+          <desc>The notifications are not centralized; therefore, the control of these notifications and who
+                        receives them is not easily managed.
+                    </desc>
+          <test expiryDate="" expiryPeriod="0">
+            <steps />
+            <notes />
+            <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-04-01T07:51:15.000">
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>
+        <weakness ref="AWS-SNS-01" name="Notifications are not centralized" state="0" impact="100" issueId="">
+          <desc>The notifications are not centralized; therefore, the control of these notifications and who
+                        receives them is not easily managed.
+                    </desc>
+          <test expiryDate="" expiryPeriod="0">
+            <steps />
+            <notes />
+            <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-04-01T07:51:15.000">
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>
+        <weakness ref="AWS-S3-7.3" name="Sensitive data is exposed in transit" state="0" impact="100" issueId="">
+          <desc>Sensitive data is not encrypted in transit with HTTPS or SSL, and this data is accessible
+                        whilst traversing the network.
+                    </desc>
+          <test expiryDate="" expiryPeriod="0">
+            <steps />
+            <notes />
+            <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-04-01T07:51:15.000">
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>
+        <weakness ref="weakness3And4" name="weakness3And4" state="0" impact="100" issueId="">
+          <desc />
+          <test expiryDate="" expiryPeriod="0">
+            <steps />
+            <notes />
+            <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-12-10T11:47:27.687">
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>
+        <weakness ref="weakness4" name="weakness4" state="0" impact="100" issueId="">
+          <desc />
+          <test expiryDate="" expiryPeriod="0">
+            <steps />
+            <notes />
+            <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-12-10T11:45:50.813">
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>
+        <weakness ref="weaknessNoAsvs" name="weaknessNoAsvs" state="0" impact="100" issueId="">
+          <desc />
+          <test expiryDate="" expiryPeriod="0">
+            <steps />
+            <notes />
+            <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-12-10T11:46:52.220">
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </weakness>
+      </weaknesses>
+      <controls>
+        <control ref="asvs3And4Control" name="asvs3And4Control" issueId="" platform="" cost="0" risk="98" state="Recommended" owner="admin" library="" source="RULES">
+          <desc></desc>
+          <implementations />
+          <references />
+          <standards>
+            <standard ref="1.2" supportedStandardRef="OWASP-ASVS-Level-2" />
+            <standard ref="1.1" supportedStandardRef="owasp-asvs4-level-3" />
+          </standards>
+          <udts />
+          <test expiryDate="" expiryPeriod="0">
+            <steps />
+            <notes />
+            <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-11-14T11:22:19.674">
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>
+        <control ref="asvs4Control" name="asvs4Control" issueId="" platform="" cost="0" risk="98" state="Recommended" owner="admin" library="" source="RULES">
+          <desc></desc>
+          <implementations />
+          <references />
+          <standards>
+            <standard ref="3.1" supportedStandardRef="Level 1 - Docker" />
+            <standard ref="1.3" supportedStandardRef="owasp-asvs4-level-2" />
+          </standards>
+          <udts />
+          <test expiryDate="" expiryPeriod="0">
+            <steps />
+            <notes />
+            <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-11-14T11:21:16.453">
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>
+        <control ref="aws-tier-4.1" name="Create a SNS topic for sending out notifications from Cloudtwatch Alarms" issueId="" platform="" cost="1" risk="78" state="Recommended" owner="admin" library="" source="RULES">
+          <desc>&lt;div&gt;
+  For the Cloudwatch alarms and Auto-Scaling Groups to be able to send out notifications, a SNS topic should be created. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt;
+  Amazon Simple Notification Service (Amazon SNS) is a web service that coordinates and manages the delivery or sending of messages to subscribing endpoints or clients. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt;
+  When using Amazon SNS, you (as the owner) create a topic and control access to it by defining policies that determine which publishers and subscribers can communicate with the topic. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt;
+  Cloudwatch alarms and certain actions inside Auto-Scaling Groups needs to be sent out to administrators, in order to be acted upon. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;b&gt;Remediation:&lt;/b&gt; 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;div style=""&gt;
+   Using the Amazon unified CLI: 
+ &lt;/div&gt; 
+ &lt;div style=""&gt; 
+  &lt;ul&gt; 
+   &lt;li&gt;Create a new topic, and note the topic-arn value:&lt;/li&gt; 
+  &lt;/ul&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt; 
+   &lt;div style=""&gt;
+     aws sns create-topic --name &amp;lt;sns_topic_name&amp;gt; 
+   &lt;/div&gt; 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt; 
+&lt;div&gt; 
+ &lt;div style=""&gt; 
+  &lt;ul&gt; 
+   &lt;li&gt;Create a subscription to the new topic:&lt;/li&gt; 
+  &lt;/ul&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt; 
+   &lt;div style=""&gt;
+     aws sns subscribe --topic-arn &amp;lt;sns_topic_arn&amp;gt; --protocol &amp;lt;protocol_for_sns&amp;gt; --notification-endpoint &amp;lt;sns_subscription_endpoints&amp;gt; 
+   &lt;/div&gt; 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt;</desc>
+          <implementations />
+          <references>
+            <reference name="Amazon docs: sns get topic attributes" url="http://docs.aws.amazon.com/cli/latest/reference/sns/get-topic-attributes.html" />
+            <reference name="Amazon docs: sns list subscriptions" url="http://docs.aws.amazon.com/cli/latest/reference/sns/list-subscriptions-by-topic.html" />
+            <reference name="Amazon docs: sns set topic attributes" url="http://docs.aws.amazon.com/cli/latest/reference/sns/create-topic.html" />
+            <reference name="Amazon docs: sns subscribe" url="http://docs.aws.amazon.com/cli/latest/reference/sns/subscribe.html" />
+          </references>
+          <standards>
+            <standard ref="4.1" supportedStandardRef="cis-amazon-web-services-three-tier-web-architecture-benchmark" />
+          </standards>
+          <udts />
+          <test expiryDate="" expiryPeriod="0">
+            <steps>&lt;div&gt;
+  Using the Amazon unified CLI: 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt;List all cloudwatch alarms and filter by alarm action (review &amp;quot;AlarmActions&amp;quot;: []):&lt;/li&gt; 
+ &lt;/ul&gt; 
+&lt;/div&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt;
+    aws cloudwatch describe-alarms --query 'MetricAlarms[*].{AlarmName:AlarmName, AlarmActions:AlarmActions, Dimensions:Dimensions}' 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt; 
+&lt;div&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt;List SNS topic attributes:&lt;/li&gt; 
+ &lt;/ul&gt; 
+&lt;/div&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt;
+    aws sns list-topic-attributes --topic-arn &amp;lt;sns_topic_arn&amp;gt; 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt; 
+&lt;div&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt;List SNS topic subscriptions (endpoint which receives messages captured by the SNS topic):&lt;/li&gt; 
+ &lt;/ul&gt; 
+&lt;/div&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt;
+    aws sns list-subscriptions-by-topic --topic-arn &amp;lt;sns_topic_arn&amp;gt; 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt;</steps>
+            <notes />
+            <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-04-01T07:51:15.000">
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>
+        <control ref="aws-tier-4.2" name="Create a SNS topic for sending out notifications from RDS events" issueId="" platform="" cost="1" risk="78" state="Recommended" owner="admin" library="" source="RULES">
+          <desc>&lt;div&gt;
+  For the RDS event subscriptions to be able to send out notifications, a SNS topic should be created. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt;
+  Amazon Simple Notification Service (Amazon SNS) is a web service that coordinates and manages the delivery or sending of messages to subscribing endpoints or clients. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt;
+  When using Amazon SNS, you (as the owner) create a topic and control access to it by defining policies that determine which publishers and subscribers can communicate with the topic. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt;
+  RDS events generated through defined RDS event subscriptions needs to be sent out to administrators, in order to be acted upon. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;b&gt;Remediation:&lt;/b&gt; 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;div style=""&gt;
+   Using the Amazon unified CLI: 
+ &lt;/div&gt; 
+ &lt;div style=""&gt; 
+  &lt;ul&gt; 
+   &lt;li&gt;Create a new topic, and note the topic-arn value:&lt;/li&gt; 
+  &lt;/ul&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt; 
+   &lt;div style=""&gt;
+     aws sns create-topic --name &amp;lt;sns_topic_name&amp;gt; 
+   &lt;/div&gt; 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt; 
+&lt;div&gt; 
+ &lt;div style=""&gt; 
+  &lt;ul&gt; 
+   &lt;li&gt;Create a subscription to the new topic:&lt;/li&gt; 
+  &lt;/ul&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt; 
+   &lt;div style=""&gt;
+     aws sns subscribe --topic-arn &amp;lt;sns_topic_arn&amp;gt; --protocol &amp;lt;protocol_for_sns&amp;gt; --notification-endpoint &amp;lt;sns_subscription_endpoints&amp;gt; 
+   &lt;/div&gt; 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt;</desc>
+          <implementations />
+          <references>
+            <reference name="Amazon docs: sns get topic attributes" url="http://docs.aws.amazon.com/cli/latest/reference/sns/get-topic-attributes.html" />
+            <reference name="Amazon docs: sns list subscriptions by topic" url="http://docs.aws.amazon.com/cli/latest/reference/sns/list-subscriptions-by-topic.html" />
+            <reference name="Amazon docs: sns set topic attributes" url="http://docs.aws.amazon.com/cli/latest/reference/sns/create-topic.html" />
+            <reference name="Amazon docs: sns subscribe" url="http://docs.aws.amazon.com/cli/latest/reference/sns/subscribe.html" />
+          </references>
+          <standards>
+            <standard ref="4.2" supportedStandardRef="cis-amazon-web-services-three-tier-web-architecture-benchmark" />
+          </standards>
+          <udts />
+          <test expiryDate="" expiryPeriod="0">
+            <steps>&lt;div&gt;
+  Using the Amazon unified CLI: 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt;List all RDS event subscriptions in order to capture the topic-arn:&lt;/li&gt; 
+ &lt;/ul&gt; 
+&lt;/div&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt;
+    aws rds describe-event-subscriptions --query 'EventSubscriptionsList[*].{SourceType:SourceType, SourceIdsList:SourceIdsList, EventCategoriesList:EventCategoriesList}' 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt; 
+&lt;div&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt;List SNS topic attributes:&lt;/li&gt; 
+ &lt;/ul&gt; 
+&lt;/div&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt;
+    aws sns list-topic-attributes --topic-arn &amp;lt;sns_topic_arn&amp;gt; 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt; 
+&lt;div&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt;List SNS topic subscriptions (endpoint which receives messages captured by the SNS topic):&lt;/li&gt; 
+ &lt;/ul&gt; 
+&lt;/div&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt;
+    aws sns list-subscriptions-by-topic --topic-arn &amp;lt;sns_topic_arn&amp;gt; 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt;</steps>
+            <notes />
+            <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-04-01T07:51:15.000">
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>
+        <control ref="aws-tier-2.9" name="Do not permit 'Everyone' to publish SNS topics" issueId="" platform="" cost="1" risk="78" state="Required" owner="admin" library="" source="RULES">
+          <desc>&lt;div&gt;
+  Amazon Simple Notification Service (Amazon SNS) is a web service that coordinates and manages the delivery or sending of messages to subscribing endpoints or clients. In Amazon SNS, there are two types of clients - publishers and subscribers - also referred to as producers and consumers. Publishers communicate asynchronously with subscribers by producing and sending a message to a topic, which is a logical access point and communication channel. Subscribers (i.e., web servers, email addresses, Amazon SQS queues, AWS Lambda functions) consume or receive the message or notification over one of the supported protocols (i.e., Amazon SQS, HTTP/S, email, SMS, Lambda) when they are subscribed to the topic. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt;
+  The entities who can publish messages to a SNS topic can be controlled by modifying the topic policy, and they can be: 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt;The topic owner&lt;/li&gt; 
+  &lt;li&gt;Everyone&lt;/li&gt; 
+  &lt;li&gt;Specific AWS users or resources&lt;/li&gt; 
+ &lt;/ul&gt;From the above message publisher options you should make sure that &amp;quot;Everyone&amp;quot; is not used with any SNS topic in the AWS account. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt;
+  If an SNS topic policy allows &amp;quot;Everyone&amp;quot; to publish messages to a specific topic, this could pose a security risk as any unauthenticated entity could send malicious messages to all the topic subscribers. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;b&gt;Remediation:&lt;/b&gt; 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;div style=""&gt;
+   Edit your existing policy by deleting the above snippet or replacing &amp;quot;Principal&amp;quot;:{&amp;quot;AWS&amp;quot; : &amp;quot;*&amp;quot;} with &amp;quot;Principal&amp;quot;:{&amp;quot;AWS&amp;quot; : &amp;quot;&amp;quot;}, and save it locally as a .json file named policy.json. 
+ &lt;/div&gt; 
+ &lt;div style=""&gt; 
+  &lt;br /&gt; 
+ &lt;/div&gt; 
+ &lt;div style=""&gt;
+   Using the Amazon unified command line interface: 
+ &lt;/div&gt; 
+ &lt;div style=""&gt; 
+  &lt;ul&gt; 
+   &lt;li&gt;Set the new policy to the SNS topic&lt;/li&gt; 
+  &lt;/ul&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt; 
+   &lt;div style=""&gt;
+     aws sns set-topic-attributes --topic-arn sns_topic_arn --attribute-name Policy --attribute-value file://policy.json 
+   &lt;/div&gt; 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt; 
+&lt;div&gt; 
+ &lt;b&gt;&lt;br /&gt;&lt;/b&gt; 
+&lt;/div&gt;</desc>
+          <implementations />
+          <references>
+            <reference name="Amazon docs: sns get topic attributes" url="http://docs.aws.amazon.com/cli/latest/reference/sns/get-topic-attributes.html" />
+            <reference name="Amazon docs: sns list topics" url="http://docs.aws.amazon.com/cli/latest/reference/sns/list-topics.html" />
+            <reference name="Amazon docs: sns set topic attributes" url="http://docs.aws.amazon.com/cli/latest/reference/sns/set-topic-attributes.html" />
+            <reference name="Amazon docs: Using IAM with SNS" url="http://docs.aws.amazon.com/sns/latest/dg/UsingIAMwithSNS.html#ExamplePolicies_SNS" />
+          </references>
+          <standards>
+            <standard ref="2.9" supportedStandardRef="cis-amazon-web-services-three-tier-web-architecture-benchmark" />
+          </standards>
+          <udts />
+          <test expiryDate="" expiryPeriod="0">
+            <steps>&lt;div&gt;
+  Using the Amazon unified command line interface: 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt;List all the SNS topics from your AWS account:&lt;/li&gt; 
+ &lt;/ul&gt; 
+&lt;/div&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt;
+    aws sns list-topics 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt; 
+&lt;div&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt;For each topic in step 1, list the topic attributes:&lt;/li&gt; 
+ &lt;/ul&gt; 
+&lt;/div&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt;
+    aws sns get-topic-attributes --topic-arn &amp;lt;sns_topic_arn&amp;gt; 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt; 
+&lt;div&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt;Check the Policy field for the presence of:&lt;/li&gt; 
+ &lt;/ul&gt; 
+&lt;/div&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt;
+    { 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt;
+    &amp;quot;Effect&amp;quot;:&amp;quot;Allow&amp;quot;, 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt;
+    &amp;quot;Principal&amp;quot;:{ 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;blockquote&gt; 
+   &lt;blockquote&gt; 
+    &lt;div&gt;
+      &amp;quot;AWS&amp;quot;:&amp;quot;*&amp;quot; 
+    &lt;/div&gt; 
+   &lt;/blockquote&gt; 
+  &lt;/blockquote&gt; 
+ &lt;/blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;blockquote&gt; 
+   &lt;blockquote&gt; 
+    &lt;div&gt;
+      }, 
+    &lt;/div&gt; 
+   &lt;/blockquote&gt; 
+  &lt;/blockquote&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt;
+    &amp;quot;Action&amp;quot;:&amp;quot;SNS:Publish&amp;quot;, 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt;
+    &amp;quot;Resource&amp;quot;:&amp;quot;&amp;lt;sns_topic_arn&amp;gt;&amp;quot; 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt;
+    } 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt;</steps>
+            <notes />
+            <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-04-01T07:51:15.000">
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>
+        <control ref="aws-tier-2.10" name="Do not permit 'Everyone' to subscribe on SNS topics" issueId="" platform="" cost="1" risk="78" state="Implemented" owner="admin" library="" source="RULES">
+          <desc>&lt;div&gt;
+  Amazon Simple Notification Service (Amazon SNS) is a web service that coordinates and manages the delivery or sending of messages to subscribing endpoints or clients. In Amazon SNS, there are two types of clients - publishers and subscribers - also referred to as producers and consumers. Publishers communicate asynchronously with subscribers by producing and sending a message to a topic, which is a logical access point and communication channel. Subscribers (i.e., web servers, email addresses, Amazon SQS queues, AWS Lambda functions) consume or receive the message or notification over one of the supported protocols (i.e., Amazon SQS, HTTP/S, email, SMS, Lambda) when they are subscribed to the topic. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt;
+  The entities who can subscribe to a SNS topic can be controlled by modifying the topic policy, and they can be: 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt;The topic owner&lt;/li&gt; 
+  &lt;li&gt;Everyone&lt;/li&gt; 
+  &lt;li&gt;Specific AWS users or resources&lt;/li&gt; 
+  &lt;li&gt;Users whose endpoint URL,protocol, email address, or ARN from a Subscribe request match a specified value&lt;/li&gt; 
+ &lt;/ul&gt; 
+&lt;/div&gt; 
+&lt;div&gt;
+  From the above topic subscribers, you should make sure that &amp;quot;Everyone&amp;quot; is not used with any SNS topic in the AWS account. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt;
+  If a SNS topic policy allows &amp;quot;Everyone&amp;quot; to subscribe to a specific topic, this could pose a security risk as any unauthenticated entity could subscribe and receive messages from the topic publishers, messages that should be destined only to specific, known subscribers. 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;b&gt;Remediation:&lt;/b&gt; 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;div style=""&gt;
+   Edit your existing policy by deleting the above snippet or replacing &amp;quot;Principal&amp;quot;:{&amp;quot;AWS&amp;quot; : &amp;quot;*&amp;quot;} with &amp;quot;Principal&amp;quot;:{&amp;quot;AWS&amp;quot; : &amp;quot;&amp;quot;}, and save it locally as a .json file named policy.json. 
+ &lt;/div&gt; 
+ &lt;div style=""&gt; 
+  &lt;br /&gt; 
+ &lt;/div&gt; 
+ &lt;div style=""&gt;
+   Using the Amazon unified command line interface: 
+ &lt;/div&gt; 
+ &lt;div style=""&gt; 
+  &lt;ul&gt; 
+   &lt;li&gt;Set the new policy to the SNS topic&lt;/li&gt; 
+  &lt;/ul&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt; 
+   &lt;div style=""&gt;
+     aws sns set-topic-attributes --topic-arn sns_topic_arn --attribute-name Policy --attribute-value file://policy.json 
+   &lt;/div&gt; 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt;</desc>
+          <implementations />
+          <references>
+            <reference name="Amazon docs: sns get topic attributes" url="http://docs.aws.amazon.com/cli/latest/reference/sns/get-topic-attributes.html" />
+            <reference name="Amazon docs: sns list topics" url="http://docs.aws.amazon.com/cli/latest/reference/sns/list-topics.html" />
+            <reference name="Amazon docs: sns set topic attributes" url="http://docs.aws.amazon.com/cli/latest/reference/sns/set-topic-attributes.html" />
+            <reference name="Amazon docs: using IAM with SNS" url="http://docs.aws.amazon.com/sns/latest/dg/UsingIAMwithSNS.html#ExamplePolicies_SNS" />
+          </references>
+          <standards>
+            <standard ref="2.10" supportedStandardRef="cis-amazon-web-services-three-tier-web-architecture-benchmark" />
+          </standards>
+          <udts />
+          <test expiryDate="" expiryPeriod="0">
+            <steps>&lt;div&gt;
+  Using the Amazon unified command line interface: 
+&lt;/div&gt; 
+&lt;div&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt;List all the SNS topics from your AWS account:&lt;/li&gt; 
+ &lt;/ul&gt; 
+&lt;/div&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt;
+    aws sns list-topics 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt; 
+&lt;div&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt;For each topic in step 1, list the topic attributes:&lt;/li&gt; 
+ &lt;/ul&gt; 
+&lt;/div&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt;
+    aws sns get-topic-attributes --topic-arn &amp;lt;sns_topic_arn&amp;gt; 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt; 
+&lt;div&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt;Check the Policy field for the presence of:&lt;/li&gt; 
+ &lt;/ul&gt; 
+&lt;/div&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt;
+    { 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt;
+    &amp;quot;Effect&amp;quot;:&amp;quot;Allow&amp;quot;, 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt;
+    &amp;quot;Principal&amp;quot;:{ 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;blockquote&gt; 
+   &lt;blockquote&gt; 
+    &lt;div&gt;
+      &amp;quot;AWS&amp;quot;:&amp;quot;*&amp;quot; 
+    &lt;/div&gt; 
+   &lt;/blockquote&gt; 
+  &lt;/blockquote&gt; 
+ &lt;/blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;blockquote&gt; 
+   &lt;blockquote&gt; 
+    &lt;div&gt;
+      }, 
+    &lt;/div&gt; 
+   &lt;/blockquote&gt; 
+  &lt;/blockquote&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt;
+    &amp;quot;Action&amp;quot;: [ 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;blockquote&gt; 
+   &lt;blockquote&gt; 
+    &lt;div&gt;
+      &amp;quot;SNS:Subscribe&amp;quot;, 
+    &lt;/div&gt; 
+   &lt;/blockquote&gt; 
+  &lt;/blockquote&gt; 
+ &lt;/blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;blockquote&gt; 
+   &lt;blockquote&gt; 
+    &lt;div&gt;
+      &amp;quot;SNS:Receive&amp;quot; 
+    &lt;/div&gt; 
+   &lt;/blockquote&gt; 
+  &lt;/blockquote&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;blockquote&gt; 
+   &lt;blockquote&gt; 
+    &lt;div&gt;
+      ], 
+    &lt;/div&gt; 
+   &lt;/blockquote&gt; 
+  &lt;/blockquote&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt; 
+&lt;blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt;
+    &amp;quot;Resource&amp;quot;:&amp;quot;&amp;lt;sns_topic_arn&amp;gt;&amp;quot; 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+ &lt;blockquote&gt; 
+  &lt;div&gt;
+    } 
+  &lt;/div&gt; 
+ &lt;/blockquote&gt; 
+&lt;/blockquote&gt;</steps>
+            <notes />
+            <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-04-01T07:51:15.000">
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>
+        <control ref="Hydras-AWS-SNS-02" name="Enforce HTTPS to encrypt notifications" issueId="" platform="" cost="1" risk="78" state="Recommended" owner="admin" library="" source="RULES">
+          <desc>To send messages to an HTTPS endpoint through a topic, you must subscribe the endpoint to the
+                        Amazon SNS topic. You specify the endpoint using its URL. To subscribe to a topic, you can use
+                        the Amazon SNS console, the sns-subscribe command, or the Subscribe API action.
+                        &lt;br /&gt;
+                        &lt;br /&gt;
+                        &lt;b&gt; &lt;b&gt;Remediation:&lt;/b&gt; &lt;/b&gt;
+                        &lt;br /&gt;
+                        &lt;ol&gt;
+                        &lt;li&gt;Sign in to the AWS Management Console and open the Amazon SNS console at
+                        https://console.aws.amazon.com/sns/v2/home.&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;In the left navigation pane, click Topics and then select the topic.&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;Click the Other actions drop-down list and select Subscribe to topic.&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;In the Protocol drop-down list, select HTTPS.&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;In the Endpoint box, paste in the URL for the endpoint that you want the topic to send
+                        messages to and then click Create subscription.&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;For the Subscription request received! message, click Close.&amp;nbsp;&lt;/li&gt;
+                        &lt;li&gt;Your new subscription's Subscription ID displays PendingConfirmation. When you confirm
+                        the subscription, Subscription ID will display the subscription ID.&amp;nbsp;&lt;/li&gt;
+                        &lt;/ol&gt;Content provided by
+                        &lt;a href="https://hydrasit.com" target="_blank"&gt; Hydras IT LTD&lt;/a&gt;.
+                    </desc>
+          <implementations />
+          <references />
+          <standards />
+          <udts />
+          <test expiryDate="" expiryPeriod="0">
+            <steps>&lt;ol&gt;
+                            &lt;li&gt;Sign in to the AWS Management Console and open the Amazon SNS console at
+                            https://console.aws.amazon.com/sns/v2/home.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;In the left navigation panel, click Topics and then select the topic.&amp;nbsp;&lt;/li&gt;
+                            &lt;li&gt;Click the Other actions drop-down list and select Subscribe to topic.I&lt;/li&gt;
+                            &lt;li&gt;In the Protocol drop-down list, check that the protocol HTTPS is selected.&lt;/li&gt;
+                            &lt;/ol&gt;
+                        </steps>
+            <notes />
+            <source filename="" args="" type="Manual" result="Passed" enabled="true" timestamp="2019-04-01T07:51:15.000">
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>
+        <control ref="noAsvsControl1" name="noAsvsControl1" issueId="" platform="" cost="0" risk="98" state="Recommended" owner="admin" library="" source="RULES">
+          <desc></desc>
+          <implementations />
+          <references />
+          <standards>
+            <standard ref="2.1" supportedStandardRef="EU-GDPR" />
+            <standard ref="1.1" supportedStandardRef="NIST 800-53" />
+          </standards>
+          <udts />
+          <test expiryDate="" expiryPeriod="0">
+            <steps />
+            <notes />
+            <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-11-14T11:19:12.650">
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>
+        <control ref="Hydras-AWS-SNS-01" name="Use Amazon SNS to centralize notifications" issueId="" platform="" cost="1" risk="78" state="Recommended" owner="admin" library="" source="RULES">
+          <desc>Configure all alerts from the Amazon environment with the Amazon Simple Notification Service
+                        (SNS) to have centralized notifications and control over who receives these notifications, in
+                        the same place.
+                        &lt;br /&gt;
+                        &lt;br /&gt;
+                        &lt;b&gt; &lt;b&gt;Remediation:&lt;/b&gt; &lt;/b&gt;
+                        &lt;br /&gt;
+                        &lt;ol&gt;
+                        &lt;li&gt;Go to CoudWatch alarms.&lt;/li&gt;
+                        &lt;li&gt;Edit each alarm and change the notification configuration to the SNS service.&lt;/li&gt;
+                        &lt;/ol&gt;
+                    </desc>
+          <implementations />
+          <references />
+          <standards />
+          <udts />
+          <test expiryDate="" expiryPeriod="0">
+            <steps>Check that all alerts from the Amazon environment are configured with the Amazon Simple
+                            Notification Service (SNS).
+                        </steps>
+            <notes />
+            <source filename="" args="" type="Manual" result="Not Tested" enabled="true" timestamp="2019-04-01T07:51:15.000">
+              <output></output>
+            </source>
+            <references />
+            <udts />
+          </test>
+        </control>
+      </controls>
+      <usecases>
+        <usecase ref="asvs4usecase" name="asvs4useCase" desc="" library="">
+          <threats>
+            <threat ref="asvs4Threat" name="asvs4Threat" state="Expose" source="RULES" owner="admin" library="">
+              <desc></desc>
+              <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="100" />
+              <references />
+              <weaknesses>
+                <weakness ref="weakness4">
+                  <controls>
+                    <control ref="asvs4Control" mitigation="100" />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref="asvs4Control" mitigation="100" />
+              </controls>
+            </threat>
+          </threats>
+        </usecase>
+        <usecase ref="asvsusecase" name="asvsUseCase" desc="" library="">
+          <threats>
+            <threat ref="asvs4Threat" name="asvs4Threat" state="Expose" source="RULES" owner="admin" library="">
+              <desc></desc>
+              <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="100" />
+              <references />
+              <weaknesses>
+                <weakness ref="weakness4">
+                  <controls>
+                    <control ref="asvs4Control" mitigation="100" />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref="asvs4Control" mitigation="100" />
+              </controls>
+            </threat>
+            <threat ref="asvsThreat1" name="asvsThreat1" state="Expose" source="RULES" owner="admin" library="">
+              <desc></desc>
+              <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="100" />
+              <references />
+              <weaknesses>
+                <weakness ref="weakness3And4">
+                  <controls>
+                    <control ref="asvs3And4Control" mitigation="100" />
+                  </controls>
+                </weakness>
+                <weakness ref="weakness4">
+                  <controls>
+                    <control ref="asvs4Control" mitigation="100" />
+                  </controls>
+                </weakness>
+                <weakness ref="weaknessNoAsvs">
+                  <controls>
+                    <control ref="noAsvsControl1" mitigation="100" />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref="asvs3And4Control" mitigation="100" />
+                <control ref="asvs4Control" mitigation="100" />
+                <control ref="noAsvsControl1" mitigation="100" />
+              </controls>
+            </threat>
+          </threats>
+        </usecase>
+        <usecase ref="CLOUDWATCH-METRIC-ALERTS" name="Cloudwatch Metric Alerts" desc="" library="">
+          <threats>
+            <threat ref="AWS-LOST-CONTROL-NOTIFICATION" name="Sensitive data is compromised through notifications" state="Expose" source="RULES" owner="admin" library="">
+              <desc>Attackers can gain access to the resources sensitive data if the system notifications
+                                and alerts are not configured properly and the notifications are not received by the
+                                appropriate personnel.
+                            </desc>
+              <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="25" />
+              <references />
+              <weaknesses>
+                <weakness ref="log-actions-sending-out-notifications">
+                  <controls>
+                    <control ref="aws-tier-4.1" mitigation="33" />
+                    <control ref="aws-tier-4.2" mitigation="33" />
+                  </controls>
+                </weakness>
+                <weakness ref="AWS-SNS-01">
+                  <controls>
+                    <control ref="Hydras-AWS-SNS-01" mitigation="34" />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref="Hydras-AWS-SNS-01" mitigation="34" />
+                <control ref="aws-tier-4.1" mitigation="33" />
+                <control ref="aws-tier-4.2" mitigation="33" />
+              </controls>
+            </threat>
+          </threats>
+        </usecase>
+        <usecase ref="VIRTUAL-PRIVATE-CLOUD-VPC-NETWORK" name="Virtual Private Cloud (VPC) Network" desc="" library="">
+          <threats>
+            <threat ref="ACCESS-TO-DATA-AWS" name="Sensitive data is compromised through unauthorized access to data" state="Expose" source="RULES" owner="admin" library="">
+              <desc>Attackers can gain access to sensitive data when the data is in transit in clear text,
+                                or when the data is stored without encryption.
+                            </desc>
+              <riskRating confidentiality="100" integrity="100" availability="100" easeOfExploitation="25" />
+              <references />
+              <weaknesses>
+                <weakness ref="no-access-control-publish-sns-topics">
+                  <controls>
+                    <control ref="aws-tier-2.9" mitigation="33" />
+                  </controls>
+                </weakness>
+                <weakness ref="no-access-control-subscribe-sns-topics">
+                  <controls>
+                    <control ref="aws-tier-2.10" mitigation="33" />
+                  </controls>
+                </weakness>
+                <weakness ref="AWS-S3-7.3">
+                  <controls>
+                    <control ref="Hydras-AWS-SNS-02" mitigation="34" />
+                  </controls>
+                </weakness>
+              </weaknesses>
+              <controls>
+                <control ref="Hydras-AWS-SNS-02" mitigation="34" />
+                <control ref="aws-tier-2.10" mitigation="33" />
+                <control ref="aws-tier-2.9" mitigation="33" />
+              </controls>
+            </threat>
+          </threats>
+        </usecase>
+      </usecases>
+    </component>
+  </components>
+</project>
