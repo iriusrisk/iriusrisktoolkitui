@@ -13,6 +13,8 @@ from src.generateHtmlStandardvsCountermeasures import generateHtmlFromLibrariesA
 from src.updateServerWithCloudComponents import *
 from src.addReferencesFromExcel import addReferencesToLibrariesByExcelFile
 from src.riskCalculator import calculateRiskToHTML
+from src.generateRulesHtml import generateRulesHtml
+from src.generateRulesHtml import questions
 from pathlib import Path
 import subprocess
 from src.common import readConfig, writeConfig, testConnection
@@ -63,7 +65,7 @@ def selectionOfExcelFile(title, files, mainPath, home):
   win = sg.Window(title, layout, location=LOCATION)  
   win.UnHide()
   while True:
-    ev, values = win.Read() 
+    ev, values = win.Read()
     if ev is "Cancel" or ev == 'Exit':  
       win.Close()  
       home.UnHide()
@@ -85,7 +87,7 @@ def selectionOfExcelRulesFile(title, files, mainPath, home):
   win = sg.Window(title, layout, location=LOCATION)  
   win.UnHide()
   while True:
-    ev, values = win.Read() 
+    ev, values = win.Read()
     if ev is "Cancel" or ev == 'Exit':
       win.Close()  
       home.UnHide()
@@ -162,15 +164,30 @@ def getLayoutUpgrade():
 
 def getLayoutLibs():
   libs=list()
+  libsPath=list()
   for lib in os.listdir(str(PATH_LIBS)):
     if lib.endswith(".xml"):
+      libsPath.append(Path.cwd() / "libraries" / lib)
       libs.append([sg.Checkbox(lib.replace(".xml", ""), key=lib.replace(".xml", ""), default=False)])
+
+  riskPatterns = set()
+  for path in libsPath:
+    root = etree.parse(str(path)).getroot()
+    for riskPattern in root.find("componentDefinitions").iter("riskPattern"):
+      riskPatterns.add(riskPattern.attrib['ref'])
 
   libs.append([sg.Button("Select all libraries", key='selectAllLibs', button_color=BUTTON_COLOR)])
   libs.append([sg.Text('Filename:'), sg.Input(key='fileBrowseValue'), sg.FileBrowse(key='browse')])
   standardList=os.listdir(str(Path.cwd() / "inputFiles" / "standardsFiles"))
   standards=[[sg.Text("Select the option:", key='textStandards'), sg.InputCombo(standardList, key='comboStandards')]]
   options=[[sg.Text("Select the option:", key='textOptions'), sg.InputCombo(['Risk patterns & Rules', 'Risk patterns', 'Rules'], key='comboOptions')]]
+  questionCombo=[[sg.Text("Select the question:", key='textQuestion'),
+                  sg.InputCombo(list(questions.values()), key='comboQuestions')],
+                 [ sg.Text("Write QuestionID/ref/name:", key='textValue'),
+                   sg.Input(key="textValueQuestion"),
+                   sg.Text("Select risk pattern:", key='textRiskPattern'),
+                   sg.InputCombo(sorted(riskPatterns, key=str.lower), key='comboRiskPatterns', size=(30,30))],
+                 [ sg.Button("Load risk patterns from uploaded library only", key="loadRiskPatterns")]]
 
   existingStandardList=list()
   path_info_standards=Path.cwd() / "inputFiles" / "descriptionOfStandards"
@@ -191,6 +208,7 @@ def getLayoutLibs():
   layout=[
     [sg.Frame("Select the library or libraries to use (working directory: '../libraries/'):", libs, key='libs'),
     sg.Frame("Options:", options, key='options'),
+    sg.Frame("Questions:", questionCombo, key='frameQuestion'),
     sg.Frame("Standards:", standards, key='standards'),
     sg.Frame("Server Configuration:", serverConfig, key='serverConfig'),
     sg.Frame("Server Configuration:", existingStandards, key='existingStandards')]
@@ -407,6 +425,7 @@ def showMainFrame(home):
   home.FindElement("mainFrame").Update(visible=True)
   home.FindElement("buttons").Update(visible=False)
   home.FindElement("changeLogFrame").Update(visible=False)
+  home.FindElement("frameQuestion").Update(visible=False)
   home.FindElement("exit").Update(visible=True)
 
 def getCommandOS():
@@ -419,7 +438,7 @@ def getCommandOS():
     command = 'start'
   return command
 
-def selectionWindow(title, home, showChangeLogOptions=False, showOptions=False, showStandards=False, showServerConfig=False, showExcelOptions=False, showExistingStandards=False, showUpgrade=False, showProductOptions=False):
+def selectionWindow(title, home, showChangeLogOptions=False, showOptions=False, showStandards=False, showServerConfig=False, showExcelOptions=False, showExistingStandards=False, showUpgrade=False, showProductOptions=False, showQuestionOptions=False):
   data=Data()
   data.normalChangeLog = False
 
@@ -450,12 +469,15 @@ def selectionWindow(title, home, showChangeLogOptions=False, showOptions=False, 
   if showChangeLogOptions:
     home.FindElement("frameLibs").Update(visible=False)
     home.FindElement("changeLogFrame").Update(visible=True)
+  if showQuestionOptions:
+    home.FindElement("frameQuestion").Update(visible=True)
   startProgressBar(home)
     
   data.files=list()
   
-  while True:    
-    ev, values = home.Read() 
+  while True:
+    ev, values = home.Read()
+
     selectAllLibraries(ev, home)
     selectAllProducts(ev, home)
     selectAllExcels(ev, home)
@@ -472,13 +494,22 @@ def selectionWindow(title, home, showChangeLogOptions=False, showOptions=False, 
         os.system('%s %s &'%(getCommandOS(), str(Path.cwd() / "inputFiles" / "lastRelease")))
       except:
         logger.info("The File Browse is not been able to open")
-    
+
     if ev is 'showFolderCurrentRelease':
       try:
         os.system('%s %s &'%(getCommandOS(),str(Path.cwd() / "inputFiles" / "currentRelease")))
       except:
         logger.info("The File Browse is not been able to open")
-     
+
+    if ev is "loadRiskPatterns":
+      riskPatterns = set()
+      if str(values['browse']) != '':
+        root = etree.parse(str(values['browse'])).getroot()
+        for riskPattern in root.find("componentDefinitions").iter("riskPattern"):
+          riskPatterns.add(riskPattern.attrib['ref'])
+
+        home.FindElement('comboRiskPatterns').Update(values=sorted(riskPatterns, key=str.lower))
+
     if ev is "submit":
       progressBar(home)
       home.Refresh()
@@ -497,6 +528,10 @@ def selectionWindow(title, home, showChangeLogOptions=False, showOptions=False, 
         data.files=getSelectedProducts(values, data.files)
       if showExistingStandards:
         data.selectedStandard_path = values['comboExistingStandards']
+      if showQuestionOptions:
+        data.parts=values['comboQuestions']
+        data.value=values['textValueQuestion']
+        data.riskPattern=values['comboRiskPatterns']
       if home.FindElement('fileBrowseValueExcel').Get() != "":
         data.files.append(Path(home.FindElement('fileBrowseValueExcel').Get()))
         home.FindElement('fileBrowseValueExcel').update('')
@@ -781,10 +816,7 @@ def checkIfConvertRulesFromExcelToXML(event, results, home, links):
 def checkIfRiskFromXML(event, results, home, links):
   if event == "15. Show risk calculation from XML product file":
     startProgressBar(home)
-    productArray = list()
-    for product in os.listdir(str(Path.cwd() / "products")):
-      if product.endswith(".xml"):
-        productArray.append(product)
+
     data = selectionWindow(
       title="Select the product or products to show risk calculation:",
       showProductOptions=True,
@@ -804,6 +836,29 @@ def checkIfRiskFromXML(event, results, home, links):
         results += "Risk is not calculated for '%s' because its extension is wrong" % file
   return results, links
 
+def generateRulesAnswers(event, results, home, links):
+  if event == "16. Questions about rules":
+    startProgressBar(home)
+    data = selectionWindow(
+      title="Select the library or libraries:",
+      showQuestionOptions=True,
+      home=home)
+
+    # Check if the question applies to all marked libraries separately
+    if data.parts in questions.values():
+      check=True
+      if data.parts in [questions[1], questions[2]]:
+        check=False
+      searchValue = ""
+      if hasattr(data, "value"):
+        searchValue = data.value
+      if hasattr(data,"riskPattern") and data.riskPattern != "":
+        searchValue = data.riskPattern
+      links=generateRulesHtml(data.files, question=data.parts, checkAllRules=check, value=searchValue)
+      results += f"Rules that answer the question '{data.parts}' successfully retrieved and the output file/s is/are in the path/s {links}.\n"
+
+  return results, links
+
 def loadMainLayout():
   layout = [
           [sg.Button("1. Join library from several files", button_color=BUTTON_COLOR, size=SIZE_ELEMENT)],
@@ -821,6 +876,7 @@ def loadMainLayout():
           [sg.Button("13. Add control references using the mapping from Excel file", button_color=BUTTON_COLOR, size=SIZE_ELEMENT)],
           [sg.Button("14. Convert Rules from Excel file to XML file", button_color=BUTTON_COLOR, size=SIZE_ELEMENT)],
           [sg.Button("15. Show risk calculation from XML product file", button_color=BUTTON_COLOR, size=SIZE_ELEMENT)],
+          [sg.Button("16. Questions about rules", button_color=BUTTON_COLOR, size=SIZE_ELEMENT)]
 
   ]
   return layout
@@ -854,7 +910,7 @@ def main():
   
   while True:
     results="" 
-    event, vals1 = home.Read() 
+    event, vals1 = home.Read()
     if event != None and event != "":
       logger.info("Event '%s' is selected."%event)
     if (event == "exit") or (event == None): 
@@ -876,6 +932,7 @@ def main():
     results, links=checkIfAddReferencesFromExcel(event, results, home, links)
     results, links=checkIfConvertRulesFromExcelToXML(event, results, home, links)
     results, links=checkIfRiskFromXML(event, results, home, links)
+    results, links=generateRulesAnswers(event, results, home, links)
     
     finishProgressBar(home)
     logger.info("Results page is shown.")

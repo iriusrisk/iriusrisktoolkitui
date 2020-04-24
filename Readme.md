@@ -21,6 +21,8 @@ pip install pyyaml
 pip install requests
 pip install requests-toolbelt
 pip install PySimpleGUI
+pip install networkx
+pip install flask
 
 ```
 
