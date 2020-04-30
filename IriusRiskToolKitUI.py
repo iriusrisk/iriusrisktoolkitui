@@ -24,8 +24,8 @@ import yaml
 
 import logging
 import webbrowser
-import time
 
+toolkitVersion = "Version 1.0"
 
 LOCATION =(0,0)
 SIZE_ELEMENT=(100, 1)
@@ -895,7 +895,10 @@ def main():
   changeLogLayout = getChangeLogLayout()
   layoutResults=[[]]
 
+  menu_def = [['Help', 'About...'], ]
+
   mainLayout=[[
+    sg.Menu(menu_def),
     sg.Frame("Select the action to do:", layout, key='mainFrame'), 
     sg.Frame("Select the libraries to use:", layoutLibs, key='frameLibs', visible=False),
     sg.Frame("Select the products to use:", layoutProducts, key='frameProducts', visible=False),
@@ -907,13 +910,15 @@ def main():
     [sg.Frame("", [[sg.Button("Submit", key='submit'), sg.Button("Cancel",key='cancel')]], key='buttons', visible=False)], [sg.Button('Exit', key='exit')]
   ]
   home = sg.Window('IriusRiskToolKitUI', mainLayout, location=LOCATION, auto_size_text=True)
-  
+
   while True:
-    results="" 
+    results = ""
     event, vals1 = home.Read()
     if event != None and event != "":
       logger.info("Event '%s' is selected."%event)
-    if (event == "exit") or (event == None): 
+    if event == 'About...':
+      sg.popup('About', 'IriusRisk Toolkit UI - Continuum Security', toolkitVersion)
+    if (event == "exit") or (event == None):
       break
     showMainFrame(home)
     links=list()
