@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project ref="product-example" name="productExample" revision="1" type="STANDARD" status="OPEN" enabled="true" priority="0" tags="" workflowState="">
+<project ref="product-example" name="Product example" revision="1" type="STANDARD" status="OPEN" enabled="true" priority="0" tags="" workflowState="">
   <desc />
+  <trustZones>
+    <trustZone ref="58467363-ca32-4333-87ce-0c96c403d93c" name="Internet" />
+    <trustZone ref="5490e4fe-0eec-431e-9d8d-b23a3ea6aa3a" name="Public" />
+    <trustZone ref="8cacc40f-83c6-4d7a-993f-7e87ead7729a" name="Public Cloud" />
+    <trustZone ref="55ed3fa2-f982-4405-8f06-d3325577b7a0" name="Trusted Partner" />
+    <trustZone ref="30ae42cf-2f6f-49eb-8340-92a22c0f66d6" name="Private Secured" />
+  </trustZones>
   <questions />
   <assets>
     <asset type="DATA" name="Credit Card Data" desc="Card holder data including the full PAN and CVV number." identifier="">
@@ -20,7 +27,7 @@
     <component ref="route-53" name="Route 53 - DNS Service" desc="" groupName="" tags="" library="Hydras-AWS-Foundation" diagramPositionX="" diagramPositionY="" componentDefinitionRef="route-53" asvsVersion="4">
       <questions />
       <trustZones>
-        <trustZone name="Public" />
+        <trustZone ref="5490e4fe-0eec-431e-9d8d-b23a3ea6aa3a" />
       </trustZones>
       <assets>
         <asset name="Credit Card Data" accessType="20" />
@@ -535,7 +542,7 @@
     <component ref="sns" name="SNS - Simple Notification Service" desc="" groupName="" tags="" library="Hydras-AWS-Foundation" diagramPositionX="" diagramPositionY="" componentDefinitionRef="sns" asvsVersion="4">
       <questions />
       <trustZones>
-        <trustZone name="Internet" />
+        <trustZone ref="58467363-ca32-4333-87ce-0c96c403d93c" />
       </trustZones>
       <assets>
         <asset name="Credit Card Data" accessType="20" />
