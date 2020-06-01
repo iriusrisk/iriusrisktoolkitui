@@ -15,7 +15,14 @@ mitigationFactorIfControlTestPassed=1
 mitigationFactorIfControlTestNotPassed=1
 mitigationFactorIfControlImplemented=1
 vulnerabilityFoundFactor=0
-trustZones={'Internet':1,'Public':1,'Public Cloud':60,'Trusted Partner':80,'Private Secured':100}
+trustZones = {
+	"58467363-ca32-4333-87ce-0c96c403d93c":{"name":"Internet","rating":1},
+	"5490e4fe-0eec-431e-9d8d-b23a3ea6aa3a":{"name":"Public","rating":1},
+	"8cacc40f-83c6-4d7a-993f-7e87ead7729a":{"name":"Public Cloud","rating":60},
+	"55ed3fa2-f982-4405-8f06-d3325577b7a0":{"name":"Trusted Partner","rating":80},
+	"30ae42cf-2f6f-49eb-8340-92a22c0f66d6":{"name":"Private Secured","rating":100}
+}
+
 
 ####################################################
 
@@ -75,11 +82,13 @@ def getThreatRiskRating(threat):
 
 # Returns a dictionary with 'trustzone' and 'rating' entries which represent the trustzone of the component
 def getComponentTrustZone(component):
-	componentTrustZone = component.find('trustZones').find('trustZone').attrib['name']
+	componentTrustZone = component.find('trustZones').find('trustZone').attrib['ref']
+
 	componentTz = {}
 	if componentTrustZone in trustZones.keys():
-		componentTz['trustzone']=componentTrustZone
-		componentTz['rating']=trustZones[componentTrustZone]
+		trustZoneDicc = trustZones[componentTrustZone]
+		componentTz['trustzone']=trustZoneDicc['name']
+		componentTz['rating']=trustZoneDicc['rating']
 	return componentTz
 
 # Returns the maximum weakness impact
@@ -191,7 +200,7 @@ def calculateRiskToHTML(xmlPath, htmlPath):
 		f.write(tag("### Component " + bgColor(component.attrib['name'],"green"),"h2"))
 		# TrustZone 
 		componentTz = getComponentTrustZone(component)
-		
+
 		# Assets (asset name list)
 		componentAssets = getComponentAssets(component)
 		
@@ -347,9 +356,12 @@ def calculateRiskToHTML(xmlPath, htmlPath):
 	f.write("<br><br>")
 	f.write(tag("Final results:","h1"))
 	f.write(tag(f'Total Threats: {threatCount}',"h2"))
-	f.write(tag(f'Total {fontColor("Inherent Risk","red")}: sum({inherentRiskList})/{threatCount} = {str(round(sum(inherentRiskList) / threatCount))}',"h3"))
-	f.write(tag(f'Total {fontColor("Current Risk","gold")}: sum({currentRiskList})/{threatCount} = {str(round(sum(currentRiskList) / threatCount))}',"h3"))
-	f.write(tag(f'Total {fontColor("Projected Risk","orange")}: sum({projectedRiskList})/{threatCount} = {str(round(sum(projectedRiskList) / threatCount))}',"h3"))
+	if threatCount > 0:
+		f.write(tag(f'Total {fontColor("Inherent Risk","red")}: sum({inherentRiskList})/{threatCount} = {str(round(sum(inherentRiskList) / threatCount))}',"h3"))
+		f.write(tag(f'Total {fontColor("Current Risk","gold")}: sum({currentRiskList})/{threatCount} = {str(round(sum(currentRiskList) / threatCount))}',"h3"))
+		f.write(tag(f'Total {fontColor("Projected Risk","orange")}: sum({projectedRiskList})/{threatCount} = {str(round(sum(projectedRiskList) / threatCount))}',"h3"))
+	else:
+		f.write(tag('There are no threats in this product', "h2"))
 
 	f.write("</body>")
 

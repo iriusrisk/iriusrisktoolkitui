@@ -22,3 +22,5 @@ If there are no errors the following message will be displayed:
 
 ![](attachments/1053360198/1053294628.png)
 ![](attachments/1053360198/1053294634.png)    
+
+[Back to index](Readme.md)

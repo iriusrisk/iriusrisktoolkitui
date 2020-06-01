@@ -1,15 +1,8 @@
 import os
-from lxml import etree, objectify
-import sys
-from pathlib import Path
-import pprint
 import logging
-
-from src.common import getvalueFromMenu
 import src.sample_lib as supermod
-import src.xmlValidator as xmlcheck
-
-import src.securityContent as SecurityContent
+from pathlib import Path
+from src.common import getvalueFromMenu
 
 logging.basicConfig(filename="logFile.log", 
                     format= '%(asctime)s  %(levelname)-10s %(message)s', 
@@ -55,6 +48,8 @@ def generateHTML(xml_path, html_path):
             for threat in threats.get_threat():
                 weaknessesThreat=threat.get_weaknesses()
                 codeWeakness="<div class=\"accordion\" id=\"weaknesses\">"
+                # Weaknesses and controls within
+                addedControlsRefs = []
                 for weaknessT in weaknessesThreat.get_weakness():
                     for weakness in weaknesses.get_weakness():
                         if weaknessT.get_ref() == weakness.get_ref():
@@ -66,11 +61,21 @@ def generateHTML(xml_path, html_path):
                     for controlW in controlsWeak.get_control():
                         for control in controls.get_control():
                             if controlW.get_ref() == control.get_ref():
+                                addedControlsRefs.append(control.get_ref())
                                 codeControl+=includeCard("controls", "Countermeasure","",control.get_name(), control.get_ref(), control.get_desc(),cont)
                                 cont=cont+1
                     codeControl+="</div>"
                     codeWeakness+=includeCard("weaknesses", "Weakness", codeControl, weakName, weakRef, weakDesc,cont)
-                    cont=cont+1 
+                    cont=cont+1
+                codeWeakness += "</div>"
+                codeWeakness += "<div class=\"accordion\" id=\"controlsWithoutWeaknesses\">"
+                # Controls without weaknesses
+                for control in threat.get_controls().get_control():
+                    for controlNo in controls.get_control():
+                        if control.get_ref() == controlNo.get_ref():
+                            if control.get_ref() not in addedControlsRefs:
+                                codeWeakness+=includeCard("controlsWithoutWeaknesses", "Countermeasure","",controlNo.get_name(), controlNo.get_ref(), controlNo.get_desc(),cont)
+                                cont = cont + 1
                 codeWeakness+="</div>"
                 codeThreat+=includeCard("threats", "Threat", codeWeakness, threat.get_name(), threat.get_ref(), threat.get_desc(),cont)
                 cont=cont+1
@@ -115,21 +120,19 @@ def includeCard(levelParent, type, codeExtra, name, ref, desc, number):
     code+=codeExtra
     code+="</div></div></div>"
     return code
+
       
-
-
-
 # We use this script to catch the arguments and run the principal method
 def main():
     text="Please select one of the files to generate the HTML file (write the number) and press 'Enter':\n"
     libs_path=Path.cwd() / "libraries"
-    
+
     libraries=os.listdir(str(libs_path))
 
     name_library=getvalueFromMenu(libraries, text)
-    
+
     logger.info("INFO: Library selected: %s." %name_library)
-    
+
 
     outputFile_path = Path.cwd() / "outFiles" / "generatedHtml" / name_library.replace(".xml", ".html")
     generateHTML(libs_path / name_library, outputFile_path)

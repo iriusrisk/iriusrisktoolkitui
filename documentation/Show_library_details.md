@@ -21,3 +21,5 @@ Results will show how many use cases, threats, weaknesses and
 countermeasures has the selected libraries:
 
 ![](attachments/1053360139/1053360146.png)    
+
+[Back to index](Readme.md)

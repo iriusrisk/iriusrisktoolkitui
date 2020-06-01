@@ -5,17 +5,26 @@ import argparse
 from math import sqrt, ceil, floor
 
 ############### Script configuration ###############
+# Please edit these values the same way you have IriusRisk configured
 
+# The following values can't be zero
 businessImpactWeighting=8
 assetValueWeighting=1
 exposureWeighting=1
 easeOfExploitationWeighting=1
+# The following values can be zero or more
 mitigationFactorIfControlTestPassed=1
 mitigationFactorIfControlTestNotPassed=1
 mitigationFactorIfControlImplemented=1
 vulnerabilityFoundFactor=0
-trustZones={'Internet':1,'Public':1,'Public Cloud':60,'Trusted Partner':80,'Private Secured':100}
-
+# Trustzone definition
+trustZones = {
+	"58467363-ca32-4333-87ce-0c96c403d93c":{"name":"Internet","rating":1},
+	"5490e4fe-0eec-431e-9d8d-b23a3ea6aa3a":{"name":"Public","rating":1},
+	"8cacc40f-83c6-4d7a-993f-7e87ead7729a":{"name":"Public Cloud","rating":60},
+	"55ed3fa2-f982-4405-8f06-d3325577b7a0":{"name":"Trusted Partner","rating":80},
+	"30ae42cf-2f6f-49eb-8340-92a22c0f66d6":{"name":"Private Secured","rating":100}
+}
 ####################################################
 
 # Return CIA Value for asset 
@@ -74,11 +83,13 @@ def getThreatRiskRating(threat):
 
 # Returns a dictionary with 'trustzone' and 'rating' entries which represent the trustzone of the component
 def getComponentTrustZone(component):
-	componentTrustZone = component.find('trustZones').find('trustZone').attrib['name']
+	componentTrustZone = component.find('trustZones').find('trustZone').attrib['ref']
+
 	componentTz = {}
 	if componentTrustZone in trustZones.keys():
-		componentTz['trustzone']=componentTrustZone
-		componentTz['rating']=trustZones[componentTrustZone]
+		trustZoneDicc = trustZones[componentTrustZone]
+		componentTz['trustzone']=trustZoneDicc['name']
+		componentTz['rating']=trustZoneDicc['rating']
 	return componentTz
 
 # Returns the maximum weakness impact
@@ -342,9 +353,13 @@ def calculateRisk(argv):
 	print()
 	print("###################################################")
 	print(f'Total Threats: {threatCount}')
-	print(f'Total {color("Inherent Risk","blue")}: sum({inherentRiskList})/{threatCount} = {color(str(round(sum(inherentRiskList) / threatCount)),"blue")}')
-	print(f'Total {color("Current Risk","green")}: sum({currentRiskList})/{threatCount} = {color(str(round(sum(currentRiskList) / threatCount)),"green")}')
-	print(f'Total {color("Projected Risk","lblue")}: sum({projectedRiskList})/{threatCount} = {color(str(round(sum(projectedRiskList) / threatCount)),"lblue")}')
+	if threatCount > 0:
+		print(f'Total {color("Inherent Risk","blue")}: sum({inherentRiskList})/{threatCount} = {color(str(round(sum(inherentRiskList) / threatCount)),"blue")}')
+		print(f'Total {color("Current Risk","green")}: sum({currentRiskList})/{threatCount} = {color(str(round(sum(currentRiskList) / threatCount)),"green")}')
+		print(f'Total {color("Projected Risk","lblue")}: sum({projectedRiskList})/{threatCount} = {color(str(round(sum(projectedRiskList) / threatCount)),"lblue")}')
+	else:
+		print('There are no threats in this product')
+
 	print("###################################################")
 	print()
 

@@ -29,7 +29,9 @@ If you click on the "OK" button another window will appear:
 
 ![](attachments/1053261836/1056178209.png)
 
-Here you’ll be able to see an HTML report with the differences between
+Here youï¿½ll be able to see an HTML report with the differences between
 the involved libraries:
 
 ![](attachments/1053261836/1056276527.png)    
+
+[Back to index](Readme.md)

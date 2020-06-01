@@ -1,24 +1,16 @@
 import os
-import xlrd
-import sys
 from pathlib import Path
 home=os.getcwd()
 import pandas as pd
 
 import src.sample_lib as supermod
-import src.xmlValidator as xmlcheck
-import src.securityContent as SecurityContent
 
-from openpyxl import Workbook
-from openpyxl import load_workbook
-from openpyxl.styles import PatternFill, Border, Side, Alignment, Protection, Font, Color, NamedStyle
-from openpyxl import Workbook
+from openpyxl.styles import PatternFill, Border, Side, Alignment, Font, Color
 from openpyxl import load_workbook
 from openpyxl.utils import get_column_letter
 
 import logging
 _log = logging.getLogger(__name__)
-import textile
 
 # We get the basic data of the library, and we return a list with the data
 def getLibraryDetails(rootClass):
