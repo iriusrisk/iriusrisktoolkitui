@@ -1,5 +1,4 @@
 import pandas as pd 
-import numpy as np
 from moduleReadCsv import getPath#, readCsvFileWithoutEnding
 import generateHtmlStandardvsCountermeasures as sToC
 from pathlib import Path

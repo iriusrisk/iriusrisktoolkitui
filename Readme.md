@@ -24,3 +24,5 @@ To launch the application you should run the following command:
 ```
 python IriusRiskToolKitUI.py
 ```
+
+Documentation is available [here](documentation/Readme.md).

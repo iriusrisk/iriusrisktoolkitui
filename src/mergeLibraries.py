@@ -162,7 +162,7 @@ def checkCategoryComponent(firstCategoryComponents, secondCategoryComponents):
                 firstCategoryComponent = setCategoryComponentDetails(
                     firstCategoryComponent, secondCategoryComponent)
         if categoryFound == False:
-            firstCategoryComponents.add_riskPattern(secondCategoryComponent)
+            firstCategoryComponents.add_categoryComponent(secondCategoryComponent)
             logger.info("INFO: Risk Pattern '%s' was mapped." %
                         secondCategoryComponent.get_ref())
 # We check the differencies between both libraries, if the risk pattern doesn't exist, we include it, but if it exists, we update it in the primary library.
