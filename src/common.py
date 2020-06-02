@@ -163,3 +163,7 @@ def sortFile():
   file_out = open(home+"/standard_list_output_final_sorted.txt",'w')
   file_out.write(written)
   file_out.close()
+
+
+def isExcelFile(filename):
+  return filename.endswith('.xls') or filename.endswith('xlsx')

@@ -19,6 +19,7 @@ from src.mergeLibraries import mergeLibrariesByPaths
 from src.mitigationValidator import libMitigationTest
 from src.riskCalculator import calculateRiskToHTML
 from src.updateServerWithCloudComponents import *
+from src.common import isExcelFile
 
 toolkitVersion = "Version 1.1"
 
@@ -187,8 +188,10 @@ def getStandardsLayout():
 
 def getLayoutExcels():
     files = list()
+
     for excel in os.listdir(str(PATH_EXCELS)):
-        files.append([sg.Checkbox(excel, key=excel, default=False)])
+        if isExcelFile(excel):
+            files.append([sg.Checkbox(excel, key=excel, default=False)])
 
     files.append([sg.Button("Select all files", key='selectAllFiles', button_color=BUTTON_COLOR)])
     files.append([sg.Text('Filename:'), sg.Input(key='fileBrowseValueExcel'), sg.FileBrowse(key='browseExcel')])
@@ -227,7 +230,7 @@ def getLayoutNewCopy():
     layout = [
         [sg.Text('Select the base library:'), sg.Input(key='newCopyLibraryInput'),
          sg.FileBrowse(key='newCopyLibraryBrowse')],
-        [sg.Text('Library filename:'), sg.Input(key='newCopyLibraryFileName')],
+        [sg.Text('Library filename (*.xml):'), sg.Input(key='newCopyLibraryFileName')],
         [sg.Text('Library name:'), sg.Input(key='newCopyLibraryName')],
         [sg.Text('Library ref:'), sg.Input(key='newCopyLibraryRef')],
         [sg.Checkbox("Do you want ASVS3 instead of ASVS4 countermeasures?", key="checkboxNewCopy", default=False)]
@@ -450,7 +453,8 @@ def selectAllExcels(ev, home):
 
 def deSelectAllExcels(home):
     for lib in os.listdir(str(PATH_EXCELS)):
-        home[lib].update(False)
+        if isExcelFile(lib):
+            home[lib].update(False)
 
 
 def deSelectAllLibraries(home):
@@ -495,7 +499,7 @@ def getSelectedProducts(values, files):
 
 def getSelectedExcels(values, files):
     for file in os.listdir(str(PATH_EXCELS)):
-        if values[file]:
+        if isExcelFile(file) and values[file]:
             files.append(PATH_EXCELS / file)
     return files
 
@@ -597,6 +601,9 @@ def selectionWindow(title, home, showChangeLogOptions=False, showOptions=False, 
         selectAllProducts(ev, home)
         selectAllExcels(ev, home)
         checkConnection(ev, home, values)
+
+        if ev == 'About...':
+            sg.popup('About', 'IriusRisk Toolkit UI - Continuum Security', toolkitVersion)
 
         if ev == "cancel" or ev == 'exit':
             home['fileBrowseValue'].update('')
@@ -718,7 +725,7 @@ def checkIfConvertExcelToXml(event, results, home, links):
             showExcelOptions=True,
             home=home)
         for file in data.files:
-            if file.name.endswith(".xlsx"):
+            if isExcelFile(file.name):
                 results += convertExcelToXml(excelFilePath=Path.cwd() / "inputFiles" / "spreadSheetFiles" / file)
                 links.append(Path.cwd() / "outFiles" / "outputLibs" / file.name.replace(".xlsx", ".xml"))
             else:
@@ -890,7 +897,7 @@ def checkIfUpgradeLibraryFromOtherFile(event, results, home, links):
         if str(data.libraryMaster) != "" and str(data.libraryNewVersion) != "":
             results = mergeLibrariesByPaths(path_library / str(data.libraryMaster + ".xml"),
                                             path_new_library / str(data.libraryNewVersion + ".xml"))
-        links.append(path_new_library / str(data.libraryNewVersion + ".xml"))
+            links.append(path_new_library / str(data.libraryNewVersion + ".xml"))
     return results, links
 
 
@@ -929,7 +936,7 @@ def checkIfAddReferencesFromExcel(event, results, home, links):
     files = []
     excels_path = Path.cwd() / "inputFiles" / "externalSpreadsheets"
     if "Add control references using the mapping from Excel file" in event:
-        files += [each for each in os.listdir(str(excels_path)) if each.endswith('.xlsx')]
+        files += [each for each in os.listdir(str(excels_path)) if isExcelFile(each)]
         excelFile, replaceLibs = selectionOfExcelFile(
             "Generate the libraries with the new references in the countermeasures", files, excels_path, home)
 
@@ -943,7 +950,7 @@ def checkIfConvertRulesFromExcelToXML(event, results, home, links):
     files = []
     excels_path = Path.cwd() / "inputFiles" / "externalSpreadsheets" / "rulesEditor"
     if "Convert Rules from Excel file to XML file" in event:
-        files += [each for each in os.listdir(str(excels_path)) if each.endswith('.xlsx')]
+        files += [each for each in os.listdir(str(excels_path)) if isExcelFile(each)]
         excelFile = selectionOfExcelRulesFile("Select the Rules Editor Excel utility file", files, excels_path, home)
 
         if excelFile != "":
