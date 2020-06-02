@@ -5,6 +5,7 @@ import pandas as pd
 from lxml import etree
 import logging
 from src.libraryDetails import readInfoFromXml
+from src.common import isExcelFile
 
 #Create and configure logger 
 #filemode = 'w' that will change the mode of operation from "append" to "write" and will overwrite the file every time we run our application
@@ -419,12 +420,13 @@ def createCardHeader(library, action, num):
 def createCardsForAllLibraries(dataFrame, libraries, accordion, body):
   num=0
   for library in libraries:
-    num=num+1
-    action=getActionFromLibrary(dataFrame, library)
-    card=createCardHeader(library, action, num)
-    card=createCardBodyModified(dataFrame, action, card, library, num)
-    accordion.append(card)
-    body.append(accordion)
+    if isExcelFile(library):
+      num=num+1
+      action=getActionFromLibrary(dataFrame, library)
+      card=createCardHeader(library, action, num)
+      card=createCardBodyModified(dataFrame, action, card, library, num)
+      accordion.append(card)
+      body.append(accordion)
   return body
 
 def generateHtmlForChangeLog(dataFrame, libraries, outFile_path):
@@ -482,10 +484,11 @@ def compareListOfLibraries(folderUpdatedRelease, folderOldRelease, outFile_path)
 
   array=list()
   for updatedLib in updatedLibs:
-    if updatedLib in oldLibs:
-      array=compareLibs(folderUpdatedRelease / updatedLib, folderOldRelease / oldLibs[oldLibs.index(updatedLib)], updatedLib, array)
-    else:
-      array.append([updatedLib, "Library", NEW, "", ""])
+    if isExcelFile(updatedLib):
+      if updatedLib in oldLibs:
+        array=compareLibs(folderUpdatedRelease / updatedLib, folderOldRelease / oldLibs[oldLibs.index(updatedLib)], updatedLib, array)
+      else:
+        array.append([updatedLib, "Library", NEW, "", ""])
 
   dfm=pd.DataFrame(array, columns=['Library', 'Data type', 'Action', 'Name', 'Reason'])
   logger.info("DataFrame was generated with the data of the libraries")
