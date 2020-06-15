@@ -1,0 +1,5 @@
+{
+  "Host": "..",
+  "Port": 8080,
+  "StartDir" : "./src/tests/libraries"
+}
