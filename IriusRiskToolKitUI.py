@@ -20,6 +20,14 @@ from src.mitigationValidator import libMitigationTest
 from src.riskCalculator import calculateRiskToHTML
 from src.updateServerWithCloudComponents import *
 from src.common import isExcelFile
+from src.pytestgui.view import MainWindow
+from src.pytestgui.model import UnittestProject
+
+try:
+    from Tkinter import *
+except ImportError:
+    from tkinter import *
+
 
 toolkitVersion = "Version 1.1"
 
@@ -38,11 +46,9 @@ options = [
     "Convert Rules from Excel file to XML file",
     "Show risk calculation from XML product file",
     "Questions about rules",
-    "Create a new library from a default one"
+    "Create a new library from a default one",
+    "Run tests for libraries"
 ]
-
-
-
 
 LOCATION = (0, 0)
 SIZE_ELEMENT = (100, 1)
@@ -125,6 +131,8 @@ def startProgressBar(home):
 def progressBar(home):
     home['progbar'].update("Loading ...", text_color='white', background_color='DarkOrange3')
 
+def progressBarTest(home, name):
+    home['progbar'].update(f"Loading {name} tests", text_color='white', background_color='DarkOrange3')
 
 def finishProgressBar(home):
     home['progbar'].update("Done", text_color='white', background_color='green')
@@ -1042,6 +1050,20 @@ def checkIfCreateLibraryFromDefaultOne(event, results, home, links):
     return results, links
 
 
+def checkIfRunTestsForLibraries(event, results, home, links):
+    if "Run tests for libraries" in event:
+        root = Tk()
+
+        view = MainWindow(root)
+        view.project = view.load_project(root, UnittestProject)
+        view.mainloop()
+
+        # After closing the window...
+        root.destroy()
+
+    return results, links
+
+
 def loadMainLayout():
 
     layout = []
@@ -1115,6 +1137,7 @@ def main():
         results, links = checkIfRiskFromXML(event, results, home, links)
         results, links = checkIfGenerateRulesAnswers(event, results, home, links)
         results, links = checkIfCreateLibraryFromDefaultOne(event, results, home, links)
+        results, links = checkIfRunTestsForLibraries(event, results, home, links)
 
         finishProgressBar(home)
         logger.info("Results page is shown.")

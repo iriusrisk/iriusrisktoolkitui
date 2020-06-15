@@ -20,4 +20,8 @@ Here you can see a list with all available processes in the toolkit.
 * [Show detailed risk calculation](Show_detailed_risk_calculation.md)
 * [Questions about rules](Questions_about_rules.md)
 * [Generate rules graph](Generate_rules_graph.md)
+* [Create a new library from a default one](Create_a_new_library_from_a_default_one.md)
+* [Run tests for libraries](Run_tests_for_libraries.md)
+
+[Back to IriusRiskToolkitUI](../Readme.md)
 

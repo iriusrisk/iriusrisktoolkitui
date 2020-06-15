@@ -2,7 +2,6 @@ from lxml import etree, objectify
 import os
 import sys
 home=os.getcwd()
-from src.common import printWithColor
 
 # In this method, we compare the xml input with the input xsd validator to validate the input xml.
 def xmlValidator(xml_path, xsd_path):
