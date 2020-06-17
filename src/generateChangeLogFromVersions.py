@@ -5,7 +5,7 @@ import pandas as pd
 from lxml import etree
 import logging
 from src.libraryDetails import readInfoFromXml
-from src.common import isExcelFile
+from src.common import isXmlFile
 
 #Create and configure logger 
 #filemode = 'w' that will change the mode of operation from "append" to "write" and will overwrite the file every time we run our application
@@ -420,7 +420,7 @@ def createCardHeader(library, action, num):
 def createCardsForAllLibraries(dataFrame, libraries, accordion, body):
   num=0
   for library in libraries:
-    if isExcelFile(library):
+    if isXmlFile(library):
       num=num+1
       action=getActionFromLibrary(dataFrame, library)
       card=createCardHeader(library, action, num)
@@ -446,7 +446,7 @@ def compareListOfLibrariesByFiles(files, outFile_path):
 
   array=list()
   updatedLib = files[0]
-  updatedLib=updatedLib[updatedLib.rfind("/")+1:updatedLib.rfind(".xml")]
+  updatedLib=updatedLib[updatedLib.rfind("/")+1:len(updatedLib)]
 
   oldLibrary = files[1]
   updatedLibrary = files[0]
@@ -484,7 +484,7 @@ def compareListOfLibraries(folderUpdatedRelease, folderOldRelease, outFile_path)
 
   array=list()
   for updatedLib in updatedLibs:
-    if isExcelFile(updatedLib):
+    if isXmlFile(updatedLib):
       if updatedLib in oldLibs:
         array=compareLibs(folderUpdatedRelease / updatedLib, folderOldRelease / oldLibs[oldLibs.index(updatedLib)], updatedLib, array)
       else:
