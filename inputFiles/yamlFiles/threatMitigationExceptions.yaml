@@ -1,2 +1,0 @@
-exceptions:
-  - "CS-Default": [['GENERIC-SERVICE:DATA-SENS:AUTHZ', 'CAPEC-232'], ['GENERIC-SERVICE:AUTHN-SF', 'CAPEC-16']]

@@ -167,3 +167,6 @@ def sortFile():
 
 def isExcelFile(filename):
   return filename.endswith('.xls') or filename.endswith('xlsx')
+
+def isXmlFile(filename):
+  return filename.endswith('.xml')

@@ -16,7 +16,6 @@ from src.generateRulesHtml import generateRulesHtml
 from src.generateRulesHtml import questions
 from src.libraryDetails import readInfoFromXml
 from src.mergeLibraries import mergeLibrariesByPaths
-from src.mitigationValidator import libMitigationTest
 from src.riskCalculator import calculateRiskToHTML
 from src.updateServerWithCloudComponents import *
 from src.common import isExcelFile
@@ -36,7 +35,6 @@ options = [
     "Convert Excel file to XML file",
     "Generate HTML file from XML file",
     "Show library details",
-    "Check the threat mitigation of a library",
     "Generate the ChangeLog file from two versions",
     "Add Standard to library or libraries",
     "Upgrade a library with other version of the same library",
@@ -794,40 +792,6 @@ def checkIfLibraryDetails(event, results, home, links):
     return results, links
 
 
-def checkIfThreatMitigationTest(event, results, home, links):
-    if "Check the threat mitigation of a library" in event:
-        libs = list()
-        path_libs = Path.cwd() / "libraries"
-        for lib in os.listdir(str(path_libs)):
-            if lib.endswith(".xml"):
-                libs.append(lib)
-        data = selectionWindow(
-            title="Select the library or libraries to test the threat mitigation:",
-            home=home)
-
-        with open(str(Path.cwd() / "inputFiles" / "yamlFiles" / "threatMitigationExceptions.yaml"), 'r') as stream:
-            dataExt = yaml.safe_load(stream)
-        for file in data.files:
-            if file.name.endswith(".xml"):
-                try:
-                    exceptions = dataExt['exceptions'][0][file.replace(".xml", "")]
-                except:
-                    exceptions = []
-                text = libMitigationTest(str(Path.cwd() / "libraries" / file), exceptions)
-                if text == "" and len(exceptions) != 0:
-                    excepts = list()
-                    for row in exceptions:
-                        excepts.append(row[1])
-                    text += "The library file '%s' passed all threat mitigation tests without error.But with exceptions in the following threats: %s.\n" % (
-                        file, str(excepts).replace("[", "").replace("]", ""))
-                if text == "" and len(exceptions) == 0:
-                    text = "The library file '%s' passed all threat mitigation tests without error.\n" % file
-                results += text
-            else:
-                results += "Threat mitigation form file '%s' is not checked, because its extension is wrong" % file
-    return results, links
-
-
 def checkIfChangeLog(event, results, home, links):
     if "Generate the ChangeLog file from two versions" in event:
         data = selectionWindow(
@@ -1126,7 +1090,6 @@ def main():
         results, links = checkIfConvertExcelToXml(event, results, home, links)
         results, links = checkIfConvertXmlToHtml(event, results, home, links)
         results, links = checkIfLibraryDetails(event, results, home, links)
-        results, links = checkIfThreatMitigationTest(event, results, home, links)
         results, links = checkIfChangeLog(event, results, home, links)
         results, links = checkIfAddStandardToLibrary(event, results, home, links)
         results, links = checkIfUpgradeLibraryFromOtherFile(event, results, home, links)
