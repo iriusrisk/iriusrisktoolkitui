@@ -7,7 +7,7 @@ a tool to show them in a graph. This will start up a Flash server (in
 
 \***Important**: if you run this program several times changing the
 arguments you must reload the web page by pressing Ctrl+F5 to force
-browser�s cache deletion (other browsers may have another methods to
+browser's cache deletion (other browsers may have another methods to
 clean cache storage). If this is not done the graph may not be updated
 after usage.
 
