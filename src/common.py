@@ -1,4 +1,7 @@
 import os
+
+from lxml import etree
+
 home=os.getcwd()
 import datetime
 from pathlib import Path
@@ -168,5 +171,25 @@ def sortFile():
 def isExcelFile(filename):
   return filename.endswith('.xls') or filename.endswith('xlsx')
 
+
 def isXmlFile(filename):
   return filename.endswith('.xml')
+
+
+def createTitleHtmlFile(title, body):
+  h1Element = etree.Element("h1")
+  h1Element.text = title
+  h1Element.set("style", "justify-content: center;text-align: center;font-weight: bold;")
+
+  body.append(h1Element)
+  accordion = etree.Element("div")
+  accordion.set("id", "accordion")
+
+  return accordion
+
+
+def writeToHtml(outFile_path, root):
+  data = etree.tostring(root, pretty_print=True, method="html", encoding='unicode')
+  fileOutput = open(str(outFile_path), 'w')
+  fileOutput.write(data)
+  fileOutput.close()

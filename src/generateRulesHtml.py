@@ -2,7 +2,7 @@ import os
 import sys
 from lxml import etree
 from pathlib import Path
-from src.generateChangeLogFromVersions import createTitleHtmlFile, writeToHtml
+from src.common import createTitleHtmlFile, writeToHtml
 import logging
 import re
 

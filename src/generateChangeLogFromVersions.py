@@ -1,565 +1,431 @@
 from pathlib import Path
 import os
-import src.sample_lib as sl
-import pandas as pd
 from lxml import etree
 import logging
-from src.libraryDetails import readInfoFromXml
 from src.common import isXmlFile
+from html import escape
+import re
+# Create and configure logger
+# filemode = 'w' that will change the mode of operation from "append" to "write" and will overwrite the file every time we run our application
+logging.basicConfig(filename="logFile.log",
+                    format='%(asctime)s  %(levelname)-10s %(message)s',
+                    datefmt="%Y-%m-%d-%H-%M-%S",
+                    filemode='w')
 
-#Create and configure logger 
-#filemode = 'w' that will change the mode of operation from "append" to "write" and will overwrite the file every time we run our application
-logging.basicConfig(filename="logFile.log", 
-                    format= '%(asctime)s  %(levelname)-10s %(message)s', 
-                    datefmt =  "%Y-%m-%d-%H-%M-%S", 
-                    filemode='w') 
-  
-#Creating an object 
-logger=logging.getLogger() 
-  
-#Setting the threshold of logger to INFO
+# Creating an object
+logger = logging.getLogger()
+
+# Setting the threshold of logger to INFO
 logger.setLevel(logging.INFO)
+parser = etree.HTMLParser(encoding='utf-8')
+green = 'style="color:green"'
+red = 'style="color:red"'
+yellow = 'style="color:darkgoldenrod"'
 
-EDITED = "Edited"
-DELETED = "Deleted"
-NEW = "New"
-DATATYPES = ['Revision', 'Component definition','Category component','Supported standard', 'Rule', 'Risk pattern','Use case', 'Threat',  'Weakness', 'Countermeasure']
-
-def getAllDataFromRiskPattern(riskPattern):
-  threats=list()
-  useCases=list()
-  weaknesses=list()
-  controls=list()
-
-  contls=riskPattern.get_controls().get_control()
-  for contl in contls:
-    controls.append(contl)
-  weaks=riskPattern.get_weaknesses().get_weakness()
-  for weak in weaks:
-    weaknesses.append(weak)
-  uses=riskPattern.get_usecases().get_usecase()
-  for use in uses:
-    useCases.append(use)
-    thrs=use.get_threats().get_threat()
-    for thr in thrs:
-      threats.append(thr)
-
-  return useCases, threats, weaknesses, controls
-
-def getAllDataFromLibrary(lib_path):
-  root=sl.parse(str(lib_path), silence=True)
-  revision=root.get_revision()
-  library_ref = root.get_ref()
-  componentDefinitions=root.get_componentDefinitions().get_componentDefinition()
-  categoryComponents=root.get_categoryComponents().get_categoryComponent()
-  supportedstandards=root.get_supportedStandards(). get_supportedStandard()
-  riskPatterns=root.get_components().get_component()
-  rules=root.get_rules().get_rule()
-  threats=list()
-  useCases=list()
-  weaknesses=list()
-  controls=list()
-  for riskPattern in riskPatterns:
-    contls=riskPattern.get_controls().get_control()
-    for contl in contls:
-      controls.append(contl)
-    weaks=riskPattern.get_weaknesses().get_weakness()
-    for weak in weaks:
-      weaknesses.append(weak)
-    uses=riskPattern.get_usecases().get_usecase()
-    for use in uses:
-      useCases.append(use)
-      thrs=use.get_threats().get_threat()
-      for thr in thrs:
-        threats.append(thr)
-
-  return revision, library_ref, componentDefinitions, categoryComponents, supportedstandards, rules, riskPatterns
-
-def compareLoopRefAndName(data, old_data, array_attributes, typeData, library, array):
-  for i in data:
-    for j in old_data:
-      if i.get_ref() == j.get_ref() and i.get_name() == j.get_name():
-        array=compare(i, j, array_attributes, typeData, library, array)
-  array=findNewObjectsByRef(data, old_data, typeData, library, array)
-  array=findRemovedObjectsByRef(data, old_data, typeData, library, array)
-
-  return array
-
-def removeDuplicates(array):
-  uniques=list()
-  for i in array:
-    if not i in uniques:
-      uniques.append(i)
-  return uniques
-def compareLoop(data, old_data, array_attributes, typeData, library, array):
-
-  for i in data:
-    for j in old_data:
-      if i.get_ref() == j.get_ref():
-        array=compare(i, j, array_attributes, typeData, library, array)
-  array=findNewObjectsByRef(data, old_data, typeData, library, array)
-  array=findRemovedObjectsByRef(data, old_data, typeData, library, array)
-
-  array=removeDuplicates(array)
-  return array
-
-def findNewObjectsByRef(data, old_data, typeData, library, array):
-  for i in data:
-    found=False
-    for j in old_data:
-      if i.get_ref() == j.get_ref():
-        found=True
-    if not found:
-      array.append([library, typeData, NEW, "%s [%s]"%(i.get_name(), i.get_ref()), ""])
-
-  return array
+blank = re.compile('[\n ]+')
+asciiMatcher = re.compile('[\x00-\x7F]')
+names = {
+    "project": "Project",
+    "desc": "Description",
+    "categoryComponents": "Category Components",
+    "categoryComponent": "Category Component",
+    "riskPatterns": "Risk Patterns",
+    "riskPattern": "Risk Pattern",
+    "componentDefinitions": "Component Definitions",
+    "componentDefinition": "Component Definition",
+    "supportedStandards": "Supported Standards",
+    "supportedStandard": "Supported Standard"
+}
+num = 1
 
 
-
-def findRemovedObjectsByRef(data, old_data, typeData, library, array):
-  for i in old_data:
-    found=False
-    for j in data:
-      if i.get_ref() == j.get_ref():
-        found=True
-    if not found:
-      array.append([library, typeData, DELETED, "%s [%s]"%(i.get_name(), i.get_ref()), ""])
-
-  return array
-
-
-def findNewObjectsByName(data, old_data, typeData, library, array):
-  for i in data:
-    found=False
-    for j in old_data:
-      if i.get_name() == j.get_name():
-        found=True
-    if not found:
-      array.append([library, typeData, NEW, i.get_name(), ""])
-
-  return array
-
-
-
-def findRemovedObjectsByName(data, old_data, typeData, library, array):
-  for i in old_data:
-    found=False
-    for j in data:
-      if i.get_name() == j.get_name():
-        found=True
-    if not found:
-      array.append([library, typeData, DELETED, i.get_name(), ""])
-
-  return array
-
-def getReferencesFromItem(item):
-  refs=list()
-  for reference in item.get_references().get_reference():
-    refs.append(reference.get_name()+"|"+reference.get_url())
-
-  refs.sort()
-  return refs
-
-def getStandardsFromItem(item):
-  standards=list()
-  for standard in item.get_standards().get_standard():
-    standards.append(standard.get_supportedStandardRef()+"|"+standard.get_ref())
-
-  standards.sort()
-  return standards
-
-def getListOfThreatMitigation(item):
-  mitigationControls=list()
-  for control in item.get_controls().get_control():
-    mitigationControls.append(control.get_ref()+"|"+str(control.get_mitigation()))
-
-  mitigationControls.sort()
-  return mitigationControls
-
-def getImplementationsFromItem(item):
-  implementations=list()
-  for implementation in item.get_implementations().get_implementation():
-    implementations.append(implementation.get_platform()+"|"+implementation.get_desc())
-
-  implementations.sort()
-  return implementations
-
-def getAttributeFromItem(item, attribute):
-  if attribute == 'name': return item.get_name()
-  if attribute == 'description': return item.get_desc()
-  if attribute == 'module': return item.get_module()
-  if attribute == 'generatedByGui': return item.get_generatedByGui()
-  if attribute == 'condition': return item.get_condition()
-  if attribute == 'action': return item.get_action()
-  if attribute == 'categoryRef': return item.get_categoryRef()
-  if attribute == 'references': return getReferencesFromItem(item)
-  if attribute == 'testReferences': return getReferencesFromItem(item.get_test())
-  if attribute == 'testSteps': return item.get_test().get_steps()
-  if attribute == 'state': return item.get_state()
-  if attribute == 'implementations': return getImplementationsFromItem(item)
-  if attribute == 'standards': return getStandardsFromItem(item)
-  if attribute == 'testResult': return item.get_test().get_source().get_result()
-  if attribute == 'confidentiality': return item.get_riskRating().get_confidentiality()
-  if attribute == 'integrity': return item.get_riskRating().get_integrity()
-  if attribute == 'availability': return item.get_riskRating().get_availability()
-  if attribute == 'easeOfExploitation': return item.get_riskRating().get_easeOfExploitation()
-  if attribute == 'threatMitigation': return getListOfThreatMitigation(item)
-
-
-def compare(item, old_item, array_attributes, typeData, library, array):
-  reasons=list()
-  modified=False
-  for i in array_attributes:
-    if getAttributeFromItem(item, i) != getAttributeFromItem(old_item, i):
-      modified=True
-      reasons.append(i)
-
-  if typeData == 'Rule' and modified:
-    array.append([library, typeData, EDITED, item.get_name(), reasons])
-  if typeData != 'Rule' and modified:
-    array.append([library, typeData, EDITED, "%s [%s]"%(item.get_name(), item.get_ref()), reasons])
-
-  return array
-
-
-
-
-def compareRules(rules, old_rules, library, array):
-  typeData="Rule"
-  array=findNewObjectsByName(rules, old_rules, typeData, library, array)
-  array=findRemovedObjectsByName(rules, old_rules, typeData, library, array)
-
-  array_attributes=['module', 'generatedByGui' ]
-
-  for i in rules:
-    for j in old_rules:
-      if i.get_name() == j.get_name():
-        array=compare(i, j, array_attributes, typeData, library, array)
-
-  return array
-
-
-def compareRevision(updatedRevision, oldRevision, lib, array, library_ref, old_library_ref):
-  message = "Revision: %s from '%s' [ Old revision: %s from '%s' ]"\
-            % (updatedRevision, library_ref, oldRevision, old_library_ref)
-
-  if library_ref == old_library_ref:
-    if int(updatedRevision) > int(oldRevision):
-      pass
-    elif int(updatedRevision) == int(oldRevision):
-      message += " Careful! Libraries revision are equal"
+def normalization(word):
+    if word in names.keys():
+        return names[word]
     else:
-      message += " Careful! You are comparing with a newer version"
-  else:
-    if int(updatedRevision) > int(oldRevision):
-      message += " Careful! You are comparing two different libraries"
-    elif int(updatedRevision) == int(oldRevision):
-      message += " Careful! Libraries revision are equal and you are comparing two different libraries"
-    else:
-      message += " Careful! You are comparing with a newer version of a different library"
-
-  array.append([lib, "Revision", EDITED, message, ""])
-
-  return array
-
-def compareLibs(updatedLibPath, oldLibPath, lib, array):
-
-  revision, library_ref, componentDefinitions, categoryComponents, supportedstandards, rules, riskPatterns = getAllDataFromLibrary(updatedLibPath)
-
-  old_revision, old_library_ref, old_componentDefinitions, old_categoryComponents, old_supportedstandards, old_rules, old_riskPatterns = getAllDataFromLibrary(oldLibPath)
-
-  array=compareRevision(updatedRevision=revision, oldRevision=old_revision, lib=lib, array=array, library_ref=library_ref, old_library_ref=old_library_ref)
-
-  for riskPattern in riskPatterns:
-    for old_riskPattern in old_riskPatterns:
-      if riskPattern.get_ref() == old_riskPattern.get_ref():
-        useCases, threats, weaknesses, countermeasures = getAllDataFromRiskPattern(riskPattern)
-        old_useCases, old_threats, old_weaknesses, old_countermeasures = getAllDataFromRiskPattern(old_riskPattern)
-        array=compareLoop(useCases, old_useCases, ['name', 'description'] , 'Use case', lib, array)
-
-        array=compareLoopRefAndName(threats, old_threats, ['name', 'description', 'references', 'state', 'confidentiality', 'availability', 'easeOfExploitation', 'integrity', 'threatMitigation'] , 'Threat', lib, array)
-        array=compareLoopRefAndName(weaknesses, old_weaknesses, ['name', 'description', 'testReferences', 'state', 'testResult', 'testSteps'] , 'Weakness', lib, array)
-        array=compareLoopRefAndName(countermeasures, old_countermeasures, ['name', 'description', 'references', 'standards', 'state', 'implementations', 'testResult', 'testSteps'] , 'Countermeasure', lib, array)
-
-  logger.info("Info from the risk patterns was compared")
+        return word.capitalize()
 
 
-  array=compareLoop(componentDefinitions, old_componentDefinitions, ['name', 'description', 'categoryRef'], 'Component definition', lib, array)
-  array=compareLoop(categoryComponents, old_categoryComponents, ['name'], 'Category component', lib, array)
-  array=compareLoop(supportedstandards, old_supportedstandards, ['name'] , 'Supported standard', lib, array)
-  array=compareRules(rules, old_rules, lib, array)
-  array=compareLoop(riskPatterns, old_riskPatterns, ['name', 'description'] , 'Risk pattern', lib, array)
-  logger.info("Info from the project was compared")
-  array=removeDuplicates(array)
+def generateHtmlForChangeLog(libraries, outFile_path):
+    base_html_path = Path.cwd() / "src" / "resources" / "changelog_base_html.html"
+    file = etree.parse(str(base_html_path), parser)
+    root = file.getroot()
 
-  return array
+    head = root.find("head")
+    style = etree.Element("style")
+    style.text = "li:hover.ir-collapsible { background-color: #e5f8ff } "
+    head.append(style)
 
+    body = root.find("body")
 
-def createDataTypeCard(dataType, array):
-  divElement=etree.Element("div")
-  bElement=etree.Element("b")
-  if dataType[0] == EDITED:
-    bElement.set("style","color:orange")
-  if dataType[0] == NEW:
-    bElement.set("style","color:green")
-  if dataType[0] == DELETED:
-    bElement.set("style","color:red")
-  bElement.text=dataType[0][0:1]
-  divElement.append(bElement)
-  emElement=etree.Element("em")
-  emElement.text=" %s" %dataType[1]
-  divElement.append(emElement)
-  if dataType[2] != "": #Reason
-    reasonElement=etree.Element("em")
-    reasonElement.set("style", "color:gray")
-    reason=""
-    for j in dataType[2]:
-      reason+="%s, "%j
-    reason=reason[:-2]
-    reasonElement.text="  Changes in: %s" %reason
-    divElement.append(reasonElement)
-  array.append(divElement)
+    accordion = createTitleHtmlFile(title="Change log", body=body)
 
-  return array
+    createCardsForAllLibraries(libraries, accordion, body)
 
-def createCardDataType(dataType):
-  cardDataType=etree.Element("div")
-  cardDataType.set("class", "card")
-  cardDataTypeheader=etree.Element("h5")
-  cardDataTypeheader.set("class", "card-header")
-  cardDataTypeheader.text="%s" % (dataType)
-  cardDataType.append(cardDataTypeheader)
+    data = etree.tostring(root, pretty_print=True, method="html", encoding='utf-8')
+    fileOutput = open(str(outFile_path), 'wb')
+    fileOutput.write(data)
+    fileOutput.close()
 
-  return cardDataType
-
-def createCardBodyModified(dataFrame, action, card, library, num):
-  dataFrame=dataFrame.loc[dataFrame['Library'] == library]
-  carddivbody=etree.Element("div")
-  carddivbody.set('id', 'collapse'+str(num))
-  carddivbody.set('class', 'collapse')
-  carddivbody.set('aria-labelledby', 'heading'+str(num))
-  carddivbody.set('data-parent', '#accordion')
-  if action == EDITED:
-      cardbody=etree.Element("div")
-      cardbody.set("class", "card-body")
-      for datatype in DATATYPES:
-        dataType_data=dataFrame.loc[dataFrame['Data type']==datatype, ['Action', 'Name', 'Reason']].values
-        if len(dataType_data) >0:
-          cardDataType=createCardDataType(datatype)
-          cardDataTypebody=etree.Element("div")
-          cardDataTypebody.set("class", "card-body")
-          for i in dataType_data:
-            cardDataTypebody=createDataTypeCard(i, cardDataTypebody)
-
-          cardDataType.append(cardDataTypebody)
-          cardbody.append(cardDataType)
-
-      carddivbody.append(cardbody)
-      card.append(carddivbody)
-  return card
 
 def createTitleHtmlFile(title, body):
-  h1Element=etree.Element("h1")
-  h1Element.text=title
-  h1Element.set("style","justify-content: center;text-align: center;font-weight: bold;")
+    h1Element = etree.Element("h1")
+    h1Element.text = title
+    h1Element.set("style", "justify-content: center;text-align: center;font-weight: bold;")
 
-  body.append(h1Element)
-  accordion=etree.Element("div")
-  accordion.set("id","accordion")
+    body.append(h1Element)
+    accordion = etree.Element("div")
+    accordion.set("id", "accordion")
 
-  return accordion
+    return accordion
 
-def writeToHtml(path, data):
-  data = etree.tostring(data, pretty_print=True, method="html", encoding='unicode')
-  fileOutput=open(str(path), 'w')
-  fileOutput.write(data)
-  fileOutput.close()
 
-def getActionFromLibrary(dataFrame, library):
-  values=dataFrame.loc[dataFrame['Library']==library, ['Library', 'Data type', 'Action', 'Name', 'Reason']]
-  action=values.loc[values['Data type']=="Library", ['Action']].values
-  if len(action) == 0:
-    action="No actions in "
-  else:
-    action=action[0][0]
-  return action
+def createCardsForAllLibraries(libraries, accordion, body):
+    numH = 0
+    for library, data in libraries:
+        if isXmlFile(library):
+            numH = numH+1
+            card = createCardHeader(library, numH, data)
+            if data not in ["NEW", "OTHER"]:
+                card = createCardBodyModified(card, numH, data)
+            accordion.append(card)
+            body.append(accordion)
+    return body
 
-def createCardHeader(library, action, num):
-  card=etree.Element("div")
-  cardheader=etree.Element("div")
-  cardheader.set('id', 'heading'+str(num))
-  h5=etree.Element("h5")
-  h5.set("class", "mb-0")
 
-  button=etree.Element("button")
+def createCardHeader(library, numH, data):
+    card = etree.Element("div")
+    cardheader = etree.Element("div")
+    cardheader.set('id', 'heading' + str(numH))
+    h5 = etree.Element("h5")
+    h5.set("class", "mb-0")
 
-  button.set('data-toggle', 'collapse')
-  button.set('data-target', '#collapse'+str(num))
-  button.set('aria-expanded', 'false')
-  button.set('aria-controls', 'collapse'+str(num))
+    button = etree.Element("button")
 
-  if action == EDITED:
-    card.set("class", "card border-warning")
-    cardheader.set("class", "card-header text-white bg-warning")
-    button.set('class', 'btn btn-warning btn-group-toggle text-white ')
-  if action == NEW:
-    card.set("class", "card border-success")
-    cardheader.set("class", "card-header text-white bg-success")
-    button.set('class', 'btn btn-success btn-group-toggle text-white ')
-  if action != EDITED and action != NEW:
-    card.set("class", "card border-light")
-    cardheader.set("class", "card-header")
-    button.set('class', 'btn btn-light')
+    button.set('data-toggle', 'collapse')
+    button.set('data-target', '#collapseH' + str(numH))
+    button.set('aria-expanded', 'false')
+    button.set('aria-controls', 'collapseH' + str(numH))
 
-  h5.append(button)
-  cardheader.append(h5)
-  button.text="%s library: %s" % (action, library)
-  card.append(cardheader)
-  return card
+    if data == "NEW":
+        card.set("class", "card border-success")
+        cardheader.set("class", "card-header text-white bg-success")
+        button.set('class', 'btn btn-success btn-group-toggle text-white ')
+    elif data == "":
+        card.set("class", "card border-light")
+        cardheader.set("class", "card-header")
+        button.set('class', 'btn btn-light')
+    else:
+        card.set("class", "card border-warning")
+        cardheader.set("class", "card-header text-white bg-warning")
+        button.set('class', 'btn btn-warning btn-group-toggle text-white ')
 
-def createCardsForAllLibraries(dataFrame, libraries, accordion, body):
-  num=0
-  for library in libraries:
-    if isXmlFile(library):
-      num=num+1
-      action=getActionFromLibrary(dataFrame, library)
-      card=createCardHeader(library, action, num)
-      card=createCardBodyModified(dataFrame, action, card, library, num)
-      accordion.append(card)
-      body.append(accordion)
-  return body
+    h5.append(button)
+    cardheader.append(h5)
+    button.text = "Library: %s" % library
+    card.append(cardheader)
+    return card
 
-def generateHtmlForChangeLog(dataFrame, libraries, outFile_path):
-  base_html_path=Path.cwd() / "src" / "resources" / "changelog_base_html.html"
-  parser = etree.HTMLParser()
-  file=etree.parse(str(base_html_path), parser)
-  root=file.getroot()
-  body=root.find("body")
 
-  accordion=createTitleHtmlFile(title="Change log", body=body)
+def createCardBodyModified(card, numH, data):
+    carddivbody = etree.Element("div")
+    carddivbody.set('id', 'collapseH' + str(numH))
+    carddivbody.set('class', 'collapse')
+    carddivbody.set('aria-labelledby', 'heading' + str(numH))
+    carddivbody.set('data-parent', '#accordion')
 
-  createCardsForAllLibraries(dataFrame, libraries, accordion, body)
+    carddivbody.append(data)
 
-  writeToHtml(outFile_path, file.getroot())
+    card.append(carddivbody)
+    return card
 
-def compareListOfLibrariesByFiles(files, outFile_path):
 
-  array=list()
-  updatedLib = files[0]
-  updatedLib=updatedLib[updatedLib.rfind("/")+1:len(updatedLib)]
+def attributeChanges(updatedNode, oldNode):
+    string = ""
+    for attribute in updatedNode.attrib:
+        if attribute not in oldNode.attrib:
+            string += f"<li {green}>Added attribute: <b>{attribute}</b></li>"
+        else:
+            if updatedNode.attrib[attribute] != oldNode.attrib[attribute]:
+                string += f"<li>Modified attribute {attribute}: <span {yellow}>{oldNode.attrib[attribute]}</span> -> <span {green}><b>{updatedNode.attrib[attribute]}</b></span></li>"
+    for attribute in oldNode.attrib:
+        if attribute not in updatedNode.attrib:
+            string += f"<li {red}>Deleted attribute: <b>{attribute}</b></li>"
 
-  oldLibrary = files[1]
-  updatedLibrary = files[0]
+    if not blank.match(str(updatedNode.text)):
+        if updatedNode.text != oldNode.text and asciiMatcher.match(str(oldNode.text)) and asciiMatcher.match(str(updatedNode.text)) \
+                and oldNode.text and updatedNode.text:
+            string += f"<li>Modified {updatedNode.tag}: <span {yellow}>{escape(oldNode.text)}</span> -> <span {green}><b>{escape(updatedNode.text)}</b></span></li>"
+        elif updatedNode.text != oldNode.text:
+            string += f"<li>Modified {updatedNode.tag}: Please check the original source as there are non-ASCII characters in this text</li>"
 
-  array=compareLibs(updatedLibrary, oldLibrary, updatedLib, array)
+    return string
 
-  dfm=pd.DataFrame(array, columns=['Library', 'Data type', 'Action', 'Name', 'Reason'])
-  logger.info("DataFrame was generated with the data of the libraries")
 
-  if len(dfm.loc[dfm['Library']==updatedLib, ['Library']])>1:
-    array.append([updatedLib, 'Library', EDITED, "", ""])
-  dfm=pd.DataFrame(array, columns=['Library', 'Data type', 'Action', 'Name', 'Reason'])
-  result = dfm.sort_values(['Library', 'Data type', 'Action', 'Name'], ascending=[1, 1, 1, 1])
+def compareRuleConditionsAndActions(child, orule):
+    string = ""
+    conditions = [(x.attrib['name'], x.attrib['value']) for x in child if x.tag == 'condition']
+    actions = [(x.attrib['name'], x.attrib['value']) for x in child if x.tag == 'action']
 
-  librariesModifications = dfm.loc[dfm['Data type']=='Library', ['Library', 'Action']]
-  text=""
-  for index, row in librariesModifications.iterrows():
-    action=""
-    if row['Action'] == 'Edited':
-      action="from both versions were compared."
-    if row['Action'] == 'New':
-      action="is a new library."
-    if row['Action'] == 'Deleted':
-      action="from the new version was deleted."
-    text+="The library '%s' %s\n"%(row['Library'], action)
-  generateHtmlForChangeLog(result, [updatedLib], outFile_path)
-  logger.info("HTML file of the Changelog was generated in the path: %s" %outFile_path)
+    oconditions = [(x.attrib['name'], x.attrib['value']) for x in orule if x.tag == 'condition']
+    oactions = [(x.attrib['name'], x.attrib['value']) for x in orule if x.tag == 'action']
 
-  return text
+    # if the tuple is not in the old conditions its because it is new
+    for cond in conditions:
+        if cond not in oconditions:
+            string += f"<li {green}>New condition on rule {child.attrib['name']}: <b>{str(cond)}</b></li>"
+
+    # if the tuple is not in the new conditions its because it is deleted
+    for ocond in oconditions:
+        if ocond not in conditions:
+            string += f"<li {red}>Deleted condition on rule {child.attrib['name']}: <b>{str(ocond)}</b></li>"
+
+    # if the tuple is not in the old actions its because it is new
+    for act in actions:
+        if act not in oactions:
+            string += f"<li {green}>New action on rule {child.attrib['name']}: <b>{str(act)}</b></li>"
+
+    # if the tuple is not in the new actions its because it is deleted
+    for oact in oactions:
+        if oact not in actions:
+            string += f"<li {red}>Deleted action on rule {child.attrib['name']}: <b>{str(oact)}</b></li>"
+
+    return string
+
+
+def compareStandards(child, ochild):
+    # If we are comparing standards we need to check two attributes at the same time
+    string = "<ul><li><b>Standards</b></li><ul>"
+
+    childStandards = [(x.attrib['ref'], x.attrib['supportedStandardRef']) for x in child]
+    ochildStandards = [(x.attrib['ref'], x.attrib['supportedStandardRef']) for x in ochild]
+
+    for x in childStandards:
+        if x not in ochildStandards:
+            string += f"<li {green}>Added standard: <b>{str(x)}</b></li>"
+
+    for x in ochildStandards:
+        if x not in childStandards:
+            string += f"<li {red}>Deleted standard: <b>{str(x)}</b></li>"
+
+    string += "</ul></ul>"
+
+    if "<ul></ul>" in string:
+        string = ""
+
+    return string
+
+
+def compareReferences(child, ochild):
+    # If we are comparing references we need to check two attributes at the same time
+    string = "<ul><li><b>References</b></li><ul>"
+
+    childReferences = [(x.attrib['name'], x.attrib['url']) for x in child]
+    ochildReferences = [(x.attrib['name'], x.attrib['url']) for x in ochild]
+
+    for x in childReferences:
+        if x not in ochildReferences:
+            string += f"<li {green}>Added reference: <b>{str(x)}</b></li>"
+
+    for x in ochildReferences:
+        if x not in childReferences:
+            string += f"<li {red}>Deleted reference: <b>{str(x)}</b></li>"
+
+    string += "</ul></ul>"
+
+    if "<ul></ul>" in string:
+        string = ""
+
+    return string
+
+
+def recCompare(unode, onode):
+    global num
+    # First we compare the node attributes to see if any has changed
+    ul = etree.Element("ul")
+    li = etree.Element("li")
+    li.set('data-toggle', 'collapse')
+    li.set('data-target', '#collapse'+str(num))
+    li.set('aria-expanded', 'false')
+    li.set('aria-controls', 'collapse'+str(num))
+    li.set('class', 'ir-collapsible font-weight-bold')
+    ul2 = etree.Element("ul")
+    ul2.set('id', 'collapse'+str(num))
+    ul2.set('class', 'collapse')
+
+    num += 1
+
+    if "ref" in unode.attrib:
+        li.text = f"{normalization(unode.tag)}: "
+        b = etree.Element("b")
+        b.text = unode.attrib['ref']
+        li.append(b)
+    else:
+        li.text = f"{normalization(unode.tag)}"
+    ul.append(li)
+
+    string = attributeChanges(unode, onode)
+    if string != "":
+        ul2.append(etree.fromstring(string, parser=parser))
+
+    # Second we check what child nodes have been added or deleted by checking the node tags
+    childListTags = [x.tag for x in unode]
+    ochildListTags = [x.tag for x in onode]
+
+    # Added (nodes in the new list that aren't in the old list)
+    for tag in childListTags:
+        if tag not in ochildListTags:
+            string += f"<li {green}>Added tag: <b>{tag}</b></li>"
+            ul2.append(etree.fromstring(string, parser=parser))
+
+    # Deleted (nodes in the old list that aren't in the new list)
+    for tag in ochildListTags:
+        if tag not in childListTags:
+            string = f"<li {red}>Deleted tag: <b>{tag}</b></li>"
+            ul2.append(etree.fromstring(string, parser=parser))
+
+    # Third we check every child
+    childList = [x for x in unode]
+    ochildList = [x for x in onode]
+
+    # Here we check removed nodes from child list with same tag
+    ochilddList = [x for x in ochildList if "ref" in x.attrib]
+    childRefsList = [x.attrib['ref'] for x in childList if "ref" in x.attrib]
+    for ochild in ochilddList:
+        if ochild.attrib['ref'] not in childRefsList:
+            string = f"<li {red}>Deleted {ochild.tag} : <b>{ochild.attrib['ref']}</b></li>"
+            ul2.append(etree.fromstring(string, parser=parser))
+
+    # Here we apply specific behaviour if the node tag is "rules" because it is a bit complicated
+    if unode.tag == "rules":
+        ochilddList = [x for x in ochildList if "name" in x.attrib]
+        childRefsList = [x.attrib['name'] for x in childList if "name" in x.attrib]
+        for ochild in ochilddList:
+            if ochild.attrib['name'] not in childRefsList:
+                string = f"<li {red}>Deleted {ochild.tag} : <b>{ochild.attrib['name']}</b></li>"
+                ul2.append(etree.fromstring(string, parser=parser))
+
+    # For every child in the node...
+    for child in childList:
+        # Same as before, if the tag is "rule" we apply specific behaviour
+        if child.tag == "rule":
+            ochildRefsList = [x.attrib['name'] for x in ochildList if "name" in x.attrib]
+            if child.attrib['name'] not in ochildRefsList:
+                string = f"<li {green}>Added new {child.tag} : <b>{child.attrib['name']}</b></li>"
+                ul2.append(etree.fromstring(string, parser=parser))
+
+            for orule in ochildList:
+                if child.attrib['name'] == orule.attrib['name']:
+                    string = attributeChanges(child, orule)
+                    string += compareRuleConditionsAndActions(child, orule)
+                    if string != "":
+                        ul2.append(etree.fromstring(string, parser=parser))
+
+        elif child.tag == "standards":
+            ochildStandardList = [x for x in ochildList if x.tag == "standards"]
+            string = ""
+            if ochildStandardList:
+                ochildSt = ochildStandardList[0]
+                string = compareStandards(child, ochildSt)
+            if string != "":
+                ul2.append(etree.fromstring(string, parser=parser))
+
+        elif child.tag == "references":
+            ochildReferenceList = [x for x in ochildList if x.tag == "references"]
+            string = ""
+            if ochildReferenceList:
+                ochildRef = ochildReferenceList[0]
+                string = compareReferences(child, ochildRef)
+            if string != "":
+                ul2.append(etree.fromstring(string, parser=parser))
+
+        else:
+            # In other case we check that if the child has attribute "ref" we need to take that into account
+            if "ref" in child.attrib:
+                # Need to see if the child is new or modified
+                # New
+                ochildRefsList = [x.attrib['ref'] for x in ochildList if "ref" in x.attrib]
+                if child.attrib['ref'] not in ochildRefsList:
+                    string = f"<li {green}>Added new {child.tag} : <b>{child.attrib['ref']}</b></li>"
+                    ul2.append(etree.fromstring(string, parser=parser))
+
+            # Comparing the old nodes with the new ones we call this function again with the child nodes
+            for ochild in ochildList:
+                if child.tag == ochild.tag:
+                    if "ref" not in ochild.attrib:
+                        elem = recCompare(child, ochild)
+
+                        for e in elem:
+                            if e.tag == "ul":
+                                if len(e) != 0:
+                                    ul2.append(elem)
+                        break
+                    if "ref" in ochild.attrib and child.attrib['ref'] == ochild.attrib['ref']:
+                        elem = recCompare(child, ochild)
+
+                        for e in elem:
+                            if e.tag == "ul":
+                                if len(e) != 0:
+                                    ul2.append(elem)
+                        break
+
+    ul.append(ul2)
+
+    return ul
+
+
+def compareLibraries(updatedLibrary, oldLibrary, outFile_path):
+    updatedLibName = Path(updatedLibrary).name
+
+    updatedRoot = etree.parse(str(updatedLibrary)).getroot()
+    oldRoot = etree.parse(str(oldLibrary)).getroot()
+
+    data = recCompare(updatedRoot, oldRoot)
+
+    generateHtmlForChangeLog([(updatedLibName, data)], outFile_path)
+
+    return "Updated library "+updatedLibrary
 
 
 def compareListOfLibraries(folderUpdatedRelease, folderOldRelease, outFile_path):
-  updatedLibs=os.listdir(str(folderUpdatedRelease))
-  oldLibs= os.listdir(str(folderOldRelease))
+    updatedLibs = os.listdir(str(folderUpdatedRelease))
+    oldLibs = os.listdir(str(folderOldRelease))
+    text = ""
+    libraries = list()
+    for updatedLib in updatedLibs:
+        if isXmlFile(updatedLib):
+            if updatedLib in oldLibs:
+                updatedRoot = etree.parse(str(folderUpdatedRelease / updatedLib)).getroot()
+                oldRoot = etree.parse(str(folderOldRelease / oldLibs[oldLibs.index(updatedLib)])).getroot()
+                data = recCompare(updatedRoot, oldRoot)
+                text += f"Library {updatedLib} has been updated\n"
+                libraries.append((updatedLib, data))
+            else:
+                text += f"Library {updatedLib} is new\n"
+                libraries.append((updatedLib, "NEW"))
 
-  array=list()
-  for updatedLib in updatedLibs:
-    if isXmlFile(updatedLib):
-      if updatedLib in oldLibs:
-        array=compareLibs(folderUpdatedRelease / updatedLib, folderOldRelease / oldLibs[oldLibs.index(updatedLib)], updatedLib, array)
-      else:
-        array.append([updatedLib, "Library", NEW, "", ""])
+    generateHtmlForChangeLog(libraries, outFile_path)
+    logger.info("HTML file of the Changelog was generated in the path: %s" % outFile_path)
 
-  dfm=pd.DataFrame(array, columns=['Library', 'Data type', 'Action', 'Name', 'Reason'])
-  logger.info("DataFrame was generated with the data of the libraries")
-  for updatedLib in updatedLibs:
-    if len(dfm.loc[dfm['Library']==updatedLib, ['Library']])>1:
-      array.append([updatedLib, 'Library', EDITED, "", ""])
-  dfm=pd.DataFrame(array, columns=['Library', 'Data type', 'Action', 'Name', 'Reason'])
-  result = dfm.sort_values(['Library', 'Data type', 'Action', 'Name'], ascending=[1, 1, 1, 1])
-
-  librariesModifications = dfm.loc[dfm['Data type']=='Library', ['Library', 'Action']]
-  text=""
-  for index, row in librariesModifications.iterrows():
-    action=""
-    if row['Action'] == 'Edited':
-      action="from both versions were compared."
-    if row['Action'] == 'New':
-      action="is a new library."
-    if row['Action'] == 'Deleted':
-      action="from the new version was deleted."
-    text+="The library '%s' %s\n"%(row['Library'], action)
-  generateHtmlForChangeLog(result, updatedLibs, outFile_path)
-  logger.info("HTML file of the Changelog was generated in the path: %s" %outFile_path)
-
-  return text
-
-def getInfoFromChangeLog(files):
-  results=""
-  columns=['Library Name', 'Risk Pattern', '# Use Cases', '# Threats', '# Weaknesses', '# Countermeasures']
-  updatedData=pd.DataFrame([], columns=columns)
-  oldData=pd.DataFrame([], columns=columns)
-  folderUpdatedRelease=Path.cwd() / "inputFiles" / "updatedRelease"
-  folderOldRelease=Path.cwd() /  "inputFiles" / "oldRelease"
-
-  if files == []:
-    libs =os.listdir(str(folderUpdatedRelease))
-    for lib in libs:
-      if lib.endswith(".xml"):
-        data=readInfoFromXml(folderUpdatedRelease / lib, columns)
-        updatedData=updatedData.append(data)
-        results+="The details of the library '%s' are shown in other window.\n"%lib
-      else:
-        results+="Details from file '%s' is are shown, because its extension is wrong.\n"%lib
-
-    libs =os.listdir(str(folderOldRelease))
-    for lib in libs:
-      if lib.endswith(".xml"):
-        data=readInfoFromXml(folderOldRelease / lib, columns)
-        oldData=oldData.append(data)
-        results+="The details of the library '%s' are shown in other window.\n"%lib
-      else:
-        results+="Details from file '%s' are not shown, because its extension is wrong.\n"%lib
-
-  else:
-    data=readInfoFromXml(files[0], columns)
-    updatedData=updatedData.append(data)
-    results+="The details of the library from the path '%s' are shown in other window.\n"%files[0]
-    data=readInfoFromXml(files[1], columns)
-    oldData=oldData.append(data)
-
-  return updatedData, oldData, results
+    return text
 
 
 def generateChangeLog(files):
-  if files == []:
-    outFile_path=Path.cwd() / "outFiles" / "changeLog.html"
-    folderUpdatedRelease=Path.cwd() / "inputFiles" / "updatedRelease"
-    folderOldRelease=Path.cwd() /  "inputFiles" / "oldRelease"
-    text=compareListOfLibraries(folderUpdatedRelease, folderOldRelease, outFile_path)
-  else:
-    outFile_path=Path.cwd() / "outFiles" / "changeLog.html"
-    text=compareListOfLibrariesByFiles(files, outFile_path)
-  text+="--> Changelog file generated in the path: %s" %str(outFile_path)
-  return text, outFile_path
+    outFile_path = Path.cwd() / "outFiles" / "changeLog.html"
 
+    if not files:
+        folderUpdatedRelease = Path.cwd() / "inputFiles" / "updatedRelease"
+        folderOldRelease = Path.cwd() / "inputFiles" / "oldRelease"
+        text = compareListOfLibraries(folderUpdatedRelease, folderOldRelease, outFile_path)
+    else:
+        updatedLibrary = files[0]
+        oldLibrary = files[1]
+        text = compareLibraries(updatedLibrary, oldLibrary, outFile_path)
+
+    text += f"--> Changelog file generated in the path: {str(outFile_path)}"
+    return text, outFile_path
+
+
+if __name__ == "__main__":
+    fileArray = ["C:\\CS\\Workspace\\iriusrisktoolkitui\\libraries\\2hipaa.xml", "C:\\CS\\Workspace\\iriusrisktoolkitui\\libraries\\hipaa.xml"]
+    result, outfile = generateChangeLog(fileArray)

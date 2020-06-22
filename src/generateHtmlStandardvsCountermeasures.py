@@ -5,7 +5,7 @@ from pathlib import Path
 import src.sample_lib as sl
 import pandas as pd
 home=os.getcwd()
-from src.generateChangeLogFromVersions import createTitleHtmlFile, writeToHtml
+from src.common import createTitleHtmlFile, writeToHtml
 import logging
 logging.basicConfig(filename="logFile.log", 
                     format= '%(asctime)s  %(levelname)-10s %(message)s', 
@@ -236,6 +236,7 @@ def generateHtml(standards, standardName, controls, libraryName):
     root.find("head").find("title").text ="Standard %s from the library %s"%(standardName, libraryName)
     writeToHtml(outFile_path, file.getroot())
     return outFile_path
+
 
 def generateHtmlFromLibrariesAndStandard(standard_path, arrayLibrariesPaths):
     controls=list()
