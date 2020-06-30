@@ -28,7 +28,7 @@ except ImportError:
     from tkinter import *
 
 
-toolkitVersion = "Version 1.1"
+toolkitVersion = "Version 1.2"
 
 options = [
     "Convert XML file to Excel file",

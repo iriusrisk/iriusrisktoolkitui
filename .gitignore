@@ -1,0 +1,9 @@
+*.pyc
+*.vscode
+*__pycache__
+*.pytest_cache*
+*.log
+/libraries
+.idea
+/venv
+logFile.log
