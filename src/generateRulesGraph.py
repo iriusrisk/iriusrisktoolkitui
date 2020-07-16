@@ -10,39 +10,39 @@ from networkx.readwrite import json_graph
 def getCondition(condition, componentDefinitions):
     cname = condition.attrib['name']
     group = 0
-    if cname == "Is specific component definition":
+    if cname in ["Is specific component definition", "CONDITION_COMPONENT_DEFINITION"]:
         value = condition.attrib['value']
         if value in componentDefinitions.keys():
-            message = cname + ": " + componentDefinitions[condition.attrib['value']]
+            message = "Is specific component definition: " + componentDefinitions[condition.attrib['value']]
         else:
-            message = cname + ": " + value
+            message = "Is specific component definition: " + value
         group = 0
-    elif cname == "Question Group exists":
+    elif cname in ["Question Group exists", "CONDITION_QUESTION_GROUP_EXISTS"]:
         value = condition.attrib['value']
         message = "If question group '" + value + "' exists"
         group = 1
-    elif cname == "Question is answered":
+    elif cname in ["Question is answered", "CONDITION_QUESTION"]:
         value = condition.attrib['value']
         message = "If answer is " + value
         group = 2
-    elif cname == "Question is not answered":
+    elif cname in ["Question is not answered", "CONDITION_QUESTION_NOT_ANSWERED"]:
         value = condition.attrib['value']
         message = "If answer is not " + value
         group = 9
-    elif cname == "Risk pattern exists":
+    elif cname in ["Risk pattern exists", "CONDITION_RISK_PATTERN_EXISTS"]:
         value = condition.attrib['value']
         message = "Risk pattern " + condition.attrib['value'].split("_::_")[0] + " -> " + \
                   condition.attrib['value'].split("_::_")[1] + " exists"
         group = 3
-    elif cname == "Conclusion exists":
+    elif cname in ["Conclusion exists", "CONDITION_CONCLUSION_EXISTS"]:
         value = condition.attrib['value']
         message = "Conclusion " + value + " exists"
         group = 8
-    elif cname == "Conclusion not exists":
+    elif cname in ["Conclusion not exists", "CONDITION_CONCLUSION_NOT_EXISTS"]:
         value = condition.attrib['value']
         message = "Conclusion " + value + " not exists"
         group = 12
-    elif cname == "Applied Countermeasure":
+    elif cname in ["Applied Countermeasure", "CONDITION_APPLIED_CONTROL"]:
         value = condition.attrib['value']
         message = "Countermeasure " + value + " is required"
         group = 13
@@ -54,33 +54,34 @@ def getCondition(condition, componentDefinitions):
 
 def getActions(action, components):
     aname = action.attrib['name']
+    print(aname)
     group = 0
-    if aname == "Insert Question Group":
+    if aname in ["Insert Question Group", "INSERT_QUESTION_GROUP"]:
         valueList = action.attrib['value'].split("_::_")
         value = valueList[0]
         message = "Question: " + valueList[2]
         group = 4
-    elif aname == "Insert Question":
+    elif aname in ["Insert Question", "INSERT_QUESTION"]:
         valueList = action.attrib['value'].split("_::_")
         value = valueList[0]
         message = "Answer: " + valueList[1]
         group = 5
-    elif aname == "Import Risk Pattern":
+    elif aname in ["Import Risk Pattern", "IMPORT_RISK_PATTERN"]:
         valueList = action.attrib['value'].split("_::_")
         value = valueList[1]
         message = "Import Risk Pattern: " + components[valueList[1]]
         group = 6
-    elif aname == "Extend risk pattern":
+    elif aname in ["Extend risk pattern", "EXTEND_RISK_PATTERN"]:
         valueList = action.attrib['value'].split("_::_")
         value = action.attrib['value']
         message = "Extend Risk Pattern " + valueList[0] + " >> " + valueList[1]
         group = 7
-    elif aname == "Insert Conclusion":
+    elif aname in ["Insert Conclusion", "INSERT_CONCLUSION"]:
         valueList = action.attrib['value'].split("_::_")
         value = valueList[1]
         message = "Conclusion: " + valueList[2]
         group = 10
-    elif aname == "Apply Control":
+    elif aname in ["Apply Control", "APPLY_CONTROL"]:
         value = action.attrib['project'] + "_::_" + action.attrib['value']
         message = "Apply Control: " + action.attrib['project'] + " -> " + action.attrib['value']
         group = 11

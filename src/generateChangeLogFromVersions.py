@@ -216,6 +216,28 @@ def compareStandards(child, ochild):
     return string
 
 
+def compareImplementations(child, ochild):
+    # If we are comparing standards we need to check two attributes at the same time
+    string = "<ul><li><b>Implementations</b></li><ul>"
+
+    childStandards = [x.attrib['platform'] for x in child]
+    ochildStandards = [x.attrib['platform'] for x in ochild]
+
+    for x in childStandards:
+        if x not in ochildStandards:
+            string += f"<li {green}>Added implementation: <b>{str(x)}</b></li>"
+
+    for x in ochildStandards:
+        if x not in childStandards:
+            string += f"<li {red}>Deleted implementation: <b>{str(x)}</b></li>"
+
+    string += "</ul></ul>"
+
+    if "<ul></ul>" in string:
+        string = ""
+
+    return string
+
 def compareReferences(child, ochild):
     # If we are comparing references we need to check two attributes at the same time
     string = "<ul><li><b>References</b></li><ul>"
@@ -327,6 +349,15 @@ def recCompare(unode, onode):
             if ochildStandardList:
                 ochildSt = ochildStandardList[0]
                 string = compareStandards(child, ochildSt)
+            if string != "":
+                ul2.append(etree.fromstring(string, parser=parser))
+
+        elif child.tag == "implementations":
+            ochildImplementationsList = [x for x in ochildList if x.tag == "implementations"]
+            string = ""
+            if ochildImplementationsList:
+                ochildImp = ochildImplementationsList[0]
+                string = compareImplementations(child, ochildImp)
             if string != "":
                 ul2.append(etree.fromstring(string, parser=parser))
 

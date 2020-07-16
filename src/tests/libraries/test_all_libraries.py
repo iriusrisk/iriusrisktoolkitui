@@ -16,12 +16,12 @@ class TestAllLibraries(unittest.TestCase):
     self.assertEqual(errors, "", errors)
 
   def test_xsd_schema(self):
-    errors=""
-    filename_xsd=Path.cwd() / "inputFiles" / "XSD_Schema" / "library.xsd"
+    errors = ""
+    filename_xsd = Path.cwd() / "inputFiles" / "XSD_Schema" / "library.xsd"
     for lib in os.listdir(str(self.path)):
       if lib.endswith(".xml"):
         if not xmlValidator(str(self.path / lib), str(filename_xsd)):
-          errors+="XSD Schema validation fails in the library: %s.\n"%lib.replace(".xml", "")
+          errors += "XSD Schema validation fails in the library: %s.\n" % lib.replace(".xml", "")
     self.assertEqual(errors, "", errors)
 
   # We check if the original library pass the XSD Schema verification
@@ -38,21 +38,21 @@ class TestAllLibraries(unittest.TestCase):
     self.assertEqual(errors, "", errors)
 
   def test_check_ascii_of_controls_descriptions(self):
-    errors=checkAsciiOfControlsOrWeaknesses(self.controls, 'Description', [])
+    errors = checkAsciiOfControlsOrWeaknesses(self.controls, 'Description', [])
     self.assertEqual(errors, "", errors)
 
   def test_check_ascii_of_controls_test_steps(self):
-    errors=checkAsciiOfControlsOrWeaknesses(self.controls, 'Test Steps', [])
+    errors = checkAsciiOfControlsOrWeaknesses(self.controls, 'Test Steps', [])
     self.assertEqual(errors, "", errors)
 
   def test_check_ascii_of_weaknesses_descriptions(self):
-    errors=checkAsciiOfControlsOrWeaknesses(self.weaknesses, 'Description', [])
+    errors = checkAsciiOfControlsOrWeaknesses(self.weaknesses, 'Description', [])
     self.assertEqual(errors, "", errors)
 
   def test_check_ascii_of_weaknesses_test_steps(self):
-    errors=checkAsciiOfControlsOrWeaknesses(self.weaknesses, 'Test Steps', [])
+    errors = checkAsciiOfControlsOrWeaknesses(self.weaknesses, 'Test Steps', [])
     self.assertEqual(errors, "", errors)
-  
+
   def test_check_empty_weaknesses(self):
     exceptions = ['CWE-7-KINGDOMS']
     errors = checkEmptyWeaknesses(self.path, exceptions)
@@ -78,7 +78,7 @@ class TestAllLibraries(unittest.TestCase):
     errors = checkInconsistentControlNames(self.path)
     self.assertEqual(errors, "", errors)
 
-  def test_aa_duplicated_risk_pattern_refs(self):
+  def test_duplicated_risk_pattern_refs(self):
     errors = checkDuplicatedRiskPatternRefs(self.path)
     self.assertEqual(errors, "", errors)
 
