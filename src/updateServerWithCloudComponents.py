@@ -96,12 +96,10 @@ def addConditions(ruleObj, libProps):
         condition=libProps[condition]
         condObj=conditionClass.factory(
             name=condition['name'],
-            type=condition['type'],
             field=condition['field'],
             value=condition['value']
         )
-        condObj.set_type(condition['type'])
-        addPattern(condObj, condition['pattern']['name'], condition['pattern']['pattern'])
+
         ruleObj.add_condition(condObj)
 
 def addPattern(objClass, name, pattern):
@@ -118,12 +116,9 @@ def addActions(ruleObj, libProps):
         action=libProps[action]
         actionObj=actionClass.factory(
             name=action['name'],
-            type=action['type'],
             project=action['project'],
             value=action['value']
         )
-        actionObj.set_type(action['type'])
-        addPattern(actionObj, action['pattern']['name'], action['pattern']['pattern'])
         ruleObj.add_action(actionObj)
 
 def createRules(rootClass, libProps):
@@ -139,7 +134,6 @@ def createRules(rootClass, libProps):
                 name=rule['name'],
                 module=rule['module'],
                 generatedByGui=True,
-                content=""
             )
             addConditions(ruleObj, rule['conditions'])
             addActions(ruleObj, rule['actions'])

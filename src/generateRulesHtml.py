@@ -199,7 +199,7 @@ def getRules(question, rules, checkAllRules, libraryName, value):
         response = []
         for rule in rules:
             for action in rule.iter('action'):
-                if action.attrib['name'] == "Import Risk Pattern":
+                if action.attrib['name'] in ["Import Risk Pattern", "IMPORT_RISK_PATTERN"]:
                     rp = action.attrib['value'].split("_::_")[1]
                     if rp == value:
                         response.append(rule)
@@ -210,7 +210,7 @@ def getRules(question, rules, checkAllRules, libraryName, value):
         response = []
         for rule in rules:
             for condition in rule.iter('condition'):
-                if condition.attrib['name'] == "Risk pattern exists":
+                if condition.attrib['name'] in ["Risk pattern exists", "CONDITION_RISK_PATTERN_EXISTS"]:
                     rp = condition.attrib['value'].split("_::_")[1]
                     if rp == value:
                         response.append(rule)
@@ -223,7 +223,7 @@ def getRules(question, rules, checkAllRules, libraryName, value):
         response = []
         for rule in rules:
             for condition in rule.iter('condition'):
-                if condition.attrib['name'] == "Question is answered":
+                if condition.attrib['name'] in ["Question is answered", "CONDITION_QUESTION"]:
                     if condition.attrib['value'] == value:
                         response.append(rule)
         rules = response
@@ -235,12 +235,12 @@ def getRules(question, rules, checkAllRules, libraryName, value):
         response = []
         for rule in rules:
             for condition in rule.iter('condition'):
-                if condition.attrib['name'] == "Risk pattern exists":
+                if condition.attrib['name'] in ["Risk pattern exists", "CONDITION_RISK_PATTERN_EXISTS"]:
                     rp = condition.attrib['value'].split("_::_")[1]
                     if rp == value:
                         response.append(rule)
             for action in rule.iter('action'):
-                if action.attrib['name'] == "Import Risk Pattern":
+                if action.attrib['name'] in ["Import Risk Pattern", "IMPORT_RISK_PATTERN"]:
                     rp = action.attrib['value'].split("_::_")[1]
                     if rp == value:
                         response.append(rule)
