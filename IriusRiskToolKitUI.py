@@ -21,6 +21,7 @@ from src.updateServerWithCloudComponents import *
 from src.common import isExcelFile
 from src.pytestgui.view import MainWindow
 from src.pytestgui.model import UnittestProject
+from sys import platform
 
 try:
     from Tkinter import *
@@ -28,7 +29,7 @@ except ImportError:
     from tkinter import *
 
 
-toolkitVersion = "Version 1.2"
+toolkitVersion = "Version 2.0"
 
 options = [
     "Convert XML file to Excel file",
@@ -349,7 +350,6 @@ def showLinks(links, results, home):
                 win.close()
                 home.un_hide()
                 return ""
-
             else:
                 if ev.startswith("open"):
                     ev = Path(ev[4:])
@@ -358,15 +358,12 @@ def showLinks(links, results, home):
                             webbrowser.open('file://' + str(links[links.index(ev)]))
                         if ev.suffix in [".xlsx", ".xls", ".csv"]:
                             try:
-                                subprocess.Popen("start \"excel.exe\" '%s'" % str(ev))
+                                if platform == "win32":
+                                    subprocess.check_call(["start", "excel", str(ev)], shell=True)
+                                else:
+                                    subprocess.check_call(["libreoffice", str(ev)])
                             except:
-                                try:
-                                    subprocess.Popen('libreoffice \"' + str(ev) + '\"', shell=True)
-                                except:
-                                    try:
-                                        subprocess.Popen("libreoffice.exe", str(ev), shell=True)
-                                    except:
-                                        sg.popup("We cannot find the program to open the Excel File.")
+                                sg.popup("We cannot find the program to open the Excel File.")
 
 
 def showDetailsChangeLog(updatedData, oldData, home):
