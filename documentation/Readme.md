@@ -6,10 +6,12 @@ Here you can see a list with all available processes in the toolkit.
 
 ## Index
 
-* [Export XLSX to XML](Export_XLSX_to_XML.md)
-* [Export XML to XLSX](Export_XML_to_XLSX.md)
+* [Export Library XML to XLSX](Export_Library_XML_to_XLSX.md)
+* [Export Product XML to XLSX](Export_Product_XML_to_XLSX.md)
+* [Export Library XLSX to XML](Export_Library_XLSX_to_XML.md)
 * [Generate HTML library report](Generate_HTML_library_report.md)
 * [Show library details](Show_library_details.md)
+* [Show product details](Show_product_details.md)
 * [Check the threat mitigation of a library](Check_the_threat_mitigation_of_a_library.md)
 * [Generate changelog file from two versions](Generate_changelog_file_from_two_versions.md)
 * [Add standard to libraries](Add_standard_to_libraries.md)

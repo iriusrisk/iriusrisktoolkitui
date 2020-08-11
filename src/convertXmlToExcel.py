@@ -2,6 +2,7 @@ import os
 from pathlib import Path
 home=os.getcwd()
 import pandas as pd
+from lxml import etree
 
 import src.sample_lib as supermod
 
@@ -228,6 +229,58 @@ def getDataFromXml(xmlPath):
 
   return dfm, dfmInfo, dfmRules
 
+
+def getProductDataFromXml(xmlPath):
+  table = list()
+  # Main headers for the Excel
+  table.append(
+    ["Risk Pattern", "", "", "Use case", "Threat", "", "", "", "Weakness", "", "", "", "Countermeasure", "", "", "", "",
+     ""])
+  table.append(
+    ["Id", "Name", "Desc", "Name", "Id", "Name", "Desc", "References", "Id", "Name", "Desc", "References", "Id", "Name",
+     "Desc", "Test steps", "References", "Standards"
+     ])
+  # We get all nodes of the xml file
+  rootClass = supermod.parse(xmlPath, silence=True)
+  # we get all important data from the xml file and transform it in a list
+  table.extend(getAllDataFromRiskPatterns(rootClass))
+
+  # These are the column names of the DataFrame
+  columns = ["Risk Pattern Id", "Risk Pattern Name", "Risk Pattern Desc", "Use case", "Threat Id", "Threat Name",
+             "Threat Desc", "Threat Refs", "Weakness Id", "Weakness Name", "Weakness Desc", "Weakness Refs",
+             "Countermeasure Id", "Countermeasure Name", "Countermeasure Desc", "Countermeasure Test steps",
+             "Countermeasure Refs", "Countermeasure standards"]
+
+  dfm = pd.DataFrame(table, columns=columns)
+
+  tableInfo = list()
+  tableInfo.append(["Trust Zone", "Component", "Question answered"])
+
+  root = etree.parse(xmlPath).getroot()
+
+  trustzones = dict()
+  for trustzone in root.find("trustZones").iter("trustZone"):
+    trustzones[trustzone.attrib['ref']] = trustzone.attrib['name']
+
+  for component in root.iter("component"):
+    for trustZone in component.iter("trustZone"):
+      tz = trustZone.attrib["ref"]
+    compName = component.attrib["name"]
+
+    tz = trustzones[tz]
+    comp = compName
+    for question in component.iter("question"):
+      tableInfo.append([tz, comp, question.attrib["ref"]])
+      tz = ""
+      comp = ""
+
+
+  columnsQuestions = ["Trust Zone", "Component", "Question answered"]
+  dfmQuestions = pd.DataFrame(tableInfo, columns=columnsQuestions)
+
+  return dfm, dfmQuestions
+
+
 def convertList(string, startTag, endTag, toTag):
 
   while string.find(startTag)!=-1:
@@ -297,10 +350,13 @@ def convertStandardsToString(standards,supportedStandards):
   text=""
   for standard in standards.get_standard():
     supportedStandardRef=standard.get_supportedStandardRef()
-    for supportedStandard in supportedStandards.get_supportedStandard():
-      if supportedStandard.get_ref()== supportedStandardRef:
-        supportedStandardRef=supportedStandard.get_ref()
-        text+="[%s|%s]\n" %(supportedStandardRef, standard.get_ref())
+    try:
+      for supportedStandard in supportedStandards.get_supportedStandard():
+        if supportedStandard.get_ref()== supportedStandardRef:
+          supportedStandardRef=supportedStandard.get_ref()
+          text+="[%s|%s]\n" %(supportedStandardRef, standard.get_ref())
+    except:
+      text += "[%s|%s]\n" % (supportedStandardRef, standard.get_ref())
   return text[0:-1]
 
 # We apply a specific format to the sheet Library properties
@@ -360,6 +416,35 @@ def applyFormatLibraryRules(excelPath):
     mergeCells(worksheet=ws, columns=columns[i], rowsHeader=1, numMaxRows=max_rows, colors=colors[i], merge=merge[i])
   
   workbook.save(excelPath)
+
+
+def applyFormatProductQuestions(excelPath):
+  workbook = load_workbook(excelPath)
+  sheetName = "Questions"
+  ws = workbook.get_sheet_by_name(sheetName)
+  ws.sheet_view.showGridLines = False
+
+  columns = [
+    [1],
+    [2],
+    [3]
+  ]
+  headerColors = ["2a6099", "ff9900", "800080"]
+  colors = [
+    ["dee6ef", "b4c7dc"],
+    ["ffdbb6", "ffb66c"],
+    ["e0c2cd", "bf819e"]
+  ]
+  merge = [True, True, True]
+  max_rows = getMaxRowsInColumns(excelPath, sheetName)
+
+  for i in range(0, len(headerColors)):
+    applyStylesTo(worksheet=ws, excelPath=excelPath, sheetName=sheetName, color=headerColors[i], columns=columns[i],
+                  headerRows=1)
+    mergeCells(worksheet=ws, columns=columns[i], rowsHeader=1, numMaxRows=max_rows, colors=colors[i], merge=merge[i])
+
+  workbook.save(excelPath)
+
 
 # We apply format to the risk pattern sheet
 def applyFormatLibrary(excelPath, sheetName):
@@ -478,6 +563,33 @@ def convertXmlToExcel(xmlPath, excelPath):
   _log.info("Format applied to the sheet 'Rules'.")
   print("Excel file generated in the path: '%s'." %excelPath)
   return excelPath
+
+
+def convertProductXmlToExcel(xmlPath, excelPath):
+  # We read the data from the xml and get the necessary DataFrames to build the Excel file.
+  data, dataQ = getProductDataFromXml(str(xmlPath))
+  # We create the new Excel file and we open it to write on it.
+  _log.info("Excel file opened to be written: %s." % excelPath)
+  writer = pd.ExcelWriter(str(excelPath))
+  # We write the data for the risk patterns sheet.
+  sheetName = 'Risk Patterns'
+  data.to_excel(excel_writer=writer, sheet_name=sheetName, header=None, index=False, merge_cells=True)
+  _log.info("Data from xml put into the sheet: %s." % sheetName)
+
+  dataQ.to_excel(excel_writer=writer, sheet_name="Questions", header=None, index=False, merge_cells=True)
+
+  writer.save()
+
+  # We apply format to both sheets
+  # applyFormatLibraryProperties(excelPath)
+  # _log.info("Format applied to the sheet 'Library properties'.")
+  applyFormatLibrary(excelPath, sheetName)
+  _log.info("Format applied to the sheet '%s'." % sheetName)
+  applyFormatProductQuestions(excelPath)
+  _log.info("Format applied to the sheet 'Questions'.")
+  print("Excel file generated in the path: '%s'." % excelPath)
+  return excelPath
+
 
 def main():
   # We load the different libraries from the folder 'libraries'
