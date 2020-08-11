@@ -26,6 +26,34 @@ def readInfoFromXml(lib_path, columns):
     return data
 
 
+def readInfoFromProductXml(path, columns):
+    data = list()
+    root = etree.parse(str(path)).getroot()
+
+    trustzones = dict()
+    for trustzone in root.find("trustZones").iter("trustZone"):
+        trustzones[trustzone.attrib['ref']] = trustzone.attrib['name']
+
+    for component in root.iter("component"):
+        for trustzone in component.iter("trustZone"):
+            tzName = trustzones[trustzone.attrib['ref']]
+        compName = component.attrib['name']
+        totalControls = 0
+        totalRequired = 0
+        totalImplemented = 0
+        for control in component.find("controls").iter("control"):
+            if control.attrib['state'] == "Required":
+                totalRequired += 1
+            elif control.attrib['state'] == "Implemented":
+                totalImplemented += 1
+            totalControls += 1
+
+        data.append([root.attrib['name'], tzName, compName, totalControls, totalImplemented, totalRequired])
+    data = pd.DataFrame(data, columns=columns)
+
+    return data
+
+
 def showLibraryDetails():
     pathLibs= Path.cwd() / "libraries"
     text="Select the number of the library to show the details:\n"
@@ -36,13 +64,12 @@ def showLibraryDetails():
 
     try:
         value=int(input(text))
-        print(value)
         readInfoFromXml(str(pathLibs / libs[value]))
     except:
         print("The introduced value is wrong!!")
 
 
-def main():
+def main2():
     if len(sys.argv) != 2:
         print("You should pass more args!!")
         print("")
@@ -53,9 +80,9 @@ def main():
         readInfoFromXml(home+"/"+fileName+".xml")
         print("The script has finished!!")
 
-def main2():
-    fileName="Risk Pattern for Docker CIS"
-    readInfoFromXml(home+"/"+fileName+".xml")
+def main():
+    fileName="collesprod"
+    readInfoFromProductXml(home+"/../products/"+fileName+".xml", ['Product Name', 'Trust Zone', 'Component', '# Countermeasures', '# Implemented', '# Required'])
 
 if __name__ == '__main__':
     main()

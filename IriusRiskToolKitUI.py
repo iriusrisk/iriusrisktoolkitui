@@ -7,14 +7,14 @@ from src.addStandardtoLibraries import getStandards, setStandard
 from src.common import readConfig, writeConfig, testConnection
 from src.convertExcelToXml import convertExcelToXml
 from src.convertExcelToXml import convertRulesFromExcelToXML
-from src.convertXmlToExcel import convertXmlToExcel
+from src.convertXmlToExcel import convertXmlToExcel, convertProductXmlToExcel
 from src.convertXmlToHtmlFile import generateHTML
 from src.createLibraryFromDefaultOne import createLibraryFromDefaultOne
 from src.generateChangeLogFromVersions import generateChangeLog
 from src.generateHtmlStandardvsCountermeasures import generateHtmlFromLibrariesAndStandard
 from src.generateRulesHtml import generateRulesHtml
 from src.generateRulesHtml import questions
-from src.libraryDetails import readInfoFromXml
+from src.libraryDetails import readInfoFromXml, readInfoFromProductXml
 from src.mergeLibraries import mergeLibrariesByPaths
 from src.riskCalculator import calculateRiskToHTML
 from src.updateServerWithCloudComponents import *
@@ -29,13 +29,15 @@ except ImportError:
     from tkinter import *
 
 
-toolkitVersion = "Version 2.0"
+toolkitVersion = "Version 2.1"
 
 options = [
-    "Convert XML file to Excel file",
-    "Convert Excel file to XML file",
+    "Convert library XML file to Excel file",
+    "Convert product XML file to Excel file",
+    "Convert library Excel file to XML file",
     "Generate HTML file from XML file",
     "Show library details",
+    "Show product details",
     "Generate the ChangeLog file from two versions",
     "Add Standard to library or libraries",
     "Upgrade a library with other version of the same library",
@@ -313,8 +315,7 @@ def getLayoutProducts():
 
     layout = [
         [sg.Frame("Select the product or products to use (working directory: '../products/'):", products,
-                  key='products'),
-         sg.Text("Don't forget to update configuration values (weights, trustzones, etc.) in src/riskCalculator.py")]
+                  key='products')]
     ]
 
     return layout
@@ -410,13 +411,16 @@ def showDetailsChangeLog(updatedData, oldData, home):
             return ""
 
 
-def showDetails(totalData, home):
-    tabs = totalData['Library Name'].drop_duplicates().values.tolist()
+def showDetails(totalData, home, type):
+    key = "Library Name"
+    if type == "Product":
+        key = "Product Name"
+    tabs = totalData[key].drop_duplicates().values.tolist()
     header_list = totalData.columns.values.tolist()
     group = list()
     for tab in tabs:
-        tabData = totalData[totalData['Library Name'] == tab]
-        tabData = tabData.drop('Library Name', axis=1)
+        tabData = totalData[totalData[key] == tab]
+        tabData = tabData.drop(key, axis=1)
         tabData = tabData.values.tolist()
         tabLayout = [[sg.Table(values=tabData, headings=header_list[1:], display_row_numbers=False,
                                justification='left', auto_size_columns=True, background_color='white',
@@ -524,6 +528,7 @@ def showMainFrame(home):
     home["frameLibs"].update(visible=False)
     home["frameProducts"].update(visible=False)
     home["frameExcels"].update(visible=False)
+    home["frameWarning"].update(visible=False)
     home["options"].update(visible=False)
     home["standards"].update(visible=False)
     home["serverConfig"].update(visible=False)
@@ -549,7 +554,7 @@ def getCommandOS():
 
 def selectionWindow(title, home, showChangeLogOptions=False, showOptions=False, showStandards=False,
                     showServerConfig=False, showExcelOptions=False, showExistingStandards=False, showUpgrade=False,
-                    showProductOptions=False, showQuestionOptions=False, showNewCopy=False):
+                    showProductOptions=False, showQuestionOptions=False, showNewCopy=False, showWarning=False):
     data = Data()
     data.normalChangeLog = False
 
@@ -561,6 +566,8 @@ def selectionWindow(title, home, showChangeLogOptions=False, showOptions=False, 
     if showProductOptions:
         home["frameLibs"].update(visible=False)
         home["frameProducts"].update(visible=True)
+    if showWarning:
+        home["frameWarning"].update(visible=True)
     if showUpgrade:
         home["frameUpgrade"].update(visible=True)
         home["frameLibs"].update(visible=False)
@@ -696,7 +703,7 @@ def selectionWindow(title, home, showChangeLogOptions=False, showOptions=False, 
 
 
 def checkIfConvertXmlToExcel(event, results, home, links):
-    if "Convert XML file to Excel file" in event:
+    if "Convert library XML file to Excel file" in event:
         startProgressBar(home)
         libArray = list()
         for lib in os.listdir(str(Path.cwd() / "libraries")):
@@ -721,8 +728,35 @@ def checkIfConvertXmlToExcel(event, results, home, links):
     return results, links
 
 
+def checkIfConvertProductXmlToExcel(event, results, home, links):
+    if "Convert product XML file to Excel file" in event:
+        startProgressBar(home)
+        libArray = list()
+        for lib in os.listdir(str(Path.cwd() / "products")):
+            if lib.endswith(".xml"):
+                libArray.append(lib)
+        data = selectionWindow(
+            title="Select the product or products to generate the Excel file:",
+            home=home,
+            showProductOptions=True)
+
+        for file in data.files:
+            if file.name.endswith(".xml"):
+                excelPath = Path.cwd() / "outFiles" / "spreadSheets" / str(file.name.replace(".xml", ".xlsx"))
+                link = convertProductXmlToExcel(
+                    xmlPath=file,
+                    excelPath=excelPath)
+                results += "Product '%s' was converted to Excel file successfully and the output file is in the path '%s'.\n" % (
+                    str(file.name), Path.cwd() / "outFiles" / "spreadSheets" / file.name.replace(".xml", ".xlsx"))
+                links.append(link)
+            else:
+                results += "File '%s' is not converted, because its extension is wrong" % file
+
+    return results, links
+
+
 def checkIfConvertExcelToXml(event, results, home, links):
-    if "Convert Excel file to XML file" in event:
+    if "Convert library Excel file to XML file" in event:
         data = selectionWindow(
             title="Select the library or libraries to generate the XML file:",
             showExcelOptions=True,
@@ -784,7 +818,36 @@ def checkIfLibraryDetails(event, results, home, links):
                 results += "Details from file '%s' are not shown, because its extension is wrong.\n" % file.name.replace(
                     ".xml", "")
         if not totalData.empty:
-            showDetails(totalData, home)
+            showDetails(totalData, home, type="Library")
+
+    return results, links
+
+
+def checkIfProductDetails(event, results, home, links):
+    if "Show product details" in event:
+        prod_path = Path.cwd() / "products"
+        prods = list()
+        for prod in os.listdir(str(prod_path)):
+            if prod.endswith(".xml"):
+                prods.append(prod)
+        data = selectionWindow(
+            title="Select the product or products to show the product details:",
+            home=home,
+            showProductOptions=True)
+
+        columns = ['Product Name', 'Trust Zone', 'Component', '# Countermeasures', '# Implemented', '# Required']
+        totalData = pd.DataFrame([], columns=columns)
+        for file in data.files:
+            if file.name.endswith(".xml"):
+                data = readInfoFromProductXml(prod_path / file, columns)
+                totalData = totalData.append(data)
+                results += "The details of the product '%s' are shown in other window.\n" % file.name.replace(".xml",
+                                                                                                              "")
+            else:
+                results += "Details from file '%s' are not shown, because its extension is wrong.\n" % file.name.replace(
+                    ".xml", "")
+        if not totalData.empty:
+            showDetails(totalData, home, type="Product")
 
     return results, links
 
@@ -936,6 +999,7 @@ def checkIfRiskFromXML(event, results, home, links):
         data = selectionWindow(
             title="Select the product or products to show risk calculation:",
             showProductOptions=True,
+            showWarning=True,
             home=home)
 
         for file in data.files:
@@ -1060,6 +1124,7 @@ def main():
         sg.Frame("Select the libraries to use:", layoutLibs, key='frameLibs', visible=False),
         sg.Frame("Select the products to use:", layoutProducts, key='frameProducts', visible=False),
         sg.Frame("Select the Excels to use:", layoutExcels, key='frameExcels', visible=False),
+        sg.Frame("Warning", [[sg.Text("Don't forget to update configuration values (weights, trustzones, etc.) in src/riskCalculator.py")]], key='frameWarning', visible=False),
         sg.Frame("Upgrading library:", layoutUpgrade, key='frameUpgrade', visible=False),
         sg.Frame("Create a new library from a default one:", layoutNewCopy, key='frameNewCopy', visible=False),
         sg.Frame("Select libraries to generate the ChangeLog:", changeLogLayout, key='changeLogFrame', visible=False),
@@ -1084,9 +1149,11 @@ def main():
         showMainFrame(home)
         links = list()
         results, links = checkIfConvertXmlToExcel(event, results, home, links)
+        results, links = checkIfConvertProductXmlToExcel(event, results, home, links)
         results, links = checkIfConvertExcelToXml(event, results, home, links)
         results, links = checkIfConvertXmlToHtml(event, results, home, links)
         results, links = checkIfLibraryDetails(event, results, home, links)
+        results, links = checkIfProductDetails(event, results, home, links)
         results, links = checkIfChangeLog(event, results, home, links)
         results, links = checkIfAddStandardToLibrary(event, results, home, links)
         results, links = checkIfUpgradeLibraryFromOtherFile(event, results, home, links)
