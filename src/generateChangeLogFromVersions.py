@@ -3,7 +3,9 @@ import os
 from lxml import etree
 import logging
 from src.common import isXmlFile
+from src.generateChangeLogFromVersionsList import createCardBodyModifiedList, compareLibs
 from html import escape
+import pandas as pd
 import re
 # Create and configure logger
 # filemode = 'w' that will change the mode of operation from "append" to "write" and will overwrite the file every time we run our application
@@ -53,7 +55,7 @@ def generateHtmlForChangeLog(libraries, outFile_path):
 
     head = root.find("head")
     style = etree.Element("style")
-    style.text = "li:hover.ir-collapsible { background-color: #e5f8ff } "
+    style.text = "li:hover.ir-collapsible { background-color: #c3eaf9 } "
     head.append(style)
 
     body = root.find("body")
@@ -82,13 +84,16 @@ def createTitleHtmlFile(title, body):
 
 def createCardsForAllLibraries(libraries, accordion, body):
     numH = 0
-    for library, data in libraries:
+    for library, data, dataFrame in libraries:
         if isXmlFile(library):
             numH = numH+1
             card = createCardHeader(library, numH, data)
             if data not in ["NEW", "OTHER"]:
                 card = createCardBodyModified(card, numH, data)
+                card = createCardBodyModifiedList(card, numH, dataFrame, library)
+
             accordion.append(card)
+
             body.append(accordion)
     return body
 
@@ -103,9 +108,9 @@ def createCardHeader(library, numH, data):
     button = etree.Element("button")
 
     button.set('data-toggle', 'collapse')
-    button.set('data-target', '#collapseH' + str(numH))
+    button.set('data-target', '#collapseH' + str(numH) + ',#collapseL' + str(numH))
     button.set('aria-expanded', 'false')
-    button.set('aria-controls', 'collapseH' + str(numH))
+    button.set('aria-controls', 'collapseH' + str(numH) + ',#collapseL' + str(numH))
 
     if data == "NEW":
         card.set("class", "card border-success")
@@ -156,6 +161,10 @@ def attributeChanges(updatedNode, oldNode):
         if updatedNode.text != oldNode.text and asciiMatcher.match(str(oldNode.text)) and asciiMatcher.match(str(updatedNode.text)) \
                 and oldNode.text and updatedNode.text:
             string += f"<li>Modified {updatedNode.tag}: <span {yellow}>{escape(oldNode.text)}</span> -> <span {green}><b>{escape(updatedNode.text)}</b></span></li>"
+        elif updatedNode.text is None and oldNode.text is not None:
+            string += f"<li>Modified {updatedNode.tag}: <span {yellow}>{escape(oldNode.text)}</span> -> <span {green}><b>None</b></span></li>"
+        elif oldNode.text is None and updatedNode.text is not None:
+            string += f"<li>Modified {updatedNode.tag}: <span {yellow}>None</span> -> <span {green}><b>{escape(updatedNode.text)}</b></span></li>"
         elif updatedNode.text != oldNode.text:
             string += f"<li>Modified {updatedNode.tag}: Please check the original source as there are non-ASCII characters in this text</li>"
 
@@ -238,6 +247,7 @@ def compareImplementations(child, ochild):
 
     return string
 
+
 def compareReferences(child, ochild):
     # If we are comparing references we need to check two attributes at the same time
     string = "<ul><li><b>References</b></li><ul>"
@@ -315,7 +325,15 @@ def recCompare(unode, onode):
     childRefsList = [x.attrib['ref'] for x in childList if "ref" in x.attrib]
     for ochild in ochilddList:
         if ochild.attrib['ref'] not in childRefsList:
-            string = f"<li {red}>Deleted {ochild.tag} : <b>{ochild.attrib['ref']}</b></li>"
+            string = f"<li {red}>Deleted {ochild.tag} : <b>{ochild.attrib['ref']}</b>"
+            if ochild.tag in ["component", "usecase"]:
+                if len(list(ochild.iter("threat"))) != 0:
+                    string += " [ "
+                    for th in ochild.iter("threat"):
+                        string += th.attrib['ref'] + ", "
+                    string = string[:-2] + " ]</li>"
+            else:
+                string += "</li>"
             ul2.append(etree.fromstring(string, parser=parser))
 
     # Here we apply specific behaviour if the node tag is "rules" because it is a bit complicated
@@ -377,7 +395,17 @@ def recCompare(unode, onode):
                 # New
                 ochildRefsList = [x.attrib['ref'] for x in ochildList if "ref" in x.attrib]
                 if child.attrib['ref'] not in ochildRefsList:
-                    string = f"<li {green}>Added new {child.tag} : <b>{child.attrib['ref']}</b></li>"
+                    string = f"<li {green}>Added new {child.tag} : <b>{child.attrib['ref']}</b>"
+
+                    # We add to the message the new threats
+                    if child.tag in ["component", "usecase"]:
+                        if len(list(child.iter("threat"))) != 0:
+                            string += " [ "
+                            for th in child.iter("threat"):
+                                string += th.attrib['ref']+", "
+                            string = string[:-2] + " ]</li>"
+                    else:
+                        string += "</li>"
                     ul2.append(etree.fromstring(string, parser=parser))
 
             # Comparing the old nodes with the new ones we call this function again with the child nodes
@@ -413,9 +441,26 @@ def compareLibraries(updatedLibrary, oldLibrary, outFile_path):
 
     data = recCompare(updatedRoot, oldRoot)
 
-    generateHtmlForChangeLog([(updatedLibName, data)], outFile_path)
+    ### To get list of changes
+    array = list()
+    array = compareLibs(updatedLibrary, oldLibrary, updatedLibName, array)
 
-    return "Updated library "+updatedLibrary
+    dfm = pd.DataFrame(array, columns=['Library', 'Data type', 'Action', 'Name', 'Reason'])
+    logger.info("DataFrame was generated with the data of the libraries")
+
+    if len(dfm.loc[dfm['Library'] == updatedLibName, ['Library']]) > 1:
+        array.append([updatedLibName, 'Library', "Edited", "", ""])
+    dfm = pd.DataFrame(array, columns=['Library', 'Data type', 'Action', 'Name', 'Reason'])
+    dataFrame = dfm.sort_values(['Library', 'Data type', 'Action', 'Name'], ascending=[1, 1, 1, 1])
+
+    if data.find("ul").getchildren():
+        generateHtmlForChangeLog([(updatedLibName, data, dataFrame)], outFile_path)
+        text = "Updated library " + updatedLibrary
+    else:
+        generateHtmlForChangeLog([], outFile_path)
+        text = "No changes in library" + updatedLibrary
+
+    return text
 
 
 def compareListOfLibraries(folderUpdatedRelease, folderOldRelease, outFile_path):
@@ -429,11 +474,28 @@ def compareListOfLibraries(folderUpdatedRelease, folderOldRelease, outFile_path)
                 updatedRoot = etree.parse(str(folderUpdatedRelease / updatedLib)).getroot()
                 oldRoot = etree.parse(str(folderOldRelease / oldLibs[oldLibs.index(updatedLib)])).getroot()
                 data = recCompare(updatedRoot, oldRoot)
-                text += f"Library {updatedLib} has been updated\n"
-                libraries.append((updatedLib, data))
+
+                ### To get list of changes
+                array = list()
+                array = compareLibs(str(folderUpdatedRelease / updatedLib), str(folderOldRelease / oldLibs[oldLibs.index(updatedLib)]), updatedLib, array)
+
+                dfm = pd.DataFrame(array, columns=['Library', 'Data type', 'Action', 'Name', 'Reason'])
+                logger.info("DataFrame was generated with the data of the libraries")
+
+                if len(dfm.loc[dfm['Library'] == updatedLib, ['Library']]) > 1:
+                    array.append([updatedLib, 'Library', "Edited", "", ""])
+                dfm = pd.DataFrame(array, columns=['Library', 'Data type', 'Action', 'Name', 'Reason'])
+                dataFrame = dfm.sort_values(['Library', 'Data type', 'Action', 'Name'], ascending=[1, 1, 1, 1])
+
+
+
+                # If there is any change (any "ul" subnodes)
+                if data.find("ul").getchildren():
+                    text += f"Library {updatedLib} has been updated\n"
+                    libraries.append((updatedLib, data, dataFrame))
             else:
                 text += f"Library {updatedLib} is new\n"
-                libraries.append((updatedLib, "NEW"))
+                libraries.append((updatedLib, "NEW", None))
 
     generateHtmlForChangeLog(libraries, outFile_path)
     logger.info("HTML file of the Changelog was generated in the path: %s" % outFile_path)
@@ -458,5 +520,6 @@ def generateChangeLog(files):
 
 
 if __name__ == "__main__":
-    fileArray = ["C:\\CS\\Workspace\\iriusrisktoolkitui\\libraries\\2hipaa.xml", "C:\\CS\\Workspace\\iriusrisktoolkitui\\libraries\\hipaa.xml"]
+    fileArray = ["C:\\CS\\Workspace\\iriusrisktoolkitui\\libraries\\3.4.0.xml", "C:\\CS\\Workspace\\iriusrisktoolkitui\\libraries\\3.0.0.xml"]
+    fileArray = []
     result, outfile = generateChangeLog(fileArray)
