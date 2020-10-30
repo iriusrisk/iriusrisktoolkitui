@@ -2,11 +2,14 @@
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
            xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:include schemaLocation="../assets/assets-ref.xsd"/>
+    <xs:include schemaLocation="../tags/tags-tag.xsd"/>
     <xs:complexType name="dataflowType">
-        <xs:sequence>
+        <xs:all>
             <xs:element type="assetsRefType" name="assets"/>
-        </xs:sequence>
+            <xs:element type="tagsTagType" name="tags"/>
+        </xs:all>
         <xs:attribute type="xs:string" name="name" use="required"/>
+        <xs:attribute type="xs:string" name="ref" use="required"/>
         <xs:attribute type="xs:string" name="source" use="required"/>
         <xs:attribute type="xs:string" name="target" use="required"/>
     </xs:complexType>

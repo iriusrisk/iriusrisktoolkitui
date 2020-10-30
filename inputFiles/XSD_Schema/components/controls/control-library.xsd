@@ -12,7 +12,7 @@
             <xs:element type="implementationsType" name="implementations"/>
             <xs:element type="referencesType" name="references"/>
             <xs:element type="standardsType" name="standards"/>
-            <xs:element type="udtsType" name="udts"/>
+            <xs:element type="udtsType" name="udts" minOccurs="0"/>
             <xs:element type="testLibraryType" name="test"/>
         </xs:all>
         <xs:attribute type="xs:string" name="ref" use="required"/>
