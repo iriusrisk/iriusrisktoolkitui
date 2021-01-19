@@ -85,6 +85,16 @@ def getActions(action, components):
         value = action.attrib['project'] + "_::_" + action.attrib['value']
         message = "Apply Control: " + action.attrib['project'] + " -> " + action.attrib['value']
         group = 11
+    elif aname in ["Apply Security Standard", "APPLY_SECURITY_STANDARD"]:
+        valueList = action.attrib['value'].split("_::_")
+        value = valueList[1]
+        message = "Apply security standard: " + value
+        group = 12
+    elif aname in ["Answer Question", "ANSWER_QUESTION"]:
+        valueList = action.attrib['value'].split("_::_")
+        value = valueList[0]
+        message = "Anwsered question: " + value
+        group = 13
     else:
         value = ""
         message = "Unknown: "+str(aname)
