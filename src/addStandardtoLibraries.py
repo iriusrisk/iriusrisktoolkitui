@@ -91,15 +91,38 @@ def searchControls(library_path, supportedStandard_name, standard_file_path):
 def getStandards(library_path, csvOut):
 
     if os.path.exists(library_path):
-        root = etree.parse(str(library_path))
+
+        df = pd.DataFrame(columns=["Library", "Component", "Control", "Control Name", "Supported Standard Name",
+                                   "Supported Standard Ref", "Standard Ref"])
+        supportedStandards = dict()
+        cont = 0
+
+        if os.path.isdir(library_path):
+            # If path is a directory
+            for lib in os.listdir(str(library_path)):
+                if lib.endswith(".xml"):
+                    logger.info("Extracting standards from "+str(library_path / lib))
+                    root = etree.parse(str(library_path / lib))
+                    df, cont = retrieveStandards(root, supportedStandards, df, cont)
+
+        else:
+            # If path is a file
+            logger.info("Extracting standards from "+str(library_path))
+            root = etree.parse(str(library_path))
+            retrieveStandards(root, supportedStandards, df, cont)
+
     else:
-        return f"Problem found loading file: {library_path} (does it exists?)"
+        return f"Problem found loading: {library_path} (does it exists?)"
 
-    df = pd.DataFrame(columns=["Component", "Control", "Supported Standard Name",
-                               "Supported Standard Ref", "Standard Ref"])
-    supportedStandards = dict()
-    cont = 0
+    df.to_csv(path_or_buf=csvOut, sep="#", index=False, line_terminator="\n")
 
+    result = f"Standards for {library_path} correctly exported to {csvOut}"
+    logger.info(result)
+
+    return result
+
+
+def retrieveStandards(root, supportedStandards, df, cont):
     # Create a supported standards dictionary
     for supStandard in root.iter('supportedStandard'):
         supportedStandards[supStandard.attrib['ref']] = supStandard.attrib['name']
@@ -110,34 +133,64 @@ def getStandards(library_path, csvOut):
             for standard in control.find('standards').iter('standard'):
                 # For every standard in a control we create a row with the dfm.columns data
                 # df.loc[cont] sets content for a concrete index
-                df.loc[cont] = [component.attrib['ref'], control.attrib['ref'],
+                df.loc[cont] = [root.getroot().attrib['ref'], component.attrib['ref'], control.attrib['ref'],
+                                control.attrib['name'],
                                 supportedStandards[standard.attrib['supportedStandardRef']],
                                 standard.attrib['supportedStandardRef'], standard.attrib['ref']]
                 cont += 1
 
-    df.to_csv(path_or_buf=csvOut, sep=",", index=False, line_terminator="\n")
+    return df, cont
 
-    result = f"Standards for {library_path} correctly exported to {csvOut}"
-    logger.info(result)
-
-    return result
 
 
 def setStandard(standard_file_path, library_path, out_library_path, action_a):
 
-    root = etree.parse(str(library_path), etree.XMLParser(remove_blank_text=True))
+    dfm = pd.read_csv(str(standard_file_path), sep="#")
+    dfm.columns = ["Library", "Component", "Control", "Control Name", "Supported Standard Name", "Supported Standard Ref",
+                   "Standard Ref"]
+
+    library_map = dict()
+
+    for index, row in dfm.iterrows():
+        library = row.get("Library")
+
+        if library not in library_map.keys():
+            library_map[library] = list()
+
+        library_map[library].append(row)
+
+    result = ""
+
+    if os.path.isdir(library_path):
+        # If path is a directory
+        for lib in os.listdir(str(library_path)):
+            if lib.endswith(".xml"):
+                logger.info("Setting standards on " + str(library_path / lib))
+                root = etree.parse(str(library_path / lib), etree.XMLParser(remove_blank_text=True))
+                libRef = root.getroot().attrib['ref']
+
+                if libRef in library_map.keys():
+                    result += setStandardForLibraryRoot(root, library_map[libRef], out_library_path / lib, action_a) + "\n"
+
+    else:
+        # If path is a file
+        logger.info("Setting standards on " + str(library_path))
+        root = etree.parse(str(library_path), etree.XMLParser(remove_blank_text=True))
+        libRef = root.getroot().attrib['ref']
+        result = setStandardForLibraryRoot(root, library_map[libRef], out_library_path, action_a)
+
+    return result
+
+
+def setStandardForLibraryRoot(root, array, out_library_path, action_a):
     modified = False
     supportedStandardsToRemove = set()
-
-    # Read CSV file
-    dfm = pd.read_csv(str(standard_file_path), sep=",")
-    dfm.columns = ["Component", "Control", "Supported Standard Name", "Supported Standard Ref", "Standard Ref"]
 
     # Get supported standards refs
     supportedStandardsRef = [supportedStandard.attrib['ref']
                              for supportedStandard in list(root.iter('supportedStandard'))]
 
-    for index, row in dfm.iterrows():
+    for row in array:
         component_ref = row.get("Component")
         control_ref = str(row.get("Control"))
         supportedStandard_name = row.get("Supported Standard Name")
@@ -223,7 +276,6 @@ def setStandard(standard_file_path, library_path, out_library_path, action_a):
 
     return result
 
-
 def addXmlTag(pathFile):
     openFile=open(pathFile,'r')
     data=openFile.read()
@@ -241,8 +293,10 @@ def addStandardToLibrary(standard_path_csv, path_library, standardName):
 if __name__ == "__main__":
     csv = Path.cwd() / "inputFiles" / "standardsFiles" / "standardEditor.csv"
     library = Path.cwd() / "inputFiles" / "oldRelease" / "CS-Default.xml"
+    library = Path.cwd() / "libraries"
     libraryOut = Path.cwd() / "outFiles" / "outputLibs" / "CS-Default2.xml"
+    libraryOut = Path.cwd() / "outFiles" / "outputLibs"
     action = "delete"
-    #print(getStandards(library, csv))
-    print(setStandard(csv, library, libraryOut, action))
+    print(getStandards(library, csv))
+    #print(setStandard2(csv, library, libraryOut, action))
 

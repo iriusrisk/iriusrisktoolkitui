@@ -29,7 +29,7 @@ except ImportError:
     from tkinter import *
 
 
-toolkitVersion = "Version 2.1"
+toolkitVersion = "Version 2.2"
 
 options = [
     "Convert library XML file to Excel file",
@@ -189,6 +189,8 @@ def getStandardsLayout():
          sg.FileBrowse(key='fileCSVStandard', button_color=BUTTON_COLOR)],
         [sg.Text('Select the library to work with:'), sg.Input(key='fileLibraryInputStandard'),
          sg.FileBrowse(key='fileLibraryStandard', button_color=BUTTON_COLOR)],
+        [sg.Text(
+            "If no library is indicated all standards from /libraries folder will be exported.")],
         [sg.Text('Select what to do:')],
     ]
     files = files + radio
@@ -891,26 +893,39 @@ def checkIfAddStandardToLibrary(event, results, home, links):
                 standard_path_csv = data.csv
 
         links = []
-
+        valid = False
         if file:
-            if file.endswith(".xml"):
-
-                filePath = Path(file)
+            filePath = Path(file)
+            if os.path.isfile(filePath) and file.endswith(".xml"):
+                file = Path(file)
                 fileOut = Path.cwd() / "outFiles" / "outputLibs" / str(filePath.name)
+                valid = True
+            elif os.path.isdir(filePath):
+                file = Path(file)
+                fileOut = Path.cwd() / "outFiles" / "outputLibs"
+                valid = True
 
-                if option == "exportStandard":
-                    getStandards(file, standard_path_csv)
-                    results += f"Standards from library {file} exported to CSV without problem: {standard_path_csv}"
-                elif option == "addStandard":
-                    setStandard(standard_path_csv, file, fileOut, "add")
-                    results += f"Added standards from {file} to {fileOut} from {standard_path_csv}"
-                elif option == "deleteStandard":
-                    setStandard(standard_path_csv, file, fileOut, "delete")
-                    results += f"Removed standards from {file} to {fileOut} from {standard_path_csv}"
-                else:
-                    results += "No valid option found. Please select one of the displayed options."
+        else:
+            file = Path.cwd() / "libraries"
+            fileOut = Path.cwd() / "outFiles" / "outputLibs"
+            valid = True
+
+
+        if valid:
+            if option == "exportStandard":
+                getStandards(file, standard_path_csv)
+                results += f"Standards from library {file} exported to CSV without problem: {standard_path_csv}"
+            elif option == "addStandard":
+                setStandard(standard_path_csv, file, fileOut, "add")
+                results += f"Added standards from {file} to {fileOut} from {standard_path_csv}"
+            elif option == "deleteStandard":
+                setStandard(standard_path_csv, file, fileOut, "delete")
+                results += f"Removed standards from {file} to {fileOut} from {standard_path_csv}"
             else:
-                results += f"Can't process file '{file}', because its extension is wrong"
+                results += "No valid option found. Please select one of the displayed options."
+        else:
+            results += f"Can't process file '{file}'"
+
 
     return results, links
 
