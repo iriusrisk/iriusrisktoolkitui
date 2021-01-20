@@ -35,5 +35,24 @@ The workflow to use this process should be the following:
 
 **Important**: "Add standards..." option is an additive process, meaning that the process to add new rows will work whether the CSV contains all the previously exported rows plus the new ones or only the new ones. This is not a big deal when adding but it won't work the same when deleting. You must ensure that if you want to remove standards you must only have the rows to be deleted in the CSV. 
 
+**Example**: The "ACME Security Standard" has a requirement that is detailed as "1.1 - Encrypt data in transit" 
+and we want to link the countermeasures that are related with that requirement in three of our libraries: A, B and C.
+
+First step is to list the countermeasures that we want to relate with that requirement by identifying the desired countermeasures in IriusRisk. 
+Therefore, we must review the list of countermeasures to see which ones are applicable.
+
+Suppose that we have identified only one countermeasure called "Control 54 - Encryption Countermeasures"
+that appears once in A and C and twice in B.
+
+Then we open the CSV using the delimiter "#" to add the following lines:
+![](attachments/1053098013/1.png)
+
+We save the file and then we use the toolkit to add the CSV content to the libraries using the corresponding option:
+![](attachments/1053098013/2.png)
+
+The process will read the CSV and link the ACME standard requirement with the countermeasures in libraries A, B and C at the same time.
+
+Now you should see the standard correctly applied in IriusRisk:
+![](attachments/1053098013/3.png)
 
 [Back to index](Readme.md)
