@@ -22,15 +22,15 @@ class SecurityContent:
             #We Read the first sheet of the workBook without using headers and skipping the first two rows.
             dataSet = pd.read_excel(xls, sheet_name='Risk Patterns', header=None, skiprows=2)
             if len(dataSet.values) > 0:
-                #We have 18 columnns in the Excel
+                #We have 20 columnns in the Excel
                 dataSet.columns = ['componentId', 'componentName', 'componentDesc', 
-                                    'usecase', 
+                                    'usecaseId', 'usecaseName', 'usecaseDesc',
                                     'threatId', 'threatName', 'threatDesc', 'threatRefs',
                                     'weaknessId', 'weaknessName', 'weaknessDesc', 'weaknessRefs',
                                     'controlId', 'controlName', 'controlDesc', 'controlTestSteps', 'controlRefs', 'controlStandards']
 
                 excelColumnsWithMergedCells = ['componentId', 'componentName', 'componentDesc', 
-                                            'usecase', 
+                                            'usecaseId', 'usecaseName', 'usecaseDesc',
                                             'threatId', 'threatName', 'threatDesc', 'threatRefs',
                                             'weaknessId', 'weaknessName', 'weaknessDesc', 'weaknessRefs']
 
@@ -52,7 +52,7 @@ class SecurityContent:
 
     def getUsecasesFromComponentId(self, componentId):
         componentIds = self.content['componentId']
-        usecases = self.content['usecase']
+        usecases = self.content['usecaseId']
         selUsecases = []
 
         for (c, u) in zip(componentIds, usecases):
@@ -210,23 +210,47 @@ class SecurityContent:
             selControlStandards.append(self.getControlStandardsFromControlId(con))
 
         return selControlStandards
-    
+
+    def getUseCaseIdsFromComponentId(self, componentId):
+        componentIds = self.content['componentId']
+        useCaseRefs = self.content['usecaseId']
+        selUseCaseRefs = []
+
+        for (c, ucref) in zip(componentIds, useCaseRefs):
+            if (c == componentId):
+                selUseCaseRefs.append(ucref)
+
+        # We remove duplicates
+        return self.removeDuplicates(selUseCaseRefs)
 
     def getUseCaseNamesFromComponentId(self, componentId):
         componentIds = self.content['componentId']
-        useCaseNames = self.content['usecase']
+        useCaseNames = self.content['usecaseName']
         selUseCaseNames = []
 
         for (c, ucname) in zip(componentIds, useCaseNames):
-            if (c==componentId):
+            if (c == componentId):
                 selUseCaseNames.append(ucname)
 
-        #We remove duplicates
+        # We remove duplicates
         return self.removeDuplicates(selUseCaseNames)
+
+    def getUseCaseDescsFromComponentId(self, componentId):
+        componentIds = self.content['componentId']
+        useCaseIds = self.content['usecaseId']
+        selUseCaseDescs = []
+        already = []
+        for (c, uc) in zip(componentIds, useCaseIds):
+            if (c == componentId and uc not in already):
+                already.append(uc)
+                selUseCaseDescs.append("")
+
+        # We remove duplicates
+        return selUseCaseDescs
 
     def getThreatIdsFromComponentIdAndUseCase(self,componentId, usecase):
         componentIds = self.content['componentId']
-        useCaseNames = self.content['usecase']
+        useCaseNames = self.content['usecaseId']
         threatIds = self.content['threatId']
         selThreatIds = []
 
