@@ -133,7 +133,7 @@ def getAllDataFromRiskPatterns(rootClass):
     # else:
 
     for usecase in usecases.get_usecase():
-      (usecaseRef, usecaseName) = (usecase.get_ref(), usecase.get_name())
+      usecaseDetail = [usecase.get_ref(), usecase.get_name(), usecase.get_desc()]
       threats=usecase.get_threats()
       for threat in threats.get_threat():
         # We get the threat data
@@ -160,9 +160,9 @@ def getAllDataFromRiskPatterns(rootClass):
                   convertRefsToString(compControl.get_references()), 
                   convertStandardsToString(compControl.get_standards(),supportedStandards)
                   ]
-            table.append(componentDetail+[usecaseName]+threatDetail+weaknessDetail+controlDetail)
+            table.append(componentDetail+usecaseDetail+threatDetail+weaknessDetail+controlDetail)
             componentDetail=["","",""]
-            usecaseName=""
+            usecaseDetail=["","",""]
             threatDetail=["","","",""]
             weaknessDetail=["","","",""] 
         threatControls=threat.get_controls()
@@ -180,9 +180,9 @@ def getAllDataFromRiskPatterns(rootClass):
                   convertRefsToString(compControl.get_references()), 
                   convertStandardsToString(compControl.get_standards(),supportedStandards)
                   ]
-            table.append(componentDetail+[usecaseName]+threatDetail+weaknessDetail+controlDetail)
+            table.append(componentDetail+usecaseDetail+threatDetail+weaknessDetail+controlDetail)
             componentDetail=["","",""]
-            usecaseName=""
+            usecaseDetail=["","",""]
             threatDetail=["","","",""]
             weaknessDetail=["","","",""] 
             
@@ -194,8 +194,8 @@ def getAllDataFromRiskPatterns(rootClass):
 def getDataFromXml(xmlPath):
   table=list()
   # Main headers for the Excel
-  table.append(["Risk Pattern", "", "", "Use case", "Threat", "", "", "", "Weakness", "", "", "", "Countermeasure", "", "", "", "", ""])
-  table.append(["Id", "Name", "Desc", "Name", "Id", "Name", "Desc", "References", "Id", "Name", "Desc", "References", "Id", "Name", "Desc", "Test steps", "References", "Standards"
+  table.append(["Risk Pattern", "", "", "Use case", "", "", "Threat", "", "", "", "Weakness", "", "", "", "Countermeasure", "", "", "", "", ""])
+  table.append(["Id", "Name", "Desc", "Id", "Name", "Desc", "Id", "Name", "Desc", "References", "Id", "Name", "Desc", "References", "Id", "Name", "Desc", "Test steps", "References", "Standards"
   ])
   # We get all nodes of the xml file
   rootClass=supermod.parse(xmlPath, silence=True)
@@ -203,7 +203,7 @@ def getDataFromXml(xmlPath):
   table.extend(getAllDataFromRiskPatterns(rootClass))
 
   # These are the column names of the DataFrame
-  columns=["Risk Pattern Id", "Risk Pattern Name", "Risk Pattern Desc", "Use case", "Threat Id", "Threat Name", "Threat Desc", "Threat Refs", "Weakness Id", "Weakness Name", "Weakness Desc", "Weakness Refs", "Countermeasure Id", "Countermeasure Name", "Countermeasure Desc", "Countermeasure Test steps", "Countermeasure Refs", "Countermeasure standards"]
+  columns=["Risk Pattern Id", "Risk Pattern Name", "Risk Pattern Desc", "Use case Id", "Use case Name", "Use case Desc", "Threat Id", "Threat Name", "Threat Desc", "Threat Refs", "Weakness Id", "Weakness Name", "Weakness Desc", "Weakness Refs", "Countermeasure Id", "Countermeasure Name", "Countermeasure Desc", "Countermeasure Test steps", "Countermeasure Refs", "Countermeasure standards"]
   dfm=pd.DataFrame(table, columns=columns)
 
   # We get the library details, component definitions and supported standards
@@ -234,10 +234,10 @@ def getProductDataFromXml(xmlPath):
   table = list()
   # Main headers for the Excel
   table.append(
-    ["Risk Pattern", "", "", "Use case", "Threat", "", "", "", "Weakness", "", "", "", "Countermeasure", "", "", "", "",
+    ["Risk Pattern", "", "", "Use case", "", "" "Threat", "", "", "", "Weakness", "", "", "", "Countermeasure", "", "", "", "",
      ""])
   table.append(
-    ["Id", "Name", "Desc", "Name", "Id", "Name", "Desc", "References", "Id", "Name", "Desc", "References", "Id", "Name",
+    ["Id", "Name", "Desc", "Id", "Name", "Desc", "Id", "Name", "Desc", "References", "Id", "Name", "Desc", "References", "Id", "Name",
      "Desc", "Test steps", "References", "Standards"
      ])
   # We get all nodes of the xml file
@@ -246,7 +246,7 @@ def getProductDataFromXml(xmlPath):
   table.extend(getAllDataFromRiskPatterns(rootClass))
 
   # These are the column names of the DataFrame
-  columns = ["Risk Pattern Id", "Risk Pattern Name", "Risk Pattern Desc", "Use case", "Threat Id", "Threat Name",
+  columns = ["Risk Pattern Id", "Risk Pattern Name", "Risk Pattern Desc", "Use case Id", "Use case Name", "Use case Desc", "Threat Id", "Threat Name",
              "Threat Desc", "Threat Refs", "Weakness Id", "Weakness Name", "Weakness Desc", "Weakness Refs",
              "Countermeasure Id", "Countermeasure Name", "Countermeasure Desc", "Countermeasure Test steps",
              "Countermeasure Refs", "Countermeasure standards"]
@@ -462,10 +462,10 @@ def applyFormatLibrary(excelPath, sheetName):
   ]
   columnsList=[
     [1, 2, 3],                # Columns for Risk Patterns
-    [4],                      # Columns for Use cases
-    [5, 6, 7, 8],             # Columns for Threats
-    [9, 10, 11, 12],          # Columns for Weaknesses 
-    [13, 14, 15, 16, 17, 18]  # Columns for Countermeasures
+    [4, 5, 6],                      # Columns for Use cases
+    [7, 8, 9, 10],             # Columns for Threats
+    [11, 12, 13, 14],          # Columns for Weaknesses
+    [15, 16, 17, 18, 19, 20]  # Columns for Countermeasures
   ]
   # Header color for Risk Patterns, Use cases, Threats, Weaknesses and Countermeasures (in this order)
   colorsHeader=["2a6099", "800080", "ff0000", "ff9900", "38761d"]
