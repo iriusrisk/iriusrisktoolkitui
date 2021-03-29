@@ -11,6 +11,6 @@ requests-toolbelt==0.9.1
 six==1.14.0
 textile==4.0.1
 xlrd==1.2.0
-Pygments==2.2.0
+Pygments==2.7.4
 tkreadonly==0.6.1
 
