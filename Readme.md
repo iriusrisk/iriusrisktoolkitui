@@ -1,6 +1,8 @@
-# IriusRiskToolKitUI
+# IriusRiskToolKitUI - :warning: This project is no longer maintained! :warning:
 
 IriusRiskToolKitUI is a Python GUI client for working with serveral common tasks regarding security content management in IriusRisk platform.
+
+### This project could still work on libraries created from versions between 3.6.0 and 3.13.0, but it won't be updated anymore
 
 ## Installation
 
