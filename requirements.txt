@@ -1,5 +1,5 @@
 beautifulsoup4==4.9.1
-Flask==1.1.2
+Flask==2.3.2
 lxml==4.6.2
 networkx==2.4
 openpyxl==3.0.3
