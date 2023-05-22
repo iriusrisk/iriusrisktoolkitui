@@ -6,7 +6,7 @@ openpyxl==3.0.3
 pandas==1.0.3
 PySimpleGUI==4.19.0
 PyYAML==5.4.1
-requests==2.23.0
+requests==2.31.0
 requests-toolbelt==0.9.1
 six==1.14.0
 textile==4.0.1
